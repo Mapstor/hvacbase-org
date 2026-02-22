@@ -44,8 +44,8 @@ export default function DehumidifierCostCalculator() {
   const selectedUsage = usagePatterns.find(u => u.value === usagePattern);
   
   // Use custom values if specified
-  const actualWatts = dehumidifierSize === 'custom' ? parseFloat(customWatts) : selectedSize.watts;
-  const unitPrice = dehumidifierSize === 'custom' ? parseFloat(customPrice) : selectedSize.price;
+  const actualWatts = dehumidifierSize === 'custom' ? parseFloat(customWatts) : selectedSize?.watts || 0;
+  const unitPrice = dehumidifierSize === 'custom' ? parseFloat(customPrice) : selectedSize?.price || 0;
   
   // Calculate runtime based on humidity differential and climate
   const humidityDiff = parseFloat(currentHumidity) - parseFloat(targetHumidity);
