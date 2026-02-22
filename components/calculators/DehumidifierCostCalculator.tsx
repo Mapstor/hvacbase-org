@@ -50,7 +50,7 @@ export default function DehumidifierCostCalculator() {
   // Calculate runtime based on humidity differential and climate
   const humidityDiff = parseFloat(currentHumidity) - parseFloat(targetHumidity);
   const baseRuntime = Math.min(24, Math.max(4, humidityDiff * 0.6)); // Base hours per day
-  const climateAdjustedRuntime = baseRuntime * selectedClimate.humidityFactor;
+  const climateAdjustedRuntime = selectedClimate ? baseRuntime * selectedClimate.humidityFactor : baseRuntime;
   const actualRuntime = Math.min(parseFloat(hoursPerDay), climateAdjustedRuntime);
   
   // Energy consumption calculations
@@ -92,7 +92,7 @@ export default function DehumidifierCostCalculator() {
   const fiveYearCO2 = annualCO2 * 5;
   
   // Sizing adequacy
-  const recommendedCapacity = (parseFloat(spaceSize) / 150) * selectedClimate.humidityFactor;
+  const recommendedCapacity = selectedClimate ? (parseFloat(spaceSize) / 150) * selectedClimate.humidityFactor : parseFloat(spaceSize) / 150;
   const adequateSize = pintsPerHour >= recommendedCapacity;
 
   return (
