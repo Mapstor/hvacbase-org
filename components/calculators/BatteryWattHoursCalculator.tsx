@@ -39,8 +39,8 @@ export default function BatteryWattHoursCalculator() {
   const selectedDevice = commonDevices.find(d => d.value === deviceType);
   
   // Use custom values for custom device
-  const deviceWatts = deviceType === 'custom' ? parseFloat(customWatts) : selectedDevice.watts;
-  const deviceHours = deviceType === 'custom' ? parseFloat(customHours) : selectedDevice.hours;
+  const deviceWatts = deviceType === 'custom' ? parseFloat(customWatts) : selectedDevice?.watts || 0;
+  const deviceHours = deviceType === 'custom' ? parseFloat(customHours) : selectedDevice?.hours || 0;
   
   // Calculate battery capacity in watt-hours
   const batteryWattHours = parseFloat(batteryVoltage) * parseFloat(batteryCapacityAh);
