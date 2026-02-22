@@ -298,9 +298,9 @@ export default function ACTonnageCalculator() {
                   <div>
                     <p className="text-sm text-gray-600">Your Climate Zone</p>
                     <p className="font-semibold text-gray-800">
-                      Zone {zone}: {climateZones[zone].name}
+                      Zone {zone}: {climateZones[zone as keyof typeof climateZones].name}
                     </p>
-                    <p className="text-xs text-gray-500">{climateZones[zone].description}</p>
+                    <p className="text-xs text-gray-500">{climateZones[zone as keyof typeof climateZones].description}</p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Load Adjustment</p>
