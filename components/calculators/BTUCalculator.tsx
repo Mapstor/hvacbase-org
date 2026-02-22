@@ -70,7 +70,7 @@ export default function BTUCalculator() {
     'good': 0.9,
     'excellent': 0.85
   };
-  const insulationFactor = insulationFactors[insulation];
+  const insulationFactor = insulationFactors[insulation as keyof typeof insulationFactors];
   
   // Apply sun exposure factor
   const sunFactors = {
@@ -79,7 +79,7 @@ export default function BTUCalculator() {
     'direct-sun': 1.1,
     'southwest': 1.15
   };
-  const sunFactor = sunFactors[sunExposure];
+  const sunFactor = sunFactors[sunExposure as keyof typeof sunFactors];
   
   // Add for ceiling height (adjustment for volumes over standard 8ft)
   const heightFactor = parseFloat(height) / 8;
