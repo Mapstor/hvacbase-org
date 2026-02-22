@@ -56,7 +56,7 @@ export default function DehumidifierCostCalculator() {
   // Energy consumption calculations
   const dailyKwh = (actualWatts * actualRuntime) / 1000;
   const monthlyKwh = dailyKwh * 30;
-  const seasonalKwh = monthlyKwh * selectedUsage.monthsPerYear;
+  const seasonalKwh = selectedUsage ? monthlyKwh * selectedUsage.monthsPerYear : monthlyKwh * 6;
   const yearlyKwh = dailyKwh * 365;
   
   // Cost calculations
