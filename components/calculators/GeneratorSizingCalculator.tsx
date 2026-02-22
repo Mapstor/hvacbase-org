@@ -74,7 +74,7 @@ export default function GeneratorSizingCalculator() {
   
   // Calculate total power requirements
   const getSelectedApplianceData = () => {
-    const selected = [];
+    const selected: any[] = [];
     Object.values(appliances).forEach(category => {
       category.forEach(appliance => {
         if (selectedAppliances.includes(appliance.id)) {
