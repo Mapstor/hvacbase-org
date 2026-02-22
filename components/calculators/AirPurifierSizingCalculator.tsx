@@ -39,10 +39,12 @@ export default function AirPurifierSizingCalculator() {
   
   // Calculate required CADR (Clean Air Delivery Rate)
   // Base CADR = room volume × ACH (Air Changes per Hour) / 60 minutes
-  let requiredCadr = (roomVolume * selectedRoom.acph) / 60;
+  let requiredCadr = selectedRoom ? (roomVolume * selectedRoom.acph) / 60 : 0;
   
   // Apply pollution multiplier
-  requiredCadr *= selectedPollution.multiplier;
+  if (selectedPollution) {
+    requiredCadr *= selectedPollution.multiplier;
+  }
   
   // Apply additional factors
   if (hasAllergies) requiredCadr *= 1.3;
