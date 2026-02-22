@@ -49,10 +49,10 @@ export default function ACTonnageCalculator() {
   const baseBTU = parseInt(squareFeet) * 20;
   
   // Apply all factors
-  const climateFactor = climateZones[zone].factor;
-  const insulationFactor = insulationTypes[insulation].factor;
-  const ceilingFactor = ceilingHeights[ceiling].factor;
-  const exposureFactor = sunExposure[exposure].factor;
+  const climateFactor = climateZones[zone as keyof typeof climateZones].factor;
+  const insulationFactor = insulationTypes[insulation as keyof typeof insulationTypes].factor;
+  const ceilingFactor = ceilingHeights[ceiling as keyof typeof ceilingHeights].factor;
+  const exposureFactor = sunExposure[exposure as keyof typeof sunExposure].factor;
   const windowFactor = 1 + (parseInt(windows) - 15) * 0.01;
   const occupantFactor = 1 + Math.max(0, parseInt(occupants) - 2) * 0.02;
   
