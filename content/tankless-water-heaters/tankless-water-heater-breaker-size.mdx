@@ -1,0 +1,242 @@
+---
+slug: "tankless-water-heater-breaker-size"
+title: "Tankless Water Heater Breaker Size Calculator (2026 NEC Guide)"
+description: "Calculate the exact breaker size for any electric tankless water heater. Covers NEC requirements, circuit configurations for 8–36 kW units, panel capacity assessment, and common wiring mistakes to avoid."
+cluster: "tankless-water-heaters"
+role: "spoke"
+priority: "P2"
+contentType: "KEEP+"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "tankless-water-heater-guide"
+  - "best-electric-tankless-water-heaters"
+  - "tankless-water-heater-wire-size"
+  - "tankless-water-heater-electricity"
+  - "tankless-water-heater-cost"
+externalLinks:
+  - label: "NEC 2023 — Article 422 (Appliances)"
+    url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70"
+  - label: "NEC 2023 — Article 240 (Overcurrent Protection)"
+    url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Tankless Water Heater Breaker Size Calculator (2026 NEC Guide)
+
+A 27 kW electric tankless water heater needs **three 40-amp double-pole breakers** on three separate 240V circuits. A 36 kW unit needs **four 40-amp double-pole breakers**. The exact breaker size depends on the unit's kW rating, the number of heating elements, and the wire gauge you run — all governed by NEC Article 422 and Article 240.
+
+Getting this wrong creates a fire hazard (undersized breaker/wire) or nuisance tripping (wrong breaker rating). Here is the complete calculation method and a reference table for every common unit size.
+
+<TableOfContents />
+
+## The Breaker Sizing Formula
+
+The NEC requires that the breaker rating be at least 125% of the continuous load for appliances that run for 3+ hours. Tankless water heaters are classified as continuous loads because they can run indefinitely when a faucet is open.
+
+**Step 1: Calculate amperage per circuit**
+
+Amps = (kW per element group x 1,000) / Voltage
+
+Most electric tankless units split their heating elements into groups, each on its own circuit. A 27 kW unit with three element groups draws 9 kW per group: 9,000 / 240 = 37.5 amps per circuit.
+
+**Step 2: Apply the 125% rule**
+
+Breaker rating = Amps x 1.25
+
+37.5 x 1.25 = 46.9 amps. Round up to the next standard breaker size: **50 amps**.
+
+However, most manufacturers specify the breaker size in their installation manual, and the manual takes precedence. For many 27 kW units, the manufacturer specifies 40A breakers because the element groups are designed to draw slightly under 32A each (within the 40A breaker's continuous rating of 32A at 80%).
+
+<Callout type="warning">
+**Always follow the manufacturer's installation manual for breaker sizing.** The NEC sets minimum requirements, but the manufacturer knows the exact element configuration and may specify a different breaker size. If the manual says 40A, use 40A — even if your calculation suggests 50A.
+</Callout>
+
+## Breaker Size Reference Table
+
+<ComparisonTable
+  title="Breaker Size by Unit Power Rating (240V Single-Phase)"
+  headers={["Unit Power (kW)", "Total Amps", "Number of Circuits", "Amps Per Circuit", "Breaker Size Per Circuit", "Total Breaker Slots"]}
+  rows={[
+    ["3.5 kW", "14.6A", "1", "14.6A", "20A double-pole", "2 slots"],
+    ["7.2 kW", "30.0A", "1", "30.0A", "40A double-pole", "2 slots"],
+    ["8 kW", "33.3A", "1", "33.3A", "40A double-pole", "2 slots"],
+    ["11 kW", "45.8A", "1", "45.8A", "60A double-pole", "2 slots"],
+    ["13 kW", "54.2A", "1", "54.2A", "60A double-pole", "2 slots"],
+    ["18 kW", "75.0A", "2", "37.5A", "40A double-pole each", "4 slots"],
+    ["24 kW", "100.0A", "3", "33.3A", "40A double-pole each", "6 slots"],
+    ["27 kW", "112.5A", "3", "37.5A", "40A double-pole each", "6 slots"],
+    ["29 kW", "120.8A", "3", "40.3A", "50A double-pole each", "6 slots"],
+    ["36 kW", "150.0A", "4", "37.5A", "40A double-pole each", "8 slots"],
+  ]}
+/>
+
+<Callout type="info">
+**Double-pole breakers** use 2 slots in your electrical panel (one for each hot leg of the 240V circuit). A 36 kW unit needing four double-pole breakers requires **8 open slots** in your panel. Many older panels have only 20–30 total slots, and most are already occupied. Check available slots before purchasing a large electric tankless.
+</Callout>
+
+## Popular Model Breaker Requirements
+
+Here are the manufacturer-specified breaker sizes for the most popular electric tankless units:
+
+<ComparisonTable
+  title="Manufacturer-Specified Breaker Requirements (2026 Models)"
+  headers={["Model", "Power", "Circuits Required", "Breaker Per Circuit", "Wire Per Circuit"]}
+  rows={[
+    ["EcoSmart ECO 8", "8 kW", "1 circuit", "40A double-pole", "#8 AWG copper"],
+    ["EcoSmart ECO 11", "13 kW", "1 circuit", "60A double-pole", "#6 AWG copper"],
+    ["EcoSmart ECO 18", "18 kW", "2 circuits", "40A double-pole", "#8 AWG copper"],
+    ["EcoSmart ECO 24", "24 kW", "3 circuits", "40A double-pole", "#8 AWG copper"],
+    ["EcoSmart ECO 27", "27 kW", "3 circuits", "40A double-pole", "#8 AWG copper"],
+    ["EcoSmart ECO 36", "36 kW", "4 circuits", "40A double-pole", "#8 AWG copper"],
+    ["Rheem RTEX-08", "8 kW", "1 circuit", "40A double-pole", "#8 AWG copper"],
+    ["Rheem RTEX-13", "13 kW", "1 circuit", "60A double-pole", "#6 AWG copper"],
+    ["Rheem RTEX-18", "18 kW", "2 circuits", "40A double-pole", "#8 AWG copper"],
+    ["Rheem RTEX-24", "24 kW", "3 circuits", "40A double-pole", "#8 AWG copper"],
+    ["Rheem RTEX-36", "36 kW", "4 circuits", "40A double-pole", "#8 AWG copper"],
+    ["Stiebel Eltron Tempra 12", "12 kW", "1 circuit", "50A double-pole", "#6 AWG copper"],
+    ["Stiebel Eltron Tempra 24", "24 kW", "2 circuits", "50A double-pole", "#6 AWG copper"],
+    ["Stiebel Eltron Tempra 29", "29 kW", "3 circuits", "50A double-pole", "#6 AWG copper"],
+    ["Stiebel Eltron Tempra 36", "36 kW", "4 circuits", "40A double-pole", "#8 AWG copper"],
+  ]}
+/>
+
+## Panel Capacity Assessment
+
+Before installing, verify your panel can support the additional load.
+
+### Step 1: Check Your Panel Rating
+
+Look at the main breaker at the top of your panel. Common ratings: 100A, 125A, 150A, 200A, or 400A.
+
+### Step 2: Calculate Existing Load
+
+Add up the breaker ratings of all existing circuits. This gives a rough maximum load, but actual demand is lower because circuits never all draw maximum simultaneously. An electrician can calculate the actual demand load per NEC Article 220.
+
+**Rule of thumb:** Existing demand in a typical home is 80–120A for a 200A panel. A 36 kW tankless adds 150A of potential demand. If your existing load plus 150A exceeds 200A, you need a panel upgrade or a demand management strategy.
+
+### Step 3: Check Available Slots
+
+Count the empty breaker slots in your panel. A 36 kW unit needs 8 slots. A 27 kW unit needs 6 slots. If your panel is full, you need a sub-panel ($300–$600) or main panel upgrade ($1,500–$3,000).
+
+<ComparisonTable
+  title="Panel Capacity Assessment Guide"
+  headers={["Panel Rating", "Typical Existing Load", "Available for Tankless", "Max Tankless kW"]}
+  rows={[
+    ["100A", "60–80A", "20–40A", "8–10 kW (POU only)"],
+    ["125A", "75–95A", "30–50A", "10–13 kW (POU only)"],
+    ["150A", "80–110A", "40–70A", "13–18 kW"],
+    ["200A", "80–120A", "80–120A", "24–36 kW"],
+    ["400A", "150–250A", "150–250A", "Any size, multiple units"],
+  ]}
+/>
+
+<Callout type="important">
+**A 200A panel is the practical minimum for whole-home electric tankless (24+ kW).** If you have a 100A or 125A panel, your only options are: (1) a small point-of-use unit (8–13 kW), (2) a panel upgrade to 200A ($1,500–$3,000), or (3) switching to gas tankless instead.
+</Callout>
+
+## Common Mistakes to Avoid
+
+### Mistake 1: Using the Wrong Breaker Type
+
+Tankless water heaters require **double-pole breakers**, not single-pole. A double-pole breaker connects both hot legs of a 240V circuit. Using a single-pole breaker on a 240V circuit creates a dangerous half-circuit that can damage the unit and create shock hazard.
+
+### Mistake 2: Sharing Circuits
+
+Each heating element group needs its own dedicated circuit from the panel to the unit. Never share a tankless circuit with another appliance. The load is too high — a shared circuit trips constantly and can overheat wiring.
+
+### Mistake 3: Undersizing Wire for Long Runs
+
+The breaker table above assumes wire runs under 50 feet. For longer runs, voltage drop requires upsizing the wire. At 50–75 feet, go up one wire size (from #8 to #6 AWG). At 75–100 feet, go up two sizes (from #8 to #4 AWG). See the wire size calculator article for detailed tables.
+
+### Mistake 4: Not Accounting for Voltage Drop
+
+A 5% voltage drop at 240V means the unit receives only 228V. Power output drops proportionally: a 27 kW unit at 228V delivers only 24.3 kW — 10% less hot water. Keep wire runs short and use adequately sized wire.
+
+### Mistake 5: Forgetting the 80% Rule
+
+Circuit breakers are rated for 80% continuous load. A 40A breaker handles 32A continuously. A 50A breaker handles 40A continuously. This is already factored into the manufacturer's specifications, but DIYers sometimes select a breaker based on the full rating rather than the 80% continuous rating.
+
+## Real-World Wiring Examples
+
+### Example 1: EcoSmart ECO 27 — Standard Install
+
+**Panel:** 200A, 40 slots (12 available). Existing load: 95A.
+
+**Requirements:** Three 40A double-pole breakers (6 slots). Three runs of #8 AWG copper (25 feet each from panel to unit in utility closet).
+
+**Process:** Electrician installs three double-pole 40A breakers, runs three #8 AWG NM-B cables through the wall, connects at the unit's terminal block. Total time: 3 hours. Cost: $650 (labor $400, materials $250).
+
+### Example 2: EcoSmart ECO 36 — Long Run
+
+**Panel:** 200A in basement. Unit location: 2nd floor bathroom (60-foot wire run).
+
+**Requirements:** Four 40A double-pole breakers (8 slots). Due to 60-foot run, wire upsized from #8 to #6 AWG to limit voltage drop.
+
+**Process:** Four runs of #6 AWG through floor joists and wall cavities. Required drilling multiple joists and using nail plates. Total time: 6 hours. Cost: $1,200 (labor $700, wire/materials $500).
+
+### Example 3: Panel Upgrade Required
+
+**Panel:** 100A, 20 slots (2 available). Desired unit: EcoSmart ECO 27 (needs 6 slots, 113A).
+
+**Solution:** Upgraded main panel from 100A to 200A/42-space. New panel provided ample slots and amperage.
+
+**Cost:** Panel upgrade: $2,200. Tankless wiring: $600. Total electrical: $2,800. This is why checking panel capacity before purchasing is critical.
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **Most common configuration:** Three 40A double-pole breakers for 24–27 kW units
+- **36 kW units need four 40A double-pole breakers** — 8 panel slots and 150A capacity
+- **Always follow the manufacturer's installation manual** — it specifies exact breaker and wire sizes
+- **A 200A panel is the minimum for whole-home electric tankless** (24+ kW)
+- **Each circuit must be dedicated** — never share a tankless circuit with other appliances
+- **Upsize wire for runs over 50 feet** to prevent voltage drop
+- **Budget $300–$600 for standard wiring** or $1,500–$3,000 if a panel upgrade is needed
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What size breaker do I need for a tankless water heater?",
+    answer: "It depends on the kW rating. An 8 kW unit needs one 40A breaker. A 13 kW unit needs one 60A breaker. An 18 kW unit needs two 40A breakers. A 24–27 kW unit needs three 40A breakers. A 36 kW unit needs four 40A breakers. All must be double-pole breakers on 240V circuits. Always check the manufacturer's installation manual for the specific requirement."
+  },
+  {
+    question: "Can I use a 30-amp breaker for a tankless water heater?",
+    answer: "Only for very small units under 7 kW. A 30A breaker at 240V handles a maximum continuous load of 24A (80% rule), which supports up to about 5.8 kW. Most residential tankless heaters need 40A or larger breakers. Using an undersized breaker causes constant tripping and is a code violation."
+  },
+  {
+    question: "Why does a tankless water heater need multiple breakers?",
+    answer: "Electric tankless heaters use multiple heating element groups, each on its own circuit. This distributes the load across several breakers rather than requiring one enormous breaker and cable. A 27 kW unit draws 112.5A total — too much for a single residential circuit. Splitting it into three 37.5A circuits uses standard 40A breakers and #8 AWG wire."
+  },
+  {
+    question: "Do I need to upgrade my electrical panel for a tankless water heater?",
+    answer: "If your panel is 200A with available slots, probably not. If your panel is 100A or 125A, you almost certainly need an upgrade for whole-home electric tankless (24+ kW). Even with a 200A panel, you need enough available amperage after existing loads. An electrician can perform a load calculation to determine if an upgrade is needed."
+  },
+  {
+    question: "What happens if my breaker is too small for my tankless water heater?",
+    answer: "An undersized breaker will trip repeatedly whenever the unit draws more than the breaker's continuous rating. For example, a 30A breaker on a circuit drawing 37.5A will trip within minutes. Repeated tripping damages both the breaker and the water heater's electronics. It is also a code violation that could void your warranty and insurance."
+  },
+  {
+    question: "Can a tankless water heater share a circuit with other appliances?",
+    answer: "No. Each tankless water heater circuit must be a dedicated home run from the panel to the unit. The high continuous load leaves no capacity for other devices. Sharing a circuit causes overloading, breaker trips, and potential fire hazard. This is a firm NEC requirement (Article 422)."
+  },
+  {
+    question: "How many breaker slots does a tankless water heater need?",
+    answer: "A double-pole breaker uses 2 panel slots. An 8–13 kW unit (one breaker) needs 2 slots. An 18 kW unit (two breakers) needs 4 slots. A 24–27 kW unit (three breakers) needs 6 slots. A 36 kW unit (four breakers) needs 8 slots. Check your panel for available spaces before purchasing."
+  },
+  {
+    question: "Is it safe to install a tankless water heater breaker myself?",
+    answer: "Working inside an electrical panel involves exposure to live busbars carrying 200+ amps — this is genuinely dangerous and can be lethal. Unless you are a licensed electrician or have equivalent training, hire a professional. Many jurisdictions require a licensed electrician and an electrical permit for this work. Improper installation can cause fires, electrocution, or code violations."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "NEC 2023 — Article 422 (Appliance Branch Circuits)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" },
+  { label: "NEC 2023 — Article 240 (Overcurrent Protection)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" },
+  { label: "EcoSmart — Installation Manuals", url: "https://www.ecosmart.com/support/" },
+  { label: "Stiebel Eltron — Technical Documentation", url: "https://www.stiebel-eltron-usa.com" },
+  { label: "Rheem — RTEX Series Installation Guide", url: "https://www.rheem.com/tankless" },
+]} />
+
+<RelatedArticles />

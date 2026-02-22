@@ -1,0 +1,194 @@
+---
+slug: "eer2-rating-explained"
+title: "Understanding EER2: The New 2023 AC Efficiency Rating"
+description: "EER2 measures your AC's cooling efficiency at peak conditions (95F outdoor). Learn what EER2 means, how it differs from SEER2, current minimums, and why EER2 matters in hot climates."
+cluster: "energy-efficiency-ratings"
+role: "hub"
+priority: "P1"
+contentType: "guide"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2: Complete Guide"
+  - slug: "eer-rating-explained"
+    title: "What Is EER Rating?"
+  - slug: "eer-vs-seer"
+    title: "EER vs SEER: Differences"
+  - slug: "hvac-efficiency-ratings-compared"
+    title: "All HVAC Ratings Compared"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/central-air-conditioning"
+    label: "U.S. DOE - Central Air Conditioning"
+  - url: "https://www.ahrinet.org"
+    label: "AHRI - Certification Programs"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# Understanding EER2: The New 2023 AC Efficiency Rating
+
+**EER2 (Energy Efficiency Ratio 2) measures your air conditioner's cooling efficiency at a single, fixed peak condition: 95 degrees F outdoor, 80 degrees F indoor, 50% humidity.** Unlike SEER2 which averages over a whole season, EER2 tells you how efficient the unit is on the hottest days when it's working hardest. A typical central AC ranges from 10 to 14 EER2, with higher numbers meaning less electricity per BTU of cooling.
+
+EER2 replaced the old EER on January 1, 2023, alongside the SEER-to-SEER2 transition. If you live in a hot climate where your AC runs at full capacity for weeks, EER2 is arguably more relevant than SEER2 for predicting peak-month bills.
+
+<TableOfContents />
+
+## The EER2 Formula
+
+**EER2 = Cooling Output (BTU/h) / Electrical Input (W)**
+
+At the 95 degrees F test condition, the system runs at full capacity. Cooling output in BTU per hour is divided by total electrical input in watts. An EER2 of 12 means 12 BTU of cooling per watt-hour at peak conditions.
+
+To convert to COP: COP = EER2 / 3.412. An EER2 of 12 equals COP 3.52.
+
+## EER2 vs EER: What Changed
+
+<ComparisonTable
+  headers={["Feature", "EER (Old)", "EER2 (New)"]}
+  rows={[
+    ["Effective Date", "Before January 2023", "January 2023 onwards"],
+    ["Test Procedure", "Original low static pressure", "M1 with 0.5 in. w.c."],
+    ["Test Conditions", "95F outdoor, 80F indoor, 50% RH", "Same conditions"],
+    ["Rating Drop", "Baseline", "About 4.7% lower"],
+    ["Conversion", "Baseline", "EER2 = EER / 1.047 approx"],
+  ]}
+/>
+
+The test conditions are identical. The only change is external static pressure, making the blower work harder and lowering the number slightly.
+
+## EER2 vs SEER2: Different Purposes
+
+<ComparisonTable
+  headers={["Aspect", "SEER2", "EER2"]}
+  rows={[
+    ["Measures", "Seasonal average efficiency", "Peak-condition efficiency"],
+    ["Temp Range", "65-104F weighted average", "Fixed at 95F"],
+    ["Operating Mode", "Mix of part and full load", "Full capacity only"],
+    ["Favors", "Variable-speed units", "Strong full-load performers"],
+    ["Best For", "Annual cost estimates", "Peak-month cost estimates"],
+    ["Typical Range", "13.4-26+", "10-14"],
+  ]}
+/>
+
+A system with 22 SEER2 but only 11 EER2 achieves its high seasonal rating through part-load efficiency. On a 100 degree F day at full blast, it's delivering only 11 EER2. A different system at 17 SEER2 / 13 EER2 is less impressive seasonally but uses less electricity on the hottest days.
+
+<Callout type="tip">
+**For hot climates (Phoenix, Houston, Miami), pay attention to EER2.** When your AC runs full capacity 8-12 hours daily in peak summer, EER2 better predicts your July/August bill than SEER2. Aim for 12+ EER2.
+</Callout>
+
+## Current EER2 Minimums
+
+<ComparisonTable
+  headers={["Standard", "Split AC EER2", "Split HP EER2", "Notes"]}
+  rows={[
+    ["Federal Min (South/SW)", "11.7", "11.7", "Required in South/SW regions"],
+    ["Federal Min (North)", "No separate min", "No separate min", "North doesn't specify EER2 for ACs"],
+    ["ENERGY STAR", "12.0+", "12.0+", "Part of certification"],
+    ["25C Tax Credit (AC)", "12.0+", "12.0+", "Required with 17.5 SEER2"],
+    ["25C Tax Credit (HP)", "12.0+", "12.0+", "Required with 16 SEER2 and 9.0 HSPF2"],
+  ]}
+/>
+
+<Callout type="important">
+**The tax credit requires BOTH SEER2 AND EER2 minimums.** For the $600 AC credit, you need 17.5 SEER2 AND 12.0 EER2. A unit meeting one but not the other doesn't qualify.
+</Callout>
+
+## EER2 by Compressor Type
+
+<ComparisonTable
+  headers={["Compressor Type", "Typical EER2", "SEER2 Range", "SEER2/EER2 Ratio"]}
+  rows={[
+    ["Single-Stage", "10.5-12.5", "13.4-16", "1.27-1.28"],
+    ["Two-Stage", "11.0-12.5", "16-19", "1.45-1.52"],
+    ["Variable-Speed", "11.5-14.0", "18-26+", "1.56-1.86"],
+  ]}
+/>
+
+Variable-speed systems have the widest SEER2-to-EER2 gap. Their seasonal ratings are stellar due to part-load efficiency, but full-load EER2 is only modestly better than two-stage units.
+
+## When EER2 Matters More Than SEER2
+
+**Extreme heat climates.** In Phoenix where highs exceed 110 degrees F for weeks, your AC runs near full capacity for extended periods. EER2 better predicts July electricity costs.
+
+**Demand-charge rates.** Some utilities charge based on peak demand (kW). High EER2 means fewer watts drawn at peak, reducing demand charges.
+
+**Commercial applications.** Commercial systems are often evaluated on EER or IEER because they frequently operate at full capacity during business hours.
+
+## Peak-Day Cost Calculation
+
+**Peak-Day Cost = (Capacity BTU/h / EER2) x Hours x ($/kWh / 1,000)**
+
+For a 3-ton (36,000 BTU/h) AC at 12 EER2 running 14 hours on a 100 degree day at $0.16/kWh:
+
+36,000 / 12 = 3,000 W = 3.0 kW. Then 3.0 kW x 14 hours = 42 kWh x $0.16 = $6.72 per day.
+
+At 10 EER2: 3,600 W = 50.4 kWh = $8.06 per day. Over 60 peak days, that's $80 difference.
+
+## Top EER2 Units by Brand (2026)
+
+<ComparisonTable
+  headers={["Brand", "Model", "EER2", "SEER2", "Type"]}
+  rows={[
+    ["Lennox", "XC25", "13.5", "25.5", "Variable-speed"],
+    ["Carrier", "Infinity 24", "13.0", "24", "Variable-speed"],
+    ["Daikin", "DX20VC", "13.0", "20", "Variable-speed"],
+    ["Trane", "XV20i", "12.5", "22", "Variable-speed"],
+    ["Rheem", "RA20", "12.5", "20", "Variable-speed"],
+    ["Goodman", "GVXC20", "12.5", "20", "Variable-speed"],
+    ["York", "YXV", "12.0", "20", "Variable-speed"],
+  ]}
+/>
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **EER2 measures efficiency at 95 degrees F** — performance on the hottest days
+- **EER2 replaced EER on January 1, 2023** using the M1 test. Numbers are roughly 4.7% lower.
+- **SEER2 is always higher than EER2** for the same unit due to favorable part-load averages
+- **Variable-speed units have the widest SEER2-to-EER2 gap** — great seasonal averages, moderate peak performance
+- **In hot climates, EER2 matters as much as SEER2** for summer electricity predictions
+- **Federal tax credit requires 12.0 EER2** alongside 17.5 SEER2 for ACs
+- **Convert EER2 to COP:** divide by 3.412
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What is a good EER2 rating?",
+    answer: "A good EER2 for a central AC is 12.0 or higher. This exceeds the federal minimum, meets ENERGY STAR criteria, and qualifies for the federal tax credit. Premium units reach 13-14 EER2."
+  },
+  {
+    question: "What is the difference between EER2 and SEER2?",
+    answer: "EER2 measures efficiency at a single peak condition (95F outdoor). SEER2 averages over an entire cooling season (65-104F). SEER2 is always higher because it includes mild-weather part-load operation. Use SEER2 for annual cost estimates and EER2 for peak summer performance."
+  },
+  {
+    question: "How do I convert EER to EER2?",
+    answer: "Divide the old EER by 1.047 to approximate EER2. For example, 12.5 EER divided by 1.047 equals approximately 11.9 EER2. The conversion isn't exact for every unit but provides a reliable estimate."
+  },
+  {
+    question: "Why is EER2 always lower than SEER2?",
+    answer: "SEER2 includes performance at mild outdoor temperatures (65-85F) where the system runs at partial capacity with very high efficiency. EER2 is measured only at 95F where the system runs at full capacity and works hardest. The mild-weather partial-load efficiency raises the SEER2 seasonal average above the EER2 peak-load number."
+  },
+  {
+    question: "Does EER2 matter in cold climates?",
+    answer: "EER2 is less important in cold climates where cooling seasons are short and rarely hit sustained high temperatures. In these areas, SEER2 provides a sufficient efficiency comparison. EER2 becomes increasingly important as you move to hotter climates with more full-load cooling hours."
+  },
+  {
+    question: "Is EER2 required for the tax credit?",
+    answer: "Yes. The federal 25C tax credit for central ACs requires both 17.5 SEER2 AND 12.0 EER2. For heat pumps, the requirement is 16.0 SEER2, 12.0 EER2, AND 9.0 HSPF2. All thresholds must be met simultaneously."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Central Air Conditioning", url: "https://www.energy.gov/energysaver/central-air-conditioning" },
+  { label: "AHRI - Certification Programs", url: "https://www.ahrinet.org" },
+  { label: "ASHRAE - Standard 37: Rating Methods for AC Equipment", url: "https://www.ashrae.org" },
+  { label: "ENERGY STAR - Central AC Specifications", url: "https://www.energystar.gov/products/heating_cooling/air_conditioning_central" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "seer2-rating-explained", title: "Understanding SEER2: Complete Guide" },
+  { slug: "eer-rating-explained", title: "What Is EER Rating?" },
+  { slug: "eer-vs-seer", title: "EER vs SEER: Differences" },
+  { slug: "hvac-efficiency-ratings-compared", title: "All HVAC Ratings Compared" }
+]} />

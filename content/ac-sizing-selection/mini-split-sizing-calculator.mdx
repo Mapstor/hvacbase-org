@@ -1,0 +1,311 @@
+---
+slug: "mini-split-sizing-calculator"
+title: "Mini Split Sizing Calculator: What BTU Mini Split Do I Need? (2026)"
+description: "Calculate the exact mini split size for any room or zone. Covers single-zone and multi-zone sizing, garage and sunroom applications, and the complete BTU sizing chart for all common room sizes."
+cluster: "ac-sizing-selection"
+role: "hub"
+priority: "P1"
+contentType: "calculator-guide"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "air-conditioner-btu-calculator"
+  - "how-many-mini-splits-do-i-need"
+  - "what-size-mini-split-for-garage"
+  - "is-it-ok-to-oversize-mini-split"
+  - "ac-tonnage-calculator"
+  - "heat-pump-size-calculator"
+  - "how-many-btu-per-square-foot"
+externalLinks:
+  - label: "ENERGY STAR – Ductless Mini Splits"
+    url: "https://www.energystar.gov/products/heating_cooling/ductless_heating_cooling"
+  - label: "AHRI – Certified Mini Split Directory"
+    url: "https://www.ahridirectory.org"
+  - label: "DOE – Ductless Mini Split Heat Pumps"
+    url: "https://www.energy.gov/energysaver/ductless-mini-split-heat-pumps"
+  - label: "ACCA – Manual J for Ductless Systems"
+    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Mini Split Sizing Calculator: What BTU Mini Split Do I Need?
+
+**A standard mini split delivers 9,000–36,000 BTU per indoor head, and the right size depends on your room's square footage, climate zone, and specific heat gain factors — most bedrooms need 9,000–12,000 BTU, living rooms need 12,000–18,000 BTU, and open-plan areas need 18,000–36,000 BTU.** Getting this number right is critical with mini splits because oversizing causes short cycling, poor humidity control, and wasted money, while undersizing leaves rooms uncomfortable.
+
+Mini splits are sized differently than central systems because each indoor unit serves a specific zone. This guide walks you through per-zone sizing for single-zone systems and the more complex calculations for multi-zone configurations.
+
+<CalcWrapper type="mini-split" />
+
+<TableOfContents />
+
+## Mini Split BTU Sizing Chart by Room Size
+
+Here's the quick-reference sizing chart for standard conditions (Climate Zone 4, average insulation, 8-foot ceilings, moderate windows):
+
+| Room Size (sq ft) | Base BTU Needed | Recommended Mini Split Size | Common Models |
+|---|---|---|---|
+| 150–250 | 5,000–6,000 | 9,000 BTU (0.75 ton) | Available in multi-zone heads |
+| 250–350 | 6,000–8,000 | 9,000 BTU (0.75 ton) | 9K single-zone |
+| 350–500 | 8,000–10,000 | 12,000 BTU (1 ton) | 12K single-zone |
+| 500–700 | 10,000–14,000 | 12,000–15,000 BTU | 12K or 15K single-zone |
+| 700–1,000 | 14,000–20,000 | 18,000 BTU (1.5 ton) | 18K single-zone |
+| 1,000–1,200 | 20,000–24,000 | 24,000 BTU (2 ton) | 24K single-zone |
+| 1,200–1,500 | 24,000–30,000 | 30,000–36,000 BTU | 30K or 36K single-zone |
+| 1,500–2,000 | 30,000–40,000 | Multi-zone system | 2–3 indoor heads |
+
+<Callout type="important">
+**Standard mini split sizes:** Mini splits come in fixed BTU increments: 6,000 / 9,000 / 12,000 / 15,000 / 18,000 / 24,000 / 30,000 / 36,000 / 42,000 / 48,000 BTU. Unlike central systems (sold in half-ton increments), mini splits offer more granular sizing options. Always choose the size closest to your calculated need — ideally within 10–15% above.
+</Callout>
+
+## Climate Zone Adjustments for Mini Splits
+
+Apply these multipliers to the base BTU number:
+
+| Climate Zone | Cooling Multiplier | Heating Multiplier | Notes |
+|---|---|---|---|
+| Zone 1–2 (Hot) | 1.15–1.25 | 0.70–0.85 | Cooling-dominated, size for summer |
+| Zone 3 (Warm) | 1.05–1.15 | 0.85–1.00 | Near-balanced |
+| Zone 4 (Mixed) | 1.00 | 1.00 | Baseline |
+| Zone 5 (Cool) | 0.90–1.00 | 1.10–1.25 | Heating may dominate |
+| Zone 6 (Cold) | 0.85–0.95 | 1.20–1.40 | Size for heating, need cold-climate rated |
+| Zone 7 (Very Cold) | 0.80–0.90 | 1.30–1.60 | Must use cold-climate mini split |
+
+<Callout type="warning">
+**Cold-climate mini splits are essential in Zones 5–7.** Standard mini splits lose 20–40% of their heating capacity as outdoor temperatures drop below 20°F and may shut down entirely below 5°F. Cold-climate models (Mitsubishi Hyper-Heat, Fujitsu XLTH, LG Dual Inverter) maintain 75–100% capacity down to −13°F and operate down to −22°F. Always check the published heating capacity at your local design temperature, not just the rated capacity at 47°F.
+</Callout>
+
+## Mini Split Heating Capacity: The Critical Detail
+
+When sizing a mini split for heating AND cooling, you must check both capacities. Manufacturers rate heating capacity at two points:
+
+| Rating Point | What It Means |
+|---|---|
+| Rated capacity at 47°F outdoor | Maximum heating output in mild conditions |
+| Rated capacity at 17°F outdoor | Heating output in cold weather (the number that matters) |
+| Low-temp capacity at 5°F or −13°F | For cold-climate models only |
+
+Example for a popular 24,000 BTU mini split:
+
+| Model Type | Cooling (95°F) | Heating (47°F) | Heating (17°F) | Heating (−13°F) |
+|---|---|---|---|---|
+| Standard | 24,000 BTU | 27,000 BTU | 16,000 BTU | Shuts off |
+| Cold-climate | 24,000 BTU | 27,000 BTU | 22,000 BTU | 18,000 BTU |
+
+The standard model loses 41% of its heating capacity at 17°F. The cold-climate model only loses 19%. If you're in a cold climate and sizing for heating, use the 17°F (or −13°F) capacity number — not the 47°F number on the spec sheet.
+
+## Single-Zone vs. Multi-Zone: How Sizing Differs
+
+### Single-Zone (One Outdoor Unit + One Indoor Unit)
+
+Single-zone systems are straightforward: one outdoor compressor serves one indoor head. Size the system for that one room's load.
+
+**Advantages:** Higher efficiency (SEER2 up to 42), lower cost, simpler installation, each unit operates independently.
+
+**Best for:** Adding AC to one room, garage cooling, sunroom, home office, server room, bedroom supplement.
+
+### Multi-Zone (One Outdoor Unit + Multiple Indoor Units)
+
+Multi-zone systems connect 2–8 indoor heads to one outdoor compressor. Sizing is more complex because the outdoor unit must handle the combined capacity of all zones, but not all zones run at full capacity simultaneously.
+
+**Multi-zone sizing rules:**
+
+1. **Calculate each zone's BTU separately** using the per-room method
+2. **Sum all zone BTUs** for the total simultaneous load
+3. **Select an outdoor unit** rated for at least the total simultaneous load
+4. **Match indoor heads** to each zone's calculated BTU
+5. **Check the "connection ratio"** — most manufacturers allow 100–130% total indoor capacity relative to outdoor capacity
+
+| Multi-Zone Outdoor Unit | Max Indoor Heads | Total Indoor Capacity Allowed | Price Range (2026) |
+|---|---|---|---|
+| 18,000 BTU (1.5 ton) | 2 | 18,000–22,000 BTU | $2,500–$4,000 |
+| 24,000 BTU (2 ton) | 2–3 | 24,000–30,000 BTU | $3,000–$5,000 |
+| 36,000 BTU (3 ton) | 3–4 | 36,000–47,000 BTU | $4,000–$7,000 |
+| 42,000 BTU (3.5 ton) | 4–5 | 42,000–54,000 BTU | $5,000–$8,000 |
+| 48,000 BTU (4 ton) | 5–8 | 48,000–62,000 BTU | $6,000–$10,000 |
+
+<Callout type="warning">
+**Multi-zone efficiency penalty:** Multi-zone mini splits are 10–30% less efficient than equivalent single-zone systems. The outdoor compressor must maintain refrigerant pressure for all connected heads, even if only one is running. If you're conditioning 3 or fewer zones, three separate single-zone systems often deliver better efficiency and redundancy than one multi-zone system — though at higher installation cost.
+</Callout>
+
+## Sizing Examples
+
+<Callout type="example">
+**Example 1: Master bedroom in Atlanta, GA (Zone 3)**
+
+- Room size: 320 sq ft
+- Base BTU: 320 × 20 = 6,400 BTU
+- Climate adjustment (Zone 3 cooling): × 1.10 = 7,040 BTU
+- 9-foot ceilings: × 1.12 = 7,885 BTU
+- Two south-facing windows: +10% = 8,674 BTU
+- Good insulation (2015 build): −10% = 7,806 BTU
+
+**Result: 7,806 BTU → 9,000 BTU mini split (closest available size)**
+
+The 9,000 BTU unit has 15% headroom — perfect. A Mitsubishi MSZ-GL09NA or Fujitsu 9RLS3Y handles this room with excellent efficiency.
+</Callout>
+
+<Callout type="example">
+**Example 2: Open-plan living/kitchen in Denver, CO (Zone 5)**
+
+- Room size: 850 sq ft (living room 550 + open kitchen 300)
+- Base BTU: 850 × 20 = 17,000 BTU
+- Climate adjustment (Zone 5 cooling): × 0.95 = 16,150 BTU
+- Kitchen heat: +4,000 BTU = 20,150 BTU
+- 10-foot ceilings: × 1.25 = 25,188 BTU
+- Average insulation and windows: +0% = 25,188 BTU
+- Heating check (Zone 5): 850 × 45 BTU/sq ft × 1.25 (ceilings) = 47,813 BTU heating needed
+
+**Cooling result: 25,188 BTU → 24,000 BTU mini split (tight fit) or 30,000 BTU (comfortable)**
+
+**Heating result: 47,813 BTU → Heating dominates.** A 30,000 BTU cold-climate mini split delivers approximately 24,000 BTU at 5°F outdoor temp. This may need supplemental heating (electric baseboard or a second unit) for the coldest days, or you could step up to a 36,000 BTU unit.
+</Callout>
+
+<Callout type="example">
+**Example 3: Multi-zone whole-home in Charlotte, NC (Zone 3)**
+
+1,800 sq ft, 3-bedroom home — conditioning all rooms with mini splits.
+
+| Zone | Size (sq ft) | BTU Calculated | Mini Split Head |
+|---|---|---|---|
+| Living/dining/kitchen | 750 | 19,500 | 18,000 BTU wall unit |
+| Master bedroom | 280 | 7,200 | 9,000 BTU wall unit |
+| Bedroom 2 | 180 | 4,700 | 6,000 BTU wall unit |
+| Bedroom 3 | 180 | 4,700 | 6,000 BTU wall unit |
+| **Total** | **1,390** | **36,100** | **39,000 BTU total indoor** |
+
+**Outdoor unit needed:** 36,000 BTU (3 ton) multi-zone — the 39,000 BTU total indoor capacity is within the 130% connection ratio (39,000 / 36,000 = 108%).
+
+Alternatively: A 36,000 BTU multi-zone outdoor + 4 indoor heads. Brands like Mitsubishi MXZ-4C36NAHZ or LG Multi F handle this configuration well.
+
+**Cost estimate (2026):** $8,000–$14,000 installed for the 4-zone system, depending on line set lengths and installation complexity.
+</Callout>
+
+<Callout type="example">
+**Example 4: Supplementing central AC in a hot bonus room**
+
+A 350 sq ft bonus room above the garage runs 8–12°F warmer than the rest of the house despite central AC. The existing system is correctly sized for the main house — the bonus room just needs its own dedicated cooling.
+
+- Room size: 350 sq ft
+- Bonus room penalty: +30% (above garage, roof exposure)
+- Calculated: 350 × 20 × 1.30 = 9,100 BTU
+- West-facing windows: +15% = 10,465 BTU
+- Poor insulation in ceiling: +15% = 12,035 BTU
+
+**Result: 12,000 BTU single-zone mini split**
+
+This is one of the most common and cost-effective mini split applications. A single 12K unit ($1,500–$3,000 installed) transforms an unusable bonus room into comfortable living space. The existing central system continues to handle the rest of the house.
+</Callout>
+
+## Mini Split BTU by Application
+
+| Application | Typical BTU Range | Sizing Notes |
+|---|---|---|
+| Bedroom supplement | 6,000–9,000 | Often the smallest available head |
+| Home office | 9,000–12,000 | Account for computer heat |
+| Living room | 12,000–18,000 | Higher occupancy, larger space |
+| Open-plan living/kitchen | 18,000–30,000 | Kitchen heat adds 4,000+ BTU |
+| Sunroom/conservatory | 12,000–24,000 | Size for extreme solar gain |
+| Garage (1-car) | 9,000–12,000 | See our garage sizing guide |
+| Garage (2-car) | 12,000–24,000 | Insulation level is key driver |
+| Garage (3-car) | 24,000–36,000 | May need 2 indoor heads |
+| Bonus room over garage | 9,000–15,000 | +30% for roof/garage exposure |
+| Finished basement | 12,000–24,000 | Ground coupling reduces need |
+| Server room | 9,000–18,000 | Calculate actual equipment heat load |
+| ADU/in-law suite | 12,000–24,000 | Full living space with kitchen |
+| Workshop | 12,000–18,000 | Intermittent use, lower setpoint OK |
+
+## Inverter Technology: Why It Changes the Sizing Game
+
+All modern mini splits use inverter-driven compressors, which changes the sizing equation compared to single-speed central AC units.
+
+An inverter compressor modulates from roughly 30% to 120% of rated capacity. A 12,000 BTU inverter mini split can deliver as little as 3,600 BTU or as much as 14,400 BTU depending on demand. This means:
+
+- **Slight oversizing is less harmful** than with single-speed equipment — the inverter modulates down instead of short cycling
+- **Slight undersizing is recoverable** — the inverter can boost above rated capacity temporarily
+- **The ideal sizing sweet spot** is a unit that runs at 60–80% capacity on a design day, leaving headroom for extreme conditions
+
+That said, oversizing by more than 25% still causes problems. An inverter compressor can only modulate down to 30% — if 30% of the unit's capacity exceeds the room's load on a mild day, it will still short cycle.
+
+<Callout type="tip">
+**Rule of thumb for inverter mini splits:** Size the unit so that 60–80% of its rated capacity matches your calculated room load. For a room that needs 10,000 BTU, a 12,000 BTU unit runs at 83% capacity on design day — perfect. A 15,000 BTU unit runs at 67% — still good. An 18,000 BTU unit runs at 56% — getting low, but acceptable. A 24,000 BTU unit runs at 42% — too large, will modulate to minimum and may short cycle on mild days.
+</Callout>
+
+## 2026 Mini Split Efficiency Ratings
+
+Mini splits offer the highest efficiency of any AC/heat pump technology:
+
+| Rating | Budget Range | Mid-Range | Premium | Ultra-Premium |
+|---|---|---|---|---|
+| SEER2 | 15–18 | 18–24 | 24–33 | 33–42 |
+| HSPF2 | 7.5–8.5 | 8.5–10.5 | 10.5–13 | 13–15.2 |
+| EER2 | 10–12 | 12–15 | 15–18 | 18–22 |
+
+For comparison, the best central AC systems achieve SEER2 22–26. The best mini splits nearly double that. The efficiency advantage is largest at partial load, making correctly sized (not oversized) mini splits extraordinarily cost-effective to operate.
+
+<Callout type="takeaway">
+**Key Takeaways**
+
+1. Size each zone independently — a 12,000 BTU head in every room is rarely correct
+2. Standard mini split sizes: 6K / 9K / 12K / 15K / 18K / 24K / 30K / 36K BTU
+3. In cold climates (Zones 5–7), check heating capacity at 17°F or −13°F — not the rated 47°F number
+4. Inverter technology makes slight oversizing (up to 25%) more forgiving, but 50%+ oversizing still causes problems
+5. Multi-zone systems are 10–30% less efficient than single-zone — use them when running separate line sets isn't practical
+6. For supplementing central AC in one problem room, a single-zone 9K or 12K mini split is often the best and cheapest solution
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ>
+  <FAQ.Item question="What size mini split do I need for 500 square feet?">
+    For 500 sq ft, you typically need a 12,000 BTU (1-ton) mini split. In hot climates or rooms with high ceilings and large windows, you may need 15,000 BTU. In cool climates with good insulation, a 9,000 BTU unit can handle 500 sq ft. Calculate your specific room load using the square footage × BTU/sq ft method, adjusted for your climate and room conditions.
+  </FAQ.Item>
+
+  <FAQ.Item question="What size mini split for a 1,000 sq ft area?">
+    A 1,000 sq ft area needs approximately 18,000–24,000 BTU depending on climate and conditions. A single 24,000 BTU wall-mounted head can cover this area if the space is open-plan. If it's divided into rooms, you'll get better comfort with two smaller heads (e.g., 12K + 12K or 15K + 9K) on a multi-zone outdoor unit.
+  </FAQ.Item>
+
+  <FAQ.Item question="Can I use one mini split for my whole house?">
+    A single mini split head can only effectively condition one open area or zone — it can't push cooled or heated air through walls, around corners, or down hallways. For a small open-plan apartment (under 800 sq ft), one head may work. For a multi-room house, you need either a multi-zone system with heads in each room, or a ducted mini split that connects to a small duct system. Expect one head per major zone.
+  </FAQ.Item>
+
+  <FAQ.Item question="What is the most popular mini split size?">
+    The 12,000 BTU (1-ton) single-zone mini split is the most commonly sold size in the US. It handles the most common applications: a bedroom, home office, living room, or bonus room in the 350–600 sq ft range. The 12K size also hits the sweet spot for pricing — typically $1,500–$3,000 installed for a quality unit from Mitsubishi, Fujitsu, or Daikin.
+  </FAQ.Item>
+
+  <FAQ.Item question="How do I know if my mini split is too big?">
+    Signs of an oversized mini split include frequent on/off cycling (running less than 10 minutes per cycle), humidity above 55% even when cooling, uneven temperatures (cold near the unit, warm at room edges), and ice forming on the indoor coil during cooling. If your mini split reaches setpoint in under 10 minutes and then shuts off, it's likely oversized. Inverter units mask this somewhat by modulating down, but excessive oversizing (50%+) causes problems even with inverter technology.
+  </FAQ.Item>
+
+  <FAQ.Item question="Do mini splits work in cold climates?">
+    Yes, but you need cold-climate rated models. Standard mini splits lose 20–40% of heating capacity below 20°F and may shut off below 5°F. Cold-climate models (Mitsubishi Hyper-Heat, Fujitsu XLTH, LG Red, Daikin Aurora) maintain 75–100% capacity to −13°F and operate down to −22°F. These cost 15–25% more than standard models but are essential in Zones 5–7. Some homeowners keep a backup heating source (electric baseboard, gas furnace) for the coldest extremes.
+  </FAQ.Item>
+
+  <FAQ.Item question="Is a 9,000 BTU mini split enough for a bedroom?">
+    For most bedrooms, 9,000 BTU is more than enough. A typical 200 sq ft bedroom only needs about 5,000–6,000 BTU in average conditions. A 9,000 BTU mini split in a bedroom will run at low speed most of the time, which actually improves comfort — quiet operation and gentle air movement. The only scenarios where 9K isn't enough for a bedroom: very large master suites (400+ sq ft), rooms with extreme sun exposure, or rooms above a garage.
+  </FAQ.Item>
+
+  <FAQ.Item question="Should I get single-zone or multi-zone mini splits?">
+    If you're conditioning 1–2 rooms, single-zone systems are almost always better: higher efficiency, lower cost, independent operation, and simpler installation. Multi-zone makes sense when you need 3+ zones and running separate line sets for each isn't practical (limited outdoor unit space, aesthetic concerns). The efficiency penalty for multi-zone is 10–30%, which translates to noticeably higher operating costs over the system's 15–20 year life.
+  </FAQ.Item>
+
+  <FAQ.Item question="What brands make the best mini splits in 2026?">
+    The top-tier brands for residential mini splits in 2026 are Mitsubishi Electric (widest installer network, best cold-climate performance), Daikin (largest HVAC manufacturer globally, excellent efficiency), and Fujitsu (strong cold-climate lineup, competitive pricing). Mid-tier brands with good quality include LG, Samsung, and Gree. The Mitsubishi M-Series and Fujitsu Halcyon lines are the most commonly recommended by HVAC professionals in the US market.
+  </FAQ.Item>
+
+  <FAQ.Item question="How much does a mini split cost to install in 2026?">
+    Single-zone mini split installation costs $2,000–$5,000 total (unit + labor) for a 9,000–18,000 BTU system. Multi-zone systems run $5,000–$15,000 for 2–4 zones. Costs vary by region, brand, line set length, and installation complexity. Premium brands (Mitsubishi, Daikin) cost 20–40% more than budget brands. Federal tax credits under the IRA cover up to 30% of the cost (up to $2,000) for qualifying heat pump mini splits, significantly reducing out-of-pocket costs.
+  </FAQ.Item>
+</FAQ>
+
+<SourcesBox>
+  - [ENERGY STAR – Ductless Mini-Split Heat Pumps](https://www.energystar.gov/products/heating_cooling/ductless_heating_cooling)
+  - [U.S. DOE – Ductless Mini-Split Heat Pumps](https://www.energy.gov/energysaver/ductless-mini-split-heat-pumps)
+  - [AHRI – Certified Product Performance Directory](https://www.ahridirectory.org)
+  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+  - [NEEP – Cold Climate Air Source Heat Pump List](https://ashp.neep.org)
+  - [Mitsubishi Electric – Hyper-Heat Sizing Guide](https://www.mitsubishicomfort.com)
+  - [Fujitsu – Halcyon Product Specifications](https://www.fujitsugeneral.com)
+</SourcesBox>
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

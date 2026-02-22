@@ -1,0 +1,155 @@
+---
+slug: "ieer-explained"
+title: "IEER Explained: Integrated Energy Efficiency Ratio"
+description: "IEER measures commercial air conditioning efficiency across four part-load conditions. Learn the IEER formula, how it compares to EER, when it applies, and what constitutes a good IEER for commercial HVAC systems."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P2"
+contentType: "explainer"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "eer2-rating-explained"
+    title: "Understanding EER2"
+  - slug: "hvac-efficiency-ratings-compared"
+    title: "All HVAC Efficiency Ratings Compared"
+  - slug: "eseer-explained"
+    title: "ESEER Explained"
+externalLinks:
+  - url: "https://www.ahrinet.org"
+    label: "AHRI - Standard 340/360"
+  - url: "https://www.ashrae.org/technical-resources/standards-and-guidelines"
+    label: "ASHRAE - Standard 90.1"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# IEER Explained: Integrated Energy Efficiency Ratio
+
+**IEER (Integrated Energy Efficiency Ratio) measures the cooling efficiency of commercial air conditioning equipment across four part-load conditions, weighted to reflect typical building operation.** Unlike EER, which tests at a single full-load condition, IEER captures how efficiently a unit performs when it's running at 25%, 50%, 75%, and 100% capacity. Since commercial systems operate at part load the vast majority of the time, IEER is a far better predictor of real-world energy consumption than EER alone.
+
+IEER applies to commercial unitary equipment over 65,000 BTU/h, including rooftop units (RTUs), split systems, and variable refrigerant flow (VRF) systems. If you're specifying or purchasing commercial HVAC, IEER is the number to compare.
+
+<TableOfContents />
+
+## The IEER Formula
+
+IEER uses a weighted average of EER measurements at four operating points:
+
+**IEER = (0.02 x EER at 100%) + (0.617 x EER at 75%) + (0.238 x EER at 50%) + (0.125 x EER at 25%)**
+
+The weightings reflect the percentage of annual operating hours a typical commercial building spends at each load level:
+
+<ComparisonTable
+  headers={["Load Level", "Weight", "Outdoor Temp (F)", "Why This Weight"]}
+  rows={[
+    ["100% (Full Load)", "2%", "95", "Very few hours at design conditions"],
+    ["75% Load", "61.7%", "81.5", "Most hours occur at moderate loads"],
+    ["50% Load", "23.8%", "68", "Significant shoulder-season hours"],
+    ["25% Load", "12.5%", "65", "Light-load mornings and mild days"],
+  ]}
+/>
+
+<Callout type="info">
+**The 100% load condition gets only 2% weight.** This is a critical insight — the system's full-load EER barely matters in the IEER calculation. A unit that excels at 75% and 50% load will have a much higher IEER than one that's only efficient at full blast. This heavily favors variable-capacity equipment.
+</Callout>
+
+## IEER vs EER: Why IEER Matters
+
+<ComparisonTable
+  headers={["Aspect", "EER", "IEER"]}
+  rows={[
+    ["What It Measures", "Full-load efficiency only", "Weighted part-load efficiency"],
+    ["Test Conditions", "95F outdoor, 100% capacity", "Four conditions: 65-95F, 25-100%"],
+    ["Real-World Accuracy", "Low (few hours at full load)", "High (matches typical operation)"],
+    ["Favors", "Units with good full-load design", "Units with variable capacity"],
+    ["Typical Range", "9-13 EER", "12-25+ IEER"],
+    ["Equipment", "All commercial AC", "Commercial AC over 65K BTU/h"],
+  ]}
+/>
+
+A fixed-speed commercial RTU might rate 11 EER and 12 IEER. A variable-speed VRF system might rate 10 EER but 22 IEER. The IEER gap reveals how much better the VRF system performs during the 98% of the year when it's not at full load.
+
+## What's a Good IEER?
+
+<ComparisonTable
+  headers={["IEER Range", "Rating", "Technology", "Typical Equipment"]}
+  rows={[
+    ["Below 12", "Minimum compliance", "Fixed-speed compressor", "Basic rooftop units"],
+    ["12-15", "Standard", "Two-stage compressor", "Mid-range RTUs"],
+    ["15-18", "Good", "Variable-speed or multi-compressor", "Premium RTUs"],
+    ["18-22", "Very Good", "Inverter-driven compressor", "High-end RTUs, VRF systems"],
+    ["22-30+", "Excellent", "Variable refrigerant flow", "Premium VRF, advanced chillers"],
+  ]}
+/>
+
+## ASHRAE 90.1 IEER Requirements
+
+ASHRAE Standard 90.1 (Energy Standard for Buildings) sets minimum IEER requirements for commercial equipment. These vary by capacity and equipment type:
+
+<ComparisonTable
+  headers={["Equipment Type", "Capacity Range", "Min EER", "Min IEER", "Condenser Type"]}
+  rows={[
+    ["Unitary AC", "65,000-135,000 BTU/h", "11.0", "13.0", "Air-cooled"],
+    ["Unitary AC", "135,000-240,000 BTU/h", "10.6", "12.6", "Air-cooled"],
+    ["Unitary AC", "240,000-760,000 BTU/h", "9.8", "11.8", "Air-cooled"],
+    ["Unitary AC", "Above 760,000 BTU/h", "9.6", "11.4", "Air-cooled"],
+    ["Unitary HP", "65,000-135,000 BTU/h", "10.6", "12.2", "Air-cooled"],
+    ["Unitary HP", "135,000-240,000 BTU/h", "10.1", "11.6", "Air-cooled"],
+  ]}
+/>
+
+These are minimum code requirements. High-performance buildings typically specify IEER 15-20+ to achieve green building certifications like LEED.
+
+## IEER and Building Energy Codes
+
+IEER is referenced in several important standards and codes. ASHRAE 90.1 sets the baseline. The International Energy Conservation Code (IECC) references 90.1 for commercial buildings. LEED and other green building certifications often require exceeding 90.1 minimums by 10-30%, which pushes IEER requirements higher.
+
+Many utility rebate programs for commercial buildings use IEER thresholds to qualify equipment for incentives. Rebates of $50-$200 per ton of cooling are common for units exceeding minimum IEER by 10-20%.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **IEER weights part-load performance heavily** — 100% load gets only 2% weight, while 75% load gets 61.7%
+- **IEER is always higher than EER** for the same unit because part-load operation is more efficient
+- **Good IEER is 15+.** Excellent is 22+. Variable-capacity systems dominate the high end.
+- **IEER applies to commercial equipment over 65,000 BTU/h** — not residential systems
+- **Variable-speed/VRF systems can achieve IEER 20-30+** compared to 12-15 for fixed-speed RTUs
+- **ASHRAE 90.1 sets minimum IEER** requirements, with typical ranges of 11-13 depending on capacity
+- **For building owners, IEER is the best predictor of actual cooling energy costs** in commercial applications
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What does IEER stand for?",
+    answer: "IEER stands for Integrated Energy Efficiency Ratio. It measures commercial cooling equipment efficiency across four part-load conditions (25%, 50%, 75%, and 100% capacity), weighted to reflect typical building operation. It replaced the older IPLV (Integrated Part Load Value) for most commercial equipment."
+  },
+  {
+    question: "What is the difference between IEER and EER?",
+    answer: "EER measures efficiency at a single full-load condition (95F, 100% capacity). IEER averages efficiency across four part-load conditions, weighted by typical operating hours. IEER is a far better predictor of actual energy consumption because commercial buildings rarely operate at 100% cooling load."
+  },
+  {
+    question: "Does IEER apply to residential equipment?",
+    answer: "No. IEER applies to commercial unitary equipment rated at 65,000 BTU/h and above. Residential equipment uses SEER2/EER2 for cooling and HSPF2 for heating. The residential equivalent of IEER's part-load concept is captured by the SEER2 seasonal average."
+  },
+  {
+    question: "What IEER is needed for LEED certification?",
+    answer: "LEED doesn't specify IEER directly, but it requires exceeding ASHRAE 90.1 minimums by 10-50% depending on the credit level pursued. If the 90.1 minimum is 13 IEER, a LEED-targeted project might need 14.3 to 19.5 IEER depending on the overall energy performance pathway."
+  },
+  {
+    question: "Why is IEER so much higher than EER for VRF systems?",
+    answer: "VRF (Variable Refrigerant Flow) systems use inverter-driven compressors that operate at high efficiency when running at 25-75% capacity. Since IEER weights part-load heavily (98% of the calculation), VRF systems' advantage at partial loads results in IEER ratings of 20-30+ compared to their EER of 10-13."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "AHRI - Standard 340/360: Commercial Unitary Equipment", url: "https://www.ahrinet.org" },
+  { label: "ASHRAE - Standard 90.1: Energy Standard for Buildings", url: "https://www.ashrae.org" },
+  { label: "U.S. DOE - Commercial Air Conditioning", url: "https://www.energy.gov" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "eer2-rating-explained", title: "Understanding EER2" },
+  { slug: "hvac-efficiency-ratings-compared", title: "All HVAC Efficiency Ratings Compared" },
+  { slug: "eseer-explained", title: "ESEER Explained" }
+]} />

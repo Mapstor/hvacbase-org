@@ -1,0 +1,305 @@
+---
+slug: 10-2-or-10-3-wire-for-ac
+title: "10/2 or 10/3 Wire for AC? (Why 10/3 Is Overkill)"
+description: "Use 10/2 wire for air conditioners — 10/3 is overkill because AC condensers don't need a neutral. Learn when 10/2 vs 10/3 is correct for AC, heat pumps, and other 240V HVAC equipment."
+cluster: "electrical-wiring"
+role: "spoke"
+priority: "P2"
+contentType: "KEEP+"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - electrical-wiring-guide
+  - wire-gauge-chart
+  - what-wire-size-for-30-amp
+  - wire-for-220-volt
+  - water-heater-wire-size
+externalLinks:
+  - url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace"
+    label: "NEC (NFPA 70) — Article 440 (AC Equipment)"
+  - url: "https://www.energy.gov/energysaver/central-air-conditioning"
+    label: "DOE — Central Air Conditioning"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# 10/2 or 10/3 Wire for AC? (Why 10/3 Is Overkill)
+
+**Use 10/2 wire for your air conditioner — not 10/3.** AC condensers run on pure 240V power and don't have any 120V components, so they don't need the neutral conductor that 10/3 provides. Using 10/3 works electrically but wastes $10–$15 per run on an unused wire, and the extra conductor makes the cable stiffer and harder to pull through walls.
+
+The confusion arises because people associate "240V" with "three-wire cable." But 240V circuits come in two flavors: those that need a neutral (dryers, ranges) and those that don't (AC units, water heaters). Your AC condenser is in the second category.
+
+<TableOfContents />
+
+## 10/2 vs. 10/3: The Key Difference
+
+| Feature | 10/2 NM-B | 10/3 NM-B |
+|---------|-----------|-----------|
+| Insulated conductors | 2 (black + white) | 3 (black + red + white) |
+| Ground wire | 1 bare copper | 1 bare copper |
+| Total wires | 3 | 4 |
+| Used for | 240V-only loads (no neutral) | 240V loads with 120V components |
+| Common applications | AC, water heater, well pump | Electric dryer, some sub-panels |
+| Cost per foot (2026) | $0.65–$1.00 | $0.85–$1.30 |
+| Cable diameter | ~0.47 inches | ~0.55 inches |
+| Weight per 100 ft | ~18 lbs | ~24 lbs |
+
+### What's Inside Each Cable
+
+**10/2 NM-B contains:**
+- 1 black wire (Hot 1 — Line 1)
+- 1 white wire (Hot 2 — Line 2, re-identified with black tape)
+- 1 bare copper wire (Equipment ground)
+
+**10/3 NM-B contains:**
+- 1 black wire (Hot 1 — Line 1)
+- 1 red wire (Hot 2 — Line 2)
+- 1 white wire (Neutral)
+- 1 bare copper wire (Equipment ground)
+
+<Callout type="important">
+**When using 10/2 for 240V circuits:** The white wire serves as the second hot conductor, NOT as a neutral. NEC 200.7(C)(1) requires you to re-identify this white wire with black or red tape, paint, or other permanent marking at both ends to indicate it's being used as a hot conductor.
+</Callout>
+
+## Why AC Units Don't Need a Neutral
+
+An AC condenser is a pure 240V load. Here's what's inside:
+- **Compressor motor** — runs on 240V (between the two hot legs)
+- **Condenser fan motor** — runs on 240V (between the two hot legs)
+- **Contactor** — a relay that connects/disconnects power, operates on 24V from the thermostat transformer
+- **Capacitor** — stores energy for motor starting, operates on 240V
+
+None of these components need 120V. There's no clock, no light, no 120V motor. The only voltages present are 240V (power) and 24V (control from the thermostat cable).
+
+Compare this to an electric dryer:
+- **Heating element** — runs on 240V ✓
+- **Drum motor** — runs on 120V (needs neutral)
+- **Timer motor** — runs on 120V (needs neutral)
+- **Drum light** — runs on 120V (needs neutral)
+
+The dryer needs both 240V AND 120V, which is why it requires a neutral conductor and uses 10/3 cable.
+
+## When to Use 10/2 (No Neutral)
+
+| Equipment | Cable | Why No Neutral? |
+|-----------|-------|----------------|
+| Central AC condenser | 10/2 NM-B | Pure 240V motors, no 120V components |
+| Heat pump condenser | 10/2 NM-B | Same as AC — pure 240V |
+| Electric tank water heater | 10/2 NM-B | Heating elements are 240V only |
+| Well pump | 10/2 NM-B | 240V motor only |
+| Baseboard heater | 12/2 or 10/2 NM-B | Resistance heating, 240V only |
+| Mini-split outdoor unit | 12/2 or 14/2 NM-B | 240V or 120V, but no neutral needed either way |
+
+## When to Use 10/3 (Neutral Required)
+
+| Equipment | Cable | Why Neutral? |
+|-----------|-------|-------------|
+| Electric dryer | 10/3 NM-B | 120V motor, timer, light |
+| Some electric ranges (30A) | 10/3 NM-B | 120V controls, light |
+| Sub-panel feeder | 10/3 NM-B | Sub-panel needs neutral for 120V circuits |
+| Some hot tubs | 10/3 NM-B | 120V pump, 120V lights, 240V heater |
+
+<Callout type="warning">
+**Never substitute 10/2 where 10/3 is required.** If the installation calls for a neutral (white wire to neutral bus), using 10/2 means you'd be using the ground wire as a neutral — which was banned by NEC in 1996 for new installations. This is dangerous because a broken neutral puts the equipment chassis at 120V.
+</Callout>
+
+## The Thermostat Wire Is Separate
+
+A common confusion: people think the AC condenser needs a neutral for the thermostat connection. It doesn't. The thermostat communicates with the condenser through a separate low-voltage cable (typically 18/2 or 18/4 thermostat wire) that carries 24V AC from the indoor air handler's transformer.
+
+The power circuit (10/2 NM-B, 240V, 30A) and the control circuit (18-gauge thermostat wire, 24V) are completely independent.
+
+| Circuit | Cable | Voltage | Purpose |
+|---------|-------|---------|---------|
+| Power | 10/2 NM-B | 240V | Runs compressor and fan motors |
+| Control | 18/2 or 18/4 thermostat wire | 24V AC | On/off signal from thermostat |
+
+## Cost Comparison: 10/2 vs. 10/3
+
+For a typical 50-foot AC condenser run:
+
+| Cable Type | Cost per Foot | Total (50 ft) | Notes |
+|-----------|--------------|--------------|-------|
+| 10/2 NM-B | $0.65–$1.00 | $32.50–$50.00 | Correct choice for AC |
+| 10/3 NM-B | $0.85–$1.30 | $42.50–$65.00 | Unnecessary for AC |
+| **Difference** | $0.20–$0.30/ft | **$10–$15** | Wasted on unused neutral |
+
+The cost difference is modest on a single run, but if you're wiring multiple circuits, it adds up. More importantly, 10/3 is physically harder to work with — the extra conductor makes the cable ~17% thicker and ~33% heavier, making it harder to pull through tight spaces.
+
+## Wiring an AC Condenser: Step-by-Step
+
+### Materials for a Typical 3-Ton AC Installation
+
+| Item | Qty | Cost |
+|------|-----|------|
+| 10/2 NM-B cable (interior run) | 40 ft | $26–$40 |
+| 30A double-pole breaker | 1 | $8–$20 |
+| Non-fused disconnect (60A) | 1 | $15–$30 |
+| Flexible metal conduit ("whip") with 10 AWG THHN | 6 ft | $15–$25 |
+| Cable clamps, staples, connectors | — | $10–$15 |
+| **Total materials** | — | **$74–$130** |
+
+### Wiring Steps
+
+**Step 1:** Install 30A double-pole breaker in main panel.
+
+**Step 2:** Run 10/2 NM-B from panel to disconnect location. Use appropriate cable clamps and staple every 4.5 feet and within 12 inches of boxes (NEC 334.30).
+
+**Step 3:** At the disconnect box, connect:
+- Black wire → Line 1 terminal
+- White wire (re-identified with black tape) → Line 2 terminal
+- Bare copper → Ground terminal/bar
+
+**Step 4:** Run flexible metal conduit with 10 AWG THHN from disconnect to condenser whip connection.
+
+**Step 5:** At the condenser, connect:
+- Black THHN → L1 terminal
+- Red THHN → L2 terminal
+- Green THHN → Ground terminal
+
+**Step 6:** Verify connections match the unit's wiring diagram (usually on the access panel cover).
+
+<Callout type="tip">
+**Pro tip: Re-identify the white wire.** When using 10/2 for a 240V circuit, wrap black electrical tape around the white wire at both ends (panel and disconnect). This tells the next electrician that the white wire is being used as a hot conductor, not a neutral. Failing to re-identify is technically a code violation and creates confusion.
+</Callout>
+
+## Real-World Examples
+
+### Example 1: New AC Installation in Existing Home
+
+**Scenario:** Installing a Carrier 24ACC636 (3-ton, 16 SEER2) condenser. Nameplate: MCA 19.0A, MOP 30A. Panel is in the basement, condenser location is 45 feet away through an exterior wall.
+
+**Correct wiring:**
+- Cable: 10/2 NM-B (NOT 10/3 — no neutral needed)
+- Breaker: 30A double-pole
+- Disconnect: 60A non-fused pull-out
+- Whip: 6 ft flexible conduit with 10 AWG THHN
+
+**Why 10/2:** The condenser has no 120V components. The compressor motor and fan motor both run on 240V. The thermostat connection is a separate 24V control circuit that uses its own low-voltage wire.
+
+### Example 2: Homeowner Bought 10/3 by Mistake
+
+**Scenario:** DIYer purchased 10/3 NM-B instead of 10/2 for their AC installation.
+
+**Can they still use it?** Yes — 10/3 works fine electrically. The installation would be:
+- Black wire → Hot 1
+- Red wire → Hot 2
+- White wire → Capped off (not connected to anything)
+- Bare copper → Ground
+
+The white neutral conductor simply goes unused. It's not dangerous, just wasteful. If the cable is already purchased and the homeowner doesn't want to return it, using 10/3 for an AC circuit is code-compliant — there's no rule against having an unused conductor.
+
+### Example 3: Converting Dryer Circuit to AC Circuit
+
+**Scenario:** Homeowner is relocating their laundry and wants to repurpose the old 10/3 dryer circuit for a new mini-split outdoor unit.
+
+**Is this allowed?** Yes, with modifications:
+- Change the 30A receptacle (NEMA 14-30R) to a blank cover with a junction box, or run the cable directly to a disconnect
+- Cap off the white neutral wire — it's not needed for the mini-split
+- Verify the mini-split's MCA is under 30A (most are under 25A)
+
+The 10/3 cable is oversized for most mini-splits (which typically need only 12 AWG or 14 AWG), but using larger wire is always safe and code-compliant.
+
+### Example 4: Heat Pump with Electric Backup Heat
+
+**Scenario:** Installing a heat pump system with 10kW strip heat in the air handler. Does this change the wire requirement for the outdoor unit?
+
+**No — the outdoor unit still uses 10/2.** The outdoor heat pump condenser is identical to an AC condenser — pure 240V, no neutral needed.
+
+However, the indoor air handler with strip heat is a separate circuit. Strip heat is also pure 240V (resistance heating elements), so that circuit also uses 10/2 or 8/2 depending on the kW rating — typically:
+- 5kW strip heat → 10/2 NM-B, 30A breaker
+- 10kW strip heat → 8/2 or 6/2, 50–60A breaker
+- 15kW strip heat → 6/2 or larger, 60–80A breaker
+
+Neither the condenser nor the air handler with strip heat requires a neutral.
+
+## What About Mini-Splits?
+
+Mini-split systems vary more than central AC systems. Most mini-splits need only 10/2, 12/2, or even 14/2 depending on capacity, but always check the installation manual.
+
+| Mini-Split Size | Typical MCA | Typical MOP | Wire | Cable |
+|----------------|-------------|-------------|------|-------|
+| 9,000 BTU (0.75 ton) | 5–8A | 15A | 14 AWG | 14/2 NM-B |
+| 12,000 BTU (1 ton) | 7–10A | 15–20A | 14–12 AWG | 14/2 or 12/2 NM-B |
+| 18,000 BTU (1.5 ton) | 11–15A | 20A | 12 AWG | 12/2 NM-B |
+| 24,000 BTU (2 ton) | 14–18A | 25–30A | 12–10 AWG | 12/2 or 10/2 NM-B |
+| 36,000 BTU (3 ton) | 19–24A | 30A | 10 AWG | 10/2 NM-B |
+
+None of these sizes require a neutral — 10/3 is overkill for any mini-split outdoor unit.
+
+<Callout type="info">
+**Some mini-splits use 120V instead of 240V.** Many 9,000–12,000 BTU units are available in 120V versions for easier installation. These still don't need a neutral — they use a standard 15A or 20A, 120V dedicated circuit wired with 14/2 or 12/2 NM-B (hot, neutral, ground). The neutral in this case is a true neutral because the circuit is 120V, not 240V.
+</Callout>
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **Use 10/2 NM-B for air conditioners** — AC condensers don't need a neutral conductor
+- **10/3 is unnecessary (overkill)** — you're paying $10–$15 extra for an unused wire
+- **Re-identify the white wire** when using 10/2 for 240V — wrap black tape on both ends
+- **Dryers and ranges need 10/3** — they have 120V components (motors, lights)
+- **The thermostat wire is separate** — 24V control circuit, not part of the 240V power circuit
+- **Heat pumps also use 10/2** — same as AC, pure 240V outdoor unit
+- **If you already bought 10/3, use it** — just cap off the white neutral wire
+- **Mini-splits vary** — check the installation manual, but most use 12/2 or 14/2, never 10/3
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "Can I use 10/3 wire for my air conditioner?",
+    answer: "Yes, 10/3 works electrically — you simply cap off the white neutral wire and don't connect it to anything. However, 10/3 is overkill and wastes money ($10–$15 per typical run) on an unused conductor. The correct choice is 10/2 NM-B for AC installations."
+  },
+  {
+    question: "Why doesn't an AC unit need a neutral?",
+    answer: "AC condensers contain only 240V components — the compressor motor and condenser fan motor both run on 240V directly. There are no 120V lights, motors, or controls inside. The 24V thermostat signal comes through a separate low-voltage cable, not through the power circuit."
+  },
+  {
+    question: "What's the difference between 10/2 and 10/3 wire?",
+    answer: "10/2 NM-B has two insulated conductors (black and white) plus a bare ground — three wires total. 10/3 NM-B has three insulated conductors (black, red, white) plus a bare ground — four wires total. The extra white wire in 10/3 serves as a neutral for loads that need both 240V and 120V, like dryers."
+  },
+  {
+    question: "Do I need to re-identify the white wire in 10/2?",
+    answer: "Yes. When using 10/2 for a 240V circuit, the white wire serves as the second hot conductor (not a neutral). NEC 200.7(C)(1) requires you to mark it with black or red tape, paint, or permanent marker at both ends to indicate it's being used as a hot."
+  },
+  {
+    question: "What wire do I need for a heat pump?",
+    answer: "The outdoor unit (condenser) of a heat pump uses the same wiring as an AC condenser — typically 10/2 NM-B for units up to 3.5 tons. The indoor air handler with strip heat is a separate circuit, usually also 10/2 or larger depending on the strip heat kW rating. Neither requires a neutral."
+  },
+  {
+    question: "Can I use 12/2 wire for my AC instead of 10/2?",
+    answer: "Only if the AC unit's MCA (Minimum Circuit Ampacity) is under 20A. A 12/2 cable supports a maximum 20A breaker per NEC 240.4(D). Most central AC units over 2 tons have an MCA above 15A and an MOP of 25–30A, requiring 10 AWG wire. Always check the nameplate."
+  },
+  {
+    question: "Does a mini-split need 10/2 or 10/3 wire?",
+    answer: "Mini-splits don't need 10/3 — they use 10/2, 12/2, or 14/2 depending on the unit size. Most mini-splits under 18,000 BTU need only 12/2 or 14/2. None require a neutral conductor. Always verify the specific wire gauge in the installation manual."
+  },
+  {
+    question: "What happens if I use the ground wire as a neutral?",
+    answer: "Using the equipment ground as a neutral is a serious safety violation banned by NEC since 1996. If the ground/neutral wire breaks, the equipment chassis becomes energized at 120V — a potentially lethal shock hazard. Always use the proper cable: 10/3 if neutral is needed, 10/2 if it's not."
+  },
+  {
+    question: "Why does my dryer need 10/3 but my AC needs 10/2?",
+    answer: "A dryer has 120V components (drum motor, timer motor, drum light) in addition to the 240V heating element. These 120V components need a neutral conductor to complete their circuit. An AC condenser has only 240V components — no 120V parts — so it doesn't need a neutral."
+  },
+  {
+    question: "Can I convert an old dryer circuit to an AC circuit?",
+    answer: "Yes. If you have an unused 10/3 dryer circuit, you can repurpose it for an AC installation. Cap off the white neutral wire (it's not needed), and use the black and red as the two hot conductors. The circuit is oversized for most AC units, but that's safe and code-compliant."
+  }
+]} />
+
+<SourcesBox sources={[
+  { name: "NEC Article 440 — Air-Conditioning and Refrigerating Equipment", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "NEC requirements for AC/HVAC wiring" },
+  { name: "NEC 200.7(C)(1) — White Wire Re-identification", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "Requirements for marking white wires used as ungrounded conductors" },
+  { name: "DOE — Central Air Conditioning", url: "https://www.energy.gov/energysaver/central-air-conditioning", description: "Department of Energy AC system overview" },
+  { name: "ENERGY STAR — Central AC Units", url: "https://www.energystar.gov/products/heating_cooling/air_conditioning_central", description: "Efficient AC equipment specifications" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "electrical-wiring-guide", title: "Home Electrical Wiring Guide" },
+  { slug: "wire-gauge-chart", title: "Wire Gauge Chart: AWG Sizes & Ampacity" },
+  { slug: "what-wire-size-for-30-amp", title: "What Wire Size for 30 Amp Circuit?" },
+  { slug: "wire-for-220-volt", title: "Wire for 220V Circuits" },
+  { slug: "water-heater-wire-size", title: "Water Heater Wire Size Chart" }
+]} />

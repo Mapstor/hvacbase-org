@@ -1,0 +1,349 @@
+---
+slug: what-wire-size-for-30-amp
+title: "What Wire Size for 30 Amp Circuit? (NEC Code Guide 2026)"
+description: "For a 30-amp circuit, use 10 AWG copper or 8 AWG aluminum wire per NEC 240.4(D). Complete guide covering 30-amp wire sizing for AC units, water heaters, dryers, and long runs with voltage drop calculations."
+cluster: "electrical-wiring"
+role: "spoke"
+priority: "P1"
+contentType: "NEW"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - electrical-wiring-guide
+  - wire-gauge-chart
+  - wire-for-220-volt
+  - what-wire-size-for-50-amp
+  - 10-2-or-10-3-wire-for-ac
+  - water-heater-wire-size
+  - water-heater-breaker-size
+externalLinks:
+  - url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace"
+    label: "NEC (NFPA 70) — Section 240.4(D)"
+  - url: "https://www.southwire.com/calculator-charger"
+    label: "Southwire — Voltage Drop Calculator"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# What Wire Size for 30 Amp Circuit? (NEC Code Guide)
+
+**A 30-amp circuit requires 10 AWG copper wire or 8 AWG aluminum wire — this is mandated by NEC 240.4(D), which sets the maximum overcurrent protection for 10 AWG conductors at exactly 30 amps.** Using 12 AWG wire on a 30-amp breaker is a code violation and fire hazard, full stop.
+
+The 30-amp circuit is the workhorse of residential HVAC and water heating. It powers most central air conditioners (2–3.5 tons), standard electric water heaters (up to 5,500W), and electric dryers. Here's everything you need to know to wire it safely and to code.
+
+<TableOfContents />
+
+## Quick Answer: 30-Amp Wire Size Chart
+
+| Wire Run Length | Copper Wire Size | Aluminum Wire Size | Cable Type | Notes |
+|----------------|-----------------|-------------------|------------|-------|
+| 0–50 feet | 10 AWG | 8 AWG | 10/2 or 10/3 NM-B | Standard installation |
+| 50–80 feet | 10 AWG | 8 AWG | 10/2 or 10/3 NM-B | Voltage drop 1.6–2.5% — acceptable |
+| 80–100 feet | 10 AWG (marginal) | 8 AWG | 10/2 or 10/3 NM-B | Voltage drop 2.5–3.1% — consider upsizing |
+| 100–150 feet | 8 AWG | 6 AWG | 8/2 or 8/3 NM-B | Upsize required to stay under 3% drop |
+| 150–200 feet | 6 AWG | 6 AWG | 6/2 or 6/3 NM-B | Upsize for voltage drop compliance |
+| 200+ feet | 6 AWG or larger | 4 AWG | THHN in conduit | Calculate individually |
+
+<Callout type="important">
+**NEC 240.4(D) is absolute:** 10 AWG wire = 30A maximum breaker. You cannot put 10 AWG wire on a 40A or 50A breaker for general branch circuits. The only exception is motor circuits under NEC Article 440, where the equipment nameplate MOP may specify a larger breaker than the wire's ampacity rating.
+</Callout>
+
+## What the NEC Says About 30-Amp Wire Sizing
+
+NEC Section 240.4(D) provides the definitive wire-to-breaker relationship for small conductors:
+
+| Wire Gauge (Copper) | Maximum Overcurrent Protection |
+|---------------------|-------------------------------|
+| 14 AWG | 15 amps |
+| 12 AWG | 20 amps |
+| 10 AWG | 30 amps |
+
+These limits apply regardless of the wire's insulation temperature rating. Even though 10 AWG THHN (90°C) has an ampacity of 40A per NEC Table 310.16, the branch circuit breaker is still capped at 30A.
+
+### Why 10 AWG for 30 Amps?
+
+At 60°C insulation rating (standard NM-B/Romex), 10 AWG copper wire has an ampacity of exactly 30 amps per NEC Table 310.16. This means the wire can safely carry 30 amps of current continuously without exceeding its temperature limit.
+
+The 30-amp breaker protects this wire by tripping before the current exceeds what the wire can handle. The breaker is sized to the wire — never the other way around.
+
+## 30-Amp Circuit: 10/2 vs. 10/3 Cable
+
+This is one of the most common wiring questions. The answer depends on what you're powering.
+
+| Cable | Conductors | Use For | Examples |
+|-------|-----------|---------|---------|
+| 10/2 NM-B | 2 hots + ground (or 1 hot + 1 neutral + ground for 120V) | 240V loads without neutral | Central AC, heat pump, water heater, well pump |
+| 10/3 NM-B | 2 hots + neutral + ground | 240V loads with 120V components | Electric dryer, certain sub-panels |
+
+**For AC units and water heaters:** Use 10/2 cable. These appliances operate on pure 240V — they don't have any 120V components, so they don't need a neutral conductor. The two insulated wires in 10/2 serve as the two hot legs, and the bare wire is the equipment ground.
+
+**For electric dryers:** Use 10/3 cable. Dryers have a 240V heating element but also a 120V motor and drum light. The third insulated conductor (white) serves as the neutral for these 120V components.
+
+<Callout type="tip">
+**Cost difference:** 10/2 NM-B costs approximately $0.65–$1.00/ft, while 10/3 NM-B costs $0.85–$1.30/ft. For a typical 50-foot run, 10/3 costs about $10–$15 more. Don't waste money on 10/3 if you don't need the neutral — but also don't cheap out and use 10/2 where a neutral is required.
+</Callout>
+
+## Voltage Drop at 30 Amps: Distance Limits
+
+Wire gauge tables only tell you the minimum safe wire size. Voltage drop determines whether that minimum is actually sufficient for your run length.
+
+### Voltage Drop Table: 10 AWG Copper at 30 Amps
+
+| Distance (one-way) | Voltage Drop (240V) | Percentage Drop | Acceptable? |
+|--------------------|--------------------|-----------------|----|
+| 25 ft | 1.9V | 0.8% | ✅ Excellent |
+| 50 ft | 3.7V | 1.6% | ✅ Good |
+| 75 ft | 5.6V | 2.3% | ✅ Acceptable |
+| 100 ft | 7.4V | 3.1% | ⚠️ Marginal — consider upsizing |
+| 125 ft | 9.3V | 3.9% | ❌ Upsize to 8 AWG |
+| 150 ft | 11.2V | 4.7% | ❌ Upsize to 8 AWG |
+| 200 ft | 14.9V | 6.2% | ❌ Upsize to 6 AWG |
+
+### Voltage Drop Table: 8 AWG Copper at 30 Amps (Upsized)
+
+| Distance (one-way) | Voltage Drop (240V) | Percentage Drop | Acceptable? |
+|--------------------|--------------------|-----------------|----|
+| 50 ft | 2.3V | 1.0% | ✅ Excellent |
+| 100 ft | 4.7V | 2.0% | ✅ Good |
+| 150 ft | 7.0V | 2.9% | ✅ Acceptable |
+| 200 ft | 9.3V | 3.9% | ⚠️ Marginal |
+| 250 ft | 11.7V | 4.9% | ❌ Upsize to 6 AWG |
+
+<Callout type="warning">
+**Voltage drop matters for HVAC equipment.** A compressor running at 5% below rated voltage draws more current, runs hotter, and has a significantly shorter lifespan. Low voltage is one of the leading causes of premature compressor failure. Many manufacturers void the warranty if voltage is more than 10% below nameplate rating.
+</Callout>
+
+## 30-Amp Applications: Wiring Details
+
+### Central Air Conditioner (Most Common 30A Load)
+
+**Typical setup:** 2–3.5 ton central AC condenser on a dedicated 30A/240V circuit.
+
+**Wiring requirements:**
+- Wire: 10/2 NM-B from panel to disconnect box
+- Whip: 10 AWG THHN in flexible conduit from disconnect to condenser
+- Breaker: 30A double-pole
+- Disconnect: Non-fused 60A pull-out (rated above MCA)
+- Run length: Typically 20–60 feet
+
+**Step-by-step:**
+1. Install 30A double-pole breaker in main panel
+2. Run 10/2 NM-B cable to disconnect location near condenser
+3. Mount disconnect box on exterior wall within sight of condenser (NEC 440.14)
+4. Connect NM-B to line side of disconnect
+5. Run flexible metal conduit ("whip") with 10 AWG THHN from disconnect to condenser
+6. Verify connections match unit's wiring diagram
+
+<Callout type="example">
+**Real example — Carrier 24ACC636:** 3-ton, 16 SEER2. Nameplate: MCA 19.0A, MOP 30A. Wire: 10 AWG copper minimum (handles 30A, well above 19A MCA). Breaker: 30A maximum per MOP. Run: 40 feet. Voltage drop: (2 × 40 × 19 × 1.24) / 1000 = 1.89V = 0.8%. Perfect installation.
+</Callout>
+
+### Electric Water Heater
+
+**Typical setup:** 40–80 gallon tank water heater, 4,500W–5,500W, on a dedicated 30A/240V circuit.
+
+**Wiring requirements:**
+- Wire: 10/2 NM-B
+- Breaker: 30A double-pole
+- Junction box: At or near water heater
+- Flexible conduit: Short run from junction box to water heater
+- No disconnect required (breaker serves as disconnect if within sight)
+
+**Load verification:**
+- 4,500W at 240V = 18.75A
+- Continuous load (water heater runs 3+ hours): 18.75A × 1.25 = 23.4A
+- 30A breaker handles 23.4A continuous → ✅ Code compliant
+- 10 AWG wire rated 30A → 18.75A operating load → ✅ Code compliant
+
+### Electric Dryer
+
+**Typical setup:** Standard residential electric dryer, 5,000W max, on a dedicated 30A/240V circuit.
+
+**Wiring requirements:**
+- Wire: 10/3 NM-B (NOT 10/2 — dryer needs neutral for 120V motor)
+- Breaker: 30A double-pole
+- Receptacle: NEMA 14-30R (4-prong)
+- No disconnect required (cord-and-plug serves as disconnect)
+
+**Load verification:**
+- 5,000W at 240V = 20.8A (heating element on 240V)
+- 120V motor: ~3A on one leg
+- Total: ~24A max draw
+- 30A breaker → ✅ Adequate
+- 10/3 NM-B (10 AWG, 30A rating) → ✅ Code compliant
+
+### EV Charger (24A Continuous)
+
+**Typical setup:** Level 2 EV charger set to 24A output, dedicated 30A/240V circuit.
+
+**Wiring requirements:**
+- Wire: 10/2 NM-B
+- Breaker: 30A double-pole
+- Receptacle: NEMA 6-30R or 14-30R (depends on charger)
+- GFCI protection required (NEC 2023)
+
+**Load verification:**
+- 24A continuous × 1.25 = 30A required breaker capacity
+- 30A breaker at 80% continuous duty = 24A max continuous → ✅ Exactly at limit
+- This is the maximum continuous load allowed on a 30A circuit
+
+<Callout type="info">
+**Why not size up the charger?** A 24A charger on a 30A circuit adds roughly 25–30 miles of range per hour. Upgrading to a 48A charger on a 60A circuit adds 40–48 miles per hour — nearly double. If your panel has capacity, the [50-amp circuit option](/what-wire-size-for-50-amp) with a 48A charger provides significantly faster charging.
+</Callout>
+
+## Common 30-Amp Wiring Mistakes
+
+### Mistake 1: Using 12 AWG Wire on a 30A Breaker
+
+**Why it's wrong:** 12 AWG copper is rated for 20A max overcurrent protection per NEC 240.4(D). Putting it on a 30A breaker means the breaker won't trip until the wire is carrying 50% more current than it's designed for. The wire overheats inside the wall before the breaker ever trips.
+
+**The fix:** Always use 10 AWG for 30A circuits. No exceptions.
+
+### Mistake 2: Using 10/3 Cable for an AC Unit
+
+**Why it's wasteful:** Most AC condensers don't use a neutral wire. The white conductor in 10/3 cable sits unused — you've paid $10–$15 extra per run for a wire that serves no purpose.
+
+**The fix:** Use 10/2 NM-B for AC condensers and water heaters. The black and white wires serve as the two hot legs (mark the white wire with black tape at both ends to indicate it's used as a hot, per NEC 200.7).
+
+### Mistake 3: Running 10 AWG Wire 150+ Feet Without Upsizing
+
+**Why it's problematic:** At 150 feet and 30 amps, 10 AWG copper drops 11.2V on a 240V circuit — a 4.7% voltage drop. Your AC compressor runs below rated voltage, draws excess current, and overheats.
+
+**The fix:** For runs over 100 feet at 30 amps, upsize to 8 AWG. For runs over 200 feet, use 6 AWG. The wire cost increase is minimal compared to a burned-out compressor.
+
+### Mistake 4: Using Indoor-Rated Cable Outdoors
+
+**Why it's wrong:** NM-B (Romex) is not rated for wet locations. Running it outside exposed to weather or through underground conduit invites moisture damage, ground faults, and eventual failure.
+
+**The fix:** Use UF-B cable for direct burial, THWN conductors in outdoor conduit, or run NM-B only through dry interior spaces and switch to THHN in conduit where the run goes outdoors.
+
+## Cost of 30-Amp Circuit Installation (2026)
+
+| Component | DIY Cost | Professional Cost | Notes |
+|-----------|---------|-------------------|-------|
+| 30A double-pole breaker | $8–$20 | Included | $12–$25 for GFCI breaker |
+| 10/2 NM-B cable (50 ft) | $33–$50 | Included | Prices vary by region |
+| 10/3 NM-B cable (50 ft) | $43–$65 | Included | For dryer circuits |
+| Pull-out disconnect (60A) | $15–$30 | Included | For AC installations |
+| NEMA 14-30R receptacle | $10–$20 | Included | For dryer outlet |
+| NEMA 6-30R receptacle | $8–$15 | Included | For 240V equipment |
+| Flexible conduit + fittings | $15–$35 | Included | AC whip connection |
+| Permit and inspection | $50–$150 | $50–$150 | Required in most jurisdictions |
+| **Total (DIY, AC circuit)** | **$130–$300** | — | Materials + permit only |
+| **Total (Professional, AC circuit)** | — | **$300–$800** | Labor + materials + permit |
+| **Total (Professional, dryer circuit)** | — | **$250–$600** | Shorter typical run |
+
+## Real-World Examples
+
+### Example 1: New Construction AC Circuit
+
+**Scenario:** New 2,400 sq ft home, 3-ton AC condenser 35 feet from panel.
+
+- Wire: 10/2 NM-B, 35 ft
+- Breaker: 30A DP
+- Disconnect: 60A non-fused, mounted near condenser
+- Voltage drop: (2 × 35 × 20 × 1.24) / 1000 = 1.74V → 0.7% ✅
+- Cost: $180–$250 in materials
+
+### Example 2: Replacing Water Heater in Basement
+
+**Scenario:** Replacing gas water heater with electric 50-gallon tank, panel is in same basement, 15 feet away.
+
+- Wire: 10/2 NM-B, 15 ft
+- Breaker: 30A DP (need 2 open spaces in panel)
+- Voltage drop: Negligible at 15 ft
+- Cost: $100–$150 in materials, $250–$500 professional install
+
+### Example 3: Adding a Dryer Circuit to Existing Home
+
+**Scenario:** Laundry room 45 feet from panel, running through ceiling joists.
+
+- Wire: 10/3 NM-B, 45 ft (need neutral for dryer)
+- Breaker: 30A DP
+- Receptacle: NEMA 14-30R (4-prong)
+- Voltage drop: (2 × 45 × 24 × 1.24) / 1000 = 2.68V → 1.1% ✅
+- Cost: $150–$220 in materials, $350–$700 professional install
+
+### Example 4: Long Run to Detached Workshop Water Heater
+
+**Scenario:** Electric water heater in a workshop 130 feet from main panel.
+
+- Wire at 10 AWG: VD = (2 × 130 × 18.75 × 1.24) / 1000 = 6.05V → 2.5% ✅
+- This is under 3% on the branch circuit. But if the feeder to the workshop already drops 2%, the total is 4.5% — close to the 5% limit.
+- **Decision:** Upsize to 8 AWG for safety margin. (2 × 130 × 18.75 × 0.778) / 1000 = 3.79V → 1.6%.
+- Cost difference: 8/2 vs. 10/2 for 130 ft ≈ $72 more. Worth it.
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **10 AWG copper is the standard wire for 30-amp circuits** — this is set by NEC 240.4(D) and is non-negotiable
+- **8 AWG aluminum** is the equivalent for aluminum installations (rare for 30A branch circuits)
+- **Use 10/2 cable** for AC condensers, water heaters, and well pumps (240V-only loads)
+- **Use 10/3 cable** for electric dryers and any 240V load with 120V components
+- **Upsize to 8 AWG** for wire runs over 100 feet to keep voltage drop under 3%
+- **Never put 12 AWG on a 30A breaker** — it's a code violation and fire hazard
+- **Typical installation cost:** $300–$800 for a professional, $130–$300 DIY (materials only)
+- **Always verify with the equipment nameplate** — the MCA and MOP determine final wire and breaker sizing
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "Can I use 12 AWG wire on a 30-amp breaker?",
+    answer: "Absolutely not. NEC 240.4(D) limits 12 AWG wire to a maximum 20-amp breaker. Using 12 AWG on a 30-amp breaker is a serious code violation and fire hazard — the wire can overheat and start a fire inside your walls before the breaker trips. Always use 10 AWG or larger for 30-amp circuits."
+  },
+  {
+    question: "Do I need 10/2 or 10/3 wire for a 30-amp circuit?",
+    answer: "It depends on the appliance. Use 10/2 for 240V-only loads like air conditioners, water heaters, and well pumps. Use 10/3 for loads that need both 240V and 120V, like electric dryers and certain ranges. The /3 cable adds a neutral conductor for the 120V components."
+  },
+  {
+    question: "How far can I run 10 AWG wire on a 30-amp circuit?",
+    answer: "At 30 amps on a 240V circuit, 10 AWG copper wire should run no more than about 97 feet before the voltage drop exceeds the recommended 3% limit. For runs of 100–200 feet, upsize to 8 AWG. For runs over 200 feet, use 6 AWG."
+  },
+  {
+    question: "What size breaker do I need for 10 AWG wire?",
+    answer: "10 AWG copper wire supports a maximum 30-amp breaker per NEC 240.4(D). You can use a smaller breaker (like 20A or 25A) on 10 AWG wire — smaller is always safe. But you cannot use a breaker larger than 30A on 10 AWG for general branch circuits."
+  },
+  {
+    question: "Can I use 10 AWG wire on a 40-amp breaker?",
+    answer: "Only for motor circuits (like air conditioners) where NEC Article 440 applies. If the equipment nameplate specifies MOP of 40A and MCA of 30A or less, 10 AWG wire with a 40A breaker is code-compliant. For non-motor loads, 10 AWG is limited to a 30A breaker."
+  },
+  {
+    question: "Is 8 AWG wire required for a 30-amp circuit?",
+    answer: "Not for standard installations under 100 feet. 10 AWG is the code minimum for 30-amp circuits. However, 8 AWG is recommended for runs over 100 feet to compensate for voltage drop, and it's required for 40-amp circuits. Using 8 AWG on a 30-amp circuit is always acceptable — oversizing wire never violates code."
+  },
+  {
+    question: "What wire do I need for a 30-amp 120V circuit?",
+    answer: "30-amp circuits at 120V still require 10 AWG wire. The wire gauge is determined by amperage, not voltage. However, 30-amp/120V circuits are uncommon in residential wiring. Most 30-amp circuits are 240V for appliances like AC units and water heaters."
+  },
+  {
+    question: "How much does it cost to run a 30-amp circuit?",
+    answer: "A professional electrician typically charges $300–$800 to install a new 30-amp circuit, including the breaker, wire, receptacle or connections, and permit. DIY materials cost $130–$300 depending on wire run length. The main variables are distance from the panel and accessibility of the wire route."
+  },
+  {
+    question: "Can I run two appliances on one 30-amp circuit?",
+    answer: "Generally no. Appliances requiring a dedicated circuit (AC units, water heaters, dryers) must have their own 30-amp circuit per NEC code and manufacturer requirements. Sharing a circuit between two high-draw appliances risks overloading the wire and breaker. The only exception is certain code-allowed multi-outlet branch circuits with specific load limitations."
+  },
+  {
+    question: "What receptacle do I use for a 30-amp 240V circuit?",
+    answer: "For a 30-amp/240V circuit with no neutral (AC, water heater): NEMA 6-30R (3-prong). For a 30-amp/240V circuit with neutral (dryer): NEMA 14-30R (4-prong). The NEMA 14-30R replaced the old NEMA 10-30R (3-prong) for dryers; new dryer installations must use the 4-prong configuration per NEC."
+  }
+]} />
+
+<SourcesBox sources={[
+  { name: "NEC 240.4(D) — NFPA 70 (2023)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "Small conductor overcurrent protection limits" },
+  { name: "NEC Table 310.16", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "Allowable ampacities of insulated conductors" },
+  { name: "Southwire Voltage Drop Calculator", url: "https://www.southwire.com/calculator-charger", description: "Wire sizing and voltage drop calculations" },
+  { name: "DOE — Water Heater Wiring", url: "https://www.energy.gov/energysaver/water-heating", description: "Water heater installation and wiring requirements" },
+  { name: "ENERGY STAR — HVAC", url: "https://www.energystar.gov/products/heating_cooling", description: "Efficient HVAC equipment specifications" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "electrical-wiring-guide", title: "Home Electrical Wiring Guide" },
+  { slug: "wire-gauge-chart", title: "Wire Gauge Chart: AWG Sizes & Ampacity" },
+  { slug: "what-wire-size-for-50-amp", title: "What Wire Size for 50 Amp Circuit?" },
+  { slug: "wire-for-220-volt", title: "Wire for 220V Circuits" },
+  { slug: "10-2-or-10-3-wire-for-ac", title: "10/2 or 10/3 Wire for AC?" },
+  { slug: "water-heater-wire-size", title: "Water Heater Wire Size Chart" }
+]} />

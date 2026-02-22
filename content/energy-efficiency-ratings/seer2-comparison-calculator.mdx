@@ -1,0 +1,367 @@
+---
+slug: "seer2-comparison-calculator"
+title: "SEER2 Comparison Calculator: Compare Any Two Ratings (2026)"
+description: "Free SEER2 comparison calculator. Enter any two SEER or SEER2 ratings to see energy savings, annual cost difference, and payback period. Includes SEER to SEER2 conversion table and real-world examples."
+cluster: "seer-comparisons"
+role: "spoke"
+priority: "P1"
+contentType: "tool"
+datePublished: "2026-02-01"
+dateModified: "2026-02-06"
+relatedArticles:
+  - "16-seer-vs-14-seer"
+  - "16-seer-vs-20-seer"
+  - "15-2-seer2-vs-16-seer"
+  - "14-3-seer2-vs-16-seer"
+  - "14-seer-vs-16-seer-vs-20-seer"
+  - "is-higher-seer-worth-it"
+  - "seer-vs-seer2"
+externalLinks:
+  - label: "AHRI — Certified Product Performance Directory"
+    url: "https://www.ahridirectory.org"
+  - label: "ENERGY STAR — Central AC Specifications"
+    url: "https://www.energystar.gov/products/central-air-conditioners"
+  - label: "U.S. EIA — Electricity Data"
+    url: "https://www.eia.gov/electricity/"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, SEERCalculator, CalcWrapper } from '@/components'
+
+# SEER2 Comparison Calculator: Compare Any Two Ratings
+
+**Use the calculator below to compare any two SEER or SEER2 ratings instantly.** Enter your system details—capacity, electricity rate, annual cooling hours, and the price difference between units—and get your exact annual energy savings, percentage improvement, and payback period in seconds.
+
+Whether you're comparing a 14.3 SEER2 baseline unit against a 15.2 SEER2 ENERGY STAR system, or deciding between 16 SEER2 and 20 SEER2, this calculator does the math for you.
+
+<TableOfContents />
+
+## The SEER2 Comparison Calculator
+
+Enter your two SEER2 ratings (or legacy SEER ratings — see conversion table below) and your local conditions:
+
+<CalcWrapper>
+  <SEERCalculator
+    defaultSeer1={14.3}
+    defaultSeer2={15.2}
+    defaultCapacity={36000}
+    defaultElectricityRate={0.16}
+    defaultCoolingHours={1400}
+    defaultPriceDifference={1000}
+    showPayback={true}
+    seer2Mode={true}
+    allowCustomInput={true}
+  />
+</CalcWrapper>
+
+## How the Calculator Works
+
+The calculator uses a straightforward energy consumption formula based on DOE methodology:
+
+### Step 1: Annual Energy Use (kWh)
+
+For each system:
+
+**kWh = (BTU capacity × annual cooling hours) ÷ (SEER2 rating × 1,000)**
+
+Example for a 3-ton (36,000 BTU) system at 15.2 SEER2 with 1,400 cooling hours:
+
+kWh = (36,000 × 1,400) ÷ (15.2 × 1,000) = 50,400,000 ÷ 15,200 = **3,316 kWh**
+
+### Step 2: Annual Cost
+
+**Annual cost = kWh × electricity rate ($/kWh)**
+
+Example: 3,316 kWh × $0.16 = **$530.52/year**
+
+### Step 3: Savings
+
+**Savings = Cost of lower-rated system − Cost of higher-rated system**
+
+### Step 4: Payback Period
+
+**Simple payback = Price premium ÷ Annual savings**
+
+<Callout type="info">
+This calculator uses a "simple payback" method that doesn't account for electricity rate increases, inflation, or the time value of money. In reality, electricity rates have been rising 2–3% annually, which means your actual savings grow each year and the true payback is somewhat shorter than calculated. For a more conservative estimate, this simple method is appropriate.
+</Callout>
+
+## SEER to SEER2 Conversion Table
+
+If your contractor provided a legacy SEER rating, convert it to SEER2 before using the calculator:
+
+<ComparisonTable
+  headers={["Legacy SEER", "Approximate SEER2", "Notes"]}
+  rows={[
+    ["13 SEER", "12.4 SEER2", "Below all federal minimums (not sold new)"],
+    ["14 SEER", "13.4 SEER2", "Below all federal minimums (not sold new)"],
+    ["14.5 SEER", "13.8 SEER2", "Below South/SW minimum"],
+    ["15 SEER", "14.3 SEER2", "Meets North minimum, below South/SW"],
+    ["15.5 SEER", "14.7 SEER2", "Below South/SW 15.0 SEER2 minimum"],
+    ["16 SEER", "15.2 SEER2", "ENERGY STAR threshold"],
+    ["17 SEER", "16.2 SEER2", "Mid-range efficiency"],
+    ["18 SEER", "17.1 SEER2", "High efficiency"],
+    ["19 SEER", "18.1 SEER2", "High efficiency"],
+    ["20 SEER", "19.0 SEER2", "Premium / variable-speed"],
+    ["21 SEER", "20.0 SEER2", "Premium tier"],
+    ["22 SEER", "20.9 SEER2", "Ultra-premium"],
+    ["24 SEER", "22.8 SEER2", "Ultra-premium"],
+    ["26 SEER", "24.7 SEER2", "Maximum available (2026)"],
+  ]}
+/>
+
+**Conversion formula:** SEER2 ≈ SEER × 0.95 (±1–2% depending on equipment design)
+
+**Reverse formula:** SEER ≈ SEER2 × 1.053
+
+<Callout type="warning">
+These are approximations. The exact SEER2 for any specific unit depends on its design characteristics. Always check the AHRI-certified rating for your exact model combination (outdoor unit + indoor coil) at ahridirectory.org.
+</Callout>
+
+## Input Guide: Finding Your Numbers
+
+### How to Determine Your Cooling Hours
+
+Your annual cooling hours depend primarily on your climate zone. Use this table as a starting point:
+
+<ComparisonTable
+  headers={["Climate Zone", "Region", "Example Cities", "Typical Cooling Hours"]}
+  rows={[
+    ["1A (Hot-Humid)", "South FL, HI", "Miami, Key West, Honolulu", "2,000–2,500"],
+    ["2A (Warm-Humid)", "Southeast, Gulf", "Houston, Tampa, New Orleans, Atlanta", "1,500–2,000"],
+    ["2B (Hot-Dry)", "Desert SW", "Phoenix, Las Vegas, Tucson", "1,800–2,500"],
+    ["3A (Warm-Humid)", "Mid-South", "Dallas, Memphis, Raleigh", "1,200–1,600"],
+    ["3B (Warm-Dry)", "SW interior", "Los Angeles, Albuquerque", "800–1,400"],
+    ["4A (Mixed-Humid)", "Mid-Atlantic, Upper South", "Nashville, Charlotte, St. Louis, DC", "1,000–1,400"],
+    ["4B (Mixed-Dry)", "High desert", "Amarillo", "800–1,200"],
+    ["5A (Cold-Humid)", "Upper Midwest, NE", "Chicago, Boston, Detroit, Denver", "600–1,000"],
+    ["5B (Cold-Dry)", "Mountain West", "Salt Lake City, Boise", "500–900"],
+    ["6A (Cold)", "Northern states", "Minneapolis, Milwaukee, Burlington", "400–700"],
+    ["7 (Very Cold)", "Far North", "Duluth, International Falls", "200–500"],
+  ]}
+/>
+
+### How to Find Your Electricity Rate
+
+Check your most recent electric bill. Look for the rate per kWh—it may be listed as "energy charge" or "supply rate." Here are 2026 averages by state for reference:
+
+<ComparisonTable
+  headers={["Rate Range", "States", "Average $/kWh"]}
+  rows={[
+    ["Very Low ($0.08–$0.11)", "ID, WA, UT, WV, ND, WY, NE", "$0.10"],
+    ["Low ($0.11–$0.14)", "TX, NC, FL, OR, LA, AR, TN, VA, KY", "$0.13"],
+    ["Average ($0.14–$0.18)", "GA, CO, OH, PA, MN, WI, IN, IL, AZ, SC, MO", "$0.16"],
+    ["Above Average ($0.18–$0.23)", "MD, MI, NJ, DE, ME, NM, VT, AK", "$0.20"],
+    ["High ($0.23–$0.30)", "CT, NH, MA, RI, NY, CA", "$0.27"],
+    ["Very High ($0.30+)", "HI", "$0.43"],
+  ]}
+/>
+
+<Callout type="tip">
+Many utilities have tiered pricing or time-of-use rates. For the most accurate calculation, use your effective average rate during summer months (June–September), as that's when your AC runs most. Summer rates are often 10–30% higher than annual averages due to demand charges and seasonal pricing.
+</Callout>
+
+### How to Determine System Capacity
+
+Your system capacity is measured in tons or BTU/hour:
+
+- **1 ton = 12,000 BTU/hour**
+- Most residential systems range from 1.5 to 5 tons
+
+Find your tonnage on the outdoor unit's nameplate, in your installation paperwork, or by looking at the model number—many brands encode tonnage in the model number (e.g., "036" = 36,000 BTU = 3 tons).
+
+<ComparisonTable
+  headers={["Home Size (sq ft)", "Typical Tonnage", "BTU/hour"]}
+  rows={[
+    ["800–1,200", "1.5–2 ton", "18,000–24,000"],
+    ["1,200–1,600", "2–2.5 ton", "24,000–30,000"],
+    ["1,600–2,100", "2.5–3 ton", "30,000–36,000"],
+    ["2,100–2,600", "3–3.5 ton", "36,000–42,000"],
+    ["2,600–3,200", "3.5–4 ton", "42,000–48,000"],
+    ["3,200–4,000", "4–5 ton", "48,000–60,000"],
+  ]}
+/>
+
+<Callout type="warning">
+Home size is only a rough guide. Actual cooling load depends on insulation, window area, orientation, shade, local climate, and more. A proper Manual J load calculation from a qualified HVAC contractor is the only accurate way to determine correct sizing.
+</Callout>
+
+## Popular Comparison Scenarios (Pre-Calculated)
+
+### Scenario 1: 14.0 SEER2 vs 15.2 SEER2 (Federal Min North vs ENERGY STAR)
+
+<ComparisonTable
+  headers={["Metric", "Value"]}
+  rows={[
+    ["Efficiency improvement", "8.6%"],
+    ["Annual savings (3-ton, 1,400 hrs, $0.16/kWh)", "$30"],
+    ["Typical price premium", "$600–$900"],
+    ["Simple payback", "20–30 years"],
+    ["Payback after $600 tax credit", "0–10 years"],
+    ["Verdict", "Worth it for the tax credit alone"],
+  ]}
+/>
+
+### Scenario 2: 15.0 SEER2 vs 15.2 SEER2 (South Min vs ENERGY STAR)
+
+<ComparisonTable
+  headers={["Metric", "Value"]}
+  rows={[
+    ["Efficiency improvement", "1.3%"],
+    ["Annual savings (3-ton, 1,800 hrs, $0.16/kWh)", "$5"],
+    ["Typical price premium", "$100–$300"],
+    ["Simple payback", "20–60 years"],
+    ["Payback after $600 tax credit", "Immediate (net savings)"],
+    ["Verdict", "15.2 SEER2 is cheaper after tax credit"],
+  ]}
+/>
+
+### Scenario 3: 15.2 SEER2 vs 17.0 SEER2 (ENERGY STAR vs High Efficiency)
+
+<ComparisonTable
+  headers={["Metric", "Value"]}
+  rows={[
+    ["Efficiency improvement", "11.8%"],
+    ["Annual savings (3-ton, 1,400 hrs, $0.16/kWh)", "$43"],
+    ["Typical price premium", "$1,200–$2,000"],
+    ["Simple payback", "28–47 years"],
+    ["Payback after incentives ($900)", "7–26 years"],
+    ["Verdict", "Marginal—only worth it with large rebates or high rates"],
+  ]}
+/>
+
+### Scenario 4: 15.2 SEER2 vs 19.0 SEER2 (ENERGY STAR vs Premium)
+
+<ComparisonTable
+  headers={["Metric", "Value"]}
+  rows={[
+    ["Efficiency improvement", "25%"],
+    ["Annual savings (3-ton, 1,400 hrs, $0.16/kWh)", "$96"],
+    ["Typical price premium", "$3,500–$5,500"],
+    ["Simple payback", "36–57 years"],
+    ["Payback after incentives ($900)", "27–48 years"],
+    ["Verdict", "Not justified on savings—comfort purchase only"],
+  ]}
+/>
+
+### Scenario 5: 19.0 SEER2 vs 22.0 SEER2 (Premium vs Ultra-Premium)
+
+<ComparisonTable
+  headers={["Metric", "Value"]}
+  rows={[
+    ["Efficiency improvement", "15.8%"],
+    ["Annual savings (3-ton, 1,400 hrs, $0.16/kWh)", "$46"],
+    ["Typical price premium", "$2,000–$4,000"],
+    ["Simple payback", "43–87 years"],
+    ["Verdict", "Almost never justified on energy savings"],
+  ]}
+/>
+
+## Understanding the Results
+
+### What the Percentage Savings Means
+
+The percentage savings applies to your **cooling energy only**, not your entire electric bill. Cooling typically represents:
+
+- **40–60%** of summer electricity use in hot climates
+- **25–40%** in moderate climates
+- **10–25%** in cold climates
+- **20–35%** of annual electricity use nationally
+
+So a 20% reduction in cooling energy might translate to only a 4–12% reduction in your total annual electric bill.
+
+### Why Payback Periods Are Long
+
+Three factors make SEER upgrade payback periods longer than people expect:
+
+1. **Electricity is relatively cheap.** At $0.16/kWh, even significant kWh savings don't translate to large dollar amounts.
+
+2. **Cooling is seasonal.** Unlike heating (which runs 5–8 months in cold climates), AC only runs 3–6 months, limiting annual savings.
+
+3. **Higher SEER costs exponentially more.** Going from 14 to 16 SEER adds 2 SEER points for $1,000. Going from 16 to 20 adds 4 points for $4,000—the cost per SEER point doubles.
+
+### When the Calculator Underestimates Savings
+
+The calculator may underestimate your real savings if:
+
+- Your electricity rate is a summer peak rate (higher than annual average)
+- You have time-of-use pricing where AC runs during expensive peak hours
+- Electricity rates rise faster than the 2–3% annual average
+- You're switching from a degraded old system (actual efficiency lower than rated)
+- You're adding a heat pump that provides year-round savings (not just cooling)
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **Use SEER2 ratings for all comparisons** — they're the current standard and more accurate to real-world performance
+- **Convert legacy SEER to SEER2** by multiplying by 0.95 before comparing
+- **Small SEER2 differences (0.5–1.0 points) rarely matter financially** — focus on features, price, and installation quality
+- **Large SEER2 jumps (3+ points) save meaningful energy** but cost so much more that payback is often 20+ years
+- **The ENERGY STAR threshold (15.2 SEER2) is the critical cutoff** — it unlocks $600+ in tax credits that often outweigh the equipment premium
+- **Your electricity rate is the biggest payback multiplier** — homeowners paying $0.25+/kWh see 50–170% higher dollar savings
+- **Always factor in incentives** — tax credits and utility rebates can cut payback by 50–90%
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ questions={[
+  {
+    question: "How do I compare SEER and SEER2 ratings?",
+    answer: "Convert both to the same scale. To convert SEER to SEER2, multiply by 0.95 (e.g., 16 SEER × 0.95 = 15.2 SEER2). To convert SEER2 to SEER, multiply by 1.053 (e.g., 15.2 SEER2 × 1.053 = 16.0 SEER). Then compare the converted numbers directly. Or use our calculator above—it handles the conversion automatically."
+  },
+  {
+    question: "What SEER2 rating do I need for the tax credit?",
+    answer: "The 25C Energy Efficient Home Improvement Credit requires ENERGY STAR certification, which for central air conditioners in 2026 means a minimum of 15.2 SEER2 (approximately 16 SEER). The credit provides up to $600. Verify your specific unit's ENERGY STAR status at energystar.gov or on the AHRI directory."
+  },
+  {
+    question: "Does 1 SEER2 point make a big difference?",
+    answer: "Typically, no. One SEER2 point represents roughly 5–7% efficiency improvement, which translates to $15–$50/year in cooling costs for an average home. At the lower end of the scale (14–16 SEER2), each point matters more than at the upper end (19–22 SEER2) due to the mathematical relationship between the rating and energy consumption."
+  },
+  {
+    question: "Why does my payback period seem so long?",
+    answer: "Long payback periods are normal for SEER upgrades because: electricity is relatively cheap in the U.S. (averaging $0.16/kWh), cooling is seasonal (only 3–6 months of savings), and higher-efficiency equipment costs disproportionately more. Payback shortens significantly with high electricity rates ($0.25+/kWh), heavy cooling usage (1,500+ hours), and available incentives. The 14→16 SEER upgrade typically has the shortest payback of any tier jump."
+  },
+  {
+    question: "Should I use SEER or SEER2 in the calculator?",
+    answer: "Use SEER2 when available—it's the current standard and produces more accurate real-world estimates. If you only have legacy SEER ratings, convert to SEER2 first (multiply by 0.95) or use our conversion table above. Comparing a SEER number against a SEER2 number directly will give misleading results because they're different scales."
+  },
+  {
+    question: "How accurate is this calculator?",
+    answer: "The calculator provides a reasonable estimate based on the DOE's standardized methodology. Actual savings will vary based on duct quality, system sizing, maintenance, thermostat settings, home insulation, and actual weather patterns. The calculator tends to slightly overestimate savings because it assumes the system operates at its rated efficiency—real-world performance is typically 5–15% lower due to duct losses and installation factors."
+  },
+  {
+    question: "Does the calculator work for heat pumps?",
+    answer: "For cooling mode, yes—heat pumps use the same SEER/SEER2 rating for cooling efficiency. However, this calculator only estimates cooling savings. Heat pumps also provide heating efficiency benefits (measured in HSPF/HSPF2), which can double or triple total annual savings. For a complete heat pump comparison, you'd need to calculate heating savings separately using HSPF2 ratings."
+  },
+  {
+    question: "What is the minimum SEER2 I can install?",
+    answer: "It depends on your location. In the DOE North region: 14.0 SEER2 minimum. In the DOE South and Southwest regions: 15.0 SEER2 minimum. These federal minimums took effect January 1, 2023. Installing equipment below these thresholds violates DOE regulations."
+  },
+  {
+    question: "How do I find the SEER2 rating for a specific AC model?",
+    answer: "Look up the model on the AHRI Certified Product Directory at ahridirectory.org. Enter the outdoor unit and indoor coil model numbers to see the SEER2 rating for that specific combination. The rating varies by coil pairing—the same outdoor unit can have different SEER2 ratings with different indoor components."
+  },
+  {
+    question: "Does SEER2 account for humidity removal?",
+    answer: "No. SEER2 measures only the ratio of cooling output (sensible + latent) to electrical input. It doesn't separately rate humidity removal capability. Two units with the same SEER2 can have very different dehumidification performance. Variable-speed systems generally remove more moisture per BTU of cooling because they run longer at lower speeds, allowing more air contact time with the cold evaporator coil."
+  }
+]} />
+
+## Sources
+
+<SourcesBox sources={[
+  { label: "AHRI — Standard 210/240 Testing Procedure", url: "https://www.ahrinet.org/certification/certification-programs" },
+  { label: "AHRI — Certified Product Directory", url: "https://www.ahridirectory.org" },
+  { label: "U.S. DOE — Residential AC & Heat Pump Standards", url: "https://www.energy.gov/eere/buildings/residential-central-air-conditioners-and-heat-pumps" },
+  { label: "ENERGY STAR — Central AC Specifications", url: "https://www.energystar.gov/products/central-air-conditioners" },
+  { label: "U.S. EIA — State Electricity Profiles", url: "https://www.eia.gov/electricity/state/" },
+  { label: "IRS — 25C Energy Efficient Home Improvement Credit", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "16-seer-vs-14-seer", title: "16 SEER vs 14 SEER: Energy Savings Calculator + Payback" },
+  { slug: "16-seer-vs-20-seer", title: "16 SEER vs 20 SEER: Is the Upgrade Worth It?" },
+  { slug: "15-2-seer2-vs-16-seer", title: "15.2 SEER2 vs 16 SEER: Which Is Actually More Efficient?" },
+  { slug: "14-3-seer2-vs-16-seer", title: "14.3 SEER2 vs 16 SEER: Efficiency & Savings Comparison" },
+  { slug: "14-seer-vs-16-seer-vs-20-seer", title: "14 vs 16 vs 20 SEER: 3-Way Comparison" },
+  { slug: "is-higher-seer-worth-it", title: "Is a Higher SEER Rating Worth the Extra Cost?" }
+]} />

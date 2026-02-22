@@ -1,0 +1,388 @@
+---
+slug: 3-phase-power-calculator
+title: "3-Phase Power Calculator: kW to Amps, Amps to kW (2026)"
+description: "Free 3-phase power calculator to convert between kW, amps, and kVA. Includes formulas for 208V, 240V, 480V, and 600V systems with power factor calculations and wire sizing guidance."
+cluster: "electrical-wiring"
+role: "spoke"
+priority: "P2"
+contentType: "KEEP+"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - electrical-wiring-guide
+  - wire-gauge-chart
+  - power-consumption-calculator
+  - how-many-amps-does-a-house-use
+externalLinks:
+  - url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace"
+    label: "NEC (NFPA 70) — Article 430 (Motors)"
+  - url: "https://www.energy.gov/eere/amo/motor-systems"
+    label: "DOE — Motor Systems"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# 3-Phase Power Calculator: kW to Amps, Amps to kW
+
+**For 3-phase power at 480V with power factor 0.85: 10 kW = 14.2 amps, and 50 amps = 35.3 kW.** The formulas differ from single-phase because 3-phase power uses three conductors carrying current 120° out of phase with each other, resulting in the √3 (1.732) factor that appears in all 3-phase calculations.
+
+Use the calculator below for instant conversions, then review the formulas and reference tables for common 3-phase HVAC and commercial equipment.
+
+<TableOfContents />
+
+<CalcWrapper type="three-phase-power" />
+
+## 3-Phase Power Formulas
+
+### kW to Amps (3-Phase)
+
+**Amps = (kW × 1,000) ÷ (Volts × √3 × Power Factor)**
+
+For 480V at PF 0.85:
+**Amps = kW × 1,000 ÷ (480 × 1.732 × 0.85) = kW × 1.415**
+
+### Amps to kW (3-Phase)
+
+**kW = (Amps × Volts × √3 × Power Factor) ÷ 1,000**
+
+For 480V at PF 0.85:
+**kW = Amps × 480 × 1.732 × 0.85 ÷ 1,000 = Amps × 0.707**
+
+### kVA to Amps (3-Phase)
+
+**Amps = (kVA × 1,000) ÷ (Volts × √3)**
+
+For 480V:
+**Amps = kVA × 1,000 ÷ (480 × 1.732) = kVA × 1.203**
+
+### Amps to kVA (3-Phase)
+
+**kVA = (Amps × Volts × √3) ÷ 1,000**
+
+For 480V:
+**kVA = Amps × 480 × 1.732 ÷ 1,000 = Amps × 0.831**
+
+<Callout type="important">
+**Power Factor (PF) is crucial for kW calculations.** kVA is "apparent power" (volts × amps). kW is "real power" (what actually does work). The relationship: kW = kVA × PF. Motors typically have PF of 0.80–0.90. Resistive loads (heaters) have PF of 1.0. Always check equipment nameplates for actual PF.
+</Callout>
+
+## Quick Reference Tables
+
+### kW to Amps Conversion (Various Voltages, PF = 0.85)
+
+| kW | 208V | 240V | 380V | 480V | 600V |
+|----|------|------|------|------|------|
+| 1 | 3.27A | 2.83A | 1.79A | 1.42A | 1.13A |
+| 2 | 6.53A | 5.66A | 3.58A | 2.84A | 2.27A |
+| 3 | 9.80A | 8.49A | 5.37A | 4.25A | 3.40A |
+| 5 | 16.3A | 14.2A | 8.94A | 7.09A | 5.67A |
+| 7.5 | 24.5A | 21.2A | 13.4A | 10.6A | 8.51A |
+| 10 | 32.7A | 28.3A | 17.9A | 14.2A | 11.3A |
+| 15 | 49.0A | 42.5A | 26.9A | 21.3A | 17.0A |
+| 20 | 65.3A | 56.6A | 35.8A | 28.4A | 22.7A |
+| 25 | 81.7A | 70.7A | 44.7A | 35.5A | 28.4A |
+| 30 | 98.0A | 84.9A | 53.7A | 42.5A | 34.0A |
+| 40 | 131A | 113A | 71.6A | 56.7A | 45.4A |
+| 50 | 163A | 142A | 89.4A | 70.9A | 56.7A |
+| 75 | 245A | 212A | 134A | 106A | 85.1A |
+| 100 | 327A | 283A | 179A | 142A | 113A |
+
+### Motor HP to Amps (3-Phase, Full Load)
+
+| HP | 208V | 230V | 460V | 575V |
+|----|------|------|------|------|
+| 1 | 4.6A | 4.2A | 2.1A | 1.7A |
+| 1.5 | 6.6A | 6.0A | 3.0A | 2.4A |
+| 2 | 7.5A | 6.8A | 3.4A | 2.7A |
+| 3 | 10.6A | 9.6A | 4.8A | 3.9A |
+| 5 | 17.5A | 15.2A | 7.6A | 6.1A |
+| 7.5 | 25.3A | 22.0A | 11.0A | 9.0A |
+| 10 | 32.2A | 28.0A | 14.0A | 11.0A |
+| 15 | 48.3A | 42.0A | 21.0A | 17.0A |
+| 20 | 62.1A | 54.0A | 27.0A | 22.0A |
+| 25 | 78.2A | 68.0A | 34.0A | 27.0A |
+| 30 | 92.0A | 80.0A | 40.0A | 32.0A |
+| 40 | 120A | 104A | 52.0A | 41.0A |
+| 50 | 150A | 130A | 65.0A | 52.0A |
+| 60 | 177A | 154A | 77.0A | 62.0A |
+| 75 | 221A | 192A | 96.0A | 77.0A |
+| 100 | 285A | 248A | 124A | 99.0A |
+
+*Values from NEC Table 430.250 (Induction motors, Design B)*
+
+### Amps to kW Conversion (480V, Various Power Factors)
+
+| Amps | PF 0.80 | PF 0.85 | PF 0.90 | PF 1.00 |
+|------|---------|---------|---------|---------|
+| 10 | 6.65 kW | 7.07 kW | 7.49 kW | 8.31 kW |
+| 20 | 13.3 kW | 14.1 kW | 15.0 kW | 16.6 kW |
+| 30 | 19.9 kW | 21.2 kW | 22.5 kW | 24.9 kW |
+| 50 | 33.2 kW | 35.3 kW | 37.4 kW | 41.6 kW |
+| 75 | 49.8 kW | 53.0 kW | 56.1 kW | 62.4 kW |
+| 100 | 66.5 kW | 70.7 kW | 74.9 kW | 83.1 kW |
+| 150 | 99.7 kW | 106 kW | 112 kW | 125 kW |
+| 200 | 133 kW | 141 kW | 150 kW | 166 kW |
+| 300 | 199 kW | 212 kW | 225 kW | 249 kW |
+| 400 | 266 kW | 283 kW | 299 kW | 333 kW |
+
+## Understanding 3-Phase Power
+
+### What Is 3-Phase Power?
+
+3-phase power uses three conductors, each carrying alternating current that peaks at different times (120° apart). This provides:
+
+1. **More efficient power delivery:** ~1.73× the power of single-phase with only 1.5× the conductors
+2. **Smoother motor operation:** Constant power delivery (no pulsing like single-phase)
+3. **Smaller equipment:** Motors, generators, and transformers are physically smaller for the same power rating
+
+### 3-Phase vs. Single-Phase Comparison
+
+| Property | Single-Phase | 3-Phase |
+|----------|-------------|---------|
+| Conductors | 2 (hot + neutral) or 2 hots | 3 hots (+ neutral for 4-wire) |
+| Power formula | V × I × PF | V × I × √3 × PF |
+| 10kW at 240V | 41.7A (PF 1.0) | 24.1A (PF 1.0) |
+| Motor smoothness | Pulsating torque | Constant torque |
+| Residential use | Standard | Rare (large homes) |
+| Commercial use | Small loads | Standard |
+| Wire sizing (10kW) | Larger | Smaller |
+
+### Common 3-Phase Voltages
+
+| Voltage | Configuration | Common Use |
+|---------|--------------|------------|
+| 208V | 3-phase wye | Small commercial HVAC, motors |
+| 240V | 3-phase delta | Motor loads, welders |
+| 380V | 3-phase wye (European) | International equipment |
+| 480V | 3-phase wye | Large commercial/industrial HVAC |
+| 600V | 3-phase wye (Canada) | Industrial in Canada |
+
+<Callout type="info">
+**208V 3-phase is NOT the same as 240V single-phase.** In a 208V 3-phase wye system, 208V is the line-to-line voltage (120V line-to-neutral × √3 = 208V). Equipment rated for 240V single-phase may not work correctly on 208V 3-phase — the voltage is 13% lower, which affects motor performance and heater output.
+</Callout>
+
+## 3-Phase HVAC Equipment Sizing
+
+### Commercial Air Conditioners and Chillers
+
+| Cooling Capacity | Typical kW | 208V Amps | 480V Amps | Wire (480V) |
+|-----------------|-----------|-----------|-----------|-------------|
+| 5 tons | 6–8 kW | 20–26A | 8–11A | 14 AWG |
+| 7.5 tons | 9–12 kW | 29–39A | 13–17A | 14–12 AWG |
+| 10 tons | 12–16 kW | 39–52A | 17–23A | 12–10 AWG |
+| 15 tons | 18–24 kW | 59–78A | 25–34A | 10–8 AWG |
+| 20 tons | 24–32 kW | 78–104A | 34–45A | 8–6 AWG |
+| 25 tons | 30–40 kW | 98–131A | 42–57A | 6–4 AWG |
+| 30 tons | 36–48 kW | 117–157A | 51–68A | 4–3 AWG |
+| 40 tons | 48–64 kW | 157–209A | 68–90A | 3–1 AWG |
+| 50 tons | 60–80 kW | 196–261A | 85–113A | 1–1/0 AWG |
+
+### Rooftop Units (Packaged HVAC)
+
+| Unit Size | Compressor HP | Fan HP | Total kW | 480V Amps |
+|-----------|--------------|--------|---------|-----------|
+| 3 ton | 3 HP | 0.5 HP | 3.5–4.5 kW | 5–7A |
+| 5 ton | 5 HP | 1 HP | 5.5–7 kW | 8–10A |
+| 7.5 ton | 7.5 HP | 1.5 HP | 8–10 kW | 11–14A |
+| 10 ton | 10 HP | 2 HP | 10–13 kW | 14–18A |
+| 15 ton | 15 HP | 3 HP | 15–20 kW | 21–28A |
+| 20 ton | 20 HP | 5 HP | 20–27 kW | 28–38A |
+| 25 ton | 25 HP | 7.5 HP | 27–35 kW | 38–50A |
+
+### Electric Heating (3-Phase)
+
+| Heating Element | kW | 208V Amps | 240V Amps | 480V Amps |
+|----------------|-----|-----------|-----------|-----------|
+| 5 kW | 5 | 13.9A | 12.0A | 6.0A |
+| 10 kW | 10 | 27.8A | 24.1A | 12.0A |
+| 15 kW | 15 | 41.7A | 36.1A | 18.0A |
+| 20 kW | 20 | 55.6A | 48.1A | 24.1A |
+| 25 kW | 25 | 69.4A | 60.1A | 30.1A |
+| 30 kW | 30 | 83.3A | 72.2A | 36.1A |
+| 40 kW | 40 | 111A | 96.2A | 48.1A |
+| 50 kW | 50 | 139A | 120A | 60.2A |
+
+*Electric heating has PF = 1.0, so kW = kVA*
+
+## Wire Sizing for 3-Phase Circuits
+
+### NEC Table 310.16 Ampacity (3-Phase, Copper, 75°C)
+
+| Wire Gauge | Ampacity | Typical Use |
+|-----------|----------|------------|
+| 14 AWG | 20A | Small motors, controls |
+| 12 AWG | 25A | 5 HP motors at 480V |
+| 10 AWG | 35A | 7.5 HP motors at 480V |
+| 8 AWG | 50A | 15 HP motors at 480V |
+| 6 AWG | 65A | 20 HP motors at 480V |
+| 4 AWG | 85A | 25–30 HP motors at 480V |
+| 3 AWG | 100A | 40 HP motors at 480V |
+| 2 AWG | 115A | 50 HP motors at 480V |
+| 1 AWG | 130A | Sub-feeders |
+| 1/0 AWG | 150A | 75 HP motors at 480V |
+| 2/0 AWG | 175A | 100 HP motors at 480V |
+| 3/0 AWG | 200A | Service entrance |
+| 4/0 AWG | 230A | Service entrance |
+| 250 kcmil | 255A | Large feeders |
+| 300 kcmil | 285A | Large feeders |
+| 350 kcmil | 310A | Large feeders |
+| 500 kcmil | 380A | Main service |
+
+<Callout type="warning">
+**Motor circuits have special sizing rules.** NEC Article 430 requires conductors sized at 125% of motor full-load current, and overcurrent protection sized up to 250% for standard motors (to handle starting current). Always reference NEC Tables 430.248–430.250 for motor FLA values rather than nameplate data.
+</Callout>
+
+## Power Factor Correction
+
+### Why Power Factor Matters
+
+Low power factor means:
+- Higher current for the same real power
+- Larger wire sizes needed
+- Utility penalties (commercial accounts)
+- Reduced transformer capacity
+
+| Load Type | Typical Power Factor |
+|-----------|---------------------|
+| Incandescent lighting | 1.00 |
+| Resistive heating | 1.00 |
+| LED lighting (good ballast) | 0.90–0.98 |
+| Fluorescent lighting | 0.85–0.95 |
+| AC motors (full load) | 0.85–0.90 |
+| AC motors (partial load) | 0.50–0.80 |
+| VFD-driven motors | 0.95–0.99 |
+| Welders | 0.50–0.70 |
+
+### Calculating Capacitor kVAR for Correction
+
+**kVAR needed = kW × (tan(cos⁻¹(PF₁)) - tan(cos⁻¹(PF₂)))**
+
+To correct 100 kW load from PF 0.75 to PF 0.95:
+- tan(cos⁻¹(0.75)) = 0.882
+- tan(cos⁻¹(0.95)) = 0.329
+- kVAR = 100 × (0.882 - 0.329) = **55.3 kVAR**
+
+## Real-World Examples
+
+### Example 1: Sizing Wire for 3-Phase RTU
+
+**Scenario:** 20-ton rooftop unit, 480V 3-phase. Nameplate: 30 kW, PF 0.85.
+
+**Calculation:**
+- Amps = 30,000 ÷ (480 × 1.732 × 0.85) = 42.5A
+- 125% for continuous load = 53.1A
+- Wire: 6 AWG copper (65A ampacity)
+- Breaker: Per NEC 440, up to 175% of 42.5A = 74.4A → 70A or 80A
+
+### Example 2: Converting HP to kW
+
+**Scenario:** 25 HP motor, 480V, 3-phase. What's the power draw?
+
+**From NEC Table 430.250:** 25 HP at 460V = 34A FLA
+
+**Power calculation:**
+- kVA = 34 × 480 × 1.732 ÷ 1000 = 28.3 kVA
+- Assuming PF 0.87: kW = 28.3 × 0.87 = 24.6 kW
+
+**Verification:** 25 HP × 0.746 kW/HP = 18.65 kW mechanical output. At ~75% motor efficiency: 18.65 ÷ 0.75 = 24.9 kW input. ✓
+
+### Example 3: Panel Load Calculation
+
+**Scenario:** New commercial HVAC installation with:
+- (2) 10-ton AC units at 14 kW each
+- (1) 30 kW electric heater
+- (4) 2 HP exhaust fans at 2.5 kW each
+
+**Total load:**
+- AC units: 2 × 14 = 28 kW
+- Heater: 30 kW
+- Fans: 4 × 2.5 = 10 kW
+- **Total: 68 kW**
+
+**Current at 480V, PF 0.85:**
+- Amps = 68,000 ÷ (480 × 1.732 × 0.85) = 96.3A
+- With demand factors, likely ~80A effective
+
+**Service:** 200A, 3-phase, 480V service with room for growth
+
+### Example 4: Comparing 208V vs. 480V Wiring Cost
+
+**Scenario:** 50 kW load requires wiring. Compare 208V and 480V options.
+
+| Voltage | Amps (PF 0.85) | Wire Size | Approx. Cost (100 ft, 3 conductors) |
+|---------|---------------|-----------|-------------------------------------|
+| 208V | 163A | 2/0 AWG | $800–$1,200 |
+| 480V | 70.9A | 4 AWG | $200–$350 |
+
+**Savings at 480V:** ~$500–$850 in wire costs alone, plus smaller conduit, easier installation.
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **3-phase formula: Amps = kW × 1000 ÷ (V × √3 × PF)** — the √3 factor (1.732) is essential
+- **Power factor matters:** PF 0.85 is typical for motors; PF 1.0 for resistive heating
+- **480V uses ~2.3× less current than 208V** for the same power — smaller wire, lower cost
+- **Motor FLA from NEC tables, not nameplates** — use Tables 430.248–430.250
+- **kVA ≠ kW** — kW = kVA × Power Factor (real power vs. apparent power)
+- **Motor circuits:** Wire at 125% of FLA, breakers up to 175–250% of FLA
+- **Always verify voltage configuration:** 208V 3-phase ≠ 240V single-phase
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "How do I convert kW to amps in 3-phase?",
+    answer: "Use the formula: Amps = (kW × 1000) ÷ (Volts × 1.732 × Power Factor). For example, 20 kW at 480V with PF 0.85: Amps = 20,000 ÷ (480 × 1.732 × 0.85) = 28.3 amps. The 1.732 (√3) factor accounts for the 3-phase power relationship."
+  },
+  {
+    question: "What is the difference between kW and kVA?",
+    answer: "kW is real power (what actually does useful work). kVA is apparent power (volts × amps without considering power factor). The relationship: kW = kVA × Power Factor. For a motor with PF 0.85, a 100 kVA load consumes only 85 kW of real power — the rest is reactive power that oscillates between source and load."
+  },
+  {
+    question: "How do I calculate amps for a 3-phase motor?",
+    answer: "Use NEC Table 430.250 for motor full-load amps (FLA) rather than calculating from HP. For example, a 25 HP motor at 460V is 34A per the NEC table. To calculate: Amps ≈ (HP × 746) ÷ (V × 1.732 × Efficiency × PF), but tables are more accurate because they account for typical motor characteristics."
+  },
+  {
+    question: "Why is 3-phase more efficient than single-phase?",
+    answer: "3-phase delivers approximately 1.73× more power than single-phase with only 1.5× the conductors. It also provides constant power (no pulsating like single-phase), which means smoother motor operation and smaller motors/generators for the same output. This reduces wire costs, motor sizes, and energy losses."
+  },
+  {
+    question: "What is the √3 (1.732) factor in 3-phase calculations?",
+    answer: "The √3 factor accounts for the phase relationship in 3-phase systems. The three phases are 120° apart, and when you calculate the combined power or current relationship, the geometry results in √3 multiplying the single-phase equivalent. This is a fundamental property of 3-phase systems."
+  },
+  {
+    question: "How do I size wire for a 3-phase motor?",
+    answer: "Per NEC Article 430, motor branch circuit conductors must be sized at 125% of the motor's full-load current (FLA). Look up FLA in NEC Tables 430.248–430.250, multiply by 1.25, and select wire from NEC Table 310.16. For example, a 10 HP motor at 460V has 14A FLA; 14 × 1.25 = 17.5A → 14 AWG minimum (20A ampacity)."
+  },
+  {
+    question: "What power factor should I use for calculations?",
+    answer: "Use 0.85 as a default for motor loads if actual PF is unknown. Resistive loads (heaters) have PF = 1.0. VFD-driven motors have PF 0.95–0.99. Motors at partial load have lower PF (0.50–0.80). For accurate calculations, check the equipment nameplate or spec sheet for actual power factor."
+  },
+  {
+    question: "Is 208V 3-phase the same as 240V?",
+    answer: "No. 208V 3-phase comes from a wye transformer (120V line-to-neutral × √3 = 208V line-to-line). It's 13% lower than 240V, which can affect equipment performance. Motors rated for 240V may run slightly slower and cooler on 208V. Heaters produce only 75% of rated output (power ∝ V²). Always verify equipment is rated for your actual voltage."
+  },
+  {
+    question: "How do I calculate 3-phase power consumption?",
+    answer: "Real power: kW = (V × I × √3 × PF) ÷ 1000. Apparent power: kVA = (V × I × √3) ÷ 1000. For energy consumption: kWh = kW × hours of operation. Example: A 20 kW load running 8 hours consumes 160 kWh. At $0.10/kWh, that's $16/day."
+  },
+  {
+    question: "What size breaker for a 3-phase motor?",
+    answer: "NEC Article 430 allows motor branch circuit breakers up to 250% of FLA for standard motors (to handle starting current). Example: 10 HP motor at 460V = 14A FLA. Maximum breaker = 14 × 2.5 = 35A. Standard sizes are 30A or 40A. Use the next standard size up if the calculated value falls between sizes."
+  }
+]} />
+
+<SourcesBox sources={[
+  { name: "NEC Article 430 — Motors, Motor Circuits, and Controllers", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "NEC requirements for motor circuit sizing and protection" },
+  { name: "NEC Tables 430.248–430.250", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "Motor full-load current tables" },
+  { name: "DOE — Motor Systems", url: "https://www.energy.gov/eere/amo/motor-systems", description: "Department of Energy motor efficiency and selection guide" },
+  { name: "NEMA — Motor Standards", url: "https://www.nema.org/", description: "National Electrical Manufacturers Association motor standards" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "electrical-wiring-guide", title: "Home Electrical Wiring Guide" },
+  { slug: "wire-gauge-chart", title: "Wire Gauge Chart: AWG Sizes & Ampacity" },
+  { slug: "power-consumption-calculator", title: "Power Consumption Calculator" },
+  { slug: "how-many-amps-does-a-house-use", title: "How Many Amps Does a House Use?" }
+]} />

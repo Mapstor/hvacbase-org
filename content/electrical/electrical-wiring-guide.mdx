@@ -1,0 +1,533 @@
+---
+slug: electrical-wiring-guide
+title: "Home Electrical Wiring Guide: Wire Sizes, Breakers & Safety (2026)"
+description: "Complete home electrical wiring guide covering wire sizes (AWG), breaker sizing, circuit types, NEC 2023/2026 code requirements, and safety best practices for HVAC and general residential circuits."
+cluster: "electrical-wiring"
+role: "pillar"
+priority: "P1"
+contentType: "NEW"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - wire-gauge-chart
+  - wire-for-220-volt
+  - what-wire-size-for-30-amp
+  - what-wire-size-for-50-amp
+  - how-many-amps-does-a-house-use
+  - 10-2-or-10-3-wire-for-ac
+  - water-heater-wire-size
+  - water-heater-breaker-size
+  - electrical-panel-upgrade-cost
+externalLinks:
+  - url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace"
+    label: "NEC (NFPA 70) Official Standard"
+  - url: "https://www.energy.gov/energysaver/electrical-wiring"
+    label: "DOE — Electrical Wiring Basics"
+  - url: "https://www.energystar.gov/"
+    label: "ENERGY STAR — Efficient Appliances"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# Home Electrical Wiring Guide: Wire Sizes, Breakers & Safety (2026)
+
+**Most U.S. homes use 14 AWG wire on 15-amp circuits for lighting and 12 AWG wire on 20-amp circuits for outlets — but HVAC equipment, water heaters, and EV chargers demand dedicated circuits with heavier wire ranging from 10 AWG to 2/0 AWG.** Getting the wire size wrong isn't just a code violation — it's a fire hazard that kills an estimated 46,700 home fires per year according to the Electrical Safety Foundation International (ESFI).
+
+This guide covers everything you need to know about residential electrical wiring in 2026: wire gauges, breaker sizing, circuit types, NEC code requirements, and practical wiring for every major home system including HVAC, water heating, and electric vehicle charging.
+
+<TableOfContents />
+
+## How Home Electrical Wiring Works
+
+Your home's electrical system is a network of circuits that carry power from the utility company to every switch, outlet, and appliance. Understanding the basics prevents costly mistakes.
+
+**The path of electricity in your home:**
+1. Power enters through the meter at 240V (split-phase)
+2. The main breaker panel distributes power across individual circuits
+3. Each circuit has a breaker sized to match its wire gauge
+4. Wires carry current to outlets, switches, and hardwired appliances
+
+Every component in this chain must be sized correctly. An undersized wire carrying too much current overheats. An oversized breaker fails to trip before the wire reaches dangerous temperatures. The NEC (National Electrical Code) exists specifically to prevent these mismatches.
+
+## Understanding Wire Gauge (AWG)
+
+The American Wire Gauge (AWG) system measures wire diameter — and it works backwards from what you'd expect. Smaller AWG numbers mean thicker wire that carries more current.
+
+| AWG Gauge | Diameter (inches) | Copper Ampacity (60°C) | Copper Ampacity (75°C) | Common Use |
+|-----------|-------------------|----------------------|----------------------|------------|
+| 14 AWG | 0.0641 | 15A | 20A | Lighting circuits |
+| 12 AWG | 0.0808 | 20A | 25A | General outlets |
+| 10 AWG | 0.1019 | 30A | 35A | Dryers, AC units |
+| 8 AWG | 0.1285 | 40A | 50A | Ranges, sub-panels |
+| 6 AWG | 0.1620 | 55A | 65A | Large AC, sub-panels |
+| 4 AWG | 0.2043 | 70A | 85A | Sub-panels, feeders |
+| 3 AWG | 0.2294 | 85A | 100A | Service entrance |
+| 2 AWG | 0.2576 | 95A | 115A | Service entrance |
+| 1/0 AWG | 0.3249 | 125A | 150A | 150A service |
+| 2/0 AWG | 0.3648 | 145A | 175A | 200A service |
+| 4/0 AWG | 0.4600 | 195A | 230A | 200A service (long runs) |
+
+<Callout type="important">
+**NEC Table 310.16** is your bible for wire sizing. The ampacity values above apply to copper conductors in standard NM-B (Romex) cable at 30°C ambient temperature. Aluminum wire requires upsizing by approximately 2 AWG sizes for equivalent ampacity.
+</Callout>
+
+### Key AWG Rules to Remember
+
+Each 3-gauge decrease roughly doubles the wire's cross-sectional area. Going from 14 AWG to 8 AWG gives you about 4× the copper and 2.7× the current capacity. This matters when you're deciding whether to upsize wire for future-proofing — the cost of copper increases proportionally.
+
+The insulation temperature rating also matters. Most residential NM-B cable is rated at 60°C, but THHN wire used in conduit is rated at 75°C or 90°C. Higher temperature ratings allow more current through the same gauge — but NEC 240.4(D) caps 14 AWG at 15A, 12 AWG at 20A, and 10 AWG at 30A for branch circuits regardless of insulation rating.
+
+## Wire Types for Residential Use
+
+Not all wire is the same. The cable type you need depends on where it's installed and what it's powering.
+
+| Cable Type | Description | Typical Use | Where Installed |
+|------------|-------------|------------|-----------------|
+| NM-B (Romex) | Non-metallic sheathed, 2-3 conductors + ground | General indoor wiring | Dry interior walls, attics, crawlspaces |
+| UF-B | Underground feeder, moisture resistant | Outdoor circuits, underground | Direct burial or outdoor conduit |
+| THHN/THWN | Single conductors, thermoplastic insulation | Individual runs in conduit | EMT, PVC, or rigid conduit |
+| MC Cable | Metal-clad with aluminum armor | Commercial, some residential | Exposed locations, garages |
+| SE Cable | Service entrance cable | Service feeders, sub-panels | Between meter and panel |
+| USE-2 | Underground service entrance | Underground service laterals | Direct burial |
+
+### Understanding Cable Naming
+
+When you see "10/2 NM-B," here's what it means:
+- **10** = Wire gauge (10 AWG)
+- **2** = Number of insulated conductors (black hot + white neutral)
+- **NM-B** = Cable type (non-metallic sheathed, B-rated insulation)
+- There's always an additional bare copper ground wire not counted in the number
+
+So 10/2 NM-B has three total wires: one black (hot), one white (neutral), and one bare copper (ground). A 10/3 cable adds a second hot wire (red) for 240V circuits that also need a neutral — like an electric dryer or range.
+
+<Callout type="tip">
+**For 240V HVAC equipment like central air conditioners:** You typically need 10/2 cable, not 10/3. Most AC condensers don't need a neutral conductor — just two hots and a ground. Using 10/3 works but wastes money on an unused neutral wire. See our [10/2 or 10/3 Wire for AC](/10-2-or-10-3-wire-for-ac) guide for details.
+</Callout>
+
+## Breaker Sizing: The Complete Guide
+
+The breaker is your circuit's safety valve. It must be sized to protect the wire — not the appliance. This is the single most misunderstood concept in residential wiring.
+
+### The Fundamental Rule
+
+**NEC 240.4:** The overcurrent protection device (breaker) shall not exceed the ampacity of the conductor it protects.
+
+In plain English: the breaker amp rating must be equal to or less than what the wire can safely carry.
+
+| Wire Gauge | Maximum Breaker Size | Maximum Continuous Load (80%) |
+|-----------|---------------------|------------------------------|
+| 14 AWG | 15A | 12A |
+| 12 AWG | 20A | 16A |
+| 10 AWG | 30A | 24A |
+| 8 AWG | 40A | 32A |
+| 6 AWG | 50A–60A | 40A–48A |
+| 4 AWG | 70A | 56A |
+| 3 AWG | 100A | 80A |
+
+### The 80% Rule for Continuous Loads
+
+NEC 210.20 requires that conductors and breakers for continuous loads (running 3+ hours) be rated at 125% of the load — which effectively means you can only load a standard breaker to 80% of its rating continuously.
+
+A 30-amp breaker on a continuous-use AC unit should only carry 24 amps continuously. If your AC draws 26 amps, you need to upsize to a 40-amp breaker with 8 AWG wire, even though 10 AWG wire is technically rated for 30 amps.
+
+### Dedicated Circuits Required by Code
+
+The NEC requires dedicated circuits for specific appliances. A dedicated circuit serves only one appliance with its own breaker.
+
+| Appliance | Typical Circuit | Wire Gauge | Breaker |
+|-----------|----------------|-----------|---------|
+| Central AC (2–3 ton) | 240V, 1-phase | 10 AWG | 30A |
+| Central AC (4–5 ton) | 240V, 1-phase | 8 AWG | 40A–50A |
+| Heat pump | 240V, 1-phase | 10–8 AWG | 30A–50A |
+| Electric furnace | 240V, 1-phase | 8–4 AWG | 40A–70A |
+| Electric water heater (4500W) | 240V | 10 AWG | 30A |
+| Electric water heater (5500W) | 240V | 10 AWG | 30A |
+| Electric dryer | 240V | 10 AWG | 30A |
+| Electric range/oven | 240V | 6 AWG | 50A |
+| EV charger (Level 2, 40A) | 240V | 8 AWG | 50A |
+| EV charger (Level 2, 48A) | 240V | 6 AWG | 60A |
+| Dishwasher | 120V | 12 AWG | 20A |
+| Garbage disposal | 120V | 12 AWG | 20A |
+| Microwave | 120V | 12 AWG | 20A |
+| Bathroom outlets | 120V GFCI | 12 AWG | 20A |
+| Kitchen counter outlets | 120V GFCI | 12 AWG | 20A |
+| Garage outlets | 120V GFCI | 12 AWG | 20A |
+| Laundry outlet | 120V | 12 AWG | 20A |
+
+## Voltage Drop: The Hidden Wire Sizing Factor
+
+Wire gauge tables tell you the maximum current a wire can safely carry without overheating. But there's another factor that often forces you to upsize: **voltage drop**.
+
+Every wire has resistance. The longer the run, the more voltage you lose. The NEC recommends (but doesn't require) no more than 3% voltage drop on branch circuits and 5% total from service entrance to the farthest outlet.
+
+### Voltage Drop Formula
+
+**VD = (2 × L × I × R) / 1000**
+
+Where:
+- VD = voltage drop (volts)
+- L = one-way wire length (feet)
+- I = current (amps)
+- R = wire resistance per 1,000 feet (ohms)
+
+| AWG | Resistance (Ω/1000 ft, copper) | Max Length at 3% Drop, 120V, 15A | Max Length at 3% Drop, 240V, 30A |
+|-----|-------------------------------|----------------------------------|----------------------------------|
+| 14 | 3.14 | 38 ft | — |
+| 12 | 1.98 | 61 ft | — |
+| 10 | 1.24 | 97 ft | 97 ft |
+| 8 | 0.778 | 154 ft | 154 ft |
+| 6 | 0.491 | 245 ft | 245 ft |
+| 4 | 0.308 | 390 ft | 390 ft |
+
+<Callout type="warning">
+**Long runs kill efficiency.** If your AC condenser is 100 feet from the panel, 10 AWG copper wire at 30 amps drops 7.4V — that's a 3.1% drop on a 240V circuit. Marginal, but add in the service entrance drop and you may exceed 5% total. In that case, upsize to 8 AWG.
+</Callout>
+
+### Real-World Example: AC Condenser 150 Feet From Panel
+
+**Scenario:** You're installing a 3-ton AC condenser that draws 18 amps at 240V. The condenser pad is 150 feet from the panel.
+
+**Step 1:** Minimum wire per breaker — 10 AWG for a 30A breaker (NEC 240.4(D)).
+
+**Step 2:** Calculate voltage drop with 10 AWG at 150 ft and 18A:
+VD = (2 × 150 × 18 × 1.24) / 1000 = 6.7V → 2.8% on 240V
+
+**Step 3:** That's under 3%, but add 2% for the service entrance feeder and you're at 4.8% — close to the 5% total limit.
+
+**Decision:** 10 AWG technically works, but 8 AWG provides margin. A professional would likely recommend 8 AWG for this run.
+
+## HVAC-Specific Wiring Requirements
+
+HVAC equipment has unique wiring requirements because of motor starting currents and continuous operation.
+
+### Reading the Equipment Nameplate
+
+Every HVAC unit has a data plate with critical electrical specs:
+
+- **MCA (Minimum Circuit Ampacity):** Determines minimum wire size. Wire must be rated for at least MCA.
+- **MOP (Maximum Overcurrent Protection):** Determines maximum breaker size. Breaker cannot exceed MOP.
+- **RLA (Rated Load Amps):** Normal running current of the compressor.
+- **LRA (Locked Rotor Amps):** Startup surge current (3–6× RLA).
+- **FLA (Full Load Amps):** Maximum continuous current at rated conditions.
+
+<Callout type="example">
+**Example Nameplate — 3-Ton Condenser:**
+- Voltage: 208/230V, 1-phase, 60Hz
+- MCA: 19.6A
+- MOP: 30A
+- RLA: 14.2A
+- LRA: 78A
+
+**Wiring decision:** Wire must handle ≥19.6A → 10 AWG (rated 30A). Breaker must not exceed 30A → 30A double-pole breaker. Done.
+</Callout>
+
+### Common HVAC Circuit Sizing
+
+| Equipment | Typical MCA | Typical MOP | Wire Gauge | Breaker | Cable Type |
+|-----------|-------------|-------------|-----------|---------|------------|
+| 1.5-ton AC | 11–14A | 20A | 12 AWG | 20A | 10/2 NM-B or THHN |
+| 2-ton AC | 13–17A | 25A | 12–10 AWG | 25A | 10/2 NM-B or THHN |
+| 2.5-ton AC | 15–19A | 25–30A | 10 AWG | 25–30A | 10/2 NM-B or THHN |
+| 3-ton AC | 17–22A | 30–35A | 10 AWG | 30A | 10/2 NM-B or THHN |
+| 4-ton AC | 22–28A | 35–45A | 8 AWG | 40A | 8/2 NM-B or THHN |
+| 5-ton AC | 28–35A | 45–60A | 6–8 AWG | 50A | 6/2 THHN in conduit |
+| Mini-split (9k BTU) | 6–8A | 15A | 14 AWG | 15A | 14/2 NM-B |
+| Mini-split (18k BTU) | 11–15A | 20A | 12 AWG | 20A | 12/2 NM-B |
+| Mini-split (36k BTU) | 19–24A | 30A | 10 AWG | 30A | 10/2 NM-B |
+| Electric furnace (10kW) | 45A | 60A | 6 AWG | 60A | 6/2 THHN |
+| Electric furnace (15kW) | 65A | 80A | 4 AWG | 80A | 4/2 THHN |
+| Electric furnace (20kW) | 87A | 100A | 3 AWG | 100A | 3 AWG THHN |
+
+### Disconnect Requirements
+
+NEC 440.14 requires a disconnect switch within sight of HVAC equipment and within 50 feet. This is typically a pull-out disconnect mounted on the wall near the condenser.
+
+The disconnect must be rated for at least the equipment's MCA and must be able to interrupt the LRA. For most residential units under 40A, a standard 60A non-fused disconnect works. For larger units, a fused disconnect matching the MOP provides additional protection.
+
+## 120V vs. 240V Circuits
+
+Understanding the difference between 120V and 240V circuits is essential for proper wiring.
+
+**120V circuits** use one hot wire (black), one neutral (white), and one ground (bare/green). They connect to a single-pole breaker. These power most household devices: lights, standard outlets, small appliances.
+
+**240V circuits** use two hot wires (black and red), and one ground (bare/green). They connect to a double-pole breaker. These power heavy equipment: central AC, electric water heaters, dryers, ovens. Many 240V loads don't need a neutral because they don't have any 120V components.
+
+**240V circuits with neutral** use two hots, one neutral, and one ground (4 wires total). Electric dryers and ranges need this configuration because they have both 240V heating elements and 120V controls/lights.
+
+| Circuit Type | Hots | Neutral | Ground | Cable | Breaker |
+|-------------|------|---------|--------|-------|---------|
+| 120V, 15A | 1 (black) | Yes (white) | Yes (bare) | 14/2 NM-B | 15A SP |
+| 120V, 20A | 1 (black) | Yes (white) | Yes (bare) | 12/2 NM-B | 20A SP |
+| 240V, 30A (AC) | 2 (black, red) | No | Yes (bare) | 10/2 NM-B | 30A DP |
+| 240V, 30A (dryer) | 2 (black, red) | Yes (white) | Yes (bare) | 10/3 NM-B | 30A DP |
+| 240V, 50A (range) | 2 (black, red) | Yes (white) | Yes (bare) | 6/3 NM-B | 50A DP |
+
+## Grounding and Safety
+
+Proper grounding saves lives. The ground wire provides a low-resistance path for fault current to flow back to the panel and trip the breaker.
+
+### GFCI Protection (NEC 2023/2026)
+
+Ground-Fault Circuit Interrupters detect current leaks as small as 4–6 milliamps and shut off power within 1/25 of a second. The NEC has expanded GFCI requirements significantly in recent code cycles.
+
+**GFCI required locations (NEC 210.8):**
+- Bathrooms (all outlets)
+- Kitchens (within 6 feet of sink)
+- Garages and accessory buildings
+- Outdoors
+- Crawlspaces and unfinished basements
+- Laundry areas
+- Within 6 feet of any sink
+- Boathouses
+- Indoor damp/wet locations
+
+### AFCI Protection (NEC 2023/2026)
+
+Arc-Fault Circuit Interrupters detect dangerous electrical arcs from damaged wires or loose connections. NEC 210.12 now requires AFCI protection on virtually all 120V, 15A and 20A branch circuits in dwelling units, including:
+
+- Bedrooms, living rooms, dining rooms
+- Kitchens, laundry rooms, hallways
+- Closets, sunrooms, recreation rooms
+
+<Callout type="info">
+**Dual-function breakers** combine AFCI and GFCI protection in one unit. At $35–$55 per breaker, they simplify compliance in areas requiring both protections — like kitchens and laundry rooms.
+</Callout>
+
+## NEC 2023 and 2026 Code Updates
+
+The NEC updates on a 3-year cycle. As of 2026, most jurisdictions are adopting or have adopted NEC 2023, with NEC 2026 in the development pipeline.
+
+### Key NEC 2023 Changes Affecting Homeowners
+
+**Expanded GFCI requirements (210.8):** GFCI protection now required for all 240V outlets rated 150V-to-ground or less and 50 amps or less. This affects 240V outlets for dryers, ranges, and EV chargers.
+
+**Surge protection (230.67):** All dwelling unit services must have a Type 1 or Type 2 surge protective device (SPD). This protects sensitive HVAC electronics, smart thermostats, and other equipment.
+
+**Rapid shutdown for solar (690.12):** Updated requirements for rapid shutdown of rooftop solar systems, affecting homes with solar-connected HVAC systems.
+
+**EV-ready requirements (NEC 625):** Many jurisdictions now require new construction to include EV-ready wiring or at minimum an available circuit in the garage for future EV charger installation.
+
+## Electrical Panel: The Heart of Your System
+
+Your electrical panel distributes power to every circuit in your home. Its size determines how much total power you can use simultaneously.
+
+| Panel Size | Total Capacity | Typical Home Size | Suitable For |
+|-----------|---------------|-------------------|-------------|
+| 100A | 24,000W at 240V | <1,500 sq ft | Gas heat, gas water heater, no EV |
+| 125A | 30,000W at 240V | 1,500–2,000 sq ft | Gas heat, some electric appliances |
+| 150A | 36,000W at 240V | 2,000–2,500 sq ft | Mix of gas/electric |
+| 200A | 48,000W at 240V | 2,500+ sq ft | All-electric, heat pump, EV charger |
+| 320A | 76,800W at 240V | Large homes | All-electric + high loads |
+| 400A | 96,000W at 240V | Very large homes | Multiple HVAC zones, pool, shop |
+
+**Most homes built since 2000 have 200A service.** If you're adding a heat pump, electric vehicle charger, or electric water heater to an older home with 100A service, you'll likely need a [panel upgrade](/electrical-panel-upgrade-cost).
+
+### Load Calculation (NEC Article 220)
+
+Before adding circuits, verify your panel has capacity. The NEC Standard Method for residential load calculation:
+
+1. **General lighting and receptacles:** 3 VA per square foot of living space
+2. **Small appliance circuits:** 1,500 VA per circuit (minimum 2 required)
+3. **Laundry circuit:** 1,500 VA
+4. **Apply demand factors:** First 10,000 VA at 100%, remainder at 40%
+5. **Add fixed appliances** at nameplate ratings (with demand factors)
+6. **Add largest motor** at 125% of nameplate
+7. **Add HVAC** (use largest of heating or cooling, not both)
+
+<Callout type="example">
+**Example: 2,000 sq ft home load calculation**
+- General lighting: 2,000 × 3 = 6,000 VA
+- Small appliance circuits (2): 3,000 VA
+- Laundry: 1,500 VA
+- Subtotal: 10,500 VA → First 10,000 at 100% + 500 at 40% = 10,200 VA
+- Electric range: 8,000 VA (per Table 220.55) = 8,000 VA
+- Dishwasher: 1,500 VA
+- Water heater (4,500W): 4,500 VA
+- AC (3-ton, 30A × 240V): 7,200 VA
+- **Total: 31,400 VA ÷ 240V = 130.8A → 150A or 200A service**
+</Callout>
+
+## Wiring for Specific HVAC Equipment
+
+### Central Air Conditioner
+
+Most residential central AC units (2–5 tons) require a dedicated 240V circuit. The exact requirements come from the unit's nameplate.
+
+**Typical installation:**
+- 10/2 NM-B from panel to disconnect
+- Whip (flexible conduit with THHN) from disconnect to unit
+- 30A double-pole breaker
+- Non-fused 60A disconnect within sight of unit
+
+### Heat Pump
+
+Heat pumps wire identically to AC units — with one addition. The supplemental electric heat strips in the air handler may need their own circuit. A 3-ton heat pump with 10kW strip heat might require two circuits: one 30A for the condenser and one 60A for the air handler with strips.
+
+### Mini-Split Systems
+
+Mini-splits are simpler. Most single-zone units under 18,000 BTU need only a dedicated 120V or 240V 20A circuit. Multi-zone units typically need a 240V, 30A circuit. Always check the installation manual — some brands require a dedicated circuit even for small units.
+
+### Electric Furnace
+
+Electric furnaces are among the most power-hungry HVAC appliances. A 20kW electric furnace draws approximately 83 amps at 240V, requiring 3 AWG copper wire and a 100A breaker. Some large electric furnaces need a dedicated sub-panel.
+
+## Common Wiring Mistakes and How to Avoid Them
+
+### Mistake 1: Oversized Breaker
+
+**The problem:** A homeowner's 20A breaker keeps tripping, so they replace it with a 30A breaker on the same 12 AWG wire.
+
+**The danger:** 12 AWG wire is only rated for 20A. A 30A breaker won't trip until the wire is carrying 50% more current than it's designed for. The wire overheats, insulation melts, and a fire starts inside the wall where you can't see it.
+
+**The fix:** If a breaker trips repeatedly, find and fix the cause — too many devices on the circuit, a short circuit, or a ground fault. Never upsize the breaker without upsizing the wire.
+
+### Mistake 2: Wrong Wire Type Outdoors
+
+**The problem:** Using indoor-rated NM-B (Romex) cable to run power to an outdoor AC condenser through underground conduit.
+
+**The danger:** NM-B isn't rated for wet locations. Moisture penetrates the sheathing, degrades insulation, and causes ground faults or shorts.
+
+**The fix:** Use UF-B cable for direct burial or THWN conductors in conduit for outdoor runs. If running through conduit outdoors, use wet-rated individual conductors.
+
+### Mistake 3: Ignoring Voltage Drop on Long Runs
+
+**The problem:** Running 10 AWG wire 200 feet to a detached garage for a sub-panel.
+
+**The danger:** At 30A, 10 AWG wire drops 14.9V over 200 feet on a 240V circuit — a 6.2% voltage drop. Your HVAC compressor runs hot and inefficiently, the motor life shortens, and equipment may fail prematurely.
+
+**The fix:** Use the voltage drop formula and upsize wire for runs over 50 feet. For a 200-foot, 30A run, 6 AWG copper limits voltage drop to 3.7%.
+
+### Mistake 4: Missing Equipment Ground
+
+**The problem:** Using old 3-wire dryer or range cables (no separate ground) and assuming the neutral doubles as ground.
+
+**The danger:** This was legal before NEC 1996 but is now prohibited for new installations. If the neutral breaks, the equipment chassis becomes energized at 120V.
+
+**The fix:** All new 240V installations require a 4-wire connection: two hots, neutral, and separate equipment ground. Upgrade old 3-prong dryer outlets to 4-prong when replacing appliances.
+
+## Aluminum vs. Copper Wiring
+
+| Property | Copper | Aluminum |
+|----------|--------|----------|
+| Ampacity (per size) | Higher | ~78% of copper |
+| Weight | Heavier | ~30% of copper weight |
+| Cost per amp | Higher | 40–60% cheaper |
+| Thermal expansion | Lower | Higher (creep risk) |
+| Connection issues | Minimal | Requires anti-oxidant, rated connectors |
+| Common sizes | 14 AWG – 4/0 AWG | 6 AWG – 4/0 AWG (feeders) |
+| Residential use | Branch circuits | Service entrance, feeders |
+
+**Modern aluminum wire (AA-8000 alloy) is safe and code-compliant for feeders and service entrance cable.** It's standard for 100A+ service conductors because copper at those sizes is prohibitively expensive. A 200A copper service entrance cable costs $4–$6/ft vs. $1.50–$3/ft for aluminum.
+
+<Callout type="warning">
+**1960s–1970s aluminum branch circuit wiring (AA-1350 alloy)** is a known fire hazard due to oxidation and thermal expansion at connections. If your home has aluminum branch wiring, have an electrician inspect connections and install approved CO/ALR-rated devices or COPALUM crimp connectors.
+</Callout>
+
+## Permit and Inspection Requirements
+
+### When You Need a Permit
+
+Most jurisdictions require electrical permits for:
+- New circuits
+- Panel upgrades or replacements
+- Adding sub-panels
+- Hardwired appliance installations (HVAC, water heaters)
+- Service entrance changes
+- Any work inside the panel
+
+You typically do NOT need a permit for:
+- Replacing outlets or switches (like-for-like)
+- Replacing light fixtures
+- Replacing a breaker with same-size replacement
+
+### Homeowner Permits
+
+Many states allow homeowners to pull their own electrical permits for work on their primary residence. However, the work must still pass inspection. Common requirements:
+
+1. Apply for permit at local building department ($50–$200)
+2. Complete work according to NEC and local amendments
+3. Schedule rough-in inspection (before walls are closed)
+4. Schedule final inspection
+5. Inspector verifies wire sizes, connections, grounding, GFCI/AFCI protection
+
+<Callout type="tip">
+**Pro tip:** Even if your jurisdiction allows homeowner electrical work, consider hiring a licensed electrician for panel work and 240V circuits. The permit and inspection process ensures safety, and proper documentation protects your home's resale value and insurance coverage.
+</Callout>
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **Match wire to breaker, breaker to wire:** Never put a 30A breaker on 14 AWG or 12 AWG wire
+- **Always check the equipment nameplate:** Use MCA for wire sizing and MOP for breaker sizing on HVAC equipment
+- **Account for voltage drop:** Upsize wire on runs over 50 feet, especially for 240V HVAC equipment
+- **Use dedicated circuits** for all major appliances: AC, heat pump, water heater, dryer, range, EV charger
+- **GFCI and AFCI protection** is required on nearly all residential circuits under NEC 2023
+- **200A service** is the modern standard — upgrade from 100A if adding heat pumps or EV chargers
+- **Copper for branch circuits, aluminum for feeders** — both are safe when properly installed
+- **Pull permits and get inspections** — it protects your home, your insurance, and your family
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "What size wire do I need for a 30-amp circuit?",
+    answer: "You need 10 AWG copper wire for a 30-amp circuit per NEC 240.4(D). This applies to most residential 240V circuits including central AC units and electric water heaters. For runs over 100 feet, consider upsizing to 8 AWG to compensate for voltage drop."
+  },
+  {
+    question: "Can I use 14 AWG wire on a 20-amp breaker?",
+    answer: "No. NEC 240.4(D) explicitly prohibits 14 AWG wire on circuits larger than 15 amps. Using 14 AWG on a 20-amp breaker is a code violation and fire hazard. You must use 12 AWG or larger wire for 20-amp circuits."
+  },
+  {
+    question: "What wire size do I need for a 200-amp service?",
+    answer: "For a 200-amp residential service entrance, you need 2/0 AWG copper or 4/0 AWG aluminum. Most electricians use aluminum SE (service entrance) cable because it's significantly less expensive — typically $1.50–$3/ft for aluminum vs. $4–$6/ft for copper."
+  },
+  {
+    question: "Do I need a dedicated circuit for my air conditioner?",
+    answer: "Yes. All central air conditioners, heat pumps, and most mini-split systems require a dedicated circuit — meaning the breaker serves only that one piece of equipment. This is required by NEC 440.4 and the equipment manufacturer's installation instructions."
+  },
+  {
+    question: "What's the difference between 10/2 and 10/3 wire?",
+    answer: "10/2 cable contains two insulated conductors (black and white) plus a bare ground wire — three wires total. 10/3 cable contains three insulated conductors (black, red, and white) plus a bare ground — four wires total. Use 10/2 for 240V loads that don't need a neutral (like AC units), and 10/3 for 240V loads that need a neutral (like electric dryers)."
+  },
+  {
+    question: "How do I know if my electrical panel is full?",
+    answer: "Open the panel door and count breaker slots. A 200A panel typically has 40 slots. Count occupied slots versus empty ones. If all slots are full, you may be able to use tandem (slim) breakers in compatible slots, or you may need a sub-panel. A licensed electrician can also perform a load calculation to determine if you have capacity for additional circuits."
+  },
+  {
+    question: "Is aluminum wiring safe?",
+    answer: "Modern AA-8000 aluminum alloy wire is safe and code-approved for service entrances and feeders (large circuits). However, 1960s–70s AA-1350 aluminum used for branch circuits is a fire hazard due to connection failures. If your home has old aluminum branch wiring, have it inspected by a licensed electrician and remediated with approved connectors."
+  },
+  {
+    question: "When do I need GFCI protection?",
+    answer: "Under NEC 2023, GFCI protection is required in bathrooms, kitchens (within 6 feet of sink), garages, outdoors, crawlspaces, unfinished basements, laundry areas, and within 6 feet of any sink. NEC 2023 expanded this to include 240V circuits up to 50A — meaning EV chargers and some HVAC equipment now need GFCI protection too."
+  },
+  {
+    question: "How much does it cost to wire a new circuit?",
+    answer: "A new 120V, 20A circuit typically costs $200–$500 installed by an electrician, including the breaker, wire, and outlet. A 240V, 30A circuit for an AC unit costs $300–$800 depending on wire run length. Adding a circuit from an existing panel is far cheaper than a full panel upgrade, which runs $1,500–$4,000."
+  },
+  {
+    question: "Can I do my own electrical work?",
+    answer: "Many states allow homeowners to perform electrical work on their primary residence with a permit. However, the work must comply with the NEC and pass inspection. For safety, most professionals recommend hiring a licensed electrician for panel work, 240V circuits, and any work involving service entrance conductors."
+  }
+]} />
+
+<SourcesBox sources={[
+  { name: "NFPA 70 (NEC 2023)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "National Electrical Code — the governing standard for residential and commercial electrical installations" },
+  { name: "U.S. DOE — Electrical Wiring", url: "https://www.energy.gov/energysaver/electrical-wiring", description: "Department of Energy residential electrical wiring basics" },
+  { name: "ESFI — Home Electrical Fire Statistics", url: "https://www.esfi.org/", description: "Electrical Safety Foundation International fire and injury data" },
+  { name: "ENERGY STAR", url: "https://www.energystar.gov/", description: "EPA/DOE program for energy-efficient appliances and equipment" },
+  { name: "UL — Wire and Cable Safety", url: "https://www.ul.com/", description: "Underwriters Laboratories product safety testing and certification" },
+  { name: "NECA — National Electrical Contractors Association", url: "https://www.necanet.org/", description: "Industry standards and best practices for electrical installation" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "wire-gauge-chart", title: "Wire Gauge Chart: AWG Wire Sizes & Ampacity" },
+  { slug: "wire-for-220-volt", title: "Wire for 220V Circuits: AWG Gauge for 10–200 Amps" },
+  { slug: "what-wire-size-for-30-amp", title: "What Wire Size for 30 Amp Circuit?" },
+  { slug: "what-wire-size-for-50-amp", title: "What Wire Size for 50 Amp Circuit?" },
+  { slug: "how-many-amps-does-a-house-use", title: "How Many Amps Does a House Use?" },
+  { slug: "electrical-panel-upgrade-cost", title: "Electrical Panel Upgrade Cost: 100 to 200 Amp" },
+  { slug: "water-heater-wire-size", title: "Water Heater Wire Size Chart" },
+  { slug: "10-2-or-10-3-wire-for-ac", title: "10/2 or 10/3 Wire for AC?" }
+]} />

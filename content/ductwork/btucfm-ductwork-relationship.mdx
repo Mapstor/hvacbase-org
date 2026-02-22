@@ -1,0 +1,420 @@
+---
+slug: "btucfm-ductwork-relationship"
+title: "BTU to CFM for Ductwork: How to Calculate Airflow Needs (2026 Guide)"
+description: "Convert BTU to CFM for ductwork sizing with our formula, charts, and examples. Learn the 400 CFM per ton rule, when it applies, and how to calculate exact airflow for any room or system."
+cluster: "ductwork-ventilation"
+role: "spoke"
+priority: 2
+contentType: "calculator-guide"
+datePublished: "2026-02-07"
+dateModified: "2026-02-07"
+relatedArticles:
+  - "ductwork-sizing-calculator"
+  - "flexible-vs-rigid-ductwork"
+  - "duct-leakage-testing"
+  - "btu-calculator"
+  - "seer-rating-explained"
+externalLinks:
+  - url: "https://www.acca.org/standards/manual-j"
+    label: "ACCA Manual J – Residential Load Calculation"
+  - url: "https://www.acca.org/standards/manual-d"
+    label: "ACCA Manual D – Residential Duct Systems"
+  - url: "https://www.energy.gov/energysaver/heat-pump-systems"
+    label: "DOE – Heat Pump Systems"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# BTU to CFM for Ductwork: How to Calculate Airflow Needs
+
+**To convert BTU to CFM for cooling, divide the BTU/h by 30 — that's the quick formula. A 12,000 BTU (1-ton) air conditioner needs 400 CFM of airflow, a 36,000 BTU (3-ton) system needs 1,200 CFM, and a 60,000 BTU (5-ton) system needs 2,000 CFM.** This relationship between thermal capacity and airflow is the foundation of every duct sizing calculation, and getting it wrong means undersized ducts, uncomfortable rooms, and wasted energy.
+
+<TableOfContents />
+
+## The Core Formula: BTU to CFM Conversion
+
+The relationship between BTU and CFM is governed by the sensible heat equation from thermodynamics:
+
+**Q = 1.08 x CFM x DeltaT**
+
+Where Q is the sensible heat in BTU/h, CFM is the airflow in cubic feet per minute, and DeltaT is the temperature difference between supply and return air in degrees Fahrenheit.
+
+Rearranging to solve for CFM:
+
+**CFM = Q / (1.08 x DeltaT)**
+
+The constant 1.08 comes from the specific heat of air (0.24 BTU per lb per degree F) multiplied by the density of air at standard conditions (0.075 lb/ft3) multiplied by 60 minutes per hour, which equals 1.08.
+
+### Where the "400 CFM Per Ton" Rule Comes From
+
+For standard air conditioning, the typical temperature drop across the evaporator coil (DeltaT) is about 20 degrees F. Plugging that into the formula:
+
+CFM = 12,000 BTU/h / (1.08 x 20) = 12,000 / 21.6 = 556 CFM
+
+Wait — that gives 556 CFM, not 400. What happened?
+
+The answer is that the total cooling capacity (12,000 BTU) includes both **sensible cooling** (lowering temperature) and **latent cooling** (removing moisture). Roughly 70–75% of total capacity is sensible in a typical application. So: 12,000 x 0.75 = 9,000 BTU/h sensible, and 9,000 / (1.08 x 20) = **417 CFM** — close to the 400 CFM standard.
+
+The 400 CFM per ton rule assumes a sensible heat ratio (SHR) of 0.74 and a 20 degree F DeltaT — conditions that are typical for moderate climates. But these assumptions don't hold everywhere.
+
+<Callout type="important">
+**The 400 CFM/ton rule is an approximation, not a universal law.** Actual airflow requirements vary from 325–450 CFM/ton depending on climate, SHR, coil design, and the specific equipment manufacturer's requirements. Always check the manufacturer's installation manual for the correct airflow specification for your system.
+</Callout>
+
+## BTU to CFM Conversion Chart
+
+This chart covers the most common HVAC system sizes with airflow requirements for both cooling and heating modes.
+
+<ComparisonTable
+  title="BTU to CFM Conversion — Cooling Mode (Standard Conditions)"
+  headers={["System Size", "Cooling BTU/h", "CFM at 400/ton", "CFM Range (Manufacturer Specs)", "Typical Duct Trunk Size"]}
+  rows={[
+    ["1 ton", "12,000", "400", "325–450", "10\"–12\" round"],
+    ["1.5 ton", "18,000", "600", "490–675", "12\"–14\" round"],
+    ["2 ton", "24,000", "800", "650–900", "14\"–16\" round"],
+    ["2.5 ton", "30,000", "1,000", "815–1,125", "16\"–18\" round"],
+    ["3 ton", "36,000", "1,200", "975–1,350", "16\"–18\" round"],
+    ["3.5 ton", "42,000", "1,400", "1,140–1,575", "18\"–20\" round"],
+    ["4 ton", "48,000", "1,600", "1,300–1,800", "18\"–20\" round"],
+    ["5 ton", "60,000", "2,000", "1,625–2,250", "20\"–24\" round"],
+  ]}
+/>
+
+### Heating Mode: Different CFM Requirements
+
+Heating has different airflow requirements than cooling. For a gas furnace, the DeltaT is much higher (typically 40–70 degrees F rise) but CFM is lower. For a heat pump, the DeltaT is lower (typically 15–30 degrees F) and CFM stays similar to cooling mode.
+
+<ComparisonTable
+  title="BTU to CFM — Heating Mode Comparison"
+  headers={["Heat Source", "Typical DeltaT", "CFM per 10,000 BTU/h Input", "Example: 80,000 BTU Furnace", "Notes"]}
+  rows={[
+    ["Gas furnace (80% AFUE)", "40–70°F rise", "100–150 CFM", "1,000–1,200 CFM", "Lower CFM than cooling; sized by temp rise range"],
+    ["Gas furnace (96% AFUE)", "40–70°F rise", "90–130 CFM", "900–1,100 CFM", "Higher efficiency = slightly less airflow needed"],
+    ["Heat pump (heating)", "15–30°F rise", "350–450 CFM/ton", "1,400–1,800 CFM (4-ton)", "Similar to cooling mode CFM"],
+    ["Heat pump + aux heat", "20–40°F rise", "Varies", "Per strip heater kW", "Airflow must satisfy both requirements"],
+    ["Electric furnace", "30–50°F rise", "125–175 CFM per kW", "1,500–2,100 CFM (15 kW)", "High CFM; check static pressure limits"],
+  ]}
+/>
+
+<Callout type="warning">
+**The critical check for combined systems:** If you have an air conditioner or heat pump paired with a gas furnace (dual-fuel system), the duct system must handle the **higher** of the two CFM requirements. Cooling almost always requires more CFM than gas heating, so duct sizing is typically driven by the cooling load. But always verify both.
+</Callout>
+
+## Room-by-Room BTU to CFM Calculation
+
+To size ductwork for individual rooms, you need each room's BTU load (from a Manual J calculation) and then convert to CFM.
+
+### Step 1: Determine Room BTU Load
+
+A proper Manual J load calculation accounts for room size, orientation, insulation levels, window area and type, internal heat gains, and climate zone. Here are typical ranges for common rooms in a moderately insulated 2,000 sq ft home.
+
+<ComparisonTable
+  title="Typical Room BTU Loads and CFM Requirements"
+  headers={["Room Type", "Size (sq ft)", "Cooling Load (BTU/h)", "Heating Load (BTU/h)", "Cooling CFM", "Duct Size (Rigid)"]}
+  rows={[
+    ["Master bedroom", "200–350", "3,000–6,000", "2,500–5,000", "100–200", "6\"–8\""],
+    ["Standard bedroom", "120–200", "2,000–4,000", "1,500–3,000", "65–135", "6\"–7\""],
+    ["Living room", "250–450", "5,000–10,000", "4,000–8,000", "170–335", "8\"–10\""],
+    ["Kitchen", "150–300", "4,000–8,000", "2,000–4,000", "135–270", "7\"–9\""],
+    ["Dining room", "120–200", "2,500–4,500", "2,000–3,500", "85–150", "6\"–7\""],
+    ["Bathroom", "40–80", "800–2,000", "600–1,500", "25–65", "4\"–6\""],
+    ["Home office", "100–200", "2,000–4,500", "1,500–3,500", "65–150", "6\"–7\""],
+    ["Finished basement", "600–1,200", "6,000–15,000", "5,000–12,000", "200–500", "10\"–14\""],
+    ["Sunroom", "150–300", "5,000–12,000", "4,000–10,000", "170–400", "8\"–12\""],
+    ["Bonus room over garage", "200–400", "5,000–10,000", "4,000–9,000", "170–335", "8\"–10\""],
+  ]}
+/>
+
+### Step 2: Apply the Formula
+
+For each room, use the sensible cooling load (total cooling load multiplied by SHR):
+
+**Room CFM = (Room Cooling BTU/h x SHR) / (1.08 x DeltaT)**
+
+<Callout type="example">
+**Example calculation — Master Bedroom:**
+
+Room cooling load: 5,000 BTU/h (from Manual J). SHR: 0.75 (typical). DeltaT: 20 degrees F.
+
+CFM = (5,000 x 0.75) / (1.08 x 20) = 3,750 / 21.6 = **174 CFM**
+
+Using the ductwork sizing chart, 174 CFM requires a 7-inch rigid duct or 8-inch flex duct. If you split into two registers for better distribution, each branch needs about 87 CFM (6-inch rigid each).
+</Callout>
+
+## How Climate Zone Affects the BTU-to-CFM Relationship
+
+The 400 CFM/ton standard works well in ASHRAE Climate Zones 3–5 (the middle of the country). But in very humid climates or very dry climates, the optimal airflow changes significantly.
+
+### Humid Climates (Southeast, Gulf Coast): Lower CFM per Ton
+
+In humid climates, a larger percentage of the cooling load is latent (moisture removal). Running lower airflow (325–375 CFM/ton) across the evaporator coil allows the coil to get colder, which condenses more moisture from the air. The tradeoff is slightly less sensible cooling capacity, but in a humid climate, dehumidification matters more.
+
+### Dry Climates (Southwest, Mountain West): Higher CFM per Ton
+
+In dry climates, almost all the cooling load is sensible (temperature reduction). Running higher airflow (425–450 CFM/ton) maximizes sensible capacity because the coil doesn't need to be as cold — there's minimal moisture to remove. This also improves efficiency.
+
+<ComparisonTable
+  title="Optimal CFM per Ton by Climate"
+  headers={["Climate Zone", "Example Cities", "SHR Range", "Optimal CFM/Ton", "Why"]}
+  rows={[
+    ["1A–2A (Hot-Humid)", "Miami, Houston, New Orleans", "0.60–0.70", "325–375", "Lower airflow = colder coil = more dehumidification"],
+    ["3A (Warm-Humid)", "Atlanta, Dallas, Charlotte", "0.65–0.75", "350–400", "Balanced approach, moderate humidity"],
+    ["3B–4B (Warm-Dry)", "Phoenix, Las Vegas, Albuquerque", "0.85–0.95", "425–450", "Maximize sensible capacity; minimal latent load"],
+    ["4A–5A (Mixed)", "St. Louis, Nashville, Indianapolis", "0.70–0.80", "375–425", "Standard 400 CFM/ton works well"],
+    ["5B–6 (Cool-Dry)", "Denver, Boise, Salt Lake City", "0.80–0.90", "400–450", "Higher airflow OK; low humidity"],
+    ["6A–7 (Cold)", "Minneapolis, Chicago, Boston", "0.70–0.80", "375–425", "Heating dominates; size ducts for heating if larger"],
+  ]}
+/>
+
+<Callout type="tip">
+**Many modern variable-speed systems adjust airflow automatically** based on conditions. A Carrier Infinity or Trane XV20i, for example, can modulate from 250–500 CFM/ton to optimize both temperature and humidity control. If you have a variable-speed system, the manufacturer's settings take priority over these general guidelines. Your ductwork still needs to handle the maximum airflow the system can produce.
+</Callout>
+
+## Real-World Examples
+
+### Example 1: Sizing Ductwork for a New 3-Ton System
+
+**Situation:** A 2,000 sq ft home in Nashville (Climate Zone 4A) is getting a new 3-ton (36,000 BTU) heat pump with a variable-speed air handler. The Manual J calculation shows a total cooling load of 34,200 BTU and total heating load of 38,000 BTU.
+
+**System CFM calculation:** 36,000 BTU / 12,000 = 3 tons x 400 CFM/ton = **1,200 CFM**. The manufacturer specs 1,050–1,350 CFM range with 1,200 CFM nominal. The heat pump in heating mode requires the same 1,200 CFM.
+
+**Room CFM breakdown (SHR = 0.75, DeltaT = 20°F):** Master bedroom: 5,200 BTU = 180 CFM = 8" rigid. Bedroom 2: 3,100 BTU = 107 CFM = 6" rigid. Bedroom 3: 2,800 BTU = 97 CFM = 6" rigid. Living/dining: 8,500 BTU = 295 CFM = 10" rigid. Kitchen: 5,600 BTU = 194 CFM = 8" rigid. Two bathrooms: 1,500 BTU each = 52 CFM each = 5" rigid. Laundry: 1,800 BTU = 62 CFM = 6" rigid. Hallway: 2,200 BTU = 76 CFM = 6" rigid.
+
+**Total room CFM:** 1,115 CFM. The 85 CFM difference from system capacity accounts for duct losses. The trunk line starts at 18" (1,200 CFM) and reduces as branches peel off.
+
+### Example 2: Why Florida and Arizona Need Different Airflow
+
+**Scenario:** Two identical 2,500 sq ft homes with 4-ton systems — one in Jacksonville, FL (hot-humid) and one in Tucson, AZ (hot-dry).
+
+**Jacksonville (SHR = 0.65):** Total cooling: 48,000 BTU. Sensible: 31,200 BTU. Optimal CFM: 350 CFM/ton x 4 = **1,400 CFM**. The lower airflow drops coil temperature to 38°F for aggressive dehumidification. Supply air: 52°F.
+
+**Tucson (SHR = 0.90):** Total cooling: 48,000 BTU. Sensible: 43,200 BTU. Optimal CFM: 450 CFM/ton x 4 = **1,800 CFM**. Higher airflow keeps the coil at 48°F — no need for deep dehumidification. Supply air: 55°F.
+
+**Duct sizing impact:** Tucson needs trunk ductwork for 1,800 CFM (20"+ round) while Jacksonville needs only 1,400 CFM (18" round). Same BTU system, very different ductwork requirements.
+
+### Example 3: Ducted Mini-Split BTU to CFM Conversion
+
+**Situation:** A homeowner installs a ducted mini-split for a 600 sq ft addition rated at 18,000 BTU cooling / 21,600 BTU heating.
+
+**Cooling CFM:** 18,000 / 12,000 = 1.5 tons x 400 = **600 CFM**. The manufacturer (Mitsubishi SEZ-KD18) specifies 520–600 CFM on high speed.
+
+**Duct sizing:** Main supply trunk: 12"–14" round. Three branches at 200 CFM each: 8" rigid. Single return at 600 CFM: 14" round or 10" x 14" rectangular.
+
+**Critical caveat:** Ducted mini-splits typically have only 0.20–0.40 IWC external static pressure (versus 0.50 for conventional systems). Keep total equivalent duct length under 50 feet, or upsize ducts by one diameter to reduce friction loss.
+
+### Example 4: Gas Furnace Temperature Rise Check
+
+**Situation:** A homeowner wonders if their existing ductwork can handle a new 100,000 BTU (96% AFUE) gas furnace paired with a 4-ton AC.
+
+**Cooling CFM:** 4 tons x 400 = 1,600 CFM. Ducts must handle 1,600 CFM.
+
+**Heating check:** Furnace output = 100,000 x 0.96 = 96,000 BTU/h. Data plate temperature rise: 35–65°F.
+
+At 1,600 CFM (cooling airflow): Temperature rise = 96,000 / (1.08 x 1,600) = **55.6°F**. This is within the 35–65°F range — the existing ductwork works for both modes.
+
+If the furnace required higher CFM (unlikely with gas, but possible with electric backup), the ducts would need to be sized for that higher number.
+
+## The Sensible Heat Ratio: The Missing Variable
+
+Most homeowners overlook the sensible heat ratio (SHR) when converting BTU to CFM. The SHR tells you what percentage of total cooling is temperature reduction (sensible) versus moisture removal (latent).
+
+<ComparisonTable
+  title="SHR Impact on CFM Requirements (Per 12,000 BTU Total Cooling)"
+  headers={["SHR", "Sensible BTU/h", "Latent BTU/h", "CFM Needed (at 20°F DeltaT)", "Climate Type"]}
+  rows={[
+    ["0.60", "7,200", "4,800", "333", "Extremely humid (coastal FL, HI)"],
+    ["0.65", "7,800", "4,200", "361", "Very humid (Gulf Coast)"],
+    ["0.70", "8,400", "3,600", "389", "Humid (SE U.S.)"],
+    ["0.75", "9,000", "3,000", "417", "Standard (most of U.S.)"],
+    ["0.80", "9,600", "2,400", "444", "Moderate (Mid-Atlantic)"],
+    ["0.85", "10,200", "1,800", "472", "Low humidity (Mountain West)"],
+    ["0.90", "10,800", "1,200", "500", "Dry (desert Southwest)"],
+    ["0.95", "11,400", "600", "528", "Very dry (high altitude)"],
+  ]}
+/>
+
+The range is dramatic: 333 CFM in an extremely humid climate to 528 CFM in a very dry climate — a 59% difference for the same 12,000 BTU system. This is why "400 CFM per ton" is just an approximation.
+
+## BTU to CFM Calculator
+
+<CalcWrapper>
+{/* BTU to CFM Calculator component renders here */}
+</CalcWrapper>
+
+### How to Use the Calculator
+
+**Step 1:** Enter your system's total cooling capacity in BTU/h (or select the tonnage).
+
+**Step 2:** Choose your climate zone or manually enter the SHR.
+
+**Step 3:** Optionally enter the design DeltaT (default is 20°F for cooling).
+
+**Step 4:** The calculator outputs total system CFM and recommended main trunk duct size. For room-by-room sizing, enter individual room BTU loads to get branch duct sizes.
+
+## Altitude Correction Factor
+
+At higher elevations, air is less dense. The 1.08 constant in the sensible heat formula decreases, meaning you need more CFM to move the same amount of heat. This is a critical consideration for mountain and high-plateau regions.
+
+<ComparisonTable
+  title="BTU-to-CFM Altitude Correction"
+  headers={["Elevation (ft)", "Air Density Factor", "Corrected Constant", "CFM Adjustment", "Example Cities"]}
+  rows={[
+    ["Sea level", "1.00", "1.08", "No adjustment", "Miami, Houston, New York"],
+    ["1,000", "0.97", "1.05", "+3%", "Atlanta, Dallas"],
+    ["2,000", "0.93", "1.00", "+7%", "Nashville, Kansas City"],
+    ["3,000", "0.90", "0.97", "+11%", "Reno, Flagstaff"],
+    ["4,000", "0.87", "0.94", "+15%", "Salt Lake City, Reno"],
+    ["5,000", "0.83", "0.90", "+20%", "Denver, Albuquerque"],
+    ["6,000", "0.80", "0.86", "+25%", "Santa Fe, Colorado Springs"],
+    ["7,500", "0.75", "0.81", "+33%", "Leadville, Vail, high mountain"],
+  ]}
+/>
+
+<Callout type="example">
+**Example: Denver at 5,280 feet**
+
+A 3-ton system at sea level needs 1,200 CFM. At Denver's altitude, it needs 1,200 x 1.20 = **1,440 CFM**. That means the main trunk that would be 16"–18" at sea level needs to be 18"–20" in Denver. Ignoring altitude correction is one of the most common duct sizing errors in mountain communities.
+</Callout>
+
+## Advanced: CFM Requirements for Heating
+
+### Gas Furnace CFM
+
+Gas furnaces have a specified **temperature rise range** on the data plate (e.g., 40–70°F). The airflow must produce a temperature rise within this range. Too little airflow means excessive rise, which can crack the heat exchanger. Too much airflow means insufficient rise, producing cool drafts.
+
+**Furnace CFM = BTU output / (1.08 x DeltaT)**
+
+<Callout type="example">
+**Example: 80,000 BTU input, 96% AFUE gas furnace**
+
+Output: 80,000 x 0.96 = 76,800 BTU/h. Temperature rise range: 40–70°F.
+
+At 40°F rise: CFM = 76,800 / (1.08 x 40) = **1,778 CFM** (maximum airflow).
+At 70°F rise: CFM = 76,800 / (1.08 x 70) = **1,016 CFM** (minimum airflow).
+
+The system operates anywhere in the 1,016–1,778 CFM range. If the paired AC requires 1,600 CFM, the furnace temperature rise is: 76,800 / (1.08 x 1,600) = **44.4°F** — within the 40–70°F range. Ductwork is sized for 1,600 CFM (the cooling requirement).
+</Callout>
+
+### Heat Pump CFM in Heating Mode
+
+Heat pumps in heating mode produce much lower temperature rise than gas furnaces — typically 15–30°F depending on outdoor temperature. CFM requirements are similar to cooling mode. Most manufacturers specify the same airflow for both modes.
+
+When auxiliary electric strip heat activates, combined heat output increases and may need more airflow. Check manufacturer specs for auxiliary heat CFM — if it exceeds cooling airflow, size your ducts for the higher number.
+
+## Common Mistakes in BTU-to-CFM Conversions
+
+**Mistake #1: Using total BTU instead of sensible BTU.** The formula uses sensible heat only. Using total BTU overstates CFM by 15–40% depending on SHR, leading to oversized ducts and wasted materials.
+
+**Mistake #2: Ignoring heating mode requirements.** If your heating system requires more CFM than cooling (possible with large electric furnaces), the ductwork must be sized for the heating number.
+
+**Mistake #3: Using nominal system size instead of actual load.** A "3-ton" system doesn't necessarily need exactly 1,200 CFM. The Manual J load determines actual BTU, and CFM follows from that.
+
+**Mistake #4: Not correcting for altitude.** At 5,000 feet, you need roughly 20% more CFM than sea level for the same BTU load. Denver needs bigger ducts than Miami for the same system.
+
+**Mistake #5: Forgetting fan heat.** The blower motor adds 2,000–5,000 BTU/h to the airstream. This is accounted for in manufacturer ratings but can throw off hand calculations if you're starting from scratch.
+
+## Quick Reference: BTU to CFM Shortcut Table
+
+For fast estimates when you don't want to calculate SHR and DeltaT, use these shortcuts.
+
+<ComparisonTable
+  title="Quick BTU to CFM Shortcuts"
+  headers={["To Convert", "Divide BTU/h By", "Accuracy", "When to Use"]}
+  rows={[
+    ["Cooling BTU to CFM (standard)", "30", "Good for most climates", "Quick estimates, moderate humidity"],
+    ["Cooling BTU to CFM (humid)", "35", "Better for Gulf Coast, SE U.S.", "When SHR is below 0.70"],
+    ["Cooling BTU to CFM (dry)", "25", "Better for desert, mountain", "When SHR is above 0.85"],
+    ["Heating BTU to CFM (gas furnace)", "55", "Rough estimate only", "Quick check; always verify against rise range"],
+    ["Heating BTU to CFM (heat pump)", "30", "Good estimate", "Similar to cooling mode airflow"],
+    ["Room BTU to branch duct CFM", "30", "Good starting point", "Individual room duct sizing"],
+  ]}
+/>
+
+<Callout type="tip">
+**The divide-by-30 shortcut for cooling is the most useful number to memorize.** Room needs 6,000 BTU? Divide by 30 = 200 CFM = 8" rigid duct. System is 48,000 BTU? Divide by 30 = 1,600 CFM = 18"–20" trunk. It's not perfectly accurate for extreme climates, but it gets you in the right ballpark fast.
+</Callout>
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **400 CFM per ton is the standard rule** for cooling — but actual requirements range from 325–450 CFM/ton depending on climate and equipment.
+- **The quick formula: divide cooling BTU by 30** to get CFM. Divide by 35 for humid climates, 25 for dry climates.
+- **Sensible heat ratio (SHR) is the key variable** most people miss. In humid climates (SHR 0.60–0.70), you need less CFM per ton. In dry climates (SHR 0.85–0.95), you need more.
+- **Gas furnaces use less CFM than cooling** — always size ducts for the higher requirement (usually cooling).
+- **Heat pumps need similar CFM for heating and cooling** — check auxiliary heat requirements separately.
+- **Altitude matters.** At 5,000 feet, add 20% to your CFM requirement. Mountain communities need bigger ducts.
+- **Always check manufacturer specs** — they override general rules. Variable-speed systems adjust airflow automatically but ducts must handle max capacity.
+- **Manual J + Manual D together** give you the correct answer. Manual J determines room BTU loads; the BTU-to-CFM conversion translates those to airflow; Manual D sizes the ducts for that airflow.
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ
+  items={[
+    {
+      question: "How do you convert BTU to CFM?",
+      answer: "For cooling, the quick method is to divide BTU/h by 30. For a more precise calculation, use the sensible heat formula: CFM = (BTU/h x SHR) / (1.08 x DeltaT), where SHR is the sensible heat ratio (typically 0.70–0.80) and DeltaT is the temperature difference across the coil (typically 20°F for cooling). For example, a 36,000 BTU system: 36,000 / 30 = 1,200 CFM."
+    },
+    {
+      question: "How many CFM is 1 ton of AC?",
+      answer: "One ton of AC (12,000 BTU/h) requires approximately 400 CFM at standard conditions. However, the actual range is 325–450 CFM depending on climate. In humid climates like Houston or Miami, 325–375 CFM/ton is optimal for better dehumidification. In dry climates like Phoenix or Denver, 425–450 CFM/ton maximizes sensible cooling. Always check the equipment manufacturer's specified airflow range."
+    },
+    {
+      question: "What is the 400 CFM per ton rule?",
+      answer: "The 400 CFM per ton rule states that an air conditioning system needs approximately 400 cubic feet per minute of airflow for every 12,000 BTU/h (one ton) of cooling capacity. It comes from the sensible heat equation assuming a 20°F temperature drop and a 0.74 sensible heat ratio — conditions typical of moderate U.S. climates. It's a useful starting point but should be adjusted for your specific climate, equipment, and altitude."
+    },
+    {
+      question: "Is BTU to CFM different for heating vs cooling?",
+      answer: "Yes, significantly. For cooling, you typically need 400 CFM per ton (about 33 CFM per 1,000 BTU). For gas furnace heating, you need less airflow — roughly 18 CFM per 1,000 BTU output, because the temperature rise is much higher (40–70°F vs 20°F for cooling). For heat pump heating, airflow is similar to cooling mode. Always size ductwork for the higher CFM requirement, which is usually cooling."
+    },
+    {
+      question: "Does altitude affect BTU to CFM conversion?",
+      answer: "Yes. At higher altitudes, air is less dense, so you need more CFM to move the same amount of heat. At 5,000 feet (Denver), you need about 20% more CFM than at sea level. At 7,500 feet, it's about 33% more. This means ducts in mountain communities need to be 1–2 sizes larger than sea-level installations for the same BTU system. Many contractors in high-altitude areas overlook this correction."
+    },
+    {
+      question: "How do I calculate CFM for each room?",
+      answer: "Start with a Manual J load calculation to determine each room's BTU cooling load. Then convert to CFM using: Room CFM = (Room BTU x 0.75) / (1.08 x 20). For a quick estimate, divide the room's BTU load by 30. A bedroom with a 4,000 BTU load needs approximately 133 CFM, which requires a 7-inch rigid duct or 8-inch flex duct. Add up all room CFMs — the total should roughly equal your system's total CFM capacity."
+    },
+    {
+      question: "What happens if CFM is too low for the BTU load?",
+      answer: "Insufficient airflow causes several problems: in cooling mode, the evaporator coil gets too cold, potentially freezing over and blocking airflow entirely. The system short-cycles, runs inefficiently, and may not adequately dehumidify the space. Rooms don't reach setpoint temperature. The compressor can be damaged by liquid refrigerant slugging. In heating mode, low airflow causes excessive temperature rise, potentially cracking the heat exchanger — a dangerous and expensive failure."
+    },
+    {
+      question: "What happens if CFM is too high for the BTU load?",
+      answer: "Too much airflow across the evaporator coil raises the coil temperature, reducing dehumidification. In humid climates, this results in a house that reaches temperature setpoint but feels clammy and damp. The coil doesn't get cold enough to condense moisture effectively. In dry climates, excess CFM is less problematic and can actually improve sensible efficiency. Excessively high airflow also increases noise and static pressure."
+    },
+    {
+      question: "How do I determine the sensible heat ratio for my area?",
+      answer: "The sensible heat ratio (SHR) depends on your local climate's temperature and humidity levels during the cooling season. A Manual J calculation software determines this automatically based on your ZIP code and ASHRAE design conditions. As a rough guide: Gulf Coast and Florida are 0.60–0.70, Southeast U.S. is 0.65–0.75, most of the U.S. is 0.70–0.80, Mountain West is 0.80–0.90, and desert Southwest is 0.85–0.95. Your HVAC contractor should be using Manual J software that accounts for this."
+    },
+    {
+      question: "Can I use BTU to CFM conversion for mini-splits?",
+      answer: "Yes, but with caveats. Ductless mini-splits don't use ductwork, so the conversion is only relevant for ducted mini-splits. The formula is the same, but ducted mini-splits typically have lower external static pressure capability (0.20–0.40 IWC vs 0.50 for conventional systems), which means you need shorter duct runs or larger ducts to stay within the pressure budget. Always check the manufacturer's specific CFM rating, which may differ from the standard 400 CFM/ton rule."
+    }
+  ]}
+/>
+
+## Sources
+
+<SourcesBox
+  sources={[
+    { name: "ACCA Manual J", url: "https://www.acca.org/standards/manual-j", description: "Residential Load Calculation — the industry standard for determining room-by-room BTU requirements" },
+    { name: "ACCA Manual D", url: "https://www.acca.org/standards/manual-d", description: "Residential Duct Systems — translating CFM to duct sizes" },
+    { name: "ASHRAE Handbook — Fundamentals", url: "https://www.ashrae.org/technical-resources/ashrae-handbook", description: "Chapters 1 and 21 — psychrometrics, sensible heat equations, and duct design" },
+    { name: "U.S. DOE", url: "https://www.energy.gov/energysaver/heat-pump-systems", description: "Heat Pump Systems — airflow requirements for heat pump heating and cooling" },
+    { name: "ENERGY STAR", url: "https://www.energystar.gov/products/heating_cooling", description: "Heating and cooling equipment specifications and efficiency requirements" },
+    { name: "Carrier Engineering Newsletter", url: "https://www.carrier.com/residential/en/us/", description: "Technical guidance on airflow per ton adjustments by climate" },
+  ]}
+/>
+
+## Related Articles
+
+<RelatedArticles
+  articles={[
+    { slug: "ductwork-sizing-calculator", title: "Ductwork Sizing Calculator: CFM to Duct Size Chart" },
+    { slug: "flexible-vs-rigid-ductwork", title: "Flexible vs Rigid Ductwork: Pros, Cons, and When to Use" },
+    { slug: "duct-leakage-testing", title: "Duct Leakage Testing: Why It Matters and How to Fix" },
+    { slug: "btu-calculator", title: "BTU Calculator: Size Your HVAC System Correctly" },
+    { slug: "seer-rating-explained", title: "SEER Rating Explained: What It Means for Your Energy Bills" },
+  ]}
+/>

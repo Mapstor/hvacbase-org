@@ -1,0 +1,250 @@
+---
+slug: "hvac-efficiency-ratings-compared"
+title: "All HVAC Efficiency Ratings Compared (SEER2, EER2, HSPF2, COP, AFUE)"
+description: "A complete comparison of every HVAC efficiency rating: SEER2, EER2, HSPF2, COP, AFUE, IEER, CEER, CADR, and MERV. Learn what each measures, when it matters, how to convert between them, and which ones to prioritize when shopping."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P1"
+contentType: "guide"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating"
+  - slug: "eer2-rating-explained"
+    title: "Understanding EER2: The New 2023 AC Efficiency Rating"
+  - slug: "hspf2-rating-explained"
+    title: "Understanding HSPF2: Heat Pump Heating Efficiency Rating"
+  - slug: "coefficient-of-performance"
+    title: "COP Explained: Coefficient of Performance of Heat Pumps"
+  - slug: "afue-rating-explained"
+    title: "AFUE Rating for Furnaces: How to Calculate AFUE Savings"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/central-air-conditioning"
+    label: "U.S. DOE - Central Air Conditioning"
+  - url: "https://www.energystar.gov"
+    label: "ENERGY STAR"
+  - url: "https://www.ahrinet.org"
+    label: "AHRI"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# All HVAC Efficiency Ratings Compared (SEER2, EER2, HSPF2, COP, AFUE)
+
+**The HVAC industry uses at least 10 different efficiency ratings, each measuring something slightly different.** SEER2 measures seasonal cooling efficiency, EER2 measures peak-load cooling efficiency, HSPF2 measures seasonal heating efficiency for heat pumps, COP is the universal efficiency ratio, and AFUE measures furnace fuel-to-heat conversion. Understanding which rating matters for your situation prevents you from overpaying for the wrong type of efficiency.
+
+This guide covers every major HVAC efficiency rating, what it measures, when it matters, and how to convert between them.
+
+<TableOfContents />
+
+## Master Comparison Table
+
+<ComparisonTable
+  headers={["Rating", "Full Name", "Measures", "Units", "Applies To", "Higher = Better"]}
+  rows={[
+    ["SEER2", "Seasonal Energy Efficiency Ratio 2", "Seasonal cooling efficiency", "BTU/Wh", "Central AC, heat pumps (cooling)", "Yes"],
+    ["EER2", "Energy Efficiency Ratio 2", "Peak cooling efficiency at 95F", "BTU/Wh", "Central AC, heat pumps (cooling)", "Yes"],
+    ["HSPF2", "Heating Seasonal Performance Factor 2", "Seasonal heating efficiency", "BTU/Wh", "Heat pumps (heating)", "Yes"],
+    ["COP", "Coefficient of Performance", "Efficiency at any operating point", "Dimensionless ratio", "Heat pumps, chillers, any HVAC", "Yes"],
+    ["AFUE", "Annual Fuel Utilization Efficiency", "Fuel-to-heat conversion", "Percentage", "Gas/oil furnaces, boilers", "Yes"],
+    ["IEER", "Integrated Energy Efficiency Ratio", "Part-load commercial cooling", "BTU/Wh", "Commercial AC (>65,000 BTU)", "Yes"],
+    ["CEER", "Combined Energy Efficiency Ratio", "Cooling + standby efficiency", "BTU/Wh", "Window/portable ACs", "Yes"],
+    ["CADR", "Clean Air Delivery Rate", "Air purification volume", "CFM", "Air purifiers", "Yes"],
+    ["MERV", "Minimum Efficiency Reporting Value", "Particle filtration", "1-20 scale", "Air filters", "Higher = finer filtration"],
+    ["ESEER", "European Seasonal EER", "European seasonal cooling", "Dimensionless ratio", "European commercial HVAC", "Yes"],
+  ]}
+/>
+
+## Cooling Efficiency Ratings
+
+### SEER2 (Seasonal Energy Efficiency Ratio 2)
+
+**What it measures:** The total cooling output divided by total electrical input over an entire cooling season, using the M1 test procedure with 0.5 in. w.c. static pressure.
+
+**When it matters most:** Comparing central air conditioners or heat pumps for residential cooling. This is the primary number you'll see on EnergyGuide labels.
+
+**Current minimums:** 13.4-14.3 SEER2 depending on region. ENERGY STAR requires 15.2+. Tax credit threshold is 17.5+ SEER2 for ACs.
+
+**Key insight:** SEER2 is a seasonal average that weights part-load performance heavily. Variable-speed units score disproportionately well on SEER2 because they spend most of the season running at efficient low speeds. If you care about performance on the hottest days specifically, look at EER2 instead.
+
+### EER2 (Energy Efficiency Ratio 2)
+
+**What it measures:** Cooling efficiency at a single, fixed operating condition: 95F outdoor, 80F indoor, 50% relative humidity.
+
+**When it matters most:** Evaluating performance on peak-demand days. In hot climates where the AC runs at full capacity frequently, EER2 is more predictive of actual electricity bills than SEER2.
+
+**Relationship to SEER2:** SEER2 is always higher than EER2 for the same unit because SEER2 includes mild-weather operation where efficiency is higher. A system with 18 SEER2 might have only 12 EER2.
+
+**Key insight:** A unit with high SEER2 but low EER2 (wide gap) is likely a variable-speed system that's very efficient at part-load but less impressive at full capacity. A unit with high EER2 (narrower gap from SEER2) performs well even on the hottest days.
+
+### CEER (Combined Energy Efficiency Ratio)
+
+**What it measures:** EER for window and portable ACs, but with standby power consumption factored in.
+
+**When it matters most:** Shopping for window ACs or portable units. CEER replaced EER for these products because standby power draw (when the unit is plugged in but not actively cooling) can add meaningfully to annual energy costs.
+
+**Current minimums:** Varies by capacity. For a typical 8,000 BTU window unit, the federal minimum CEER is around 12.1.
+
+### IEER (Integrated Energy Efficiency Ratio)
+
+**What it measures:** Commercial AC efficiency weighted across four part-load conditions: 25%, 50%, 75%, and 100% capacity.
+
+**When it matters most:** Evaluating commercial rooftop units, chillers, and VRF systems over 65,000 BTU. IEER replaced the old IPLV (Integrated Part Load Value) for most commercial equipment.
+
+**Key insight:** Commercial buildings rarely run cooling at 100% capacity. IEER captures the efficiency gains of variable-capacity commercial systems during the majority of their operating hours at part load.
+
+## Heating Efficiency Ratings
+
+### HSPF2 (Heating Seasonal Performance Factor 2)
+
+**What it measures:** Total heating output divided by total electrical input over an entire heating season, including defrost cycles and supplemental strip heat.
+
+**When it matters most:** Comparing heat pumps for heating performance. This is the heating equivalent of SEER2.
+
+**Current minimums:** 7.5 HSPF2 for split-system heat pumps. Tax credit requires 9.0+.
+
+**Key insight:** HSPF2 is tested in DOE Region IV (moderate climate). In very cold climates, your real seasonal efficiency will be lower because the heat pump encounters lower temperatures. Look for cold-climate rated units with NEEP certification.
+
+### AFUE (Annual Fuel Utilization Efficiency)
+
+**What it measures:** The percentage of fuel energy that becomes heat in a gas or oil furnace/boiler.
+
+**When it matters most:** Comparing gas furnaces, oil furnaces, and boilers. This is the only efficiency metric for combustion heating equipment.
+
+**Current minimums:** 80% AFUE for gas furnaces, 83% for oil furnaces. Rising to 90% for gas in northern states in 2029.
+
+**Key insight:** AFUE doesn't account for electricity used by the blower motor or for duct losses. A 96% AFUE furnace with a 500W PSC blower and 25% duct leakage delivers far less than 96% of fuel energy to your rooms.
+
+### COP (Coefficient of Performance)
+
+**What it measures:** The ratio of useful energy output to electrical energy input at any specific operating condition.
+
+**When it matters most:** Comparing different heating technologies on equal footing (heat pump vs gas furnace vs electric heat). Also used internationally as the primary efficiency metric.
+
+**Conversions:**
+- COP = EER / 3.412
+- COP = HSPF2 / 3.412
+- Gas furnace: COP = AFUE / 100 (e.g., 96% AFUE = COP 0.96)
+- Electric resistance: COP = 1.0
+
+## Air Quality Ratings
+
+### MERV (Minimum Efficiency Reporting Value)
+
+**What it measures:** How effectively an air filter captures particles of different sizes, on a scale of 1-20.
+
+**When it matters most:** Choosing replacement air filters for your HVAC system. Higher MERV captures smaller particles but also restricts more airflow.
+
+**Recommended range:** MERV 8-13 for residential HVAC. MERV 13 captures most bacteria and some virus carriers. MERV 14+ is typically only used in hospitals and cleanrooms.
+
+### CADR (Clean Air Delivery Rate)
+
+**What it measures:** The volume of filtered air a standalone air purifier delivers, in cubic feet per minute, for three particle types: smoke, dust, and pollen.
+
+**When it matters most:** Sizing an air purifier for a room. Your purifier's CADR should be at least two-thirds of the room's square footage.
+
+## Conversion Quick-Reference
+
+<ComparisonTable
+  headers={["From", "To", "Formula", "Example"]}
+  rows={[
+    ["EER/EER2", "COP", "EER / 3.412", "12 EER = COP 3.52"],
+    ["COP", "EER/EER2", "COP x 3.412", "COP 3.5 = 11.94 EER"],
+    ["SEER2", "Seasonal COP (cooling)", "SEER2 / 3.412", "18 SEER2 = COP 5.27 seasonal"],
+    ["HSPF2", "Seasonal COP (heating)", "HSPF2 / 3.412", "10 HSPF2 = COP 2.93"],
+    ["SEER (old)", "SEER2", "SEER / 1.047", "16 SEER = 15.3 SEER2"],
+    ["SEER2", "SEER (old)", "SEER2 x 1.047", "15.2 SEER2 = 15.9 SEER"],
+    ["HSPF (old)", "HSPF2", "HSPF x 0.85 (approx)", "10 HSPF = 8.5 HSPF2"],
+    ["AFUE", "COP", "AFUE / 100", "96% AFUE = COP 0.96"],
+  ]}
+/>
+
+## Which Ratings Matter for Your Situation
+
+<ComparisonTable
+  headers={["Your Situation", "Primary Rating", "Secondary Rating", "Why"]}
+  rows={[
+    ["Buying a central AC", "SEER2", "EER2", "SEER2 for annual costs, EER2 for peak days"],
+    ["Buying a heat pump (heating focus)", "HSPF2", "SEER2", "HSPF2 drives winter bills, SEER2 for summer"],
+    ["Buying a heat pump (cooling focus)", "SEER2", "HSPF2", "In hot climates, cooling dominates energy use"],
+    ["Buying a gas furnace", "AFUE", "None", "Only combustion metric matters for furnaces"],
+    ["Comparing heat pump vs gas furnace", "COP vs AFUE", "Fuel cost/BTU", "Must normalize to cost per BTU delivered"],
+    ["Buying a window AC", "CEER", "BTU capacity", "CEER includes standby draw unlike old EER"],
+    ["Buying a commercial system", "IEER", "EER2", "IEER captures part-load efficiency"],
+    ["Choosing air filters", "MERV", "Pressure drop", "Balance filtration with airflow restriction"],
+    ["Buying an air purifier", "CADR", "Noise level (dB)", "Match CADR to room size"],
+    ["Evaluating European equipment", "ESEER/SCOP", "COP", "These are the EU equivalents of SEER2/HSPF2"],
+  ]}
+/>
+
+<Callout type="tip">
+**Don't compare ratings across categories.** SEER2 18 does not mean the same thing as HSPF2 18 or EER2 18. Each rating uses different test conditions and weightings. Compare SEER2 to SEER2, HSPF2 to HSPF2, and so on. The only universal comparator is COP, which requires conversion.
+</Callout>
+
+## Common Rating Misconceptions
+
+**"Higher SEER2 always means lower bills."** Only if SEER2 is the relevant rating for your climate. In Minneapolis, HSPF2 matters more. In Phoenix, EER2 might be more predictive than SEER2 for peak-month costs.
+
+**"AFUE 96% means 96% of my fuel dollar reaches my rooms."** No. AFUE only measures the furnace. Duct losses, blower electricity, and cycling losses are not included. Your delivered efficiency is lower.
+
+**"My 12 EER window AC is more efficient than my 13 SEER central AC."** You can't compare EER to SEER directly. They measure different things under different conditions. Convert both to COP for a fair comparison.
+
+**"All efficiency ratings got lower with the 2023 changes."** The equipment didn't change. SEER2, EER2, and HSPF2 use tougher testing that produces lower numbers for the same hardware. A 15.2 SEER2 unit performs identically to what was previously labeled 16 SEER.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **SEER2** = seasonal cooling efficiency (annual average). **EER2** = peak cooling efficiency (hottest day).
+- **HSPF2** = seasonal heating efficiency for heat pumps. **AFUE** = fuel conversion for furnaces.
+- **COP** is the universal metric. Divide any BTU/Wh rating by 3.412 to get COP.
+- **SEER2 numbers are always higher than EER2** for the same unit because seasonal averages include mild-weather operation.
+- **New "2" ratings (SEER2, EER2, HSPF2)** are about 4-5% lower than old ratings due to tougher testing. The equipment is identical.
+- **Match the rating to your priority:** SEER2 for cooling climates, HSPF2 for heating climates, EER2 for extreme heat, AFUE for gas heating.
+- **MERV for filters, CADR for air purifiers** are air quality ratings, not energy efficiency ratings.
+- **Never compare across rating types** without converting to COP or cost-per-BTU first.
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What is the difference between SEER2 and EER2?",
+    answer: "SEER2 is a seasonal average cooling efficiency measured across temperatures from 65F to 104F, weighted by hours at each temperature. EER2 measures cooling efficiency at a single peak condition: 95F outdoor temperature. SEER2 is always higher than EER2 for the same unit because it includes efficient part-load operation during mild weather. Use SEER2 for annual cost estimates; use EER2 to evaluate peak-day performance."
+  },
+  {
+    question: "How do I compare a heat pump to a gas furnace?",
+    answer: "Convert both to cost per BTU delivered. For a heat pump: Cost per 100,000 BTU = (100,000 / HSPF2) x (electricity rate / 1,000). For a gas furnace: Cost per 100,000 BTU = (100,000 / AFUE) x (gas rate per therm / 100,000). At typical U.S. rates ($0.16/kWh, $1.30/therm), a heat pump with HSPF2 10 costs about $1.62 per 100K BTU, while a 96% AFUE furnace costs about $1.35."
+  },
+  {
+    question: "Which efficiency rating matters most for my annual energy bill?",
+    answer: "It depends on your climate. In cooling-dominated climates (FL, TX, AZ), SEER2 has the biggest impact. In heating-dominated climates (MN, WI, NY), HSPF2 for heat pumps or AFUE for furnaces matters more. In mixed climates, both SEER2 and HSPF2 contribute significantly. Use your local heating degree days (HDD) vs cooling degree days (CDD) to determine which season dominates your energy use."
+  },
+  {
+    question: "What does COP 3.0 mean in practical terms?",
+    answer: "COP 3.0 means the system delivers 3 units of heating or cooling energy for every 1 unit of electricity consumed. In practical terms, at $0.16/kWh, a heat pump with COP 3.0 costs about $1.56 to deliver 100,000 BTU of heat. For comparison, electric resistance heating (COP 1.0) would cost $4.69 for the same heat. COP 3.0 is 300% efficient."
+  },
+  {
+    question: "Why are there so many different HVAC efficiency ratings?",
+    answer: "Different ratings exist because different operating conditions and equipment types require different measurements. SEER2 averages over a whole season but doesn't tell you about peak-day performance (that's EER2). HSPF2 measures heating, which involves different physics than cooling. AFUE applies to combustion equipment. IEER addresses commercial part-load conditions. Each fills a specific informational gap."
+  },
+  {
+    question: "Are MERV and CADR energy efficiency ratings?",
+    answer: "No. MERV measures air filter particle capture efficiency, and CADR measures air purifier clean air delivery rate. Neither measures energy efficiency. However, higher MERV filters create more airflow resistance, which can reduce your HVAC system's energy efficiency if the filter is too restrictive for the system. MERV 8-13 is the recommended range for residential HVAC."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Central Air Conditioning", url: "https://www.energy.gov/energysaver/central-air-conditioning" },
+  { label: "U.S. DOE - Heat Pump Systems", url: "https://www.energy.gov/energysaver/heat-pump-systems" },
+  { label: "ENERGY STAR - Product Specifications", url: "https://www.energystar.gov" },
+  { label: "AHRI - Certification Programs", url: "https://www.ahrinet.org" },
+  { label: "ASHRAE - Standards and Guidelines", url: "https://www.ashrae.org" },
+  { label: "EPA - Indoor Air Quality", url: "https://www.epa.gov/indoor-air-quality-iaq" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "seer2-rating-explained", title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating" },
+  { slug: "eer2-rating-explained", title: "Understanding EER2: The New 2023 AC Efficiency Rating" },
+  { slug: "hspf2-rating-explained", title: "Understanding HSPF2: Heat Pump Heating Efficiency Rating" },
+  { slug: "coefficient-of-performance", title: "COP Explained: Coefficient of Performance of Heat Pumps" },
+  { slug: "afue-rating-explained", title: "AFUE Rating for Furnaces: How to Calculate AFUE Savings" }
+]} />

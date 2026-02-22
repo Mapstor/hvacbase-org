@@ -1,0 +1,375 @@
+---
+slug: "what-size-generator-do-i-need"
+title: "What Size Generator Do I Need? Appliance Wattage Calculator (2026)"
+description: "Calculate the exact generator size for your home, RV, or job site. Covers starting vs running watts for AC units, furnaces, refrigerators, sump pumps, and 40+ appliances with our free wattage calculator."
+cluster: "ac-sizing-selection"
+role: "spoke"
+priority: "P1"
+contentType: "calculator-guide"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "air-conditioner-btu-calculator"
+  - "ac-tonnage-calculator"
+  - "furnace-sizing-calculator"
+  - "what-size-tankless-water-heater"
+  - "heat-pump-size-calculator"
+externalLinks:
+  - label: "DOE – Home Backup Power"
+    url: "https://www.energy.gov/energysaver/home-backup-power"
+  - label: "FEMA – Using Generators Safely"
+    url: "https://www.fema.gov/press-release/20210318/using-portable-generators-safely"
+  - label: "NFPA 110 – Standard for Emergency and Standby Power"
+    url: "https://www.nfpa.org/codes-and-standards"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# What Size Generator Do I Need? Appliance Wattage Calculator
+
+**Most homes need a 5,000–7,500 watt portable generator for essential circuits (refrigerator, lights, sump pump, phone chargers) or a 12,000–22,000 watt whole-home standby generator to run everything including central air conditioning.** The exact size depends on which appliances you want to power simultaneously and whether those appliances have electric motors with high starting (surge) wattage requirements.
+
+This guide and calculator cover every common household appliance, break down the critical difference between starting watts and running watts, and walk you through the sizing process step by step.
+
+<TableOfContents />
+
+## Quick Generator Sizing Calculator
+
+Add up your appliances below. The calculator automatically accounts for starting watts and shows your minimum generator size.
+
+<Callout type="tip">
+**Quick shortcut:** If you just want to run your central AC during a power outage, multiply your AC tonnage by 1,500 for running watts and 3,000 for starting watts. A 3-ton AC unit needs about 4,500 running watts and 9,000 starting watts — meaning you need at least a 10,000-watt generator just for the AC alone.
+</Callout>
+
+## Starting Watts vs. Running Watts: The Critical Difference
+
+Every motor-driven appliance draws a surge of electricity when it first starts up. This surge — called starting watts, locked-rotor amps, or inrush current — can be 2–6 times higher than the appliance's running watts. If your generator can't handle the starting wattage, the breaker trips or the generator stalls.
+
+| Appliance | Running Watts | Starting Watts | Surge Multiplier |
+|---|---|---|---|
+| Central AC (2 ton) | 2,800 | 6,200 | 2.2× |
+| Central AC (3 ton) | 3,800 | 8,500 | 2.2× |
+| Central AC (4 ton) | 4,900 | 11,000 | 2.2× |
+| Central AC (5 ton) | 6,200 | 14,000 | 2.3× |
+| Window AC (5,000 BTU) | 450 | 1,100 | 2.4× |
+| Window AC (10,000 BTU) | 900 | 2,200 | 2.4× |
+| Window AC (15,000 BTU) | 1,350 | 3,200 | 2.4× |
+| Refrigerator/freezer | 100–400 | 800–1,200 | 3–4× |
+| Sump pump (⅓ HP) | 800 | 1,300 | 1.6× |
+| Sump pump (½ HP) | 1,050 | 2,150 | 2× |
+| Well pump (½ HP) | 1,000 | 2,100 | 2.1× |
+| Well pump (1 HP) | 2,000 | 4,100 | 2× |
+| Furnace blower (½ HP) | 800 | 2,350 | 2.9× |
+| Furnace blower (1 HP) | 1,400 | 4,100 | 2.9× |
+| Garage door opener | 550 | 1,100 | 2× |
+| Washing machine | 500 | 1,200 | 2.4× |
+| Clothes dryer (electric) | 5,400 | 6,750 | 1.25× |
+| Clothes dryer (gas) | 300 | 600 | 2× |
+| Dishwasher | 1,800 | 1,800 | 1× |
+| Electric water heater | 4,500 | 4,500 | 1× |
+| Microwave (1,000W) | 1,000 | 1,000 | 1× |
+| Toaster | 850 | 850 | 1× |
+| Coffee maker | 800 | 800 | 1× |
+| Electric range (one burner) | 2,500 | 2,500 | 1× |
+| Electric oven | 5,000 | 5,000 | 1× |
+| LED lights (per bulb) | 10 | 10 | 1× |
+| Incandescent lights (per bulb) | 60 | 60 | 1× |
+| TV (LED, 55") | 80 | 80 | 1× |
+| Desktop computer + monitor | 300 | 300 | 1× |
+| Laptop (charging) | 50 | 50 | 1× |
+| Phone charger | 12 | 12 | 1× |
+| WiFi router | 20 | 20 | 1× |
+| Portable heater (1,500W) | 1,500 | 1,500 | 1× |
+| Hair dryer | 1,500 | 1,800 | 1.2× |
+| Electric vehicle charger (Level 1) | 1,440 | 1,440 | 1× |
+| Electric vehicle charger (Level 2) | 7,200–9,600 | 7,200–9,600 | 1× |
+| Mini split (12,000 BTU) | 1,000 | 1,500 | 1.5× |
+| Mini split (18,000 BTU) | 1,600 | 2,400 | 1.5× |
+| Mini split (24,000 BTU) | 2,200 | 3,500 | 1.6× |
+
+<Callout type="warning">
+**Motor-driven appliances are the sizing drivers.** Resistive loads like heaters, toasters, and lights draw constant power with no surge. But a single sump pump starting up draws as much surge wattage as 100+ LED bulbs. Always identify your motor loads first when sizing a generator.
+</Callout>
+
+## How to Calculate Your Generator Size: 4-Step Method
+
+### Step 1: List Everything You Need to Power
+
+Start by listing every appliance you want to run during an outage. Be realistic — you probably don't need the electric oven and clothes dryer running simultaneously during an emergency. Group them into "must have" and "nice to have."
+
+### Step 2: Add Up Running Watts
+
+Sum the running watts for all appliances you'll run at the same time. This is your continuous load.
+
+### Step 3: Find Your Highest Starting Watt Appliance
+
+Identify the single appliance with the highest starting wattage. You'll add its starting watt surplus (starting watts minus running watts) to your total running watts. This accounts for the worst-case surge scenario.
+
+### Step 4: Calculate Total Required Watts
+
+**Total watts = Total running watts + (Highest starting watts − Highest running watts)**
+
+Then add a 20% safety margin: **Generator size = Total watts × 1.20**
+
+<Callout type="example">
+**Example 1: Essential Circuits Only — Portable Generator**
+
+| Appliance | Running Watts | Starting Watts |
+|---|---|---|
+| Refrigerator | 200 | 1,200 |
+| Sump pump (⅓ HP) | 800 | 1,300 |
+| Furnace blower (½ HP) | 800 | 2,350 |
+| 10 LED lights | 100 | 100 |
+| WiFi router | 20 | 20 |
+| Phone chargers (4) | 48 | 48 |
+| TV | 80 | 80 |
+| **Totals** | **2,048** | — |
+
+Highest surge appliance: Furnace blower (2,350 starting − 800 running = 1,550 surge)
+
+Total = 2,048 + 1,550 = 3,598 watts
+With 20% margin = 4,318 watts
+
+**You need a 4,500–5,000 watt portable generator.**
+</Callout>
+
+<Callout type="example">
+**Example 2: Essentials + Central AC — Large Portable or Small Standby**
+
+| Appliance | Running Watts | Starting Watts |
+|---|---|---|
+| Central AC (3 ton) | 3,800 | 8,500 |
+| Refrigerator | 200 | 1,200 |
+| Furnace blower | 800 | 2,350 |
+| Sump pump | 800 | 1,300 |
+| 15 LED lights | 150 | 150 |
+| WiFi router + modem | 40 | 40 |
+| TV + streaming device | 100 | 100 |
+| Phone chargers (4) | 48 | 48 |
+| Microwave | 1,000 | 1,000 |
+| **Totals** | **6,938** | — |
+
+Highest surge: Central AC (8,500 − 3,800 = 4,700 surge)
+
+Total = 6,938 + 4,700 = 11,638 watts
+With 20% margin = 13,966 watts
+
+**You need a 14,000–16,000 watt generator (large portable or standby).**
+</Callout>
+
+<Callout type="example">
+**Example 3: Whole-Home Backup — Standby Generator**
+
+| Appliance | Running Watts | Starting Watts |
+|---|---|---|
+| Central AC (4 ton) | 4,900 | 11,000 |
+| Electric water heater | 4,500 | 4,500 |
+| Refrigerator | 200 | 1,200 |
+| Freezer | 150 | 900 |
+| Furnace blower (½ HP) | 800 | 2,350 |
+| Sump pump | 800 | 1,300 |
+| Well pump (½ HP) | 1,000 | 2,100 |
+| Washing machine | 500 | 1,200 |
+| Clothes dryer (gas) | 300 | 600 |
+| Dishwasher | 1,800 | 1,800 |
+| Microwave | 1,000 | 1,000 |
+| 30 LED lights | 300 | 300 |
+| 3 TVs | 240 | 240 |
+| Computer + monitor | 300 | 300 |
+| WiFi/modem | 40 | 40 |
+| Garage door opener | 550 | 1,100 |
+| **Totals** | **17,380** | — |
+
+Highest surge: Central AC (11,000 − 4,900 = 6,100 surge)
+
+Total = 17,380 + 6,100 = 23,480 watts
+With 20% margin = 28,176 watts
+
+**You need a 24–30 kW whole-home standby generator.**
+
+Note: A load management system can reduce this to a 20–22 kW unit by preventing certain appliances from starting simultaneously.
+</Callout>
+
+## Generator Types and Size Ranges
+
+| Generator Type | Wattage Range | Fuel | Best For | 2026 Price Range |
+|---|---|---|---|---|
+| Portable (conventional) | 1,000–4,000W | Gas | Camping, tailgating, few circuits | $300–$800 |
+| Portable (midsize) | 4,000–7,500W | Gas/dual fuel | Essential home circuits | $800–$2,000 |
+| Portable (large) | 7,500–12,500W | Gas/dual fuel | Most home circuits, small AC | $1,500–$3,500 |
+| Portable inverter | 1,000–7,500W | Gas | Sensitive electronics, RV | $500–$3,000 |
+| Standby (air-cooled) | 8–20 kW | Natural gas/LP | Small–medium homes | $3,500–$7,000 + install |
+| Standby (liquid-cooled) | 20–48 kW | Natural gas/LP | Large homes, whole-home | $7,000–$20,000 + install |
+| Solar + battery | 3–25 kWh | Solar/battery | Partial home, no fuel needed | $5,000–$30,000 |
+
+<Callout type="info">
+**Inverter generators** produce cleaner power (lower total harmonic distortion) and are required for sensitive electronics like computers, medical equipment, and modern HVAC control boards. Conventional generators may produce power fluctuations that can damage these devices. Look for THD under 5% on the spec sheet.
+</Callout>
+
+## Generator Sizing for Specific HVAC Systems
+
+### Central Air Conditioners
+
+| AC Size | Running Watts | Starting Watts | Min Generator (with 20% margin) |
+|---|---|---|---|
+| 1.5 ton (18,000 BTU) | 2,000 | 4,500 | 5,400W (AC only) |
+| 2 ton (24,000 BTU) | 2,800 | 6,200 | 7,440W (AC only) |
+| 2.5 ton (30,000 BTU) | 3,300 | 7,300 | 8,760W (AC only) |
+| 3 ton (36,000 BTU) | 3,800 | 8,500 | 10,200W (AC only) |
+| 3.5 ton (42,000 BTU) | 4,400 | 9,800 | 11,760W (AC only) |
+| 4 ton (48,000 BTU) | 4,900 | 11,000 | 13,200W (AC only) |
+| 5 ton (60,000 BTU) | 6,200 | 14,000 | 16,800W (AC only) |
+
+These are AC-only watts. Add your other appliances on top. A soft-start kit ($100–$350 installed) can reduce starting watts by 60–70%, potentially allowing you to use a smaller generator.
+
+### Heat Pumps
+
+Heat pumps draw similar wattage to AC units in cooling mode. In heating mode, the compressor runs at similar wattage, but the auxiliary/emergency electric heat strips (typically 5–15 kW) add massive load. A 3-ton heat pump with 10 kW of backup heat strips could draw 14,000+ running watts in heating mode — requiring a 20 kW+ generator.
+
+### Mini Splits
+
+Mini splits with inverter compressors have much lower starting surge than conventional systems, making them generator-friendly.
+
+| Mini Split Size | Running Watts | Starting Watts | Min Generator |
+|---|---|---|---|
+| 9,000 BTU | 700 | 1,050 | 1,260W (unit only) |
+| 12,000 BTU | 1,000 | 1,500 | 1,800W (unit only) |
+| 18,000 BTU | 1,600 | 2,400 | 2,880W (unit only) |
+| 24,000 BTU | 2,200 | 3,500 | 4,200W (unit only) |
+| 36,000 BTU | 3,200 | 5,000 | 6,000W (unit only) |
+
+### Furnaces
+
+Gas and oil furnaces still need electricity for the blower motor, ignition system, and controls.
+
+| Furnace Component | Running Watts | Starting Watts |
+|---|---|---|
+| Inducer motor | 300–500 | 500–800 |
+| Ignition system | 50 | 50 |
+| Blower motor (½ HP PSC) | 800 | 2,350 |
+| Blower motor (¾ HP PSC) | 1,100 | 3,200 |
+| Blower motor (ECM/variable) | 400–800 | 600–1,200 |
+| Controls + thermostat | 50 | 50 |
+| **Total (PSC blower)** | **1,200–1,700** | **3,000–4,100** |
+| **Total (ECM blower)** | **800–1,400** | **1,200–2,100** |
+
+ECM (electronically commutated motor) blowers found in high-efficiency furnaces draw significantly less power and have lower surge — a major advantage for generator sizing.
+
+## Reducing Your Generator Size Requirements
+
+### 1. Soft-Start Kits
+
+A soft-start device (like the EasyStart 368 or Hyper Engineering Micro-Air) reduces compressor starting current by 60–70%. A 3-ton AC that normally needs 8,500 starting watts drops to 3,500–4,500 starting watts. This one $100–$350 device can let you use a generator 3,000–5,000 watts smaller.
+
+### 2. Load Management Systems
+
+Automatic load management (available on most standby generators) prevents high-draw appliances from starting simultaneously. The generator's controller staggers start-up: the AC compressor kicks on, reaches running speed, then the water heater is allowed to engage, then the dryer. This can reduce your peak demand by 30–50%.
+
+### 3. Prioritize Motor-Driven Loads
+
+Avoid starting multiple motor-driven appliances simultaneously. When the generator first kicks on during an outage, start the refrigerator first, wait 10 seconds, then the sump pump, then the furnace blower. Staggering manual starts prevents surge wattage from stacking.
+
+### 4. Replace Inefficient Appliances
+
+Old refrigerators can draw 800+ running watts. A modern ENERGY STAR refrigerator runs at 100–200 watts. Similarly, upgrading to an ECM blower motor in your furnace cuts generator requirements significantly.
+
+<Callout type="example">
+**Real-world savings: soft-start kit on a portable generator**
+
+John in Oklahoma has a 3-ton central AC (3,800W running, 8,500W starting). Without a soft-start, he needs at least a 14,000W generator to run the AC plus essentials. After installing a $250 soft-start kit, the AC starting watts drop to 3,800W. Now his total starting load fits within an 8,000W portable generator — saving him $2,000+ on the generator purchase.
+</Callout>
+
+## Portable vs. Standby Generator Comparison
+
+| Factor | Portable Generator | Standby Generator |
+|---|---|---|
+| **Start-up** | Manual (pull cord or electric start) | Automatic (10–30 sec after outage) |
+| **Fuel** | Gasoline (some dual-fuel LP) | Natural gas or LP (piped) |
+| **Run time** | 8–12 hours per tank | Unlimited (piped fuel) |
+| **Typical wattage** | 3,000–12,500W | 8,000–48,000W |
+| **Installation** | Extension cords or transfer switch | Permanent transfer switch |
+| **2026 cost** | $500–$3,500 | $4,000–$25,000 installed |
+| **Maintenance** | Oil changes, fuel stabilizer | Automatic self-test, annual service |
+| **Noise level** | 65–80 dB | 60–70 dB |
+| **Can power central AC** | Large portables only (10,000W+) | Most models |
+| **Code requirements** | Must be outdoors, 20 ft from home | Requires permits, setback rules |
+
+## Safety: Generator Carbon Monoxide Risks
+
+Carbon monoxide from generators kills approximately 70 people per year in the United States, according to the Consumer Product Safety Commission. Follow these rules without exception:
+
+- **Never run a portable generator indoors** — not in a garage, basement, crawl space, or enclosed patio, even with doors open
+- **Place portable generators at least 20 feet from any window, door, or vent** — CO can enter through openings even at distance
+- **Install battery-operated CO detectors** on every level of your home and near sleeping areas
+- **Never refuel a running generator** — shut it down, let it cool for 5 minutes, then refuel outdoors
+
+<Callout type="warning">
+**CO is odorless and can kill in minutes.** In the 2021 Texas winter storm, more people died from generator-related carbon monoxide poisoning than from hypothermia. A generator in an attached garage — even with the garage door open — produces lethal CO levels within 5 minutes.
+</Callout>
+
+<Callout type="takeaway">
+**Key Takeaways**
+
+1. Add running watts for all simultaneous appliances, then add the surge watts of your highest-draw motor appliance — that's your minimum generator size
+2. Central AC is usually the biggest load: a 3-ton unit needs a 10,000W+ generator by itself
+3. Soft-start kits ($100–$350) reduce AC starting watts by 60–70%, potentially saving $2,000+ on generator size
+4. Most homes need 5,000–7,500W for essentials without AC, or 14,000–22,000W for essentials with central AC
+5. Standby generators with load management can run a whole home on 20–24 kW by staggering start-ups
+6. Never run a portable generator indoors or within 20 feet of windows — CO kills silently
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ>
+  <FAQ.Item question="What size generator do I need to run a 3-ton central AC?">
+    A 3-ton central AC requires approximately 3,800 running watts and 8,500 starting watts. To run the AC alone, you need a minimum 10,000-watt generator. To run the AC plus essential appliances (fridge, lights, sump pump), you need at least 14,000–16,000 watts. Installing a soft-start kit reduces starting watts to about 4,000, allowing a 7,500–10,000 watt generator to handle it.
+  </FAQ.Item>
+
+  <FAQ.Item question="Can a 5,000-watt generator run central air conditioning?">
+    A 5,000-watt generator cannot run most central AC systems due to the high starting wattage. Even a small 1.5-ton central AC needs 4,500 starting watts, leaving almost no headroom for other appliances. A 5,000-watt generator can run a 5,000–8,000 BTU window unit or a 9,000 BTU mini split, plus essential appliances.
+  </FAQ.Item>
+
+  <FAQ.Item question="What size generator to run a whole house?">
+    For a full whole-home backup including central AC, electric water heater, kitchen appliances, and all circuits, most homes need a 20–24 kW standby generator with load management. Larger homes (3,000+ sq ft) with 4–5 ton AC systems, electric ranges, and EV chargers may need 30–48 kW. Without load management, add 25–30% more capacity.
+  </FAQ.Item>
+
+  <FAQ.Item question="How many watts does a gas furnace need?">
+    A gas furnace typically needs 800–1,700 running watts and 2,000–4,100 starting watts, depending on blower motor size and type. Furnaces with ECM (variable-speed) blower motors need about 40% less power than those with conventional PSC motors. Don't forget the gas furnace still needs electricity for the blower, inducer fan, ignition, and controls.
+  </FAQ.Item>
+
+  <FAQ.Item question="Will a 7,500-watt generator run my house?">
+    A 7,500-watt generator can run essential circuits including a refrigerator, furnace blower, sump pump, lights, and small electronics — but typically not central AC. With a soft-start kit on a small (1.5–2 ton) AC unit, some 7,500W generators can handle the AC as well. For a typical 3–4 ton central AC plus essentials, you need at least 12,000–16,000 watts.
+  </FAQ.Item>
+
+  <FAQ.Item question="Do I need an inverter generator for my HVAC system?">
+    Modern HVAC systems with electronic control boards, variable-speed motors, and communicating thermostats are sensitive to power quality. Inverter generators produce clean power with less than 3% total harmonic distortion (THD). Conventional generators produce 10–25% THD, which can damage control boards over time. If your system has a variable-speed compressor or communicating thermostat, use an inverter generator or add a power conditioner.
+  </FAQ.Item>
+
+  <FAQ.Item question="How do I connect a generator to my HVAC system?">
+    You have two options: a transfer switch (manual or automatic) wired to your electrical panel, or an interlock kit that prevents backfeeding. A transfer switch ($300–$1,500 installed) is the safest and code-compliant method. Never plug an AC system directly into a generator via extension cord — central AC requires a hardwired 240V connection through your panel.
+  </FAQ.Item>
+
+  <FAQ.Item question="What size portable generator do I need for an RV air conditioner?">
+    A standard RV rooftop AC (13,500 BTU) needs about 1,800 running watts and 3,000–3,500 starting watts. A 3,500–4,000 watt inverter generator handles one RV AC unit. For two rooftop AC units, you need at least 5,500–7,000 watts. A soft-start kit brings starting watts down to about 1,800–2,000, allowing a 2,800W inverter generator to run one AC.
+  </FAQ.Item>
+
+  <FAQ.Item question="Should I get a propane or gasoline generator?">
+    Dual-fuel generators (gasoline + propane) offer the most flexibility. Gasoline provides slightly more power per gallon but goes stale in 3–6 months. Propane stores indefinitely, is always available (no gas station lines during emergencies), and produces less CO. Natural gas standby generators are the best option for permanent installation — unlimited fuel supply with no storage tanks.
+  </FAQ.Item>
+
+  <FAQ.Item question="How long can I run a generator continuously?">
+    Portable generators can run 8–12 hours per tank of gas and need oil changes every 100–200 hours. Most can run continuously for 100+ hours with regular refueling and oil checks. Standby generators on natural gas can run indefinitely — many ran for 2+ weeks during extended grid outages. Run time is typically limited by maintenance intervals (every 200 hours) and fuel supply rather than the generator itself.
+  </FAQ.Item>
+</FAQ>
+
+<SourcesBox>
+  - [U.S. DOE – Home Backup Power](https://www.energy.gov/energysaver/home-backup-power)
+  - [FEMA – Using Portable Generators Safely](https://www.fema.gov/press-release/20210318/using-portable-generators-safely)
+  - [CPSC – Generator Safety Data](https://www.cpsc.gov/Safety-Education/Safety-Guides/General-Information/Generators)
+  - [NFPA 110 – Emergency and Standby Power Systems](https://www.nfpa.org/codes-and-standards)
+  - [AHRI – AC Electrical Specifications](https://www.ahridirectory.org)
+  - [Generac – Generator Sizing Guide](https://www.generac.com)
+  - [Champion Power – Wattage Calculator](https://www.championpowerequipment.com)
+</SourcesBox>
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

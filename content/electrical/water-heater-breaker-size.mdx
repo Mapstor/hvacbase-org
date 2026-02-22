@@ -1,0 +1,294 @@
+---
+slug: water-heater-breaker-size
+title: "What Size Breaker for Water Heater? (10–100 Gallon Chart 2026)"
+description: "Most electric water heaters need a 30-amp double-pole breaker. Complete breaker sizing chart for 10–100+ gallon tanks and tankless units, including NEC calculations and wiring requirements."
+cluster: "electrical-wiring"
+role: "spoke"
+priority: "P2"
+contentType: "KEEP+"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - electrical-wiring-guide
+  - water-heater-wire-size
+  - water-heater-amps
+  - water-heater-wattage
+  - what-wire-size-for-30-amp
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/water-heating"
+    label: "DOE — Water Heating"
+  - url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace"
+    label: "NEC (NFPA 70) — Article 422"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# What Size Breaker for Water Heater? (10–100 Gallon Chart)
+
+**The vast majority of residential electric water heaters — from 30 to 80+ gallons — require a 30-amp double-pole breaker.** This is because most standard tank water heaters use either a 4,500W or 5,500W heating element, which draws 18.75–22.9 amps at 240V. With the continuous-load safety factor, a 30A breaker is the correct size.
+
+The tank capacity (gallons) doesn't directly determine breaker size — the heating element wattage does. A compact 30-gallon and a large 80-gallon tank often use identical 4,500W elements, requiring the same 30A breaker.
+
+<TableOfContents />
+
+## Water Heater Breaker Size Chart (By Wattage)
+
+| Element Wattage | Amps at 240V | Continuous Load (×1.25) | Required Breaker | Wire Gauge |
+|-----------------|-------------|------------------------|------------------|------------|
+| 1,500W | 6.25A | 7.8A | 15A DP | 14 AWG |
+| 2,000W | 8.3A | 10.4A | 15A DP | 14 AWG |
+| 2,500W | 10.4A | 13.0A | 15A DP | 14 AWG |
+| 3,000W | 12.5A | 15.6A | 20A DP | 12 AWG |
+| 3,500W | 14.6A | 18.2A | 20A DP | 12 AWG |
+| 4,000W | 16.7A | 20.8A | 25A or 30A DP | 10 AWG |
+| 4,500W | 18.75A | 23.4A | 30A DP | 10 AWG |
+| 5,000W | 20.8A | 26.0A | 30A DP | 10 AWG |
+| 5,500W | 22.9A | 28.6A | 30A DP | 10 AWG |
+| 6,000W | 25.0A | 31.3A | 40A DP | 8 AWG |
+
+<Callout type="important">
+**DP = Double-Pole.** All electric water heaters operate on 240V, which requires a double-pole breaker connected to both bus bars in your electrical panel. A single-pole breaker only provides 120V and won't work. Double-pole breakers occupy two adjacent slots in your panel.
+</Callout>
+
+## Water Heater Breaker Size Chart (By Tank Size)
+
+Tank size correlates loosely with element size, but the nameplate wattage is what matters. Here are typical configurations:
+
+| Tank Size (Gallons) | Common Element(s) | Amps | Breaker | Wire | Notes |
+|---------------------|------------------|------|---------|------|-------|
+| 6–20 (point-of-use) | 1,500–2,500W | 6.25–10.4A | 15–20A DP | 14–12 AWG | Under-sink units |
+| 20–30 (compact) | 3,000–4,000W | 12.5–16.7A | 20–25A DP | 12–10 AWG | Apartments, small homes |
+| 30–40 (standard) | 4,500W | 18.75A | 30A DP | 10 AWG | Most common residential |
+| 40–50 (standard) | 4,500W | 18.75A | 30A DP | 10 AWG | Most common residential |
+| 50–65 (large) | 4,500–5,500W | 18.75–22.9A | 30A DP | 10 AWG | Larger families |
+| 65–80 (extra-large) | 5,500W | 22.9A | 30A DP | 10 AWG | Large families, high demand |
+| 80–120 (commercial) | 5,500–6,000W | 22.9–25A | 30–40A DP | 10–8 AWG | Commercial applications |
+
+### Why Most Tanks Use 4,500W Elements
+
+Manufacturers standardize on 4,500W because:
+
+1. **It fits standard wiring:** 4,500W ÷ 240V = 18.75A, which stays comfortably under a 30A breaker
+2. **It provides adequate recovery:** A 4,500W element heats about 21 gallons per hour — enough for typical household use
+3. **It's energy-efficient enough:** Larger elements draw more power without proportionally faster recovery
+
+Larger tanks (65–80 gallons) sometimes use 5,500W elements for faster recovery, but they still fit on a 30A circuit because 22.9A × 1.25 = 28.6A, which rounds up to 30A.
+
+## How to Calculate Breaker Size
+
+### Step 1: Find the Element Wattage
+
+Check your water heater's data plate (usually on the side of the tank near the access panel). Look for:
+- **Wattage (W):** The total power draw (e.g., 4500W)
+- **Voltage (V):** Should be 240V or 208/240V
+- **Amps (A):** May be listed directly
+
+If only watts and volts are listed: **Amps = Watts ÷ Volts**
+
+### Step 2: Apply the Continuous Load Factor
+
+Water heaters are considered continuous loads because they can run for 3+ hours during heavy hot water use. NEC 422.13 requires:
+
+**Required Breaker Ampacity = Actual Amps × 1.25**
+
+This 125% factor provides a safety margin for sustained operation.
+
+### Step 3: Select the Breaker
+
+Choose the next standard breaker size equal to or greater than the calculated ampacity.
+
+**Standard residential double-pole breaker sizes:** 15A, 20A, 25A, 30A, 35A, 40A, 45A, 50A, 60A
+
+<Callout type="example">
+**Example calculation — 4,500W water heater:**
+1. Amps = 4,500W ÷ 240V = 18.75A
+2. Continuous load = 18.75A × 1.25 = 23.44A
+3. Next standard breaker = 25A or 30A
+4. Industry standard = **30A double-pole**
+
+Most electricians use 30A rather than 25A because 25A breakers are less common and 30A provides additional margin for voltage fluctuations.
+</Callout>
+
+## Tankless Water Heater Breaker Requirements
+
+Tankless electric water heaters are completely different from tank units. They require significantly more power and multiple circuits.
+
+| Tankless kW Rating | Total Amps | Number of Breakers | Breaker Size (each) | Total Panel Amps |
+|-------------------|-----------|-------------------|--------------------| -----------------|
+| 8 kW | 33A | 1 | 40A DP | 40A |
+| 11 kW | 46A | 1 | 60A DP | 60A |
+| 13 kW | 54A | 2 | 30A DP | 60A |
+| 18 kW | 75A | 2 | 40A DP | 80A |
+| 24 kW | 100A | 2 | 50A DP | 100A |
+| 27 kW | 113A | 3 | 40A DP | 120A |
+| 29 kW | 121A | 3 | 50A DP | 150A |
+| 36 kW | 150A | 4 | 40A DP | 160A |
+
+<Callout type="warning">
+**Tankless electric water heaters can overwhelm residential panels.** A 27 kW unit requires 120A of breaker capacity — 60% of a 200A panel. Before installing a tankless electric unit, have an electrician verify your panel can handle the additional load. In many cases, a [panel upgrade](/electrical-panel-upgrade-cost) is required.
+</Callout>
+
+## Heat Pump Water Heater Breaker Size
+
+Heat pump water heaters are the most efficient electric option. They use the same breaker as standard tanks but consume far less energy.
+
+| Type | Wattage (Heat Pump Mode) | Wattage (Backup Mode) | Breaker | Wire |
+|------|--------------------------|----------------------|---------|------|
+| Hybrid (normal use) | 500–600W | N/A | 30A DP | 10 AWG |
+| Hybrid (backup heating) | 4,500W | 4,500W | 30A DP | 10 AWG |
+| Heat pump only | 500–600W | N/A | 30A DP | 10 AWG |
+
+Heat pump water heaters have a backup resistance element (typically 4,500W) that activates during high-demand periods or cold ambient temperatures. The circuit is sized for this worst-case scenario, hence the 30A breaker requirement — same as a standard tank.
+
+The energy savings come from normal operation, where the unit runs almost entirely on the heat pump (500–600W) rather than resistance heating.
+
+## Common Breaker Sizing Mistakes
+
+### Mistake 1: Using a Single-Pole Breaker
+
+**Wrong:** Installing a 30A single-pole breaker for a 240V water heater.
+
+**Why it fails:** Single-pole breakers supply 120V from one bus bar. Water heaters need 240V, which requires connections to both bus bars via a double-pole breaker. A single-pole breaker will either fail to power the heater at all or supply only 120V (1/4 the heating power).
+
+**Fix:** Always use a double-pole breaker for 240V appliances.
+
+### Mistake 2: Undersizing the Breaker
+
+**Wrong:** Using a 20A breaker for a 4,500W water heater because "it only draws 18.75A."
+
+**Why it's a code violation:** NEC requires continuous loads (3+ hours) to be limited to 80% of breaker capacity. A 20A breaker allows only 16A continuous — the 18.75A draw exceeds this limit. The breaker may nuisance-trip or overheat.
+
+**Fix:** Apply the 1.25× factor. 18.75A × 1.25 = 23.4A → use a 30A breaker.
+
+### Mistake 3: Oversizing the Breaker (More Dangerous)
+
+**Wrong:** Using a 40A or 50A breaker on 10 AWG wire "to stop nuisance tripping."
+
+**Why it's dangerous:** The breaker protects the wire, not the appliance. If you put a 40A breaker on 10 AWG wire (rated 30A), the wire can overheat and start a fire before the breaker trips.
+
+**Fix:** If breaker trips repeatedly, diagnose the cause — bad element, loose connection, short circuit. Never upsize the breaker without upsizing the wire.
+
+### Mistake 4: Not Matching Wire to Breaker
+
+**Wrong:** Using leftover 12 AWG wire with a 30A breaker.
+
+**Why it's a fire hazard:** 12 AWG wire is rated for only 20A per NEC 240.4(D). A 30A breaker allows 50% more current than the wire can safely carry. The wire overheats inside the wall before the breaker trips.
+
+**Fix:** Always match wire to breaker: 30A = 10 AWG, 20A = 12 AWG, 15A = 14 AWG.
+
+## Real-World Examples
+
+### Example 1: Standard 50-Gallon Tank Replacement
+
+**Scenario:** Replacing old 50-gallon water heater. Existing circuit: 30A double-pole breaker, 10/2 NM-B wire.
+
+**New water heater nameplate:** 4,500W, 240V
+
+**Calculation:** 4,500 ÷ 240 = 18.75A × 1.25 = 23.4A → 30A breaker
+
+**Verdict:** Existing 30A circuit is correct. No changes needed — just connect the new water heater.
+
+### Example 2: Upgrading from 30-Gallon to 65-Gallon
+
+**Scenario:** Upgrading from compact 30-gallon (3,000W) to large 65-gallon (5,500W). Existing circuit: 20A breaker, 12/2 wire.
+
+**New calculation:** 5,500 ÷ 240 = 22.9A × 1.25 = 28.6A → 30A breaker
+
+**Problem:** Existing 12 AWG wire can only support 20A. 30A breaker on 12 AWG = fire hazard.
+
+**Solution:** Run new 10/2 NM-B cable and install 30A double-pole breaker. Do not reuse the existing wire.
+
+### Example 3: Adding Tankless Under-Sink Unit
+
+**Scenario:** Installing 4 kW point-of-use tankless under kitchen sink for instant hot water.
+
+**Calculation:** 4,000 ÷ 240 = 16.7A × 1.25 = 20.8A → 25A or 30A breaker
+
+**Wire:** 10 AWG minimum (30A) or 12 AWG with 20A if the unit draws under 16A (check specs)
+
+**Panel impact:** One additional double-pole breaker, minimal compared to whole-house tankless.
+
+### Example 4: Converting from Gas to Electric
+
+**Scenario:** Gas water heater failed; homeowner wants to switch to electric 50-gallon tank. No existing 240V circuit to water heater location.
+
+**Required new circuit:**
+- Breaker: 30A double-pole
+- Wire: 10/2 NM-B
+- Run: 40 feet (basement to water heater location)
+- Cost: Materials $60–$100, professional install $250–$500
+
+**Panel check:** Verify panel has two adjacent open slots for the double-pole breaker.
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **30A double-pole breaker is the standard** for residential tank water heaters (4,500W–5,500W elements)
+- **Wire must match breaker:** 30A breaker = 10 AWG wire, 20A breaker = 12 AWG wire
+- **Tank size doesn't determine breaker size** — the element wattage does
+- **Apply the 1.25× continuous load factor:** Actual amps × 1.25 = minimum breaker ampacity
+- **Tankless electric requires multiple breakers** — 2–4 circuits drawing 80–160A total
+- **Heat pump water heaters use standard 30A circuits** — same as tanks, but 60–70% less energy
+- **Never oversize a breaker to stop tripping** — diagnose and fix the actual problem
+- **Always use double-pole breakers** for 240V water heaters
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "What size breaker do I need for a 50 gallon water heater?",
+    answer: "Most 50-gallon water heaters require a 30-amp double-pole breaker. This is because standard 50-gallon tanks use 4,500W elements, which draw 18.75A at 240V. With the continuous load factor (×1.25), the minimum required breaker is approximately 24A, so a 30A breaker is used."
+  },
+  {
+    question: "Can I use a 20-amp breaker for a water heater?",
+    answer: "Only for small water heaters under 3,500W. A 20A breaker allows only 16A continuous load (80% of 20A). Standard 4,500W water heaters draw 18.75A, which exceeds this limit. Using a 20A breaker for a 4,500W heater violates code and can cause nuisance tripping or overheating."
+  },
+  {
+    question: "What size breaker for a 40 gallon water heater?",
+    answer: "A 40-gallon water heater typically uses a 4,500W element and requires a 30-amp double-pole breaker with 10 AWG wire. The calculation: 4,500W ÷ 240V = 18.75A × 1.25 = 23.4A, which rounds up to a 30A breaker."
+  },
+  {
+    question: "Why does my water heater keep tripping the breaker?",
+    answer: "Common causes include: (1) a bad heating element with a short to ground, (2) loose wire connections causing arcing, (3) a failing thermostat, (4) water intrusion into the electrical compartment, or (5) an undersized breaker for the element wattage. Have an electrician diagnose the issue — do not simply upsize the breaker."
+  },
+  {
+    question: "What size breaker for a tankless water heater?",
+    answer: "Tankless electric water heaters require multiple large breakers — typically 2–4 double-pole breakers rated 40A–50A each, depending on the kW rating. An 18 kW unit needs two 40A breakers; a 27 kW unit needs three 40A breakers. The total panel load can reach 80–160A, often requiring a panel upgrade."
+  },
+  {
+    question: "Can I run a water heater on a 15-amp circuit?",
+    answer: "Only for very small point-of-use units under 2,500W (about 10A at 240V). Standard residential water heaters draw 18–23A and require a 30A circuit. Using a 15A breaker for a standard water heater will cause immediate and repeated tripping."
+  },
+  {
+    question: "Do water heaters need a dedicated circuit?",
+    answer: "Yes. Electric water heaters must be on a dedicated circuit — no other appliances or outlets can share the circuit. This is required by NEC and ensures the full breaker capacity is available for the water heater's continuous load."
+  },
+  {
+    question: "What's the difference between a single-pole and double-pole breaker?",
+    answer: "A single-pole breaker connects to one bus bar and supplies 120V. A double-pole breaker connects to both bus bars simultaneously and supplies 240V. Electric water heaters require 240V, so they must use a double-pole breaker — single-pole won't work."
+  },
+  {
+    question: "How many watts can a 30-amp 240V circuit handle?",
+    answer: "A 30A/240V circuit can theoretically carry 7,200W (30 × 240). However, for continuous loads (including water heaters), NEC limits it to 80% — that's 5,760W maximum. Standard 4,500W and 5,500W water heaters fall comfortably within this limit."
+  },
+  {
+    question: "Can I replace my water heater breaker myself?",
+    answer: "Technically, many states allow homeowners to do their own electrical work with a permit. However, working inside an electrical panel is dangerous — you're exposed to 240V and potentially lethal currents. Unless you have electrical experience, hire a licensed electrician. Always turn off the main breaker before working in the panel."
+  }
+]} />
+
+<SourcesBox sources={[
+  { name: "NEC Article 422 — Appliances", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "NEC requirements for appliance wiring and overcurrent protection" },
+  { name: "NEC 422.13 — Continuous Loads", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "NEC continuous load requirements for water heaters" },
+  { name: "DOE — Water Heating", url: "https://www.energy.gov/energysaver/water-heating", description: "Department of Energy water heater selection and efficiency guide" },
+  { name: "ENERGY STAR — Water Heaters", url: "https://www.energystar.gov/products/water_heaters", description: "Efficient water heater specifications and ratings" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "water-heater-wire-size", title: "Water Heater Wire Size Chart" },
+  { slug: "water-heater-amps", title: "Water Heater Amps: How Many Amps?" },
+  { slug: "water-heater-wattage", title: "Water Heater Wattage: How Many Watts?" },
+  { slug: "what-wire-size-for-30-amp", title: "What Wire Size for 30 Amp Circuit?" },
+  { slug: "electrical-wiring-guide", title: "Home Electrical Wiring Guide" }
+]} />

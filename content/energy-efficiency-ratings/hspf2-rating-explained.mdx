@@ -1,0 +1,259 @@
+---
+slug: "hspf2-rating-explained"
+title: "Understanding HSPF2: Heat Pump Heating Efficiency Rating"
+description: "HSPF2 (Heating Seasonal Performance Factor 2) measures how efficiently a heat pump heats your home over an entire winter season. Learn what HSPF2 means, good vs excellent ratings, how it compares to HSPF, and why it matters for your energy bills."
+cluster: "energy-efficiency-ratings"
+role: "hub"
+priority: "P1"
+contentType: "guide"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "coefficient-of-performance"
+    title: "COP Explained: Coefficient of Performance of Heat Pumps"
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating"
+  - slug: "hvac-efficiency-ratings-compared"
+    title: "All HVAC Efficiency Ratings Compared"
+  - slug: "hspf-rating-explained"
+    title: "HSPF Rating: What Is a Good HSPF for Heat Pumps?"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/heat-pump-systems"
+    label: "U.S. Department of Energy – Heat Pump Systems"
+  - url: "https://www.energystar.gov/products/heating_cooling/heat_pumps_air_source"
+    label: "ENERGY STAR – Air Source Heat Pumps"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# Understanding HSPF2: Heat Pump Heating Efficiency Rating
+
+**HSPF2 (Heating Seasonal Performance Factor 2) measures a heat pump's heating efficiency over an entire winter season, expressed in BTU of heat output per watt-hour of electricity consumed.** A heat pump with 10 HSPF2 delivers 10 BTU of heat for every watt-hour of electricity, equivalent to about 293% efficiency. The federal minimum HSPF2 for split-system heat pumps is 7.5 in all regions, with high-efficiency models reaching 13+.
+
+If you're shopping for a heat pump in 2026, HSPF2 is the number that tells you how much heating will cost each winter. It's the heating counterpart to SEER2, and for heat pump owners in cold or mixed climates, it's arguably the more important rating.
+
+<TableOfContents />
+
+## What HSPF2 Means and How It Works
+
+HSPF2 stands for Heating Seasonal Performance Factor 2. The "2" indicates it uses the updated M1 test procedure with higher external static pressure (0.5 in. w.c.) to better simulate real-world duct conditions.
+
+The formula is:
+
+**HSPF2 = Total Heating Output (BTU) / Total Electrical Input (Wh)**
+
+This is calculated over a standardized heating season using DOE Climate Region IV (moderate heating climate). The test accounts for varying outdoor temperatures, defrost cycles, and supplemental electric heat strip usage.
+
+To convert HSPF2 to a COP (Coefficient of Performance), divide by 3.412. An HSPF2 of 10 equals a seasonal COP of 2.93, meaning the heat pump delivers nearly 3x more heat energy than the electricity it consumes.
+
+## HSPF2 vs HSPF: What Changed
+
+<ComparisonTable
+  headers={["Feature", "HSPF (Old)", "HSPF2 (New)"]}
+  rows={[
+    ["Effective Date", "Before January 1, 2023", "January 1, 2023 onwards"],
+    ["Test Procedure", "Original (low static pressure)", "M1 (0.5 in. w.c. static pressure)"],
+    ["Typical Rating Difference", "Baseline", "Roughly 4-5% lower than HSPF"],
+    ["Federal Minimum (Split)", "8.2 HSPF", "7.5 HSPF2"],
+    ["EnergyGuide Label", "Shows HSPF", "Shows HSPF2"],
+  ]}
+/>
+
+A reasonable approximation: HSPF2 is roughly HSPF multiplied by 0.85, but this varies by model because heating tests involve supplemental heat strips and defrost cycles that respond differently to higher static pressure.
+
+## Good, Better, Best: HSPF2 Rating Scale
+
+<ComparisonTable
+  headers={["HSPF2 Range", "Rating", "Seasonal COP", "Technology", "Annual Heat Cost*"]}
+  rows={[
+    ["7.5-8.0", "Minimum / Code Compliant", "2.2-2.3", "Single-stage compressor", "$1,200-$1,350"],
+    ["8.0-9.0", "Good / Above Average", "2.3-2.6", "Single or two-stage", "$1,050-$1,200"],
+    ["9.0-10.0", "Very Good", "2.6-2.9", "Two-stage or inverter", "$950-$1,050"],
+    ["10.0-11.5", "Excellent", "2.9-3.4", "Variable-speed inverter", "$830-$950"],
+    ["11.5-13+", "Premium / Cold-Climate", "3.4-3.8+", "Advanced inverter with EVI", "$730-$830"],
+  ]}
+/>
+
+*Estimated for a 3-ton heat pump, moderate climate (4,000 HDD), $0.16/kWh.
+
+<Callout type="tip">
+**For cold climates, prioritize HSPF2 over SEER2.** In Minneapolis, you might heat for 3,500+ hours but cool for only 800 hours. A heat pump with 18 SEER2 / 9.0 HSPF2 will cost more to operate annually than one with 16 SEER2 / 11.0 HSPF2 because heating dominates the energy bill.
+</Callout>
+
+## Federal Minimum HSPF2 Requirements (2026)
+
+<ComparisonTable
+  headers={["Heat Pump Type", "North Region Min", "South Region Min", "Southwest Region Min"]}
+  rows={[
+    ["Split System", "7.5 HSPF2", "7.5 HSPF2", "7.5 HSPF2"],
+    ["Single-Package", "6.7 HSPF2", "6.7 HSPF2", "6.7 HSPF2"],
+  ]}
+/>
+
+Unlike SEER2 minimums, HSPF2 doesn't vary by region. The DOE applies a uniform 7.5 HSPF2 standard for split systems nationwide.
+
+## HSPF2 and Real-World Heating Costs
+
+Your actual heating cost depends on HSPF2, your climate severity, and your electricity rate. The basic estimation formula:
+
+**Annual Heating Cost = (Heating Load in BTU) / HSPF2 x ($/kWh / 1,000)**
+
+### Cost Comparison Across Climates
+
+For a 3-ton heat pump at $0.16/kWh:
+
+<ComparisonTable
+  headers={["Climate", "City", "8.0 HSPF2", "10.0 HSPF2", "12.0 HSPF2", "Savings (8 to 12)"]}
+  rows={[
+    ["2,000 HDD (Mild)", "Atlanta, GA", "$720", "$576", "$480", "$240/year"],
+    ["4,000 HDD (Moderate)", "Nashville, TN", "$1,440", "$1,152", "$960", "$480/year"],
+    ["5,500 HDD (Cold)", "Philadelphia, PA", "$1,980", "$1,584", "$1,320", "$660/year"],
+    ["7,000 HDD (Very Cold)", "Minneapolis, MN", "$2,520", "$2,016", "$1,680", "$840/year"],
+  ]}
+/>
+
+<Callout type="important">
+**In cold climates, HSPF2 differences translate to hundreds of dollars annually.** Upgrading from 8.0 to 12.0 HSPF2 in Minneapolis saves $840/year. Over a 15-year system lifespan, that's $12,600 in energy savings. This easily justifies the $2,000-$4,000 premium for a high-HSPF2 unit, especially with the $2,000 federal tax credit.
+</Callout>
+
+## HSPF2 and Tax Credit Qualification
+
+Heat pumps must meet specific HSPF2 thresholds for federal tax credits:
+
+<ComparisonTable
+  headers={["Credit Program", "HSPF2 Required", "Credit Amount", "Additional Requirements"]}
+  rows={[
+    ["25C Tax Credit", "9.0+", "Up to $2,000", "16+ SEER2, 12+ EER2"],
+    ["ENERGY STAR Certification", "8.1+", "Varies by utility", "15.2+ SEER2"],
+    ["ENERGY STAR Most Efficient", "9.8+", "Varies", "17.5+ SEER2"],
+    ["NEEP Cold Climate Spec", "10.0+ (at 5 degrees F)", "Varies by state", "Capacity at least 75% at 5 degrees F"],
+  ]}
+/>
+
+## What Affects Real-World HSPF2 Performance
+
+The rated HSPF2 is tested under standardized conditions. Several factors cause your actual heating efficiency to differ:
+
+### Supplemental Heat Strip Usage
+
+Most heat pumps include electric resistance heat strips (5-20 kW) as backup heating. These activate when outdoor temperatures drop below the heat pump's effective range or when rapid temperature recovery is needed. Heat strips operate at COP 1.0 — every kilowatt-hour of strip heat drags down your effective seasonal HSPF.
+
+The HSPF2 test includes an allowance for heat strip usage, but your actual usage may differ. In mild climates, strips rarely activate. In severe climates, they may run frequently, significantly lowering effective HSPF2.
+
+### Defrost Cycles
+
+When outdoor temperatures are 25-45 degrees F with high humidity, frost builds on the outdoor coil. The system periodically reverses into cooling mode for 2-10 minutes to melt the frost. During defrost, the indoor heat strips typically activate to prevent cold air from blowing into the house. Frequent defrost cycles lower effective HSPF2.
+
+### Ductwork Quality
+
+Like SEER2, HSPF2 is measured at the unit, not at the registers. Duct leaks in unconditioned spaces (attics, crawl spaces) can waste 20-30% of the heated air. A heat pump with 10 HSPF2 and 75% duct efficiency delivers an effective HSPF2 of only 7.5.
+
+### Thermostat Programming
+
+Heat pumps perform best with minimal temperature setbacks. Setting back 10 degrees F at night and then demanding rapid recovery in the morning forces heat strips on. A smart thermostat with heat pump-specific "intelligent recovery" gradually ramps the heat pump before your wake time, maintaining high COP without engaging strips.
+
+## Top HSPF2 Heat Pumps by Brand (2026)
+
+<ComparisonTable
+  headers={["Brand", "Model", "HSPF2", "SEER2", "Type", "Est. Installed Cost"]}
+  rows={[
+    ["Mitsubishi", "Hyper-Heat H2i MXZ", "13.0+", "20+", "Ductless mini-split", "$4,000-$8,000/zone"],
+    ["Fujitsu", "Halcyon XLTH", "12.5+", "20+", "Ductless mini-split", "$3,500-$7,000/zone"],
+    ["Daikin", "Fit DZ17VSA", "11.0", "17.6", "Ducted inverter", "$7,000-$10,000"],
+    ["Carrier", "Infinity 24 (25VNA4)", "10.5", "22+", "Ducted variable-speed", "$9,000-$14,000"],
+    ["Lennox", "XP25", "10.5", "23+", "Ducted variable-speed", "$9,000-$14,000"],
+    ["Trane", "XV20i HP", "10.0", "20", "Ducted variable-speed", "$8,000-$12,000"],
+    ["Bosch", "IDS 2.0", "10.0", "18.5", "Ducted inverter", "$7,000-$10,000"],
+    ["Rheem", "Prestige RPHP", "10.0", "20", "Ducted variable-speed", "$7,000-$11,000"],
+    ["Goodman/Daikin", "GPHP", "9.5", "19", "Ducted inverter", "$6,000-$9,000"],
+  ]}
+/>
+
+<Callout type="info">
+**Ductless mini-splits achieve the highest HSPF2 ratings** (12-13+) because they eliminate duct losses entirely. If you're heating specific zones rather than a whole house, mini-splits deliver unmatched efficiency. The tradeoff is that whole-home coverage requires multiple indoor units.
+</Callout>
+
+## HSPF2 vs AFUE: Comparing Heat Pumps to Furnaces
+
+When deciding between a heat pump and a gas furnace, converting both to a common metric helps:
+
+<ComparisonTable
+  headers={["System", "Rating", "Effective COP", "Cost per 100K BTU ($0.16/kWh, $1.30/therm)"]}
+  rows={[
+    ["Heat Pump (12 HSPF2)", "12 HSPF2 = COP 3.5", "3.5", "$1.34"],
+    ["Heat Pump (10 HSPF2)", "10 HSPF2 = COP 2.9", "2.9", "$1.62"],
+    ["Heat Pump (8 HSPF2)", "8 HSPF2 = COP 2.3", "2.3", "$2.04"],
+    ["Gas Furnace (96% AFUE)", "96% = COP 0.96", "0.96", "$1.35"],
+    ["Gas Furnace (80% AFUE)", "80% = COP 0.80", "0.80", "$1.63"],
+    ["Electric Resistance", "100% = COP 1.0", "1.0", "$4.69"],
+  ]}
+/>
+
+At these rates, a heat pump with 10+ HSPF2 is competitive with even a high-efficiency gas furnace. Above 12 HSPF2, the heat pump clearly wins on operating cost.
+
+## Cold Climate Considerations
+
+Standard HSPF2 is tested using DOE Region IV (moderate climate). If you're in Climate Region V or VI (northern states), your real-world seasonal efficiency will be lower because the heat pump encounters colder temperatures more frequently.
+
+Look for heat pumps that meet the NEEP (Northeast Energy Efficiency Partnerships) Cold Climate specification. These units must deliver at least 75% of rated capacity at 5 degrees F and have a COP of 1.75 or higher at that temperature.
+
+Some cold-climate-specific features to look for include enhanced vapor injection (EVI) compressors, pan heaters to prevent base pan freezing, optimized defrost algorithms, and high-temperature discharge capability.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **HSPF2 measures seasonal heating efficiency** in BTU per watt-hour. Higher is better. Divide by 3.412 to get seasonal COP.
+- **The federal minimum is 7.5 HSPF2** for split-system heat pumps. Aim for 10+ HSPF2 for meaningful savings.
+- **9.0+ HSPF2 is required for the $2,000 federal tax credit** (Section 25C).
+- **In cold climates, HSPF2 matters more than SEER2** because heating hours far exceed cooling hours.
+- **Upgrading from 8.0 to 12.0 HSPF2 saves $480-$840/year** depending on climate severity.
+- **Ductless mini-splits achieve the highest HSPF2** ratings (12-13+) by eliminating duct losses.
+- **Supplemental heat strips, defrost cycles, and duct quality** all affect your real-world efficiency.
+- **At 10+ HSPF2, heat pumps match or beat gas furnaces** on operating cost in most electricity markets.
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What is a good HSPF2 rating for a heat pump?",
+    answer: "A good HSPF2 rating is 10.0 or higher, which corresponds to a seasonal COP of about 2.9. This means the heat pump delivers nearly 3x more heat energy than the electricity it consumes over a full heating season. Premium cold-climate units reach 12-13 HSPF2. The federal minimum is 7.5 HSPF2."
+  },
+  {
+    question: "What is the difference between HSPF and HSPF2?",
+    answer: "HSPF2 uses the updated M1 test procedure with higher external static pressure (0.5 in. w.c.) to better simulate real duct conditions. HSPF2 values are roughly 4-5% lower than HSPF for the same equipment. HSPF2 became the required metric on January 1, 2023. A unit rated at 10 HSPF would rate approximately 8.5 HSPF2."
+  },
+  {
+    question: "How do I convert HSPF2 to COP?",
+    answer: "Divide HSPF2 by 3.412 to get the seasonal COP. For example, 10 HSPF2 divided by 3.412 equals COP 2.93. This means the heat pump delivers 293% more heat energy than the electrical energy it consumes over the heating season. The 3.412 factor converts between BTU and watt-hours."
+  },
+  {
+    question: "What HSPF2 do I need for the federal tax credit?",
+    answer: "To qualify for the $2,000 federal heat pump tax credit under Section 25C, you need a heat pump with at least 9.0 HSPF2, plus 16.0 SEER2 and 12.0 EER2. These thresholds apply to split-system air-source heat pumps. Verify the specific model qualifies using the ENERGY STAR product finder."
+  },
+  {
+    question: "Does HSPF2 include backup heat strip usage?",
+    answer: "Yes. The HSPF2 test procedure includes an allowance for supplemental electric resistance heat strip usage during very cold periods. This makes HSPF2 a more realistic seasonal efficiency number than COP measured at a single temperature. However, your actual strip usage may differ from the test assumptions based on your climate."
+  },
+  {
+    question: "Is HSPF2 or SEER2 more important?",
+    answer: "It depends on your climate. In cold or mixed climates where heating hours exceed cooling hours, HSPF2 has a bigger impact on your annual energy bill. In hot climates where cooling dominates, SEER2 matters more. For most of the northern U.S., prioritize HSPF2 when choosing a heat pump."
+  },
+  {
+    question: "Why do mini-splits have higher HSPF2 than ducted heat pumps?",
+    answer: "Mini-splits achieve higher HSPF2 ratings (12-13+) for two reasons. First, they eliminate duct losses entirely since they deliver heated air directly to the room. Second, they use highly efficient inverter compressors optimized for part-load operation. Ducted systems lose some efficiency through ductwork and typically use slightly less efficient compressor designs to handle higher airflow requirements."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. Department of Energy - Heat Pump Systems", url: "https://www.energy.gov/energysaver/heat-pump-systems" },
+  { label: "ENERGY STAR - Air Source Heat Pumps", url: "https://www.energystar.gov/products/heating_cooling/heat_pumps_air_source" },
+  { label: "NEEP - Cold Climate Air Source Heat Pump Specification", url: "https://neep.org/heating-electrification/ccashp-specification-and-product-list" },
+  { label: "AHRI - Directory of Certified Product Performance", url: "https://www.ahrinet.org" },
+  { label: "ASHRAE - Standard 116: Methods of Testing for Seasonal Efficiency", url: "https://www.ashrae.org" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "coefficient-of-performance", title: "COP Explained: Coefficient of Performance of Heat Pumps" },
+  { slug: "seer2-rating-explained", title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating" },
+  { slug: "hvac-efficiency-ratings-compared", title: "All HVAC Efficiency Ratings Compared" },
+  { slug: "hspf-rating-explained", title: "HSPF Rating: What Is a Good HSPF for Heat Pumps?" }
+]} />

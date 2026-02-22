@@ -1,0 +1,337 @@
+---
+slug: "how-many-watts-in-12v-battery"
+title: "How Many Watts in a 12V Battery? (Calculator + Chart)"
+description: "Find out how many watts a 12V battery can deliver and store. Free calculator, watt charts for every 12V battery size (7Ah to 200Ah), and real-world examples for solar, RVs, and backup power."
+cluster: "batteries-solar"
+role: "spoke"
+priority: 2
+contentType: "calculator-guide"
+datePublished: "2026-02-07"
+dateModified: "2026-02-07"
+relatedArticles:
+  - "battery-watt-hours"
+  - "solar-panel-calculator"
+  - "home-battery-backup-guide"
+  - "solar-panel-cost-by-state"
+externalLinks:
+  - url: "https://www.energy.gov/eere/articles/batteries-101"
+    label: "DOE: Batteries 101"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# How Many Watts in a 12V Battery? (Calculator + Chart)
+
+A 12V battery stores **watt-hours (Wh), not watts** — and the total depends on its amp-hour (Ah) rating. A 12V 100Ah battery stores **1,200 watt-hours (Wh)** of energy. The watts it can *deliver* at any moment depend on the load connected to it: it can power a 100W device for 12 hours, a 600W device for 2 hours, or a 1,200W device for about 1 hour (minus efficiency losses).
+
+The key distinction: **watts = power (rate)**, **watt-hours = energy (total)**. Read on for our calculator, a complete reference chart, and real-world examples.
+
+<TableOfContents />
+
+## 12V Battery Watts Calculator
+
+<CalcWrapper type="12v-battery-watts" />
+
+## The Two "Watts" Questions for 12V Batteries
+
+People asking "how many watts in a 12V battery" usually mean one of two things:
+
+### Question 1: How Much Energy Does It Store? (Watt-Hours)
+
+**Formula: Wh = 12V x Ah**
+
+This tells you the total energy capacity. A 12V 100Ah battery stores 1,200 Wh — the energy equivalent of running a 100-watt light bulb for 12 hours.
+
+### Question 2: How Many Watts Can It Deliver? (Power Output)
+
+**Formula: W = V x A (at any given moment)**
+
+This depends on how much current (amps) you're drawing. The maximum continuous power depends on the battery's design and your inverter:
+
+| Battery Type | Typical Max Continuous Amps | Max Watts at 12V |
+|---|---|---|
+| Car starter (flooded lead-acid) | 25-50A continuous | 300-600W |
+| Deep cycle AGM | 50-100A continuous | 600-1,200W |
+| Deep cycle LiFePO4 | 100-200A continuous | 1,200-2,400W |
+| Inverter-limited | Depends on inverter | 300-3,000W |
+
+<Callout type="warning">
+**Your inverter is usually the bottleneck.** Even if a battery can deliver 200A (2,400W), your inverter must be rated for that wattage. A 1,000W inverter will limit output to 1,000W regardless of battery capability. Always match your inverter to your load requirements.
+</Callout>
+
+## Complete 12V Battery Watt-Hours Chart
+
+### Standard 12V Batteries (by Amp-Hour Rating)
+
+| Battery Size (Ah) | Watt-Hours (Wh) | Common Use | Approximate Weight |
+|---|---|---|---|
+| 5 Ah | 60 Wh | Alarm systems, small UPS | 3-4 lbs |
+| 7 Ah | 84 Wh | UPS backup, emergency lights | 5-6 lbs |
+| 9 Ah | 108 Wh | Security systems, small devices | 6-7 lbs |
+| 12 Ah | 144 Wh | Mobility scooters, fish finders | 8-10 lbs |
+| 18 Ah | 216 Wh | Electric wheelchairs, lawn mowers | 12-15 lbs |
+| 20 Ah | 240 Wh | Portable power, trolling motors | 13-15 lbs |
+| 35 Ah | 420 Wh | Medium trolling motors, backup | 22-26 lbs |
+| 50 Ah | 600 Wh | RV house batteries, solar | 28-35 lbs |
+| 75 Ah | 900 Wh | Marine deep cycle, larger solar | 42-50 lbs |
+| 100 Ah | 1,200 Wh | RV/marine, off-grid solar | 28 lbs (LiFePO4) / 63 lbs (lead-acid) |
+| 125 Ah | 1,500 Wh | Large RV systems | 35 lbs (LiFePO4) / 78 lbs (lead-acid) |
+| 150 Ah | 1,800 Wh | Off-grid solar banks | 42 lbs (LiFePO4) / 95 lbs (lead-acid) |
+| 200 Ah | 2,400 Wh | Heavy-duty off-grid, marine | 55 lbs (LiFePO4) / 120 lbs (lead-acid) |
+| 300 Ah | 3,600 Wh | Large off-grid systems | 80 lbs (LiFePO4) |
+
+<Callout type="info">
+**LiFePO4 batteries weigh roughly half as much as lead-acid batteries** at the same capacity — and you can use 80-100% of their rated capacity versus only 50% for lead-acid. A 100Ah LiFePO4 battery provides the same usable energy as a 200Ah lead-acid battery.
+</Callout>
+
+### Usable Watts by Battery Chemistry
+
+Not all watt-hours are actually usable. Depth of discharge (DoD) determines how much energy you can safely extract:
+
+| Battery Chemistry | Rated Capacity | Total Wh | Usable DoD | Usable Wh |
+|---|---|---|---|---|
+| Flooded lead-acid | 12V 100Ah | 1,200 | 50% | 600 |
+| AGM lead-acid | 12V 100Ah | 1,200 | 50-60% | 600-720 |
+| Gel lead-acid | 12V 100Ah | 1,200 | 50-60% | 600-720 |
+| LiFePO4 | 12.8V 100Ah | 1,280 | 80-100% | 1,024-1,280 |
+
+This is why comparing batteries solely on Ah rating is misleading. A 100Ah LiFePO4 battery gives you **twice the usable energy** of a 100Ah flooded lead-acid battery.
+
+## How Long Will a 12V Battery Power My Device?
+
+### Runtime Formula
+
+**Runtime (hours) = Usable Wh / Device Watts x Inverter Efficiency**
+
+For a 12V 100Ah LiFePO4 battery (1,024 usable Wh) with a 90% efficient inverter:
+
+| Device | Watts | Runtime |
+|---|---|---|
+| LED light bulb | 10W | 92 hours |
+| Phone charger | 15W | 61 hours |
+| Laptop | 45W | 20 hours |
+| LED TV (50 inch) | 80W | 11.5 hours |
+| Mini fridge | 60W (avg) | 15 hours |
+| CPAP machine | 30-60W | 15-31 hours |
+| Window fan | 75W | 12 hours |
+| Portable heater | 750W | 1.2 hours |
+| Space heater | 1,500W | 0.6 hours |
+| Microwave | 1,000W | 55 minutes |
+| Window AC (5,000 BTU) | 500W | 1.8 hours |
+
+For the same 100Ah battery in **lead-acid** (600 usable Wh, 90% inverter):
+
+| Device | Watts | Runtime (Lead-Acid) |
+|---|---|---|
+| LED light bulb | 10W | 54 hours |
+| Phone charger | 15W | 36 hours |
+| Laptop | 45W | 12 hours |
+| LED TV (50 inch) | 80W | 6.8 hours |
+| Mini fridge | 60W (avg) | 9 hours |
+| CPAP machine | 30-60W | 9-18 hours |
+
+<Callout type="tip">
+**CPAP users:** A 12V 100Ah LiFePO4 battery is the gold standard for camping and travel CPAP backup. Most CPAP machines draw 30-60W, giving you 2-4 nights of use on a single charge. Use a DC-to-DC adapter (12V to CPAP native voltage) instead of an AC inverter to eliminate conversion losses and extend runtime by 15-20%.
+</Callout>
+
+## Watts vs. Watt-Hours vs. Amp-Hours: A Clear Comparison
+
+| Term | Unit | What It Measures | Analogy |
+|---|---|---|---|
+| Volts (V) | V | Electrical pressure | Water pressure |
+| Amps (A) | A | Current flow rate | Water flow rate |
+| Watts (W) | W | Power (rate of energy use) | Speed of a car |
+| Amp-hours (Ah) | Ah | Charge capacity | Gas tank in gallons |
+| Watt-hours (Wh) | Wh | Energy capacity | Gas tank x engine efficiency |
+
+The relationships:
+- **W = V x A** (power at any moment)
+- **Wh = V x Ah** (total energy stored)
+- **Runtime = Wh / W** (how long it lasts)
+
+## Real-World Examples
+
+### Example 1: Running an RV on 12V Batteries
+
+You have two 12V 100Ah LiFePO4 batteries wired in parallel (total: 12V, 200Ah, 2,560 Wh usable). Your daily RV electrical load:
+
+| Load | Watts | Hours/Day | Wh/Day |
+|---|---|---|---|
+| LED lights | 40W | 5 | 200 |
+| Water pump | 60W | 0.5 | 30 |
+| Phone/tablet charging | 30W | 3 | 90 |
+| Laptop | 45W | 4 | 180 |
+| Exhaust fan | 25W | 6 | 150 |
+| 12V fridge | 45W (avg) | 24 | 1,080 |
+| **Total** | | | **1,730 Wh/day** |
+
+With 2,560 Wh usable, your battery bank covers **1.5 days** without recharging. A 400W solar panel in 5 peak sun hours generates 2,000 Wh/day, more than enough to keep the batteries topped off indefinitely.
+
+### Example 2: Emergency Sump Pump Backup
+
+A 1/3 HP sump pump draws 800W while running. During a heavy storm, it cycles 10 minutes on, 20 minutes off. Your 12V 100Ah LiFePO4 battery (1,024 usable Wh) paired with a 1,500W inverter:
+
+- Per-hour energy: 800W x (10/30) = 267 Wh per hour
+- Runtime: 1,024 / 267 = **3.8 hours of storm protection**
+- For 12-hour protection, you would need three 100Ah batteries
+
+### Example 3: Tailgating and Outdoor Party Power
+
+You are running a TV (80W), a blender (300W intermittent), a phone charging station (60W), and LED string lights (20W) for a 6-hour tailgate:
+
+- Continuous load: 80 + 60 + 20 = 160W x 6 hours = 960 Wh
+- Blender bursts: 300W x 0.25 hours total = 75 Wh
+- Total: 1,035 Wh
+- A single 12V 100Ah LiFePO4 battery (1,024 Wh usable) just barely covers it. A 150Ah battery provides comfortable headroom.
+
+### Example 4: Off-Grid Solar Cabin
+
+A small off-grid cabin needs 3,000 Wh per day (lights, fridge, water pump, entertainment). With 2 days of autonomy for cloudy weather:
+
+- Required storage: 3,000 x 2 = 6,000 Wh
+- Using 12V 200Ah LiFePO4 batteries (2,048 Wh usable each)
+- Batteries needed: 6,000 / 2,048 = **3 batteries in parallel**
+- Solar array: 1,200W or more (to recharge 3,000 Wh per day with about 5 sun hours)
+
+## 12V Battery Configurations: Series vs. Parallel
+
+When one 12V battery is not enough, you can combine multiple batteries:
+
+### Parallel (Same Voltage, More Capacity)
+
+Connect positive to positive, negative to negative. Voltage stays at 12V, amp-hours add up.
+
+| Configuration | Voltage | Total Ah | Total Wh |
+|---|---|---|---|
+| 1 x 12V 100Ah | 12V | 100 Ah | 1,200 Wh |
+| 2 x 12V 100Ah parallel | 12V | 200 Ah | 2,400 Wh |
+| 3 x 12V 100Ah parallel | 12V | 300 Ah | 3,600 Wh |
+| 4 x 12V 100Ah parallel | 12V | 400 Ah | 4,800 Wh |
+
+### Series (More Voltage, Same Capacity)
+
+Connect positive to negative in a chain. Amp-hours stay the same, voltage adds up. Used for 24V and 48V systems.
+
+| Configuration | Voltage | Total Ah | Total Wh |
+|---|---|---|---|
+| 2 x 12V 100Ah series | 24V | 100 Ah | 2,400 Wh |
+| 4 x 12V 100Ah series | 48V | 100 Ah | 4,800 Wh |
+
+<Callout type="warning">
+**Never mix old and new batteries, or different brands and chemistries, in series or parallel.** Mismatched batteries cause uneven charging, reduced capacity, and potential safety issues. If you need to expand, buy identical batteries from the same manufacturer and batch.
+</Callout>
+
+## Choosing the Right 12V Battery for Your Application
+
+| Application | Recommended Type | Min Ah | Min Wh | Typical Budget |
+|---|---|---|---|---|
+| UPS / alarm backup | AGM lead-acid | 7-12 Ah | 84-144 Wh | $20-$40 |
+| Fish finder / trolling motor | AGM or LiFePO4 | 35-100 Ah | 420-1,280 Wh | $80-$400 |
+| RV house battery | LiFePO4 | 100-200 Ah | 1,280-2,560 Wh | $300-$800 |
+| Off-grid solar | LiFePO4 | 200+ Ah | 2,560+ Wh | $600-$1,600 |
+| Marine deep cycle | AGM or LiFePO4 | 100-150 Ah | 1,200-1,920 Wh | $150-$600 |
+| Emergency home backup | LiFePO4 | 100+ Ah | 1,280+ Wh | $300-$700 |
+| CPAP travel battery | LiFePO4 | 50-100 Ah | 640-1,280 Wh | $200-$500 |
+| Van life / mobile office | LiFePO4 | 200-300 Ah | 2,560-3,840 Wh | $700-$1,500 |
+
+## 12V Battery Pricing Guide (2026)
+
+| Battery | Chemistry | Capacity | Approx Price | Price per Wh |
+|---|---|---|---|---|
+| Universal Power UB12070 | AGM | 7Ah / 84Wh | $20-$25 | $0.24-$0.30 |
+| VMAXTANKS SLR125 | AGM | 125Ah / 1,500Wh | $250-$300 | $0.17-$0.20 |
+| Renogy 100Ah Smart | LiFePO4 | 100Ah / 1,280Wh | $280-$350 | $0.22-$0.27 |
+| Battle Born BB10012 | LiFePO4 | 100Ah / 1,280Wh | $700-$800 | $0.55-$0.63 |
+| Victron Smart 200Ah | LiFePO4 | 200Ah / 2,560Wh | $1,200-$1,500 | $0.47-$0.59 |
+| SOK 206Ah Server Rack | LiFePO4 | 206Ah / 2,637Wh | $600-$750 | $0.23-$0.28 |
+| EcoFlow Delta 2 Max | Li-ion (portable) | 160Ah equiv / 2,048Wh | $1,600-$2,000 | $0.78-$0.98 |
+
+<Callout type="tip">
+**Best value in 2026:** Budget LiFePO4 batteries from brands like Renogy, SOK, and Ampere Time now cost $0.20-$0.30 per Wh, approaching lead-acid AGM pricing while offering double the usable capacity and 5-10x the cycle life. Premium brands like Battle Born and Victron charge a premium for better BMS features and customer support.
+</Callout>
+
+## How to Calculate Charging Time for a 12V Battery
+
+**Charging time (hours) = Battery Ah / Charger Amps x 1.1**
+
+The 1.1 multiplier accounts for charging efficiency losses. As a battery fills, the charge rate slows (especially the last 10-20%), so real-world charging takes longer than the formula suggests.
+
+| Battery Size | 10A Charger | 20A Charger | 40A Charger | 100W Solar Panel |
+|---|---|---|---|---|
+| 50 Ah | 5.5 hrs | 2.75 hrs | 1.4 hrs | 6-8 hrs |
+| 100 Ah | 11 hrs | 5.5 hrs | 2.75 hrs | 12-16 hrs |
+| 200 Ah | 22 hrs | 11 hrs | 5.5 hrs | 24-32 hrs |
+| 300 Ah | 33 hrs | 16.5 hrs | 8.25 hrs | 36-48 hrs |
+
+Solar panel charging time assumes 5 peak sun hours and 8-10A effective charging current from a 100W panel.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **Watt-hours formula: Wh = 12V x Ah.** A 100Ah battery stores 1,200 Wh total
+- **Usable energy depends on chemistry.** Lead-acid gives you 50% (600 Wh), LiFePO4 gives you 80-100% (1,024-1,280 Wh)
+- **Runtime = Usable Wh / Device Watts x 0.9** (accounting for inverter losses)
+- **LiFePO4 is the clear winner for most applications** with 2x usable energy, half the weight, and 5-10x the lifespan of lead-acid
+- **Match your inverter to your load.** The battery can only deliver what the inverter allows
+- **For whole-home backup, consider dedicated home batteries** (Powerwall, Enphase, Franklin) instead of DIY 12V setups
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ questions={[
+  {
+    question: "How many watts does a 12V 100Ah battery have?",
+    answer: "A 12V 100Ah battery stores 1,200 watt-hours (Wh) of total energy (12V x 100Ah = 1,200Wh). The watts it can deliver at any moment depends on the connected load and inverter. It could power a 100W device for 12 hours, a 600W device for 2 hours, or a 1,200W device for about 1 hour. In practice, usable capacity is 600 Wh for lead-acid (50% DoD) or 1,024-1,280 Wh for LiFePO4 (80-100% DoD)."
+  },
+  {
+    question: "How many watts is a 12V car battery?",
+    answer: "A standard car battery (12V, 45-65Ah) stores 540-780 watt-hours. However, car batteries are designed for short high-current bursts (starting the engine), not sustained power delivery. Drawing more than 20-30% of their capacity damages them. For sustained power needs, use a deep-cycle battery instead."
+  },
+  {
+    question: "Can a 12V battery run a 1,500 watt heater?",
+    answer: "Technically yes, but only briefly. A 12V 100Ah LiFePO4 battery stores about 1,024 usable Wh, running a 1,500W heater for roughly 37 minutes (accounting for inverter losses). You would also need a 2,000W+ pure sine wave inverter. A 200Ah battery would double that to about 75 minutes. Space heaters are extremely power-hungry and impractical on 12V battery systems."
+  },
+  {
+    question: "How many watts does a 12V 200Ah battery store?",
+    answer: "A 12V 200Ah battery stores 2,400 watt-hours total (12 x 200 = 2,400). For a LiFePO4 battery at 80% usable DoD, that is about 2,048 usable Wh. This is enough to run a 12V fridge (45W average) for about 45 hours, or power a small RV setup (lights, fridge, charging) for about 1.5 days."
+  },
+  {
+    question: "What is the difference between watts and watt-hours?",
+    answer: "Watts (W) measure power, which is the rate of energy use at any instant. Watt-hours (Wh) measure energy, which is the total amount used over time. Think of watts as the speed of a car and watt-hours as the distance traveled. A 100W light bulb uses 100 watts of power. Running it for 10 hours consumes 1,000 watt-hours (1 kWh) of energy."
+  },
+  {
+    question: "How long will a 12V battery run a refrigerator?",
+    answer: "A standard mini fridge draws about 50-80W on average (including compressor cycling). A 12V 100Ah LiFePO4 battery (1,024 usable Wh) with a 90% efficient inverter runs a mini fridge for 11-18 hours. A full-size refrigerator draws 100-200W average and would last 5-9 hours. Doubling to 200Ah doubles these runtimes."
+  },
+  {
+    question: "Is a 12V 100Ah lithium battery better than lead-acid?",
+    answer: "For most applications, yes. A 100Ah LiFePO4 provides 1,024-1,280 usable Wh versus 600 Wh for lead-acid (due to 50% DoD limit). LiFePO4 also weighs half as much (28 vs 63 lbs), lasts 5-10x longer (3,000-5,000+ cycles vs 300-500), charges 3-4x faster, and maintains consistent voltage under load. The upfront cost is higher, but the cost per cycle is actually lower."
+  },
+  {
+    question: "How do I calculate how long a 12V battery will last?",
+    answer: "Use this formula: Runtime (hours) = Usable Wh / Device Watts x 0.9. For a 12V 100Ah LiFePO4 battery running a 200W load: 1,024 Wh / 200W x 0.9 = 4.6 hours. For lead-acid, use 600 Wh instead: 600 / 200 x 0.9 = 2.7 hours. The 0.9 factor accounts for inverter efficiency losses."
+  },
+  {
+    question: "Can I use a car battery for solar storage?",
+    answer: "No. Car batteries (starter batteries) are designed for short, high-current bursts and will be damaged by deep cycling. For solar storage, use deep-cycle batteries. LiFePO4 deep-cycle batteries are ideal because they handle thousands of deep discharge cycles without degradation. AGM deep-cycle batteries are a budget alternative but have half the usable capacity and shorter lifespan."
+  },
+  {
+    question: "How many 12V batteries do I need for a 3,000W inverter?",
+    answer: "A 3,000W inverter at 12V draws 250 amps (3,000W / 12V = 250A). Most single 12V batteries cannot safely deliver 250A continuously. You would need 2-3 batteries in parallel to safely distribute the current draw. For capacity, a 3,000W load for 2 hours needs 6,000 Wh, requiring three 12V 200Ah LiFePO4 batteries (each providing about 2,048 usable Wh)."
+  }
+]} />
+
+<SourcesBox sources={[
+  { title: "DOE: Batteries 101", url: "https://www.energy.gov/eere/articles/batteries-101" },
+  { title: "Battery University: What Is the C-Rate?", url: "https://batteryuniversity.com/article/bu-402-what-is-c-rate" },
+  { title: "Battery University: BU-802b Depth of Discharge", url: "https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do" },
+  { title: "NREL: Battery Storage Technology Basics", url: "https://www.nrel.gov/research/re-battery-storage.html" },
+  { title: "Battle Born Batteries: LiFePO4 Deep Cycle Guide", url: "https://battlebornbatteries.com/" }
+]} />
+
+<RelatedArticles articles={[
+  "battery-watt-hours",
+  "solar-panel-calculator",
+  "home-battery-backup-guide",
+  "solar-panel-cost-by-state"
+]} />

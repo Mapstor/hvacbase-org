@@ -1,0 +1,257 @@
+---
+slug: "coefficient-of-performance"
+title: "COP Explained: Coefficient of Performance of Heat Pumps"
+description: "COP (Coefficient of Performance) measures heat pump efficiency as the ratio of heat output to electrical input. A COP of 3.0 means 3 kWh of heat per 1 kWh of electricity. Learn COP ranges, how COP changes with temperature, and how to compare COP across heat pump types."
+cluster: "energy-efficiency-ratings"
+role: "hub"
+priority: "P1"
+contentType: "guide"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "hspf2-rating-explained"
+    title: "Understanding HSPF2: Heat Pump Heating Efficiency Rating"
+  - slug: "afue-rating-explained"
+    title: "AFUE Rating for Furnaces: How to Calculate AFUE Savings"
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating"
+  - slug: "hvac-efficiency-ratings-compared"
+    title: "All HVAC Efficiency Ratings Compared"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/heat-pump-systems"
+    label: "U.S. Department of Energy – Heat Pump Systems"
+  - url: "https://www.energystar.gov/products/heating_cooling/heat_pumps_air_source"
+    label: "ENERGY STAR – Air Source Heat Pumps"
+  - url: "https://www.ahrinet.org"
+    label: "AHRI – Certification Directory"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# COP Explained: Coefficient of Performance of Heat Pumps
+
+**COP (Coefficient of Performance) is the ratio of useful heating or cooling energy delivered to the electrical energy consumed.** A heat pump with a COP of 3.0 produces 3 units of heat for every 1 unit of electricity it uses — effectively delivering 300% efficiency. Modern air-source heat pumps achieve COPs of 2.5–4.5 in heating mode and 3.0–6.0 in cooling mode, making them 2–4 times more efficient than electric resistance heating.
+
+COP is the most fundamental and universal efficiency metric in heating and cooling. While SEER2, HSPF2, and EER2 are U.S.-specific seasonal or condition-specific ratings, COP is used worldwide and can be measured at any operating point, making it the go-to metric for comparing different heating technologies on equal footing.
+
+<TableOfContents />
+
+## The COP Formula
+
+The COP calculation is simple in concept:
+
+**COP = Heat Energy Output (kW) ÷ Electrical Energy Input (kW)**
+
+Or equivalently:
+
+**COP = Q (heat delivered in BTU) ÷ W (electricity consumed in BTU)**
+
+Since both numerator and denominator use the same energy units, COP is a dimensionless ratio. A COP of 1.0 means parity — you get exactly as much heat energy as electrical energy consumed. That's what electric resistance heaters achieve.
+
+Anything above 1.0 means the system is moving more heat than the electricity it consumes. This isn't magic or perpetual motion — heat pumps don't create energy. They move heat from one place to another (outdoor air, ground, or water), using electricity to power the compressor and fans. The "extra" energy comes from the outdoor environment.
+
+<Callout type="info">
+**COP greater than 1.0 is possible because heat pumps move heat, not generate it.** A heat pump with COP 3.0 uses 1 kW of electricity to move 3 kW of heat from outdoor air into your home. The 2 kW of "free" heat was already in the outdoor air — the electricity just powered the transfer process.
+</Callout>
+
+## COP for Heating vs Cooling
+
+Heat pumps have two COP values — one for heating mode and one for cooling mode:
+
+**Heating COP (COPh):** Measures how efficiently the system extracts heat from outdoor air (or ground/water) and delivers it indoors. This is the metric most people care about when evaluating heat pumps as a heating solution.
+
+**Cooling COP (COPc):** Measures how efficiently the system removes heat from indoor air and rejects it outdoors. This is equivalent to what EER measures, just expressed differently. COPc = EER ÷ 3.412.
+
+<ComparisonTable
+  headers={["Mode", "COP Formula", "Typical Range", "Equivalent Rating"]}
+  rows={[
+    ["Heating", "Heat delivered ÷ Electricity consumed", "2.0–5.0", "HSPF2, SCOP"],
+    ["Cooling", "Heat removed ÷ Electricity consumed", "3.0–6.0", "EER2, SEER2"],
+  ]}
+/>
+
+## Typical COP Values by Heat Pump Type
+
+<ComparisonTable
+  headers={["Heat Pump Type", "COP at 47°F (Heating)", "COP at 17°F (Heating)", "COP at 95°F (Cooling)", "Installed Cost"]}
+  rows={[
+    ["Standard Air-Source (single-speed)", "2.5–3.5", "1.5–2.0", "3.0–4.0", "$4,000–$7,000"],
+    ["High-Efficiency Air-Source (inverter)", "3.5–4.5", "2.0–3.0", "4.0–5.5", "$6,000–$10,000"],
+    ["Cold-Climate Air-Source (ccASHP)", "3.5–4.5", "2.0–3.5", "4.0–5.5", "$7,000–$12,000"],
+    ["Mini-Split (ductless)", "3.5–5.0", "2.0–3.5", "4.5–6.0", "$3,000–$5,000/zone"],
+    ["Ground-Source (geothermal)", "3.5–5.0", "3.0–4.5", "4.5–6.5", "$15,000–$30,000"],
+    ["Water-Source", "3.5–5.5", "3.0–5.0", "4.0–6.0", "$10,000–$20,000"],
+    ["Electric Resistance Heater", "1.0", "1.0", "N/A", "$500–$2,000"],
+  ]}
+/>
+
+<Callout type="tip">
+**Ground-source (geothermal) heat pumps maintain the highest and most consistent COP** because ground temperatures remain stable at 45–60°F year-round in most regions. They don't suffer the COP drop that air-source units experience in cold weather. However, the installation cost is 3–5× higher than air-source systems.
+</Callout>
+
+## How Temperature Affects COP
+
+This is the most important thing to understand about COP: **it's not a fixed number.** A heat pump's COP changes continuously based on the temperature difference between the heat source and the heat delivery point.
+
+### The Temperature–COP Relationship
+
+In heating mode, COP decreases as outdoor temperatures drop. The larger the gap between outdoor air temperature and desired indoor temperature, the harder the compressor must work, and the lower the COP.
+
+<ComparisonTable
+  headers={["Outdoor Temperature", "Typical COP (Standard HP)", "Typical COP (Cold-Climate HP)", "Comparison to Gas Furnace"]}
+  rows={[
+    ["60°F (15°C)", "4.5–5.5", "5.0–6.0", "4.5–6× more efficient"],
+    ["47°F (8°C) — Rated Condition", "3.0–3.8", "3.5–4.5", "3–4.5× more efficient"],
+    ["35°F (2°C)", "2.5–3.0", "3.0–3.8", "2.5–3.8× more efficient"],
+    ["17°F (−8°C) — Rated Condition", "1.5–2.0", "2.0–3.0", "1.5–3× more efficient"],
+    ["0°F (−18°C)", "1.0–1.5", "1.5–2.5", "1–2.5× more efficient"],
+    ["-15°F (−26°C)", "Not recommended", "1.2–1.8", "1.2–1.8× more efficient"],
+  ]}
+/>
+
+<Callout type="warning">
+**When COP drops to around 1.0, a heat pump is no more efficient than a space heater.** Standard air-source heat pumps hit this point around -5°F to 0°F. Cold-climate models maintain COP above 1.5 even at -15°F. This is why climate matters so much when sizing and selecting a heat pump.
+</Callout>
+
+### Why COP Drops in Cold Weather
+
+The physics is straightforward. A heat pump moves heat from a colder area to a warmer area — which goes against the natural flow of heat. The bigger the temperature difference, the more work the compressor must do:
+
+At 47°F outdoor, the temperature "lift" to reach 70°F indoor is only 23°F. The compressor works easily, and COP is high (3.0–4.5).
+
+At 0°F outdoor, the lift jumps to 70°F. The compressor must work much harder, compress refrigerant to higher pressures, and use more electricity. COP drops to 1.0–2.0.
+
+Cold-climate heat pumps use enhanced vapor injection (EVI) technology, larger heat exchangers, and optimized inverter compressors to maintain better COP at low temperatures.
+
+## COP vs Other Efficiency Metrics
+
+COP is the building block behind other common ratings. Understanding the relationships helps you convert between them:
+
+<ComparisonTable
+  headers={["Metric", "What It Measures", "Relationship to COP", "Conversion"]}
+  rows={[
+    ["COP", "Efficiency at a single operating point", "Baseline", "—"],
+    ["EER / EER2", "Cooling efficiency at 95°F outdoor", "COP × 3.412 = EER", "EER ÷ 3.412 = COP"],
+    ["SEER / SEER2", "Seasonal cooling efficiency (weighted avg)", "Approximate seasonal COP", "SEER ÷ 3.412 ≈ Seasonal COP"],
+    ["HSPF / HSPF2", "Seasonal heating efficiency (weighted avg)", "HSPF ÷ 3.412 = Seasonal COP", "8.2 HSPF ≈ 2.4 COP seasonal avg"],
+    ["SCOP", "Seasonal COP (European metric)", "Same concept, seasonal weighting", "Direct COP comparison"],
+    ["AFUE", "Furnace fuel-to-heat conversion", "AFUE ÷ 100 ≈ COP", "96% AFUE ≈ COP 0.96"],
+  ]}
+/>
+
+<Callout type="example">
+**Conversion example:** A heat pump has an EER2 of 13.5. What's its cooling COP?
+
+COP = EER2 ÷ 3.412 = 13.5 ÷ 3.412 = **3.96**
+
+This means the heat pump delivers 3.96 units of cooling for every 1 unit of electricity consumed at rated conditions (95°F outdoor).
+</Callout>
+
+## COP Comparison: Heat Pump vs Gas Furnace vs Electric Heat
+
+The true value of COP becomes clear when comparing heating technologies on a cost-per-BTU basis:
+
+<ComparisonTable
+  headers={["Heating Method", "Efficiency", "Fuel Cost", "Cost per 100,000 BTU"]}
+  rows={[
+    ["Heat Pump (COP 3.5)", "350%", "$0.16/kWh", "$1.34"],
+    ["Heat Pump (COP 2.5)", "250%", "$0.16/kWh", "$1.88"],
+    ["Heat Pump (COP 1.5)", "150%", "$0.16/kWh", "$3.13"],
+    ["Gas Furnace (96% AFUE)", "96%", "$1.30/therm", "$1.35"],
+    ["Gas Furnace (80% AFUE)", "80%", "$1.30/therm", "$1.63"],
+    ["Oil Furnace (85% AFUE)", "85%", "$4.00/gallon", "$3.39"],
+    ["Electric Resistance (COP 1.0)", "100%", "$0.16/kWh", "$4.69"],
+    ["Propane Furnace (92% AFUE)", "92%", "$3.00/gallon", "$3.56"],
+  ]}
+/>
+
+<Callout type="important">
+**Key insight: At COP 3.5, a heat pump matches or beats a 96% AFUE gas furnace on operating cost** — even though electricity is more expensive per BTU than natural gas. This crossover COP depends entirely on your local gas and electricity rates. Calculate your breakeven COP with: Breakeven COP = (Electricity Rate per BTU) ÷ (Gas Rate per BTU × Furnace AFUE).
+</Callout>
+
+## Seasonal COP (SCOP) vs Instantaneous COP
+
+Manufacturers may advertise a COP of 4.5, but that's measured at ideal conditions (typically 47°F). Your real-world seasonal average will be lower.
+
+**Seasonal COP (SCOP)** averages the COP across your entire heating season, weighted by the number of hours at each temperature. For most U.S. climates, seasonal COP for air-source heat pumps falls between 2.0 and 3.5.
+
+**Instantaneous COP** is the efficiency at any given moment, varying from 5.0+ on mild days to 1.2 on the coldest nights.
+
+To estimate your seasonal COP from the HSPF2 rating:
+
+**Seasonal COP ≈ HSPF2 ÷ 3.412**
+
+A heat pump with HSPF2 of 10 has a seasonal COP of about 2.93, meaning it delivers nearly 3 units of heat per unit of electricity over the entire heating season.
+
+## How to Improve Your Heat Pump's COP
+
+Several factors can raise or lower your real-world COP:
+
+**Proper sizing.** An oversized heat pump runs in short bursts at lower efficiency. A properly sized unit runs longer at part-load, where inverter-driven compressors achieve their highest COP. Insist on a Manual J load calculation.
+
+**Good airflow.** Dirty filters, blocked coils, and restricted ducts force the system to work harder, lowering COP. Replace filters every 1–3 months and schedule annual maintenance.
+
+**Defrost cycles.** In cold, humid weather, the outdoor coil frosts over and must periodically defrost. During defrost, the system temporarily runs in reverse (cooling mode), using auxiliary heat strips. Frequent defrost cycles lower effective COP. Keep the outdoor unit clear of snow, ice, and debris.
+
+**Thermostat setbacks.** Avoid large temperature setbacks with heat pumps. If you drop the thermostat 10°F overnight and then demand a rapid recovery, the backup heat strips may activate. Heat strips operate at COP 1.0, dragging down your average COP. A 2–3°F setback is acceptable.
+
+**Supplemental insulation.** Reducing the heating load means the heat pump runs at lower capacity, which corresponds to higher COP on inverter systems. Insulation improvements benefit COP indirectly but significantly.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **COP = Heat Output ÷ Electrical Input** — a COP of 3.0 means 300% efficiency (3 kWh of heat per 1 kWh of electricity)
+- **Modern air-source heat pumps achieve COP 2.5–4.5** in heating mode at rated conditions (47°F outdoor)
+- **COP drops as outdoor temperatures fall** — from 4.5 at 60°F to 1.5–2.0 at 0°F for standard units
+- **Cold-climate heat pumps maintain COP 2.0–3.0 at 0°F** using enhanced vapor injection technology
+- **At COP 3.0+, heat pumps are cheaper to operate than gas furnaces** in most electricity markets
+- **Ground-source heat pumps offer the most consistent COP** (3.5–5.0) regardless of outdoor temperature
+- **Seasonal COP (SCOP) ≈ HSPF2 ÷ 3.412** — this is your real-world average efficiency over the heating season
+- **COP 1.0 = electric resistance heating** — any heat pump operating below 1.0 COP should switch to backup heat
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What is a good COP for a heat pump?",
+    answer: "A good COP for an air-source heat pump in heating mode is 3.0 or higher at the rated test condition of 47°F. At this COP, the heat pump delivers 3 times more heat energy than the electricity it consumes. Premium inverter-driven units can reach COP 4.0–4.5 at 47°F. For ground-source (geothermal) heat pumps, COP 4.0–5.0 is expected."
+  },
+  {
+    question: "How can COP be greater than 1? Isn't that impossible?",
+    answer: "COP above 1.0 is possible because heat pumps don't generate heat from electricity — they move existing heat from one place to another. A COP of 3.0 means 1 kW of electricity moves 3 kW of heat from outdoor air into your home. The 2 kW of 'extra' heat was already present in the outdoor air. This doesn't violate thermodynamic laws because the electricity powers a heat transfer process, not heat creation."
+  },
+  {
+    question: "What COP does a heat pump need to beat a gas furnace?",
+    answer: "The breakeven COP depends on local gas and electricity prices. At typical U.S. rates ($0.16/kWh electricity, $1.30/therm gas) with a 96% AFUE furnace, the breakeven COP is approximately 3.3–3.5. Above this, the heat pump is cheaper to operate. At $0.10/kWh electricity, the breakeven drops to about 2.2, making heat pumps attractive in a wider range of conditions."
+  },
+  {
+    question: "Does COP change with outdoor temperature?",
+    answer: "Yes, significantly. In heating mode, COP decreases as outdoor temperature drops because the compressor must work harder to extract heat from colder air. A heat pump with COP 4.0 at 47°F might have COP 2.0 at 17°F and COP 1.5 at 0°F. Cold-climate heat pumps are engineered to maintain higher COP at low temperatures than standard models."
+  },
+  {
+    question: "How do I convert between COP and EER?",
+    answer: "COP and EER are directly related: EER = COP × 3.412, and COP = EER ÷ 3.412. The factor 3.412 converts between BTU/h (used in EER) and watts (used in COP). For example, an EER of 12 corresponds to a COP of 3.52. This conversion applies to both EER and EER2."
+  },
+  {
+    question: "What is the COP of an electric space heater?",
+    answer: "An electric resistance space heater has a COP of 1.0 (or very close to it). It converts electricity directly into heat with nearly 100% efficiency. While this sounds good, it means 1 kWh of electricity produces only 1 kWh of heat, making it 2–4× more expensive to operate than a heat pump with COP 2.0–4.0."
+  },
+  {
+    question: "What is the difference between COP and SCOP?",
+    answer: "COP is measured at a single specific operating condition (a snapshot). SCOP (Seasonal COP) averages the COP across an entire heating or cooling season, weighted by the hours spent at each temperature. SCOP gives a more realistic picture of annual efficiency. In the U.S., HSPF2 ÷ 3.412 gives you the approximate seasonal COP for heating."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. Department of Energy – Heat Pump Systems", url: "https://www.energy.gov/energysaver/heat-pump-systems" },
+  { label: "ENERGY STAR – Air Source Heat Pumps", url: "https://www.energystar.gov/products/heating_cooling/heat_pumps_air_source" },
+  { label: "AHRI – Directory of Certified Product Performance", url: "https://www.ahrinet.org" },
+  { label: "ASHRAE – Fundamentals Handbook: Thermodynamics and Refrigeration Cycles", url: "https://www.ashrae.org" },
+  { label: "Northeast Energy Efficiency Partnerships (NEEP) – Cold Climate Heat Pump List", url: "https://neep.org/heating-electrification/ccashp-specification-and-product-list" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "hspf2-rating-explained", title: "Understanding HSPF2: Heat Pump Heating Efficiency Rating" },
+  { slug: "afue-rating-explained", title: "AFUE Rating for Furnaces: How to Calculate AFUE Savings" },
+  { slug: "seer2-rating-explained", title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating" },
+  { slug: "hvac-efficiency-ratings-compared", title: "All HVAC Efficiency Ratings Compared" }
+]} />

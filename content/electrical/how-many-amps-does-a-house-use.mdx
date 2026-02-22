@@ -1,0 +1,350 @@
+---
+slug: how-many-amps-does-a-house-use
+title: "How Many Amps Does a House Use? (100 vs 200 Amp Panel Guide 2026)"
+description: "The average U.S. home draws 80–150 amps at peak. Learn whether you need a 100-amp or 200-amp electrical panel based on home size, HVAC equipment, EV charging, and NEC load calculations."
+cluster: "electrical-wiring"
+role: "spoke"
+priority: "P1"
+contentType: "NEW"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - electrical-wiring-guide
+  - electrical-panel-upgrade-cost
+  - wire-gauge-chart
+  - power-consumption-calculator
+  - water-heater-amps
+externalLinks:
+  - url: "https://www.eia.gov/consumption/residential/"
+    label: "EIA — Residential Energy Consumption Survey"
+  - url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace"
+    label: "NEC (NFPA 70) — Article 220 Load Calculations"
+  - url: "https://www.energy.gov/energysaver/electrical-wiring"
+    label: "DOE — Residential Electrical Systems"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# How Many Amps Does a House Use? (100 vs 200 Amp Panel)
+
+**The average U.S. home draws between 80 and 150 amps at peak demand, with a typical steady-state draw of 40–80 amps.** A home with gas heat and no EV charger can operate comfortably on a 100-amp panel, while a home with electric heating, central AC, an electric water heater, and an EV charger typically needs 200 amps — and some modern all-electric homes are pushing for 320-amp or 400-amp service.
+
+Understanding your home's amperage needs determines whether your current panel is adequate or whether you need an [upgrade](/electrical-panel-upgrade-cost). Let's break down the math.
+
+<TableOfContents />
+
+## Average Home Amperage by Profile
+
+Not all homes are created equal. Your amperage needs depend on what you power.
+
+| Home Profile | Typical Peak Amps | Recommended Panel | Monthly kWh |
+|-------------|-------------------|-------------------|-------------|
+| Small apartment, gas heat | 30–60A | 100A | 400–600 |
+| Small home (<1,500 sq ft), gas heat/water | 60–80A | 100A | 500–800 |
+| Medium home (1,500–2,500 sq ft), gas heat | 80–120A | 100–200A | 700–1,000 |
+| Medium home, electric AC + gas heat | 90–140A | 200A | 800–1,200 |
+| Large home (2,500+ sq ft), all gas | 80–120A | 200A | 700–1,100 |
+| Large home, electric AC + water heater | 120–170A | 200A | 1,000–1,500 |
+| All-electric home (heat pump, HPWH, induction) | 100–160A | 200A | 800–1,400 |
+| All-electric + EV charger (48A) | 140–200A | 200A (tight) | 1,200–2,000 |
+| All-electric + EV + hot tub | 180–250A | 320A or 400A | 1,500–2,500 |
+
+<Callout type="important">
+**"Peak amps" is not the same as "average amps."** Your home rarely draws peak amperage because not all appliances run simultaneously. The NEC's load calculation method accounts for this with demand factors that reduce the calculated load — recognizing that your AC, dryer, oven, and water heater won't all be running at full power at the same time.
+</Callout>
+
+## How to Calculate Your Home's Amp Usage
+
+### Method 1: Check Your Electric Bill
+
+**Average amps = (Monthly kWh × 1,000) ÷ (Voltage × Hours in month)**
+
+For a 240V service:
+- 886 kWh/month (U.S. average) × 1,000 = 886,000 Wh
+- 886,000 ÷ (240V × 720 hours) = **5.1 amps average**
+
+Wait — that seems low. That's because it's the average continuous draw over the entire month, including nighttime when very little is running. Peak draw is 10–30× higher than this average.
+
+### Method 2: Add Up Your Appliances
+
+This gives you the theoretical maximum — what you'd draw if everything ran simultaneously. Real peak is much lower because of diversity.
+
+| Appliance | Typical Amps (at 240V) | Typical Amps (at 120V) | Simultaneous? |
+|-----------|----------------------|----------------------|---------------|
+| Central AC (3-ton) | 15–20A | — | Yes (summer) |
+| Heat pump (heating mode, 3-ton) | 15–20A | — | Yes (winter) |
+| Aux/strip heat (10kW) | 42A | — | Sometimes |
+| Electric furnace (15kW) | 63A | — | Yes (winter) |
+| Electric water heater (4,500W) | 18.75A | — | Intermittent |
+| Electric dryer | 24A | — | Intermittent |
+| Electric range/oven | 33–42A | — | Intermittent |
+| EV charger (Level 2, 48A) | 48A | — | Usually overnight |
+| Hot tub/spa | 25–50A | — | Intermittent |
+| Dishwasher | — | 10–12A | Intermittent |
+| Microwave | — | 8–13A | Brief |
+| Refrigerator | — | 3–6A | Cycling |
+| Washing machine | — | 5–10A | Intermittent |
+| Lights (whole house, LED) | — | 2–5A | Evening peak |
+| Electronics (TVs, computers) | — | 3–8A | Evening |
+| Garage door opener | — | 4–6A | Brief |
+
+<Callout type="example">
+**Example: Medium home, all-electric, no EV**
+- Central AC (3-ton): 18A at 240V
+- Electric water heater: 18.75A at 240V
+- Electric dryer: 24A at 240V
+- Electric range: 40A at 240V (but rarely at full draw)
+- Lighting + outlets: ~15A at 120V (= ~7.5A at 240V equivalent)
+- Misc. appliances: ~10A at 120V (= ~5A at 240V equivalent)
+- **Raw total: 113A at 240V**
+- **With NEC demand factors: ~85–95A calculated load**
+- **Recommended panel: 200A** (provides headroom for future loads)
+</Callout>
+
+### Method 3: NEC Article 220 Standard Calculation
+
+This is the method electricians use to determine service size. It's the only method accepted by building departments.
+
+**Step 1 — General loads:**
+- General lighting + receptacles: 3 VA per square foot
+- 2 small appliance circuits: 1,500 VA each = 3,000 VA
+- 1 laundry circuit: 1,500 VA
+- Apply demand factor: First 10,000 VA at 100%, remainder at 40%
+
+**Step 2 — Fixed appliances (add at nameplate rating):**
+- Water heater, dishwasher, disposal, etc.
+- If 4+ fixed appliances, apply 75% demand factor
+
+**Step 3 — Range (per NEC Table 220.55):**
+- One household range up to 12 kW: use 8,000 VA demand
+
+**Step 4 — Largest motor at 125%:**
+- AC or heat pump: add 25% of the largest motor
+
+**Step 5 — HVAC (largest of heating or cooling, not both)**
+
+**Step 6 — Total VA ÷ 240V = Total Amps → Select panel size**
+
+<Callout type="example">
+**Full NEC calculation — 2,200 sq ft all-electric home:**
+
+| Load Item | VA |
+|-----------|-----|
+| General lighting: 2,200 × 3 | 6,600 |
+| Small appliance (2 circuits) | 3,000 |
+| Laundry | 1,500 |
+| **Subtotal** | **11,100** |
+| Demand: First 10,000 at 100% | 10,000 |
+| Demand: Remaining 1,100 at 40% | 440 |
+| **Adjusted subtotal** | **10,440** |
+| Electric range (8kW demand, Table 220.55) | 8,000 |
+| Dishwasher | 1,500 |
+| Disposal | 1,000 |
+| Electric water heater (4,500W) | 4,500 |
+| Electric dryer (5,000W) | 5,000 |
+| Fixed appliance demand (75% of 12,000) | 9,000 |
+| AC/Heat pump (3-ton): 7,200 VA | 7,200 |
+| Largest motor at 125%: 7,200 × 0.25 | 1,800 |
+| **Grand total** | **36,440 VA** |
+| **Total amps: 36,440 ÷ 240** | **151.8A** |
+| **Panel required** | **200A** |
+</Callout>
+
+## 100-Amp vs. 200-Amp Panel: Detailed Comparison
+
+| Feature | 100-Amp Panel | 200-Amp Panel |
+|---------|--------------|---------------|
+| Total capacity | 24,000W at 240V | 48,000W at 240V |
+| Typical breaker spaces | 20–24 | 30–42 |
+| Service entrance wire | 3 AWG copper / 1/0 aluminum | 2/0 copper / 4/0 aluminum |
+| Meter socket | 100A rated | 200A rated |
+| Can support central AC? | Yes (2–3 ton) | Yes (any residential size) |
+| Can support heat pump? | Barely (with gas backup only) | Yes, with strip heat |
+| Can support electric furnace? | Rarely | Yes (up to 20kW) |
+| Can support EV charger (48A)? | Very tight — may not pass inspection | Yes |
+| Can support electric range? | Yes (one, with careful budgeting) | Yes |
+| Can support hot tub + AC? | Unlikely | Yes |
+| Suitable for all-electric home? | No | Usually |
+| Average upgrade cost | — | $1,500–$4,000 (from 100A) |
+| Typical home vintage | Pre-1970 | 1990–present |
+
+### When 100 Amps Is Enough
+
+A 100-amp panel works for homes that:
+- Use natural gas for heating, water heating, and cooking
+- Have a modest central AC (2–3 tons)
+- Don't have an EV charger
+- Don't have a hot tub, workshop, or other heavy loads
+- Are under 2,000 square feet
+
+### When You Need 200 Amps
+
+You need 200-amp service when you have:
+- Electric heating (heat pump with strip heat, or electric furnace)
+- Electric water heater (standard or tankless)
+- Central AC (any size)
+- An EV charger (Level 2, 32A or higher)
+- An electric range/oven
+- A hot tub or pool equipment
+- A large home (2,500+ sq ft)
+- Multiple 240V circuits
+
+### When You Need More Than 200 Amps
+
+Some modern homes — particularly large all-electric homes with multiple HVAC zones, EV chargers for 2+ vehicles, and luxury amenities — exceed 200A capacity. Options include:
+
+**320A service:** Two 200A panels fed from a 320A meter socket. Common in homes over 4,000 sq ft.
+
+**400A service:** Dual 200A service or a single 400A panel. Typically for homes over 5,000 sq ft or homes with significant shop/workshop loads.
+
+**Load management devices:** Smart panels (like Span or Lumin) can dynamically manage loads to fit more equipment on a 200A panel by ensuring not everything runs simultaneously.
+
+<Callout type="tip">
+**Smart electrical panels are changing the game.** A Span smart panel ($5,000–$8,000 installed) can manage a 200A service to support loads that would normally require 300+ amps by intelligently shedding lower-priority loads during peak demand. For example, it can temporarily reduce EV charging when the AC and dryer are running, then resume charging when the load drops.
+</Callout>
+
+## The Electrification Challenge
+
+Home electrification — replacing gas furnaces, water heaters, and stoves with electric alternatives — is accelerating in 2026 due to federal incentives, building codes, and consumer preferences. This is straining electrical panels.
+
+### Typical Load Addition When Electrifying
+
+| Gas → Electric Conversion | Added Amps (at 240V) | Breaker Required |
+|--------------------------|---------------------|-----------------|
+| Gas furnace → Heat pump | 15–25A (condenser) + 20–60A (air handler with strips) | 30–60A |
+| Gas water heater → Electric tank | 18.75A | 30A |
+| Gas water heater → Heat pump WH | 2–19A (varies by mode) | 30A |
+| Gas water heater → Tankless electric | 37.5–112.5A (multiple circuits!) | 2–3 × 40–50A |
+| Gas range → Electric/induction | 33–42A | 40–50A |
+| Gas car → EV (Level 2, 48A) | 48A | 60A |
+| **Total potential addition** | **100–200+ amps** | — |
+
+A home converting from all-gas to all-electric can easily double its electrical load. The solution in most cases is a 200A panel (if starting from 100A) or load management technology.
+
+<Callout type="warning">
+**Electric tankless water heaters are panel killers.** A 27kW tankless unit requires three 40A circuits — 120 amps of panel capacity just for hot water. Most electricians recommend a heat pump water heater (only needs one 30A circuit) as the electric alternative to gas tank water heaters. See our [water heater amps guide](/water-heater-amps) for details.
+</Callout>
+
+## Real-World Examples
+
+### Example 1: 1960s Ranch — Is 100A Enough?
+
+**Home:** 1,400 sq ft ranch, gas furnace, gas water heater, window AC units, gas range. Current panel: 100A with 20 spaces, 16 occupied.
+
+**Current loads:** Gas handles heating, cooking, and hot water. Electric loads are lighting, outlets, window ACs, and laundry. Peak draw: ~55A.
+
+**Verdict:** 100A is fine for this home as-is. The homeowner has ~45A of headroom, enough for adding a 30A central AC circuit. However, if they want to add a heat pump AND EV charger, they'll need to upgrade.
+
+### Example 2: 2010 Suburban Home — Adding EV Charger
+
+**Home:** 2,400 sq ft, 200A panel with 40 spaces (28 occupied), 3-ton heat pump, electric water heater, electric range.
+
+**Current calculated load:** ~145A per NEC Article 220.
+
+**Can it support a 48A EV charger?** Adding 48A continuous (60A breaker) brings the theoretical peak to ~205A. But NEC demand factors make the calculated load ~165A. The 200A panel can handle it — with only about 35A of remaining capacity.
+
+**Verdict:** Yes, but this panel is now nearly full. Adding a hot tub, second EV charger, or shop equipment would require a sub-panel or panel upgrade.
+
+### Example 3: New Construction All-Electric Home
+
+**Home:** 3,000 sq ft, heat pump (3-ton), heat pump water heater, induction range, EV charger (48A), no gas line.
+
+**NEC calculation:**
+
+| Load | VA |
+|------|-----|
+| General lighting (3,000 × 3) | 9,000 |
+| Small appliance + laundry | 4,500 |
+| Demand (first 10,000 at 100%, rest at 40%) | 11,400 |
+| Induction range (8,000 demand) | 8,000 |
+| Heat pump water heater (500W average) | 500 |
+| Heat pump AC (7,200 VA) | 7,200 |
+| Largest motor at 125% | 1,800 |
+| Dishwasher + disposal | 2,500 |
+| EV charger (48A × 240V = 11,520) | 11,520 |
+| **Total** | **42,920 VA** |
+| **Amps: 42,920 ÷ 240** | **178.8A** |
+
+**Verdict:** 200A service is sufficient but tight. The builder should install a 200A panel with 40+ spaces and consider a smart panel for load management.
+
+### Example 4: Large Home With Workshop
+
+**Home:** 4,500 sq ft, two HVAC zones, electric water heater, electric range, EV charger, detached workshop with welding equipment.
+
+**Challenge:** Two 3-ton heat pumps (2 × 30A), electric water heater (30A), range (50A), EV charger (60A), workshop sub-panel (100A). Theoretical peak exceeds 300A.
+
+**Solution:** 320A service with two 200A panels — one for the house, one for the workshop/garage. Or a single 200A panel with a Span smart panel managing loads dynamically and a separate 100A sub-panel for the workshop.
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **Average home draws 40–80 amps continuous, 80–150 amps at peak** — but this varies enormously by equipment
+- **100A panel works for** gas-heated homes under 2,000 sq ft without EV chargers
+- **200A panel is needed for** all-electric homes, homes with EV chargers, or homes over 2,500 sq ft with electric AC
+- **Use NEC Article 220** for accurate load calculations — demand factors significantly reduce the theoretical peak
+- **Electrification adds 100–200+ amps** of potential load when converting from gas to all-electric
+- **Heat pump water heaters** are the smart choice for electrification (30A circuit vs. 80–120A for tankless electric)
+- **Smart panels** can effectively increase a 200A panel's practical capacity by 30–50% through load management
+- **When in doubt, go 200A** — the upgrade cost ($1,500–$4,000) is far less than upgrading again later
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "How many amps does the average house use?",
+    answer: "The average U.S. home draws approximately 40–80 amps continuously and 80–150 amps at peak demand. This equates to about 886 kWh per month. A home with gas heating and no EV charger sits at the low end, while an all-electric home with a heat pump, electric water heater, and EV charger hits the high end."
+  },
+  {
+    question: "Is a 100-amp panel enough for a house?",
+    answer: "A 100-amp panel is adequate for smaller homes (under 2,000 sq ft) that use natural gas for heating, water heating, and cooking. It supports a central AC unit, standard lighting and outlets, and basic appliances. It's NOT enough for homes with electric heating, EV chargers, electric ranges, or multiple heavy 240V loads."
+  },
+  {
+    question: "How do I know if I need to upgrade to 200 amps?",
+    answer: "You likely need to upgrade if: breakers trip frequently when running multiple appliances, you're adding a heat pump or electric furnace, you want to install an EV charger (Level 2, 40A+), you're converting from gas to electric appliances, your home is over 2,500 sq ft with electric AC, or your panel has no available breaker spaces."
+  },
+  {
+    question: "How many amps does a central AC use?",
+    answer: "A central AC condenser draws 15–35 amps at 240V depending on tonnage. A 2-ton unit draws about 13–17A, a 3-ton draws 17–22A, a 4-ton draws 22–28A, and a 5-ton draws 28–35A. Check the nameplate MCA (Minimum Circuit Ampacity) for the exact figure."
+  },
+  {
+    question: "How many amps does an EV charger draw?",
+    answer: "A Level 2 home EV charger typically draws 32–48 amps at 240V continuously. The most popular setting is 48A, which requires a 60A circuit (80% rule for continuous loads). Some basic chargers operate at 16–24A. Level 1 charging (120V) draws only 12A but charges very slowly."
+  },
+  {
+    question: "Can I add a 240V circuit to my 100-amp panel?",
+    answer: "Possibly, if you have available breaker spaces and sufficient amperage capacity. An electrician can perform a load calculation to verify. Adding a single 30A circuit (for AC or water heater) to a 100A panel is usually feasible. Adding a 60A EV charger circuit to a 100A panel is often not possible without upgrading."
+  },
+  {
+    question: "What size panel do I need for an all-electric home?",
+    answer: "Most all-electric homes need 200A service. This supports a heat pump, heat pump water heater, induction range, EV charger, and standard appliances. Larger homes (4,000+ sq ft) or homes with multiple EV chargers may need 320A or 400A service, or a 200A panel with smart load management."
+  },
+  {
+    question: "How much does a 200-amp panel upgrade cost?",
+    answer: "Upgrading from 100A to 200A typically costs $1,500–$4,000 for the panel swap alone. If the utility requires a new meter socket, weatherhead, or service drop, the total can reach $3,000–$6,000. Smart panels (Span, Lumin) cost $5,000–$8,000 installed but offer load management capabilities."
+  },
+  {
+    question: "What happens if I exceed my panel's amperage?",
+    answer: "If total demand exceeds the main breaker rating, the main breaker trips and your entire house loses power. This is a safety mechanism — it prevents the service entrance wires from overheating. Occasional trips indicate you're near capacity. Frequent trips mean you need a panel upgrade or load management."
+  },
+  {
+    question: "Do I need 400 amps for my house?",
+    answer: "400A service is rarely needed for residential homes. It's typically reserved for homes over 5,000 sq ft with multiple HVAC zones, multiple EV chargers, large workshops, and luxury amenities (pools, spas, outdoor kitchens). Most modern homes — even large all-electric ones — can operate on 200A with smart load management."
+  }
+]} />
+
+<SourcesBox sources={[
+  { name: "EIA — Residential Energy Consumption Survey", url: "https://www.eia.gov/consumption/residential/", description: "U.S. household energy usage data and statistics" },
+  { name: "NEC Article 220 — Branch-Circuit, Feeder, and Service Load Calculations", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "NEC residential load calculation methodology" },
+  { name: "DOE — Residential Electrical Systems", url: "https://www.energy.gov/energysaver/electrical-wiring", description: "Department of Energy home electrical guidance" },
+  { name: "ENERGY STAR — Home Electrification", url: "https://www.energystar.gov/", description: "Efficient electric equipment for home electrification" },
+  { name: "Pecan Street — Home Electrification Research", url: "https://www.pecanstreet.org/", description: "Research on residential electrification load impacts" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "electrical-panel-upgrade-cost", title: "Electrical Panel Upgrade Cost: 100 to 200 Amp" },
+  { slug: "electrical-wiring-guide", title: "Home Electrical Wiring Guide" },
+  { slug: "power-consumption-calculator", title: "Power Consumption Calculator" },
+  { slug: "water-heater-amps", title: "Water Heater Amps: How Many?" },
+  { slug: "wire-gauge-chart", title: "Wire Gauge Chart: AWG Sizes & Ampacity" }
+]} />

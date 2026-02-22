@@ -1,0 +1,248 @@
+---
+slug: "how-to-calculate-seer"
+title: "How To Calculate SEER Rating (Formula + Examples)"
+description: "Learn the SEER and SEER2 formulas with step-by-step examples. Calculate your AC's efficiency, estimate annual energy costs, and compare units using real math."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P2"
+contentType: "how-to"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "what-is-seer-rating"
+    title: "What Is SEER Rating?"
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2"
+  - slug: "seer2-savings-calculator"
+    title: "SEER2 Savings Calculator"
+  - slug: "seer-vs-seer2"
+    title: "SEER vs SEER2: Differences"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/central-air-conditioning"
+    label: "U.S. DOE - Central Air Conditioning"
+  - url: "https://www.ahrinet.org"
+    label: "AHRI"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, SEERCalculator, CalcWrapper } from '@/components'
+
+# How To Calculate SEER Rating (Formula + Examples)
+
+**The SEER formula is: SEER = Total Cooling Output (BTU) divided by Total Electrical Energy Input (Wh) over a full cooling season.** For practical purposes, you can estimate your annual cooling cost using: Annual Cost = (Cooling Capacity x Cooling Hours) / (SEER x 1,000) x Electricity Rate. A 3-ton, 16 SEER AC running 1,500 hours at $0.16/kWh costs approximately $540 per year to operate.
+
+This guide walks through the SEER formula step by step, shows you how to calculate cooling costs, and provides worked examples so you can compare any two AC units on an equal basis.
+
+<TableOfContents />
+
+## The Basic SEER Formula
+
+**SEER = Total Cooling Output (BTU) / Total Electrical Input (Wh)**
+
+Both values are measured over an entire standardized cooling season. In lab testing, this involves running the system across eight temperature bins from 65 to 104 degrees F, weighted by the typical hours at each temperature.
+
+You won't do this lab test yourself. Instead, you'll use the published SEER or SEER2 rating to calculate practical things like energy costs and savings.
+
+## Formula 1: Estimate Annual Cooling kWh
+
+**Annual kWh = (Cooling Capacity BTU/h x Annual Cooling Hours) / (SEER x 1,000)**
+
+This formula tells you how many kilowatt-hours your AC uses per year for cooling.
+
+<Callout type="example">
+**Example:** A 3-ton AC (36,000 BTU/h) rated at 16 SEER runs for 1,500 hours per year.
+
+Annual kWh = (36,000 x 1,500) / (16 x 1,000) = 54,000,000 / 16,000 = **3,375 kWh**
+</Callout>
+
+### Tonnage to BTU/h Conversion
+
+<ComparisonTable
+  headers={["System Size (Tons)", "Cooling Capacity (BTU/h)", "Typical Home Size"]}
+  rows={[
+    ["1.5", "18,000", "600-1,000 sq ft"],
+    ["2.0", "24,000", "1,000-1,300 sq ft"],
+    ["2.5", "30,000", "1,300-1,600 sq ft"],
+    ["3.0", "36,000", "1,600-2,100 sq ft"],
+    ["3.5", "42,000", "2,100-2,400 sq ft"],
+    ["4.0", "48,000", "2,400-2,800 sq ft"],
+    ["5.0", "60,000", "2,800-3,500 sq ft"],
+  ]}
+/>
+
+## Formula 2: Estimate Annual Cooling Cost
+
+**Annual Cost = Annual kWh x Electricity Rate ($/kWh)**
+
+Or combined into one formula:
+
+**Annual Cost = (BTU/h x Hours) / (SEER x 1,000) x $/kWh**
+
+<Callout type="example">
+**Example:** Same 3-ton, 16 SEER unit, 1,500 hours, at $0.16/kWh.
+
+Annual Cost = 3,375 kWh x $0.16 = **$540**
+</Callout>
+
+## Formula 3: Calculate Savings Between Two Units
+
+**Annual Savings = Annual Cost (Old Unit) - Annual Cost (New Unit)**
+
+Or directly:
+
+**Annual Savings = (BTU/h x Hours x $/kWh) x (1/SEER_old - 1/SEER_new) / 1,000**
+
+<Callout type="example">
+**Example:** Upgrading from 12 SEER to 18 SEER. 3-ton, 1,500 hours, $0.16/kWh.
+
+Old cost: (36,000 x 1,500) / (12 x 1,000) x $0.16 = **$720/year**
+
+New cost: (36,000 x 1,500) / (18 x 1,000) x $0.16 = **$480/year**
+
+Annual savings: $720 - $480 = **$240/year**
+
+Or using the direct formula:
+Savings = (36,000 x 1,500 x 0.16) x (1/12 - 1/18) / 1,000
+= 8,640 x (0.0833 - 0.0556)
+= 8,640 x 0.0278
+= **$240/year**
+</Callout>
+
+## Formula 4: Simple Payback Period
+
+**Payback (years) = Additional Cost of Higher-SEER Unit / Annual Savings**
+
+<Callout type="example">
+**Example:** The 18 SEER unit costs $2,000 more than the 12 SEER unit.
+
+Payback = $2,000 / $240 = **8.3 years**
+
+If you factor in a $600 tax credit: Payback = ($2,000 - $600) / $240 = **5.8 years**
+</Callout>
+
+## Formula 5: Convert Between SEER and SEER2
+
+**SEER2 = SEER / 1.047**
+
+**SEER = SEER2 x 1.047**
+
+<Callout type="example">
+**Example:** Your old AC is rated 16 SEER. What's the SEER2 equivalent?
+
+SEER2 = 16 / 1.047 = **15.3 SEER2**
+
+A new 15.3 SEER2 unit is approximately equivalent in efficiency to your old 16 SEER unit.
+</Callout>
+
+## Formula 6: Convert SEER to COP
+
+**COP = SEER / 3.412**
+
+This gives you the seasonal average COP for cooling.
+
+<Callout type="example">
+**Example:** An 18 SEER unit.
+
+COP = 18 / 3.412 = **5.27**
+
+This means the unit delivers 5.27 BTU of cooling per BTU of electrical input on average over the season. (This sounds incredibly efficient because SEER heavily weights mild-weather performance.)
+</Callout>
+
+## Complete Worked Examples
+
+### Example A: Florida Homeowner
+
+You live in Tampa, FL. 4-ton system, 2,500 cooling hours, $0.15/kWh. Comparing 14.3 SEER2 vs 20 SEER2.
+
+**14.3 SEER2 cost:**
+(48,000 x 2,500) / (14.3 x 1,000) x $0.15 = 8,392 kWh x $0.15 = **$1,259/year**
+
+**20 SEER2 cost:**
+(48,000 x 2,500) / (20 x 1,000) x $0.15 = 6,000 kWh x $0.15 = **$900/year**
+
+**Annual savings: $359. 15-year savings: $5,385.**
+
+### Example B: Minnesota Homeowner
+
+You live in Minneapolis. 3-ton system, 800 cooling hours, $0.14/kWh. Comparing 13.4 SEER2 vs 16 SEER2.
+
+**13.4 SEER2 cost:**
+(36,000 x 800) / (13.4 x 1,000) x $0.14 = 2,149 kWh x $0.14 = **$301/year**
+
+**16 SEER2 cost:**
+(36,000 x 800) / (16 x 1,000) x $0.14 = 1,800 kWh x $0.14 = **$252/year**
+
+**Annual savings: $49. 15-year savings: $735.**
+
+### Example C: Comparing Old System to New
+
+Your 15-year-old system is rated 10 SEER. You're considering a new 18 SEER2 unit. 3-ton, 1,500 hours, $0.16/kWh.
+
+First convert old SEER to SEER2 for apples-to-apples: 10 / 1.047 = 9.6 SEER2 equivalent.
+
+**Old system cost (9.6 SEER2 equivalent):**
+(36,000 x 1,500) / (9.6 x 1,000) x $0.16 = **$900/year**
+
+**New 18 SEER2 cost:**
+(36,000 x 1,500) / (18 x 1,000) x $0.16 = **$480/year**
+
+**Annual savings: $420. 15-year savings: $6,300.**
+
+<Callout type="tip">
+**Your old system may perform below its rated SEER.** After 15 years, dirty coils, low refrigerant, and worn components can reduce actual efficiency by 10-20%. Your real savings from replacing an old unit may be even higher than these calculations suggest.
+</Callout>
+
+## SEER2 Savings Calculator
+
+Use this interactive calculator for instant comparisons:
+
+<CalcWrapper>
+  <SEERCalculator />
+</CalcWrapper>
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **Core formula: SEER = Total BTU Output / Total Wh Input** over a full cooling season
+- **Annual cost = (BTU/h x Hours) / (SEER x 1,000) x $/kWh**
+- **Savings = Old Cost - New Cost** using the formula for each SEER rating
+- **Payback = Extra Cost / Annual Savings** (subtract tax credits from extra cost)
+- **SEER to SEER2: divide by 1.047.** SEER2 to SEER: multiply by 1.047.
+- **SEER to COP: divide by 3.412** for the seasonal cooling efficiency ratio
+- **Key variables: system size (tons), cooling hours, electricity rate, and SEER rating.** Change any of these and the economics shift.
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "How do I calculate my AC's annual energy cost using SEER?",
+    answer: "Use this formula: Annual Cost = (Cooling Capacity in BTU/h x Annual Cooling Hours) / (SEER x 1,000) x Electricity Rate in $/kWh. For a 3-ton (36,000 BTU/h) AC at 16 SEER running 1,500 hours at $0.16/kWh: (36,000 x 1,500) / (16 x 1,000) x $0.16 = $540 per year."
+  },
+  {
+    question: "How do I calculate savings between two SEER ratings?",
+    answer: "Calculate the annual cost for each SEER rating using the formula above, then subtract. For example, upgrading a 3-ton system from 12 to 18 SEER at 1,500 hours and $0.16/kWh saves $720 - $480 = $240 per year."
+  },
+  {
+    question: "How many cooling hours should I use in the calculation?",
+    answer: "This varies by climate. Northern US: 600-1,000 hours. Mid-Atlantic: 1,000-1,500. Southeast: 1,500-2,500. Deep South: 2,000-3,000+. You can estimate from your utility bills by counting months with cooling usage and assuming 8-16 hours of runtime per day during those months."
+  },
+  {
+    question: "Does the same formula work for SEER2?",
+    answer: "Yes. The formula is identical — just substitute SEER2 where SEER appears. Annual Cost = (BTU/h x Hours) / (SEER2 x 1,000) x $/kWh. When comparing old SEER equipment to new SEER2 equipment, convert to the same standard first (divide SEER by 1.047 to get SEER2 equivalent)."
+  },
+  {
+    question: "How accurate are these SEER cost estimates?",
+    answer: "These calculations provide a reasonable estimate within 10-20% of actual costs for a properly installed and maintained system. Real-world variables like duct losses (20-30%), thermostat habits, system sizing, and maintenance condition all affect actual consumption. Consider these calculations as comparative tools rather than exact predictions."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Central Air Conditioning", url: "https://www.energy.gov/energysaver/central-air-conditioning" },
+  { label: "ENERGY STAR - Savings Calculator Methodology", url: "https://www.energystar.gov" },
+  { label: "AHRI - Directory of Certified Product Performance", url: "https://www.ahrinet.org" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "what-is-seer-rating", title: "What Is SEER Rating?" },
+  { slug: "seer2-rating-explained", title: "Understanding SEER2" },
+  { slug: "seer2-savings-calculator", title: "SEER2 Savings Calculator" },
+  { slug: "seer-vs-seer2", title: "SEER vs SEER2: Differences" }
+]} />

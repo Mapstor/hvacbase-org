@@ -1,0 +1,305 @@
+---
+slug: "furnace-sizing-calculator"
+title: "Furnace Size Calculator: What Size Furnace Do I Need? (2026)"
+description: "Calculate the right furnace size (BTU) for your home based on square footage, climate zone, insulation, and 10+ factors. Includes BTU sizing charts for every home size and tips to avoid costly oversizing."
+cluster: "ac-sizing-selection"
+role: "hub"
+priority: "P1"
+contentType: "calculator-guide"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "air-conditioner-btu-calculator"
+  - "how-many-btu-per-square-foot"
+  - "heat-pump-size-calculator"
+  - "what-size-generator-do-i-need"
+  - "ac-tonnage-calculator"
+  - "what-size-tankless-water-heater"
+externalLinks:
+  - label: "ACCA Manual J – Residential Load Calculation"
+    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+  - label: "DOE – Furnace Efficiency Standards"
+    url: "https://www.energy.gov/energysaver/furnaces-and-boilers"
+  - label: "ENERGY STAR – Heating Equipment"
+    url: "https://www.energystar.gov/products/heating_cooling/furnaces"
+  - label: "AHRI – Certified Furnace Directory"
+    url: "https://www.ahridirectory.org"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Furnace Size Calculator: What Size Furnace Do I Need?
+
+**A properly sized furnace delivers 30–60 BTU per square foot of heating output, depending on your climate zone and home construction — meaning a 2,000 sq ft home in a cold climate (Zone 5–6) needs roughly 80,000–120,000 BTU of input capacity.** Oversized furnaces are the #1 installation mistake in the industry, causing short cycling, uneven heating, excessive noise, and wasted energy.
+
+This guide covers the complete sizing process: climate zone analysis, square footage calculations, the critical difference between input and output BTU, and the 10 adjustment factors that separate a rough guess from an accurate load calculation.
+
+<TableOfContents />
+
+## Interactive Furnace Sizing Calculator
+
+Use our calculator to get a personalized furnace size recommendation based on your specific home:
+
+<CalcWrapper type="furnace-sizing" />
+
+## Input BTU vs. Output BTU: The Number That Matters
+
+Every furnace has two BTU ratings, and confusing them is the most common sizing error.
+
+- **Input BTU:** Total fuel energy the furnace burns per hour
+- **Output BTU:** Actual heat delivered to your home after efficiency losses
+
+The relationship: **Output BTU = Input BTU × AFUE**
+
+| Furnace Type | AFUE Rating | Input BTU | Output BTU |
+|---|---|---|---|
+| Standard efficiency (old) | 80% | 100,000 | 80,000 |
+| Standard efficiency (2026 min) | 80% | 80,000 | 64,000 |
+| Mid-efficiency | 90% | 80,000 | 72,000 |
+| High-efficiency condensing | 95% | 80,000 | 76,000 |
+| Premium condensing | 97–98% | 80,000 | 77,600–78,400 |
+
+<Callout type="important">
+**Always size by output BTU.** When a Manual J calculation says your home needs 60,000 BTU of heating, that's output BTU. If you're installing a 95% AFUE furnace, you need an input rating of 60,000 ÷ 0.95 = 63,158 BTU — so a 60,000 or 80,000 BTU input furnace (standard sizes) would work. If you size by input BTU and ignore efficiency, you'll overshoot by 20% with a high-efficiency unit.
+</Callout>
+
+## Furnace Sizing Chart by Square Footage and Climate Zone
+
+This chart shows recommended **input BTU** for a furnace with 95% AFUE. Adjust for your actual efficiency rating.
+
+| Home Size (sq ft) | Zone 3 (Warm) | Zone 4 (Mixed) | Zone 5 (Cool) | Zone 6 (Cold) | Zone 7 (Very Cold) |
+|---|---|---|---|---|---|
+| 800 | 30,000 | 40,000 | 45,000 | 55,000 | 65,000 |
+| 1,000 | 40,000 | 45,000 | 55,000 | 65,000 | 80,000 |
+| 1,200 | 45,000 | 55,000 | 65,000 | 80,000 | 90,000 |
+| 1,500 | 55,000 | 65,000 | 80,000 | 90,000 | 110,000 |
+| 1,800 | 60,000 | 80,000 | 90,000 | 110,000 | 120,000 |
+| 2,000 | 65,000 | 80,000 | 100,000 | 120,000 | 135,000 |
+| 2,500 | 80,000 | 100,000 | 120,000 | 135,000 | 160,000 |
+| 3,000 | 100,000 | 120,000 | 135,000 | 160,000 | 180,000+ |
+| 3,500 | 110,000 | 135,000 | 160,000 | 180,000+ | 200,000+ |
+| 4,000 | 120,000 | 160,000 | 180,000+ | 200,000+ | 2 units |
+
+*Assumes average insulation, 8-foot ceilings, and standard window area. Apply adjustment factors below for accuracy.*
+
+**Standard residential furnace sizes** (input BTU): 40,000 / 60,000 / 80,000 / 100,000 / 120,000 / 140,000. Furnaces come in fixed sizes, so you'll round to the nearest available model. When between sizes, round up by no more than 15% — larger jumps indicate oversizing.
+
+## Heating Load Calculation: Step-by-Step
+
+### Step 1: Determine Your Design Temperature Difference
+
+Your furnace must maintain indoor temperature (68–72°F) when outdoor temperature hits the local "design temperature" — the coldest 1% of winter hours.
+
+| City | Winter Design Temp (°F) | Design ΔT from 70°F |
+|---|---|---|
+| Miami, FL | 47°F | 23°F |
+| Houston, TX | 29°F | 41°F |
+| Atlanta, GA | 22°F | 48°F |
+| Nashville, TN | 14°F | 56°F |
+| St. Louis, MO | 6°F | 64°F |
+| Chicago, IL | −3°F | 73°F |
+| Denver, CO | 1°F | 69°F |
+| Boston, MA | 7°F | 63°F |
+| Minneapolis, MN | −12°F | 82°F |
+| Fargo, ND | −18°F | 88°F |
+| Anchorage, AK | −15°F | 85°F |
+
+### Step 2: Calculate Base Heating Load
+
+**Base heating load (BTU/hr) = Square footage × Design ΔT × Heat Loss Factor**
+
+The heat loss factor depends on your home's construction:
+
+| Construction Quality | Heat Loss Factor (BTU/hr per sq ft per °F ΔT) |
+|---|---|
+| Poor (pre-1970, no insulation) | 0.9–1.1 |
+| Below average (pre-1990, some insulation) | 0.7–0.9 |
+| Average (1990–2010, code insulation) | 0.5–0.7 |
+| Good (2010–2020, above-code insulation) | 0.4–0.5 |
+| Excellent (2020+, high-performance envelope) | 0.25–0.4 |
+| Passive house standard | 0.10–0.20 |
+
+### Step 3: Apply Adjustment Factors
+
+The same factors that affect cooling loads also affect heating loads, with some differences:
+
+| Factor | Heating Adjustment | Notes |
+|---|---|---|
+| **Ceiling height (9 ft)** | +12% | More volume to heat |
+| **Ceiling height (10 ft)** | +25% | — |
+| **Ceiling height (12 ft)** | +50% | — |
+| **Many/large windows** | +10–20% | Heat loss through glass |
+| **Poor air sealing** | +15–25% | Cold air infiltration |
+| **Ductwork in attic/crawl** | +15–25% | Heat lost before reaching rooms |
+| **Ducts in conditioned space** | −10% | No duct losses |
+| **Above-average insulation** | −10–20% | Less heat transfer |
+| **Basement (heated)** | +10–15% of basement sq ft | Below-grade heat loss |
+| **Slab on grade** | +5% | Edge losses |
+| **Fireplace (no damper)** | +10% | Acts as a chimney for warm air |
+| **Attached garage (unheated)** | +5% | Shared wall heat loss |
+| **South-facing glass** | −5% | Solar gain helps in winter |
+
+## Worked Sizing Examples
+
+<Callout type="example">
+**Example 1: 1,600 sq ft ranch in Chicago, IL**
+
+- Design ΔT: 73°F (outdoor −3°F to indoor 70°F)
+- Construction: Average (1995 build, code insulation) → heat loss factor 0.6
+- Base load: 1,600 × 73 × 0.6 = 70,080 BTU/hr
+- Adjustments: 9-ft ceilings (+12%) = 78,490 BTU/hr; average ductwork (0%) = 78,490; average windows (0%) = 78,490
+- Needed output: ~78,500 BTU/hr
+- With 95% AFUE: 78,500 ÷ 0.95 = 82,632 BTU input
+- **Recommended: 80,000 BTU input furnace (95% AFUE)**
+
+The 80,000 BTU unit delivers 76,000 output — 3% below the calculated load. On the coldest 1% of hours, the furnace runs near-continuously, which is acceptable. A 100,000 BTU unit would be oversized by 20%.
+</Callout>
+
+<Callout type="example">
+**Example 2: 2,800 sq ft colonial in Minneapolis, MN**
+
+- Design ΔT: 82°F (outdoor −12°F to indoor 70°F)
+- Construction: Below average (1985, some insulation added) → heat loss factor 0.75
+- Base load: 2,800 × 82 × 0.75 = 172,200 BTU/hr
+- Adjustments: 8-ft ceilings (0%); large windows on north side (+15%) = 198,030; leaky ductwork in attic (+20%) = 237,636; poor air sealing (+15%) = 273,281
+- Needed output: ~273,000 BTU/hr
+- **This exceeds single-furnace capacity.** Options: two furnaces (zoned system), massive insulation upgrades first, or a combination approach.
+
+After recommended upgrades (seal ducts, add attic insulation, weather-strip windows): recalculated load drops to ~160,000 BTU/hr → two 80,000–100,000 BTU furnaces (one per floor) or a single 160,000+ BTU commercial-grade unit.
+</Callout>
+
+<Callout type="example">
+**Example 3: 1,200 sq ft new-build condo in Denver, CO**
+
+- Design ΔT: 69°F (outdoor 1°F to indoor 70°F)
+- Construction: Excellent (2026 code, R-21 walls, R-49 attic, triple-pane) → heat loss factor 0.35
+- Base load: 1,200 × 69 × 0.35 = 28,980 BTU/hr
+- Adjustments: 9-ft ceilings (+12%) = 32,458; ducts in conditioned space (−10%) = 29,212; minimal windows (+0%) = 29,212
+- Needed output: ~29,000 BTU/hr
+- With 95% AFUE: 29,000 ÷ 0.95 = 30,526 BTU input
+- **Recommended: 40,000 BTU input furnace (smallest available standard size)**
+
+Modern construction dramatically reduces heating loads. This new condo in Denver needs less heating capacity than a 1985 ranch half its size. The 40,000 BTU furnace will still be slightly oversized, but it's the smallest commonly available residential unit.
+</Callout>
+
+## Two-Stage and Variable-Speed Furnaces: Sizing Advantages
+
+Modern furnaces offer multi-stage and modulating operation that changes the sizing equation:
+
+| Furnace Type | Operation | Oversizing Tolerance | Comfort Level |
+|---|---|---|---|
+| Single-stage | 100% on or off | ±10% of load | Good |
+| Two-stage | Low fire (60–70%) / High fire (100%) | ±20% of load | Better |
+| Modulating/variable | 40–100% capacity in 1% increments | ±30% of load | Best |
+
+A modulating furnace rated at 100,000 BTU can fire as low as 40,000 BTU, effectively acting like a perfectly sized furnace for mild and extreme conditions alike. If you're between sizes, a modulating furnace lets you safely choose the larger option without the short-cycling penalties of a single-stage unit.
+
+<Callout type="tip">
+**Best practice for 2026:** Unless budget is the only constraint, choose at minimum a two-stage furnace. The low-fire stage runs longer, distributes heat more evenly, operates more quietly, and filters air better. Modulating furnaces cost $500–$1,200 more but deliver the best comfort and efficiency.
+</Callout>
+
+## 2026 Furnace Efficiency Standards
+
+The DOE's minimum AFUE requirements for 2026:
+
+| Region | Minimum AFUE (Non-Weatherized Gas Furnace) |
+|---|---|
+| Northern states (DOE North region) | 95% (condensing) |
+| Southern states (DOE South region) | 80% (non-condensing allowed) |
+
+As of 2026, the northern US requires condensing furnaces (95% AFUE minimum) for all new installations. This means PVC venting, condensate drains, and slightly higher upfront costs — but 15–20% lower fuel bills compared to the old 80% minimum.
+
+| AFUE | Annual Gas Cost (100,000 BTU furnace, $1.20/therm) | Annual Savings vs 80% |
+|---|---|---|
+| 80% | $1,800 | — |
+| 90% | $1,600 | $200 |
+| 95% | $1,516 | $284 |
+| 97% | $1,485 | $315 |
+| 98% | $1,469 | $331 |
+
+*Based on 1,500 equivalent full-load hours (typical Zone 5 heating season).*
+
+## Furnace Sizing Mistakes to Avoid
+
+### Mistake 1: Using the "Replace with the Same Size" Rule
+
+Just because your old furnace was 120,000 BTU doesn't mean you need another 120,000 BTU unit. Old furnaces were routinely oversized by 50–100%. If your old unit short-cycled frequently (running 5–8 minutes then shutting off), it was almost certainly oversized. A proper load calculation for the replacement may reveal you only need 80,000 BTU.
+
+### Mistake 2: Sizing for the Absolute Worst-Case Day
+
+Your furnace should handle the coldest 1% of winter hours — not the polar vortex record low. Designing for a once-in-50-years extreme event leads to massive oversizing for the other 99.9% of the heating season. If you're concerned about extreme cold events, choose a two-stage or modulating furnace that can handle the typical load on low fire and ramp up to high fire during extreme events.
+
+### Mistake 3: Ignoring Duct Design
+
+A perfectly sized furnace paired with undersized or leaky ductwork performs like an undersized furnace. Your furnace can produce 80,000 BTU, but if only 60,000 BTU reaches your rooms, you have an effective 60,000 BTU system. ACCA Manual D duct design should accompany every furnace installation.
+
+### Mistake 4: Not Accounting for Home Improvements
+
+If you plan to add insulation, replace windows, or seal your envelope within the next few years, size the furnace for the improved home, not the current one. A modulating furnace accommodates this well since it adjusts output to match the actual load.
+
+<Callout type="takeaway">
+**Key Takeaways**
+
+1. Size furnaces by **output BTU** (input × AFUE), not input BTU — a 95% efficient furnace delivers 5–20% more heat per input BTU than an 80% unit
+2. Use 30–60 BTU per square foot as a starting range, with climate zone being the biggest variable
+3. Oversizing causes short cycling, uneven heat, noise, and higher bills — a furnace that runs 15–20 minutes per cycle is correctly sized
+4. Two-stage and modulating furnaces tolerate sizing imprecision better than single-stage units
+5. Northern US now requires 95% AFUE minimum (condensing furnaces) for new installations in 2026
+6. Ductwork matters as much as furnace size — seal and insulate ducts before upgrading the furnace
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ>
+  <FAQ.Item question="What size furnace do I need for a 2,000 sq ft house?">
+    A 2,000 sq ft house typically needs a 60,000–120,000 BTU input furnace depending on climate zone and construction quality. In a moderate climate (Zone 4) with average insulation, expect 80,000–100,000 BTU. In a cold climate (Zone 6) with older construction, you may need 120,000–140,000 BTU. In a mild climate with modern insulation, 60,000–80,000 BTU may suffice.
+  </FAQ.Item>
+
+  <FAQ.Item question="How many BTU furnace per square foot?">
+    For heating, plan for 30–60 BTU of furnace input per square foot. Warm climates (Zone 3) need 25–35 BTU/sq ft. Mixed climates (Zone 4) need 35–45 BTU/sq ft. Cool climates (Zone 5) need 45–55 BTU/sq ft. Cold climates (Zone 6–7) need 55–70 BTU/sq ft. These assume average insulation and 8-foot ceilings — adjust up or down based on your specific home.
+  </FAQ.Item>
+
+  <FAQ.Item question="What happens if my furnace is too big?">
+    An oversized furnace short cycles — turning on and off rapidly in 5–8 minute bursts instead of running 15–20 minute cycles. This causes uneven temperatures (rooms near the furnace overheat while distant rooms stay cold), higher energy bills from frequent starts, excessive wear on the heat exchanger and blower motor, and loud startup/shutdown noise. Oversized furnaces also fail to properly circulate and filter air.
+  </FAQ.Item>
+
+  <FAQ.Item question="What is AFUE and why does it matter for sizing?">
+    AFUE (Annual Fuel Utilization Efficiency) tells you what percentage of fuel energy becomes usable heat. An 80% AFUE furnace converts 80 cents of every dollar of gas into heat — 20 cents goes up the flue. A 95% AFUE furnace converts 95 cents. For sizing, AFUE determines the relationship between input and output BTU. A 100,000 BTU input furnace at 95% AFUE delivers 95,000 BTU of heat; the same input at 80% AFUE delivers only 80,000 BTU.
+  </FAQ.Item>
+
+  <FAQ.Item question="Can I install a furnace myself to save money?">
+    In most jurisdictions, furnace installation requires a licensed HVAC contractor and a permit. Gas furnace installation involves gas piping, electrical wiring, flue venting, and combustion air requirements — all governed by building codes (NFPA 54, International Mechanical Code). Improper installation can cause carbon monoxide poisoning, fires, or gas leaks. Even in jurisdictions that allow homeowner work, manufacturers typically void warranties on DIY installations.
+  </FAQ.Item>
+
+  <FAQ.Item question="Should I get a single-stage or two-stage furnace?">
+    Two-stage furnaces cost $300–$800 more than single-stage but offer meaningfully better comfort: the low-fire stage (60–70% capacity) handles mild weather quietly and efficiently, while high fire kicks in for the coldest days. Two-stage units also tolerate slight oversizing better, run longer cycles for more even heating, and filter air more effectively. For homes where comfort matters and the budget allows, two-stage is the minimum recommendation.
+  </FAQ.Item>
+
+  <FAQ.Item question="How long does a furnace last?">
+    The average gas furnace lasts 15–20 years, with high-efficiency condensing models averaging 15–18 years (the secondary heat exchanger is the typical failure point). Factors that shorten lifespan: oversizing (short cycling), poor maintenance (dirty filters, no annual tune-ups), high humidity environments, and corrosive indoor air. Annual maintenance and correct sizing are the two biggest factors in reaching the 20-year mark.
+  </FAQ.Item>
+
+  <FAQ.Item question="Do I need a new furnace if I'm getting a new AC?">
+    Not necessarily, but there are strong reasons to replace both simultaneously. The furnace blower handles airflow for both heating and cooling — an old blower paired with a new high-efficiency AC can limit the AC's performance. If your furnace is over 15 years old, replacing both at once saves on labor costs (one installation visit), ensures matched airflow, and qualifies for bundle pricing from contractors.
+  </FAQ.Item>
+
+  <FAQ.Item question="What size furnace for a 1,500 sq ft house?">
+    For 1,500 sq ft with average insulation: Zone 3 (warm) needs 40,000–60,000 BTU, Zone 4 (mixed) needs 60,000–80,000 BTU, Zone 5 (cool) needs 80,000–90,000 BTU, and Zone 6 (cold) needs 90,000–110,000 BTU. These are input BTU ratings for a 95% AFUE furnace. A professional Manual J calculation provides the most precise number.
+  </FAQ.Item>
+
+  <FAQ.Item question="Can a furnace be too efficient?">
+    The furnace itself can't be too efficient — higher AFUE always means more heat per dollar of fuel. However, condensing furnaces (90%+ AFUE) produce acidic condensate that requires a drain, and they use PVC venting that may not fit existing flue configurations. In rare cases, the infrastructure cost to accommodate a condensing furnace makes an 80% unit more cost-effective, but this only applies in southern states where the 80% minimum is still allowed.
+  </FAQ.Item>
+</FAQ>
+
+<SourcesBox>
+  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+  - [U.S. DOE – Furnaces and Boilers](https://www.energy.gov/energysaver/furnaces-and-boilers)
+  - [ENERGY STAR – Certified Furnaces](https://www.energystar.gov/products/heating_cooling/furnaces)
+  - [AHRI – Certified Furnace Directory](https://www.ahridirectory.org)
+  - [ASHRAE – Fundamentals: Residential Heating Loads](https://www.ashrae.org)
+  - [DOE – Regional Furnace Efficiency Standards](https://www.energy.gov/articles/doe-finalizes-efficiency-standards)
+  - [NFPA 54 – National Fuel Gas Code](https://www.nfpa.org)
+</SourcesBox>
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

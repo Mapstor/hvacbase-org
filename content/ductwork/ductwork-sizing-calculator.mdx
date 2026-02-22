@@ -1,0 +1,359 @@
+---
+slug: "ductwork-sizing-calculator"
+title: "Ductwork Sizing Calculator: CFM to Duct Size Chart (2026 Guide)"
+description: "Use our free ductwork sizing calculator to find the correct duct diameter for any CFM. Includes friction rate tables, equivalent rectangular sizes, and ACCA Manual D guidelines."
+cluster: "ductwork-ventilation"
+role: "hub"
+priority: 1
+contentType: "calculator-guide"
+datePublished: "2026-02-07"
+dateModified: "2026-02-07"
+relatedArticles:
+  - "flexible-vs-rigid-ductwork"
+  - "duct-leakage-testing"
+  - "btucfm-ductwork-relationship"
+  - "btu-calculator"
+  - "seer-rating-explained"
+externalLinks:
+  - url: "https://www.acca.org/standards/manual-d"
+    label: "ACCA Manual D – Residential Duct Systems"
+  - url: "https://www.energy.gov/energysaver/minimizing-energy-losses-ducts"
+    label: "DOE – Minimizing Energy Losses in Ducts"
+  - url: "https://www.ashrae.org/technical-resources/ashrae-handbook"
+    label: "ASHRAE Handbook – Fundamentals"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Ductwork Sizing Calculator: CFM to Duct Size Chart
+
+**A 12-inch round duct handles roughly 600–800 CFM at standard residential friction rates, while a 6-inch duct maxes out around 100 CFM.** Getting duct sizing wrong — even by one diameter step — can slash your HVAC system's efficiency by 15–25%, create annoying noise, and leave rooms too hot or too cold. This guide gives you the exact charts, formulas, and a free calculator to size every run in your system correctly.
+
+<TableOfContents />
+
+## Why Duct Sizing Matters More Than Most Homeowners Think
+
+Your HVAC equipment might be perfectly sized at 48,000 BTU, but if the ductwork feeding it is undersized, you're essentially forcing a fire hose through a garden hose. The blower motor works harder, energy bills climb 20–30%, and the system fails years before it should.
+
+Oversized ducts aren't great either. Air velocity drops below 600 feet per minute (FPM), and you lose the momentum needed to push conditioned air into distant rooms. The sweet spot for residential trunk ducts is 700–900 FPM; branch ducts should target 600–700 FPM.
+
+According to the U.S. Department of Energy, duct losses in unconditioned spaces account for **25–40% of heating and cooling energy** in a typical home. Proper sizing is the first line of defense against those losses.
+
+## The Core Formula: How Duct Sizing Works
+
+Duct sizing boils down to balancing three variables:
+
+**Airflow (CFM)** — the volume of air your system needs to move. **Friction rate** — pressure drop per 100 feet of duct, measured in inches of water column (IWC). **Velocity (FPM)** — how fast air travels through the duct.
+
+The relationship is governed by this equation:
+
+**CFM = Duct Area (sq ft) × Velocity (FPM)**
+
+For a round duct, the area is π × (d/2)² where d is the diameter in feet. But in practice, HVAC professionals use friction rate charts derived from the Darcy-Weisbach equation rather than raw velocity calculations, because friction rate accounts for duct material roughness, fittings, and real-world pressure drops.
+
+### Friction Rate: The Number That Controls Everything
+
+The standard residential design friction rate is **0.08 IWC per 100 feet of equivalent duct length** (often written as 0.08″/100′). This is the ACCA Manual D default for most systems.
+
+To calculate your available friction rate:
+
+**Available Friction Rate = (Total Available Static Pressure − Fitting/Component Losses) ÷ Total Equivalent Length × 100**
+
+Most residential systems provide 0.50 IWC total external static pressure (TESP). After subtracting losses for filters, coils, grilles, and registers (typically 0.25–0.30 IWC combined), you're left with about 0.20–0.25 IWC for the duct system itself.
+
+<Callout type="tip">
+**Quick rule of thumb:** If your total equivalent duct length (including fittings) is around 250 feet, and you have 0.20 IWC available for ducts, your friction rate is 0.20 ÷ 250 × 100 = **0.08 IWC/100 ft** — right at the standard design point.
+</Callout>
+
+## CFM to Round Duct Size Chart
+
+This is the chart every HVAC technician keeps handy. It shows the recommended round duct diameter for a given CFM at the standard 0.08 IWC/100′ friction rate.
+
+<ComparisonTable
+  title="CFM to Round Duct Diameter (at 0.08 IWC/100 ft)"
+  headers={["CFM", "Round Duct Diameter (inches)", "Velocity (FPM)", "Typical Use"]}
+  rows={[
+    ["30–50", "4\"", "500–575", "Bathroom exhaust, small supply"],
+    ["50–80", "5\"", "525–590", "Single small register"],
+    ["75–120", "6\"", "575–620", "Standard bedroom supply"],
+    ["110–160", "7\"", "590–650", "Larger bedroom or office"],
+    ["150–220", "8\"", "620–700", "Living room branch, kitchen"],
+    ["200–300", "9\"", "650–720", "Extended branch runs"],
+    ["280–400", "10\"", "680–750", "Sub-trunk, multi-room branch"],
+    ["400–550", "12\"", "720–790", "Main trunk (small system)"],
+    ["550–750", "14\"", "740–830", "Main trunk (medium system)"],
+    ["750–1000", "16\"", "770–860", "Main trunk (3-ton system)"],
+    ["1000–1300", "18\"", "810–890", "Main trunk (4-ton system)"],
+    ["1300–1700", "20\"", "840–920", "Main trunk (5-ton system)"],
+    ["1700–2100", "22\"", "870–940", "Large residential trunk"],
+    ["2100–2600", "24\"", "890–960", "Commercial / large residential"],
+  ]}
+/>
+
+<Callout type="important">
+These values assume smooth galvanized steel duct. **Flexible duct requires upsizing by 1–2 inches** due to higher internal friction from the corrugated inner liner. A 6-inch flex duct performs like a 5-inch rigid duct under real-world conditions.
+</Callout>
+
+## Round to Rectangular Duct Equivalents
+
+Many homes use rectangular ducts for trunk lines because they fit in tight joist cavities. Here's how round sizes translate to common rectangular dimensions with equivalent airflow capacity.
+
+<ComparisonTable
+  title="Round to Rectangular Duct Equivalents"
+  headers={["Round Diameter", "Equivalent Rectangular Options", "Cross-Section Area (sq in)"]}
+  rows={[
+    ["6\"", "4\" × 8\", 3.5\" × 10\"", "28.3"],
+    ["7\"", "4\" × 10\", 5\" × 8\"", "38.5"],
+    ["8\"", "5\" × 10\", 6\" × 8\", 4\" × 14\"", "50.3"],
+    ["9\"", "6\" × 10\", 5\" × 12\", 7\" × 8\"", "63.6"],
+    ["10\"", "6\" × 12\", 8\" × 8\", 5\" × 16\"", "78.5"],
+    ["12\"", "8\" × 12\", 6\" × 18\", 10\" × 10\"", "113.1"],
+    ["14\"", "8\" × 16\", 10\" × 12\", 6\" × 24\"", "153.9"],
+    ["16\"", "10\" × 16\", 8\" × 22\", 12\" × 14\"", "201.1"],
+    ["18\"", "10\" × 20\", 12\" × 16\", 8\" × 28\"", "254.5"],
+    ["20\"", "12\" × 20\", 10\" × 26\", 14\" × 18\"", "314.2"],
+  ]}
+/>
+
+<Callout type="warning">
+**Aspect ratio matters.** Never exceed a 4:1 width-to-height ratio for rectangular ducts. A 4" × 24" duct might have the right area on paper, but the extreme aspect ratio creates turbulence, noise, and excessive pressure drop. ACCA recommends staying at 3:1 or less.
+</Callout>
+
+## Ductwork Sizing Calculator
+
+Use this calculator to determine the correct duct size for your specific airflow requirements and friction rate.
+
+<CalcWrapper>
+{/* DuctSizingCalculator component renders here */}
+</CalcWrapper>
+
+### How to Use the Calculator
+
+**Step 1:** Enter the CFM required for the room or zone. You can calculate room CFM from the BTU load — see our [BTU to CFM guide](/btucfm-ductwork-relationship/) for the conversion.
+
+**Step 2:** Select your friction rate. Use 0.08 IWC/100′ for standard residential systems. If you have a high-static system or very long runs, drop to 0.06.
+
+**Step 3:** Choose your duct material. Flex duct adds roughly 50% more friction than smooth metal, so the calculator automatically adjusts sizing upward.
+
+**Step 4:** Read the recommended round diameter and equivalent rectangular options.
+
+## Sizing Trunk Lines vs. Branch Ducts
+
+The biggest mistake in duct design is using the same size throughout the system. A proper duct system uses a **reducing trunk** design where the main trunk decreases in size as branch ducts peel off and the remaining CFM drops.
+
+### The Reducing Trunk Method
+
+Start with your total system CFM at the plenum. As each branch takes off, subtract that branch's CFM from the trunk total and resize the trunk for the remaining airflow.
+
+<Callout type="example">
+**Example: 3-Ton System (1,200 CFM total)**
+
+The main trunk leaves the plenum at 16" round (1,200 CFM). After the first branch takes 150 CFM, the trunk reduces to 14" (1,050 CFM remaining). After the next two branches take 300 CFM combined, it reduces to 12" (750 CFM). The final section serving 400 CFM can be 10". Each branch duct is sized individually — a 150 CFM bedroom branch uses 7" round duct.
+</Callout>
+
+### Branch Duct Sizing by Room Type
+
+Different rooms have different CFM requirements based on heat load, and therefore need different duct sizes.
+
+<ComparisonTable
+  title="Typical Branch Duct Sizes by Room (2,000 sq ft Home, 3-Ton System)"
+  headers={["Room", "Typical BTU Load", "CFM Needed", "Duct Size (Rigid)", "Duct Size (Flex)"]}
+  rows={[
+    ["Master bedroom", "4,000–6,000", "150–225", "7\"–8\"", "8\"–9\""],
+    ["Standard bedroom", "2,500–4,000", "95–150", "6\"–7\"", "7\"–8\""],
+    ["Kitchen", "4,000–7,000", "150–260", "7\"–9\"", "8\"–10\""],
+    ["Living room", "6,000–10,000", "225–375", "8\"–10\"", "9\"–12\""],
+    ["Bathroom", "1,000–2,000", "40–75", "5\"–6\"", "6\"–7\""],
+    ["Home office", "2,000–3,500", "75–130", "6\"–7\"", "7\"–8\""],
+    ["Basement (finished)", "5,000–9,000", "190–340", "8\"–10\"", "9\"–12\""],
+    ["Garage (conditioned)", "6,000–12,000", "225–450", "8\"–12\"", "10\"–14\""],
+  ]}
+/>
+
+## Real-World Sizing Examples
+
+### Example 1: New Construction — 2,400 sq ft Two-Story Home
+
+**System:** 4-ton heat pump, 1,600 CFM, 0.50 IWC TESP. Total equivalent duct length: 300 feet. Available static for ducts after component losses: 0.22 IWC. Friction rate: 0.22 ÷ 300 × 100 = **0.073 IWC/100′**.
+
+The main trunk leaving the air handler needs to carry 1,600 CFM. At 0.073 friction rate, that requires an 18" round duct or a 12" × 18" rectangular duct. The trunk reduces in three steps: 18" → 16" → 14" → 12" as branches peel off. Branch runs to bedrooms use 7" rigid or 8" flex. The largest branch to the great room uses 10" rigid.
+
+**Result:** Balanced airflow, every room within ±2°F of setpoint, system static at 0.48 IWC (under the 0.50 limit).
+
+### Example 2: Retrofit — Adding a Zone to an Existing System
+
+**Situation:** A homeowner finishes a 500 sq ft basement and wants to tie into the existing 3-ton system. The basement needs roughly 200 CFM for cooling and 180 CFM for heating.
+
+The existing trunk has a 12" section with available capacity of about 300 CFM. A single 8" rigid branch run (22 feet with two elbows = ~36 equivalent feet) feeds a wye splitter to two 6" branches serving opposite ends of the basement.
+
+**Key check:** The total system CFM (existing 1,200 + new 200) must not exceed the blower's capacity. At 1,400 CFM, the blower static rises to 0.55 IWC — right at the limit. A variable-speed ECM blower handles this fine; a single-speed PSC blower would struggle.
+
+### Example 3: Fixing a Hot Room — Undersized Duct Diagnosis
+
+**Problem:** A second-floor bedroom is consistently 4–5°F warmer than the rest of the house in summer. The existing supply duct is 5" flex running 25 feet with three tight turns.
+
+**Diagnosis:** A 5" flex duct at 25 feet with three 90° turns has an equivalent length of roughly 60 feet. At 0.08 friction rate, a 5" duct delivers only about 50 CFM — but the room's cooling load requires 130 CFM. The duct is delivering barely 40% of needed airflow.
+
+**Fix:** Replace with a 7" rigid duct or 8" flex duct with proper support and no sharp bends. The 7" rigid delivers 140 CFM at the same friction rate — problem solved. Cost: $200–$400 for materials, $600–$1,200 professionally installed.
+
+### Example 4: Commercial Small Office — High-Static System
+
+**System:** 7.5-ton packaged rooftop unit, 3,000 CFM, 1.0 IWC TESP. Duct system uses fiberglass-lined galvanized with 450 equivalent feet. Available static for ducts: 0.50 IWC. Friction rate: 0.50 ÷ 450 × 100 = **0.11 IWC/100′**.
+
+At the higher friction rate, you can use slightly smaller ducts than residential standards. The main trunk starts at 22" round and reduces to 18", 16", and 14". Branch ducts serving individual offices (150–200 CFM each) use 8" round.
+
+**Important:** Higher friction rates mean higher velocity and more noise. In an office setting, keep velocity below 800 FPM in occupied spaces. Use lined duct or duct silencers for the first 6 feet after the air handler.
+
+## Common Duct Sizing Mistakes
+
+**Mistake #1: Using flex duct at rigid duct sizes.** A 6" flex duct does NOT equal a 6" rigid duct. The corrugated liner adds friction equivalent to shrinking the duct by 1–2 inches. Always upsize flex.
+
+**Mistake #2: Ignoring equivalent length of fittings.** A 90° elbow in 8" duct adds 15–20 equivalent feet. A typical residential system has 8–15 fittings, which can double the effective duct length. ACCA Manual D provides fitting equivalent length tables for every configuration.
+
+**Mistake #3: Running flex duct with sags and kinks.** Every bend, sag, or compression in flex duct increases resistance dramatically. A fully stretched flex duct delivers 30–50% more airflow than one installed with typical slack. Support flex every 4 feet maximum and keep it as straight as possible.
+
+**Mistake #4: Sizing the entire system off one friction rate.** The supply side and return side may need different friction rates. Returns are often shorter but need to handle 100% of system CFM, so they require larger ducts relative to their length.
+
+**Mistake #5: Forgetting the return duct.** Under-sized returns are the single most common duct problem in residential HVAC. The return must handle the total system CFM. A 3-ton system (1,200 CFM) needs a minimum 20" round return trunk or equivalent — yet many homes have just a single 14" × 20" return grille starving the system.
+
+## Velocity Limits by Application
+
+Air velocity determines noise and comfort. Here are the ASHRAE-recommended maximum velocities for different duct locations.
+
+<ComparisonTable
+  title="Maximum Recommended Duct Velocities"
+  headers={["Duct Location", "Residential Max (FPM)", "Commercial Max (FPM)", "Noise Concern Level"]}
+  rows={[
+    ["Main trunk / plenum", "900", "1,200", "Low (mechanical room)"],
+    ["Major branch ducts", "700", "1,000", "Moderate"],
+    ["Branch to register", "600", "800", "High (occupied space)"],
+    ["Return main", "800", "1,000", "Low–Moderate"],
+    ["Return branch", "600", "800", "Moderate–High"],
+    ["Supply register face", "500", "700", "High"],
+    ["Return grille face", "400", "500", "High"],
+    ["Transfer grille / jump duct", "300", "N/A", "Very High (bedroom)"],
+  ]}
+/>
+
+## Static Pressure Budgeting for Duct Design
+
+Before sizing any duct, you need a static pressure budget. Here's a typical breakdown for a residential system with 0.50 IWC TESP.
+
+<ComparisonTable
+  title="Static Pressure Budget Example (0.50 IWC TESP)"
+  headers={["Component", "Pressure Drop (IWC)", "Notes"]}
+  rows={[
+    ["Air filter (1\" MERV 8, clean)", "0.05–0.10", "Increases as filter loads"],
+    ["Air filter (4\" MERV 11, clean)", "0.10–0.15", "Better choice for static-limited systems"],
+    ["Evaporator coil (wet)", "0.15–0.25", "Wet coil = higher drop than dry"],
+    ["Supply register/grille", "0.02–0.05", "Per register"],
+    ["Return grille", "0.02–0.03", "Per grille"],
+    ["Balancing damper (open)", "0.02–0.05", "Per damper"],
+    ["Remaining for ductwork", "0.15–0.25", "This determines your friction rate"],
+  ]}
+/>
+
+<Callout type="tip">
+**Pro tip:** Always measure actual external static pressure with a manometer after installation. Designed static and actual static often differ by 0.05–0.15 IWC due to installation imperfections. If actual static exceeds design, check for crimped flex, dirty filters, or undersized returns.
+</Callout>
+
+## Duct Material Impact on Sizing
+
+Different duct materials have different roughness factors, which directly affect friction rate and required sizing.
+
+<ComparisonTable
+  title="Duct Material Friction Comparison"
+  headers={["Material", "Absolute Roughness (ft)", "Relative Friction Factor", "Sizing Impact"]}
+  rows={[
+    ["Galvanized steel (smooth)", "0.0003", "1.0× (baseline)", "Standard sizing charts apply"],
+    ["Aluminum (smooth)", "0.0002", "0.9×", "Slightly less friction than steel"],
+    ["Fiberglass duct board", "0.003", "1.3–1.5×", "Upsize 1 inch vs. steel"],
+    ["Flexible duct (fully stretched)", "0.003–0.01", "1.5–2.5×", "Upsize 1–2 inches vs. steel"],
+    ["Flexible duct (compressed/sagging)", "0.01–0.03", "3.0–5.0×", "Airflow disaster; avoid"],
+    ["Fabric duct", "0.005–0.015", "2.0–3.0×", "Specialized sizing required"],
+  ]}
+/>
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **Use 0.08 IWC/100′ friction rate** as your starting point for residential duct sizing — adjust based on your actual static pressure budget.
+- **Always upsize flex duct by 1–2 inches** compared to rigid duct charts. A 6" flex ≈ a 5" rigid in real-world performance.
+- **The return duct is just as important as supply** — undersized returns cause high static, short cycling, and equipment failure.
+- **Reducing trunk design** is the proper way to size main trunks — don't run the same size from plenum to the end.
+- **Measure actual static pressure** after installation. Design and reality always diverge, and catching problems early saves expensive callbacks.
+- **Keep aspect ratios at 3:1 or less** for rectangular ducts. Extreme shapes waste energy and create noise.
+- **Velocity targets:** 700–900 FPM for trunks, 600–700 for branches, under 500 at registers.
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ
+  items={[
+    {
+      question: "What size duct do I need for 400 CFM?",
+      answer: "At the standard residential friction rate of 0.08 IWC per 100 feet, 400 CFM requires a 10-inch round rigid duct or a 12-inch flex duct. Equivalent rectangular options include 8\" × 10\" or 6\" × 12\". If you're running flex duct, always go up at least one size to compensate for the higher internal friction."
+    },
+    {
+      question: "How many CFM can a 6-inch duct handle?",
+      answer: "A 6-inch round rigid duct handles approximately 75–120 CFM at standard residential friction rates (0.08 IWC/100 ft). A 6-inch flex duct handles only 50–80 CFM under the same conditions due to higher friction. This is enough airflow for a single standard bedroom or small office — about 100–150 square feet of conditioned space."
+    },
+    {
+      question: "What is the 400 FPM rule for duct sizing?",
+      answer: "The 400 FPM rule refers to the maximum recommended air velocity across return grilles to keep noise levels acceptable in occupied spaces. It's not a duct sizing rule per se — it's a noise control guideline. For duct sizing, target 700–900 FPM in trunk lines and 600–700 FPM in branch ducts. At registers and grilles, stay below 500–600 FPM for supply and 400 FPM for returns."
+    },
+    {
+      question: "Is there a formula to calculate duct size from CFM?",
+      answer: "Yes. For a quick estimate using the velocity method: Duct Area (sq in) = CFM ÷ Velocity (FPM) × 144. Then Diameter = √(4 × Area ÷ π). For example, at 700 FPM target velocity: 200 CFM needs 200 ÷ 700 × 144 = 41.1 sq in → diameter = √(4 × 41.1 ÷ 3.14) = 7.2 inches → use an 8-inch duct. However, the friction rate method from ACCA Manual D is more accurate for real installations."
+    },
+    {
+      question: "How do I size return ductwork?",
+      answer: "Return ducts must handle 100% of your system's total CFM. For a 3-ton system at 1,200 CFM, you need a minimum 18–20 inch round return trunk or equivalent rectangular size. Use a lower friction rate for returns (0.05–0.06 IWC/100 ft) because return runs are typically shorter and you want lower velocity for quiet operation. Each return grille should be sized for no more than 400 FPM face velocity."
+    },
+    {
+      question: "What happens if ductwork is too small?",
+      answer: "Undersized ductwork causes a cascade of problems: high static pressure that strains the blower motor, reduced airflow to rooms (hot/cold spots), increased noise from high velocity air, higher energy bills (15–30% increase), short cycling of the compressor, frozen evaporator coils from insufficient airflow, and premature equipment failure. A system with undersized ducts will never deliver rated capacity regardless of equipment quality."
+    },
+    {
+      question: "Can oversized ducts cause problems?",
+      answer: "Yes. Oversized ducts drop air velocity below 500–600 FPM, which means conditioned air doesn't have enough momentum to reach distant registers. You'll get poor air mixing in rooms, stratification (hot ceiling/cold floor), and wasted material cost. The supply air may also not 'throw' far enough from the register to mix with room air, creating uncomfortable drafts near the register and stagnant air elsewhere."
+    },
+    {
+      question: "How much CFM do I need per ton of AC?",
+      answer: "The standard rule is 400 CFM per ton of cooling capacity. A 3-ton AC needs 1,200 CFM, a 4-ton needs 1,600 CFM, and a 5-ton needs 2,000 CFM. Some high-efficiency systems and heat pumps may spec 350–450 CFM per ton depending on conditions. Always check the manufacturer's airflow requirements — some units are specifically designed for lower airflow and higher temperature drop across the coil."
+    },
+    {
+      question: "Does duct length affect sizing?",
+      answer: "Absolutely. Longer duct runs have more friction loss, which means you either need larger ducts or must accept reduced airflow. A 6-inch duct delivering 100 CFM over 15 feet will only deliver about 70 CFM over 50 feet at the same system pressure. For runs over 25 feet, consider upsizing by one diameter. ACCA Manual D accounts for this through the total equivalent length calculation, which includes both straight runs and fitting equivalent lengths."
+    },
+    {
+      question: "What's the difference between CFM and FPM in duct sizing?",
+      answer: "CFM (cubic feet per minute) measures volume of airflow — how much air is moving. FPM (feet per minute) measures velocity — how fast the air is moving. They're related by the duct cross-sectional area: CFM = Area (sq ft) × FPM. You need both to size ducts correctly: CFM tells you how much air a room needs, and FPM tells you if the duct will be quiet enough and whether the air has enough throw to mix properly in the room."
+    }
+  ]}
+/>
+
+## Sources
+
+<SourcesBox
+  sources={[
+    { name: "ACCA Manual D", url: "https://www.acca.org/standards/manual-d", description: "Residential Duct Systems — the industry standard for duct design" },
+    { name: "ASHRAE Handbook — Fundamentals", url: "https://www.ashrae.org/technical-resources/ashrae-handbook", description: "Chapter 21: Duct Design, friction charts, and fitting loss coefficients" },
+    { name: "U.S. DOE", url: "https://www.energy.gov/energysaver/minimizing-energy-losses-ducts", description: "Minimizing Energy Losses in Ducts" },
+    { name: "ENERGY STAR", url: "https://www.energystar.gov/campaign/heating_cooling/duct_sealing", description: "Duct sealing guidelines and energy savings data" },
+    { name: "SMACNA", url: "https://www.smacna.org/technical/standards", description: "HVAC Duct Construction Standards — Metal and Flexible" },
+    { name: "Sheet Metal and Air Conditioning Contractors' National Association", url: "https://www.smacna.org", description: "Duct fitting equivalent length tables" },
+  ]}
+/>
+
+## Related Articles
+
+<RelatedArticles
+  articles={[
+    { slug: "flexible-vs-rigid-ductwork", title: "Flexible vs Rigid Ductwork: Pros, Cons, and When to Use" },
+    { slug: "duct-leakage-testing", title: "Duct Leakage Testing: Why It Matters and How to Fix" },
+    { slug: "btucfm-ductwork-relationship", title: "BTU to CFM for Ductwork: How to Calculate Airflow Needs" },
+    { slug: "btu-calculator", title: "BTU Calculator: Size Your HVAC System Correctly" },
+    { slug: "seer-rating-explained", title: "SEER Rating Explained: What It Means for Your Energy Bills" },
+  ]}
+/>

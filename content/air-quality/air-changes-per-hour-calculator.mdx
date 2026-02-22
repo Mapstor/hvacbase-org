@@ -1,0 +1,287 @@
+---
+slug: "air-changes-per-hour-calculator"
+title: "ACH Calculator: Air Changes Per Hour for Any Room"
+description: "Free ACH calculator for air purifiers and HVAC systems. Calculate air changes per hour based on room dimensions, CADR, or CFM. Includes recommended ACH rates by room type and use case."
+cluster: "air-purifiers-air-quality"
+role: "hub"
+priority: "P1"
+contentType: "calculator"
+datePublished: "2026-01-10"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "air-purifier-guide"
+  - "air-purifier-sizing-guide"
+  - "best-air-purifiers"
+  - "hepa-filter-explained"
+  - "best-large-room-air-purifiers"
+  - "air-purifier-placement"
+externalLinks:
+  - label: "ASHRAE Standard 62.1: Ventilation for Acceptable IAQ"
+    url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2"
+  - label: "CDC: Ventilation in Buildings"
+    url: "https://www.cdc.gov/coronavirus/2019-ncov/community/ventilation.html"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# ACH Calculator: Air Changes Per Hour for Any Room
+
+Air changes per hour (ACH) measures how many times the total volume of air in a room is replaced in one hour. To calculate ACH, multiply your air purifier's CADR (in CFM) by 60, then divide by your room's volume in cubic feet. A 250 CFM purifier in a 2,400 cu ft room delivers 6.25 ACH—right in the sweet spot for allergy management.
+
+ACH is the definitive metric for evaluating whether your air purifier, ventilation system, or HVAC setup is actually cleaning your air fast enough. CADR tells you how much clean air a purifier produces; ACH tells you whether that's enough for your specific room.
+
+<TableOfContents />
+
+## ACH Calculator
+
+<CalcWrapper type="ach-calculator" />
+
+## The ACH Formula
+
+The formula for calculating ACH is straightforward:
+
+**ACH = (Airflow in CFM × 60) ÷ Room Volume in cubic feet**
+
+Where:
+- **Airflow (CFM)** = Your purifier's CADR rating or your HVAC system's supply airflow
+- **× 60** = Converts CFM (per minute) to cubic feet per hour
+- **Room Volume** = Length × Width × Ceiling Height (all in feet)
+
+### Worked Example
+
+Room: 20 ft long × 15 ft wide × 8 ft ceiling = 2,400 cu ft
+Purifier: Coway AP-1512HH with 233 CFM CADR (smoke)
+
+ACH = (233 × 60) ÷ 2,400 = 13,980 ÷ 2,400 = **5.83 ACH**
+
+This means all the air in the room passes through the purifier's HEPA filter 5.83 times every hour. At 5+ ACH, you'll see significant reductions in airborne particles within the first 20–30 minutes.
+
+### Reverse Calculation: Finding Required CADR
+
+If you know your target ACH and room volume, solve for CADR:
+
+**Required CADR (CFM) = (Room Volume × Target ACH) ÷ 60**
+
+Room: 2,400 cu ft, Target: 6 ACH
+Required CADR = (2,400 × 6) ÷ 60 = **240 CFM**
+
+## Recommended ACH Rates by Application
+
+<ComparisonTable
+  title="ACH Standards and Recommendations by Room Type"
+  headers={["Application", "Minimum ACH", "Recommended ACH", "Source/Standard"]}
+  rows={[
+    ["General residential room", "3", "4–5", "AHAM/EPA guidance"],
+    ["Bedroom (allergy sufferer)", "5", "6–8", "ACAAI recommendations"],
+    ["Bedroom (asthma management)", "6", "8–10", "ALA/ACAAI guidelines"],
+    ["Living room (general)", "3", "4–5", "AHAM two-thirds rule"],
+    ["Nursery/baby room", "5", "6–8", "Pediatric IAQ guidance"],
+    ["Home office", "3", "4–5", "WELL Building Standard"],
+    ["Kitchen (with range hood off)", "5", "6–8", "ASHRAE 62.2"],
+    ["Smoking room", "8", "10–12", "EPA/ASHRAE guidance"],
+    ["Wildfire smoke (AQI 100–200)", "8", "10–12", "EPA wildfire guidance"],
+    ["Wildfire smoke (AQI 200+)", "10", "12–15", "EPA wildfire guidance"],
+    ["Hospital patient room", "6", "12+", "ASHRAE 170 / CDC"],
+    ["Operating room", "15", "20–25", "ASHRAE 170"],
+    ["Dental operatory", "6", "12", "CDC dental guidance"],
+    ["Classroom (K-12)", "4", "5–6", "ASHRAE 62.1 + CDC"],
+    ["Restaurant dining room", "4", "6–8", "ASHRAE 62.1"],
+    ["Gym/fitness center", "6", "8–10", "ASHRAE 62.1"],
+    ["Clean room (ISO 7)", "10", "15–20", "ISO 14644-1"],
+    ["Clean room (ISO 5)", "240", "300–500", "ISO 14644-1"]
+  ]}
+/>
+
+<Callout type="info">
+**Healthcare vs. residential ACH:** Hospital rooms require 6–12+ ACH by code (ASHRAE Standard 170). Operating rooms need 20–25 ACH. Residential spaces have no code requirement for ACH from air purifiers, but the recommendations above are based on published health research showing measurable improvements in air quality and symptoms.
+</Callout>
+
+## What ACH Actually Means for Air Quality
+
+ACH doesn't mean that after one air change, 100% of pollutants are removed. Filtration follows an exponential decay curve. Each air change removes a percentage of remaining particles.
+
+<ComparisonTable
+  title="Cumulative Particle Removal by Air Changes (99.97% HEPA Filter)"
+  headers={["Air Changes Completed", "Theoretical Removal Rate", "Remaining Particles", "Time at 5 ACH"]}
+  rows={[
+    ["1", "63.2%", "36.8%", "12 minutes"],
+    ["2", "86.5%", "13.5%", "24 minutes"],
+    ["3", "95.0%", "5.0%", "36 minutes"],
+    ["4", "98.2%", "1.8%", "48 minutes"],
+    ["5", "99.3%", "0.7%", "60 minutes"],
+    ["6", "99.8%", "0.2%", "72 minutes"],
+    ["7", "99.9%", "0.1%", "84 minutes"]
+  ]}
+/>
+
+After just 3 air changes, 95% of airborne particles are removed. At 5 ACH, you reach 95% removal in 36 minutes and 99%+ removal within an hour. This is why 5 ACH is considered the minimum for allergy relief—it gets you to 95% clean within roughly half an hour.
+
+### Why Higher ACH Matters
+
+Higher ACH doesn't just filter faster—it maintains cleaner air against continuous contamination. Your room isn't sealed. You're constantly introducing new particles by:
+
+- Opening doors and windows
+- Walking, cooking, cleaning
+- Pet movement and grooming
+- Off-gassing from furniture and materials
+- HVAC system cycling outdoor air in
+
+At 3 ACH, there's a lag between new contamination and removal. At 8+ ACH, the purifier removes new particles almost as fast as they're introduced, maintaining consistently low levels.
+
+## ACH for HVAC Systems vs. Air Purifiers
+
+ACH can apply to both air purifiers and HVAC systems, but the calculations differ slightly.
+
+**Air purifier ACH** uses the CADR rating—the volume of actually filtered air. This accounts for filter efficiency and air bypass.
+
+**HVAC ACH** uses the supply air volume at the register. However, most HVAC systems use MERV 8–13 filters, not HEPA. The effective particle removal per pass is lower. A MERV 13 filter captures about 85% of PM2.5 particles per pass, compared to 99.97% for HEPA.
+
+<ComparisonTable
+  title="Effective ACH: HVAC (MERV 13) vs. Air Purifier (HEPA H13)"
+  headers={["Nominal ACH", "HEPA H13 Effective ACH", "MERV 13 Effective ACH", "MERV 8 Effective ACH"]}
+  rows={[
+    ["4", "4.0 (99.97% per pass)", "3.4 (85% per pass)", "1.2 (30% per pass)"],
+    ["6", "6.0", "5.1", "1.8"],
+    ["8", "8.0", "6.8", "2.4"],
+    ["10", "10.0", "8.5", "3.0"],
+    ["12", "12.0", "10.2", "3.6"]
+  ]}
+/>
+
+<Callout type="important">
+**MERV 8 filters (standard HVAC) provide very low effective ACH for fine particles.** Your home HVAC running at 4 nominal ACH with a MERV 8 filter only delivers roughly 1.2 effective ACH for PM2.5. Upgrading to MERV 13 (if your system supports it) or adding a portable HEPA purifier dramatically improves effective air cleaning.
+</Callout>
+
+## Real-World ACH Scenarios
+
+### Example 1: New Parent Setting Up a Nursery
+
+Room: 12 ft × 12 ft, 8 ft ceiling = 1,152 cu ft
+Target: 6 ACH (recommended for infant rooms)
+Required CADR: (1,152 × 6) ÷ 60 = 115 CFM
+
+A Levoit Core 300S (141 CFM CADR) achieves 7.3 ACH in this room—exceeding the target. Running on medium (estimated 85 CFM) still delivers 4.4 ACH, adequate for general protection.
+
+### Example 2: School Classroom Post-COVID
+
+Room: 30 ft × 28 ft, 9 ft ceiling = 7,560 cu ft
+Target: 6 ACH (CDC classroom recommendation)
+Required CADR: (7,560 × 6) ÷ 60 = 756 CFM
+
+No single portable unit achieves this. Solution: Two Coway Airmega 400 units (400 CFM each = 800 combined CFM) achieve 6.3 ACH. Alternatively, the school's HVAC system at MERV 13 can contribute 2–3 effective ACH, requiring the portables to supplement only 3–4 ACH.
+
+### Example 3: Home Gym
+
+Room: 20 ft × 16 ft, 8 ft ceiling = 2,560 cu ft
+Target: 8 ACH (exercise increases particle generation and breathing rate)
+Required CADR: (2,560 × 8) ÷ 60 = 341 CFM
+
+A Blueair Blue Pure 211i Max (350 CFM) achieves 8.2 ACH—just over target. During intense workouts, running on high maximizes particle removal during peak generation.
+
+### Example 4: Dental Office Operatory
+
+Room: 10 ft × 10 ft, 9 ft ceiling = 900 cu ft
+Target: 12 ACH (CDC dental guidance for aerosol-generating procedures)
+Required CADR: (900 × 12) ÷ 60 = 180 CFM
+
+A medical-grade unit like the IQAir HealthPro Plus (300 CFM) achieves 20 ACH in this room—well above the requirement. The extra capacity provides a safety margin during high-aerosol procedures.
+
+## ACH and Indoor Air Quality Standards
+
+Several organizations set ACH recommendations:
+
+**ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Engineers)** — Sets ventilation standards for commercial and healthcare facilities. Standard 62.1 covers commercial buildings; Standard 62.2 covers residential. Standard 170 covers healthcare.
+
+**CDC (Centers for Disease Control)** — Published ACH guidance for infection control in healthcare settings and schools, especially post-COVID. Recommends 5+ ACH equivalent for classrooms and 6+ for healthcare settings.
+
+**WELL Building Standard** — A certification program for commercial buildings that includes ACH requirements for occupant health. Requires specific ACH thresholds based on room type and occupancy.
+
+**EPA** — Provides residential guidance on air cleaner effectiveness. Does not set specific ACH requirements but references the AHAM two-thirds rule (approximately 4.8 ACH) as a baseline.
+
+## Factors That Affect Your Actual ACH
+
+Your calculated ACH assumes ideal conditions. Several real-world factors can reduce effective ACH:
+
+**Filter loading** — As your HEPA filter accumulates particles, airflow resistance increases and actual CADR decreases. A filter at 80% capacity may deliver 10–20% less CADR than a fresh filter.
+
+**Room leakage** — Gaps under doors, open windows, and air exchange with adjacent rooms introduce new contaminants that reset the filtration baseline. Higher ACH compensates for this.
+
+**Purifier placement** — A purifier in a corner or behind furniture has restricted intake, reducing effective CADR. Place units with clear airflow paths (see our [placement guide](/air-purifier-placement)).
+
+**Running speed** — Manufacturers report CADR at maximum speed. On low or medium, CADR drops 40–70%. Your actual ACH on a comfortable speed is much lower than the rated maximum.
+
+**Temperature stratification** — In rooms with high ceilings, warm air rises and creates layers. Ground-level purifiers may not effectively cycle air at ceiling height. Ceiling fans help mix the air.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **ACH = (CADR × 60) ÷ Room Volume** — this is the formula that matters
+- **5 ACH** is the minimum for allergy/asthma relief; **8+ ACH** for smoke; **12+ ACH** for medical use
+- At **5 ACH with HEPA**, 95% of particles are removed in 36 minutes
+- **Manufacturer room ratings often assume 2 ACH**—far below what's needed for health benefits
+- **MERV 8 HVAC filters** provide only ~30% particle capture per pass, drastically lowering effective ACH
+- Higher ACH compensates for continuous contamination from doors, windows, cooking, and movement
+- **Real-world ACH is lower** than calculated due to filter loading, placement, and running speed
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "What is a good ACH for a house?",
+    answer: "For general residential use, 4–5 ACH is good. For allergy sufferers, target 5–6 ACH in bedrooms and living spaces. For asthma or smoke concerns, aim for 6–8 ACH. These rates apply per room, not the whole house—each closed room needs its own air purifier sized to achieve the target ACH independently."
+  },
+  {
+    question: "How do I calculate ACH for my room?",
+    answer: "Multiply your air purifier's CADR (in CFM) by 60, then divide by your room's volume (length × width × height, all in feet). Example: 200 CFM CADR × 60 = 12,000. Divided by a 2,400 cu ft room = 5.0 ACH. Our calculator above does this automatically—just enter your room dimensions and purifier CADR."
+  },
+  {
+    question: "What ACH does ASHRAE recommend?",
+    answer: "ASHRAE standards vary by space type. Standard 170 requires 6+ ACH for hospital patient rooms, 15–25 ACH for operating rooms, and 12 ACH for isolation rooms. Standard 62.1 sets minimum outdoor air ventilation rates for commercial spaces. For residential, ASHRAE 62.2 focuses on ventilation rather than specific ACH rates, but the general guidance aligns with 4–6 ACH from combined ventilation and filtration."
+  },
+  {
+    question: "Is 2 ACH enough for an air purifier?",
+    answer: "No, 2 ACH is insufficient for meaningful air quality improvement. At 2 ACH, it takes over 90 minutes to reach 95% particle removal—and continuous sources of contamination (opening doors, cooking, pet movement) reintroduce particles faster than 2 ACH can remove them. This is the rate many manufacturers use for their room size claims, which is why those claims are misleading. Aim for 4 ACH minimum, 5–6 for allergy relief."
+  },
+  {
+    question: "Does ACH apply to the whole house or per room?",
+    answer: "Per room. Each enclosed room (with a door) is a separate air volume. A purifier in the living room does not improve ACH in a bedroom with a closed door. You calculate ACH based on the specific room where the purifier is placed. Open floor plans are treated as a single combined space."
+  },
+  {
+    question: "How does ceiling height affect ACH?",
+    answer: "Ceiling height directly affects room volume, which directly affects ACH. A 300 sq ft room with 8 ft ceilings (2,400 cu ft) has a higher ACH than the same room with 10 ft ceilings (3,000 cu ft) using the same purifier. The 10 ft ceiling room has 25% more air volume, requiring 25% more CADR to achieve the same ACH. Every foot above 8 ft reduces your ACH by about 12.5%."
+  },
+  {
+    question: "Can I add ACH from my HVAC system and air purifier together?",
+    answer: "Yes, but with an important caveat: you must use effective ACH (accounting for filter efficiency). A HEPA purifier delivers nearly 100% of its nominal ACH. An HVAC system with a MERV 13 filter delivers about 85% of nominal ACH for PM2.5. With MERV 8, only about 30%. If your HVAC delivers 2 effective ACH (MERV 13) and your purifier delivers 4 ACH (HEPA), the combined effective ACH for PM2.5 is approximately 6."
+  },
+  {
+    question: "What ACH do I need for wildfire smoke?",
+    answer: "For wildfire smoke, aim for 8–12 ACH minimum with HEPA filtration and activated carbon for the gaseous components. During severe events (AQI 200+), push for 12–15 ACH if possible. Wildfire smoke particles are extremely fine (mostly PM2.5 and smaller) and concentrations can be 10–50× normal levels, requiring aggressive filtration to maintain safe indoor levels."
+  },
+  {
+    question: "How many air changes does it take to fully clean a room?",
+    answer: "Filtration follows exponential decay. After 1 air change: 63% removed. After 2: 87%. After 3: 95%. After 5: 99.3%. After 7: 99.9%. You never reach 100% because the formula is asymptotic. Practically, 3–5 air changes gets you to 95–99% particle removal, which is effectively clean air. At 5 ACH, this takes 36–60 minutes."
+  },
+  {
+    question: "Why is my air purifier not improving my air quality?",
+    answer: "The most common reason is undersizing—your purifier's CADR isn't high enough for your room, delivering less than 3 ACH. Other causes: clogged filters reducing actual CADR, poor placement restricting airflow, running on too low a speed, or continuous contamination sources overwhelming your ACH rate. Calculate your actual ACH using our calculator and compare it to the recommendations. If it's below 4, you need a larger unit or a second purifier."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "ASHRAE Standard 62.1: Ventilation for Acceptable Indoor Air Quality", url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2" },
+  { label: "ASHRAE Standard 170: Ventilation of Health Care Facilities", url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2" },
+  { label: "CDC: Ventilation in Buildings", url: "https://www.cdc.gov/coronavirus/2019-ncov/community/ventilation.html" },
+  { label: "EPA: Guide to Air Cleaners in the Home", url: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home" },
+  { label: "AHAM Verifide: CADR Testing and Standards", url: "https://ahamverifide.org/" }
+]} />
+
+<RelatedArticles articles={[
+  "air-purifier-guide",
+  "air-purifier-sizing-guide",
+  "best-air-purifiers",
+  "hepa-filter-explained",
+  "air-purifier-placement",
+  "best-large-room-air-purifiers"
+]} />

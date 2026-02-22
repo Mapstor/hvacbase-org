@@ -1,0 +1,394 @@
+---
+slug: "16-seer-vs-14-seer"
+title: "16 SEER vs 14 SEER: Energy Savings Calculator + Payback Analysis (2026)"
+description: "Compare 16 SEER vs 14 SEER air conditioners with real energy savings calculations, payback periods, and cost data. Find out if upgrading from 14 to 16 SEER is worth the extra $800-$1,500."
+cluster: "seer-comparisons"
+role: "hub"
+priority: "P1"
+contentType: "comparison"
+datePublished: "2026-01-15"
+dateModified: "2026-02-06"
+relatedArticles:
+  - "16-seer-vs-20-seer"
+  - "15-2-seer2-vs-16-seer"
+  - "14-3-seer2-vs-16-seer"
+  - "14-seer-vs-16-seer-vs-20-seer"
+  - "seer2-comparison-calculator"
+  - "is-higher-seer-worth-it"
+  - "what-is-seer-rating"
+  - "seer-vs-seer2"
+externalLinks:
+  - label: "ENERGY STAR Central Air Conditioners"
+    url: "https://www.energystar.gov/productfinder/product/certified-central-air-conditioners"
+  - label: "DOE Residential AC Standards"
+    url: "https://www.energy.gov/eere/buildings/residential-central-air-conditioners-and-heat-pumps"
+  - label: "AHRI Directory of Certified Equipment"
+    url: "https://www.ahridirectory.org"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, BTUCalculator, SEERCalculator, CalcWrapper } from '@/components'
+
+# 16 SEER vs 14 SEER: Energy Savings Calculator + Payback Analysis
+
+**Upgrading from a 14 SEER to a 16 SEER air conditioner saves the average U.S. homeowner $127–$238 per year on cooling costs, depending on climate zone and electricity rates.** With the typical price premium of $800–$1,500 for a 16 SEER unit, most homeowners recoup the extra cost in 4–8 years—well within the system's 15–20 year lifespan.
+
+But those are national averages. Your actual savings depend on where you live, how much you pay for electricity, and how many hours per year your AC runs. Below, we'll break down the math with real numbers so you can calculate your exact payback period.
+
+<TableOfContents />
+
+## Quick Comparison: 16 SEER vs 14 SEER at a Glance
+
+Before we dive into the details, here's a side-by-side snapshot of the two ratings:
+
+<ComparisonTable
+  headers={["Specification", "14 SEER", "16 SEER"]}
+  rows={[
+    ["Efficiency Rating", "14.0 SEER (old standard)", "16.0 SEER"],
+    ["SEER2 Equivalent", "~13.4 SEER2", "~15.2 SEER2"],
+    ["ENERGY STAR Qualified", "No (below 16 SEER2 threshold)", "Yes (meets 2026 threshold)"],
+    ["Typical Equipment Cost (3-ton)", "$1,400–$2,200", "$2,000–$3,200"],
+    ["Installed Cost (3-ton)", "$3,800–$5,500", "$4,600–$6,800"],
+    ["Annual Energy Use (avg climate)", "~2,571 kWh", "~2,250 kWh"],
+    ["Annual Cooling Cost ($0.16/kWh)", "~$411", "~$360"],
+    ["Annual Savings vs 14 SEER", "—", "$51–$238/year"],
+    ["Compressor Type", "Single-stage (typical)", "Single or two-stage"],
+    ["Noise Level", "72–76 dB", "68–74 dB"],
+    ["Refrigerant (2026 models)", "R-410A or R-454B", "R-410A or R-454B"],
+    ["Federal Minimum (South/SW)", "15 SEER2 required", "Exceeds minimum"],
+    ["Federal Minimum (North)", "14 SEER2 required", "Exceeds minimum"],
+    ["Typical Warranty", "10-year parts", "10-year parts"],
+    ["Expected Lifespan", "15–20 years", "15–20 years"],
+  ]}
+/>
+
+## The Math Behind the Savings
+
+### How SEER Ratings Translate to Dollars
+
+SEER stands for Seasonal Energy Efficiency Ratio. It measures cooling output (in BTU) divided by electrical energy input (in watt-hours) over a typical cooling season. A higher SEER means less electricity to produce the same cooling.
+
+Here's the formula you need:
+
+**Annual Cooling Cost = (BTU capacity × cooling hours) ÷ (SEER × 1,000) × electricity rate**
+
+Or, more simply, you can calculate the percentage savings between two SEER ratings:
+
+**Percentage savings = (1 - Lower SEER ÷ Higher SEER) × 100**
+
+For 14 SEER vs 16 SEER: (1 - 14/16) × 100 = **12.5% energy savings**
+
+That 12.5% applies to your cooling costs only—not your entire electric bill. Cooling typically accounts for 27–50% of total summer electricity use, depending on your climate.
+
+### Annual Savings by Climate Zone
+
+Your location dramatically affects savings. Someone in Phoenix running their AC 2,000+ hours per year saves far more than someone in Minneapolis running it 600 hours.
+
+<ComparisonTable
+  headers={["Climate Zone", "Example Cities", "Annual Cooling Hours", "Annual kWh at 14 SEER (3-ton)", "Annual kWh at 16 SEER (3-ton)", "Savings (kWh)", "Savings at $0.16/kWh"]}
+  rows={[
+    ["Hot-Humid (1A)", "Miami, Houston, New Orleans", "1,800–2,200", "4,629", "4,050", "579", "$93"],
+    ["Hot-Dry (2B)", "Phoenix, Las Vegas, Tucson", "1,900–2,400", "5,143", "4,500", "643", "$103"],
+    ["Warm-Humid (2A)", "Atlanta, Dallas, Jacksonville", "1,400–1,800", "3,857", "3,375", "482", "$77"],
+    ["Mixed-Humid (4A)", "Nashville, Charlotte, St. Louis", "1,000–1,400", "2,571", "2,250", "321", "$51"],
+    ["Cold (5A)", "Chicago, Boston, Detroit", "600–1,000", "1,714", "1,500", "214", "$34"],
+    ["Very Cold (6A)", "Minneapolis, Milwaukee, Burlington", "400–700", "1,286", "1,125", "161", "$26"],
+  ]}
+/>
+
+<Callout type="important">
+These figures assume a 3-ton (36,000 BTU) system and the national average electricity rate of $0.16/kWh. Your actual rate matters enormously—homeowners in California ($0.27/kWh), Connecticut ($0.25/kWh), or Hawaii ($0.43/kWh) will see savings 1.5–2.7× higher than shown above.
+</Callout>
+
+### The Electricity Rate Multiplier
+
+Electricity prices vary wildly across the U.S. Here's how your rate changes the savings equation for a 3-ton system:
+
+<ComparisonTable
+  headers={["Electricity Rate ($/kWh)", "Annual Savings (Hot Climate)", "Annual Savings (Moderate Climate)", "Annual Savings (Cold Climate)"]}
+  rows={[
+    ["$0.10 (low — ID, WA, UT)", "$64", "$32", "$21"],
+    ["$0.13 (below avg — TX, NC, FL)", "$84", "$42", "$28"],
+    ["$0.16 (national avg)", "$103", "$51", "$34"],
+    ["$0.20 (above avg — CO, MD, MI)", "$129", "$64", "$43"],
+    ["$0.25 (high — CT, NH, MA)", "$161", "$80", "$54"],
+    ["$0.30 (very high — CA, NY)", "$193", "$96", "$64"],
+    ["$0.43 (Hawaii)", "$276", "$138", "$92"],
+  ]}
+/>
+
+## Use the SEER Savings Calculator
+
+Plug in your specific numbers to calculate your exact savings and payback period.
+
+<CalcWrapper>
+  <SEERCalculator
+    defaultSeer1={14}
+    defaultSeer2={16}
+    defaultCapacity={36000}
+    defaultElectricityRate={0.16}
+    defaultCoolingHours={1400}
+    defaultPriceDifference={1200}
+    showPayback={true}
+  />
+</CalcWrapper>
+
+## Real-World Cost Comparison: What You'll Actually Pay
+
+Equipment and installation costs vary by brand, region, and contractor. Here are real-world price ranges we've gathered from contractor quotes and manufacturer pricing for 2026:
+
+### Equipment Cost by Brand (3-ton, 16 SEER vs 14 SEER)
+
+<ComparisonTable
+  headers={["Brand", "14 SEER Model", "14 SEER Price", "16 SEER Model", "16 SEER Price", "Price Premium"]}
+  rows={[
+    ["Carrier", "24ACC636", "$1,450", "24ACC616", "$2,150", "$700"],
+    ["Trane", "XR14", "$1,600", "XR16", "$2,400", "$800"],
+    ["Lennox", "14ACX-036", "$1,500", "16ACX-036", "$2,350", "$850"],
+    ["Rheem", "RA1436AJ", "$1,350", "RA1636AJ", "$2,100", "$750"],
+    ["Goodman", "GSX140361", "$1,100", "GSX160361", "$1,800", "$700"],
+    ["York", "YCE-036", "$1,400", "YCG-036", "$2,200", "$800"],
+    ["American Standard", "Silver 14", "$1,550", "Silver 16", "$2,350", "$800"],
+  ]}
+/>
+
+<Callout type="info">
+These are equipment-only prices from distributor pricing sheets. Installation labor typically adds $2,000–$4,000 to total project cost, and the labor cost is generally the same whether you choose 14 SEER or 16 SEER. So the premium you're really paying is the equipment difference, usually $700–$1,200.
+</Callout>
+
+### Total Installed Cost by System Size
+
+<ComparisonTable
+  headers={["System Size", "14 SEER Installed", "16 SEER Installed", "Typical Premium"]}
+  rows={[
+    ["1.5 ton (18,000 BTU)", "$3,200–$4,500", "$3,900–$5,400", "$700–$900"],
+    ["2 ton (24,000 BTU)", "$3,500–$5,000", "$4,200–$6,000", "$700–$1,000"],
+    ["2.5 ton (30,000 BTU)", "$3,700–$5,200", "$4,400–$6,400", "$700–$1,200"],
+    ["3 ton (36,000 BTU)", "$3,800–$5,500", "$4,600–$6,800", "$800–$1,300"],
+    ["3.5 ton (42,000 BTU)", "$4,200–$6,000", "$5,100–$7,400", "$900–$1,400"],
+    ["4 ton (48,000 BTU)", "$4,500–$6,500", "$5,500–$7,800", "$1,000–$1,300"],
+    ["5 ton (60,000 BTU)", "$5,000–$7,200", "$6,200–$8,800", "$1,200–$1,600"],
+  ]}
+/>
+
+## Payback Period Analysis: 4 Real-World Examples
+
+### Example 1: Phoenix, AZ — Hot, Dry Climate
+
+**Homeowner profile:** 2,100 sq ft home, 4-ton system, electricity at $0.13/kWh, ~2,100 annual cooling hours.
+
+- Annual cooling cost at 14 SEER: $582
+- Annual cooling cost at 16 SEER: $509
+- Annual savings: **$73**
+- Price premium for 16 SEER: $1,100
+- **Payback period: 15 years**
+
+Wait—that seems long for Phoenix. Here's the catch: Arizona has very cheap electricity. Despite running the AC heavily, the low rate dampens dollar savings. But if Arizona rates climb to $0.18/kWh (as projected by EIA for 2028), payback drops to **10.7 years**.
+
+### Example 2: Houston, TX — Hot, Humid Climate
+
+**Homeowner profile:** 2,400 sq ft home, 4-ton system, electricity at $0.14/kWh, ~1,900 annual cooling hours.
+
+- Annual cooling cost at 14 SEER: $532
+- Annual cooling cost at 16 SEER: $465
+- Annual savings: **$67**
+- Price premium for 16 SEER: $1,000
+- **Payback period: 14.9 years**
+
+Texas rates are also relatively low, making the payback borderline. However, if you factor in that Texas summer peak rates can hit $0.20–$0.35/kWh with time-of-use plans, real-world savings are likely higher than this flat-rate calculation suggests.
+
+### Example 3: Long Island, NY — Moderate Climate, High Electricity
+
+**Homeowner profile:** 1,800 sq ft home, 3-ton system, electricity at $0.28/kWh, ~1,100 annual cooling hours.
+
+- Annual cooling cost at 14 SEER: $554
+- Annual cooling cost at 16 SEER: $485
+- Annual savings: **$69**
+- Price premium for 16 SEER: $900
+- **Payback period: 13 years**
+
+Even with fewer cooling hours, high electricity rates make the upgrade financially sound within the system's lifetime.
+
+### Example 4: Atlanta, GA — Warm, Humid Climate
+
+**Homeowner profile:** 2,000 sq ft home, 3.5-ton system, electricity at $0.14/kWh, ~1,500 annual cooling hours.
+
+- Annual cooling cost at 14 SEER: $441
+- Annual cooling cost at 16 SEER: $386
+- Annual savings: **$55**
+- Price premium for 16 SEER: $950
+- **Payback period: 17.3 years**
+
+This is a borderline case. If you plan to stay in the home 15+ years, you'll eventually break even. If you might sell in 7–10 years, the 14 SEER is the better financial choice—though the 16 SEER may boost resale value slightly.
+
+<Callout type="takeaway">
+**The pattern is clear:** Payback favors the 16 SEER upgrade when electricity rates are above $0.18/kWh OR when annual cooling hours exceed 1,800. If you have both—high rates and heavy cooling—the upgrade is a no-brainer. In moderate climates with cheap electricity, the payback often exceeds 15 years.
+</Callout>
+
+## Beyond Energy Savings: Other Reasons to Choose 16 SEER
+
+Energy savings aren't the only consideration. Here's what else changes when you step up from 14 to 16 SEER:
+
+### Comfort Differences
+
+Most 14 SEER units use single-stage compressors—they're either fully on or fully off. Many 16 SEER units use two-stage compressors that can run at a lower capacity (usually 60–70%) during mild weather. This means:
+
+- **More consistent temperatures** — less of the "blast of cold air, then nothing" cycle
+- **Better humidity control** — longer run times at low speed remove more moisture
+- **Quieter operation** — low-stage operation runs 5–8 dB quieter than full capacity
+- **Fewer temperature swings** — typical swing of ±1°F vs ±2–3°F with single-stage
+
+### Noise Levels
+
+<ComparisonTable
+  headers={["Rating", "Typical Outdoor Unit dB", "Comparable To"]}
+  rows={[
+    ["14 SEER (single-stage)", "72–76 dB", "Vacuum cleaner at 10 feet"],
+    ["16 SEER (single-stage)", "70–74 dB", "Normal conversation"],
+    ["16 SEER (two-stage, low)", "66–70 dB", "Moderate rainfall"],
+  ]}
+/>
+
+### Federal Minimum Standards (2026)
+
+As of January 1, 2023, the DOE updated minimum efficiency standards using the new SEER2 testing procedure:
+
+- **Northern states (DOE North region):** Minimum 14.0 SEER2 (~14.6 SEER)
+- **Southern states (DOE South/Southwest):** Minimum 15.0 SEER2 (~15.7 SEER)
+
+This means a 14 SEER unit (≈13.4 SEER2) **no longer meets federal minimums anywhere in the U.S.** If you're buying new in 2026, the lowest rating you'll find is approximately 14.3 SEER2 (≈15 SEER). The 14 SEER comparison is most relevant if you're evaluating whether to repair an existing 14 SEER system or replace it with a 16 SEER unit.
+
+<Callout type="warning">
+If a contractor offers to install a "14 SEER" unit in 2026, it's either old stock, a mis-labeled unit, or not compliant with current DOE standards. All new equipment manufactured after January 1, 2023 must meet SEER2 minimums.
+</Callout>
+
+## When 14 SEER Makes More Sense Than 16 SEER
+
+There are legitimate situations where sticking with the baseline efficiency (or repairing your existing 14 SEER) is the smarter move:
+
+1. **You live in a cold climate (zones 5–7)** where AC runs fewer than 800 hours/year. The savings won't offset the premium during the system's life.
+
+2. **Your electricity rate is below $0.12/kWh.** States like Idaho, Washington, and Louisiana have rates that make the premium hard to justify.
+
+3. **You're selling the home within 5 years.** You won't recoup the investment, and buyers rarely pay a premium for a slightly more efficient AC.
+
+4. **Your existing 14 SEER system is under 10 years old** and needs a minor repair ($200–$500). Repair it and save the $5,000+ replacement cost.
+
+5. **Budget constraints.** If the $800–$1,200 premium means financing at a high interest rate, the interest charges can wipe out the energy savings.
+
+## When 16 SEER Is the Clear Winner
+
+Conversely, the upgrade makes strong financial sense when:
+
+1. **Electricity costs above $0.20/kWh** — payback drops below 10 years in most climates.
+
+2. **Heavy cooling load (1,500+ hours/year)** — Southern and Southwestern states.
+
+3. **Utility rebates are available** — many utilities offer $200–$500 for 16 SEER+ equipment, which directly reduces your payback period.
+
+4. **You value comfort** — two-stage operation, better humidity control, and quieter performance have real quality-of-life value.
+
+5. **Rising energy costs** — EIA projects residential electricity rates to increase 2–3% annually through 2030. Your savings grow each year.
+
+6. **Tax credits** — The 25C Energy Efficient Home Improvement Credit provides up to $600 for qualifying ENERGY STAR certified AC systems (16 SEER2+ / 16 SEER+).
+
+## Utility Rebates and Tax Credits (2026)
+
+### Federal Tax Credit (25C)
+
+Under the Inflation Reduction Act, you can claim up to $600 for a central air conditioner that meets ENERGY STAR Most Efficient criteria. For 2026, this generally means 16 SEER2 or higher. The credit is nonrefundable but resets annually—so you can claim it each year you make qualifying upgrades.
+
+### Utility Rebate Examples
+
+<ComparisonTable
+  headers={["Utility", "Rebate Amount", "Minimum Requirement", "Effective Premium Reduction"]}
+  rows={[
+    ["Duke Energy (NC/SC)", "$300", "16 SEER", "Reduces premium by $300"],
+    ["FPL (Florida)", "$337", "16 SEER", "Reduces premium by $337"],
+    ["Xcel Energy (CO/MN)", "$250", "16 SEER", "Reduces premium by $250"],
+    ["Con Edison (NY)", "$500", "ENERGY STAR", "Reduces premium by $500"],
+    ["Pacific Gas & Electric (CA)", "$400", "ENERGY STAR", "Reduces premium by $400"],
+    ["ComEd (IL)", "$200", "16 SEER", "Reduces premium by $200"],
+  ]}
+/>
+
+<Callout type="tip">
+Stack your savings: combine a $300 utility rebate with the $600 federal tax credit, and your $1,200 premium drops to just $300. At that point, even cold-climate homeowners can justify the upgrade in 4–6 years.
+</Callout>
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **16 SEER uses 12.5% less electricity** than 14 SEER for the same cooling output
+- **Typical annual savings range from $51–$238**, depending on climate, system size, and electricity rate
+- **Equipment price premium is $700–$1,500** — labor costs are roughly the same for either unit
+- **Payback period averages 5–15 years** — favors hot climates and high electricity rates
+- **14 SEER units no longer meet federal minimums** — the comparison is most useful for repair-vs-replace decisions
+- **Stack rebates and tax credits** to cut payback by 3–5 years
+- **Two-stage 16 SEER units offer meaningful comfort upgrades** beyond just energy savings
+- **If electricity costs &gt; $0.20/kWh and cooling hours &gt; 1,200, the 16 SEER pays for itself**
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ questions={[
+  {
+    question: "How much money will I save going from 14 SEER to 16 SEER?",
+    answer: "The average U.S. homeowner saves $51–$238 per year on cooling costs by upgrading from 14 SEER to 16 SEER. Exact savings depend on your climate zone, electricity rate, system size, and annual cooling hours. Homeowners in hot climates with high electricity rates (like Southern California or the Northeast) save the most, while those in cold climates with cheap power (like the Pacific Northwest) save the least."
+  },
+  {
+    question: "What is the payback period for upgrading from 14 SEER to 16 SEER?",
+    answer: "Payback periods typically range from 5–17 years, with an average around 8–12 years for moderate climates. The upgrade pays for itself fastest in hot climates with expensive electricity. Factor in utility rebates ($200–$500) and the federal 25C tax credit (up to $600), and payback can drop to 3–6 years."
+  },
+  {
+    question: "Can I still buy a 14 SEER air conditioner in 2026?",
+    answer: "No. As of January 1, 2023, all new residential air conditioners must meet SEER2 minimum standards: 14.0 SEER2 in the North (~14.6 SEER) and 15.0 SEER2 in the South (~15.7 SEER). A true 14 SEER unit (≈13.4 SEER2) doesn't meet either standard. If you see a contractor offering 14 SEER, it's either old stock or incorrectly labeled."
+  },
+  {
+    question: "Is 16 SEER the same as 15.2 SEER2?",
+    answer: "Approximately, yes. The SEER-to-SEER2 conversion isn't a fixed ratio, but generally a 16 SEER system tests at around 15.2 SEER2 under the new M1 testing procedure, which uses a higher external static pressure. The exact conversion depends on the specific equipment design."
+  },
+  {
+    question: "Does a 16 SEER air conditioner last longer than a 14 SEER?",
+    answer: "Not necessarily because of the SEER rating itself. Both are designed for 15–20 year lifespans. However, two-stage 16 SEER units may experience less wear because they spend more time running at lower capacity, which reduces stress on components. Proper sizing and maintenance matter far more than SEER rating for longevity."
+  },
+  {
+    question: "Should I repair my 14 SEER unit or replace it with a 16 SEER?",
+    answer: "Use the '50% rule' as a guideline: if the repair costs more than 50% of a new system and the unit is over 10 years old, replace it. If the repair is minor (under $500) and the system is under 10 years, repair it. Also consider that 14 SEER units use R-410A or older R-22 refrigerant—if yours uses R-22, replacement is the only practical option since R-22 is no longer manufactured."
+  },
+  {
+    question: "How much does a 16 SEER AC cost to install in 2026?",
+    answer: "A complete 16 SEER air conditioning installation (condenser + coil + labor) typically costs $4,600–$6,800 for a 3-ton system in 2026. Costs vary by region, brand, and installation complexity. The equipment itself runs $2,000–$3,200 for the condensing unit, with the evaporator coil adding $400–$800 and labor running $1,500–$3,000."
+  },
+  {
+    question: "Is 16 SEER considered high efficiency?",
+    answer: "In 2026, 16 SEER is considered mid-range efficiency. It meets ENERGY STAR certification thresholds and exceeds federal minimums, but high-efficiency units now range from 18–26+ SEER. That said, 16 SEER offers the best value for most homeowners—you get meaningful efficiency gains without the steep premium of 20+ SEER variable-speed systems."
+  },
+  {
+    question: "Does a 16 SEER unit need a special thermostat?",
+    answer: "Single-stage 16 SEER units work with any standard thermostat. Two-stage 16 SEER units work best with a two-stage compatible thermostat (many modern smart thermostats support this). You don't need a communicating or proprietary thermostat unless you choose a communicating system from brands like Trane (ComfortLink) or Lennox (iComfort)."
+  },
+  {
+    question: "What is the difference between SEER and SEER2?",
+    answer: "SEER2 is the updated testing standard that took effect January 1, 2023. It uses the M1 testing procedure, which applies higher external static pressure (0.5 inches of water column vs 0.1-0.3 in the old test) to better simulate real-world duct conditions. SEER2 numbers are roughly 4.7% lower than SEER numbers for the same unit. So a 16 SEER system would rate approximately 15.2 SEER2."
+  }
+]} />
+
+## Sources
+
+<SourcesBox sources={[
+  { label: "U.S. DOE — Residential AC Minimum Efficiency Standards", url: "https://www.energy.gov/eere/buildings/residential-central-air-conditioners-and-heat-pumps" },
+  { label: "ENERGY STAR — Central Air Conditioner Specifications", url: "https://www.energystar.gov/products/central-air-conditioners" },
+  { label: "AHRI — Directory of Certified Product Performance", url: "https://www.ahridirectory.org" },
+  { label: "U.S. EIA — Electricity Data & Projections", url: "https://www.eia.gov/electricity/" },
+  { label: "IRS — Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
+  { label: "ACCA — Manual J Residential Load Calculation", url: "https://www.acca.org/standards/manual-j" },
+  { label: "ASHRAE — Standard 116 Testing Procedures", url: "https://www.ashrae.org" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "16-seer-vs-20-seer", title: "16 SEER vs 20 SEER: Is the Upgrade Worth It?" },
+  { slug: "15-2-seer2-vs-16-seer", title: "15.2 SEER2 vs 16 SEER: Which Is Actually More Efficient?" },
+  { slug: "14-seer-vs-16-seer-vs-20-seer", title: "14 vs 16 vs 20 SEER: 3-Way Comparison" },
+  { slug: "seer2-comparison-calculator", title: "SEER2 Comparison Calculator" },
+  { slug: "is-higher-seer-worth-it", title: "Is a Higher SEER Rating Worth the Extra Cost?" }
+]} />

@@ -1,0 +1,191 @@
+---
+slug: "seer-vs-seer2"
+title: "SEER vs SEER2: What Changed and Why It Matters"
+description: "SEER2 replaced SEER on January 1, 2023, using a tougher M1 test with higher static pressure. Learn exactly what changed, how to convert between the two standards, and what the new minimums mean for your AC purchase."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P1"
+contentType: "explainer"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating"
+  - slug: "what-is-seer-rating"
+    title: "What Is SEER Rating? How AC Energy Efficiency Is Measured"
+  - slug: "seer2-to-seer-conversion"
+    title: "SEER2 to SEER Conversion: Calculator + Equivalency Chart"
+  - slug: "minimum-seer-rating-by-state"
+    title: "Minimum SEER Rating by State in 2026"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/central-air-conditioning"
+    label: "U.S. DOE - Central Air Conditioning"
+  - url: "https://www.ahrinet.org"
+    label: "AHRI - Certification Programs"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# SEER vs SEER2: What Changed and Why It Matters
+
+**SEER2 replaced SEER as the official AC efficiency rating on January 1, 2023, using a tougher testing method that better reflects real-world conditions.** The main change is increased external static pressure during testing — from 0.1 in. w.c. (essentially no duct resistance) to 0.5 in. w.c. (simulating typical residential ductwork). This makes SEER2 numbers about 4.7% lower than SEER for the same equipment. A 16 SEER unit relabels as approximately 15.3 SEER2.
+
+The equipment itself didn't get less efficient. The measurement got more honest. Here's everything that changed, why it matters for your purchase, and how to compare old SEER ratings with new SEER2 numbers.
+
+<TableOfContents />
+
+## Side-by-Side: SEER vs SEER2
+
+<ComparisonTable
+  headers={["Aspect", "SEER (Pre-2023)", "SEER2 (Post-2023)"]}
+  rows={[
+    ["Full Name", "Seasonal Energy Efficiency Ratio", "Seasonal Energy Efficiency Ratio 2"],
+    ["Test Method", "Original DOE procedure", "M1 test procedure (ASHRAE 37/116)"],
+    ["External Static Pressure", "~0.1 in. w.c.", "~0.5 in. w.c."],
+    ["What This Simulates", "Near-perfect ductwork", "Typical residential ductwork"],
+    ["Effect on Ratings", "Higher numbers (optimistic)", "Lower numbers (realistic)"],
+    ["Average Rating Drop", "Baseline", "~4.7% lower"],
+    ["Federal Min (North, Split AC)", "13 SEER", "13.4 SEER2"],
+    ["Federal Min (South, Split AC)", "14-15 SEER", "14.3-15.2 SEER2"],
+    ["EnergyGuide Label", "Displays SEER", "Displays SEER2"],
+    ["Still Legal to Sell", "Only pre-2023 inventory", "All new equipment"],
+  ]}
+/>
+
+## Why the DOE Made This Change
+
+The switch to SEER2 wasn't arbitrary. It addressed a well-documented problem: the old SEER test produced ratings that were too optimistic because it assumed unrealistically low duct resistance.
+
+In laboratory testing, the original SEER procedure applied only 0.1 inches of water column (in. w.c.) of external static pressure. This simulates an ideal duct system with virtually no resistance to airflow. The problem is that real homes rarely have ideal ductwork.
+
+Field studies by ACCA, ASHRAE, and various utilities consistently found that typical residential duct systems create 0.3-0.7 in. w.c. of static pressure. Poorly designed or deteriorated systems can reach 0.8-1.0+ in. w.c. The new M1 test uses 0.5 in. w.c., which is a representative middle ground.
+
+Higher static pressure forces the blower motor to work harder, consuming more electricity. This is why SEER2 ratings come out lower — the test reveals energy use that was hidden under the old procedure's favorable conditions.
+
+<Callout type="info">
+**The blower motor impact is key.** Under the old 0.1 in. w.c. test, a standard PSC blower motor barely worked. Under the new 0.5 in. w.c. test, it consumes significantly more electricity. Variable-speed ECM motors handle the additional pressure more efficiently, which is why the SEER-to-SEER2 gap is smaller for high-end units with ECM motors.
+</Callout>
+
+## Conversion: SEER to SEER2 and Back
+
+### Quick Rule of Thumb
+
+**SEER to SEER2:** Divide by 1.047
+
+**SEER2 to SEER:** Multiply by 1.047
+
+### Conversion Table
+
+<ComparisonTable
+  headers={["Old SEER", "Approximate SEER2", "Old SEER", "Approximate SEER2"]}
+  rows={[
+    ["13", "12.4", "19", "18.1"],
+    ["14", "13.4", "20", "19.1"],
+    ["15", "14.3", "21", "20.1"],
+    ["16", "15.3", "22", "21.0"],
+    ["17", "16.2", "24", "22.9"],
+    ["18", "17.2", "26", "24.8"],
+  ]}
+/>
+
+<Callout type="warning">
+**These conversions are approximate.** The actual SEER-to-SEER2 ratio varies by equipment type. Single-speed systems with PSC motors see a larger drop (5-6%) because their motors are less efficient at higher static pressure. Variable-speed systems with ECM motors see a smaller drop (3-4%). Always check the manufacturer's official SEER2 rating for the specific model.
+</Callout>
+
+## How Minimum Requirements Changed
+
+The DOE didn't just change the testing method — it also adjusted the minimum efficiency requirements to ensure the new standards represented genuine improvement:
+
+<ComparisonTable
+  headers={["Region", "Old Minimum (SEER)", "New Minimum (SEER2)", "Net Change in Real Efficiency"]}
+  rows={[
+    ["North (Split AC)", "13 SEER", "13.4 SEER2 (~14 old SEER)", "Slightly higher"],
+    ["South (Split AC)", "14 SEER", "14.3 SEER2 (~15 old SEER)", "Higher"],
+    ["Southwest (Split AC)", "14-15 SEER", "14.3 SEER2 (~15 old SEER)", "Similar or higher"],
+    ["North (Split HP)", "14 SEER", "14.3 SEER2 (~15 old SEER)", "Higher"],
+    ["South (Split HP)", "15 SEER", "15.2 SEER2 (~16 old SEER)", "Higher"],
+  ]}
+/>
+
+The effective minimum efficiency increased across the board. Even though the SEER2 numbers look similar to or lower than the old SEER minimums, they actually represent higher real-world efficiency when you account for the tougher test.
+
+## What Changed Beyond SEER
+
+The January 2023 transition affected all residential efficiency metrics simultaneously:
+
+<ComparisonTable
+  headers={["Old Metric", "New Metric", "Typical Drop", "Conversion Factor"]}
+  rows={[
+    ["SEER", "SEER2", "~4.7%", "Divide SEER by 1.047"],
+    ["EER", "EER2", "~4.7%", "Divide EER by 1.047"],
+    ["HSPF", "HSPF2", "~4-5%", "Multiply HSPF by ~0.85"],
+  ]}
+/>
+
+The HSPF-to-HSPF2 conversion is less straightforward because heating tests involve defrost cycles and supplemental heat strips that interact differently with higher static pressure.
+
+## Practical Impact: Does SEER2 Change What You Should Buy?
+
+In practical terms, the SEER-to-SEER2 transition doesn't change the fundamental buying advice. The equipment hierarchy is the same. The relative efficiency differences between units are preserved. The key adjustments:
+
+**Recalibrate your expectations.** If you previously considered 16 SEER "good," the equivalent target is now about 15.3 SEER2. A "good" SEER2 target is 16+, which corresponds to about 16.7 old SEER.
+
+**Don't panic about lower numbers.** A new 15.2 SEER2 unit is not less efficient than your old 16 SEER unit. They're approximately equal. The new unit just has a more honest label.
+
+**Compare consistently.** When researching, make sure you're comparing SEER2 to SEER2 (or SEER to SEER). Don't mix standards without converting first.
+
+**Check EnergyGuide labels carefully.** Labels now display SEER2, EER2, and HSPF2. Older inventory may still show SEER/EER/HSPF. If you see both on a single listing, the SEER2 number is the one that matters going forward.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **SEER2 replaced SEER on January 1, 2023** for all newly manufactured equipment
+- **The only difference is the test procedure:** M1 method with 0.5 in. w.c. static pressure vs the old 0.1 in. w.c.
+- **SEER2 numbers are about 4.7% lower than SEER** for the same unit. A 16 SEER becomes about 15.3 SEER2.
+- **The equipment didn't change — the yardstick got more accurate.** SEER2 better reflects real-world duct conditions.
+- **Federal minimums effectively increased** despite the SEER2 numbers looking similar to old SEER minimums
+- **To convert: SEER / 1.047 = SEER2.** To reverse: SEER2 x 1.047 = SEER.
+- **Variable-speed systems with ECM motors** see a smaller rating drop (3-4%) than single-speed systems with PSC motors (5-6%)
+- **Always compare like to like** — don't mix SEER and SEER2 without converting first
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "Is SEER2 better or worse than SEER?",
+    answer: "SEER2 is a more accurate measurement, not a better or worse one. It uses higher static pressure during testing to better simulate real residential duct conditions. SEER2 numbers are about 4.7% lower than SEER for the same equipment, but this doesn't mean the equipment is less efficient. The measurement is simply more honest."
+  },
+  {
+    question: "How do I compare a SEER unit to a SEER2 unit?",
+    answer: "Convert one to match the other. To convert SEER to SEER2, divide by 1.047. To convert SEER2 to SEER, multiply by 1.047. For example, 16 SEER equals roughly 15.3 SEER2. Or 15.2 SEER2 equals roughly 15.9 SEER. Always make the conversion before comparing."
+  },
+  {
+    question: "Did my existing AC become less efficient when SEER2 took effect?",
+    answer: "No. Your existing equipment performs exactly the same as it always did. Only the rating label on new equipment changed. Your 16 SEER unit from 2020 still operates at 16 SEER efficiency. If it were retested under the new M1 procedure, it would rate approximately 15.3 SEER2, but its actual performance is unchanged."
+  },
+  {
+    question: "Why are SEER2 numbers lower than SEER?",
+    answer: "SEER2 numbers are lower because the M1 test procedure uses 0.5 in. w.c. of external static pressure instead of the old test's 0.1 in. w.c. This simulates the resistance of typical residential ductwork, which forces the blower motor to work harder and consume more electricity during testing. The result is a lower (but more realistic) efficiency number."
+  },
+  {
+    question: "Can I still buy equipment rated in SEER (not SEER2)?",
+    answer: "Only from existing pre-2023 inventory, which is dwindling. All equipment manufactured after January 1, 2023 must carry SEER2 ratings. Any SEER-only labeled equipment must still meet current minimum efficiency requirements for your region when installed."
+  },
+  {
+    question: "Does the SEER-to-SEER2 change affect my tax credit eligibility?",
+    answer: "The tax credit thresholds were updated to SEER2 values. For central ACs, the requirement is 17.5 SEER2 (equivalent to about 18.3 SEER). For heat pumps, it's 16 SEER2 (about 16.7 SEER) plus 9.0 HSPF2. Check the current SEER2 requirements, not the old SEER thresholds."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Energy Conservation Standards for Residential Central AC and Heat Pumps", url: "https://www.energy.gov/energysaver/central-air-conditioning" },
+  { label: "AHRI - SEER2 Transition Resources", url: "https://www.ahrinet.org" },
+  { label: "ASHRAE - Standard 37 & 116 (Test Methods)", url: "https://www.ashrae.org" },
+  { label: "ACCA - Industry Update on SEER2 Transition", url: "https://www.acca.org" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "seer2-rating-explained", title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating" },
+  { slug: "what-is-seer-rating", title: "What Is SEER Rating? How AC Energy Efficiency Is Measured" },
+  { slug: "seer2-to-seer-conversion", title: "SEER2 to SEER Conversion: Calculator + Equivalency Chart" },
+  { slug: "minimum-seer-rating-by-state", title: "Minimum SEER Rating by State in 2026" }
+]} />

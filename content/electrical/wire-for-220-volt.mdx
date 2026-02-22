@@ -1,0 +1,385 @@
+---
+slug: wire-for-220-volt
+title: "Wire for 220V Circuits: AWG Gauge for 10–200 Amps (2026 NEC Guide)"
+description: "Complete wire sizing chart for 220/240V circuits from 10 to 200 amps. Covers NEC requirements for AC units, water heaters, dryers, ranges, EV chargers, and sub-panels with voltage drop calculations."
+cluster: "electrical-wiring"
+role: "spoke"
+priority: "P1"
+contentType: "KEEP+"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - electrical-wiring-guide
+  - wire-gauge-chart
+  - what-wire-size-for-30-amp
+  - what-wire-size-for-50-amp
+  - water-heater-wire-size
+  - 10-2-or-10-3-wire-for-ac
+  - how-many-amps-does-a-house-use
+  - electrical-panel-upgrade-cost
+externalLinks:
+  - url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace"
+    label: "NEC (NFPA 70) — Wire Sizing Standards"
+  - url: "https://www.southwire.com/calculator-charger"
+    label: "Southwire — Wire Sizing Calculator"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# Wire for 220V Circuits: AWG Gauge for 10–200 Amps
+
+**For a 220/240V circuit at 30 amps, you need 10 AWG copper wire; at 50 amps, 6 AWG copper; and at 100 amps, 3 AWG copper — but wire runs over 50 feet require upsizing for voltage drop.** These are the minimum NEC-compliant wire sizes, and choosing correctly is the difference between a safe installation and a fire waiting to happen.
+
+Whether you're wiring a central air conditioner, electric water heater, dryer, range, EV charger, or sub-panel, this guide gives you the exact wire gauge for every 220V amperage from 10A to 200A, including voltage drop adjustments for long runs.
+
+<TableOfContents />
+
+## Quick Note: "220V" vs. "240V" vs. "230V"
+
+People say "220 volt" out of habit, but residential "high-voltage" circuits in the U.S. are actually 240V nominal (measured at the transformer) and often labeled 208V or 230V on equipment nameplates to account for normal voltage variation.
+
+All three terms refer to the same circuit type: two hot conductors from opposite legs of the split-phase service, creating a 240V potential between them. Throughout this guide, "220V" and "240V" are used interchangeably because the wire sizing requirements are identical.
+
+## Master Wire Size Chart: 220/240V Circuits (10–200 Amps)
+
+This chart shows the minimum copper and aluminum wire gauges for 220/240V circuits based on NEC Table 310.16 (60°C and 75°C columns) with maximum recommended wire run length at 3% voltage drop.
+
+| Amperage | Breaker Size | Copper AWG (60°C, NM-B) | Copper AWG (75°C, THWN) | Aluminum AWG (75°C) | Max Run at 3% Drop (Copper, 60°C) |
+|----------|-------------|--------------------------|--------------------------|---------------------|-----------------------------------|
+| 10A | 15A DP | 14 AWG | 14 AWG | 12 AWG | 179 ft (14 AWG) |
+| 15A | 20A DP | 12 AWG | 12 AWG | 10 AWG | 145 ft (12 AWG) |
+| 20A | 25A–30A DP | 10 AWG | 12 AWG | 10 AWG | 145 ft (10 AWG) |
+| 25A | 30A DP | 10 AWG | 10 AWG | 8 AWG | 116 ft (10 AWG) |
+| 30A | 30A DP | 10 AWG | 10 AWG | 8 AWG | 97 ft (10 AWG) |
+| 35A | 40A DP | 8 AWG | 8 AWG | 6 AWG | 132 ft (8 AWG) |
+| 40A | 40A DP | 8 AWG | 8 AWG | 6 AWG | 115 ft (8 AWG) |
+| 45A | 50A DP | 6 AWG | 8 AWG | 6 AWG | 107 ft (6 AWG) |
+| 50A | 50A DP | 6 AWG | 6 AWG | 4 AWG | 97 ft (6 AWG) |
+| 60A | 60A DP | 6 AWG* | 6 AWG | 4 AWG | 81 ft (6 AWG) |
+| 70A | 70A DP | 4 AWG | 4 AWG | 3 AWG | 106 ft (4 AWG) |
+| 80A | 80A DP | 3 AWG | 4 AWG | 2 AWG | 92 ft (3 AWG) |
+| 90A | 90A DP | 3 AWG | 3 AWG | 1 AWG | 82 ft (3 AWG) |
+| 100A | 100A DP | 1 AWG | 3 AWG | 1/0 AWG | 112 ft (1 AWG) |
+| 125A | 125A DP | 1/0 AWG | 1 AWG | 2/0 AWG | 95 ft (1/0 AWG) |
+| 150A | 150A DP | 1/0 AWG | 1/0 AWG | 3/0 AWG | 79 ft (1/0 AWG) |
+| 175A | 175A DP | 2/0 AWG | 2/0 AWG | 4/0 AWG | 77 ft (2/0 AWG) |
+| 200A | 200A DP | 3/0 AWG | 2/0 AWG | 4/0 AWG | 79 ft (3/0 AWG) |
+
+*NEC 240.4(B) allows the next standard breaker size above the wire's ampacity. 6 AWG copper at 60°C = 55A, so a 60A breaker is permitted.
+
+<Callout type="warning">
+**DP = Double-Pole breaker.** All 220/240V circuits require a double-pole breaker that connects to both bus bars in the panel. A single-pole breaker only provides 120V. If you see a "220V" circuit on a single-pole breaker, something is seriously wrong.
+</Callout>
+
+## Wire Size by Application (220/240V)
+
+### Air Conditioning and Heat Pumps
+
+| Equipment | Typical Amps (MCA) | Wire Gauge | Breaker (MOP) | Cable |
+|-----------|-------------------|-----------|---------------|-------|
+| 1.5-ton AC | 10–14A | 14–12 AWG | 15–20A DP | 14/2 or 12/2 NM-B |
+| 2-ton AC | 13–17A | 12–10 AWG | 20–25A DP | 12/2 or 10/2 NM-B |
+| 2.5-ton AC | 15–19A | 10 AWG | 25–30A DP | 10/2 NM-B |
+| 3-ton AC | 17–22A | 10 AWG | 30A DP | 10/2 NM-B |
+| 3.5-ton AC | 20–25A | 10 AWG | 30–35A DP | 10/2 NM-B |
+| 4-ton AC | 22–28A | 10–8 AWG | 35–40A DP | 8/2 or THHN in conduit |
+| 5-ton AC | 28–35A | 8–6 AWG | 45–50A DP | THHN in conduit |
+| Heat pump (3-ton) | 19–24A | 10 AWG | 30–35A DP | 10/2 NM-B |
+| Heat pump (5-ton) | 30–40A | 8–6 AWG | 45–60A DP | THHN in conduit |
+
+<Callout type="important">
+**Always use the equipment nameplate, not this table, for final wire sizing.** The MCA (Minimum Circuit Ampacity) determines your minimum wire size, and the MOP (Maximum Overcurrent Protection) determines your maximum breaker size. These values account for motor starting currents that generic charts can't predict.
+</Callout>
+
+### Water Heating
+
+| Equipment | Wattage | Amps at 240V | Wire Gauge | Breaker | Cable |
+|-----------|---------|-------------|-----------|---------|-------|
+| Tank water heater (30 gal) | 3,500–4,000W | 14.6–16.7A | 12 AWG | 20A DP | 12/2 NM-B |
+| Tank water heater (40–50 gal) | 4,500W | 18.75A | 10 AWG | 30A DP | 10/2 NM-B |
+| Tank water heater (65–80 gal) | 5,500W | 22.9A | 10 AWG | 30A DP | 10/2 NM-B |
+| Tankless (11kW) | 11,000W | 45.8A | 6 AWG | 60A DP | 6/2 NM-B |
+| Tankless (18kW) | 18,000W | 75A (2×37.5A) | 2 × 8 AWG | 2 × 40A DP | 2 × 8/2 NM-B |
+| Tankless (27kW) | 27,000W | 112.5A (3×37.5A) | 3 × 8 AWG | 3 × 40A DP | 3 × 8/2 NM-B |
+| Heat pump water heater | 500–600W (plus 4,500W backup) | 2.1–18.75A | 10 AWG | 30A DP | 10/2 NM-B |
+
+### Cooking and Laundry
+
+| Equipment | Typical Amps | Wire Gauge | Breaker | Cable | Notes |
+|-----------|-------------|-----------|---------|-------|-------|
+| Electric dryer | 24–30A | 10 AWG | 30A DP | 10/3 NM-B | Needs neutral (4-wire) |
+| Electric range (small) | 30–40A | 8–6 AWG | 40–50A DP | 6/3 NM-B | Needs neutral (4-wire) |
+| Electric range (large) | 40–50A | 6 AWG | 50A DP | 6/3 NM-B | Needs neutral (4-wire) |
+| Double oven | 40–50A | 6 AWG | 50A DP | 6/3 NM-B | Needs neutral (4-wire) |
+| Cooktop + wall oven | Separate circuits | Varies | Varies | Varies | Each on its own circuit |
+
+<Callout type="tip">
+**Dryers and ranges need 4-wire connections** (two hots + neutral + ground) because they contain both 240V heating elements and 120V controls. This requires /3 cable (10/3 for dryers, 6/3 for ranges). AC units, water heaters, and EV chargers typically need only /2 cable (two hots + ground, no neutral).
+</Callout>
+
+### EV Charging
+
+| Charger Rating | Circuit Amps (Continuous) | Breaker (125% of load) | Wire Gauge | Cable |
+|---------------|--------------------------|------------------------|-----------|-------|
+| Level 2, 16A | 16A | 20A DP | 12 AWG | 12/2 NM-B |
+| Level 2, 24A | 24A | 30A DP | 10 AWG | 10/2 NM-B |
+| Level 2, 32A | 32A | 40A DP | 8 AWG | 8/2 NM-B |
+| Level 2, 40A | 40A | 50A DP | 6 AWG | 6/2 NM-B |
+| Level 2, 48A | 48A | 60A DP | 6 AWG | 6/2 THHN |
+| Level 2, 80A | 80A | 100A DP | 3 AWG | 3 AWG THHN |
+
+### Sub-Panels and Feeders
+
+| Sub-Panel Rating | Wire Gauge (Copper) | Wire Gauge (Aluminum) | Breaker at Main | Notes |
+|-----------------|--------------------|-----------------------|----------------|-------|
+| 30A | 10 AWG | 8 AWG | 30A DP | Small workshop |
+| 40A | 8 AWG | 6 AWG | 40A DP | Garage |
+| 50A | 6 AWG | 4 AWG | 50A DP | Garage/workshop |
+| 60A | 6 AWG | 4 AWG | 60A DP | Standard garage |
+| 100A | 3 AWG (Cu) or 1 AWG (Al) | 1/0 AWG | 100A DP | Large garage/ADU |
+| 125A | 1 AWG | 2/0 AWG | 125A DP | Accessory dwelling |
+| 150A | 1/0 AWG | 3/0 AWG | 150A DP | Large ADU |
+| 200A | 2/0 AWG (Cu) or 4/0 AWG (Al) | 4/0 AWG | 200A DP | Separate structure |
+
+## Voltage Drop Tables for 220/240V Circuits
+
+Voltage drop is the most common reason to upsize wire beyond the NEC minimum. Here's how much voltage you lose at various distances and amperages.
+
+### Voltage Drop in Volts (Copper Wire, 240V Circuit)
+
+| Wire Gauge | 25 ft | 50 ft | 75 ft | 100 ft | 150 ft | 200 ft |
+|-----------|-------|-------|-------|--------|--------|--------|
+| 14 AWG at 15A | 2.4V | 4.7V | 7.1V | 9.4V | 14.1V | 18.8V |
+| 12 AWG at 20A | 2.0V | 4.0V | 5.9V | 7.9V | 11.9V | 15.8V |
+| 10 AWG at 30A | 1.9V | 3.7V | 5.6V | 7.4V | 11.2V | 14.9V |
+| 8 AWG at 40A | 1.6V | 3.1V | 4.7V | 6.2V | 9.3V | 12.5V |
+| 6 AWG at 50A | 1.2V | 2.5V | 3.7V | 4.9V | 7.4V | 9.8V |
+| 4 AWG at 70A | 1.1V | 2.2V | 3.2V | 4.3V | 6.5V | 8.6V |
+| 2 AWG at 100A | 1.0V | 1.9V | 2.9V | 3.9V | 5.8V | 7.8V |
+
+### Percentage Voltage Drop (3% Limit = 7.2V on 240V)
+
+| Wire Gauge | 25 ft | 50 ft | 75 ft | 100 ft | 150 ft | 200 ft |
+|-----------|-------|-------|-------|--------|--------|--------|
+| 14 AWG at 15A | 1.0% | **2.0%** | **3.0%** | ❌ 3.9% | ❌ 5.9% | ❌ 7.8% |
+| 12 AWG at 20A | 0.8% | 1.7% | **2.5%** | ❌ 3.3% | ❌ 5.0% | ❌ 6.6% |
+| 10 AWG at 30A | 0.8% | 1.6% | 2.3% | ❌ 3.1% | ❌ 4.7% | ❌ 6.2% |
+| 8 AWG at 40A | 0.7% | 1.3% | 2.0% | 2.6% | ❌ 3.9% | ❌ 5.2% |
+| 6 AWG at 50A | 0.5% | 1.0% | 1.5% | 2.0% | **3.1%** | ❌ 4.1% |
+| 4 AWG at 70A | 0.4% | 0.9% | 1.3% | 1.8% | 2.7% | ❌ 3.6% |
+| 2 AWG at 100A | 0.4% | 0.8% | 1.2% | 1.6% | 2.4% | ❌ 3.2% |
+
+❌ = Exceeds 3% voltage drop — upsize wire for this distance.
+
+<Callout type="warning">
+**3% on the branch circuit, 5% total.** The NEC recommends no more than 3% voltage drop on any branch circuit and no more than 5% total from the service entrance to the farthest outlet. If your feeder already drops 2%, your branch circuit should stay under 3% — giving you only 3% remaining on the branch.
+</Callout>
+
+## When to Upsize Wire (Beyond NEC Minimum)
+
+### Scenario 1: Long Run to AC Condenser
+
+**Setup:** 3-ton AC condenser (MCA 19A, MOP 30A) located 120 feet from the panel.
+
+**NEC minimum:** 10 AWG copper, 30A breaker.
+
+**Voltage drop check:** (2 × 120 × 19 × 1.24) / 1000 = 5.65V → 2.4% on 240V.
+
+**Decision:** 10 AWG works at 2.4% — under the 3% limit. But if you're also feeding through a long feeder, upsize to 8 AWG for margin. Cost difference: about $0.55/ft × 120 ft = $66 more for 8/2 vs. 10/2.
+
+### Scenario 2: EV Charger in Detached Garage
+
+**Setup:** 48A EV charger (continuous load) in a garage 80 feet from the main panel.
+
+**NEC minimum:** 6 AWG copper, 60A breaker.
+
+**Voltage drop check:** (2 × 80 × 48 × 0.491) / 1000 = 3.77V → 1.6% on 240V.
+
+**Decision:** 6 AWG is fine at 1.6%. However, if you might upgrade to a higher-amperage charger in the future, running 4 AWG now ($1.30/ft × 80 ft = $104 more) saves you from re-pulling wire later.
+
+### Scenario 3: Electric Range Far from Panel
+
+**Setup:** Electric range (40A continuous) in a kitchen 60 feet from the panel.
+
+**NEC minimum:** 6 AWG copper (for 50A breaker), 6/3 NM-B (needs neutral).
+
+**Voltage drop check:** (2 × 60 × 40 × 0.491) / 1000 = 2.36V → 1.0% on 240V.
+
+**Decision:** 6/3 NM-B is perfect. No need to upsize at this distance.
+
+### Scenario 4: 200A Sub-Panel to Detached Workshop
+
+**Setup:** 200A sub-panel feeding a woodworking shop 150 feet from the main panel.
+
+**NEC minimum:** 2/0 AWG copper or 4/0 AWG aluminum.
+
+**Voltage drop check (aluminum):** (2 × 150 × 200 × 0.100) / 1000 = 6.0V → 2.5% on 240V.
+
+**Decision:** 4/0 aluminum at 2.5% — acceptable but tight. For a 150-foot run at 200A, 250 kcmil aluminum ($3.50–$5.00/ft) provides more comfortable margin at 1.8% drop.
+
+## 2-Wire vs. 3-Wire vs. 4-Wire: Which Do You Need?
+
+This is one of the most confusing aspects of 220/240V wiring. Here's the definitive breakdown.
+
+| Configuration | Wires | Cable | Use Case | Examples |
+|--------------|-------|-------|----------|---------|
+| 2-wire + ground | 2 hots + ground | /2 (e.g., 10/2) | 240V-only loads, no 120V components | AC, water heater, well pump |
+| 3-wire + ground | 2 hots + neutral + ground | /3 (e.g., 10/3) | 240V loads with 120V components | Dryer, range, oven |
+| 2-wire (no ground, legacy) | 2 hots only | Old /2 no ground | Pre-1960s installations | Replace immediately |
+| 3-wire (no ground, legacy) | 2 hots + neutral | Old /3 no ground | Pre-1996 dryer/range outlets | Upgrade to 4-wire |
+
+**The key question:** Does the appliance need 120V power in addition to 240V?
+- **No** (AC, water heater, baseboard heater, well pump) → Use /2 cable
+- **Yes** (dryer, range, oven with clock/light, spa with 120V pump) → Use /3 cable
+
+<Callout type="example">
+**Real-world example:** Your electric dryer has a 240V heating element AND a 120V motor plus a drum light. The heating element uses both hot wires (240V). The motor and light each use one hot wire and the neutral (120V). Without a neutral, the motor and light can't work. That's why dryers need 10/3 cable (3 insulated conductors + ground = 4 wires total).
+</Callout>
+
+## Copper vs. Aluminum for 220V Circuits
+
+For branch circuits under 6 AWG, copper is standard. For larger feeders and service entrance conductors, aluminum offers significant cost savings.
+
+| Factor | Copper | Aluminum |
+|--------|--------|----------|
+| 30A circuit wire cost (per ft) | $0.65–$1.00 (10/2 NM-B) | Not practical at this size |
+| 50A circuit wire cost (per ft) | $2.50–$3.80 (6/2 NM-B) | $1.00–$1.60 (4 AWG SE) |
+| 100A feeder cost (per ft) | $4.00–$6.00 (3 AWG) | $1.50–$2.50 (1/0 AWG) |
+| 200A service cost (per ft) | $8.00–$12.00 (2/0 AWG) | $2.50–$4.00 (4/0 AWG) |
+| Connections | Standard terminals | Anti-oxidant compound + AL-rated terminals |
+| Expansion/contraction | Minimal | Significant — needs proper torque |
+| Code restrictions | None | Not for <6 AWG branch circuits (practical limitation) |
+
+**Bottom line:** Use copper for 220V branch circuits (AC, water heater, dryer, range). Consider aluminum for 100A+ feeders and service entrance where cost savings are substantial — $300–$800+ on a 200A, 100-foot run.
+
+## Real-World Wiring Examples
+
+### Example 1: Wiring a 4-Ton Central AC
+
+**Equipment:** Lennox XC21-048-230 (4-ton, 21 SEER2). Nameplate: MCA 24.8A, MOP 40A, 208/230V.
+
+**Step 1 — Wire size:** MCA 24.8A → need wire rated ≥24.8A. 10 AWG at 60°C = 30A ✓. However, MOP is 40A, so the breaker is 40A. For a 40A breaker, NEC requires 8 AWG minimum (40A at 60°C).
+
+Wait — this is a common confusion point. NEC 440.22 allows the breaker to be sized by MOP, and NEC 440.32 says the wire is sized by MCA. You can use 10 AWG wire (rated 30A, which exceeds MCA of 24.8A) with a 40A breaker — this is legal for motor circuits under NEC Article 440.
+
+**Step 2 — Run length:** 50 feet. Voltage drop: (2 × 50 × 24.8 × 1.24) / 1000 = 3.1V → 1.3% ✓
+
+**Step 3 — Cable:** 10/2 NM-B from panel to pull-out disconnect, 10 AWG THHN in flex conduit from disconnect to unit.
+
+**Step 4 — Breaker:** 40A double-pole.
+
+### Example 2: Wiring a Tesla Wall Connector
+
+**Equipment:** Tesla Wall Connector Gen 3 set to 48A output. Continuous load.
+
+**Step 1 — Breaker:** 48A × 1.25 = 60A (continuous load, 80% rule) → 60A double-pole breaker.
+
+**Step 2 — Wire:** 60A breaker → NEC allows 6 AWG copper (55A at 60°C, next standard breaker size per 240.4(B)).
+
+**Step 3 — Run length:** 35 feet to garage wall. Voltage drop: (2 × 35 × 48 × 0.491) / 1000 = 1.65V → 0.7% ✓
+
+**Step 4 — Cable:** 6/2 NM-B, straight run through interior wall to garage. No neutral needed.
+
+### Example 3: Wiring an Electric Tankless Water Heater
+
+**Equipment:** Stiebel Eltron Tempra 24 Plus (24kW, 240V). Requires 2 × 50A circuits.
+
+**Step 1 — Per circuit:** 24kW ÷ 2 = 12kW per circuit → 12,000W ÷ 240V = 50A per circuit. Continuous load: 50A × 1.25 = 62.5A → but wait, the manufacturer specs 2 × 50A breakers.
+
+**Step 2 — Wire per circuit:** 50A breaker → 6 AWG copper. Run length: 15 feet → voltage drop negligible.
+
+**Step 3 — Cable:** Two runs of 6/2 NM-B. Each breaker takes 2 panel spaces → 4 spaces total.
+
+**Step 4 — Panel check:** Two 50A circuits draw 100A at full load. If you have a 200A panel, that's 50% of your service just for hot water. This is why tankless electric heaters often trigger a [panel upgrade](/electrical-panel-upgrade-cost).
+
+### Example 4: Feeding a 100A Sub-Panel in Detached Garage
+
+**Equipment:** 100A sub-panel, 100 feet underground from main panel.
+
+**Step 1 — Feeder wire:** 100A → 3 AWG copper or 1/0 AWG aluminum.
+
+**Step 2 — Voltage drop (aluminum):** (2 × 100 × 100 × 0.201) / 1000 = 4.02V → 1.7% ✓
+
+**Step 3 — Wire type:** Underground → THWN-2 conductors in Schedule 40 PVC conduit (1.25" minimum for 4 conductors of 1/0 AWG aluminum).
+
+**Step 4 — Ground rod:** Detached building requires its own grounding electrode system — two 8-foot ground rods minimum, bonded together.
+
+**Step 5 — Cost comparison:**
+- 3 AWG copper (4 conductors × 100 ft × $1.40/ft) = $560
+- 1/0 AWG aluminum (4 conductors × 100 ft × $0.60/ft) = $240
+- Savings: $320 by using aluminum
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **30A / 240V → 10 AWG copper** — covers most central AC units and electric water heaters
+- **50A / 240V → 6 AWG copper** — covers electric ranges, large AC units, and EV chargers
+- **100A / 240V → 3 AWG copper or 1/0 AWG aluminum** — standard for sub-panels
+- **200A / 240V → 2/0 AWG copper or 4/0 AWG aluminum** — service entrance size
+- **Always check voltage drop** on runs over 50 feet — upsize wire if drop exceeds 3%
+- **Use /2 cable for 240V-only loads** (AC, water heater) and **/3 cable for loads needing neutral** (dryer, range)
+- **HVAC equipment:** Use nameplate MCA for wire sizing and MOP for breaker sizing — don't guess
+- **Aluminum saves 40–60%** on large feeders (100A+) — use it for service entrance and sub-panel runs
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "What size wire do I need for a 220V 30-amp circuit?",
+    answer: "You need 10 AWG copper wire for a 220/240V, 30-amp circuit. This is the most common 220V residential circuit, used for central AC units, electric water heaters, and electric dryers. For runs over 100 feet, upsize to 8 AWG to keep voltage drop under 3%."
+  },
+  {
+    question: "What wire for 220V 50-amp circuit?",
+    answer: "A 220/240V, 50-amp circuit requires 6 AWG copper wire. This covers electric ranges, large air conditioners, EV chargers (40A continuous), and hot tubs. If the run exceeds 100 feet, upsize to 4 AWG copper."
+  },
+  {
+    question: "Can I use 10 AWG wire on a 40-amp 220V breaker?",
+    answer: "Only for motor loads like air conditioners where NEC Article 440 applies. If the equipment nameplate shows MCA ≤ 30A and MOP ≤ 40A, 10 AWG wire on a 40A breaker is code-compliant. For non-motor loads (water heaters, EV chargers), 10 AWG wire requires a 30A maximum breaker per NEC 240.4(D)."
+  },
+  {
+    question: "Do I need a neutral wire for a 220V circuit?",
+    answer: "Only if the appliance has 120V components (timers, clocks, lights, motors). Electric dryers and ranges need a neutral. AC units, electric water heaters, baseboard heaters, and well pumps typically do not — they use only two hot wires and a ground."
+  },
+  {
+    question: "What's the difference between 220V and 240V?",
+    answer: "They're the same thing. U.S. residential 'high voltage' is nominally 240V (measured at the transformer) but commonly called '220V' colloquially. Equipment may be labeled 208V, 220V, 230V, or 240V — all connect to the same double-pole, 240V circuit. Wire sizing is identical regardless of which label is used."
+  },
+  {
+    question: "Can I run 220V on a regular outlet?",
+    answer: "No. 220/240V circuits require specific receptacle configurations that differ from standard 120V outlets. A 30A/240V circuit uses a NEMA 6-30 or 14-30 receptacle, and a 50A/240V circuit uses a NEMA 6-50 or 14-50. These have different prong configurations that prevent plugging a 120V device into a 240V outlet."
+  },
+  {
+    question: "How far can I run 10 AWG wire at 220V?",
+    answer: "At 30 amps on a 240V circuit, 10 AWG copper wire can run approximately 97 feet before hitting the 3% voltage drop recommendation. At 20 amps, it extends to about 145 feet. Beyond these distances, upsize to 8 AWG."
+  },
+  {
+    question: "Is aluminum wire safe for 220V circuits?",
+    answer: "Modern AA-8000 aluminum alloy wire is safe and code-approved for 220/240V feeder circuits of 6 AWG and larger. It's standard for service entrance conductors and sub-panel feeders. Use AL-rated terminals and anti-oxidant compound at all connections. Aluminum is not recommended for small branch circuits (14-10 AWG)."
+  },
+  {
+    question: "What size wire for a 200-amp 220V service?",
+    answer: "A 200-amp, 240V service entrance requires 2/0 AWG copper or 4/0 AWG aluminum conductors. Most homes use aluminum SE (service entrance) cable for cost savings — a 100-foot run of 4/0 aluminum costs roughly $250–$400, while 2/0 copper costs $800–$1,200."
+  },
+  {
+    question: "Do I need a GFCI breaker for 220V circuits?",
+    answer: "Under NEC 2023, yes — for many applications. GFCI protection is now required for 240V receptacle outlets rated 150V-to-ground or less and 50A or less. This includes outlets for dryers, ranges, and some EV chargers. Hardwired 240V equipment (like central AC) typically does not require GFCI, but check local code amendments."
+  }
+]} />
+
+<SourcesBox sources={[
+  { name: "NEC (NFPA 70, 2023)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "National Electrical Code — Tables 310.16, 240.4(D), Article 440" },
+  { name: "Southwire Voltage Drop Calculator", url: "https://www.southwire.com/calculator-charger", description: "Industry-standard voltage drop calculation tool" },
+  { name: "Cerro Wire Technical Resources", url: "https://www.cerrowire.com/products/resources/tables-calculators/", description: "Wire specifications and ampacity tables" },
+  { name: "ENERGY STAR — Heating & Cooling", url: "https://www.energystar.gov/products/heating_cooling", description: "Efficient HVAC equipment specifications" },
+  { name: "DOE — Residential Electrical Systems", url: "https://www.energy.gov/energysaver/electrical-wiring", description: "Department of Energy wiring fundamentals" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "electrical-wiring-guide", title: "Home Electrical Wiring Guide" },
+  { slug: "wire-gauge-chart", title: "Wire Gauge Chart: AWG Sizes & Ampacity" },
+  { slug: "what-wire-size-for-30-amp", title: "What Wire Size for 30 Amp Circuit?" },
+  { slug: "what-wire-size-for-50-amp", title: "What Wire Size for 50 Amp Circuit?" },
+  { slug: "10-2-or-10-3-wire-for-ac", title: "10/2 or 10/3 Wire for AC?" },
+  { slug: "water-heater-wire-size", title: "Water Heater Wire Size Chart" }
+]} />

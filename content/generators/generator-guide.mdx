@@ -1,0 +1,471 @@
+---
+slug: "generator-guide"
+title: "Home Generators: Complete Buying & Sizing Guide (2026)"
+description: "Everything you need to know about buying a home generator in 2026 — sizing calculations, fuel types, standby vs portable, installation costs, top brands, and maintenance. Data-driven guide with real-world examples."
+cluster: "generators"
+role: "pillar"
+priority: "P1"
+contentType: "NEW"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "generator-cost-per-kwh"
+  - "best-whole-house-generators"
+  - "best-portable-generators"
+  - "generator-vs-solar-battery-backup"
+  - "how-long-do-generators-last"
+  - "propane-generator-usage-per-hour"
+  - "natural-gas-generator-running-cost"
+  - "what-size-generator-for-fridge"
+  - "how-many-amps-does-generator-produce"
+  - "portable-generator-safety-tips"
+externalLinks:
+  - label: "ENERGY STAR Generator Guide"
+    url: "https://www.energystar.gov/"
+  - label: "U.S. DOE — Emergency Power"
+    url: "https://www.energy.gov/"
+  - label: "NFPA 37 — Stationary Combustion Engines"
+    url: "https://www.nfpa.org/"
+  - label: "ACCA Manual J"
+    url: "https://www.acca.org/"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, BTUCalculator, CalcWrapper } from '@/components'
+
+# Home Generators: Complete Buying & Sizing Guide (2026)
+
+A properly sized home generator costs between $2,000 and $15,000 installed and keeps your lights, HVAC, and refrigerator running when the grid goes down. The average American household needs between 5,000 and 25,000 watts depending on whether you want to back up essential circuits or your entire home.
+
+This guide walks you through every decision — from sizing and fuel type to installation and maintenance — so you buy the right generator the first time and avoid the two most common (and expensive) mistakes: buying too small and burning out the unit, or buying too big and wasting thousands on capacity you never use.
+
+<TableOfContents />
+
+## Why You Need a Generator in 2026
+
+Power outages in the United States have increased roughly 60% over the past decade. The U.S. Energy Information Administration (EIA) reported that the average customer experienced over 5 hours of power interruption in recent years, and that number climbs dramatically in storm-prone regions.
+
+Climate-driven weather events — hurricanes, ice storms, wildfires, and heat waves — are the primary drivers. But aging grid infrastructure is a close second. The American Society of Civil Engineers gives the U.S. energy grid a C– rating, and many transmission lines are approaching 50+ years of service.
+
+If you work from home, have medical equipment, live in an area with extreme temperatures, or simply want peace of mind, a generator is no longer a luxury. It is a practical investment in home resilience.
+
+## Generator Types at a Glance
+
+There are three main categories of home generators, and choosing the right one depends on your budget, power needs, and how much convenience you want during an outage.
+
+<ComparisonTable
+  title="Generator Types Compared"
+  headers={["Feature", "Portable Generator", "Inverter Generator", "Standby (Whole-House)"]}
+  rows={[
+    ["Wattage Range", "3,000–12,500W", "1,000–7,500W", "7,500–48,000W"],
+    ["Fuel Type", "Gasoline (some dual-fuel)", "Gasoline / Propane", "Natural Gas / Propane / Diesel"],
+    ["Noise Level", "65–80 dB", "48–62 dB", "55–70 dB"],
+    ["Automatic Start", "No — manual start", "No — manual start", "Yes — starts in 10–30 seconds"],
+    ["Transfer Switch", "Manual (optional)", "Manual (optional)", "Automatic (included)"],
+    ["Installed Cost", "$500–$2,500", "$800–$4,500", "$3,000–$15,000+"],
+    ["Best For", "Emergency circuits, job sites", "Electronics, RVs, camping", "Whole-home backup"],
+    ["Lifespan", "1,000–2,000 hours", "1,000–3,000 hours", "10,000–30,000 hours"],
+    ["Fuel Efficiency", "Lower", "Higher (variable speed)", "Moderate to High"],
+    ["Installation", "None — plug and play", "None — plug and play", "Professional required"],
+  ]}
+/>
+
+### Portable Generators
+
+Portable generators range from 3,000 to 12,500 watts and run on gasoline. They are the most affordable option, typically $500 to $2,500 for the unit alone. You start them manually, run extension cords to your appliances, or connect through a manual transfer switch.
+
+The main downsides are noise (often 65–80 dB, as loud as a vacuum cleaner), exhaust fumes (they must run outdoors, at least 20 feet from the house), and refueling hassles. Gasoline has a shelf life of about 3–6 months without stabilizer.
+
+### Inverter Generators
+
+Inverter generators use advanced electronics to produce cleaner, more stable power. They run significantly quieter (48–62 dB) and are more fuel-efficient because the engine adjusts speed based on load. Prices range from $800 to $4,500.
+
+They are ideal for powering sensitive electronics — laptops, phones, medical devices — without the voltage spikes that can come from conventional portable generators. The tradeoff is lower maximum wattage, typically maxing out around 7,500 watts.
+
+### Standby (Whole-House) Generators
+
+Standby generators are permanently installed outside your home, connected to your electrical panel through an automatic transfer switch (ATS). When the power goes out, the ATS detects the outage and the generator starts automatically within 10–30 seconds — often before you even realize the power went out.
+
+They run on natural gas, propane, or diesel and range from 7,500 watts to over 48,000 watts. Installed costs range from $3,000 for a basic unit to $15,000+ for a large whole-house system. These units last 10,000 to 30,000 running hours with proper maintenance.
+
+<Callout type="tip">
+If your area loses power more than twice a year or if you have a sump pump, medical equipment, or work from home, a standby generator typically pays for itself in peace of mind and prevented losses within a few years.
+</Callout>
+
+## How to Size Your Generator
+
+Sizing is the single most important decision. An undersized generator will overload and shut down (or worse, damage your appliances). An oversized generator wastes money upfront and burns fuel inefficiently at low loads.
+
+### Step 1: List Your Essential Loads
+
+Walk through your home and write down every appliance and system you want to power during an outage. Then look up each item's running watts and starting watts.
+
+<ComparisonTable
+  title="Common Household Appliance Wattages"
+  headers={["Appliance", "Running Watts", "Starting Watts", "240V Circuit?"]}
+  rows={[
+    ["Refrigerator", "100–400W", "1,200W", "No"],
+    ["Freezer (upright)", "100–400W", "1,000W", "No"],
+    ["Sump Pump (⅓ HP)", "800W", "1,300W", "No"],
+    ["Sump Pump (½ HP)", "1,050W", "2,150W", "No"],
+    ["Central AC (3-ton)", "3,500W", "4,500W", "Yes"],
+    ["Central AC (5-ton)", "5,000W", "7,000W", "Yes"],
+    ["Window AC (10,000 BTU)", "1,200W", "1,800W", "No"],
+    ["Gas Furnace Blower", "500–800W", "1,200W", "No"],
+    ["Electric Water Heater", "4,000–4,500W", "4,500W", "Yes"],
+    ["Gas Water Heater", "200–400W", "400W", "No"],
+    ["Well Pump (½ HP)", "1,000W", "2,100W", "Yes"],
+    ["Well Pump (1 HP)", "2,000W", "4,000W", "Yes"],
+    ["Electric Range/Oven", "2,000–5,000W", "5,000W", "Yes"],
+    ["Microwave (1,000W)", "1,000W", "1,500W", "No"],
+    ["Washing Machine", "500W", "1,200W", "No"],
+    ["Electric Dryer", "4,000–5,400W", "5,400W", "Yes"],
+    ["Lights (10 LED bulbs)", "100W", "100W", "No"],
+    ["TV (55\" LED)", "80–120W", "120W", "No"],
+    ["Wi-Fi Router", "10–20W", "20W", "No"],
+    ["Garage Door Opener", "600W", "1,400W", "No"],
+    ["Home Office (PC + Monitor)", "300–500W", "500W", "No"],
+    ["EV Charger (Level 2)", "7,200–9,600W", "9,600W", "Yes"],
+  ]}
+/>
+
+### Step 2: Calculate Total Running Watts
+
+Add up the running watts for every appliance you want to power simultaneously. This gives your continuous load.
+
+### Step 3: Add the Largest Starting Surge
+
+Find the single appliance with the highest starting watts. Add the difference between its starting watts and running watts to your total running watts.
+
+### Step 4: Add a 20% Safety Margin
+
+Multiply your total by 1.2. Running a generator at 100% capacity continuously shortens its lifespan and leaves no room for unexpected loads.
+
+<Callout type="example">
+**Example Sizing Calculation — Essential Circuits Only:**
+- Refrigerator: 400W running
+- Freezer: 300W running
+- Sump Pump (½ HP): 1,050W running
+- Gas Furnace Blower: 700W running
+- 10 LED Lights: 100W running
+- Wi-Fi + TV: 150W running
+- **Total Running: 2,700W**
+- Largest starting surge: Sump pump adds 1,100W (2,150 – 1,050)
+- **Peak Need: 3,800W**
+- With 20% margin: **4,560W → 5,000W generator recommended**
+</Callout>
+
+<Callout type="example">
+**Example Sizing Calculation — Whole Home with AC:**
+- Central AC (3-ton): 3,500W running
+- Refrigerator + Freezer: 700W running
+- Gas Furnace Blower: 700W running
+- Well Pump (½ HP): 1,000W running
+- Sump Pump: 800W running
+- Lights + Electronics: 500W running
+- Washer: 500W running
+- **Total Running: 7,700W**
+- Largest starting surge: AC adds 1,000W
+- **Peak Need: 8,700W**
+- With 20% margin: **10,440W → 11,000W standby generator recommended**
+</Callout>
+
+<Callout type="example">
+**Example Sizing Calculation — Large Home with EV Charger:**
+- Central AC (5-ton): 5,000W running
+- Electric Water Heater: 4,500W running
+- EV Charger (Level 2): 7,200W running
+- Refrigerator + Freezer: 700W running
+- Gas Furnace Blower: 700W running
+- Well Pump (1 HP): 2,000W running
+- Lights + Electronics: 800W running
+- **Total Running: 20,900W**
+- Largest starting surge: Well pump adds 2,000W
+- **Peak Need: 22,900W**
+- With 20% margin: **27,480W → 30kW standby generator recommended**
+</Callout>
+
+### Sizing Quick Reference by Home Size
+
+<ComparisonTable
+  title="Recommended Generator Size by Home"
+  headers={["Home Size", "Essential Circuits Only", "Whole Home (no AC)", "Whole Home (with AC)"]}
+  rows={[
+    ["1,000–1,500 sq ft", "5,000–7,500W", "10,000W", "14,000–16,000W"],
+    ["1,500–2,500 sq ft", "7,500–10,000W", "14,000–16,000W", "18,000–22,000W"],
+    ["2,500–3,500 sq ft", "10,000–14,000W", "18,000–22,000W", "22,000–30,000W"],
+    ["3,500–5,000 sq ft", "14,000–18,000W", "22,000–30,000W", "30,000–48,000W"],
+  ]}
+/>
+
+<Callout type="warning">
+If you have a central AC system, an electric water heater, or an EV charger, you almost certainly need a standby generator. Portable generators rarely produce enough wattage for these 240V loads.
+</Callout>
+
+## Fuel Type Comparison
+
+Your fuel choice affects running costs, convenience, shelf life, and availability during emergencies. Here is how the four main generator fuels stack up.
+
+<ComparisonTable
+  title="Generator Fuel Comparison"
+  headers={["Factor", "Gasoline", "Propane (LP)", "Natural Gas", "Diesel"]}
+  rows={[
+    ["Energy Content", "36.6 kWh/gallon", "27.0 kWh/gallon", "~30.0 kWh/therm", "40.7 kWh/gallon"],
+    ["Cost per kWh (2026)", "$0.15–$0.30", "$0.12–$0.25", "$0.05–$0.15", "$0.12–$0.25"],
+    ["Shelf Life", "3–6 months", "Indefinite", "Unlimited (piped)", "12–24 months"],
+    ["Availability in Outage", "Low (pumps need power)", "Medium (tank on site)", "High (piped supply)", "Medium (tank on site)"],
+    ["BTU per Gallon/Therm", "120,238 BTU/gal", "91,500 BTU/gal", "100,000 BTU/therm", "138,490 BTU/gal"],
+    ["Generator Efficiency", "20–30%", "20–28%", "20–30%", "25–35%"],
+    ["Maintenance", "High (carburetor fouling)", "Low", "Low", "Medium (filters)"],
+    ["Environmental Impact", "Moderate", "Low (clean burn)", "Low (clean burn)", "Higher (particulates)"],
+    ["Cold Weather Starting", "Good", "Good (with vaporizer)", "Excellent", "Can gel below 0°F"],
+    ["Common Generator Types", "Portable, Inverter", "Standby, Dual-Fuel Portable", "Standby", "Standby (commercial)"],
+  ]}
+/>
+
+### Gasoline
+
+Gasoline is the most common fuel for portable generators. It is cheap and widely available — until a major storm hits. Gas stations need electricity to operate their pumps, so gasoline often becomes scarce during prolonged outages.
+
+Gasoline also degrades over time, and stale gas is the number one cause of generator starting problems. If you go the gasoline route, use fuel stabilizer and rotate your supply every 3 months.
+
+### Propane (LP Gas)
+
+Propane burns cleaner than gasoline, produces fewer carbon deposits, and stores indefinitely in a tank. A typical home propane tank (250–500 gallons) provides 100+ hours of generator runtime. Many standby generators use propane as their primary fuel.
+
+The downsides: propane has about 27% less energy per gallon than gasoline, so your generator burns through it faster. You also need a tank and a delivery service.
+
+### Natural Gas
+
+If your home has a natural gas line, a natural gas standby generator is often the best choice. You never run out of fuel (the gas line stays pressurized even during power outages in most cases), and natural gas costs significantly less per kWh than other fuels.
+
+Natural gas generators produce about 10% less power than their propane-rated capacity because natural gas has lower energy density. Make sure you size accordingly.
+
+### Diesel
+
+Diesel generators dominate the commercial and industrial market because of their fuel efficiency and longevity. Diesel engines typically last 20,000–30,000 hours compared to 10,000–15,000 for gas or propane engines.
+
+For residential use, diesel generators are less common due to noise, emissions regulations, and higher upfront costs. But if you need sustained, heavy-duty power (30kW+), diesel is hard to beat.
+
+<Callout type="info">
+Natural gas is the cheapest fuel for standby generators, costing roughly $0.05–$0.15 per kWh compared to $0.15–$0.30 for gasoline. Over a 72-hour outage, that difference adds up to $100–$300 in fuel savings.
+</Callout>
+
+## Installation: What to Expect
+
+### Portable Generator Setup
+
+Setting up a portable generator requires no professional installation, but you should seriously consider adding a manual transfer switch ($200–$500 installed). Without one, you are limited to extension cords, which create tripping hazards and cannot power hardwired systems like furnaces and well pumps.
+
+A licensed electrician installs a transfer switch at your main panel in 2–4 hours. You then connect the generator to the switch with a single heavy-duty cord when needed.
+
+### Standby Generator Installation
+
+Professional installation for a standby generator typically includes the following:
+
+The automatic transfer switch (ATS), which monitors the utility power and signals the generator to start. A concrete pad or gravel base for the generator to sit on. Gas line connection (natural gas or propane). Electrical wiring from the generator to the ATS and from the ATS to your main panel. Permitting and inspections required by your local building code.
+
+<ComparisonTable
+  title="Standby Generator Installation Costs"
+  headers={["Component", "Cost Range", "Notes"]}
+  rows={[
+    ["Generator Unit", "$2,500–$12,000", "Depends on brand, kW rating"],
+    ["Automatic Transfer Switch", "$500–$1,500", "100A or 200A panel"],
+    ["Concrete Pad", "$200–$500", "4\" thick, level surface"],
+    ["Gas Line Extension", "$500–$2,000", "Depends on distance from meter"],
+    ["Electrical Wiring + Panel Work", "$800–$2,500", "Includes breakers, conduit"],
+    ["Permits + Inspections", "$100–$500", "Varies by municipality"],
+    ["Labor", "$1,500–$3,500", "Typically 1–2 day job"],
+    ["Total Installed", "$6,100–$22,500", "National average: $8,000–$14,000"],
+  ]}
+/>
+
+<Callout type="example">
+**Real-World Example — 16kW Generac Standby Install:**
+A homeowner in suburban Atlanta installed a Generac Guardian 16kW natural gas generator. The unit cost $4,800, the ATS was $900, and the total installation with pad, gas line extension, electrical, and permits came to $12,400. The entire project took 1.5 days to complete and the system passed inspection on the first visit.
+</Callout>
+
+### Placement Rules
+
+NFPA 37 and local building codes dictate where your generator can sit. Common requirements include at least 5 feet from any window, door, or fresh-air intake. At least 18 inches from the side of the house. At least 3 feet of clearance on all accessible sides for maintenance. Not directly below overhead power lines. Many municipalities also require setbacks from property lines (often 5–10 feet). Always check your local codes before pouring a pad.
+
+## Top Generator Brands in 2026
+
+<ComparisonTable
+  title="Top Generator Brands Compared"
+  headers={["Brand", "Type Focus", "kW Range", "Fuel Options", "Warranty", "Price Range (Unit Only)"]}
+  rows={[
+    ["Generac", "Standby + Portable", "2kW–150kW", "NG, LP, Gasoline, Diesel", "5–10 years", "$500–$15,000+"],
+    ["Kohler", "Standby + Commercial", "5kW–150kW", "NG, LP, Diesel", "5 years (residential)", "$3,000–$20,000+"],
+    ["Briggs & Stratton", "Standby + Portable", "5kW–26kW", "NG, LP, Gasoline", "5–10 years", "$3,500–$10,000"],
+    ["Champion", "Portable + Inverter + Standby", "2kW–14.5kW", "Gasoline, LP (dual-fuel)", "2–3 years", "$400–$5,000"],
+    ["Honda", "Portable + Inverter", "1kW–7kW", "Gasoline", "3 years", "$1,000–$5,000"],
+    ["Cummins", "Standby + Commercial", "13kW–150kW", "NG, LP, Diesel", "5 years", "$4,000–$20,000+"],
+    ["Westinghouse", "Portable + Inverter + Standby", "2kW–15kW", "Gasoline, LP (dual-fuel)", "3 years", "$400–$5,000"],
+  ]}
+/>
+
+Generac dominates the residential standby market, holding roughly 75% market share. Their Guardian series (10kW–26kW) is the most popular home backup line in North America. Kohler and Cummins compete in the premium and commercial segments.
+
+For portable generators, Honda is the gold standard for reliability and quiet operation, while Champion and Westinghouse offer the best value with dual-fuel capability.
+
+## Maintenance Schedule
+
+A generator is a combustion engine. It needs regular maintenance or it will fail when you need it most — typically during a storm, which is the worst possible time for a no-start.
+
+<ComparisonTable
+  title="Generator Maintenance Schedule"
+  headers={["Task", "Frequency", "DIY or Pro?", "Estimated Cost"]}
+  rows={[
+    ["Run generator under load for 15–30 minutes", "Weekly", "DIY", "$0 (fuel only)"],
+    ["Check oil level", "Before each use", "DIY", "$0"],
+    ["Change oil", "Every 50–200 hours or annually", "DIY", "$10–$30"],
+    ["Replace oil filter", "Every 200 hours or annually", "DIY", "$10–$20"],
+    ["Replace air filter", "Every 200 hours or annually", "DIY", "$10–$30"],
+    ["Replace spark plugs", "Every 200–400 hours or annually", "DIY", "$5–$15"],
+    ["Check/replace fuel filter", "Annually", "DIY", "$10–$20"],
+    ["Inspect battery (standby)", "Every 6 months", "DIY", "$0"],
+    ["Replace battery (standby)", "Every 2–3 years", "DIY or Pro", "$50–$150"],
+    ["Full professional service", "Annually", "Pro", "$200–$400"],
+    ["Load bank test", "Annually (commercial)", "Pro", "$300–$600"],
+    ["Coolant flush (liquid-cooled)", "Every 2 years", "Pro", "$100–$200"],
+  ]}
+/>
+
+<Callout type="warning">
+The number one reason generators fail during an outage is neglected maintenance. A dead battery, stale fuel, or low oil will shut you down when you need power most. Set a recurring calendar reminder for your weekly test run.
+</Callout>
+
+## Generator Costs: What You Will Actually Pay
+
+<ComparisonTable
+  title="Total Cost of Ownership Over 10 Years"
+  headers={["Cost Category", "Portable (5,500W)", "Standby (16kW NG)", "Standby (22kW NG)"]}
+  rows={[
+    ["Unit Cost", "$800–$1,500", "$4,000–$5,500", "$5,500–$7,500"],
+    ["Installation", "$0–$500 (transfer switch)", "$5,000–$8,000", "$6,000–$10,000"],
+    ["Annual Maintenance", "$50–$100", "$200–$400", "$200–$400"],
+    ["Fuel (per 72-hour outage)", "$90–$150 (gasoline)", "$60–$120 (natural gas)", "$80–$160 (natural gas)"],
+    ["Fuel (10 outages over 10 years)", "$900–$1,500", "$600–$1,200", "$800–$1,600"],
+    ["Battery Replacement (3x)", "N/A", "$150–$450", "$150–$450"],
+    ["10-Year Total", "$2,200–$5,100", "$10,750–$18,550", "$13,150–$22,950"],
+  ]}
+/>
+
+## Transfer Switches Explained
+
+A transfer switch prevents back-feeding — when generator power flows backward through your panel into the utility lines, potentially electrocuting line workers. Every properly installed generator system uses one.
+
+**Manual transfer switch (MTS):** You flip a switch to disconnect from the utility and connect to the generator. Costs $200–$500 installed. Used with portable generators.
+
+**Automatic transfer switch (ATS):** Monitors utility power 24/7 and automatically switches to generator power within 10–30 seconds of an outage. Costs $500–$1,500 installed. Required for standby generators.
+
+**Smart load management:** Newer standby systems include load-shedding modules that cycle high-draw appliances (AC, water heater, dryer) on and off automatically so you can use a smaller (and cheaper) generator. Generac's Smart Management Modules and Kohler's load-shedding technology let a 14kW generator handle what would normally require 22kW.
+
+<Callout type="tip">
+Smart load management can save you $2,000–$5,000 on the generator itself by allowing you to install a smaller unit. A 14kW generator with load management can handle most homes that would otherwise need a 22kW unit.
+</Callout>
+
+## Permits, Codes, and Regulations
+
+Most municipalities require a permit for standby generator installation. The permitting process typically involves submitting an installation plan, meeting setback requirements (distance from house, property lines, and neighbors), passing an electrical inspection, passing a gas line inspection (for NG or propane), and noise ordinance compliance.
+
+Some HOAs also restrict generator placement and require architectural approval. Check before you buy.
+
+**Noise regulations** vary widely. Some cities limit outdoor equipment to 65 dB at the property line, others to 75 dB. Most modern standby generators run at 55–70 dB measured at 23 feet, which is comparable to a normal conversation or a running dishwasher.
+
+## Generator Sizing Calculator
+
+Use this calculator to estimate the generator size you need based on your specific appliances.
+
+<CalcWrapper>
+  <BTUCalculator
+    title="Generator Sizing Calculator"
+    description="Select the appliances you want to power during an outage to find your recommended generator size."
+    calculatorType="generator-sizing"
+  />
+</CalcWrapper>
+
+<Callout type="takeaway">
+**Key Takeaways:**
+- Size your generator by adding all running watts plus the largest starting surge, then add a 20% safety margin.
+- For essential circuits only (fridge, sump pump, lights, furnace), a 5,000–7,500W portable generator works.
+- For whole-home backup with AC, you need a 14,000–22,000W standby generator.
+- Natural gas is the cheapest fuel at $0.05–$0.15/kWh; gasoline costs 2–3x more.
+- Budget $8,000–$14,000 total installed for a typical standby generator.
+- Load management modules let you buy a smaller generator and save $2,000–$5,000.
+- Maintenance is non-negotiable: run weekly, service annually, replace the battery every 2–3 years.
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ
+  items={[
+    {
+      question: "What size generator do I need for a 2,000 sq ft house?",
+      answer: "For essential circuits (fridge, sump pump, furnace, lights), a 7,500–10,000W generator is sufficient. For whole-home backup including central AC, you need 18,000–22,000W. With smart load management, a 14,000–16,000W standby unit can handle most 2,000 sq ft homes."
+    },
+    {
+      question: "How much does it cost to install a whole-house generator?",
+      answer: "The national average installed cost for a standby generator is $8,000–$14,000 in 2026. This includes the generator unit ($3,000–$7,500), automatic transfer switch ($500–$1,500), concrete pad ($200–$500), gas line work ($500–$2,000), electrical wiring ($800–$2,500), and labor ($1,500–$3,500)."
+    },
+    {
+      question: "Do I need a permit to install a generator?",
+      answer: "Almost always, yes. Most municipalities require electrical and gas permits for standby generator installations. Portable generators typically do not require permits unless you install a permanent transfer switch. Permit costs range from $100 to $500 depending on your location."
+    },
+    {
+      question: "How long will a generator run during a power outage?",
+      answer: "Portable generators on gasoline run 8–12 hours on a full tank. Propane standby generators with a 250-gallon tank run 4–7 days at moderate load. Natural gas standby generators run indefinitely as long as the gas utility stays pressurized, which it typically does during power outages."
+    },
+    {
+      question: "Can I install a generator myself?",
+      answer: "You can set up a portable generator yourself, but professional installation is strongly recommended for standby generators. Working with gas lines and electrical panels requires licensed contractors. Improper installation can void your warranty, fail inspection, and create fire or carbon monoxide hazards."
+    },
+    {
+      question: "What is the difference between running watts and starting watts?",
+      answer: "Running watts (rated watts) is the continuous power an appliance needs to operate. Starting watts (surge watts) is the extra burst of power needed to start motor-driven appliances like AC compressors, refrigerators, and sump pumps. Starting watts typically run 1.5–3x higher than running watts and last only a few seconds."
+    },
+    {
+      question: "How often should I run my standby generator?",
+      answer: "Most standby generators automatically run a self-test cycle once per week for 15–30 minutes. This keeps the engine lubricated, charges the battery, and verifies the system works. If your generator does not have an automatic exercise feature, run it manually under load once per week."
+    },
+    {
+      question: "Is a generator or solar battery backup better?",
+      answer: "It depends on your needs. Generators provide higher wattage and longer runtime, making them better for AC and heavy loads. Solar battery systems (like Tesla Powerwall) are silent, maintenance-free, and work daily, but cost more per kWh of storage. Many homeowners install both for comprehensive backup. See our full comparison guide for details."
+    },
+    {
+      question: "What is the quietest generator for home use?",
+      answer: "Inverter generators are the quietest, operating at 48–58 dB. The Honda EU2200i (48 dB) and Yamaha EF2200iS (51.5 dB) are among the quietest models available. For standby generators, Generac Guardian models run at 55–66 dB at 23 feet. Enclosure upgrades can reduce noise by an additional 5–10 dB."
+    },
+    {
+      question: "Can a generator damage my electronics?",
+      answer: "Conventional portable generators can produce voltage fluctuations (Total Harmonic Distortion or THD above 15%) that may damage sensitive electronics over time. Inverter generators and standby generators produce clean power with THD below 3%, making them safe for computers, TVs, and medical equipment. If using a conventional portable generator, add a surge protector."
+    },
+  ]}
+/>
+
+<SourcesBox
+  sources={[
+    { label: "U.S. EIA — Electric Power Monthly", url: "https://www.eia.gov/electricity/monthly/" },
+    { label: "NFPA 37 — Installation and Use of Stationary Combustion Engines", url: "https://www.nfpa.org/codes-and-standards/nfpa-37-standard-development/37" },
+    { label: "ASCE Infrastructure Report Card", url: "https://infrastructurereportcard.org/cat-item/energy-infrastructure/" },
+    { label: "Generac Technical Specifications", url: "https://www.generac.com/all-products/generators" },
+    { label: "U.S. DOE — Standby Power Systems", url: "https://www.energy.gov/" },
+    { label: "ACCA Manual J — Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+    { label: "Consumer Product Safety Commission — Generator Safety", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Generators" },
+  ]}
+/>
+
+<RelatedArticles
+  articles={[
+    "generator-cost-per-kwh",
+    "best-whole-house-generators",
+    "best-portable-generators",
+    "generator-vs-solar-battery-backup",
+    "how-long-do-generators-last",
+    "propane-generator-usage-per-hour",
+    "natural-gas-generator-running-cost",
+    "what-size-generator-for-fridge",
+    "how-many-amps-does-generator-produce",
+    "portable-generator-safety-tips",
+  ]}
+/>

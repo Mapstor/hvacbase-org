@@ -1,0 +1,282 @@
+---
+slug: "how-many-amps-does-generator-produce"
+title: "How Many Amps Does a Generator Produce? (Chart by Wattage & Voltage)"
+description: "Complete amp output chart for generators from 2,000W to 48,000W at 120V and 240V. Includes outlet types, breaker sizing, wire gauge requirements, and real-world amperage calculations."
+cluster: "generators"
+role: "spoke"
+priority: "P2"
+contentType: "KEEP+"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "generator-guide"
+  - "best-portable-generators"
+  - "best-whole-house-generators"
+  - "what-size-generator-for-fridge"
+  - "how-many-amps-does-generator-produce"
+externalLinks:
+  - label: "NEC — National Electrical Code"
+    url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70"
+  - label: "OSHA — Electrical Safety"
+    url: "https://www.osha.gov/electrical"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# How Many Amps Does a Generator Produce?
+
+A generator's amp output depends on its wattage and voltage. At 120V, a generator produces 1 amp for every 120 watts. At 240V, it produces 1 amp for every 240 watts. A 7,500W generator delivers 62.5 amps at 120V or 31.25 amps at 240V. A 22,000W standby generator delivers approximately 183 amps at 120V or 91.7 amps at 240V.
+
+The formula is simple: **Amps = Watts ÷ Volts.** But applying it correctly — accounting for starting surges, 120V vs. 240V circuits, and generator outlet ratings — is where most people get confused. This guide gives you the complete amp output chart and explains exactly how to match your generator's amperage to your electrical needs.
+
+<TableOfContents />
+
+## Interactive Amps/Watts Calculator
+
+Convert between generator watts, amps, and voltage with wire size recommendations:
+
+<CalcWrapper type="generator-amps" />
+
+## Generator Amp Output Chart
+
+<ComparisonTable
+  title="Generator Amp Output by Wattage"
+  headers={["Generator Running Watts", "Amps at 120V", "Amps at 240V", "Typical Generator Type"]}
+  rows={[
+    ["2,000W", "16.7A", "8.3A", "Small inverter"],
+    ["2,200W", "18.3A", "9.2A", "Honda EU2200i class"],
+    ["3,000W", "25.0A", "12.5A", "Mid inverter"],
+    ["3,500W", "29.2A", "14.6A", "Small conventional"],
+    ["4,500W", "37.5A", "18.8A", "Large inverter"],
+    ["5,500W", "45.8A", "22.9A", "Mid conventional"],
+    ["7,500W", "62.5A", "31.3A", "Large conventional"],
+    ["9,500W", "79.2A", "39.6A", "XL conventional"],
+    ["10,000W", "83.3A", "41.7A", "Large portable / small standby"],
+    ["12,500W", "104.2A", "52.1A", "Max portable"],
+    ["14,000W (standby)", "116.7A", "58.3A", "Small standby"],
+    ["16,000W (standby)", "133.3A", "66.7A", "Mid standby"],
+    ["20,000W (standby)", "166.7A", "83.3A", "Large standby"],
+    ["22,000W (standby)", "183.3A", "91.7A", "Popular standby"],
+    ["24,000W (standby)", "200.0A", "100.0A", "Large standby"],
+    ["30,000W (standby)", "250.0A", "125.0A", "XL standby (liquid-cooled)"],
+    ["38,000W (standby)", "316.7A", "158.3A", "Commercial/luxury"],
+    ["48,000W (standby)", "400.0A", "200.0A", "Large commercial"],
+  ]}
+/>
+
+<Callout type="info">
+**120V vs. 240V:** Most household outlets are 120V (standard three-prong). Large appliances like central AC, electric dryers, electric ranges, and well pumps use 240V circuits. A generator's total amp capacity is split between these voltages. A 7,500W generator can deliver 62.5A total at 120V, OR 31.3A at 240V, OR a combination of both — but never 62.5A at 120V and 31.3A at 240V simultaneously.
+</Callout>
+
+## The Watts-Amps-Volts Formula
+
+**Amps = Watts ÷ Volts**
+
+This is Ohm's Law applied to electrical power, and it is the foundation of all generator sizing.
+
+<ComparisonTable
+  title="Quick Reference Conversions"
+  headers={["If You Know...", "Formula", "Example"]}
+  rows={[
+    ["Watts and Volts → Amps", "Amps = Watts ÷ Volts", "5,500W ÷ 120V = 45.8A"],
+    ["Amps and Volts → Watts", "Watts = Amps × Volts", "30A × 240V = 7,200W"],
+    ["Watts and Amps → Volts", "Volts = Watts ÷ Amps", "3,600W ÷ 30A = 120V"],
+  ]}
+/>
+
+<Callout type="example">
+**Example — Can my 7,500W generator run a 30-amp RV?**
+A 30-amp RV outlet operates at 120V. Maximum power: 30A × 120V = 3,600W. Your 7,500W generator produces 62.5A at 120V, which is more than enough for a 30A RV connection. You still have roughly 32.5A (3,900W) available for other 120V loads.
+</Callout>
+
+<Callout type="example">
+**Example — Can my 5,500W generator run a 240V well pump?**
+A typical ½ HP well pump draws about 10A at 240V (2,400W running) with a starting surge of about 17A (4,080W). Your 5,500W generator at 240V delivers 22.9A continuous — enough for the running load but the starting surge at 4,080W is close to the generator's capacity. It should work, but it will be at 74% of the generator's capacity during startup. A 7,500W generator provides much more headroom.
+</Callout>
+
+<Callout type="example">
+**Example — What size generator for a 200-amp house panel?**
+A 200-amp panel at 240V has a maximum capacity of 200A × 240V = 48,000W. However, no home runs at 100% panel capacity simultaneously. Typical peak demand for a 200-amp home is 40–60% of panel capacity, or 19,200–28,800W. A 22–24kW standby generator covers most 200-amp homes with load management.
+</Callout>
+
+## Generator Outlet Types and Amp Ratings
+
+Portable generators have specific outlet configurations, each rated for a maximum amperage. Understanding these outlets tells you exactly how much power you can draw from each connection.
+
+<ComparisonTable
+  title="Common Generator Outlet Types"
+  headers={["Outlet Type (NEMA)", "Voltage", "Max Amps", "Max Watts", "Common Use"]}
+  rows={[
+    ["5-20R (standard duplex)", "120V", "20A", "2,400W", "Household appliances, lights, electronics"],
+    ["L5-30R (twist-lock)", "120V", "30A", "3,600W", "RV 30A, transfer switch connection"],
+    ["L14-30R (twist-lock)", "120/240V", "30A", "7,200W", "Transfer switch, heavy appliances"],
+    ["L14-50R (twist-lock)", "120/240V", "50A", "12,000W", "Large transfer switch, RV 50A"],
+    ["14-50R (straight blade)", "120/240V", "50A", "12,000W", "RV 50A, range outlet"],
+    ["L6-30R (twist-lock)", "240V", "30A", "7,200W", "240V equipment"],
+    ["CS6369 (California style)", "120/240V", "50A", "12,000W", "Standby transfer switch"],
+  ]}
+/>
+
+<Callout type="warning">
+**Never exceed an outlet's amp rating.** Plugging a 40A load into a 30A outlet causes overheating, wire damage, and fire risk. If you need more amps than a single outlet provides, use the generator's larger outlet (L14-30R or L14-50R) with an appropriate transfer switch, or distribute loads across multiple outlets.
+</Callout>
+
+## How Many Amps Do Common Appliances Draw?
+
+Knowing each appliance's amp draw helps you plan which circuits to power and verify you are not exceeding your generator's capacity.
+
+<ComparisonTable
+  title="Common Appliance Amperage (120V Unless Noted)"
+  headers={["Appliance", "Running Amps", "Starting Amps", "Voltage", "Notes"]}
+  rows={[
+    ["LED Light Bulb (10W)", "0.08A", "0.08A", "120V", "No surge"],
+    ["Phone Charger", "0.1–0.2A", "0.2A", "120V", "Negligible"],
+    ["Laptop", "0.5–1.5A", "1.5A", "120V", "Minimal surge"],
+    ["TV (55\" LED)", "0.7–1.0A", "1.0A", "120V", "Minimal surge"],
+    ["Wi-Fi Router", "0.1–0.2A", "0.2A", "120V", "Negligible"],
+    ["Microwave (1,000W)", "8.3A", "12.5A", "120V", "50% surge"],
+    ["Toaster (1,200W)", "10.0A", "10.0A", "120V", "No surge — resistive"],
+    ["Coffee Maker", "5.0–10.0A", "10.0A", "120V", "Minimal surge"],
+    ["Refrigerator", "1.0–2.5A", "6.0–10.0A", "120V", "3–5x starting surge"],
+    ["Chest Freezer", "0.5–1.5A", "4.0–8.0A", "120V", "3–5x starting surge"],
+    ["Sump Pump (⅓ HP)", "6.7A", "10.8A", "120V", "1.5–2x starting surge"],
+    ["Sump Pump (½ HP)", "8.8A", "17.9A", "120V", "2x starting surge"],
+    ["Window AC (5,000 BTU)", "4.2A", "6.3A", "120V", "1.5x starting surge"],
+    ["Window AC (10,000 BTU)", "10.0A", "15.0A", "120V", "1.5x starting surge"],
+    ["Gas Furnace Blower", "4.2–6.7A", "10.0A", "120V", "1.5–2x starting surge"],
+    ["Portable Heater (1,500W)", "12.5A", "12.5A", "120V", "No surge — resistive"],
+    ["Central AC (2-ton)", "14.6A", "18.8A", "240V", "240V circuit"],
+    ["Central AC (3-ton)", "20.8A", "29.2A", "240V", "240V circuit"],
+    ["Central AC (5-ton)", "29.2A", "41.7A", "240V", "240V circuit"],
+    ["Well Pump (½ HP)", "8.3A", "17.5A", "240V", "240V circuit, 2x surge"],
+    ["Well Pump (1 HP)", "10.0A", "20.0A", "240V", "240V circuit, 2x surge"],
+    ["Electric Water Heater", "18.8A", "18.8A", "240V", "No surge — resistive"],
+    ["Electric Dryer", "22.5–30.0A", "30.0A", "240V", "240V circuit"],
+    ["EV Charger (Level 2)", "30.0–40.0A", "40.0A", "240V", "240V circuit"],
+  ]}
+/>
+
+## Wire Gauge for Generator Connections
+
+Using the correct wire gauge prevents overheating and ensures safe power delivery from your generator to your transfer switch or appliances.
+
+<ComparisonTable
+  title="Recommended Wire Gauge for Generator Connections"
+  headers={["Amperage", "Wire Gauge (Copper)", "Max Distance (120V)", "Max Distance (240V)", "Common Use"]}
+  rows={[
+    ["15A", "14 AWG", "50 ft", "100 ft", "Light circuits"],
+    ["20A", "12 AWG", "50 ft", "100 ft", "Standard outlets"],
+    ["30A", "10 AWG", "50 ft", "100 ft", "Generator → transfer switch"],
+    ["40A", "8 AWG", "50 ft", "100 ft", "Large generator connection"],
+    ["50A", "6 AWG", "50 ft", "100 ft", "Large generator or sub-panel"],
+    ["60A", "4 AWG", "50 ft", "100 ft", "Sub-panel feed"],
+    ["100A", "2 AWG", "75 ft", "150 ft", "Main panel connection"],
+    ["200A", "2/0 AWG", "75 ft", "150 ft", "Full panel connection"],
+  ]}
+/>
+
+<Callout type="warning">
+**Extension cord safety:** For portable generators, use the shortest, heaviest-gauge extension cord possible. A 100-foot, 16-gauge extension cord can lose 10–15% of voltage at high loads, causing appliance damage and overheating. For 20A loads, use 10-gauge or 12-gauge cords no longer than 50 feet. Never daisy-chain extension cords.
+</Callout>
+
+## Understanding Your Electrical Panel
+
+Your home's main panel has a rating (typically 100A or 200A at 240V) that represents the maximum amperage it can handle from the utility. When connecting a generator via a transfer switch, you need to understand how the generator's amperage relates to your panel.
+
+<ComparisonTable
+  title="Panel Size vs. Generator Sizing"
+  headers={["Main Panel Size", "Max Panel Capacity", "Typical Peak Load", "Recommended Generator", "Transfer Switch Size"]}
+  rows={[
+    ["100A at 240V", "24,000W", "8,000–12,000W", "10–16kW standby", "100A ATS"],
+    ["150A at 240V", "36,000W", "12,000–18,000W", "16–22kW standby", "150A or 200A ATS"],
+    ["200A at 240V", "48,000W", "16,000–28,000W", "20–30kW standby", "200A ATS"],
+    ["400A at 240V", "96,000W", "30,000–50,000W", "38–48kW standby", "400A ATS"],
+  ]}
+/>
+
+<Callout type="tip">
+You almost never need a generator that matches your panel's maximum capacity. A 200-amp panel can theoretically draw 48,000W, but a typical home rarely exceeds 30–40% of panel capacity even during peak use. A 22kW standby generator with load management handles most 200-amp homes.
+</Callout>
+
+<Callout type="example">
+**Real-World Example — Matching Generator to Panel:**
+A homeowner with a 200A panel consulted an electrician who measured their actual peak load at 18,500W during a hot summer afternoon (AC + water heater + oven + dryer running). A 22kW standby generator (91.7A at 240V) covers that peak with room to spare. The 200A ATS passes through utility power at full 200A capacity during normal operation and switches to generator power during outages.
+</Callout>
+
+<Callout type="takeaway">
+**Key Takeaways:**
+- Amps = Watts ÷ Volts. A 7,500W generator produces 62.5A at 120V or 31.3A at 240V.
+- A 22kW standby generator delivers ~183A at 120V or ~92A at 240V.
+- Always account for starting amps — motors draw 1.5–5x their running amps during startup.
+- Generator outlets have specific amp ratings (20A, 30A, 50A) — never exceed them.
+- A 200-amp panel does not need a 48kW generator. Typical peak demand is 30–40% of panel capacity.
+- Use correct wire gauge: 10 AWG minimum for 30A connections, 6 AWG for 50A.
+- Never daisy-chain extension cords or use cords too small for the load.
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ
+  items={[
+    {
+      question: "How many amps does a 7500 watt generator produce?",
+      answer: "A 7,500W generator produces 62.5 amps at 120V or 31.25 amps at 240V. The total amp output is divided between whatever outlets and circuits you are powering. If you draw 40A from the 120V outlets, you have approximately 11.25A (2,700W) remaining at 240V."
+    },
+    {
+      question: "How many amps does a 5500 watt generator produce?",
+      answer: "A 5,500W generator produces 45.8 amps at 120V or 22.9 amps at 240V. This is enough to power a 30A transfer switch (7,200W max at 240V) with some headroom, making it a good match for the common L14-30R outlet found on most mid-size portable generators."
+    },
+    {
+      question: "How many amps does a 3500 watt generator produce?",
+      answer: "A 3,500W generator produces 29.2 amps at 120V or 14.6 amps at 240V. This is enough for a single 20A circuit (2,400W) plus a second smaller circuit, but not enough for most 240V appliances like central AC or electric water heaters."
+    },
+    {
+      question: "Can a 30-amp generator run a 50-amp RV?",
+      answer: "No, not safely at full capacity. A 50-amp RV can draw up to 50A at 240V (12,000W). A 30-amp generator outlet delivers a maximum of 7,200W at 240V. You can use a 50-to-30-amp adapter, but you must limit your RV's loads to stay under 30A — no running the AC and microwave simultaneously."
+    },
+    {
+      question: "Why does my generator trip the breaker when the AC starts?",
+      answer: "Air conditioners draw 1.5–2x their running amps during compressor startup. A 3-ton central AC running at 20.8A at 240V may spike to 29.2A (7,000W) for 2–3 seconds on startup. If your generator's rated capacity is close to that surge, the breaker trips. Solution: size the generator 25–30% above the AC starting watts, or install a soft-start kit on the AC compressor."
+    },
+    {
+      question: "What is the difference between running amps and starting amps?",
+      answer: "Running amps (or rated amps) is the continuous current an appliance draws during normal operation. Starting amps (or locked-rotor amps) is the surge of current needed to start a motor — typically 1.5–5x running amps, lasting 0.5–3 seconds. Generators must handle starting amps without tripping, so always size for the largest starting surge in your load."
+    },
+    {
+      question: "Do I need a 100-amp or 200-amp transfer switch?",
+      answer: "Match the transfer switch to your main panel if using a whole-house standby generator, or to the generator's output for a portable setup. A 200A transfer switch on a 200A panel allows full generator power and maintains full utility capacity during normal operation. For portable generators, a 30A or 50A manual transfer switch matches the generator's output capability."
+    },
+    {
+      question: "Can I power 120V and 240V appliances at the same time?",
+      answer: "Yes, but the total power drawn from both voltages combined cannot exceed the generator's rated wattage. A 7,500W generator can simultaneously power 120V appliances (lights, fridge) and a 240V appliance (well pump), as long as the combined load stays under 7,500W. The generator's transfer switch or outlet panel distributes power across both voltages."
+    },
+    {
+      question: "How do I measure the actual amps my house draws?",
+      answer: "Use a clamp-on ammeter on your main panel's incoming wires, or hire an electrician to install a whole-home energy monitor. Measure during peak usage (hot afternoon with AC running, dinnertime with cooking and laundry). This real-world measurement is far more accurate than adding up nameplate ratings, which represent worst-case scenarios."
+    },
+    {
+      question: "Does altitude affect generator amp output?",
+      answer: "Yes. Generators lose approximately 3.5% of power output per 1,000 feet above sea level. A 7,500W generator at sea level produces only about 6,375W at 5,000 feet — reducing amp output from 62.5A to 53.1A at 120V. If you live at high altitude, derate your generator accordingly or choose a model with a high-altitude kit."
+    },
+  ]}
+/>
+
+<SourcesBox
+  sources={[
+    { label: "NEC — National Electrical Code (NFPA 70)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" },
+    { label: "OSHA — Electrical Safety Standards", url: "https://www.osha.gov/electrical" },
+    { label: "NEMA — Outlet/Connector Configurations", url: "https://www.nema.org/" },
+    { label: "Generac — Generator Specifications", url: "https://www.generac.com/" },
+    { label: "DOE — Electrical Basics for Consumers", url: "https://www.energy.gov/" },
+  ]}
+/>
+
+<RelatedArticles
+  articles={[
+    "generator-guide",
+    "best-portable-generators",
+    "best-whole-house-generators",
+    "what-size-generator-for-fridge",
+    "portable-generator-safety-tips",
+  ]}
+/>

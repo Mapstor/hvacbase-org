@@ -1,0 +1,212 @@
+---
+slug: "ceer-rating-explained"
+title: "CEER Rating Explained: Combined EER for Window ACs"
+description: "CEER (Combined Energy Efficiency Ratio) is the efficiency rating for window and portable air conditioners that includes standby power consumption. Learn what CEER means, good ratings by size, and how to compare window AC units."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P3"
+contentType: "explainer"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "eer-rating-explained"
+    title: "What Is EER Rating?"
+  - slug: "eer2-rating-explained"
+    title: "Understanding EER2"
+  - slug: "hvac-efficiency-ratings-compared"
+    title: "All HVAC Efficiency Ratings Compared"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/room-air-conditioners"
+    label: "U.S. DOE - Room Air Conditioners"
+  - url: "https://www.energystar.gov/products/heating_cooling/air_conditioning_room"
+    label: "ENERGY STAR - Room Air Conditioners"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# CEER Rating Explained: Combined EER for Window ACs
+
+**CEER (Combined Energy Efficiency Ratio) is the efficiency metric for window and portable air conditioners that accounts for both active cooling efficiency and standby power consumption.** It replaced the standard EER for room ACs in 2014 because window units draw measurable electricity even when they're plugged in but not actively cooling. A good CEER for a typical 8,000-12,000 BTU window AC is 12.0 or higher, which meets ENERGY STAR certification.
+
+If you're shopping for a window AC, CEER is the number on the EnergyGuide label. Higher CEER means lower electricity bills over the cooling season.
+
+<TableOfContents />
+
+## The CEER Formula
+
+**CEER = Cooling Capacity (BTU/h) / (Active Power (W) + Standby Power Adjustment (W))**
+
+The standby power adjustment accounts for electricity consumed when the unit is in off mode or standby mode (plugged in but compressor not running). The DOE formula weights active and standby power based on assumed annual hours in each mode.
+
+In practice, CEER is slightly lower than EER for the same unit because standby power adds to the denominator. For a unit with 800W active power and 2W standby, the CEER might be 0.1-0.3 points lower than the EER.
+
+<Callout type="info">
+**Standby power is small but adds up.** A window AC drawing 2 watts in standby for 6,000 hours per year (the hours it's not actively cooling) uses 12 kWh — about $2 per year. For larger units with digital controls and WiFi, standby draw can reach 5-10W, adding $5-$10 annually. CEER captures this cost that EER missed.
+</Callout>
+
+## CEER Requirements by Capacity
+
+Federal minimum CEER varies by the unit's cooling capacity. Smaller units must meet higher CEER minimums because their compressors are proportionally less efficient:
+
+<ComparisonTable
+  headers={["Capacity Range (BTU/h)", "Federal Min CEER", "ENERGY STAR CEER", "Louvered Sides or Not"]}
+  rows={[
+    ["5,000-5,999", "11.0", "12.1", "Without louvered sides"],
+    ["6,000-7,999", "11.0", "12.1", "Without louvered sides"],
+    ["8,000-10,999", "10.5", "12.1", "Without louvered sides"],
+    ["11,000-13,999", "9.9", "11.3", "Without louvered sides"],
+    ["14,000-19,999", "9.5", "10.8", "Without louvered sides"],
+    ["20,000-24,999", "9.0", "10.0", "Without louvered sides"],
+    ["25,000+", "8.5", "9.8", "Without louvered sides"],
+  ]}
+/>
+
+<Callout type="tip">
+**Window ACs with louvered sides have slightly different minimums** because the louvered design allows more outdoor air to cool the condenser. Check the specific category for your unit type on the ENERGY STAR product finder.
+</Callout>
+
+## What's a Good CEER for a Window AC?
+
+<ComparisonTable
+  headers={["CEER Range", "Rating", "What to Expect", "Annual Cost (8K BTU, 1,000 hrs, $0.16/kWh)"]}
+  rows={[
+    ["Below 10", "Below Average", "Meets minimum for larger units only", "$128+"],
+    ["10-11", "Average", "Meets federal minimum for most sizes", "$116-$128"],
+    ["11-12", "Good", "Above average, approaching ENERGY STAR", "$107-$116"],
+    ["12-13", "Very Good (ENERGY STAR)", "Meets ENERGY STAR for most sizes", "$98-$107"],
+    ["13-14", "Excellent", "Top performers, usually inverter models", "$91-$98"],
+    ["14+", "Premium", "Best available, rare in window units", "Below $91"],
+  ]}
+/>
+
+## CEER vs EER: What Changed
+
+<ComparisonTable
+  headers={["Feature", "EER (Old)", "CEER (Current)"]}
+  rows={[
+    ["Effective", "Before 2014 for room ACs", "2014 onwards for room ACs"],
+    ["Standby Power", "Not included", "Included in calculation"],
+    ["Typical Difference", "Baseline", "0.1-0.3 points lower than EER"],
+    ["What It Captures", "Active cooling only", "Active cooling + standby draw"],
+    ["Used For", "Central ACs (now EER2)", "Window and portable ACs only"],
+  ]}
+/>
+
+The difference between EER and CEER is small for most units (0.1-0.3 points) because standby power is typically only 1-10W compared to 500-1,500W of active cooling power. But across millions of installed window ACs, the standby draw adds up to significant national energy consumption.
+
+## Top Window ACs by CEER (2026)
+
+<ComparisonTable
+  headers={["Model", "BTU", "CEER", "Noise (dB)", "Features", "Price Range"]}
+  rows={[
+    ["Midea U-Shaped 8K", "8,000", "15.0", "42 dB", "Inverter, WiFi, ultra-quiet", "$300-$370"],
+    ["Midea U-Shaped 12K", "12,000", "14.5", "44 dB", "Inverter, WiFi, ultra-quiet", "$370-$450"],
+    ["LG LW8023IVSM", "8,000", "14.7", "44 dB", "Inverter, WiFi, dual inverter", "$350-$420"],
+    ["LG LW1022IVSM", "10,000", "14.0", "44 dB", "Inverter, WiFi", "$400-$500"],
+    ["Frigidaire Gallery GHWQ083WC1", "8,000", "13.0", "45 dB", "Inverter, WiFi", "$330-$400"],
+    ["GE Profile PHC08LY", "8,000", "12.5", "42 dB", "Inverter, WiFi, ultra-quiet", "$350-$420"],
+    ["Friedrich Chill Premier CCF08A10A", "8,000", "12.1", "50 dB", "Standard, WiFi", "$280-$350"],
+  ]}
+/>
+
+<Callout type="info">
+**Inverter window ACs dominate the high-CEER charts** because they modulate compressor speed based on demand, similar to how variable-speed central ACs achieve high SEER2. The Midea U-Shaped inverter series consistently leads in both CEER and noise performance.
+</Callout>
+
+## Calculating Window AC Operating Costs
+
+**Annual Cost = (BTU/h / CEER) x Annual Cooling Hours x ($/kWh / 1,000)**
+
+<Callout type="example">
+**Example:** An 8,000 BTU window AC with 12.1 CEER running 1,000 hours at $0.16/kWh.
+
+Power draw = 8,000 / 12.1 = 661 watts
+
+Annual kWh = 661 x 1,000 / 1,000 = 661 kWh
+
+Annual cost = 661 x $0.16 = **$106**
+
+The same unit at 10.0 CEER: 800W, 800 kWh, **$128/year**. The higher CEER saves $22/year.
+</Callout>
+
+## Window AC vs Central AC Efficiency
+
+It's tempting to compare window AC CEER to central AC SEER2, but they measure different things:
+
+<ComparisonTable
+  headers={["Metric", "Window AC CEER 12", "Central AC SEER2 16", "Notes"]}
+  rows={[
+    ["What It Measures", "Full-load + standby", "Seasonal average (part + full load)", "Different test methods"],
+    ["COP Equivalent", "3.52 (at full load)", "4.69 (seasonal average)", "Not directly comparable"],
+    ["Includes Duct Losses", "N/A (no ducts)", "No (measured at unit)", "Central AC loses 20-30% in ducts"],
+    ["Real Delivered COP", "~3.5", "~3.3-3.8 (after duct losses)", "Closer than ratings suggest"],
+  ]}
+/>
+
+After accounting for duct losses, a 12 CEER window unit and a 16 SEER2 central system deliver similar actual efficiency to the rooms they serve. The central system's advantage is whole-home coverage and better comfort control.
+
+## Portable AC CEER Considerations
+
+Portable air conditioners also carry CEER ratings, but their real-world efficiency is significantly lower than window units for two reasons:
+
+Single-hose portable ACs create negative pressure that pulls warm outdoor air into the room through gaps around doors and windows. This "infiltration load" isn't captured by CEER testing. Dual-hose models partially solve this problem but are less common.
+
+The exhaust hose itself radiates heat back into the room. A 4-5 inch exhaust hose running at 120-140 degrees F through a room adds a measurable heat load.
+
+A portable AC rated at 10 CEER may deliver effective cooling equivalent to only 6-7 CEER once infiltration and hose losses are factored in.
+
+<Callout type="warning">
+**If you have the option, choose a window AC over a portable AC.** Window units are consistently 30-50% more efficient in real-world use due to the inherent design advantages of sealing against the window frame and rejecting heat directly outdoors.
+</Callout>
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **CEER = cooling BTU/h divided by (active watts + standby watts).** It replaced EER for window/portable ACs in 2014.
+- **Good CEER for most window ACs: 12.0+** (ENERGY STAR level). Premium inverter models reach 14-15.
+- **CEER is typically 0.1-0.3 points lower than EER** for the same unit due to standby power inclusion.
+- **Federal minimums range from 8.5 to 11.0 CEER** depending on unit capacity (smaller units have higher minimums).
+- **Inverter window ACs (Midea U-Shaped, LG Dual Inverter) lead in CEER** and noise performance.
+- **Don't compare CEER to SEER2 directly** — they measure different things under different conditions.
+- **Portable ACs have misleadingly high CEER** — real-world efficiency is 30-50% lower due to hose and infiltration losses.
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What does CEER stand for?",
+    answer: "CEER stands for Combined Energy Efficiency Ratio. It measures the cooling efficiency of window and portable air conditioners, including both active cooling power draw and standby power consumption. It replaced the standard EER for room ACs in 2014."
+  },
+  {
+    question: "What is a good CEER for a window air conditioner?",
+    answer: "A good CEER for a window AC is 12.0 or higher, which meets ENERGY STAR certification for most capacity sizes. Premium inverter models achieve 13-15 CEER. The federal minimum ranges from 8.5 to 11.0 depending on the unit's BTU capacity."
+  },
+  {
+    question: "Is CEER the same as EER?",
+    answer: "CEER is similar to EER but also includes standby power consumption in the calculation. CEER values are typically 0.1-0.3 points lower than EER for the same unit. CEER is used for window and portable ACs, while EER2 is used for central air conditioners."
+  },
+  {
+    question: "How much does CEER affect my electricity bill?",
+    answer: "For a typical 8,000 BTU window AC running 1,000 hours per year at $0.16/kWh, the difference between 10 CEER and 12 CEER is about $22 per year. Over a 10-year unit lifespan, that's $220. The difference between 10 and 15 CEER is about $43/year or $430 over 10 years."
+  },
+  {
+    question: "Why are inverter window ACs so much more efficient?",
+    answer: "Inverter window ACs use variable-speed compressors that modulate output based on demand, similar to how central variable-speed systems achieve high SEER2. Instead of cycling the compressor fully on and off, they run at reduced speed to maintain temperature, which is significantly more efficient and also much quieter."
+  },
+  {
+    question: "Should I choose a window AC or portable AC?",
+    answer: "Choose a window AC whenever possible. Window units are 30-50% more efficient in real-world use because they seal against the window frame and reject heat directly outdoors. Portable ACs suffer from infiltration losses (single-hose models) and exhaust hose heat radiation that their CEER ratings don't capture. Portable ACs are only the better choice when window installation isn't possible."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Room Air Conditioners", url: "https://www.energy.gov/energysaver/room-air-conditioners" },
+  { label: "ENERGY STAR - Room Air Conditioner Specifications", url: "https://www.energystar.gov/products/heating_cooling/air_conditioning_room" },
+  { label: "AHAM - Room Air Conditioner Standards", url: "https://www.aham.org" },
+  { label: "10 CFR 430 - Energy Conservation Standards for Room ACs", url: "https://www.ecfr.gov" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "eer-rating-explained", title: "What Is EER Rating?" },
+  { slug: "eer2-rating-explained", title: "Understanding EER2" },
+  { slug: "hvac-efficiency-ratings-compared", title: "All HVAC Efficiency Ratings Compared" }
+]} />

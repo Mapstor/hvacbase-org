@@ -1,0 +1,167 @@
+---
+slug: "hspf-rating-explained"
+title: "HSPF Rating: What Is a Good HSPF for Heat Pumps?"
+description: "HSPF (Heating Seasonal Performance Factor) measures heat pump heating efficiency over a full winter season. Learn what HSPF means, good vs excellent ranges, how it compares to HSPF2, and how to use HSPF when evaluating heat pumps."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P2"
+contentType: "explainer"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "hspf2-rating-explained"
+    title: "Understanding HSPF2: Heat Pump Heating Efficiency"
+  - slug: "coefficient-of-performance"
+    title: "COP Explained"
+  - slug: "hvac-efficiency-ratings-compared"
+    title: "All HVAC Efficiency Ratings Compared"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/heat-pump-systems"
+    label: "U.S. DOE - Heat Pump Systems"
+  - url: "https://www.energystar.gov/products/heating_cooling/heat_pumps_air_source"
+    label: "ENERGY STAR - Air Source Heat Pumps"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# HSPF Rating: What Is a Good HSPF for Heat Pumps?
+
+**A good HSPF rating for a heat pump is 9.5 or higher under the old standard (approximately 8.1+ HSPF2 under the new standard), which translates to a seasonal heating COP of about 2.8.** The federal minimum was 8.2 HSPF before the 2023 transition to HSPF2. Premium cold-climate heat pumps reached 12-13 HSPF, delivering nearly four times more heat than the electricity they consumed over a full winter season.
+
+HSPF was replaced by HSPF2 on January 1, 2023, but millions of existing heat pumps still carry HSPF ratings. This guide explains what HSPF means, where your unit falls on the efficiency scale, and how to compare HSPF to the new HSPF2 standard.
+
+<TableOfContents />
+
+## What HSPF Measures
+
+HSPF stands for Heating Seasonal Performance Factor. It calculates how many BTU of heat a heat pump delivers per watt-hour of electricity consumed over a standardized heating season.
+
+**HSPF = Total Heating Output (BTU) / Total Electrical Input (Wh)**
+
+An HSPF of 10 means the heat pump delivers 10 BTU of heat for every watt-hour of electricity. Dividing by 3.412 converts to COP: 10 HSPF = COP 2.93, meaning 293% heating efficiency.
+
+The test uses DOE Climate Region IV (moderate climate) and includes defrost cycle energy use and supplemental electric heat strip activation during the coldest temperature bins.
+
+## HSPF Rating Scale
+
+<ComparisonTable
+  headers={["HSPF Range", "Rating", "Seasonal COP", "Technology", "Approx HSPF2 Equivalent"]}
+  rows={[
+    ["8.0-8.5", "Minimum / Entry Level", "2.3-2.5", "Single-stage compressor", "6.8-7.2"],
+    ["8.5-9.5", "Average", "2.5-2.8", "Single or two-stage", "7.2-8.1"],
+    ["9.5-10.5", "Good", "2.8-3.1", "Two-stage or inverter", "8.1-8.9"],
+    ["10.5-12.0", "Very Good / Excellent", "3.1-3.5", "Variable-speed inverter", "8.9-10.2"],
+    ["12.0-14.0+", "Premium / Cold-Climate", "3.5-4.1+", "Advanced inverter with EVI", "10.2-11.9+"],
+  ]}
+/>
+
+## HSPF vs HSPF2
+
+HSPF2 replaced HSPF on January 1, 2023. The key difference is the M1 test procedure with higher static pressure (0.5 in. w.c. vs 0.1 in. w.c.).
+
+<ComparisonTable
+  headers={["Feature", "HSPF (Old)", "HSPF2 (New)"]}
+  rows={[
+    ["Test Pressure", "~0.1 in. w.c.", "~0.5 in. w.c."],
+    ["Federal Minimum (Split)", "8.2", "7.5"],
+    ["ENERGY STAR Threshold", "8.5+", "8.1+"],
+    ["Approximate Conversion", "Baseline", "HSPF2 = HSPF x 0.85 (rough)"],
+    ["Numbers Are...", "Higher (optimistic)", "Lower (more realistic)"],
+  ]}
+/>
+
+The conversion is less precise than SEER/SEER2 because heating tests involve defrost and strip heat that interact differently with static pressure changes.
+
+## How HSPF Affects Your Heating Bill
+
+**Annual Heating Cost = (Heating Load BTU) / HSPF x ($/kWh / 1,000)**
+
+<Callout type="example">
+**Example:** A 3-ton heat pump heating a home in Nashville (4,000 HDD climate) at $0.14/kWh.
+
+At HSPF 8.5: Annual cost = approximately **$1,130**
+
+At HSPF 10.5: Annual cost = approximately **$915**
+
+At HSPF 12.5: Annual cost = approximately **$770**
+
+Upgrading from 8.5 to 12.5 HSPF saves about $360/year, or $5,400 over 15 years.
+</Callout>
+
+## HSPF by Equipment Type
+
+<ComparisonTable
+  headers={["Equipment", "Typical HSPF Range", "Best Use Case"]}
+  rows={[
+    ["Standard ducted heat pump", "8.2-10", "Whole-home heating in mild/moderate climates"],
+    ["Premium ducted heat pump", "10-12", "Whole-home heating in cold climates"],
+    ["Single-zone mini-split", "10-14", "Zone heating, additions, or whole-home with multiple heads"],
+    ["Multi-zone mini-split", "9-12", "Multi-room zoned heating"],
+    ["Cold-climate heat pump (ccASHP)", "10-13", "Primary heating in climates with sub-zero temps"],
+    ["Geothermal heat pump", "N/A (uses COP)", "Most efficient option, uses ground heat source"],
+  ]}
+/>
+
+Mini-splits consistently achieve the highest HSPF ratings because they eliminate duct losses and use highly optimized inverter compressors.
+
+## When HSPF Matters Most
+
+HSPF is most important in heating-dominated climates. If you live in a region where annual heating hours exceed cooling hours, HSPF (or HSPF2) is the more important efficiency number compared to SEER.
+
+In Atlanta (2,800 HDD), heating and cooling costs are roughly balanced. In Minneapolis (7,900 HDD), heating costs dwarf cooling costs by 3-4x. For a Minneapolis heat pump owner, the difference between 8.5 and 12.5 HSPF can be $600-$800 per year.
+
+In cooling-dominated climates like Miami or Phoenix, HSPF matters less because the heat pump rarely runs in heating mode. Focus on SEER2 instead.
+
+## Limitations of HSPF
+
+HSPF has the same limitations as any seasonal metric. It's tested in DOE Region IV (moderate climate), so homes in very cold regions will see lower real-world efficiency. It includes an allowance for strip heat usage, but your actual strip usage may differ. It doesn't account for duct losses. And it's a composite number that masks the wide variation in efficiency between mild weather (very high COP) and bitter cold (low COP).
+
+For a more nuanced picture of cold-weather performance, look for the manufacturer's published COP at 17 degrees F and 5 degrees F, or check if the unit meets the NEEP Cold Climate specification.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **Good HSPF is 9.5+ (old standard)** or 8.1+ HSPF2 (new standard). Excellent is 12+ HSPF / 10+ HSPF2.
+- **HSPF = BTU of heat per watt-hour of electricity** over a full heating season. Divide by 3.412 for COP.
+- **HSPF was replaced by HSPF2 in January 2023.** HSPF2 is roughly HSPF x 0.85.
+- **Mini-splits achieve the highest HSPF** (10-14) by eliminating duct losses.
+- **In heating-dominated climates, HSPF matters more than SEER** for your energy bill.
+- **Each HSPF point saves roughly $50-$100/year** depending on climate severity and electricity rate.
+- **The federal minimum was 8.2 HSPF** (now 7.5 HSPF2). ENERGY STAR requires 8.5+ HSPF / 8.1+ HSPF2.
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What is a good HSPF rating?",
+    answer: "Under the old standard, a good HSPF is 9.5 or higher (COP 2.8+). Excellent is 12+ HSPF (COP 3.5+). Under the new HSPF2 standard, good is 8.1+ and excellent is 10+. These translate to the same real-world efficiency — only the measurement method changed."
+  },
+  {
+    question: "Is HSPF still used?",
+    answer: "HSPF was replaced by HSPF2 on January 1, 2023 for newly manufactured equipment. Existing heat pumps still carry HSPF ratings. When comparing old and new units, convert using HSPF2 = HSPF x 0.85 approximately."
+  },
+  {
+    question: "What HSPF do I need for the tax credit?",
+    answer: "Under the current 25C tax credit, the requirement is stated in HSPF2: 9.0 HSPF2 minimum, which is approximately 10.6 HSPF under the old standard. The credit is up to $2,000 for qualifying heat pumps."
+  },
+  {
+    question: "Is HSPF or SEER more important?",
+    answer: "It depends on your climate. In heating-dominated regions (northern US with 5,000+ HDD), HSPF has a bigger impact on your annual energy bill. In cooling-dominated regions (southern US), SEER matters more. In mixed climates, both contribute significantly."
+  },
+  {
+    question: "How do I convert HSPF to COP?",
+    answer: "Divide HSPF by 3.412. For example, 10 HSPF / 3.412 = COP 2.93, meaning the heat pump delivers about 293% more heat energy than the electricity it consumes over the heating season."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Heat Pump Systems", url: "https://www.energy.gov/energysaver/heat-pump-systems" },
+  { label: "ENERGY STAR - Air Source Heat Pumps", url: "https://www.energystar.gov/products/heating_cooling/heat_pumps_air_source" },
+  { label: "AHRI - Certification Directory", url: "https://www.ahrinet.org" },
+  { label: "NEEP - Cold Climate Heat Pump Specification", url: "https://neep.org" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "hspf2-rating-explained", title: "Understanding HSPF2" },
+  { slug: "coefficient-of-performance", title: "COP Explained" },
+  { slug: "hvac-efficiency-ratings-compared", title: "All HVAC Ratings Compared" }
+]} />

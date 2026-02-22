@@ -1,0 +1,323 @@
+---
+slug: "battery-watt-hours"
+title: "How to Calculate Watt-Hours of a Battery (Easy 2-Step Formula)"
+description: "Learn how to calculate watt-hours (Wh) of any battery with a simple 2-step formula. Includes a free calculator, conversion charts for AA, lithium-ion, car batteries, and real-world runtime examples."
+cluster: "batteries-solar"
+role: "spoke"
+priority: 2
+contentType: "calculator-guide"
+datePublished: "2026-02-07"
+dateModified: "2026-02-07"
+relatedArticles:
+  - "how-many-watts-in-12v-battery"
+  - "solar-panel-calculator"
+  - "home-battery-backup-guide"
+  - "solar-panel-cost-by-state"
+externalLinks:
+  - url: "https://www.energy.gov/eere/articles/batteries-101"
+    label: "DOE: Batteries 101"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# How to Calculate Watt-Hours of a Battery (Easy 2-Step Formula)
+
+To calculate the watt-hours (Wh) of any battery, multiply its **voltage (V) by its amp-hour capacity (Ah)**. That's it: **Wh = V × Ah**. A 12V battery rated at 100Ah stores 1,200 watt-hours of energy, meaning it can theoretically power a 100-watt device for 12 hours.
+
+This formula works for every battery type — from a tiny AA cell to a Tesla Powerwall. Below, we'll walk through the calculation step by step, then apply it to dozens of real-world battery types with a handy reference chart.
+
+<TableOfContents />
+
+## Watt-Hours Calculator
+
+<CalcWrapper type="battery-watt-hours" />
+
+## The Formula: Watt-Hours = Volts × Amp-Hours
+
+This is the fundamental energy equation for batteries:
+
+**Wh = V × Ah**
+
+Where:
+- **Wh (watt-hours)** = total energy stored in the battery
+- **V (volts)** = the battery's nominal voltage
+- **Ah (amp-hours)** = the battery's capacity rating
+
+Both values are printed on virtually every battery or listed in its spec sheet. Let's use them.
+
+### Step 1: Find the Voltage (V)
+
+Every battery has a nominal voltage determined by its chemistry:
+
+| Battery Chemistry | Nominal Voltage per Cell | Common Configurations |
+|---|---|---|
+| Alkaline (AA, AAA, C, D) | 1.5V | Single cell |
+| NiMH rechargeable | 1.2V | Single cell |
+| Lithium primary (CR123A) | 3.0V | Single cell |
+| Lithium-ion (18650, phone) | 3.6–3.7V | 1S, 2S, 3S packs |
+| LiFePO4 (lithium iron phosphate) | 3.2V | 4S = 12.8V, 8S = 25.6V |
+| Lead-acid (car, deep cycle) | 2.0V per cell | 6 cells = 12V |
+| Lithium polymer (LiPo) | 3.7V per cell | 1S–6S packs |
+
+<Callout type="info">
+**"Nominal" voltage** is the average voltage during discharge — not the peak voltage when fully charged. A "12V" lead-acid battery is actually 12.6–12.8V when full and 11.8–12.0V when discharged. For watt-hour calculations, always use the nominal voltage.
+</Callout>
+
+### Step 2: Find the Amp-Hour (Ah) Rating
+
+The amp-hour rating tells you how much current the battery can deliver over time. A 100Ah battery can theoretically deliver 1 amp for 100 hours, 10 amps for 10 hours, or 100 amps for 1 hour.
+
+For small batteries, capacity is often listed in **milliamp-hours (mAh)**. To convert:
+
+**Ah = mAh ÷ 1,000**
+
+So a phone battery rated at 4,500 mAh = 4.5 Ah.
+
+### Putting It Together
+
+**Example 1: Car battery**
+- Voltage: 12V
+- Capacity: 60Ah
+- Watt-hours: 12 × 60 = **720 Wh**
+
+**Example 2: Smartphone battery**
+- Voltage: 3.85V
+- Capacity: 4,500 mAh (4.5Ah)
+- Watt-hours: 3.85 × 4.5 = **17.3 Wh**
+
+**Example 3: Tesla Powerwall 3**
+- Voltage: 51.2V (nominal)
+- Capacity: 264Ah
+- Watt-hours: 51.2 × 264 = **13,517 Wh (13.5 kWh)**
+
+**Example 4: AA alkaline battery**
+- Voltage: 1.5V
+- Capacity: ~2,500 mAh (2.5Ah)
+- Watt-hours: 1.5 × 2.5 = **3.75 Wh**
+
+## Watt-Hours for Common Battery Types
+
+### Household Batteries
+
+| Battery Type | Voltage | Capacity (mAh) | Watt-Hours (Wh) |
+|---|---|---|---|
+| AAA alkaline | 1.5V | 1,200 | 1.8 |
+| AA alkaline | 1.5V | 2,500 | 3.75 |
+| C alkaline | 1.5V | 8,000 | 12.0 |
+| D alkaline | 1.5V | 12,000 | 18.0 |
+| 9V alkaline | 9V | 565 | 5.1 |
+| AAA NiMH rechargeable | 1.2V | 800–1,000 | 1.0–1.2 |
+| AA NiMH rechargeable | 1.2V | 1,900–2,800 | 2.3–3.4 |
+| CR2032 coin cell | 3.0V | 220 | 0.66 |
+| CR123A lithium | 3.0V | 1,500 | 4.5 |
+
+### Electronics Batteries
+
+| Device | Battery Voltage | Capacity | Watt-Hours |
+|---|---|---|---|
+| Smartphone (typical 2026) | 3.85V | 4,500–5,500 mAh | 17–21 Wh |
+| Tablet (iPad-class) | 3.8V | 8,000–11,000 mAh | 30–42 Wh |
+| Laptop (standard) | 11.4V | 3,500–5,500 mAh | 40–63 Wh |
+| Laptop (high-capacity) | 11.6V | 6,000–8,500 mAh | 70–99 Wh |
+| Portable power bank (small) | 3.7V | 10,000 mAh | 37 Wh |
+| Portable power bank (large) | 3.7V | 26,800 mAh | 99 Wh |
+| Power station (Jackery 1000) | — | — | 1,002 Wh |
+| Power station (EcoFlow Delta 2 Max) | — | — | 2,048 Wh |
+
+<Callout type="warning">
+**Power bank "mAh" ratings are misleading.** A "20,000 mAh" power bank has 20,000 mAh at its internal battery voltage of 3.7V (= 74 Wh). When it charges your phone at 5V, the effective capacity is only about 14,000–15,000 mAh due to voltage conversion losses. Always look at the Wh rating, not mAh, to compare power banks accurately.
+</Callout>
+
+### Vehicle and Deep-Cycle Batteries
+
+| Battery Type | Voltage | Capacity (Ah) | Watt-Hours |
+|---|---|---|---|
+| Car starter (standard) | 12V | 45–65 Ah | 540–780 Wh |
+| Car starter (large truck/SUV) | 12V | 75–100 Ah | 900–1,200 Wh |
+| Marine deep cycle | 12V | 100–150 Ah | 1,200–1,800 Wh |
+| Golf cart (6V) | 6V | 200–230 Ah | 1,200–1,380 Wh |
+| RV lithium (LiFePO4) | 12.8V | 100–200 Ah | 1,280–2,560 Wh |
+| Motorcycle | 12V | 8–14 Ah | 96–168 Wh |
+| E-bike battery | 36–48V | 10–20 Ah | 360–960 Wh |
+| Electric scooter | 36–52V | 10–30 Ah | 360–1,560 Wh |
+| Tesla Model 3 (Standard) | 355V | — | 60,000 Wh (60 kWh) |
+| Tesla Model 3 (Long Range) | 355V | — | 82,000 Wh (82 kWh) |
+
+### Home Energy Storage
+
+| Battery | Voltage | Capacity | Watt-Hours |
+|---|---|---|---|
+| Tesla Powerwall 3 | 51.2V | 264 Ah | 13,500 Wh (13.5 kWh) |
+| Enphase IQ 5P | 48V | 104 Ah | 5,000 Wh (5.0 kWh) |
+| Franklin WH aPower | 51.2V | 266 Ah | 13,600 Wh (13.6 kWh) |
+| Generac PWRcell (max) | 48V | 375 Ah | 18,000 Wh (18 kWh) |
+| BYD HVM (max config) | 51.2V | 432 Ah | 22,100 Wh (22.1 kWh) |
+
+## How Watt-Hours Translate to Runtime
+
+Knowing a battery's watt-hours lets you estimate how long it can power a specific device:
+
+**Runtime (hours) = Battery Wh ÷ Device Watts**
+
+| Battery | Device | Power Draw | Estimated Runtime |
+|---|---|---|---|
+| AA alkaline (3.75 Wh) | LED flashlight | 1W | 3.75 hours |
+| Phone (19 Wh) | Active phone use | 4W | 4.75 hours |
+| Laptop (56 Wh) | Web browsing | 15W | 3.7 hours |
+| Power bank (74 Wh) | Phone charging | 10W | 7.4 charges approx |
+| 12V 100Ah deep cycle (1,200 Wh) | LED lighting | 50W | 24 hours |
+| 12V 100Ah deep cycle (1,200 Wh) | Mini fridge | 60W | 20 hours |
+| Tesla Powerwall (13,500 Wh) | Entire home essentials | 750W | 18 hours |
+| Tesla Powerwall (13,500 Wh) | Home with AC running | 3,000W | 4.5 hours |
+
+<Callout type="tip">
+**Real-world runtime is 70–85% of the theoretical calculation** due to inverter losses, voltage sag under load, temperature effects, and the fact that lead-acid batteries should only be discharged to 50% depth (lithium-ion to 80–100%). For lead-acid, multiply your result by 0.5. For lithium-ion, multiply by 0.85.
+</Callout>
+
+## Usable vs. Total Watt-Hours
+
+Not all the watt-hours in a battery are usable. The depth of discharge (DoD) determines how much energy you can actually extract:
+
+| Battery Type | Recommended Max DoD | Usable Wh (from 1,200 Wh total) |
+|---|---|---|
+| Flooded lead-acid | 50% | 600 Wh |
+| AGM lead-acid | 50–60% | 600–720 Wh |
+| Gel lead-acid | 50–60% | 600–720 Wh |
+| Lithium-ion (NMC) | 80–90% | 960–1,080 Wh |
+| LiFePO4 | 80–100% | 960–1,200 Wh |
+| Home batteries (Powerwall etc.) | 95–100% | 1,140–1,200 Wh |
+
+This is why a 100Ah lead-acid battery and a 50Ah LiFePO4 battery provide similar usable energy — the lead-acid can only safely use half its capacity.
+
+## Watt-Hours vs. Other Energy Units
+
+| Unit | Relationship to Wh | Example |
+|---|---|---|
+| 1 Wh | = 1 Wh | AA battery ≈ 3.75 Wh |
+| 1 kWh | = 1,000 Wh | Monthly electric bill unit |
+| 1 MWh | = 1,000,000 Wh | Grid-scale storage |
+| 1 Wh | = 3,600 joules (J) | Physics unit of energy |
+| 1 Wh | = 3.412 BTU | HVAC energy unit |
+| 1 kWh | = 3,412 BTU | HVAC/utility conversion |
+
+### Converting mAh to Wh
+
+This is the most common conversion people need:
+
+**Wh = mAh × V ÷ 1,000**
+
+Quick reference for common voltages:
+
+| mAh | At 1.5V (AA) | At 3.7V (Li-ion) | At 5V (USB) | At 12V (Car) |
+|---|---|---|---|---|
+| 1,000 mAh | 1.5 Wh | 3.7 Wh | 5.0 Wh | 12.0 Wh |
+| 2,000 mAh | 3.0 Wh | 7.4 Wh | 10.0 Wh | 24.0 Wh |
+| 5,000 mAh | 7.5 Wh | 18.5 Wh | 25.0 Wh | 60.0 Wh |
+| 10,000 mAh | 15.0 Wh | 37.0 Wh | 50.0 Wh | 120.0 Wh |
+| 20,000 mAh | 30.0 Wh | 74.0 Wh | 100.0 Wh | 240.0 Wh |
+| 50,000 mAh | 75.0 Wh | 185.0 Wh | 250.0 Wh | 600.0 Wh |
+
+## Real-World Application Examples
+
+### Example 1: Sizing a Battery for a Camping Trip
+
+You're bringing LED lights (5W), a phone charger (10W), and a portable fan (15W) on a 3-day camping trip. You use each device about 5 hours per day.
+
+- Daily energy need: (5 + 10 + 15) × 5 = 150 Wh/day
+- 3-day total: 450 Wh
+- With 85% efficiency factor: 450 ÷ 0.85 = 529 Wh
+- **You need a ~530+ Wh power station or a 12V 50Ah LiFePO4 battery (640 Wh)**
+
+### Example 2: How Many AA Batteries Equal a Power Bank?
+
+A typical 10,000 mAh power bank at 3.7V = 37 Wh. Each AA alkaline battery provides 3.75 Wh. So you'd need 37 ÷ 3.75 = **10 AA batteries** to match one small power bank. Except you'd also need a voltage converter, making the power bank far more practical.
+
+### Example 3: Will a 12V 100Ah Battery Run My Sump Pump?
+
+A 1/3 HP sump pump draws about 800 watts while running and cycles on/off. Assuming it runs 10 minutes per hour during a storm:
+
+- Per-hour consumption: 800W × (10/60) = 133 Wh
+- A 12V 100Ah LiFePO4 battery: 1,200 Wh usable
+- Runtime: 1,200 ÷ 133 = **~9 hours of storm protection**
+
+You'll also need a pure sine wave inverter rated for the pump's 1,500–2,400W startup surge.
+
+### Example 4: Laptop Runtime on a Portable Battery
+
+Your laptop draws 45W on average. You have a power bank rated at 99 Wh (the FAA carry-on limit).
+
+- Theoretical runtime: 99 ÷ 45 = 2.2 hours
+- With 85% inverter/conversion efficiency: 2.2 × 0.85 = **~1.9 hours**
+
+For a full workday of backup, you'd need about 360–400 Wh of portable battery capacity.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **Watt-hours formula: Wh = Volts × Amp-hours** — this works for every battery from AA to home storage
+- **mAh to Wh: multiply mAh × V ÷ 1,000**
+- **A typical AA battery stores 3.75 Wh**, a phone battery 17–21 Wh, a car battery 540–780 Wh
+- **Usable watt-hours are less than total** — lead-acid gives you 50%, lithium-ion 80–100%
+- **Runtime = Battery Wh ÷ Device Watts**, then multiply by 0.85 for real-world efficiency
+- **Always compare batteries using Wh**, not mAh — mAh is meaningless without knowing voltage
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ questions={[
+  {
+    question: "How do you calculate watt-hours of a battery?",
+    answer: "Multiply the battery's voltage (V) by its amp-hour capacity (Ah): Wh = V × Ah. For a 12V 100Ah battery: 12 × 100 = 1,200 Wh. If your battery is rated in milliamp-hours (mAh), divide by 1,000 first: a 5,000 mAh battery at 3.7V = 3.7 × 5 = 18.5 Wh."
+  },
+  {
+    question: "How many watt-hours are in a AA battery?",
+    answer: "A standard AA alkaline battery stores approximately 3.75 watt-hours (1.5V × 2,500 mAh). A rechargeable NiMH AA battery stores about 2.4–3.4 Wh (1.2V × 2,000–2,800 mAh). Lithium AA batteries store about 4.5 Wh due to higher mAh capacity."
+  },
+  {
+    question: "What is the difference between watt-hours and amp-hours?",
+    answer: "Amp-hours (Ah) measure charge capacity — how much current a battery can deliver over time. Watt-hours (Wh) measure energy capacity — the actual usable energy. Wh accounts for voltage, making it the correct unit for comparing batteries of different voltages. A 12V 100Ah battery (1,200 Wh) stores 10× more energy than a 12V 10Ah battery (120 Wh), and 3.24× more than a 3.7V 100Ah battery (370 Wh)."
+  },
+  {
+    question: "How do I convert mAh to watt-hours?",
+    answer: "Use the formula: Wh = mAh × V ÷ 1,000. For a 10,000 mAh power bank at 3.7V: 10,000 × 3.7 ÷ 1,000 = 37 Wh. The voltage is critical — the same 10,000 mAh rating means very different amounts of energy at different voltages."
+  },
+  {
+    question: "How many watt-hours do I need for camping?",
+    answer: "A typical camping setup (LED lights, phone charging, small fan) uses 100–200 Wh per day. For a weekend trip, a 300–500 Wh power station handles most needs. If you're running a portable fridge (30–50W), add 400–600 Wh per day. A 1,000 Wh portable power station covers most camping scenarios for 2–3 days."
+  },
+  {
+    question: "Why is my power bank's real capacity less than advertised?",
+    answer: "Power banks are rated at their internal battery voltage (3.7V), but they output at 5V (USB). The voltage conversion loses 15–25% of the energy. A '20,000 mAh' power bank at 3.7V = 74 Wh, but at 5V output it's effectively ~14,800 mAh (59 Wh usable). Always compare power banks using watt-hours (Wh), which accounts for this."
+  },
+  {
+    question: "How many watt-hours does a car battery have?",
+    answer: "A standard car starter battery has 540–780 Wh (12V × 45–65Ah). A large truck or SUV battery has 900–1,200 Wh (12V × 75–100Ah). However, car starter batteries aren't designed for deep discharge — using more than 20–30% of their capacity damages them. For sustained power delivery, use a deep-cycle battery instead."
+  },
+  {
+    question: "How long will a 100Ah battery run a 1,000-watt device?",
+    answer: "At 12V, a 100Ah battery stores 1,200 Wh. Theoretical runtime: 1,200 ÷ 1,000 = 1.2 hours. With real-world losses (inverter efficiency, voltage sag): about 1 hour for lithium-ion, or about 0.6 hours (36 minutes) for lead-acid (limited to 50% depth of discharge). You'd also need an inverter rated for at least 1,000W continuous."
+  },
+  {
+    question: "Is watt-hours the same as watts?",
+    answer: "No. Watts (W) measure power — the rate of energy use at any instant. Watt-hours (Wh) measure energy — the total amount over time. A 100W light bulb uses 100W of power. Running it for 10 hours uses 1,000 Wh (1 kWh) of energy. Think of watts as speed and watt-hours as distance."
+  },
+  {
+    question: "How many watt-hours does a Tesla Powerwall store?",
+    answer: "The Tesla Powerwall 3 stores 13,500 Wh (13.5 kWh) of usable energy. It can discharge at up to 11,500 watts continuously. This is enough to power essential home circuits (fridge, lights, internet, phone charging) for 18–24 hours, or a home with central AC for about 4–6 hours."
+  }
+]} />
+
+<SourcesBox sources={[
+  { title: "DOE — Batteries 101", url: "https://www.energy.gov/eere/articles/batteries-101" },
+  { title: "Battery University — How to Measure State of Charge", url: "https://batteryuniversity.com/article/bu-903-how-to-measure-state-of-charge" },
+  { title: "NREL — Battery Storage Technology Basics", url: "https://www.nrel.gov/research/re-battery-storage.html" },
+  { title: "IEEE — Lithium-Ion Battery Specifications", url: "https://standards.ieee.org/" },
+  { title: "FAA — Portable Electronic Devices (Battery Size Limits)", url: "https://www.faa.gov/hazmat/packsafe/lithium-batteries" }
+]} />
+
+<RelatedArticles articles={[
+  "how-many-watts-in-12v-battery",
+  "solar-panel-calculator",
+  "home-battery-backup-guide",
+  "solar-panel-cost-by-state"
+]} />

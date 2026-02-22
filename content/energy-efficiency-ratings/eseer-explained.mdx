@@ -1,0 +1,165 @@
+---
+slug: "eseer-explained"
+title: "ESEER Explained: European Seasonal Energy Efficiency Ratio"
+description: "ESEER (European Seasonal Energy Efficiency Ratio) measures cooling efficiency for commercial HVAC in Europe using four part-load conditions. Learn how ESEER compares to SEER, IEER, and when it applies."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P3"
+contentType: "explainer"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "ieer-explained"
+    title: "IEER Explained"
+  - slug: "hvac-efficiency-ratings-compared"
+    title: "All HVAC Efficiency Ratings Compared"
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2"
+externalLinks:
+  - url: "https://www.eurovent-certification.com"
+    label: "Eurovent - Certification Programs"
+  - url: "https://energy.ec.europa.eu/topics/energy-efficiency_en"
+    label: "European Commission - Energy Efficiency"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# ESEER Explained: European Seasonal Energy Efficiency Ratio
+
+**ESEER (European Seasonal Energy Efficiency Ratio) is Europe's metric for measuring the seasonal cooling efficiency of commercial HVAC equipment.** Like the U.S. IEER, it weights efficiency across multiple part-load conditions to reflect real-world operation. ESEER uses four test points at 25%, 50%, 75%, and 100% load, with outdoor temperatures of 25, 30, 35, and 35 degrees C respectively. A good ESEER for a commercial chiller is 4.0 or higher, with premium systems reaching 6.0+.
+
+If you're working on European building projects, specifying equipment from European manufacturers, or comparing international HVAC specifications, understanding ESEER helps you translate between U.S. and European efficiency standards.
+
+<TableOfContents />
+
+## The ESEER Formula
+
+**ESEER = (0.03 x EER at 100%) + (0.33 x EER at 75%) + (0.41 x EER at 50%) + (0.23 x EER at 25%)**
+
+The weightings differ from the U.S. IEER formula, reflecting European climate patterns:
+
+<ComparisonTable
+  headers={["Load Level", "ESEER Weight", "IEER Weight (U.S.)", "Outdoor Temp (ESEER)", "Outdoor Temp (IEER)"]}
+  rows={[
+    ["100%", "3%", "2%", "35C (95F)", "35C (95F)"],
+    ["75%", "33%", "61.7%", "30C (86F)", "27.5C (81.5F)"],
+    ["50%", "41%", "23.8%", "25C (77F)", "20C (68F)"],
+    ["25%", "23%", "12.5%", "19C (66F)", "18.3C (65F)"],
+  ]}
+/>
+
+<Callout type="info">
+**ESEER weights the 50% load condition most heavily (41%)**, reflecting Europe's milder cooling climate. IEER weights the 75% load condition most (61.7%), reflecting more aggressive U.S. cooling demand. Both metrics agree that full-load operation barely matters (2-3% weight).
+</Callout>
+
+## ESEER vs SEER vs IEER
+
+<ComparisonTable
+  headers={["Feature", "ESEER", "SEER/SEER2 (U.S.)", "IEER (U.S.)"]}
+  rows={[
+    ["Region", "Europe", "United States", "United States"],
+    ["Equipment", "Commercial (chillers, VRF, large AC)", "Residential AC and HP", "Commercial AC over 65K BTU/h"],
+    ["Load Points", "4 (25/50/75/100%)", "Seasonal bins (65-104F)", "4 (25/50/75/100%)"],
+    ["Units", "Dimensionless (kW/kW)", "BTU/Wh", "BTU/Wh"],
+    ["Typical Range", "3.0-7.0+", "13-26 SEER2", "12-30 IEER"],
+    ["Standard Body", "Eurovent", "AHRI / DOE", "AHRI / ASHRAE"],
+  ]}
+/>
+
+Because ESEER uses kW/kW (essentially COP), its values are much lower numerically than SEER or IEER which use BTU/Wh. An ESEER of 5.0 is excellent, while an IEER of 5.0 would be terrible. They're not directly comparable without conversion.
+
+## Converting ESEER to U.S. Metrics
+
+There's no direct conversion between ESEER and IEER because they use different load conditions, outdoor temperatures, and weighting. However, you can make rough comparisons:
+
+**ESEER to approximate seasonal COP:** ESEER is already expressed as a COP-like ratio (kW cooling / kW electrical). An ESEER of 4.5 means COP 4.5 at the weighted seasonal average.
+
+**Seasonal COP to approximate SEER:** SEER = Seasonal COP x 3.412. So ESEER 4.5 corresponds to roughly 15.4 SEER equivalent.
+
+**ESEER to approximate IEER:** Due to different weightings and conditions, the relationship is rough. IEER is typically 10-20% higher numerically than ESEER x 3.412 because of different outdoor temperature assumptions.
+
+## ESEER Rating Scale for Commercial Equipment
+
+<ComparisonTable
+  headers={["ESEER Range", "Rating", "Typical Equipment"]}
+  rows={[
+    ["Below 3.0", "Poor / Outdated", "Old fixed-speed chillers"],
+    ["3.0-4.0", "Standard", "Basic air-cooled chillers"],
+    ["4.0-5.0", "Good", "Modern air-cooled chillers, standard VRF"],
+    ["5.0-6.0", "Very Good", "Premium air-cooled chillers, efficient VRF"],
+    ["6.0-7.0", "Excellent", "Water-cooled chillers, top-tier VRF"],
+    ["7.0+", "Premium", "Optimized water-cooled centrifugal chillers"],
+  ]}
+/>
+
+## The EU Energy Labeling System
+
+In Europe, ESEER feeds into the EU Ecodesign regulations and Energy Labeling system. Commercial HVAC products are classified into energy efficiency classes based on their SEER (European SEER, different from U.S. SEER) and SCOP (Seasonal COP for heating):
+
+<ComparisonTable
+  headers={["EU Class", "SEER (European)", "SCOP (Heating)", "Description"]}
+  rows={[
+    ["A+++", "8.5+", "5.1+", "Highest efficiency"],
+    ["A++", "6.1-8.5", "4.6-5.1", "Very high efficiency"],
+    ["A+", "5.6-6.1", "4.0-4.6", "High efficiency"],
+    ["A", "5.1-5.6", "3.4-4.0", "Good efficiency"],
+    ["B", "4.6-5.1", "3.1-3.4", "Above average"],
+    ["C", "4.1-4.6", "2.8-3.1", "Average"],
+    ["D", "3.6-4.1", "2.5-2.8", "Below average"],
+  ]}
+/>
+
+<Callout type="warning">
+**European SEER is NOT the same as U.S. SEER.** European SEER is expressed as a COP-like ratio (kW/kW) and typically ranges from 3.0 to 8.5+. U.S. SEER uses BTU/Wh and ranges from 13 to 26+. To roughly convert European SEER to U.S. SEER: multiply by 3.412. European SEER of 5.0 = approximately 17 U.S. SEER.
+</Callout>
+
+## When You'll Encounter ESEER
+
+ESEER appears in several contexts. If you're specifying European-manufactured commercial equipment (Daikin Europe, Mitsubishi Electric Europe, Carrier EMEA, etc.), product datasheets will show ESEER alongside Eurovent certification data. International building projects with European energy codes reference ESEER for compliance. Green building certifications like BREEAM (UK/Europe) use ESEER-based thresholds. And comparison shopping across global manufacturers may require ESEER-to-IEER cross-referencing.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **ESEER is Europe's commercial cooling efficiency metric**, similar in concept to the U.S. IEER
+- **ESEER = weighted average of EER at 25%, 50%, 75%, and 100% load** with European climate weightings
+- **ESEER values are expressed as COP-like ratios (kW/kW)**, not BTU/Wh like U.S. metrics
+- **Good ESEER is 4.0+, excellent is 6.0+** for commercial equipment
+- **ESEER weights 50% load most heavily (41%)**, reflecting Europe's milder cooling climate
+- **European SEER is different from U.S. SEER** — multiply European SEER by 3.412 for rough U.S. equivalent
+- **No direct ESEER-to-IEER conversion exists** due to different test conditions and weightings
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What does ESEER stand for?",
+    answer: "ESEER stands for European Seasonal Energy Efficiency Ratio. It measures the seasonal cooling efficiency of commercial HVAC equipment using four part-load test conditions weighted for typical European climate patterns. It's certified by Eurovent and used in EU energy regulations."
+  },
+  {
+    question: "How does ESEER compare to IEER?",
+    answer: "Both ESEER and IEER measure part-load commercial cooling efficiency, but they use different load weightings and outdoor temperature conditions. ESEER weights 50% load most heavily (41%), while IEER weights 75% load most (61.7%). ESEER uses kW/kW units, IEER uses BTU/Wh. There's no exact conversion between them."
+  },
+  {
+    question: "Is European SEER the same as U.S. SEER?",
+    answer: "No. European SEER is expressed as a COP ratio (kW/kW) with typical values of 3.0-8.5. U.S. SEER uses BTU/Wh with typical values of 13-26. To roughly convert: European SEER x 3.412 = approximate U.S. SEER. A European SEER of 5.0 corresponds to about 17 U.S. SEER."
+  },
+  {
+    question: "What ESEER do I need for EU A+++ rating?",
+    answer: "The EU A+++ energy class requires a European SEER of 8.5 or higher for cooling. This corresponds to ESEER values typically above 7.0 for the best commercial equipment. The exact relationship between ESEER and the EU label class depends on the equipment category and the specific Ecodesign regulation."
+  },
+  {
+    question: "Does ESEER apply to residential equipment?",
+    answer: "ESEER is primarily used for commercial equipment certified through Eurovent. Residential equipment in Europe uses the European SEER and SCOP ratings under EU Ecodesign regulations and the familiar A+++ to G energy label system."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "Eurovent - Certification Programs", url: "https://www.eurovent-certification.com" },
+  { label: "European Commission - Energy Efficiency Regulations", url: "https://energy.ec.europa.eu/topics/energy-efficiency_en" },
+  { label: "EU Ecodesign Regulations for HVAC", url: "https://ec.europa.eu/info/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements_en" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "ieer-explained", title: "IEER Explained" },
+  { slug: "hvac-efficiency-ratings-compared", title: "All HVAC Efficiency Ratings Compared" },
+  { slug: "seer2-rating-explained", title: "Understanding SEER2" }
+]} />

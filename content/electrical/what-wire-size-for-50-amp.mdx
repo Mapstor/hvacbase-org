@@ -1,0 +1,318 @@
+---
+slug: what-wire-size-for-50-amp
+title: "What Wire Size for 50 Amp Circuit? (NEC Code Guide 2026)"
+description: "For a 50-amp circuit, use 6 AWG copper or 4 AWG aluminum wire per NEC code. Complete 50-amp wiring guide for ranges, EV chargers, large AC units, hot tubs, and sub-panels with voltage drop tables."
+cluster: "electrical-wiring"
+role: "spoke"
+priority: "P1"
+contentType: "NEW"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - electrical-wiring-guide
+  - wire-gauge-chart
+  - wire-for-220-volt
+  - what-wire-size-for-30-amp
+  - how-many-amps-does-a-house-use
+  - electrical-panel-upgrade-cost
+externalLinks:
+  - url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace"
+    label: "NEC (NFPA 70) — Wire Sizing Standards"
+  - url: "https://www.southwire.com/calculator-charger"
+    label: "Southwire — Voltage Drop Calculator"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# What Wire Size for 50 Amp Circuit? (NEC Code Guide)
+
+**A 50-amp circuit requires 6 AWG copper wire or 4 AWG aluminum wire per NEC Table 310.16 and Section 240.4(B).** The 6 AWG copper wire has an ampacity of 55 amps at 60°C, and the NEC permits rounding up to the next standard breaker size (50A) since there's no exact 55A breaker.
+
+The 50-amp circuit is essential for electric ranges, large air conditioners (4–5 ton), hot tubs, EV chargers (40A continuous), welders, and sub-panels. Here's the complete wiring guide with voltage drop calculations for every common application.
+
+<TableOfContents />
+
+## Quick Answer: 50-Amp Wire Size Chart
+
+| Wire Run Length | Copper Wire Size | Aluminum Wire Size | Cable Type | Voltage Drop at 50A/240V |
+|----------------|-----------------|-------------------|------------|--------------------------|
+| 0–50 feet | 6 AWG | 4 AWG | 6/2 or 6/3 NM-B | 0.5–2.0% ✅ |
+| 50–100 feet | 6 AWG | 4 AWG | 6/2 or 6/3 NM-B | 2.0–4.1% ⚠️ |
+| 100–150 feet | 4 AWG | 3 AWG | 4/2 or 4/3, THHN in conduit | 2.1–3.1% ✅ |
+| 150–200 feet | 4 AWG | 2 AWG | THHN in conduit | 3.1–4.1% ⚠️ |
+| 200–250 feet | 3 AWG | 1 AWG | THHN in conduit | 2.9–3.6% ⚠️ |
+| 250+ feet | 2 AWG or larger | 1/0 AWG | THHN in conduit | Calculate individually |
+
+<Callout type="important">
+**Why 6 AWG for a 50A breaker when its ampacity is 55A?** NEC 240.4(B) allows the next standard overcurrent device rating when the conductor ampacity doesn't match a standard breaker size. Standard breaker sizes are 15, 20, 25, 30, 35, 40, 45, 50, 60, 70... Since 55A falls between 50A and 60A, a 50A breaker is used. You can also use a 6 AWG wire with a 60A breaker in some configurations.
+</Callout>
+
+## 50-Amp Applications: What Needs This Circuit?
+
+| Application | Typical Load | Cable Type | Neutral Needed? | GFCI Required? |
+|-------------|-------------|-----------|----------------|----------------|
+| Electric range/oven | 40–50A | 6/3 NM-B | Yes (4-wire) | Yes (NEC 2023) |
+| EV charger (40A continuous) | 40A continuous | 6/2 NM-B | No | Yes (NEC 2023) |
+| Large AC condenser (4–5 ton) | 28–40A (MCA) | 6/2 THHN in conduit | No | No (hardwired) |
+| Hot tub/spa | 30–50A | 6/2 or 6/3 THHN | Depends on model | Yes (NEC 680) |
+| Welder (240V) | 30–50A | 6/2 NM-B | No | No |
+| Sub-panel (50A) | Up to 50A | 6/3 SER or THHN | Yes (4-wire) | No |
+| Tankless water heater (single circuit) | 40–50A | 6/2 NM-B | No | No (hardwired) |
+
+## Voltage Drop Analysis for 50-Amp Circuits
+
+Voltage drop is more critical at 50 amps than at 30 amps because the higher current causes proportionally more loss over distance.
+
+### 6 AWG Copper at 50 Amps (240V)
+
+| Distance | Voltage Drop | % Drop | Status |
+|----------|-------------|--------|--------|
+| 25 ft | 1.2V | 0.5% | ✅ Excellent |
+| 50 ft | 2.5V | 1.0% | ✅ Good |
+| 75 ft | 3.7V | 1.5% | ✅ Good |
+| 100 ft | 4.9V | 2.0% | ✅ Acceptable |
+| 125 ft | 6.1V | 2.6% | ⚠️ Getting close |
+| 150 ft | 7.4V | 3.1% | ❌ Exceeds 3% — upsize |
+| 200 ft | 9.8V | 4.1% | ❌ Upsize to 4 AWG |
+
+### 4 AWG Copper at 50 Amps (240V) — Upsized
+
+| Distance | Voltage Drop | % Drop | Status |
+|----------|-------------|--------|--------|
+| 50 ft | 1.5V | 0.6% | ✅ Excellent |
+| 100 ft | 3.1V | 1.3% | ✅ Good |
+| 150 ft | 4.6V | 1.9% | ✅ Good |
+| 200 ft | 6.2V | 2.6% | ✅ Acceptable |
+| 250 ft | 7.7V | 3.2% | ⚠️ Marginal |
+| 300 ft | 9.2V | 3.8% | ❌ Upsize to 3 AWG |
+
+<Callout type="tip">
+**Rule of thumb for 50A circuits:** 6 AWG copper is good up to ~120 feet. Beyond that, upsize to 4 AWG. For runs over 200 feet, jump to 3 AWG or 2 AWG. The wire cost difference is real — 4 AWG NM-B costs about 50% more per foot than 6 AWG — but it's far cheaper than replacing equipment damaged by low voltage.
+</Callout>
+
+## Wiring a 50-Amp Circuit: Step by Step
+
+### Electric Range Installation
+
+The electric range is the most common 50-amp application. Modern ranges require a 4-wire connection (two hots, neutral, ground).
+
+**Materials needed:**
+- 6/3 NM-B cable (appropriate length + 10% for slack and connections)
+- 50A double-pole breaker
+- NEMA 14-50R receptacle (4-prong, flush or surface mount)
+- Steel outlet box (minimum 4" × 4")
+- Cable clamps and staples
+
+**Wiring connections:**
+- Black wire → Brass terminal (Hot 1)
+- Red wire → Brass terminal (Hot 2)
+- White wire → Silver terminal (Neutral)
+- Bare copper → Green terminal (Ground)
+
+<Callout type="warning">
+**The old 3-prong range plug (NEMA 10-50) is no longer code-compliant for new installations.** If your home has a 3-prong range outlet, existing installations are grandfathered, but any new circuit must use a 4-prong NEMA 14-50R with a separate ground conductor. This applies to dryers (NEMA 14-30R) as well.
+</Callout>
+
+### EV Charger Installation (40A Continuous)
+
+A 40-amp continuous-load EV charger is the most popular Level 2 home charging option. The 80% rule means you need a 50A circuit.
+
+**Materials needed:**
+- 6/2 NM-B cable (no neutral needed for most hardwired chargers)
+- 50A double-pole breaker (GFCI type per NEC 2023)
+- NEMA 14-50R receptacle (if plug-in charger) or junction box (if hardwired)
+
+**Key considerations:**
+- 40A × 1.25 = 50A breaker (80% continuous load rule)
+- 6 AWG copper handles 55A at 60°C → 50A breaker is appropriate
+- GFCI protection now required under NEC 2023 for 240V receptacle outlets up to 50A
+- Most EV chargers have built-in GFCI — check if the breaker-level GFCI is still required by your local code
+
+### Hot Tub / Spa Installation
+
+Hot tubs are one of the most heavily regulated 50-amp installations due to the combination of water and electricity.
+
+**NEC requirements (Article 680):**
+- Dedicated circuit — no shared loads
+- GFCI protection required (NEC 680.44)
+- Disconnect within sight, at least 5 feet from spa edge
+- All wiring in conduit (not NM-B for outdoor portions)
+- Bonding of all metal parts within 5 feet of spa
+
+**Typical wiring:**
+- 6 AWG THHN conductors in PVC or rigid conduit
+- 50A double-pole GFCI breaker at panel
+- 60A disconnect (non-fused, GFCI-protected from breaker)
+- Minimum 6 feet of conductor buried at 18" depth in PVC conduit
+
+### Large AC Condenser (4–5 Ton)
+
+For larger homes requiring 4–5 ton cooling capacity, the AC condenser may require a 50A circuit.
+
+**Typical nameplate (5-ton unit):**
+- MCA: 32–38A
+- MOP: 45–60A
+- Voltage: 208/230V, 1-phase
+
+**Wiring:**
+- 6 AWG THHN in conduit (outdoor rating required)
+- 50A double-pole breaker (or per MOP)
+- 60A disconnect within sight of unit
+- Verify: wire ampacity ≥ MCA, breaker ≤ MOP
+
+## 6 AWG Wire Specifications
+
+| Property | Value |
+|----------|-------|
+| Diameter (bare conductor) | 0.162 inches (4.115 mm) |
+| Cross-sectional area | 26.24 kcmil (13.30 mm²) |
+| Ampacity at 60°C (NM-B) | 55A |
+| Ampacity at 75°C (THWN) | 65A |
+| Ampacity at 90°C (THHN) | 75A |
+| Resistance (Ω/1000 ft, copper) | 0.491 |
+| Weight (copper, per 1000 ft) | 31.4 lbs (bare conductor) |
+| NM-B cable cost (6/2, per ft) | $2.00–$3.20 |
+| NM-B cable cost (6/3, per ft) | $2.50–$3.80 |
+| THHN cost (per conductor, per ft) | $0.60–$0.90 |
+| Max breaker (NEC) | 60A (per 240.4(B)) |
+| Conductor type at 6 AWG | Stranded (7 strands) |
+
+<Callout type="info">
+**6 AWG wire is stranded, not solid.** Starting at 8 AWG and larger, copper conductors are typically stranded (multiple thin wires twisted together) rather than solid. Stranded wire is more flexible, easier to pull through conduit, and easier to terminate. It has the same ampacity as solid wire of the same gauge.
+</Callout>
+
+## Cost Comparison: 50-Amp Circuit Installation (2026)
+
+| Component | DIY Cost | Professional Installed |
+|-----------|---------|----------------------|
+| 50A double-pole breaker | $12–$25 | Included |
+| 50A GFCI breaker | $50–$90 | Included |
+| 6/2 NM-B cable (75 ft) | $150–$240 | Included |
+| 6/3 NM-B cable (75 ft) | $188–$285 | Included |
+| NEMA 14-50R receptacle | $12–$25 | Included |
+| Pull-out disconnect (60A) | $15–$30 | Included |
+| Conduit + fittings (if needed) | $30–$80 | Included |
+| Permit | $50–$150 | $50–$150 |
+| **Total — Range circuit (50 ft)** | **$250–$450** | **$500–$1,200** |
+| **Total — EV charger (60 ft)** | **$250–$500** | **$500–$1,500** |
+| **Total — Hot tub (80 ft)** | **$350–$600** | **$800–$2,000** |
+| **Total — Large AC (50 ft)** | **$200–$400** | **$500–$1,200** |
+
+Hot tub installations are the most expensive due to conduit requirements, GFCI breakers, code-mandated disconnect, and bonding requirements.
+
+## Real-World Examples
+
+### Example 1: Electric Range in Kitchen Remodel
+
+**Scenario:** Installing a new electric range during kitchen remodel. Panel is in basement directly below, 25-foot wire run.
+
+- Wire: 6/3 NM-B, 25 ft (range needs neutral for 120V clock, lights)
+- Breaker: 50A double-pole
+- Receptacle: NEMA 14-50R surface-mount box behind range
+- Voltage drop: (2 × 25 × 40 × 0.491) / 1000 = 0.98V → 0.4% ✅
+- Total cost (professional): ~$500–$700
+
+### Example 2: Level 2 EV Charger in Attached Garage
+
+**Scenario:** ChargePoint Home Flex (40A continuous), garage wall 40 feet from panel in utility room.
+
+- Wire: 6/2 NM-B, 40 ft (no neutral needed — hardwired charger)
+- Breaker: 50A double-pole GFCI (NEC 2023 requirement for 240V receptacles)
+- Voltage drop: (2 × 40 × 40 × 0.491) / 1000 = 1.57V → 0.7% ✅
+- Total cost (professional): ~$600–$1,000 including GFCI breaker
+
+### Example 3: Hot Tub on Back Patio
+
+**Scenario:** 6-person hot tub, 50A/240V, located 60 feet from panel. Path goes through basement wall and underground to patio.
+
+- Wire: 6 AWG THHN (4 conductors) in 1" PVC conduit
+- Breaker: 50A double-pole GFCI (required by NEC 680)
+- Disconnect: 60A pull-out, mounted 5–10 feet from spa
+- Underground: 18" burial depth in Schedule 40 PVC
+- Voltage drop: (2 × 60 × 50 × 0.491) / 1000 = 2.95V → 1.2% ✅
+- Total cost (professional): ~$1,200–$2,000
+
+### Example 4: 50A Sub-Panel in Workshop
+
+**Scenario:** 50A sub-panel for a woodworking shop in detached building, 90 feet from main panel, underground run.
+
+- Wire: 6 AWG copper THWN (4 conductors: 2 hot + neutral + ground) in 1" PVC
+- Breaker at main panel: 50A double-pole
+- Sub-panel: 6-space or 8-space, 50A main lug
+- Ground rod: Required at detached building per NEC 250.32
+- Voltage drop at full load: (2 × 90 × 50 × 0.491) / 1000 = 4.42V → 1.8% ✅
+- Total cost (professional): ~$1,500–$2,500
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **6 AWG copper (or 4 AWG aluminum) is the standard for 50-amp circuits** — rated 55A at 60°C per NEC Table 310.16
+- **Use 6/3 cable** when the appliance needs a neutral (ranges, ovens) — **6/2 cable** when it doesn't (EV chargers, AC units, water heaters)
+- **GFCI protection is now required** for 240V receptacle outlets up to 50A under NEC 2023 — affects ranges, dryers, and EV charger outlets
+- **Upsize to 4 AWG** for wire runs over 120 feet to keep voltage drop under 3%
+- **50A circuit is the 80% rule maximum for 40A continuous loads** — EV chargers at 40A, ranges at full draw
+- **Hot tub installations require GFCI, disconnect, conduit, and bonding** — the most code-intensive 50A residential application
+- **Professional installation costs $500–$2,000** depending on application, distance, and local labor rates
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "What size wire do I need for a 50-amp circuit?",
+    answer: "You need 6 AWG copper wire or 4 AWG aluminum wire for a 50-amp circuit. The 6 AWG copper conductor has an ampacity of 55A at 60°C, which the NEC allows on a 50A breaker per Section 240.4(B). For wire runs over 120 feet, upsize to 4 AWG copper to keep voltage drop under 3%."
+  },
+  {
+    question: "Can I use 8 AWG wire on a 50-amp breaker?",
+    answer: "No for standard branch circuits. 8 AWG copper has an ampacity of 40A at 60°C, which is insufficient for a 50A breaker. Using undersized wire is a code violation and fire hazard. The exception is motor circuits under NEC Article 440 where the equipment nameplate MOP may allow a larger breaker than the wire ampacity."
+  },
+  {
+    question: "Do I need a GFCI breaker for a 50-amp circuit?",
+    answer: "Under NEC 2023, yes — for 240V receptacle outlets rated 150V-to-ground or less and 50A or less. This means range outlets (NEMA 14-50R), EV charger outlets, and spa outlets all need GFCI protection. Hardwired 240V equipment (like some AC units) may be exempt. A 50A GFCI breaker costs $50–$90."
+  },
+  {
+    question: "What plug do I use for a 50-amp 240V circuit?",
+    answer: "For circuits with a neutral (range, oven): NEMA 14-50R (4-prong, 50A/250V). For circuits without a neutral (welder, some EV chargers): NEMA 6-50R (3-prong, 50A/250V). Many EV chargers use the NEMA 14-50P plug for compatibility with range outlets, even though they don't use the neutral pin."
+  },
+  {
+    question: "Can I run a dryer on a 50-amp circuit?",
+    answer: "A standard residential dryer is rated for 30 amps, not 50. You cannot use a 50A receptacle for a 30A dryer — the plug and receptacle configurations are different (NEMA 14-30 vs. 14-50). If you have 6/3 cable already run, you can install a 30A breaker and NEMA 14-30R receptacle on it — the oversized wire is always safe."
+  },
+  {
+    question: "How far can I run 6 AWG wire at 50 amps?",
+    answer: "At 50 amps on a 240V circuit, 6 AWG copper wire can run approximately 120 feet before the voltage drop exceeds 3%. For runs of 120–200 feet, upsize to 4 AWG copper. For runs over 200 feet, use 3 AWG or 2 AWG depending on exact distance."
+  },
+  {
+    question: "What is the cost of installing a 50-amp circuit?",
+    answer: "Professional installation of a 50-amp circuit costs $500–$2,000 depending on application and distance. A simple range circuit (25 feet) runs $500–$700. An EV charger circuit (40 feet) costs $600–$1,000. A hot tub circuit with underground conduit (60 feet) runs $1,200–$2,000 due to additional code requirements."
+  },
+  {
+    question: "Can I use aluminum wire for a 50-amp circuit?",
+    answer: "Yes. 4 AWG aluminum wire is rated for 55A at 60°C and is code-compliant for 50A circuits. Use AL-rated terminals and anti-oxidant compound at connections. For a 50A sub-panel feeder to a detached garage, aluminum saves $1–$2 per foot — about $100–$200 on a typical 100-foot run."
+  },
+  {
+    question: "50 amp vs 60 amp circuit — which do I need?",
+    answer: "A 50A circuit handles loads up to 40A continuous (80% rule) or 50A non-continuous. A 60A circuit handles up to 48A continuous. For a 48A EV charger, you need a 60A circuit (6 AWG wire, 60A breaker). For a 40A EV charger or electric range, 50A is sufficient. Both use 6 AWG copper wire — the difference is only the breaker size."
+  },
+  {
+    question: "Do I need a sub-panel for a 50-amp circuit?",
+    answer: "Not usually. A single 50A circuit runs directly from your main panel. You only need a sub-panel if you're feeding multiple circuits to a detached building (garage, workshop, ADU) or if your main panel is full. A 50A sub-panel can serve several smaller circuits in a workshop or garage."
+  }
+]} />
+
+<SourcesBox sources={[
+  { name: "NEC Table 310.16 — NFPA 70 (2023)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "Allowable ampacities of insulated conductors" },
+  { name: "NEC 240.4(B) — Next Standard Size", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "Overcurrent protection rounding to next standard breaker size" },
+  { name: "NEC Article 680 — Swimming Pools/Hot Tubs", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-safety-in-the-workplace", description: "Electrical requirements for pools, spas, and hot tubs" },
+  { name: "Southwire Voltage Drop Calculator", url: "https://www.southwire.com/calculator-charger", description: "Industry-standard voltage drop calculation tool" },
+  { name: "DOE — EV Charging at Home", url: "https://www.energy.gov/energysaver/electric-vehicle-charging-home", description: "Department of Energy EV charging installation guide" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "electrical-wiring-guide", title: "Home Electrical Wiring Guide" },
+  { slug: "wire-gauge-chart", title: "Wire Gauge Chart: AWG Sizes & Ampacity" },
+  { slug: "what-wire-size-for-30-amp", title: "What Wire Size for 30 Amp Circuit?" },
+  { slug: "wire-for-220-volt", title: "Wire for 220V Circuits" },
+  { slug: "how-many-amps-does-a-house-use", title: "How Many Amps Does a House Use?" },
+  { slug: "electrical-panel-upgrade-cost", title: "Electrical Panel Upgrade Cost" }
+]} />

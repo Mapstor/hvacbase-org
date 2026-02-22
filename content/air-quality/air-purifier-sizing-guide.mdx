@@ -1,0 +1,330 @@
+---
+slug: "air-purifier-sizing-guide"
+title: "What Size Air Purifier Do I Need? (Room Size Calculator)"
+description: "Calculate the exact air purifier size for your room. Free calculator uses room dimensions, ceiling height, and target ACH to recommend the right CADR rating. Updated for 2026."
+cluster: "air-purifiers-air-quality"
+role: "spoke"
+priority: "P1"
+contentType: "calculator"
+datePublished: "2026-01-20"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "air-purifier-guide"
+  - "air-changes-per-hour-calculator"
+  - "best-air-purifiers"
+  - "best-large-room-air-purifiers"
+  - "smallest-air-purifiers"
+  - "hepa-filter-explained"
+externalLinks:
+  - label: "AHAM Room Size Guidelines"
+    url: "https://ahamverifide.org/"
+  - label: "EPA Guide to Air Cleaners"
+    url: "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# What Size Air Purifier Do I Need? (Room Size Calculator)
+
+To size an air purifier correctly, divide your room's cubic footage by 60, then multiply by your target air changes per hour (ACH)—the result is the minimum CADR (Clean Air Delivery Rate) you need in CFM. For a standard 300 sq ft bedroom with 8-foot ceilings, you need a purifier with at least 200 CFM CADR to achieve 5 ACH.
+
+Getting the size wrong is the most common air purifier mistake. An undersized unit just can't cycle enough air to make a measurable difference, no matter how good its filters are. An oversized unit wastes money upfront but gives you the flexibility to run on lower (quieter) speeds while still achieving excellent filtration.
+
+<TableOfContents />
+
+## The Air Purifier Sizing Formula
+
+Here's the math behind proper sizing:
+
+**Required CADR (CFM) = (Room Volume in cubic feet × Target ACH) ÷ 60**
+
+Breaking that down:
+
+1. **Room Volume** = Length (ft) × Width (ft) × Ceiling Height (ft)
+2. **Target ACH** = How many times per hour you want all the air filtered
+3. **÷ 60** = Converts cubic feet per hour to cubic feet per minute (CFM)
+
+For a 15 ft × 20 ft room with 8 ft ceilings: Volume = 2,400 cubic ft. At 5 ACH: Required CADR = (2,400 × 5) ÷ 60 = **200 CFM**.
+
+<CalcWrapper type="air-purifier-sizing" />
+
+## Target ACH Rates by Use Case
+
+Not everyone needs the same air change rate. Your target ACH depends on why you're running the purifier and what contaminants you're addressing.
+
+<ComparisonTable
+  title="Recommended ACH Rates by Scenario"
+  headers={["Scenario", "Target ACH", "Why This Rate", "Example"]}
+  rows={[
+    ["General air quality maintenance", "3–4 ACH", "Sufficient for low to moderate pollution levels", "Living room in a suburban home"],
+    ["Allergy management", "5–6 ACH", "Reduces airborne allergens to near-zero levels", "Bedroom of allergy sufferer"],
+    ["Asthma management", "6–8 ACH", "Higher rate needed to keep triggers minimal", "Child's room with asthma triggers"],
+    ["Smoke removal (cigarette)", "6–8 ACH", "Smoke particles are fine and persistent", "Apartment with a smoker"],
+    ["Wildfire smoke (AQI 100–200)", "8–10 ACH", "Heavy particle load requires rapid cycling", "Home during wildfire season"],
+    ["Wildfire smoke (AQI 200+)", "10–12 ACH", "Extreme conditions demand maximum filtration", "Home in active fire zone"],
+    ["Medical/clean room", "12+ ACH", "Hospital-grade standards for immunocompromised", "Recovery room, clean space"],
+    ["Pet dander (1–2 pets)", "4–5 ACH", "Moderate dander production requires consistent cycling", "Living room with dogs or cats"],
+    ["Pet dander (3+ pets or heavy shedders)", "6–8 ACH", "Heavy dander load overwhelms lower rates", "Multi-pet household"]
+  ]}
+/>
+
+<Callout type="tip">
+**The quiet operation rule:** Buy a purifier with a max CADR that gives you your target ACH, then run it on medium. You'll hit approximately 50–65% of max CADR at a significantly lower noise level. A 400 CFM purifier on medium in a 300 sq ft room delivers roughly 200–260 CFM—achieving 5–6.5 ACH while staying much quieter than running at full speed.
+</Callout>
+
+## Room Size Quick-Reference Chart
+
+If you don't want to do the math, use this chart. It assumes 8-foot ceilings and 5 ACH (appropriate for most allergy and general use scenarios).
+
+<ComparisonTable
+  title="Minimum CADR by Room Size (8 ft ceilings, 5 ACH)"
+  headers={["Room Size (sq ft)", "Room Volume (cu ft)", "Min CADR Needed (CFM)", "Recommended CADR (CFM)", "Example Room"]}
+  rows={[
+    ["100", "800", "67", "100+", "Small office, walk-in closet"],
+    ["150", "1,200", "100", "150+", "Small bedroom, nursery"],
+    ["200", "1,600", "133", "180+", "Average bedroom"],
+    ["250", "2,000", "167", "220+", "Master bedroom"],
+    ["300", "2,400", "200", "260+", "Large bedroom, small living room"],
+    ["350", "2,800", "233", "300+", "Average living room"],
+    ["400", "3,200", "267", "350+", "Large living room"],
+    ["500", "4,000", "333", "430+", "Open-plan kitchen/living"],
+    ["600", "4,800", "400", "520+", "Large open-plan space"],
+    ["700", "5,600", "467", "600+", "Very large open floor plan"],
+    ["800", "6,400", "533", "690+", "Great room, loft"],
+    ["1,000", "8,000", "667", "860+", "Entire small apartment"]
+  ]}
+/>
+
+The "Recommended CADR" column adds a 30% buffer so you can run the unit below maximum speed while still hitting your target.
+
+## Ceiling Height Matters More Than You Think
+
+Standard sizing charts assume 8-foot ceilings. But if your home has 9-foot, 10-foot, or vaulted ceilings, the air volume increases dramatically—and your CADR requirement increases proportionally.
+
+<ComparisonTable
+  title="CADR Adjustment by Ceiling Height (300 sq ft room, 5 ACH)"
+  headers={["Ceiling Height", "Room Volume (cu ft)", "Required CADR (CFM)", "% Increase vs 8 ft"]}
+  rows={[
+    ["8 ft (standard)", "2,400", "200", "Baseline"],
+    ["9 ft", "2,700", "225", "+12.5%"],
+    ["10 ft", "3,000", "250", "+25%"],
+    ["11 ft", "3,300", "275", "+37.5%"],
+    ["12 ft (cathedral)", "3,600", "300", "+50%"],
+    ["14 ft (loft/vaulted)", "4,200", "350", "+75%"],
+    ["16 ft (double-height)", "4,800", "400", "+100%"]
+  ]}
+/>
+
+A 300 sq ft room with 12-foot ceilings needs the same CADR as a 450 sq ft room with 8-foot ceilings. If you follow a chart that only accounts for square footage, you'll undersize by 50%.
+
+<Callout type="warning">
+**Vaulted and cathedral ceilings:** If your ceiling slopes, estimate the average height. A room with a vaulted ceiling that peaks at 14 ft and slopes to 8 ft at the walls has an average height of roughly 11 ft. Use that average in your calculation.
+</Callout>
+
+## Open Floor Plans: How to Size Connected Rooms
+
+Open floor plans are the trickiest to size. Here's the rule:
+
+If two rooms are connected by a doorway wider than 6 feet or have no wall between them, treat them as a single space. Add the square footage together and size accordingly.
+
+If rooms are connected by a standard doorway (under 4 feet wide) or a hallway, treat them as separate spaces. Air exchange through narrow openings is too limited for a purifier in one room to effectively clean the other.
+
+### Example: Open Kitchen/Living/Dining
+
+A common modern layout: 180 sq ft kitchen opens directly into a 300 sq ft living room, which opens into a 120 sq ft dining area. Total: 600 sq ft open space with 9-foot ceilings.
+
+Volume: 600 × 9 = 5,400 cu ft
+Required CADR at 5 ACH: (5,400 × 5) ÷ 60 = **450 CFM**
+
+You'd need a single high-CADR unit (like the Coway Airmega 400 at 400 CFM or the Blueair Blue Pure 211i Max at 350 CFM) or two mid-range units placed at opposite ends of the space.
+
+### Example: L-Shaped Living Room
+
+L-shaped rooms create airflow challenges because the bend blocks direct air circulation. Treat the two legs of the L as partially separate zones. If the total L-shaped room is 500 sq ft, you'll get better results from two 250 CFM units (one in each leg) than one 500 CFM unit in a corner.
+
+## Multiple Purifiers vs. One Large Unit
+
+Sometimes two smaller units outperform one large unit, even with the same combined CADR.
+
+<ComparisonTable
+  title="One Large vs. Two Smaller Units Comparison"
+  headers={["Factor", "One Large Unit", "Two Smaller Units"]}
+  rows={[
+    ["Coverage uniformity", "Air quality varies across room—best near unit", "More even coverage with units at opposite ends"],
+    ["Noise", "One noise source, potentially loud on high", "Two quieter noise sources, less noticeable"],
+    ["Redundancy", "If it fails, zero filtration", "If one fails, you still have partial coverage"],
+    ["Flexibility", "Fixed to one room", "Can split between rooms as needed"],
+    ["Cost (upfront)", "Usually cheaper for same total CADR", "Usually 20–40% more expensive combined"],
+    ["Cost (filters)", "One set of filters", "Two sets of filters (higher ongoing cost)"],
+    ["Power consumption", "One unit, potentially higher draw", "Two units but each draws less individually"]
+  ]}
+/>
+
+<Callout type="tip">
+**Best practice for large rooms (500+ sq ft):** Use two units placed at opposite ends of the room. This creates better air circulation and more uniform particle removal. Place one unit near the primary pollution source (kitchen, entry door, pet area) and one in the breathing zone (where you sit or sleep).
+</Callout>
+
+## Real-World Sizing Examples
+
+### Example 1: Studio Apartment (450 Sq Ft, 8 ft Ceilings)
+
+Lisa lives in a 450 sq ft studio with standard 8 ft ceilings. She has mild allergies and one cat.
+
+Volume: 3,600 cu ft. Target ACH: 5 (allergies + one pet).
+Required CADR: (3,600 × 5) ÷ 60 = 300 CFM.
+Recommended CADR (with buffer): 390+ CFM.
+
+**Best pick:** Coway Airmega 400 (CADR 400 smoke / 400 dust) — covers the entire studio on high, achieves target ACH on medium-high. She can place it centrally for uniform coverage.
+
+### Example 2: Two-Story Home (Main Living Areas)
+
+Dave wants to purify his 2,200 sq ft two-story home. Downstairs: 700 sq ft open plan + 150 sq ft home office (with door). Upstairs: 300 sq ft master bedroom + 200 sq ft kid's room + 250 sq ft guest room.
+
+He needs separate units per zone (walls and doors block airflow between rooms):
+
+| Zone | Sq Ft | Volume (8 ft) | ACH Target | CADR Needed | Recommended Unit |
+|---|---|---|---|---|---|
+| Open plan (downstairs) | 700 | 5,600 | 4 | 373 CFM | 2× Blueair 211i Max |
+| Home office | 150 | 1,200 | 5 | 100 CFM | Levoit Core 300S |
+| Master bedroom | 300 | 2,400 | 6 | 240 CFM | Coway AP-1512HH |
+| Kid's room | 200 | 1,600 | 6 | 160 CFM | Winix 5500-2 |
+| Guest room | 250 | 2,000 | 4 | 133 CFM | Levoit Core 400S |
+
+Total investment: 6 units covering 5 zones. This is realistic for whole-home portable purification.
+
+### Example 3: Basement Home Theater (500 Sq Ft, 7 ft Ceilings)
+
+Mark has a 500 sq ft finished basement with 7 ft ceilings. The low ceilings actually help—less volume to filter.
+
+Volume: 500 × 7 = 3,500 cu ft. Target ACH: 5 (general use, no specific concerns).
+Required CADR: (3,500 × 5) ÷ 60 = 292 CFM.
+
+Basements often have higher humidity and more mold spore concerns. Mark should pair his purifier with a dehumidifier and aim for the higher end of CADR for mold prevention.
+
+### Example 4: Commercial Office (1,200 Sq Ft, 10 ft Ceilings)
+
+A small business office with 1,200 sq ft and 10 ft commercial ceilings.
+
+Volume: 12,000 cu ft. Target ACH: 5 (multiple occupants, COVID-era guidelines).
+Required CADR: (12,000 × 5) ÷ 60 = 1,000 CFM.
+
+No single consumer unit delivers 1,000 CFM. Options: three Coway Airmega 400 units (400 CFM each = 1,200 combined), or a commercial unit like the Austin Air HealthMate Commercial (up to 400 CFM) supplemented with additional units.
+
+## Common Sizing Mistakes to Avoid
+
+**Mistake 1: Using the manufacturer's room size claim.** Manufacturers often claim room coverage at just 2 ACH—barely useful. A unit "rated for 500 sq ft" by the manufacturer might only achieve 2 ACH in that space. Check the actual CADR number and do your own calculation.
+
+**Mistake 2: Ignoring doors.** A purifier in the living room doesn't clean the bedroom. Closed doors create separate air zones. Even open doors only allow limited air exchange through the doorway.
+
+**Mistake 3: Not accounting for pollution level.** A room that's generally clean needs 3–4 ACH. A room with smokers, heavy cooking, or multiple pets needs 6–8 ACH. Wildfire season? 8–12 ACH. The same room can need radically different CADR depending on conditions.
+
+**Mistake 4: Sizing for max speed.** If you size your purifier so it only hits your target ACH on the highest speed, you'll run it on high 24/7. That means maximum noise and maximum energy use. Size for your target ACH at medium speed by buying a unit with 40–60% more CADR than the minimum.
+
+**Mistake 5: Forgetting ceiling height.** This bears repeating: a 400 sq ft room with 10 ft ceilings has 25% more air volume than the same room with 8 ft ceilings. Standard charts that only reference square footage undersize for anything above 8 ft.
+
+## CADR vs. Manufacturer Claims: A Reality Check
+
+<ComparisonTable
+  title="Manufacturer Room Size Claims vs. Actual Performance at 5 ACH"
+  headers={["Purifier", "CADR (Smoke CFM)", "Mfg Claimed Room Size", "Actual Room Size at 5 ACH (8 ft)", "Discrepancy"]}
+  rows={[
+    ["Levoit Core 300S", "141", "219 sq ft", "169 sq ft", "30% oversized claim"],
+    ["Coway AP-1512HH", "233", "361 sq ft", "279 sq ft", "29% oversized claim"],
+    ["Blueair Blue Pure 211i Max", "350", "635 sq ft", "420 sq ft", "51% oversized claim"],
+    ["Winix 5500-2", "232", "360 sq ft", "278 sq ft", "30% oversized claim"],
+    ["Coway Airmega 400", "400", "1,560 sq ft", "480 sq ft", "225% oversized claim"],
+    ["Dyson Purifier Big Quiet", "310", "1,076 sq ft", "372 sq ft", "189% oversized claim"]
+  ]}
+/>
+
+<Callout type="warning">
+**The Coway Airmega 400 claims 1,560 sq ft coverage.** At its 400 CFM CADR, it achieves just 2 ACH in that space—barely enough to notice. For meaningful filtration at 5 ACH, it covers 480 sq ft. That's a 225% gap between the marketing claim and practical performance. Always verify with the CADR number.
+</Callout>
+
+## When to Size Up vs. Add a Second Unit
+
+**Size up (single larger unit) when:**
+- Your room is compact and roughly square
+- You want simpler maintenance (one filter to replace)
+- Noise from a single point is acceptable
+- Budget is a primary concern
+
+**Add a second unit when:**
+- Your room is longer than 25 feet or L-shaped
+- You want quieter operation (two units on low > one on high)
+- You need redundancy (one fails, other still works)
+- You're covering a large open plan (500+ sq ft)
+- You want to address both particle and gas/VOC concerns with specialized units
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **Use the formula:** CADR = (Length × Width × Ceiling Height × Target ACH) ÷ 60
+- **Don't trust manufacturer room size claims**—they often assume 2 ACH, which is insufficient
+- **Aim for 5 ACH** for general allergy use, **6–8 ACH** for smoke or asthma, **8–12 ACH** for wildfire smoke
+- **Add 30–50% CADR buffer** so you can run on medium speed instead of maximum
+- **Account for ceiling height**—every foot above 8 ft adds 12.5% to your CADR requirement
+- **Open floor plans** need combined square footage; closed rooms need individual units
+- **Two smaller units** often outperform one large unit in rooms over 500 sq ft
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ items={[
+  {
+    question: "What size air purifier do I need for a 200 sq ft room?",
+    answer: "For a 200 sq ft room with 8-foot ceilings, you need a purifier with at least 133 CFM CADR for 5 air changes per hour. With a recommended buffer, look for 175+ CFM CADR. Models like the Levoit Core 300S (141 CFM), Winix AM80 (200 CFM), or Coway AP-1512HH (233 CFM) all work well—the Coway gives you room to run on lower, quieter speeds."
+  },
+  {
+    question: "Can a small air purifier work in a large room?",
+    answer: "It will filter air, but not enough to make a measurable difference. A purifier rated for 150 sq ft in a 500 sq ft room achieves less than 2 ACH—which means air quality improvement will be marginal and localized to the area immediately around the unit. You'd need a unit 3× larger or two additional units to achieve meaningful whole-room filtration."
+  },
+  {
+    question: "What happens if my air purifier is too big for my room?",
+    answer: "There's no downside to an oversized purifier. You simply run it on a lower speed, which means quieter operation, lower energy use, and the same air quality. A 400 CFM unit on low in a 200 sq ft room will be whisper-quiet while still delivering 4+ ACH. The only downside is the higher upfront purchase cost."
+  },
+  {
+    question: "How do I size an air purifier for an open concept home?",
+    answer: "Measure the total connected open space and treat it as one room. A kitchen (200 sq ft) opening into a living room (350 sq ft) and dining area (150 sq ft) is a 700 sq ft space. You'd need 467+ CFM CADR for 5 ACH—likely two mid-range units placed at opposite ends. If any rooms have doors that close, size those separately."
+  },
+  {
+    question: "Do I need a different size purifier for smoke vs. allergies?",
+    answer: "Yes, because the recommended ACH rate differs. For allergies, 5–6 ACH is standard. For smoke (especially wildfire smoke), 8–12 ACH is recommended due to the extremely fine particle size and high concentration. In a 300 sq ft room, allergies need 200 CFM, but wildfire smoke needs 320–480 CFM. You may need to upgrade your unit or add a second one during fire season."
+  },
+  {
+    question: "How many air purifiers do I need for a 3-bedroom house?",
+    answer: "Typically 3–5 units, depending on your floor plan. Each closed bedroom needs its own unit. Open common areas share one or two units. A typical setup: one unit per bedroom (3), one for the main living area, and optionally one for a home office or basement. Whole-home coverage with portables costs $500–$1,500 in units plus $300–$600/year in filters."
+  },
+  {
+    question: "Does the two-thirds rule from AHAM work?",
+    answer: "AHAM's two-thirds rule (CADR should be ≥ two-thirds of room square footage) works as a baseline with standard 8-foot ceilings. It delivers roughly 4.8 ACH—adequate for general use. For allergy sufferers, asthma, or smoke, you need to exceed this rule. For high ceilings, it significantly undersizes. Use the full CADR formula for precision."
+  },
+  {
+    question: "What CADR do I need for a 500 sq ft room?",
+    answer: "At 5 ACH with 8-foot ceilings: (500 × 8 × 5) ÷ 60 = 333 CFM minimum CADR. With a 30% buffer for medium-speed operation: 433+ CFM. The Coway Airmega 400 (400 CFM) gets close, or two Blueair Blue Pure 211i Max units (350 CFM each) placed at opposite ends of the room provide excellent coverage."
+  },
+  {
+    question: "Should I buy one $500 purifier or two $250 purifiers?",
+    answer: "For rooms under 400 sq ft, one higher-quality unit is usually better—it simplifies maintenance and may offer better build quality. For rooms over 400 sq ft, two units typically provide more uniform coverage. The combined CADR should meet your target. Two units also give redundancy: if one breaks, you still have partial coverage while it's being repaired."
+  },
+  {
+    question: "How do I calculate air purifier size for a room with 10-foot ceilings?",
+    answer: "Use the same formula but with the actual ceiling height. For a 300 sq ft room with 10-foot ceilings: Volume = 3,000 cu ft. At 5 ACH: CADR = (3,000 × 5) ÷ 60 = 250 CFM. Compare that to the 200 CFM needed with 8-foot ceilings—it's a 25% increase. Standard sizing charts that ignore ceiling height would undersize your purifier by 50 CFM."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "AHAM Verifide Certification & Room Size Guidelines", url: "https://ahamverifide.org/" },
+  { label: "EPA: Air Cleaners and Air Filters in the Home", url: "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home" },
+  { label: "ASHRAE: Ventilation and Acceptable Indoor Air Quality", url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2" },
+  { label: "ENERGY STAR: Room Air Cleaner Specifications", url: "https://www.energystar.gov/productfinder/product/certified-room-air-cleaners/" }
+]} />
+
+<RelatedArticles articles={[
+  "air-purifier-guide",
+  "air-changes-per-hour-calculator",
+  "best-air-purifiers",
+  "best-large-room-air-purifiers",
+  "smallest-air-purifiers",
+  "hepa-filter-explained"
+]} />

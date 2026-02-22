@@ -1,0 +1,294 @@
+---
+slug: "what-size-tankless-water-heater"
+title: "What Size Tankless Water Heater Do I Need? (2026 Sizing Guide)"
+description: "Calculate the right tankless water heater size based on flow rate (GPM), temperature rise, and simultaneous fixtures. Covers gas vs electric, whole-home vs point-of-use, and climate zone adjustments."
+cluster: "ac-sizing-selection"
+role: "spoke"
+priority: "P1"
+contentType: "calculator-guide"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "water-heater-sizing-calculator"
+  - "air-conditioner-btu-calculator"
+  - "what-size-generator-do-i-need"
+  - "furnace-sizing-calculator"
+  - "heat-pump-size-calculator"
+externalLinks:
+  - label: "DOE – Tankless Water Heaters"
+    url: "https://www.energy.gov/energysaver/tankless-or-demand-type-water-heaters"
+  - label: "ENERGY STAR – Water Heaters"
+    url: "https://www.energystar.gov/products/water_heaters"
+  - label: "AHRI – Water Heater Directory"
+    url: "https://www.ahridirectory.org"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# What Size Tankless Water Heater Do I Need?
+
+**The right tankless water heater size depends on two numbers: your peak flow rate in gallons per minute (GPM) and the temperature rise your climate requires.** A typical family of 4 running a shower and a dishwasher simultaneously needs a unit rated for at least 5.0 GPM at a 60°F temperature rise — which translates to a gas unit rated around 150,000–199,000 BTU or an electric unit drawing 27–36 kW.
+
+Undersizing a tankless unit is the most common installation mistake, and the result is a lukewarm shower the moment someone turns on the kitchen faucet. This guide gives you the exact sizing methodology HVAC professionals and plumbers use.
+
+<TableOfContents />
+
+## The Two Numbers You Need: Flow Rate and Temperature Rise
+
+### Flow Rate (GPM)
+
+Flow rate is how many gallons of hot water you draw per minute across all fixtures running simultaneously. Every fixture in your home has a typical flow rate:
+
+| Fixture | Typical Flow Rate (GPM) |
+|---|---|
+| Low-flow showerhead | 1.5–2.0 |
+| Standard showerhead | 2.0–2.5 |
+| Rain/luxury showerhead | 2.5–3.5 |
+| Bathroom faucet | 0.5–1.5 |
+| Kitchen faucet | 1.0–1.5 |
+| Dishwasher | 1.0–1.5 |
+| Washing machine | 1.5–2.0 |
+| Bathtub fill | 3.0–4.0 |
+| Utility sink | 1.0–2.0 |
+| High-flow sprayer (kitchen) | 2.0–2.5 |
+
+To find your peak demand, add the flow rates of fixtures you expect to run at the same time. Be realistic — most households rarely run more than 2–3 hot water fixtures simultaneously.
+
+### Temperature Rise
+
+Temperature rise is the difference between your incoming cold water temperature (groundwater temperature) and your desired hot water output (typically 120°F).
+
+**Temperature Rise = Desired Output Temp − Incoming Water Temp**
+
+Incoming water temperatures vary dramatically by location and season:
+
+| Region | Winter Groundwater Temp (°F) | Required Rise to 120°F |
+|---|---|---|
+| Northern US (Minnesota, Montana, Maine) | 35–42°F | 78–85°F |
+| Upper Midwest/Northeast (Chicago, Boston, NYC) | 42–50°F | 70–78°F |
+| Mid-Atlantic/Midwest (DC, St. Louis, Denver) | 47–55°F | 65–73°F |
+| Southeast (Atlanta, Charlotte, Nashville) | 52–60°F | 60–68°F |
+| South/Southwest (Dallas, Phoenix, LA) | 55–65°F | 55–65°F |
+| Deep South/Hawaii (Miami, Honolulu) | 65–77°F | 43–55°F |
+
+<Callout type="warning">
+**Always size for winter temperatures.** Your incoming water is coldest in January–February, and that's when you need the most hot water. A unit that works fine in August (when groundwater is 65°F) may deliver lukewarm water in January (when groundwater drops to 42°F). Use your winter groundwater temperature for sizing.
+</Callout>
+
+## Tankless Water Heater Sizing Chart
+
+Cross-reference your peak flow rate and temperature rise to find the minimum unit size:
+
+### Gas Tankless (BTU Rating)
+
+| Peak GPM | 45°F Rise | 55°F Rise | 65°F Rise | 75°F Rise | 85°F Rise |
+|---|---|---|---|---|---|
+| 2.0 | 75,000 | 92,000 | 108,000 | 125,000 | 142,000 |
+| 3.0 | 112,000 | 138,000 | 162,000 | 187,000 | 213,000 |
+| 4.0 | 150,000 | 183,000 | 216,000 | 250,000 | — |
+| 5.0 | 187,000 | 229,000 | — | — | — |
+| 6.0 | 225,000 | — | — | — | — |
+| 7.0+ | 262,000+ | — | — | — | — |
+
+*Cells marked "—" exceed residential single-unit capacity. Use two units in parallel or reduce simultaneous demand.*
+
+The formula: **BTU required = GPM × Temperature Rise × 500 / Efficiency Factor (0.80–0.96)**
+
+### Electric Tankless (kW Rating)
+
+| Peak GPM | 45°F Rise | 55°F Rise | 65°F Rise | 75°F Rise | 85°F Rise |
+|---|---|---|---|---|---|
+| 1.5 | 11 kW | 14 kW | 16 kW | 19 kW | 21 kW |
+| 2.0 | 15 kW | 18 kW | 22 kW | 25 kW | 28 kW |
+| 2.5 | 19 kW | 23 kW | 27 kW | 31 kW | 36 kW |
+| 3.0 | 22 kW | 27 kW | 32 kW | 37 kW | — |
+| 3.5 | 26 kW | 32 kW | 38 kW | — | — |
+| 4.0+ | 30 kW+ | 36 kW+ | — | — | — |
+
+*Electric tankless units max out around 36 kW for residential. In cold climates requiring 75°F+ rise, gas is often the only practical option for whole-home use.*
+
+## Gas vs. Electric Tankless: Which to Choose
+
+| Factor | Gas Tankless | Electric Tankless |
+|---|---|---|
+| **Max flow rate** | 5–11 GPM | 2–5 GPM |
+| **Best for** | Whole-home, cold climates | Point-of-use, mild climates, small homes |
+| **Installation cost** | $1,500–$3,500 | $800–$2,500 |
+| **Unit cost (2026)** | $600–$2,000 | $200–$900 |
+| **Venting required** | Yes (direct vent or power vent) | No |
+| **Gas line upgrade** | Often required (¾" minimum) | N/A |
+| **Electrical upgrade** | 120V outlet for controls | 200–300A panel may be needed |
+| **Uniform Energy Factor (UEF)** | 0.80–0.96 | 0.96–0.99 |
+| **Annual operating cost** | $150–$350 | $200–$500 |
+| **Lifespan** | 15–20 years | 8–15 years |
+
+<Callout type="info">
+**The electric panel bottleneck:** A 36 kW electric tankless draws 150 amps at 240V. Many older homes have only 100- or 150-amp electrical panels. Upgrading to a 200-amp panel costs $1,500–$4,000 and must be done before the tankless installation. Factor this into your decision.
+</Callout>
+
+## Sizing Examples for Common Households
+
+<Callout type="example">
+**Example 1: Couple in Phoenix, AZ (2-person, 1-bathroom condo)**
+
+- Peak demand: 1 shower (2.0 GPM) + kitchen faucet (1.0 GPM) = 3.0 GPM
+- Incoming water temp: 62°F winter
+- Temperature rise: 120°F − 62°F = 58°F
+- Gas unit needed: 3.0 × 58 × 500 / 0.90 = 96,667 BTU → **100,000–120,000 BTU gas unit**
+- Electric option: 3.0 GPM at 58°F rise → **24 kW electric unit** (feasible)
+
+**Recommendation:** Either a mid-range gas unit (Rinnai RU130iN, 130,000 BTU) or a whole-home electric unit (EcoSmart ECO 24, 24 kW). The mild climate makes electric viable here.
+</Callout>
+
+<Callout type="example">
+**Example 2: Family of 4 in Chicago, IL (3-bathroom home)**
+
+- Peak demand: 2 showers (4.0 GPM) + dishwasher (1.0 GPM) = 5.0 GPM
+- Incoming water temp: 44°F winter
+- Temperature rise: 120°F − 44°F = 76°F
+- Gas unit needed: 5.0 × 76 × 500 / 0.90 = 211,111 BTU → **199,000+ BTU gas unit**
+- Electric option: 5.0 GPM at 76°F rise requires ~63 kW → **Not feasible with single electric unit**
+
+**Recommendation:** A premium gas unit (Navien NPE-240A, 199,000 BTU, condensing) or (Rinnai RU199iN, 199,000 BTU). The high temperature rise and flow rate make electric impractical for this scenario. Even the 199K unit may limit you to 4.5 GPM in the coldest weeks — install low-flow showerheads (2.0 GPM) to stay within capacity.
+</Callout>
+
+<Callout type="example">
+**Example 3: Family of 6 in Minneapolis, MN (4-bathroom home)**
+
+- Peak demand: 3 showers (6.0 GPM) + washing machine (1.5 GPM) = 7.5 GPM
+- Incoming water temp: 38°F winter
+- Temperature rise: 120°F − 38°F = 82°F
+- Gas unit needed: 7.5 × 82 × 500 / 0.90 = 341,667 BTU → **Exceeds single-unit capacity**
+
+**Recommendation:** Two gas tankless units in parallel. A pair of Navien NPE-240A units (199,000 BTU each) with a recirculation loop provides 398,000 BTU total capacity and handles the extreme temperature rise. Alternatively, a hybrid approach: one tankless unit for the master bath zone and one for the rest of the home, each sized for their zone's peak demand.
+</Callout>
+
+<Callout type="example">
+**Example 4: Single-person apartment in Atlanta, GA (point-of-use)**
+
+- Peak demand: 1 shower only = 2.0 GPM
+- Incoming water temp: 55°F winter
+- Temperature rise: 110°F − 55°F = 55°F (lower output for single shower)
+- Electric unit needed: 2.0 × 55 × 500 / 0.98 = 56,122 BTU → **16–18 kW electric point-of-use unit**
+
+**Recommendation:** An EcoSmart ECO 18 or Stiebel Eltron Tempra 20 Plus. At 18 kW, this handles a single shower with room to spare and requires only a 75-amp circuit.
+</Callout>
+
+## Household Size Quick Reference
+
+| Household | Bathrooms | Typical Peak GPM | Gas BTU Needed (Cold Climate) | Gas BTU Needed (Warm Climate) | Electric kW (Warm Climate Only) |
+|---|---|---|---|---|---|
+| 1 person | 1 | 1.5–2.0 | 100,000 | 75,000 | 14–18 kW |
+| 2 people | 1–2 | 2.5–3.5 | 140,000–160,000 | 100,000–120,000 | 22–27 kW |
+| 3–4 people | 2–3 | 4.0–5.5 | 180,000–199,000 | 140,000–160,000 | 27–36 kW* |
+| 5–6 people | 3–4 | 5.5–7.5 | 199,000+ (or 2 units) | 180,000–199,000 | Not practical |
+| 6+ people | 4+ | 7.0+ | 2 units in parallel | 199,000+ | Not practical |
+
+*Electric whole-home is borderline for 3–4 people in warm climates and typically not feasible in cold climates.
+
+## Point-of-Use vs. Whole-Home Tankless
+
+Point-of-use (POU) tankless units serve a single fixture or small group of fixtures. They're compact (shoe-box sized), require smaller electrical circuits, and eliminate pipe heat loss. Here's when each makes sense:
+
+| Scenario | Best Choice | Why |
+|---|---|---|
+| New whole-home install, gas available | Whole-home gas tankless | Highest capacity, lowest per-gallon cost |
+| Retrofit, no gas line, mild climate | Whole-home electric tankless | No venting, lower install cost |
+| Distant bathroom (40+ ft from heater) | POU electric under sink | Eliminates wait time and pipe loss |
+| Guest house or ADU | POU electric or small gas | Independent system, simple install |
+| Kitchen sink only (supplement existing heater) | POU electric (4–8 kW) | Instant hot water, $150–$400 |
+| Commercial hand-washing stations | POU electric (3–6 kW) | Code-required, minimal demand |
+
+## Maintenance and Longevity by Size
+
+Larger tankless units (180,000+ BTU or 27+ kW) require more maintenance due to higher mineral deposit rates from higher water volume. Descaling frequency depends on your water hardness:
+
+| Water Hardness | Descale Frequency | Annual Descaling Cost |
+|---|---|---|
+| Soft (0–3 GPG) | Every 2–3 years | $100–$150 |
+| Moderate (4–7 GPG) | Annually | $100–$200 |
+| Hard (8–12 GPG) | Every 6 months | $200–$400 |
+| Very hard (12+ GPG) | Every 3–4 months (or install water softener) | $400–$800+ |
+
+A water softener ($500–$2,500 installed) dramatically reduces descaling needs and extends unit lifespan from 15 to 20+ years. For households with water hardness above 10 GPG, a softener is practically required to make a tankless investment worthwhile.
+
+## 2026 Efficiency Ratings and Rebates
+
+The DOE's Uniform Energy Factor (UEF) replaced the older Energy Factor (EF) for water heaters. In 2026, ENERGY STAR certified tankless water heaters must meet:
+
+| Fuel Type | Minimum UEF for ENERGY STAR |
+|---|---|
+| Gas-fired | ≥ 0.87 |
+| Gas-fired condensing | ≥ 0.92 (typical 0.92–0.96) |
+| Electric | ≥ 0.96 |
+
+Gas condensing tankless units recover heat from exhaust gases, achieving 92–96% thermal efficiency compared to 80–85% for non-condensing models. The extra 10–15% efficiency saves $50–$100/year on a typical household's gas bill and allows PVC venting (cheaper and more flexible than stainless steel venting for non-condensing units).
+
+Federal tax credits under the Inflation Reduction Act (IRA) remain available in 2026: up to **$2,000 per year** for qualifying ENERGY STAR certified water heaters (including heat pump water heaters and high-efficiency gas tankless units with UEF ≥ 0.95). Many state and utility rebates stack on top of this, totaling $500–$3,000 in combined incentives.
+
+<Callout type="takeaway">
+**Key Takeaways**
+
+1. Find your peak GPM (simultaneous fixtures) and temperature rise (120°F minus winter groundwater temp) — these two numbers determine your unit size
+2. Gas tankless units handle 5–11 GPM and work in any climate. Electric units top out at 3–5 GPM and struggle in cold climates
+3. Always size for winter groundwater temperatures — a unit that works in summer may fail in January
+4. Families of 5+ in cold climates often need two gas units in parallel or a hybrid approach
+5. Low-flow fixtures reduce peak GPM and let you use a smaller (cheaper) unit without sacrificing comfort
+6. 2026 federal tax credits cover up to $2,000 for qualifying ENERGY STAR tankless water heaters
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ>
+  <FAQ.Item question="What size tankless water heater for a family of 4?">
+    A family of 4 with 2 bathrooms typically needs a gas tankless rated at 140,000–199,000 BTU (delivering 4.0–5.5 GPM). In cold climates (northern US), size toward the upper end. In warm climates, a 140,000–160,000 BTU unit or a 27–36 kW electric unit may suffice. The key variable is how many fixtures you run simultaneously — two showers at once is the usual peak demand scenario.
+  </FAQ.Item>
+
+  <FAQ.Item question="Can a tankless water heater run two showers at once?">
+    Yes, if sized correctly. Two low-flow showers (2.0 GPM each) need 4.0 GPM total. At a 70°F temperature rise (cold climate), that requires a gas unit of at least 160,000–180,000 BTU. In warm climates with only a 50°F rise, a 120,000–140,000 BTU unit handles two showers comfortably. Electric units struggle with two simultaneous showers in cold climates.
+  </FAQ.Item>
+
+  <FAQ.Item question="What size gas line do I need for a tankless water heater?">
+    Most whole-home gas tankless units (150,000–199,000 BTU) require a minimum ¾-inch gas line, and many require 1-inch for longer runs (over 20 feet). The existing ½-inch line serving a traditional tank water heater is almost never sufficient. Gas line upsizing costs $300–$1,500 depending on distance and local codes. Always confirm gas supply pressure (minimum 3.5" WC for natural gas) with your plumber.
+  </FAQ.Item>
+
+  <FAQ.Item question="Is a tankless water heater worth it?">
+    Tankless units save 8–34% on water heating energy costs compared to standard tank heaters, according to the DOE. For a household spending $300/year on water heating, that's $25–$100 annual savings. At a $1,500–$3,000 installed cost premium over tank heaters, the payback period is 10–25 years. The real value proposition is endless hot water, space savings, 15–20 year lifespan, and federal/state tax credits of up to $2,000.
+  </FAQ.Item>
+
+  <FAQ.Item question="What is the downside of a tankless water heater?">
+    The main downsides are higher upfront cost ($1,500–$4,500 installed vs $800–$1,800 for a tank), potential gas line and electrical upgrades, a 2–5 second delay before hot water reaches the fixture (the "cold water sandwich"), and regular descaling maintenance in hard water areas. In cold climates, single electric units can't deliver enough hot water for whole-home use.
+  </FAQ.Item>
+
+  <FAQ.Item question="How many GPM do I need for a tankless water heater?">
+    Most households need 3.5–6.5 GPM. Calculate by adding the flow rates of fixtures you'll use simultaneously: a shower is 2.0–2.5 GPM, a kitchen faucet is 1.0–1.5 GPM, a dishwasher is 1.0–1.5 GPM. A couple running one shower + kitchen faucet needs 3.0–4.0 GPM. A family of 4 running two showers + a dishwasher needs 5.0–6.5 GPM.
+  </FAQ.Item>
+
+  <FAQ.Item question="Can I replace a 50-gallon tank with a tankless water heater?">
+    Yes. A 50-gallon gas tank heater delivers a "first-hour rating" of 60–80 gallons but runs out. A gas tankless rated at 5.0+ GPM provides unlimited hot water and handles most households that used a 50-gallon tank. You'll need gas line upgrades (¾" minimum), new venting (category III stainless or PVC for condensing units), and potentially a condensate drain for condensing models.
+  </FAQ.Item>
+
+  <FAQ.Item question="How does altitude affect tankless water heater sizing?">
+    Gas tankless units lose approximately 4% of their BTU capacity per 1,000 feet above sea level due to reduced oxygen density. At 5,000 feet (Denver), a 199,000 BTU unit delivers roughly 159,000 BTU. At 7,000 feet, it drops to about 143,000 BTU. Most premium brands offer altitude adjustment kits. Electric tankless units are unaffected by altitude.
+  </FAQ.Item>
+
+  <FAQ.Item question="Should I get a condensing or non-condensing tankless water heater?">
+    Condensing units cost $200–$500 more but achieve 92–96% efficiency (vs 80–85% non-condensing), save $50–$100/year on gas, allow cheaper PVC venting, and qualify for higher federal tax credits. Non-condensing units require expensive stainless steel venting but have a simpler design. For new installations, condensing is almost always the better investment — the efficiency savings and cheaper venting typically offset the higher unit cost within 2–3 years.
+  </FAQ.Item>
+
+  <FAQ.Item question="How long does a tankless water heater last?">
+    Gas tankless water heaters last 15–20 years with proper maintenance (annual descaling in hard water areas, periodic filter cleaning). Electric tankless units last 8–15 years. By comparison, a standard tank water heater lasts 8–12 years. The heat exchanger is the critical component — most premium brands offer 10–15 year heat exchanger warranties, which is a strong indicator of expected lifespan.
+  </FAQ.Item>
+</FAQ>
+
+<SourcesBox>
+  - [U.S. DOE – Tankless (Demand-Type) Water Heaters](https://www.energy.gov/energysaver/tankless-or-demand-type-water-heaters)
+  - [ENERGY STAR – Water Heater Product Finder](https://www.energystar.gov/products/water_heaters)
+  - [AHRI – Water Heater Certified Product Directory](https://www.ahridirectory.org)
+  - [IRS – Energy Efficient Home Improvement Credit (25C)](https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit)
+  - [ASHRAE – Hot Water System Design](https://www.ashrae.org)
+  - [Navien – Sizing and Installation Resources](https://www.navieninc.com)
+  - [Rinnai – Tankless Sizing Guide](https://www.rinnai.us)
+</SourcesBox>
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

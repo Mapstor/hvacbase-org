@@ -1,0 +1,289 @@
+---
+slug: "heat-pump-size-calculator"
+title: "Heat Pump Size Calculator: What Size Heat Pump Do I Need? (2026)"
+description: "Calculate the right heat pump size for your home. Covers sizing for both heating and cooling, cold-climate heat pumps, auxiliary heat requirements, and tonnage charts by square footage and climate zone."
+cluster: "ac-sizing-selection"
+role: "hub"
+priority: "P1"
+contentType: "calculator-guide"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "air-conditioner-btu-calculator"
+  - "furnace-sizing-calculator"
+  - "ac-tonnage-calculator"
+  - "mini-split-sizing-calculator"
+  - "how-many-btu-per-square-foot"
+  - "how-many-mini-splits-do-i-need"
+externalLinks:
+  - label: "DOE – Heat Pump Systems"
+    url: "https://www.energy.gov/energysaver/heat-pump-systems"
+  - label: "ENERGY STAR – Heat Pumps"
+    url: "https://www.energystar.gov/products/heating_cooling/heat_pumps"
+  - label: "NEEP – Cold Climate Heat Pump List"
+    url: "https://ashp.neep.org"
+  - label: "AHRI – Certified Heat Pump Directory"
+    url: "https://www.ahridirectory.org"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Heat Pump Size Calculator: What Size Heat Pump Do I Need?
+
+**A heat pump must be sized for the larger of your home's heating or cooling load — and in Climate Zones 4–7 (most of the US), that's almost always the heating load.** A 2,000 sq ft home in Zone 4 typically needs a 3–3.5 ton heat pump for cooling but 3.5–4.5 tons for heating, making the heating load the sizing driver that determines your equipment selection.
+
+This is the fundamental difference between sizing a heat pump and sizing an AC unit. An AC only cools; a heat pump does both. Getting the heating side right — especially in cold climates — is what separates a comfortable, efficient system from one that depends on expensive backup electric heat strips all winter.
+
+<TableOfContents />
+
+## Interactive Heat Pump Size Calculator
+
+Use our calculator to determine the right heat pump size for both heating and cooling:
+
+<CalcWrapper type="heat-pump-size" />
+
+## Why Heat Pump Sizing Is Different from AC Sizing
+
+Heat pumps have a capacity problem that AC units don't: **their heating capacity drops as the outdoor temperature drops** — exactly when you need the most heat. At 47°F outdoor, a heat pump delivers its full rated heating capacity. At 17°F, it may deliver only 60–75% of rated capacity. At 0°F, standard models lose 40–50% of capacity.
+
+This means you can't simply use the cooling tonnage chart and call it done. You must check the heat pump's heating capacity at your local winter design temperature.
+
+| Outdoor Temperature | Standard Heat Pump (% of rated capacity) | Cold-Climate Heat Pump (% of rated capacity) |
+|---|---|---|
+| 47°F | 100% | 100% |
+| 35°F | 85–90% | 95–100% |
+| 17°F | 60–75% | 80–95% |
+| 5°F | 40–55% | 70–85% |
+| −5°F | 25–35% (may shut off) | 60–75% |
+| −13°F | Shut off | 50–70% |
+| −22°F | Shut off | 40–55% (min operating temp) |
+
+<Callout type="warning">
+**The #1 heat pump sizing mistake:** Using the cooling capacity rating to size a system for a heating-dominated climate. A 3-ton heat pump rated at 36,000 BTU cooling may only deliver 22,000 BTU of heating at 17°F. If your home needs 40,000 BTU of heating at that temperature, you're 18,000 BTU short — and your backup electric heat strips kick in at 3–4× the operating cost of the heat pump.
+</Callout>
+
+## Heat Pump Tonnage Chart by Square Footage
+
+This chart accounts for both heating and cooling loads. The recommended tonnage is based on the dominant load in each climate zone.
+
+| Home Size (sq ft) | Zone 2 (Hot) | Zone 3 (Warm) | Zone 4 (Mixed) | Zone 5 (Cool) | Zone 6 (Cold) |
+|---|---|---|---|---|---|
+| 800 | 1.5 ton | 1.5 ton | 2 ton | 2 ton | 2.5 ton* |
+| 1,000 | 1.5–2 ton | 2 ton | 2 ton | 2.5 ton | 3 ton* |
+| 1,200 | 2 ton | 2 ton | 2.5 ton | 3 ton | 3 ton* |
+| 1,500 | 2.5 ton | 2.5 ton | 3 ton | 3.5 ton | 3.5–4 ton* |
+| 1,800 | 3 ton | 3 ton | 3 ton | 3.5 ton | 4 ton* |
+| 2,000 | 3–3.5 ton | 3 ton | 3.5 ton | 4 ton | 4.5 ton* |
+| 2,500 | 4 ton | 3.5 ton | 4 ton | 4.5–5 ton | 5 ton* |
+| 3,000 | 4.5–5 ton | 4 ton | 4.5–5 ton | 5 ton+ | 2-zone* |
+| 3,500 | 5 ton | 5 ton | 5 ton+ | 2-zone | 2-zone* |
+| 4,000 | 2-zone | 5 ton+ | 2-zone | 2-zone | 2-zone* |
+
+*Zones 5–6 entries assume cold-climate heat pump models. Standard heat pumps in these zones require significant auxiliary heat backup.*
+
+## The Heating-Cooling Balance Point
+
+The "balance point" is the outdoor temperature at which your heat pump's capacity exactly equals your home's heat loss. Above the balance point, the heat pump handles the entire load. Below the balance point, supplemental heat kicks in.
+
+| System Configuration | Typical Balance Point | Supplemental Heat Type |
+|---|---|---|
+| Standard heat pump, average home | 30–38°F | Electric heat strips (expensive) |
+| Cold-climate heat pump, average home | 10–20°F | Electric strips or gas furnace |
+| Cold-climate HP, well-insulated home | 0–10°F | Minimal strips needed |
+| Dual-fuel (HP + gas furnace) | 25–35°F (chosen for economics) | Gas furnace |
+
+### How to Find Your Balance Point
+
+1. Calculate your home's heating load at the design temperature (BTU needed at the coldest 1% of winter hours)
+2. Plot your heat pump's heating capacity curve (from manufacturer spec sheets) against outdoor temperature
+3. Where the two lines intersect is your balance point
+4. Below that temperature, you need supplemental heat
+
+<Callout type="example">
+**Example: Finding the balance point for a 2,000 sq ft home in Nashville, TN (Zone 4)**
+
+- Home heating load: 42,000 BTU at design temp (14°F)
+- Heat loss rate: approximately 700 BTU per degree of temperature difference
+- 3-ton standard heat pump capacity:
+  - At 47°F: 36,000 BTU → Home needs 16,100 BTU → Plenty of surplus
+  - At 35°F: 32,000 BTU → Home needs 24,500 BTU → Still good
+  - At 25°F: 27,000 BTU → Home needs 31,500 BTU → **Heat pump falls short**
+  - Balance point: approximately 28°F
+
+Below 28°F (which happens roughly 800 hours per heating season in Nashville), the 3-ton heat pump can't keep up alone. Electric strips cover the gap — adding $200–$500 per winter to operating costs.
+
+**With a 3.5-ton cold-climate heat pump:**
+  - At 25°F: 34,000 BTU → Home needs 31,500 BTU → Still sufficient
+  - At 17°F: 29,000 BTU → Home needs 37,100 BTU → Falls short
+  - Balance point: approximately 19°F
+
+The cold-climate 3.5-ton unit pushes the balance point down to 19°F, reducing strip heat runtime by 70% and saving $300–$400/year in operating costs.
+</Callout>
+
+## Sizing for Dual-Fuel Systems (Heat Pump + Gas Furnace)
+
+Dual-fuel systems pair a heat pump with a gas furnace instead of electric heat strips. The heat pump handles cooling and moderate-weather heating; the gas furnace takes over when it's more economical.
+
+The economic switchover point depends on local gas and electricity prices:
+
+| Electricity Rate ($/kWh) | Gas Rate ($/therm) | Switchover Temp (Heat Pump → Gas) |
+|---|---|---|
+| $0.10 | $1.00 | 20–25°F |
+| $0.12 | $1.20 | 25–30°F |
+| $0.15 | $1.00 | 15–20°F |
+| $0.15 | $1.50 | 30–35°F |
+| $0.20 | $1.00 | 10–15°F |
+| $0.20 | $1.50 | 25–30°F |
+| $0.25 | $1.00 | 0–10°F |
+| $0.30 | $2.00 | 25–30°F |
+
+<Callout type="tip">
+**Dual-fuel sizing advantage:** With a gas furnace as backup, you can size the heat pump strictly for the cooling load — the furnace handles any heating shortfall. This lets you use a smaller (cheaper) heat pump. A 3-ton heat pump + 80,000 BTU furnace costs less and performs better than a 5-ton heat pump with 15 kW of electric strips in Zone 5.
+</Callout>
+
+## Sizing Examples
+
+<Callout type="example">
+**Example 1: 1,500 sq ft ranch in Raleigh, NC (Zone 4)**
+
+- Cooling load: 1,500 × 22 BTU/sq ft = 33,000 BTU → 2.75 tons
+- Heating load: 1,500 × 38 BTU/sq ft = 57,000 BTU output → At design temp 18°F
+- Heat pump capacity needed at 17°F: 57,000 BTU
+
+A 3-ton cold-climate heat pump delivers roughly 28,000 BTU at 17°F. A 4-ton unit delivers about 38,000 BTU at 17°F. Neither covers the full 57,000 BTU.
+
+**Option A:** 4-ton cold-climate heat pump + 10 kW strip heat (backup). The heat pump covers 67% of the heating load at design temp; strips cover the rest. Annual strip heat usage: approximately 200–400 hours. Additional cost: $150–$300/year.
+
+**Option B:** 3-ton heat pump + 80,000 BTU gas furnace (dual-fuel). The heat pump runs down to about 30°F, then the furnace takes over. Lower operating cost than strip heat in most gas price scenarios.
+
+**Recommendation:** For Raleigh's moderate climate, Option A with a 3.5-ton cold-climate heat pump is the simplest and most common. The heat pump handles 85%+ of heating hours; strips handle the rest.
+</Callout>
+
+<Callout type="example">
+**Example 2: 2,400 sq ft colonial in Minneapolis, MN (Zone 6)**
+
+- Cooling load: 2,400 × 17 BTU/sq ft = 40,800 BTU → 3.4 tons
+- Heating load: 2,400 × 58 BTU/sq ft = 139,200 BTU output → At design temp −12°F
+
+This is a challenging scenario. Even a 5-ton cold-climate heat pump delivers only about 36,000–42,000 BTU at −12°F — covering 26–30% of the heating load.
+
+**Option A:** Dual-fuel with two heat pumps + two gas furnaces (zoned system). First floor: 2.5-ton HP + 80,000 BTU furnace. Second floor: 2-ton HP + 60,000 BTU furnace. Heat pumps handle cooling and heating above 15°F; furnaces handle the deep cold. Estimated annual savings vs. furnace-only: $400–$800 from heat pump hours.
+
+**Option B:** Cold-climate mini splits (supplemental) + gas furnace. Install 2–3 high-capacity cold-climate mini split heads in main living areas. Keep the gas furnace for whole-home distribution during extreme cold. The mini splits offset 40–60% of annual heating hours at heat pump efficiency.
+
+**Recommendation:** Zone 6 with this heating load practically requires gas backup. Pure electric heat pump systems work here, but only with massive capacity (two 5-ton units + 20+ kW of strip heat) and high electric bills during cold snaps.
+</Callout>
+
+<Callout type="example">
+**Example 3: 1,800 sq ft new build in Austin, TX (Zone 2)**
+
+- Cooling load: 1,800 × 24 BTU/sq ft = 43,200 BTU → 3.6 tons
+- Heating load: 1,800 × 20 BTU/sq ft = 36,000 BTU → At design temp 25°F
+- Heat pump capacity at 25°F: Standard 4-ton delivers ~38,000 BTU → Covers full heating load
+
+**Result: 4-ton standard heat pump. No backup heat needed.**
+
+Austin's mild winters mean a standard (non-cold-climate) heat pump covers both heating and cooling without any supplemental heat source. The cooling load drives the sizing, and the heating load fits comfortably within the heat pump's capacity at the winter design temperature. This is the simplest and most economical heat pump application.
+</Callout>
+
+## Cold-Climate Heat Pump Options (2026)
+
+For Zones 5–7, these are the leading cold-climate heat pump platforms:
+
+| Brand/Model | Type | Min Operating Temp | Capacity at −13°F | SEER2 | HSPF2 |
+|---|---|---|---|---|---|
+| Mitsubishi Hyper-Heat (H2i) | Ducted/ductless | −13°F | 75–100% rated | 18–20 | 11–13 |
+| Carrier/Bryant Greenspeed | Ducted | −15°F | 70–82% rated | 19–24 | 11–13 |
+| Bosch IDS 2.0 | Ducted | −4°F | 60–72% rated | 18–20 | 10–11 |
+| Daikin Fit / Aurora | Ducted/ductless | −13°F | 70–85% rated | 16–18 | 10–12 |
+| Fujitsu XLTH | Ductless | −15°F | 72–87% rated | 20–33 | 12–14 |
+| LG Red (Multi V S) | Ductless | −13°F | 70–80% rated | 19–24 | 10–12 |
+
+<Callout type="info">
+**IRA tax credits in 2026:** Heat pump installations qualify for up to 30% of project cost (max $2,000/year) under the 25C Energy Efficient Home Improvement Credit. Low-to-moderate income households may qualify for up to $8,000 under the HOMES/HEEHRA rebate programs. Cold-climate heat pumps that meet CEE Tier 1 or higher generally qualify.
+</Callout>
+
+## Auxiliary Heat Sizing
+
+When your heat pump can't cover the full heating load, auxiliary (backup) heat covers the gap. Size the auxiliary heat to cover the difference between the heat pump's capacity at design temperature and your home's total heating load:
+
+**Auxiliary heat (kW) = (Total heating load − HP capacity at design temp) ÷ 3,412**
+
+| Gap to Cover (BTU) | Electric Strip Size Needed (kW) | Annual Cost at $0.15/kWh (500 hrs) |
+|---|---|---|
+| 5,000 | 1.5 kW | $113 |
+| 10,000 | 3 kW | $225 |
+| 15,000 | 5 kW | $375 |
+| 20,000 | 6 kW | $450 |
+| 30,000 | 10 kW | $750 |
+| 40,000 | 12 kW | $900 |
+| 60,000 | 18 kW | $1,350 |
+
+Strip heat costs 3–4× more per BTU than heat pump operation. Every 5,000 BTU you can shift from strips to heat pump (by upsizing the heat pump or improving insulation) saves roughly $150/year.
+
+<Callout type="takeaway">
+**Key Takeaways**
+
+1. Size heat pumps for the larger of heating or cooling load — in Zones 4–7, heating almost always dominates
+2. Check heating capacity at your winter design temperature (17°F or lower), not at the rated 47°F
+3. Cold-climate heat pumps maintain 70–100% capacity to −13°F; standard units lose 40–50% at that temperature
+4. Dual-fuel (heat pump + gas furnace) is often the most economical approach in cold climates
+5. Every 5,000 BTU shifted from electric strip heat to heat pump operation saves ~$150/year
+6. IRA tax credits cover up to 30% (max $2,000) for qualifying heat pump installations in 2026
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ>
+  <FAQ.Item question="What size heat pump do I need for 2,000 square feet?">
+    For 2,000 sq ft: 3–3.5 tons in hot climates (Zones 2–3) where cooling drives sizing, 3.5–4 tons in mixed climates (Zone 4), or 4–4.5 tons in cold climates (Zones 5–6) where heating drives sizing. These assume average insulation. Well-insulated homes need 0.5–1 ton less; poorly insulated homes need 0.5–1 ton more.
+  </FAQ.Item>
+
+  <FAQ.Item question="Is a heat pump big enough to heat my whole house?">
+    In Zones 1–4, a properly sized heat pump can handle your entire heating load without backup. In Zone 5, a cold-climate heat pump covers 80–95% of annual heating hours; backup heat covers the rest. In Zones 6–7, a cold-climate heat pump covers 60–80% of heating hours, and you'll rely on backup heat during the coldest periods. "Big enough" depends on your climate and tolerance for backup heat costs.
+  </FAQ.Item>
+
+  <FAQ.Item question="What's the difference between a heat pump and an air conditioner for sizing?">
+    An AC only cools, so you size it for the cooling load only. A heat pump heats and cools, so you size it for the larger of the two loads. In Zones 4–7, the heating load is larger, so you often need a heat pump that's 0.5–1.5 tons bigger than an AC-only system for the same home. Additionally, heat pump capacity drops in cold weather, which can push the required tonnage even higher.
+  </FAQ.Item>
+
+  <FAQ.Item question="Do heat pumps work in cold climates?">
+    Yes, modern cold-climate heat pumps work effectively down to −13°F to −22°F. They maintain 50–85% of rated capacity at these extreme temperatures. In 2026, cold-climate heat pumps are a proven technology with millions of installations in Zones 5–7 across the US, Canada, and Scandinavia. The key is choosing cold-climate rated models and properly sizing for your heating load at design temperature.
+  </FAQ.Item>
+
+  <FAQ.Item question="What is a dual-fuel heat pump system?">
+    A dual-fuel system combines a heat pump with a gas furnace. The heat pump handles cooling and heating above a chosen switchover temperature (typically 25–35°F). Below that temperature, the gas furnace takes over because gas heating becomes more cost-effective than heat pump operation in extreme cold. Dual-fuel eliminates the need for expensive electric strip heat and provides reliable heating at any temperature.
+  </FAQ.Item>
+
+  <FAQ.Item question="How much do heat pumps cost to install in 2026?">
+    Central ducted heat pump installation ranges from $5,000 to $15,000 depending on tonnage, efficiency, and brand. Ductless mini split heat pumps range from $2,000 to $5,000 per zone. Before incentives, a typical 3-ton ducted heat pump system costs $7,000–$10,000 installed. After IRA tax credits (up to $2,000) and state/utility rebates, the effective cost can drop to $4,000–$7,000.
+  </FAQ.Item>
+
+  <FAQ.Item question="Should I get a heat pump or a furnace?">
+    In Zones 1–3, a heat pump is almost always the better choice — it handles both heating and cooling efficiently. In Zone 4, a heat pump works well, especially cold-climate models. In Zones 5–7, a dual-fuel system (heat pump + gas furnace) often offers the best economics and comfort. If you have cheap natural gas and expensive electricity, a gas furnace for heating + AC for cooling may still be most economical. If you're electrifying your home or want to reduce gas dependence, a cold-climate heat pump with strip backup is viable in any zone.
+  </FAQ.Item>
+
+  <FAQ.Item question="How long do heat pumps last?">
+    Air-source heat pumps last 12–17 years on average, with cold-climate models averaging 12–15 years due to the harder work they perform in winter. Ground-source (geothermal) heat pumps last 20–25 years for the heat pump itself and 50+ years for the ground loop. Regular maintenance (annual tune-ups, filter changes, coil cleaning) and proper sizing are the biggest factors in reaching the upper end of the lifespan range.
+  </FAQ.Item>
+
+  <FAQ.Item question="Can a heat pump replace my furnace and AC?">
+    Yes. A ducted heat pump replaces both the outdoor AC condenser and the furnace as the heating source. You keep the existing ductwork and air handler (or replace the air handler with a heat pump-compatible model). The heat pump provides cooling in summer and heating in winter through the same duct system. In cold climates, you may keep the gas furnace as a dual-fuel backup.
+  </FAQ.Item>
+
+  <FAQ.Item question="What size heat pump do I need for a 1,500 sq ft house?">
+    For 1,500 sq ft: 2.5 tons in hot climates (cooling-dominated), 3 tons in mixed climates, or 3–3.5 tons in cold climates with a cold-climate heat pump. If using a standard heat pump in Zone 5–6, you may need 3.5 tons plus significant strip heat backup. A dual-fuel setup with a 2.5-ton heat pump + gas furnace is often the most economical option in cold climates.
+  </FAQ.Item>
+</FAQ>
+
+<SourcesBox>
+  - [U.S. DOE – Heat Pump Systems](https://www.energy.gov/energysaver/heat-pump-systems)
+  - [ENERGY STAR – Air Source Heat Pumps](https://www.energystar.gov/products/heating_cooling/heat_pumps)
+  - [NEEP – Cold Climate Air Source Heat Pump Listing](https://ashp.neep.org)
+  - [AHRI – Certified Heat Pump Directory](https://www.ahridirectory.org)
+  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+  - [IRS – Energy Efficient Home Improvement Credit (25C)](https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit)
+  - [DOE – Residential Cold Climate Heat Pump Challenge](https://www.energy.gov/eere/buildings/residential-cold-climate-heat-pump-challenge)
+</SourcesBox>
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

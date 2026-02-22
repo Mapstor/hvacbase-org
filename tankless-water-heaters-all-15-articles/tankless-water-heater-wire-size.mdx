@@ -1,0 +1,249 @@
+---
+slug: "tankless-water-heater-wire-size"
+title: "Tankless Water Heater Wire Size Calculator (AWG Guide for 2026)"
+description: "Calculate the correct wire size (AWG) for any electric tankless water heater. Covers NEC requirements, voltage drop calculations, wire types, conduit sizing, and distance-based upsizing tables."
+cluster: "tankless-water-heaters"
+role: "spoke"
+priority: "P2"
+contentType: "KEEP+"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "tankless-water-heater-guide"
+  - "best-electric-tankless-water-heaters"
+  - "tankless-water-heater-breaker-size"
+  - "tankless-water-heater-electricity"
+  - "tankless-water-heater-cost"
+externalLinks:
+  - label: "NEC 2023 — Table 310.16 (Conductor Ampacities)"
+    url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70"
+  - label: "NEC 2023 — Article 310 (Conductors)"
+    url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Tankless Water Heater Wire Size Calculator (AWG Guide for 2026)
+
+A 27 kW electric tankless water heater requires **#8 AWG copper wire** for each of its three 40-amp circuits, assuming a wire run under 50 feet. For runs over 50 feet, you must upsize to **#6 AWG** to compensate for voltage drop. Using undersized wire creates a fire hazard and violates the National Electrical Code.
+
+Here is the complete wire sizing reference for every common electric tankless unit, including distance-based adjustments and conduit requirements.
+
+<TableOfContents />
+
+## Wire Sizing Fundamentals
+
+Wire size is determined by two factors: the current it must carry safely (ampacity) and the voltage drop over distance.
+
+### Ampacity
+
+The NEC (Table 310.16) specifies the maximum current each wire size can carry safely at various temperatures. For residential 240V circuits in NM-B (Romex) cable at 60C conductor rating:
+
+<ComparisonTable
+  title="Copper Wire Ampacity (NM-B at 60C, NEC Table 310.16)"
+  headers={["Wire Size (AWG)", "Max Ampacity", "Common Breaker Pairing", "Typical Application"]}
+  rows={[
+    ["#14 AWG", "15A", "15A breaker", "Lighting circuits"],
+    ["#12 AWG", "20A", "20A breaker", "General outlets, small POU units"],
+    ["#10 AWG", "30A", "30A breaker", "Dryers, small appliances"],
+    ["#8 AWG", "40A", "40A breaker", "Ranges, tankless circuits"],
+    ["#6 AWG", "55A", "50A or 60A breaker", "Large tankless circuits, sub-panels"],
+    ["#4 AWG", "70A", "70A breaker", "Sub-panels, long runs"],
+    ["#3 AWG", "85A", "80A breaker", "Heavy equipment"],
+    ["#2 AWG", "95A", "90A breaker", "Service entrances"],
+  ]}
+/>
+
+### Voltage Drop
+
+Wire has resistance, which causes voltage to drop over distance. The NEC recommends a maximum 3% voltage drop for branch circuits and 5% total (feeder + branch). At 240V, a 3% drop is 7.2V — meaning the unit receives 232.8V instead of 240V.
+
+**Voltage drop formula:**
+
+VD = (2 x Length x Current x Resistance per foot) / 1,000
+
+For #8 AWG copper at 37.5A over 50 feet: VD = (2 x 50 x 37.5 x 0.628) / 1,000 = 2.36V (0.98% — well within 3%).
+
+For #8 AWG at 37.5A over 100 feet: VD = (2 x 100 x 37.5 x 0.628) / 1,000 = 4.71V (1.96% — still acceptable but approaching the limit).
+
+At 75 feet with #8 AWG: VD = 3.53V (1.47%). This is fine, but upsizing to #6 AWG at this distance provides better margin and reduces energy loss.
+
+## Wire Size by Unit and Distance
+
+This is the master reference table. Find your unit's kW rating and wire run distance:
+
+<ComparisonTable
+  title="Required Wire Size by kW Rating and Distance (Copper, 240V)"
+  headers={["Unit Power", "Amps/Circuit", "Under 50 ft", "50–75 ft", "75–100 ft", "100–150 ft"]}
+  rows={[
+    ["3.5 kW (1 circuit)", "14.6A", "#14 AWG", "#14 AWG", "#12 AWG", "#12 AWG"],
+    ["7–8 kW (1 circuit)", "30–33A", "#8 AWG", "#8 AWG", "#6 AWG", "#6 AWG"],
+    ["11–13 kW (1 circuit)", "46–54A", "#6 AWG", "#6 AWG", "#4 AWG", "#4 AWG"],
+    ["18 kW (2 circuits)", "37.5A each", "#8 AWG", "#6 AWG", "#6 AWG", "#4 AWG"],
+    ["24 kW (3 circuits)", "33.3A each", "#8 AWG", "#8 AWG", "#6 AWG", "#6 AWG"],
+    ["27 kW (3 circuits)", "37.5A each", "#8 AWG", "#6 AWG", "#6 AWG", "#4 AWG"],
+    ["29 kW (3 circuits)", "40.3A each", "#6 AWG", "#6 AWG", "#4 AWG", "#4 AWG"],
+    ["36 kW (4 circuits)", "37.5A each", "#8 AWG", "#6 AWG", "#6 AWG", "#4 AWG"],
+  ]}
+/>
+
+<Callout type="warning">
+**Always check the manufacturer's installation manual.** Some manufacturers specify wire sizes that are more conservative than the NEC minimum. The Stiebel Eltron Tempra 29 Plus, for example, specifies #6 AWG for each of its three 50A circuits, even for short runs where #8 might technically suffice by NEC ampacity alone.
+</Callout>
+
+## Wire Types for Tankless Installation
+
+### NM-B (Romex)
+
+The most common residential wire. NM-B is a non-metallic sheathed cable with 2 or 3 insulated conductors plus a bare ground. It is rated for dry locations inside walls, floors, and ceilings.
+
+**For tankless circuits:** Use 2-conductor NM-B (two hots + ground) for 240V circuits. There is no neutral needed for a tankless water heater — it is a pure 240V load.
+
+**#8 AWG NM-B cost:** $1.50–$2.50 per foot (2026 prices).
+**#6 AWG NM-B cost:** $2.50–$4.00 per foot.
+
+### THHN/THWN in Conduit
+
+For exposed runs (basements, garages, exterior walls), individual THHN or THWN conductors run in EMT or PVC conduit. This allows higher ampacity ratings (Table 310.16 at 90C for THHN) but requires conduit installation labor.
+
+**#8 AWG THHN cost:** $0.80–$1.50 per foot per conductor (need 3: two hots + ground).
+**Conduit cost:** $1.00–$3.00 per foot installed.
+
+### UF-B (Underground Feeder)
+
+For outdoor or underground runs (such as feeding an outdoor tankless or a detached garage). UF-B has waterproof insulation and can be direct-buried.
+
+**Important:** UF-B has lower ampacity than NM-B at the same gauge. Verify ratings before using UF-B for tankless circuits.
+
+## Conduit Sizing
+
+If running conductors in conduit, the conduit must be sized for the number and size of wires:
+
+<ComparisonTable
+  title="Minimum Conduit Size for Tankless Water Heater Circuits"
+  headers={["Configuration", "Conductors", "Min EMT Size", "Min PVC Size"]}
+  rows={[
+    ["1 circuit, #8 AWG", "3 wires (2 hot + ground)", "1/2 inch", "1/2 inch"],
+    ["1 circuit, #6 AWG", "3 wires (2 hot + ground)", "3/4 inch", "3/4 inch"],
+    ["2 circuits, #8 AWG (bundled)", "6 wires", "1 inch", "1 inch"],
+    ["3 circuits, #8 AWG (bundled)", "9 wires", "1-1/4 inch", "1-1/4 inch"],
+    ["4 circuits, #8 AWG (bundled)", "12 wires", "1-1/2 inch", "1-1/2 inch"],
+  ]}
+/>
+
+<Callout type="info">
+**Bundling derating:** When more than 3 current-carrying conductors share a conduit, NEC Table 310.15(C)(1) requires derating ampacity. For 4–6 conductors, derate to 80%. For 7–9 conductors, derate to 70%. This may require upsizing wire. Running each circuit in its own conduit avoids derating entirely — and is the recommended approach.
+</Callout>
+
+## Wire Cost Estimator
+
+<ComparisonTable
+  title="Total Wire Cost by Configuration (2026)"
+  headers={["Configuration", "Wire Run Length", "Wire Type", "Estimated Wire Cost"]}
+  rows={[
+    ["ECO 11: 1x #6 AWG", "25 ft", "NM-B", "$75–$120"],
+    ["ECO 27: 3x #8 AWG", "25 ft each (75 ft total)", "NM-B", "$115–$190"],
+    ["ECO 27: 3x #8 AWG", "50 ft each (150 ft total)", "NM-B", "$225–$375"],
+    ["ECO 27: 3x #6 AWG (long run)", "75 ft each (225 ft total)", "NM-B", "$560–$900"],
+    ["ECO 36: 4x #8 AWG", "25 ft each (100 ft total)", "NM-B", "$150–$250"],
+    ["ECO 36: 4x #8 AWG", "50 ft each (200 ft total)", "NM-B", "$300–$500"],
+    ["ECO 36: 4x #6 AWG (long run)", "75 ft each (300 ft total)", "NM-B", "$750–$1,200"],
+  ]}
+/>
+
+Wire cost can be a significant fraction of the installation budget, especially for long runs or upsized conductors. Keep the unit as close to the panel as possible to minimize wire costs and voltage drop.
+
+## Installation Best Practices
+
+### Route Planning
+
+Plan the shortest possible path from the panel to the unit. Going through conditioned space (inside walls) is preferred over running through unconditioned attics or crawlspaces, where temperature extremes can affect wire ampacity ratings.
+
+### Securing and Protection
+
+NM-B cable must be secured with staples or straps every 4.5 feet and within 12 inches of each junction box. Where cables pass through studs or joists within 1.25 inches of the edge, nail plates are required to protect against drywall screws.
+
+### Connection at the Unit
+
+Most electric tankless units have a terminal block with labeled connections for each circuit. Each circuit connects to a pair of terminals (L1 and L2 for each element group). The ground wire connects to the grounding terminal. Use proper cable clamps at the unit's knockout openings.
+
+### Labeling
+
+Label each circuit at the breaker panel clearly: "Tankless WH Circuit 1," "Tankless WH Circuit 2," etc. This helps future electricians and inspectors identify the circuits.
+
+## Real-World Examples
+
+### Example 1: Short Run — EcoSmart ECO 27
+
+**Setup:** Panel in utility room, tankless on the opposite wall (15 feet away). Three circuits, #8 AWG NM-B.
+
+**Materials:** 45 feet of #8/2 NM-B ($68), three 40A double-pole breakers ($36), cable staples and clamps ($15). **Total materials: $119.** Labor: 2 hours ($300). **Total: $419.**
+
+### Example 2: Medium Run — EcoSmart ECO 36
+
+**Setup:** Panel in basement, tankless in 2nd-floor bathroom (55-foot run). Four circuits, upsized to #6 AWG due to distance.
+
+**Materials:** 220 feet of #6/2 NM-B ($660), four 40A breakers ($48), nail plates and clamps ($30). **Total materials: $738.** Labor: 5 hours ($750). **Total: $1,488.**
+
+### Example 3: Detached Garage — Rheem RTEX-18
+
+**Setup:** Panel in house, tankless in detached garage 80 feet away. Two circuits, #6 AWG UF-B (direct burial) in PVC conduit.
+
+**Materials:** 160 feet of #6/2 UF-B ($640), 80 feet of 3/4-inch PVC conduit ($120), two 40A breakers ($24), trench supplies ($80). **Total materials: $864.** Labor (including trenching): 8 hours ($1,200). **Total: $2,064.**
+
+## Key Takeaways
+
+<Callout type="takeaway">
+- **Most common wire: #8 AWG copper** for 40A circuits under 50 feet
+- **Upsize to #6 AWG for runs over 50 feet** to prevent voltage drop above 3%
+- **Each circuit needs its own dedicated wire run** from the panel to the unit
+- **Use NM-B (Romex)** inside walls, THHN in conduit for exposed runs, UF-B for underground
+- **A 27 kW unit needs about 75–150 feet of total wire** (three runs); a 36 kW unit needs 100–200 feet (four runs)
+- **Wire cost ranges from $100–$1,200** depending on gauge, distance, and number of circuits
+- **Keep the unit close to the panel** — every extra foot adds cost and voltage drop
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What size wire do I need for a tankless water heater?",
+    answer: "Most tankless water heaters (18–36 kW) use #8 AWG copper wire for each 40A circuit, with runs under 50 feet. For 50A circuits (like the Stiebel Eltron Tempra 29), use #6 AWG. For 60A circuits (11–13 kW single-circuit units), use #6 AWG. Always upsize one gauge for runs exceeding 50 feet."
+  },
+  {
+    question: "Can I use aluminum wire for a tankless water heater?",
+    answer: "Aluminum wire is not recommended for tankless water heater circuits. While NEC allows aluminum for certain applications, its higher resistance requires larger gauges (typically 2 sizes larger than copper), the connections are prone to oxidation and loosening, and most tankless manufacturers specify copper wire in their installation manuals. Using aluminum may void your warranty."
+  },
+  {
+    question: "How far can I run wire to a tankless water heater?",
+    answer: "With #8 AWG copper on a 40A circuit, you can run up to about 75 feet before exceeding 3% voltage drop. Upsizing to #6 AWG extends the practical limit to about 120 feet. Beyond 120 feet, use #4 AWG. Runs over 150 feet are possible but increasingly expensive and inefficient — consider relocating the unit closer to the panel."
+  },
+  {
+    question: "Do I need a ground wire for a tankless water heater?",
+    answer: "Yes. Every circuit requires an equipment grounding conductor (EGC). In NM-B cable, this is the bare copper wire included in the cable. In conduit installations, run a separate green or bare copper ground wire sized to NEC Table 250.122 — typically #10 AWG for 40A circuits and #8 AWG for 60A circuits."
+  },
+  {
+    question: "Can I run all tankless water heater circuits in one conduit?",
+    answer: "You can, but NEC ampacity derating applies when more than 3 current-carrying conductors share a conduit. For a 27 kW unit with three circuits (9 conductors), the derating factor is 70%, which may require upsizing from #8 to #6 AWG. Running each circuit in its own conduit avoids derating and is the cleaner, safer approach."
+  },
+  {
+    question: "What wire size for a 36 kW tankless water heater?",
+    answer: "A 36 kW unit typically requires four runs of #8 AWG copper wire for four 40A circuits, assuming each run is under 50 feet. For runs of 50–75 feet, upsize to #6 AWG. For runs of 75–100 feet, use #4 AWG. Total wire needed: 100–300 feet across all four circuits, depending on distance."
+  },
+  {
+    question: "How much does wiring for a tankless water heater cost?",
+    answer: "Wire materials cost $100–$1,200 depending on gauge, distance, and number of circuits. Add breakers ($24–$80), conduit if needed ($1–$3/foot), and miscellaneous hardware ($20–$50). Electrician labor adds $300–$1,200. Total wiring cost: $450–$2,500, with the average around $600–$900 for a standard 27 kW installation."
+  },
+  {
+    question: "Do I need a neutral wire for a tankless water heater?",
+    answer: "No. Electric tankless water heaters are pure 240V resistive loads that do not require a neutral conductor. Each circuit uses two hot wires (L1 and L2) and a ground wire — no neutral. Use 2-conductor NM-B cable (two insulated hots plus bare ground), not 3-conductor."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "NEC 2023 — Table 310.16 (Conductor Ampacities)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" },
+  { label: "NEC 2023 — Article 310 (Conductors for General Wiring)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" },
+  { label: "NEC 2023 — Chapter 9 Table 5 (Conduit Fill)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" },
+  { label: "Southwire — Wire Gauge and Ampacity Guide", url: "https://www.southwire.com" },
+  { label: "EcoSmart — Installation Requirements", url: "https://www.ecosmart.com/support/" },
+]} />
+
+<RelatedArticles />

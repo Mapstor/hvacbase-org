@@ -1,0 +1,163 @@
+---
+slug: "eer-rating-explained"
+title: "What Is EER Rating? Energy Efficiency Ratio Explained"
+description: "EER (Energy Efficiency Ratio) measures how efficiently an air conditioner cools at peak outdoor temperature (95F). Learn the EER formula, how it differs from SEER, typical EER ranges, and when EER matters more than other ratings."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P2"
+contentType: "explainer"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "eer2-rating-explained"
+    title: "Understanding EER2: The New 2023 Rating"
+  - slug: "eer-vs-seer"
+    title: "EER vs SEER: What's the Difference?"
+  - slug: "eer-chart-for-ac-units"
+    title: "EER Chart for Air Conditioners"
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/central-air-conditioning"
+    label: "U.S. DOE - Central Air Conditioning"
+  - url: "https://www.ahrinet.org"
+    label: "AHRI"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# What Is EER Rating? Energy Efficiency Ratio Explained
+
+**EER (Energy Efficiency Ratio) measures an air conditioner's cooling efficiency at a fixed operating point: 95 degrees F outdoor temperature, 80 degrees F indoor temperature, and 50% relative humidity.** It's calculated by dividing the cooling output in BTU per hour by the electrical input in watts. A window AC with 12 EER delivers 12 BTU of cooling per watt, using about 17% less electricity than a 10 EER unit of the same capacity.
+
+While SEER averages efficiency over a whole season, EER gives you a snapshot of performance at peak conditions. Think of it as your AC's "top speed" efficiency — how well it performs when the outdoor heat is at its worst and the system is running full blast.
+
+<TableOfContents />
+
+## The EER Formula
+
+**EER = Cooling Capacity (BTU/h) / Power Input (W)**
+
+For a window AC rated at 8,000 BTU/h that draws 667 watts at the test condition:
+
+EER = 8,000 / 667 = **12.0**
+
+This means you get 12 BTU of cooling for every watt-hour of electricity at 95 degrees F outdoor temperature.
+
+The formula is simple because EER measures a single operating point, unlike SEER which requires seasonal weighting calculations.
+
+## EER vs EER2: The 2023 Update
+
+EER was replaced by EER2 on January 1, 2023, for newly manufactured equipment. EER2 uses the same 95 degrees F test condition but with higher static pressure (0.5 in. w.c. instead of 0.1 in. w.c.). EER2 ratings are approximately 4.7% lower than EER for the same unit.
+
+If you're comparing an older unit rated in EER to a new unit rated in EER2, divide the old EER by 1.047 to approximate the EER2 equivalent.
+
+## Typical EER Ranges
+
+<ComparisonTable
+  headers={["Equipment Type", "Poor EER", "Average EER", "Good EER", "Excellent EER"]}
+  rows={[
+    ["Central AC (Split)", "Below 10", "10-11.5", "11.5-13", "13+"],
+    ["Central Heat Pump", "Below 10", "10-11", "11-12.5", "12.5+"],
+    ["Window AC (Small, under 8K BTU)", "Below 10", "10-11", "11-12.5", "12.5+"],
+    ["Window AC (Large, 12K+ BTU)", "Below 9", "9-10.5", "10.5-12", "12+"],
+    ["Portable AC", "Below 8", "8-9.5", "9.5-11", "11+"],
+    ["Mini-Split (Ductless)", "Below 11", "11-13", "13-15", "15+"],
+  ]}
+/>
+
+Mini-splits tend to have the highest EER ratings because they have no duct losses and use highly efficient inverter compressors optimized for their specific indoor units.
+
+## When EER Matters Most
+
+EER is most relevant in three situations:
+
+**Hot climates with sustained high temperatures.** In Phoenix, Las Vegas, or Houston, your AC runs at or near full capacity for weeks. During these periods, EER (not SEER) determines your electricity consumption. A system with high SEER but mediocre EER saves money during shoulder seasons but not during peak summer.
+
+**Window and portable ACs.** For room air conditioners, EER (now replaced by CEER) has historically been the primary efficiency metric because these units typically run at full capacity whenever they're on. There's less part-load operation to capture with a seasonal metric.
+
+**Comparing across different types of equipment.** EER provides an apples-to-apples comparison between central systems, mini-splits, window units, and portable ACs at the same operating condition. SEER comparisons across equipment types can be misleading because seasonal testing assumptions differ.
+
+## EER to COP Conversion
+
+To convert EER to the universal COP metric:
+
+**COP = EER / 3.412**
+
+Examples: 10 EER = COP 2.93. 12 EER = COP 3.52. 14 EER = COP 4.10.
+
+This tells you the system removes 2.93 to 4.10 units of heat for every unit of electricity consumed at the test condition.
+
+## Historical EER Minimums
+
+<ComparisonTable
+  headers={["Period", "Central AC Minimum", "Window AC Minimum (8,000 BTU)", "Notes"]}
+  rows={[
+    ["Pre-1990", "No federal minimum", "No federal minimum", "Typical: 5-8 EER"],
+    ["1990-2005", "~8.9-10 EER", "~8.5-9.5 EER", "First standards established"],
+    ["2006-2014", "~10.5-11 EER", "~9.5-10.7 EER", "Increased alongside SEER changes"],
+    ["2015-2022", "~11-12 EER (varies by region)", "~10.7-12.1 EER (varies by capacity)", "Regional standards introduced"],
+    ["2023+", "EER2 standard (lower numbers)", "CEER standard for window/portable", "M1 test procedure adopted"],
+  ]}
+/>
+
+## Limitations of EER
+
+EER has several limitations that you should understand:
+
+**Single temperature snapshot.** EER only tells you efficiency at 95 degrees F. If your climate rarely hits 95, the actual performance you experience most of the time will be better than the EER rating suggests.
+
+**Doesn't capture part-load efficiency.** Variable-speed systems that modulate capacity can't showcase their efficiency advantage in a single full-load test. This is why SEER was developed — to capture the seasonal part-load benefit.
+
+**Doesn't include standby power.** For window and portable ACs, the original EER didn't account for electricity used when the unit is plugged in but not actively cooling. CEER (Combined EER) was created to address this.
+
+**Indoor conditions fixed.** The test assumes 80 degrees F / 50% RH indoors. If your thermostat is set to 72 degrees F, the actual operating conditions differ from the test, though the ranking between units remains similar.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **EER = BTU/h of cooling divided by watts of electricity** at 95 degrees F outdoor temperature
+- **EER was replaced by EER2 in January 2023** (roughly 4.7% lower due to tougher testing)
+- **Good EER for central ACs is 11.5+**, excellent is 13+. Mini-splits can reach 15+.
+- **EER matters most in hot climates** where the AC runs at full capacity for extended periods
+- **EER is a single-point measurement** — for annual cost estimates, SEER2 is more useful
+- **COP = EER / 3.412** — this converts to the universal efficiency ratio
+- **Window/portable ACs** now use CEER (includes standby power) instead of EER
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What is a good EER rating for an air conditioner?",
+    answer: "A good EER for a central AC is 11.5 or higher. For window ACs, 11+ is good. For ductless mini-splits, 13+ is good. Excellent EER ratings are 13+ for central systems and 15+ for mini-splits. These have been replaced by EER2 for new equipment since 2023."
+  },
+  {
+    question: "Is EER or SEER more important?",
+    answer: "For annual energy cost estimates, SEER (or SEER2) is more useful because it accounts for varying temperatures throughout the season. For hot climates where the AC runs at full capacity frequently, EER (or EER2) is more relevant for predicting peak-month costs. Both provide useful but different information."
+  },
+  {
+    question: "How do I convert EER to SEER?",
+    answer: "There's no exact conversion because they measure different things. However, for single-speed systems, SEER is typically 1.2-1.3 times the EER. For variable-speed systems, SEER can be 1.5-1.9 times the EER. A rough estimate: SEER is approximately EER times 1.3 for standard systems."
+  },
+  {
+    question: "What is the difference between EER and CEER?",
+    answer: "CEER (Combined Energy Efficiency Ratio) includes standby power consumption — the electricity a window or portable AC draws when plugged in but not actively cooling. EER only measures efficiency during active cooling. CEER replaced EER for room air conditioners because standby draw adds to annual energy costs."
+  },
+  {
+    question: "Is EER still used or is it obsolete?",
+    answer: "EER was replaced by EER2 for newly manufactured equipment on January 1, 2023. Millions of existing systems still carry EER ratings, so the metric remains relevant for evaluating current equipment. The concept is identical — only the test static pressure changed. For window and portable ACs, CEER has largely replaced EER."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Room Air Conditioners", url: "https://www.energy.gov/energysaver/room-air-conditioners" },
+  { label: "U.S. DOE - Central Air Conditioning", url: "https://www.energy.gov/energysaver/central-air-conditioning" },
+  { label: "AHRI - Certification Programs", url: "https://www.ahrinet.org" },
+  { label: "ENERGY STAR - Room Air Conditioners", url: "https://www.energystar.gov/products/heating_cooling/air_conditioning_room" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "eer2-rating-explained", title: "Understanding EER2: The New 2023 Rating" },
+  { slug: "eer-vs-seer", title: "EER vs SEER: What's the Difference?" },
+  { slug: "eer-chart-for-ac-units", title: "EER Chart for Air Conditioners" },
+  { slug: "seer2-rating-explained", title: "Understanding SEER2" }
+]} />

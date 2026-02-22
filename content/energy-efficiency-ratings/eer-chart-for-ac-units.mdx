@@ -1,0 +1,184 @@
+---
+slug: "eer-chart-for-ac-units"
+title: "EER Chart for Air Conditioners (Good, Average, Excellent)"
+description: "Reference EER and EER2 charts for central ACs, window units, mini-splits, and portable ACs. Find where your unit ranks and what constitutes a good, average, or excellent EER for each equipment type."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P2"
+contentType: "reference"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "eer-rating-explained"
+    title: "What Is EER Rating?"
+  - slug: "eer2-rating-explained"
+    title: "Understanding EER2"
+  - slug: "eer-vs-seer"
+    title: "EER vs SEER: Differences"
+  - slug: "good-seer-rating-for-ac"
+    title: "What Is a Good SEER Rating?"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/central-air-conditioning"
+    label: "U.S. DOE - Central Air Conditioning"
+  - url: "https://www.energystar.gov"
+    label: "ENERGY STAR"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+
+# EER Chart for Air Conditioners (Good, Average, Excellent)
+
+**A good EER rating for a central air conditioner is 11.5 or higher (approximately 11.0 EER2), while an excellent rating is 13+ EER (12.4+ EER2).** For window ACs, good is 11+ EER and for ductless mini-splits, good starts at 13 EER. These benchmarks help you quickly evaluate any AC unit and determine whether it's a worthwhile investment or a power-hungry compromise.
+
+Use the charts below to see where any unit falls on the efficiency spectrum.
+
+<TableOfContents />
+
+## Central Air Conditioner EER/EER2 Chart
+
+<ComparisonTable
+  headers={["Rating Category", "EER Range (Old)", "EER2 Range (New)", "What This Means"]}
+  rows={[
+    ["Poor", "Below 9.5", "Below 9.0", "Outdated technology. Wastes 25-40% more electricity than average."],
+    ["Below Average", "9.5-10.5", "9.0-10.0", "Entry-level single-stage units. Meets older minimum codes."],
+    ["Average", "10.5-11.5", "10.0-11.0", "Current single-stage or basic two-stage models."],
+    ["Good", "11.5-12.5", "11.0-12.0", "Quality two-stage or entry variable-speed. ENERGY STAR level."],
+    ["Very Good", "12.5-13.5", "12.0-13.0", "Premium variable-speed. Tax credit eligible (12.0 EER2)."],
+    ["Excellent", "13.5+", "13.0+", "Top-tier variable-speed inverter. Best peak-day performance."],
+  ]}
+/>
+
+<Callout type="info">
+**Federal tax credit threshold: 12.0 EER2** (approximately 12.6 old EER). Your central AC must meet this alongside 17.5 SEER2 to qualify for the $600 credit. Most units above the "Very Good" line meet this threshold.
+</Callout>
+
+## Window Air Conditioner EER/CEER Chart
+
+Window ACs now use CEER (Combined EER) which factors in standby power. The chart below shows both for reference:
+
+<ComparisonTable
+  headers={["Capacity Range", "Poor CEER", "Average CEER", "Good CEER", "ENERGY STAR CEER"]}
+  rows={[
+    ["5,000-5,999 BTU", "Below 10", "10-11", "11-12", "12.1+"],
+    ["6,000-7,999 BTU", "Below 10", "10-11", "11-12", "12.1+"],
+    ["8,000-10,999 BTU", "Below 9.5", "9.5-10.5", "10.5-12", "12.1+"],
+    ["11,000-13,999 BTU", "Below 9", "9-10", "10-11.5", "11.3+"],
+    ["14,000-19,999 BTU", "Below 9", "9-10", "10-11", "10.8+"],
+    ["20,000-24,999 BTU", "Below 8.5", "8.5-9.5", "9.5-10.5", "10.0+"],
+  ]}
+/>
+
+Larger window ACs tend to have lower EER ratings because the compressor-to-cabinet ratio is less favorable. This is normal and expected. Always compare within the same capacity class.
+
+## Ductless Mini-Split EER Chart
+
+Mini-splits typically achieve the highest EER ratings of any residential cooling equipment:
+
+<ComparisonTable
+  headers={["Rating Category", "EER Range", "Typical Configuration"]}
+  rows={[
+    ["Below Average", "Below 11", "Older fixed-speed models"],
+    ["Average", "11-13", "Standard single-zone inverter"],
+    ["Good", "13-15", "Premium single-zone inverter"],
+    ["Excellent", "15-17", "Top-tier hyper-efficient single-zone (Mitsubishi, Fujitsu)"],
+    ["Multi-Zone Average", "10-12", "Multi-zone systems with 2-5 indoor heads"],
+    ["Multi-Zone Good", "12-14", "Premium multi-zone (varies by connected capacity)"],
+  ]}
+/>
+
+<Callout type="tip">
+**Multi-zone mini-split systems always have lower EER than single-zone models** because multi-zone systems must handle varying loads across multiple indoor units, and the outdoor unit is sized for the total connected capacity rather than the actual simultaneous load.
+</Callout>
+
+## Portable Air Conditioner EER Chart
+
+Portable ACs are the least efficient cooling option due to exhaust heat, single-hose air loss, and less efficient compressor designs:
+
+<ComparisonTable
+  headers={["Capacity", "Poor EER", "Average EER", "Good EER", "Notes"]}
+  rows={[
+    ["8,000 BTU (DOE adjusted)", "Below 7", "7-8.5", "8.5-10", "Most single-hose units"],
+    ["10,000 BTU (DOE adjusted)", "Below 7", "7-8", "8-9.5", "Improved dual-hose models"],
+    ["12,000-14,000 BTU (DOE adjusted)", "Below 6.5", "6.5-7.5", "7.5-9", "Largest portable units"],
+  ]}
+/>
+
+<Callout type="warning">
+**Portable AC EER is not comparable to central AC or window unit EER.** Portable units must exhaust hot air through a vent hose, and single-hose models create negative pressure that pulls warm air in through gaps. Their true cooling efficiency is significantly lower than the rating suggests. If possible, choose a window unit or mini-split instead.
+</Callout>
+
+## EER by Brand: Top Central AC Models
+
+<ComparisonTable
+  headers={["Brand", "Top EER Model", "EER2", "SEER2", "Compressor"]}
+  rows={[
+    ["Lennox", "XC25", "13.5", "25.5", "Variable-speed inverter"],
+    ["Carrier", "Infinity 24 (24VNA4)", "13.0", "24", "Variable-speed inverter"],
+    ["Bryant", "Evolution 24 (189CNV)", "13.0", "24", "Variable-speed inverter"],
+    ["Daikin", "DX20VC", "13.0", "20", "Variable-speed inverter"],
+    ["Trane", "XV20i", "12.5", "22", "Variable-speed"],
+    ["American Standard", "Platinum 20", "12.5", "22", "Variable-speed"],
+    ["Rheem", "Prestige RA20", "12.5", "20", "Variable-speed"],
+    ["Goodman", "GVXC20", "12.0", "20", "Variable-speed"],
+    ["York", "YXV", "12.0", "20", "Variable-speed"],
+  ]}
+/>
+
+## Understanding EER in Context
+
+A few rules of thumb for interpreting EER charts:
+
+**EER improves less dramatically than SEER between models.** A unit might jump from 16 to 22 SEER2 (38% improvement) while only going from 11 to 13 EER2 (18% improvement). The SEER gains come from part-load efficiency; EER gains require genuine full-load engineering improvements.
+
+**Higher EER generally correlates with higher price.** Each additional EER point typically adds $500-$1,500 to system cost for central ACs. The cost premium for high EER is more modest for mini-splits (roughly $200-$500 per point).
+
+**EER drops at temperatures above 95 degrees F.** The rated EER is tested at 95 degrees F. At 105 or 115 degrees F, actual efficiency drops further. Units with high rated EER tend to maintain their advantage at extreme temperatures.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **Good EER for central ACs: 11.5+ (11.0+ EER2).** Excellent: 13+ (12.4+ EER2).
+- **Good EER for window ACs: 11+ CEER.** ENERGY STAR: 12.1+ CEER for most sizes.
+- **Good EER for mini-splits: 13+.** Top single-zone units reach 15-17.
+- **Portable ACs have the lowest EER** (7-10 range) and aren't comparable to other types.
+- **12.0 EER2 is required for the federal tax credit** alongside 17.5 SEER2.
+- **Compare within equipment type** — don't compare a mini-split EER to a portable AC EER.
+- **Larger units within a category tend to have lower EER** due to engineering constraints.
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "What EER should I look for in a window AC?",
+    answer: "For a window AC, look for a CEER of 12.0 or higher to meet ENERGY STAR standards. For most sizes (6,000-11,000 BTU), a CEER of 11+ is good and 12+ is excellent. Larger units (14,000+ BTU) have lower typical ratings, with 10.5+ being good."
+  },
+  {
+    question: "Why is my mini-split EER so much higher than my central AC?",
+    answer: "Mini-splits have higher EER because they eliminate duct losses and use highly efficient inverter compressors matched specifically to their indoor units. Central systems lose some efficiency through ductwork and use compressors designed for higher airflow requirements. A 15 EER mini-split and a 12 EER central system can have similar total home efficiency once duct losses are factored in."
+  },
+  {
+    question: "Does a higher EER mean lower electricity bills?",
+    answer: "Higher EER means lower electricity consumption during peak cooling conditions (95F+ outdoor). For annual cost estimates, SEER2 is a better predictor because it accounts for the full range of temperatures throughout the cooling season. In very hot climates where the AC runs at full capacity frequently, EER has a larger impact on the total bill."
+  },
+  {
+    question: "What EER do I need for ENERGY STAR certification?",
+    answer: "For central ACs, ENERGY STAR requires 12.0 EER2 (approximately 12.6 old EER) alongside 15.2 SEER2. For window ACs, the CEER requirement varies by capacity but is typically 10.0-12.1 depending on size. Check the current ENERGY STAR specifications for your specific equipment type."
+  },
+  {
+    question: "How much electricity does each EER point save?",
+    answer: "For a 3-ton central AC running 14 hours on a peak day at $0.16/kWh, each EER point saves about $0.50 to $1.00 per day. Over a 60-day peak summer season, that's $30-$60 per EER point. The savings are proportionally larger for bigger systems and higher electricity rates."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Room Air Conditioners", url: "https://www.energy.gov/energysaver/room-air-conditioners" },
+  { label: "ENERGY STAR - Product Specifications", url: "https://www.energystar.gov" },
+  { label: "AHRI - Certification Directory", url: "https://www.ahrinet.org" },
+  { label: "AHAM - Room Air Conditioner Standards", url: "https://www.aham.org" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "eer-rating-explained", title: "What Is EER Rating?" },
+  { slug: "eer2-rating-explained", title: "Understanding EER2" },
+  { slug: "eer-vs-seer", title: "EER vs SEER: Differences" },
+  { slug: "good-seer-rating-for-ac", title: "What Is a Good SEER Rating?" }
+]} />

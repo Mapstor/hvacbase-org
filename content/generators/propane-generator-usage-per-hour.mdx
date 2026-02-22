@@ -1,0 +1,294 @@
+---
+slug: "propane-generator-usage-per-hour"
+title: "How Much Propane Do Generators Use Per Hour? (Calculator + Charts)"
+description: "Exact propane consumption rates for generators by size — gallons per hour at 25%, 50%, 75%, and 100% load. Includes tank runtime calculator, cost charts, and real-world usage examples."
+cluster: "generators"
+role: "spoke"
+priority: "P1"
+contentType: "KEEP+"
+datePublished: "2026-02-05"
+dateModified: "2026-02-05"
+relatedArticles:
+  - "generator-cost-per-kwh"
+  - "generator-guide"
+  - "natural-gas-generator-running-cost"
+  - "how-long-do-generators-last"
+  - "best-whole-house-generators"
+  - "how-long-generator-on-5-gallons"
+externalLinks:
+  - label: "U.S. EIA — Propane Data"
+    url: "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_PRS_dpgal_w.htm"
+  - label: "Generac — LP Fuel Consumption"
+    url: "https://www.generac.com/"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper, SEERCalculator } from '@/components'
+
+# How Much Propane Do Generators Use Per Hour?
+
+A typical home standby generator uses 2–4 gallons of propane per hour at full load, or 1–2 gallons per hour at the 50% load you will run during most outages. A 22kW generator — the most popular size for whole-home backup — burns approximately 2.5 gallons per hour at 75% load, costing about $7.00/hour at 2026 propane prices.
+
+Those numbers determine everything: how big your tank needs to be, how much each outage costs, and how long you can run before needing a refill. Below are the exact consumption rates for every common generator size, along with tank runtime charts and a calculator you can use for your specific setup.
+
+<TableOfContents />
+
+## Propane Consumption by Generator Size
+
+Propane consumption varies dramatically by generator size and load. The table below covers every popular residential standby and portable generator size.
+
+<ComparisonTable
+  title="Propane Consumption — Gallons Per Hour by Load"
+  headers={["Generator Size", "25% Load", "50% Load", "75% Load", "100% Load"]}
+  rows={[
+    ["3,500W Portable", "0.3 gal/hr", "0.5 gal/hr", "0.7 gal/hr", "0.9 gal/hr"],
+    ["5,500W Portable", "0.4 gal/hr", "0.7 gal/hr", "1.0 gal/hr", "1.3 gal/hr"],
+    ["7,500W Portable", "0.5 gal/hr", "0.9 gal/hr", "1.3 gal/hr", "1.7 gal/hr"],
+    ["10kW Standby", "0.6 gal/hr", "1.1 gal/hr", "1.5 gal/hr", "1.9 gal/hr"],
+    ["14kW Standby", "0.8 gal/hr", "1.4 gal/hr", "2.0 gal/hr", "2.6 gal/hr"],
+    ["16kW Standby", "0.9 gal/hr", "1.5 gal/hr", "2.2 gal/hr", "2.9 gal/hr"],
+    ["20kW Standby", "1.0 gal/hr", "1.8 gal/hr", "2.7 gal/hr", "3.5 gal/hr"],
+    ["22kW Standby", "1.1 gal/hr", "2.0 gal/hr", "2.9 gal/hr", "3.8 gal/hr"],
+    ["24kW Standby", "1.2 gal/hr", "2.2 gal/hr", "3.1 gal/hr", "4.1 gal/hr"],
+    ["26kW Standby", "1.3 gal/hr", "2.3 gal/hr", "3.4 gal/hr", "4.4 gal/hr"],
+    ["30kW Standby", "1.5 gal/hr", "2.7 gal/hr", "3.9 gal/hr", "5.1 gal/hr"],
+    ["38kW Standby", "1.8 gal/hr", "3.3 gal/hr", "4.9 gal/hr", "6.4 gal/hr"],
+    ["48kW Standby", "2.3 gal/hr", "4.1 gal/hr", "6.1 gal/hr", "8.0 gal/hr"],
+  ]}
+/>
+
+<Callout type="info">
+**Why 50% load matters most:** During a typical power outage, your generator cycles between high-draw periods (AC compressor on, water heater heating) and low-draw periods (just lights and fridge). The average load over a 24-hour period is usually 40–60% of rated capacity. Use the 50% column for the most realistic runtime and cost estimates.
+</Callout>
+
+## How Long Will Your Propane Tank Last?
+
+The runtime of your propane tank depends on three things: tank size, fill level (tanks are filled to 80% capacity for thermal expansion safety), and your average consumption rate.
+
+<ComparisonTable
+  title="Propane Tank Runtime — 22kW Generator at Various Loads"
+  headers={["Tank Size", "Usable Gallons (80% fill)", "Runtime at 25% Load", "Runtime at 50% Load", "Runtime at 75% Load", "Runtime at 100% Load"]}
+  rows={[
+    ["100-gallon", "80 gallons", "73 hrs (3 days)", "40 hrs (1.7 days)", "28 hrs (1.2 days)", "21 hrs"],
+    ["120-gallon", "96 gallons", "87 hrs (3.6 days)", "48 hrs (2 days)", "33 hrs (1.4 days)", "25 hrs"],
+    ["250-gallon", "200 gallons", "182 hrs (7.6 days)", "100 hrs (4.2 days)", "69 hrs (2.9 days)", "53 hrs (2.2 days)"],
+    ["500-gallon", "400 gallons", "364 hrs (15 days)", "200 hrs (8.3 days)", "138 hrs (5.7 days)", "105 hrs (4.4 days)"],
+    ["1,000-gallon", "800 gallons", "727 hrs (30 days)", "400 hrs (16.7 days)", "276 hrs (11.5 days)", "211 hrs (8.8 days)"],
+  ]}
+/>
+
+<ComparisonTable
+  title="Propane Tank Runtime — 14kW Generator at Various Loads"
+  headers={["Tank Size", "Usable Gallons", "Runtime at 25% Load", "Runtime at 50% Load", "Runtime at 75% Load", "Runtime at 100% Load"]}
+  rows={[
+    ["100-gallon", "80 gallons", "100 hrs (4.2 days)", "57 hrs (2.4 days)", "40 hrs (1.7 days)", "31 hrs (1.3 days)"],
+    ["250-gallon", "200 gallons", "250 hrs (10.4 days)", "143 hrs (6 days)", "100 hrs (4.2 days)", "77 hrs (3.2 days)"],
+    ["500-gallon", "400 gallons", "500 hrs (20.8 days)", "286 hrs (11.9 days)", "200 hrs (8.3 days)", "154 hrs (6.4 days)"],
+  ]}
+/>
+
+<Callout type="warning">
+**Never run your propane tank completely empty.** Most generators will shut down when tank pressure drops below a safe level (around 10–15% remaining). Plan your refill when the tank reaches 20–25%. During widespread outages, propane delivery may be delayed by days or weeks.
+</Callout>
+
+## Propane Cost Per Hour and Per Day
+
+Using the national average propane price of $2.80 per gallon in early 2026, here is what you will pay to run your generator.
+
+<ComparisonTable
+  title="Propane Generator — Hourly Cost at $2.80/gallon"
+  headers={["Generator Size", "25% Load", "50% Load", "75% Load", "100% Load"]}
+  rows={[
+    ["10kW", "$1.68/hr", "$3.08/hr", "$4.20/hr", "$5.32/hr"],
+    ["14kW", "$2.24/hr", "$3.92/hr", "$5.60/hr", "$7.28/hr"],
+    ["16kW", "$2.52/hr", "$4.20/hr", "$6.16/hr", "$8.12/hr"],
+    ["20kW", "$2.80/hr", "$5.04/hr", "$7.56/hr", "$9.80/hr"],
+    ["22kW", "$3.08/hr", "$5.60/hr", "$8.12/hr", "$10.64/hr"],
+    ["24kW", "$3.36/hr", "$6.16/hr", "$8.68/hr", "$11.48/hr"],
+  ]}
+/>
+
+<ComparisonTable
+  title="Propane Generator — Daily Cost (24 hours at 50% load)"
+  headers={["Generator Size", "Gallons/Day", "Daily Cost at $2.80/gal", "3-Day Cost", "7-Day Cost"]}
+  rows={[
+    ["10kW", "26.4 gal", "$73.92", "$221.76", "$517.44"],
+    ["14kW", "33.6 gal", "$94.08", "$282.24", "$658.56"],
+    ["16kW", "36.0 gal", "$100.80", "$302.40", "$705.60"],
+    ["20kW", "43.2 gal", "$120.96", "$362.88", "$846.72"],
+    ["22kW", "48.0 gal", "$134.40", "$403.20", "$940.80"],
+    ["24kW", "52.8 gal", "$147.84", "$443.52", "$1,034.88"],
+  ]}
+/>
+
+<Callout type="example">
+**Real-World Example — Florida Hurricane Prep:**
+A homeowner in Fort Myers has a 22kW Generac Guardian with a 500-gallon propane tank (400 usable gallons). During a 5-day post-hurricane outage at 50% average load, the generator consumes 2.0 gal/hr × 120 hours = 240 gallons. At $2.80/gallon, that is **$672 in propane.** The 500-gallon tank has enough capacity with 160 gallons to spare.
+</Callout>
+
+<Callout type="example">
+**Real-World Example — Midwest Ice Storm:**
+A homeowner in rural Missouri runs a 14kW Kohler with a 250-gallon tank (200 usable gallons). A 3-day ice storm at 50% load consumes 1.4 gal/hr × 72 hours = 100.8 gallons. Cost: **$282.** The tank still has about 100 gallons remaining — enough for another 3 days.
+</Callout>
+
+<Callout type="example">
+**Real-World Example — Portable Dual-Fuel for Essential Circuits:**
+A homeowner in North Carolina runs a Champion 5,500W dual-fuel portable on propane during a 24-hour outage at 50% load. Consumption: 0.7 gal/hr × 24 hours = 16.8 gallons. Using standard 20-pound BBQ tanks (approximately 4.7 gallons each), that requires 3.6 tanks. At $20 per tank exchange, the fuel cost is roughly **$72 for 24 hours.**
+</Callout>
+
+## Propane Tank Sizing Guide
+
+Choosing the right tank size is critical. Too small, and you run out mid-outage. Too large, and you waste money on a tank you do not need.
+
+<ComparisonTable
+  title="Recommended Propane Tank Size by Generator and Outage Duration"
+  headers={["Generator Size", "24-Hour Backup", "3-Day Backup", "7-Day Backup", "14-Day Backup"]}
+  rows={[
+    ["10kW", "120-gallon", "250-gallon", "500-gallon", "1,000-gallon"],
+    ["14kW", "120-gallon", "250-gallon", "500-gallon", "1,000-gallon"],
+    ["16kW", "250-gallon", "250-gallon", "500-gallon", "1,000-gallon"],
+    ["20kW", "250-gallon", "500-gallon", "1,000-gallon", "1,000-gallon"],
+    ["22kW", "250-gallon", "500-gallon", "1,000-gallon", "1,000-gallon"],
+    ["24kW+", "250-gallon", "500-gallon", "1,000-gallon", "2× 500-gallon"],
+  ]}
+/>
+
+<ComparisonTable
+  title="Propane Tank Costs (2026)"
+  headers={["Tank Size", "Tank Purchase Price", "Tank Lease (Annual)", "Fill Cost at $2.80/gal"]}
+  rows={[
+    ["100-gallon", "$400–$800", "$40–$80/yr", "$224"],
+    ["120-gallon", "$500–$900", "$50–$90/yr", "$269"],
+    ["250-gallon", "$800–$1,500", "$75–$150/yr", "$560"],
+    ["500-gallon", "$1,200–$2,500", "$100–$200/yr", "$1,120"],
+    ["1,000-gallon", "$2,000–$4,000", "$150–$300/yr", "$2,240"],
+  ]}
+/>
+
+<Callout type="tip">
+Most propane companies offer tank leasing programs where you pay a small annual fee ($75–$200) instead of buying the tank outright. The catch: you must buy propane exclusively from that company. If you have competitive propane pricing in your area, owning your tank gives you the freedom to shop for the best rates.
+</Callout>
+
+## How Temperature Affects Propane Consumption
+
+Propane is stored as a liquid under pressure. When it gets cold, the liquid's ability to vaporize (turn into gas) decreases. This has two effects on your generator.
+
+Below 0°F, a propane tank may not vaporize fuel fast enough to keep a large generator running at full load. This is called "freeze-up" and it is more common with smaller tanks that have less liquid surface area for vaporization.
+
+Cold weather also increases your electrical load because your heating system runs harder, which means the generator consumes more propane. A 22kW generator that averages 50% load in summer may average 70% load in winter.
+
+<ComparisonTable
+  title="Temperature Effects on Propane Generator Operation"
+  headers={["Temperature Range", "Vaporization Rate Impact", "Typical Load Increase", "Practical Effect"]}
+  rows={[
+    ["Above 40°F", "No impact", "None (summer baseline)", "Normal operation"],
+    ["20°F to 40°F", "Minimal impact", "+10–15% (heating load)", "Slight increase in consumption"],
+    ["0°F to 20°F", "Moderate — small tanks may struggle", "+20–30% (heavy heating)", "Consider 500+ gallon tank"],
+    ["Below 0°F", "Significant — may need tank heater", "+30–50% (extreme heating)", "Tank warmer recommended for tanks under 250 gallons"],
+  ]}
+/>
+
+## Propane Usage Calculator
+
+<CalcWrapper>
+  <SEERCalculator
+    title="Propane Generator Usage Calculator"
+    description="Enter your generator size, average load, propane price, and tank size to calculate your hourly usage, cost, and tank runtime."
+    calculatorType="propane-usage"
+  />
+</CalcWrapper>
+
+## Propane vs. Other Generator Fuels: Consumption Comparison
+
+To put propane consumption in perspective, here is how it compares to other fuels for the same 20kW generator at 50% load.
+
+<ComparisonTable
+  title="20kW Generator Fuel Consumption at 50% Load"
+  headers={["Fuel", "Consumption Rate", "Cost/Hour", "Cost/24 Hours", "Cost/72 Hours"]}
+  rows={[
+    ["Propane (LP)", "1.8 gal/hr", "$5.04/hr", "$120.96", "$362.88"],
+    ["Gasoline", "1.2 gal/hr", "$3.84/hr", "$92.16", "$276.48"],
+    ["Natural Gas", "200 CFH", "$2.40/hr", "$57.60", "$172.80"],
+    ["Diesel", "0.9 gal/hr", "$3.42/hr", "$82.08", "$246.24"],
+  ]}
+/>
+
+Wait — gasoline costs less per hour? Yes, at current prices, gasoline has a lower hourly cost than propane because gasoline has more energy per gallon (120,238 BTU vs. 91,500 BTU). However, propane has other advantages: indefinite shelf life, cleaner combustion, lower maintenance costs, and on-site tank storage that does not depend on gas station availability.
+
+<Callout type="takeaway">
+**Key Takeaways:**
+- A 22kW generator uses approximately 2.0 gallons of propane per hour at 50% load.
+- At $2.80/gallon, that is $5.60/hour or $134/day for whole-home backup.
+- A 500-gallon tank provides roughly 8 days of runtime at 50% load for a 22kW generator.
+- Use the 50% load column for the most realistic estimates — that is what most homes average.
+- Cold weather increases both propane consumption (higher load) and may reduce tank vaporization.
+- Tank size recommendation: 250-gallon for 3-day backup, 500-gallon for 7-day backup.
+- Never let your tank drop below 20% — schedule refills early during outage season.
+</Callout>
+
+## Frequently Asked Questions
+
+<FAQ
+  items={[
+    {
+      question: "How many gallons of propane does a 22kW generator use per hour?",
+      answer: "A 22kW generator uses approximately 1.1 gallons/hour at 25% load, 2.0 gallons/hour at 50% load, 2.9 gallons/hour at 75% load, and 3.8 gallons/hour at full load. Most homes average about 50% load during outages, so budget for roughly 2 gallons per hour."
+    },
+    {
+      question: "How long will a 500-gallon propane tank run a generator?",
+      answer: "A 500-gallon tank (400 usable gallons at 80% fill) will run a 22kW generator for approximately 200 hours (8.3 days) at 50% load, or 138 hours (5.7 days) at 75% load. For a smaller 14kW generator, the same tank lasts about 286 hours (11.9 days) at 50% load."
+    },
+    {
+      question: "How long will a 100-pound propane tank run a generator?",
+      answer: "A 100-pound propane tank holds approximately 23.6 gallons. On a 22kW generator at 50% load (2.0 gal/hr), it lasts about 12 hours. On a smaller 5,500W portable at 50% load (0.7 gal/hr), it lasts approximately 34 hours."
+    },
+    {
+      question: "How long will a 20-pound BBQ propane tank run a generator?",
+      answer: "A standard 20-pound BBQ tank holds about 4.7 gallons of propane. On a 3,500W portable at 50% load (0.5 gal/hr), it lasts approximately 9.4 hours. On a larger 7,500W portable at 50% load (0.9 gal/hr), it lasts about 5.2 hours."
+    },
+    {
+      question: "Is it cheaper to run a generator on propane or gasoline?",
+      answer: "In 2026, gasoline is actually slightly cheaper per hour than propane because gasoline has higher energy content per gallon. However, propane has significant non-cost advantages: indefinite shelf life, cleaner burning (less maintenance), on-site storage, and availability during outages when gas stations may be closed."
+    },
+    {
+      question: "How much propane does a generator use for weekly testing?",
+      answer: "A 20kW standby generator running its 30-minute weekly exercise cycle at roughly 50% load uses about 0.9 gallons of propane per test. At $2.80/gallon, that is about $2.52 per week or approximately $131 per year."
+    },
+    {
+      question: "Do generators use more propane in cold weather?",
+      answer: "Yes, for two reasons. First, your heating load increases, pushing the generator to higher load percentages and consuming more fuel per hour. Second, in extreme cold (below 0°F), propane may not vaporize efficiently in smaller tanks, potentially requiring a tank heater. Winter consumption can be 20–50% higher than summer."
+    },
+    {
+      question: "What size propane tank do I need for a whole-house generator?",
+      answer: "For a 20–22kW generator: 250-gallon minimum for 3-day backup, 500-gallon for 7-day backup. In hurricane-prone or storm-heavy areas, a 500-gallon or 1,000-gallon tank provides the safety margin you need when propane deliveries may be delayed."
+    },
+    {
+      question: "Can I use my BBQ propane tanks with a standby generator?",
+      answer: "No. Standby generators connect to large stationary propane tanks (100+ gallons) via a permanent gas line. Some portable dual-fuel generators can connect to standard 20-pound BBQ tanks via a hose adapter, but these small tanks only last 5–10 hours and are meant for temporary emergency use."
+    },
+    {
+      question: "How do I know when my propane tank needs refilling?",
+      answer: "Most propane tanks have a percentage gauge on top that shows the fill level. Schedule a refill when the gauge reads 20–25%. Many propane companies offer automatic delivery programs that monitor your usage and schedule refills before you run low. During storm season, keep your tank above 50% as a precaution."
+    },
+  ]}
+/>
+
+<SourcesBox
+  sources={[
+    { label: "U.S. EIA — Weekly Heating Oil and Propane Prices", url: "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_PRS_dpgal_w.htm" },
+    { label: "Generac — LP Generator Specifications", url: "https://www.generac.com/all-products/generators/home-backup-generators" },
+    { label: "Kohler — Generator Fuel Consumption Data", url: "https://www.kohlerpower.com/na/en/residential/generators.html" },
+    { label: "National Propane Gas Association", url: "https://www.npga.org/" },
+    { label: "DOE — Propane Energy Content", url: "https://www.energy.gov/" },
+  ]}
+/>
+
+<RelatedArticles
+  articles={[
+    "generator-cost-per-kwh",
+    "generator-guide",
+    "natural-gas-generator-running-cost",
+    "how-long-do-generators-last",
+    "best-whole-house-generators",
+    "how-long-generator-on-5-gallons",
+  ]}
+/>

@@ -1,0 +1,237 @@
+---
+slug: "seer2-savings-calculator"
+title: "SEER2 Savings Calculator: Compare AC Running Costs"
+description: "Use our SEER2 savings calculator to compare annual cooling costs between air conditioners at different SEER2 ratings. Enter your system size, electricity rate, and cooling hours to see exact dollar savings and payback periods."
+cluster: "energy-efficiency-ratings"
+role: "hub"
+priority: "P1"
+contentType: "tool"
+datePublished: "2026-02-05"
+dateUpdated: "2026-02-05"
+relatedArticles:
+  - slug: "seer2-rating-explained"
+    title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating"
+  - slug: "good-seer-rating-for-ac"
+    title: "What Is a Good SEER Rating? (2026 Buying Guide)"
+  - slug: "minimum-seer-rating-by-state"
+    title: "Minimum SEER Rating by State in 2026"
+  - slug: "seer-vs-seer2"
+    title: "SEER vs SEER2: What Changed and Why It Matters"
+externalLinks:
+  - url: "https://www.energy.gov/energysaver/central-air-conditioning"
+    label: "U.S. DOE - Central Air Conditioning"
+  - url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html"
+    label: "U.S. EIA - Average Retail Electricity Prices"
+---
+
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, SEERCalculator, CalcWrapper } from '@/components'
+
+# SEER2 Savings Calculator: Compare AC Running Costs
+
+**The difference between a 14 SEER2 and an 18 SEER2 air conditioner saves a typical homeowner $120–$300 per year in electricity costs, depending on climate, system size, and local rates.** Use the calculator below to see exactly how much you'll save by choosing a higher-efficiency unit, and how long it takes for the energy savings to pay back the higher purchase price.
+
+Enter your details and compare up to three SEER2 ratings side by side to make a data-driven purchasing decision.
+
+<TableOfContents />
+
+## SEER2 Savings Calculator
+
+<CalcWrapper type="seer2" />
+
+### How to Use This Calculator
+
+**System Size (Tons):** Your AC's cooling capacity. Common residential sizes are 1.5 to 5 tons. If you're unsure, check your current outdoor unit's data plate or use 1 ton per 500-600 sq ft as a rough estimate. Most homes use 2.5-3.5 tons.
+
+**Electricity Rate ($/kWh):** Your cost per kilowatt-hour. Find this on your electric bill or use the U.S. average of $0.16/kWh. Rates range from $0.08/kWh in Louisiana to $0.36/kWh in Hawaii.
+
+**Annual Cooling Hours:** How many hours your AC runs per year. This varies dramatically by climate: 600-1,000 hours in the North, 1,200-2,000 in mixed climates, 2,000-3,000+ in the South and Southwest.
+
+**SEER2 Ratings to Compare:** Enter two or three SEER2 values. For example, compare the federal minimum for your region against a mid-range and premium option.
+
+## Reference Data: Inputs for Your Area
+
+### Average Electricity Rates by State (2024-2026)
+
+<ComparisonTable
+  headers={["Rate Range", "States", "Avg Rate"]}
+  rows={[
+    ["Low ($0.08-$0.11/kWh)", "ID, UT, WY, WA, ND, NE, AR, LA, OK, WV", "$0.10"],
+    ["Below Average ($0.11-$0.14/kWh)", "TX, NC, VA, TN, OH, WI, MO, KS, IN, KY, SC, GA, OR", "$0.13"],
+    ["Average ($0.14-$0.17/kWh)", "FL, MI, PA, NY, MD, NJ, MN, AZ, CO, IL, DE", "$0.16"],
+    ["Above Average ($0.17-$0.22/kWh)", "ME, NH, VT, AK, RI, NM, DC", "$0.20"],
+    ["High ($0.22-$0.36/kWh)", "CT, MA, HI, CA", "$0.28"],
+  ]}
+/>
+
+### Estimated Annual Cooling Hours by Region
+
+<ComparisonTable
+  headers={["Region", "Cooling Hours", "Example Cities"]}
+  rows={[
+    ["Northern US", "600-1,000", "Minneapolis, Chicago, Boston, Seattle, Detroit"],
+    ["Mid-Atlantic", "1,000-1,500", "Philadelphia, Baltimore, Washington DC, St. Louis"],
+    ["Southeast", "1,500-2,500", "Atlanta, Charlotte, Nashville, Raleigh, Dallas"],
+    ["Deep South", "2,000-3,000", "Houston, Miami, New Orleans, Tampa, Jacksonville"],
+    ["Southwest", "1,500-2,500", "Phoenix, Las Vegas, Albuquerque, Tucson"],
+    ["Southern California", "1,000-2,000", "Los Angeles, San Diego (varies by microclimate)"],
+  ]}
+/>
+
+## Pre-Calculated Savings Tables
+
+If you prefer a quick reference, here are savings for common scenarios:
+
+### Scenario 1: 3-Ton AC, $0.16/kWh, 1,500 Cooling Hours
+
+<ComparisonTable
+  headers={["SEER2", "Annual kWh", "Annual Cost", "Savings vs 14.3", "15-Year Savings"]}
+  rows={[
+    ["14.3 (South minimum)", "3,776 kWh", "$604", "—", "—"],
+    ["16", "3,375 kWh", "$540", "$64/yr", "$960"],
+    ["18", "3,000 kWh", "$480", "$124/yr", "$1,860"],
+    ["20", "2,700 kWh", "$432", "$172/yr", "$2,580"],
+    ["22", "2,455 kWh", "$393", "$211/yr", "$3,165"],
+    ["24", "2,250 kWh", "$360", "$244/yr", "$3,660"],
+  ]}
+/>
+
+### Scenario 2: 3-Ton AC, $0.16/kWh, 2,500 Cooling Hours (Hot Climate)
+
+<ComparisonTable
+  headers={["SEER2", "Annual kWh", "Annual Cost", "Savings vs 14.3", "15-Year Savings"]}
+  rows={[
+    ["14.3", "6,294 kWh", "$1,007", "—", "—"],
+    ["16", "5,625 kWh", "$900", "$107/yr", "$1,605"],
+    ["18", "5,000 kWh", "$800", "$207/yr", "$3,105"],
+    ["20", "4,500 kWh", "$720", "$287/yr", "$4,305"],
+    ["22", "4,091 kWh", "$655", "$352/yr", "$5,280"],
+    ["24", "3,750 kWh", "$600", "$407/yr", "$6,105"],
+  ]}
+/>
+
+### Scenario 3: 2.5-Ton AC, $0.13/kWh, 1,000 Cooling Hours (Northern)
+
+<ComparisonTable
+  headers={["SEER2", "Annual kWh", "Annual Cost", "Savings vs 13.4", "15-Year Savings"]}
+  rows={[
+    ["13.4 (North minimum)", "1,866 kWh", "$243", "—", "—"],
+    ["15", "1,667 kWh", "$217", "$26/yr", "$390"],
+    ["16", "1,563 kWh", "$203", "$40/yr", "$600"],
+    ["18", "1,389 kWh", "$181", "$62/yr", "$930"],
+    ["20", "1,250 kWh", "$163", "$80/yr", "$1,200"],
+  ]}
+/>
+
+<Callout type="tip">
+**Notice the diminishing returns.** In the hot climate scenario, going from 14.3 to 18 SEER2 saves $207/year. Going from 18 to 22 SEER2 (same 4-point jump) saves only $145/year more. The biggest efficiency gains come from moving away from the minimum. Each additional SEER2 point saves less than the one before it.
+</Callout>
+
+## Payback Period Analysis
+
+The payback period tells you when energy savings offset the higher upfront cost. Use this formula:
+
+**Simple Payback (years) = Added Cost / Annual Savings**
+
+### Typical Payback Periods
+
+<ComparisonTable
+  headers={["Upgrade", "Added Cost Range", "Annual Savings (1,500 hrs, $0.16/kWh)", "Payback Range"]}
+  rows={[
+    ["14.3 to 16 SEER2", "$600-$1,200", "$64", "9-19 years"],
+    ["14.3 to 18 SEER2", "$1,500-$2,500", "$124", "12-20 years"],
+    ["14.3 to 20 SEER2", "$2,500-$4,500", "$172", "15-26 years"],
+    ["14.3 to 22 SEER2", "$3,500-$6,000", "$211", "17-28 years"],
+  ]}
+/>
+
+<Callout type="important">
+**These payback periods improve significantly in three situations:**
+1. Hot climates (2,500+ cooling hours): paybacks drop by 40-50%
+2. High electricity rates ($0.20+/kWh): paybacks drop by 25-40%
+3. Tax credits applied: the $600 AC or $2,000 heat pump credit cuts payback by 2-6 years
+
+In Miami at $0.16/kWh with a $600 tax credit, the payback for 14.3 to 18 SEER2 drops from 12-20 years to just 5-10 years.
+</Callout>
+
+## Accounting for Electricity Price Increases
+
+Electricity prices have risen an average of 2-3% per year over the past two decades. This accelerates payback for high-efficiency units because your savings grow each year while the upfront cost is fixed.
+
+<ComparisonTable
+  headers={["Assumption", "15-Year Savings (14.3 vs 18 SEER2, $0.16/kWh start, 1,500 hrs)"]}
+  rows={[
+    ["Flat rates (0% increase)", "$1,860"],
+    ["2% annual increase", "$2,130"],
+    ["3% annual increase", "$2,310"],
+    ["5% annual increase", "$2,720"],
+  ]}
+/>
+
+At a 3% annual increase, the 15-year savings jump from $1,860 to $2,310 — a 24% increase in total savings compared to the flat-rate estimate.
+
+## Factors the Calculator Doesn't Capture
+
+While this calculator gives you a reliable estimate of direct electricity savings, several factors aren't included:
+
+**Maintenance costs.** Higher-SEER2 variable-speed systems may have higher maintenance costs due to more complex electronics and controls. Budget $150-$300/year for professional maintenance regardless of SEER2 level.
+
+**Repair probability.** Variable-speed compressors and inverter boards can be expensive to replace ($1,500-$3,500). Single-stage systems have fewer failure points. Extended warranties help mitigate this risk.
+
+**Comfort value.** Variable-speed systems (18+ SEER2) offer better humidity control, more even temperatures, and quieter operation. These comfort benefits have real value that doesn't show up in energy savings alone.
+
+**Resale value.** A high-efficiency HVAC system can increase home resale value, though the premium varies by market and is difficult to quantify precisely.
+
+**Rebates and incentives.** Beyond the federal tax credit, many utilities offer $200-$500 rebates for high-efficiency installations. Check dsireusa.org for your area.
+
+<Callout type="takeaway">
+## Key Takeaways
+
+- **The biggest savings come from avoiding the minimum.** Jumping from 14.3 to 16-18 SEER2 saves $64-$124/year in a typical scenario.
+- **Hot climates see the fastest payback** — 2,500+ cooling hours can cut payback periods nearly in half.
+- **Electricity rates above $0.15/kWh** make high-SEER2 upgrades significantly more attractive.
+- **Diminishing returns kick in above 18-20 SEER2** unless you're in a very hot climate or have high electricity rates.
+- **Factor in tax credits** — the $600 AC credit or $2,000 heat pump credit can reduce payback by 2-6 years.
+- **Rising electricity prices** (2-3% annually) increase your lifetime savings by 15-25% over flat-rate estimates.
+- **For most homeowners, 16-18 SEER2 provides the best return** on investment when balancing upfront cost, energy savings, and system lifespan.
+</Callout>
+
+<FAQ questions={[
+  {
+    question: "How much does 1 SEER2 point save per year?",
+    answer: "For a typical 3-ton system running 1,500 hours at $0.16/kWh, each SEER2 point saves approximately $15-$40 per year. The savings per point are larger at lower SEER2 levels due to diminishing returns. Going from 14 to 15 SEER2 saves about $40, while going from 20 to 21 saves about $15."
+  },
+  {
+    question: "How do I find my electricity rate?",
+    answer: "Check your electric bill for the per-kWh rate. Look for a line item like 'Energy Charge' or 'Generation + Delivery' combined. The national average is about $0.16/kWh. Alternatively, divide your total bill amount by total kWh used that month for an all-in rate including fees and surcharges."
+  },
+  {
+    question: "How many cooling hours does my area have?",
+    answer: "Cooling hours vary by climate. Northern US averages 600-1,000 hours, mid-Atlantic 1,000-1,500, Southeast 1,500-2,500, and deep South 2,000-3,000+. You can estimate from your utility bills by noting which months you run cooling and estimating 8-16 hours per day during those months."
+  },
+  {
+    question: "Is a higher SEER2 always worth the extra cost?",
+    answer: "Not always. In northern climates with under 1,000 cooling hours and low electricity rates, the payback on premium SEER2 units (20+) can exceed the system's 15-year lifespan. The best value for most homeowners is 16-18 SEER2. In hot climates with 2,000+ hours and rates above $0.15/kWh, 18-22 SEER2 often pays back within 8-12 years."
+  },
+  {
+    question: "Does the calculator account for heating costs?",
+    answer: "No, this calculator covers cooling costs only (SEER2). If you're evaluating a heat pump, you also need to consider HSPF2 for heating efficiency. In heating-dominated climates, the heating savings from a high-HSPF2 heat pump can be 2-3 times larger than the cooling savings from high SEER2."
+  },
+  {
+    question: "How do I factor in the federal tax credit?",
+    answer: "Subtract the tax credit from the added upfront cost before calculating payback. For example, if upgrading to 18 SEER2 costs $2,000 more and you get a $600 AC tax credit, your net added cost is $1,400. Divide by annual savings to get the adjusted payback period."
+  }
+]} />
+
+<SourcesBox sources={[
+  { label: "U.S. DOE - Central Air Conditioning", url: "https://www.energy.gov/energysaver/central-air-conditioning" },
+  { label: "U.S. EIA - Average Retail Electricity Prices by State", url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html" },
+  { label: "ENERGY STAR - Heating and Cooling Product Specifications", url: "https://www.energystar.gov/products/heating_cooling" },
+  { label: "AHRI - Directory of Certified Product Performance", url: "https://www.ahrinet.org" }
+]} />
+
+<RelatedArticles articles={[
+  { slug: "seer2-rating-explained", title: "Understanding SEER2: Complete Guide to the New AC Efficiency Rating" },
+  { slug: "good-seer-rating-for-ac", title: "What Is a Good SEER Rating? (2026 Buying Guide)" },
+  { slug: "minimum-seer-rating-by-state", title: "Minimum SEER Rating by State in 2026" },
+  { slug: "seer-vs-seer2", title: "SEER vs SEER2: What Changed and Why It Matters" }
+]} />
