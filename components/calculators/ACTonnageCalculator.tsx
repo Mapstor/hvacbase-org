@@ -342,17 +342,17 @@ export default function ACTonnageCalculator() {
                       <span className="font-medium text-gray-700">×{climateFactor}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Insulation ({insulationTypes[insulation].name})</span>
+                      <span className="text-sm text-gray-600">Insulation ({insulationTypes[insulation as keyof typeof insulationTypes].name})</span>
                       <span className="font-medium text-gray-700">×{insulationFactor}</span>
                     </div>
                     {showAdvanced && (
                       <>
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-gray-600">Ceiling Height ({ceilingHeights[ceiling].name})</span>
+                          <span className="text-sm text-gray-600">Ceiling Height ({ceilingHeights[ceiling as keyof typeof ceilingHeights].name})</span>
                           <span className="font-medium text-gray-700">×{ceilingFactor}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-gray-600">Sun Exposure ({sunExposure[exposure].name})</span>
+                          <span className="text-sm text-gray-600">Sun Exposure ({sunExposure[exposure as keyof typeof sunExposure].name})</span>
                           <span className="font-medium text-gray-700">×{exposureFactor.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between items-center">
