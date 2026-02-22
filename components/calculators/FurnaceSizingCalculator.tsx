@@ -364,7 +364,7 @@ export default function FurnaceSizingCalculator() {
                 <div className="space-y-2">
                   <div className="text-sm font-medium text-gray-700">Efficiency Comparison:</div>
                   {furnaceEfficiency.map((eff) => {
-                    const effCost = (annualGasUsage / (eff.efficiency / selectedEfficiency.efficiency)) * 1.20;
+                    const effCost = selectedEfficiency ? (annualGasUsage / (eff.efficiency / selectedEfficiency.efficiency)) * 1.20 : 0;
                     const savings = annualCost - effCost;
                     return (
                       <div key={eff.value} className={`p-2 rounded text-xs ${eff.value === efficiency ? 'bg-blue-50 border border-blue-200' : 'bg-gray-50'}`}>
@@ -383,7 +383,7 @@ export default function FurnaceSizingCalculator() {
                 </div>
                 <p className="text-xs text-gray-600">
                   Higher AFUE units cost more upfront but save on fuel. 10-year savings with 95% AFUE: 
-                  ${((annualCost - (annualGasUsage / (0.95 / selectedEfficiency.efficiency)) * 1.20) * 10).toFixed(0)}
+                  ${selectedEfficiency ? ((annualCost - (annualGasUsage / (0.95 / selectedEfficiency.efficiency)) * 1.20) * 10).toFixed(0) : '0'}
                 </p>
               </div>
             </div>
@@ -406,12 +406,12 @@ export default function FurnaceSizingCalculator() {
                 <p className="text-sm font-medium text-gray-700 mb-1">Design Temperature</p>
                 <p className="text-xs text-gray-600">Typical winter low:</p>
                 <p className="text-lg font-bold text-purple-600 mt-1">
-                  {selectedZone.value === 'zone7' ? '-30°F' :
-                   selectedZone.value === 'zone6' ? '-10°F' :
-                   selectedZone.value === 'zone5' ? '0°F' :
-                   selectedZone.value === 'zone4' ? '10°F' :
-                   selectedZone.value === 'zone3' ? '20°F' :
-                   selectedZone.value === 'zone2' ? '30°F' : '40°F'}
+                  {selectedZone?.value === 'zone7' ? '-30°F' :
+                   selectedZone?.value === 'zone6' ? '-10°F' :
+                   selectedZone?.value === 'zone5' ? '0°F' :
+                   selectedZone?.value === 'zone4' ? '10°F' :
+                   selectedZone?.value === 'zone3' ? '20°F' :
+                   selectedZone?.value === 'zone2' ? '30°F' : '40°F'}
                 </p>
                 <p className="text-xs text-gray-500">99% design temp</p>
               </div>
@@ -419,12 +419,12 @@ export default function FurnaceSizingCalculator() {
                 <p className="text-sm font-medium text-gray-700 mb-1">Heating Season</p>
                 <p className="text-xs text-gray-600">Typical duration:</p>
                 <p className="text-lg font-bold text-orange-600 mt-1">
-                  {selectedZone.value === 'zone7' ? '8-9' :
-                   selectedZone.value === 'zone6' ? '7-8' :
-                   selectedZone.value === 'zone5' ? '6-7' :
-                   selectedZone.value === 'zone4' ? '5-6' :
-                   selectedZone.value === 'zone3' ? '4-5' :
-                   selectedZone.value === 'zone2' ? '3-4' : '2-3'} months
+                  {selectedZone?.value === 'zone7' ? '8-9' :
+                   selectedZone?.value === 'zone6' ? '7-8' :
+                   selectedZone?.value === 'zone5' ? '6-7' :
+                   selectedZone?.value === 'zone4' ? '5-6' :
+                   selectedZone?.value === 'zone3' ? '4-5' :
+                   selectedZone?.value === 'zone2' ? '3-4' : '2-3'} months
                 </p>
                 <p className="text-xs text-gray-500">Active heating needed</p>
               </div>
@@ -457,7 +457,7 @@ export default function FurnaceSizingCalculator() {
               <div className="space-y-2 text-xs text-gray-700">
                 <p>• <strong>CO₂ Emissions:</strong> {(annualGasUsage * 11.7).toFixed(0)} lbs/year</p>
                 <p>• <strong>Efficiency Impact:</strong> {efficiency}% AFUE means {100 - parseInt(efficiency)}% heat lost to exhaust</p>
-                <p>• <strong>Upgrade Benefit:</strong> Moving to 95% AFUE would reduce emissions by {((annualGasUsage - annualGasUsage / (0.95 / selectedEfficiency.efficiency)) * 11.7).toFixed(0)} lbs/year</p>
+                <p>• <strong>Upgrade Benefit:</strong> Moving to 95% AFUE would reduce emissions by {selectedEfficiency ? ((annualGasUsage - annualGasUsage / (0.95 / selectedEfficiency.efficiency)) * 11.7).toFixed(0) : '0'} lbs/year</p>
                 <p>• <strong>Alternative:</strong> Heat pumps can reduce emissions 30-50% with grid electricity</p>
               </div>
             </div>
