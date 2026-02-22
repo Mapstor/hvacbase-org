@@ -330,7 +330,7 @@ export default function BatteryWattHoursCalculator() {
               <div className="space-y-2 text-sm text-purple-800">
                 <div className="flex justify-between">
                   <span>Rated cycles:</span>
-                  <span className="font-medium">{selectedChemistry?.cycles.toLocaleString()}</span>
+                  <span className="font-medium">{selectedChemistry?.cycles?.toLocaleString() || '0'}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Cycles per day:</span>
@@ -356,7 +356,7 @@ export default function BatteryWattHoursCalculator() {
               <div className="space-y-2 text-sm text-orange-800">
                 <div className="flex justify-between">
                   <span>Battery efficiency:</span>
-                  <span className="font-medium">{(selectedChemistry?.efficiency * 100).toFixed(0)}%</span>
+                  <span className="font-medium">{selectedChemistry?.efficiency ? (selectedChemistry.efficiency * 100).toFixed(0) : '0'}%</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Inverter efficiency:</span>
