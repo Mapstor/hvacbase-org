@@ -33,12 +33,12 @@ export default function ACHCalculator() {
   const selectedStandard = ventilationStandards.find(s => s.category === spaceType);
   
   // Calculate required airflow for recommended ACH
-  const requiredAirflowMin = (selectedStandard.minACH * roomVolume) / 60;
-  const requiredAirflowRec = (selectedStandard.recommendedACH * roomVolume) / 60;
+  const requiredAirflowMin = selectedStandard ? (selectedStandard.minACH * roomVolume) / 60 : 0;
+  const requiredAirflowRec = selectedStandard ? (selectedStandard.recommendedACH * roomVolume) / 60 : 0;
   
   // Determine compliance status
-  const meetsMinimum = currentACH >= selectedStandard.minACH;
-  const meetsRecommended = currentACH >= selectedStandard.recommendedACH;
+  const meetsMinimum = selectedStandard ? currentACH >= selectedStandard.minACH : false;
+  const meetsRecommended = selectedStandard ? currentACH >= selectedStandard.recommendedACH : false;
   
   // Calculate air change interval
   const minutesPerChange = 60 / currentACH;
