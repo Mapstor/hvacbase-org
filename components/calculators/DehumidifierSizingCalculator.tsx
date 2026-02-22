@@ -37,7 +37,7 @@ export default function DehumidifierSizingCalculator() {
   const baseCapacity = parseFloat(squareFeet) / 150;
   
   // Apply space and moisture factors
-  const adjustedCapacity = baseCapacity * selectedSpace.moistureFactor * selectedMoisture.factor;
+  const adjustedCapacity = baseCapacity * (selectedSpace?.moistureFactor || 1) * (selectedMoisture?.factor || 1);
   
   // Additional capacity based on humidity difference
   const humidityDifference = parseFloat(currentHumidity) - parseFloat(targetHumidity);
