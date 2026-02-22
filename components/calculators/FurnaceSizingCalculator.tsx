@@ -51,12 +51,12 @@ export default function FurnaceSizingCalculator() {
   const selectedEfficiency = furnaceEfficiency.find(e => e.value === efficiency);
   
   // Calculate base BTU requirement
-  const baseBTU = parseFloat(squareFeet) * selectedZone.btuPerSqFt;
+  const baseBTU = selectedZone ? parseFloat(squareFeet) * selectedZone.btuPerSqFt : parseFloat(squareFeet) * 30;
   
   // Apply adjustment factors
   let adjustedBTU = baseBTU;
-  adjustedBTU *= selectedInsulation.factor;
-  adjustedBTU *= selectedCeiling.factor;
+  adjustedBTU *= selectedInsulation?.factor || 1;
+  adjustedBTU *= selectedCeiling?.factor || 1;
   
   // Window adjustment
   const windowFactor = 1 + ((parseFloat(windowPercentage) - 15) * 0.01);
@@ -70,27 +70,27 @@ export default function FurnaceSizingCalculator() {
   const outputBTUNeeded = Math.round(adjustedBTU);
   
   // Calculate INPUT BTU (what furnace is rated at)
-  const inputBTUNeeded = Math.round(outputBTUNeeded / selectedEfficiency.efficiency);
+  const inputBTUNeeded = selectedEfficiency ? Math.round(outputBTUNeeded / selectedEfficiency.efficiency) : outputBTUNeeded;
   
   // Standard furnace sizes (INPUT BTU)
   const standardSizes = [40000, 60000, 80000, 100000, 120000, 140000];
   const recommendedSize = standardSizes.find(size => size >= inputBTUNeeded) || 140000;
   
   // Actual output with selected furnace
-  const actualOutput = recommendedSize * selectedEfficiency.efficiency;
+  const actualOutput = selectedEfficiency ? recommendedSize * selectedEfficiency.efficiency : recommendedSize;
   
   // Oversizing percentage
   const oversizing = ((actualOutput - outputBTUNeeded) / outputBTUNeeded) * 100;
   
   // Operating cost estimates
-  const heatingDegreeDays = selectedZone.value === 'zone7' ? 10000 :
-                           selectedZone.value === 'zone6' ? 8000 :
-                           selectedZone.value === 'zone5' ? 6500 :
-                           selectedZone.value === 'zone4' ? 5000 :
-                           selectedZone.value === 'zone3' ? 3500 :
-                           selectedZone.value === 'zone2' ? 2000 : 1000;
+  const heatingDegreeDays = selectedZone?.value === 'zone7' ? 10000 :
+                           selectedZone?.value === 'zone6' ? 8000 :
+                           selectedZone?.value === 'zone5' ? 6500 :
+                           selectedZone?.value === 'zone4' ? 5000 :
+                           selectedZone?.value === 'zone3' ? 3500 :
+                           selectedZone?.value === 'zone2' ? 2000 : 1000;
   
-  const annualGasUsage = (outputBTUNeeded * heatingDegreeDays * 24) / (selectedEfficiency.efficiency * 100000 * 65);
+  const annualGasUsage = selectedEfficiency ? (outputBTUNeeded * heatingDegreeDays * 24) / (selectedEfficiency.efficiency * 100000 * 65) : 0;
   const annualCost = annualGasUsage * 1.20; // $1.20 per therm average
 
   return (
