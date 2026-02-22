@@ -158,7 +158,7 @@ export default async function HeatPumpsHub() {
           
           <div className="grid gap-8">
             {Object.entries(topics).map(([topic, topicArticles]) => {
-              const info = topicInfo[topic] || { description: '', icon: Zap };
+              const info = topicInfo[topic as keyof typeof topicInfo] || { description: '', icon: Zap };
               const Icon = info.icon;
               
               return (
