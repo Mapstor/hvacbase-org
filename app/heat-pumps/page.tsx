@@ -47,8 +47,8 @@ function organizeArticles(articles: any[]) {
   
   // Remove empty categories
   Object.keys(topics).forEach(key => {
-    if (topics[key].length === 0) {
-      delete topics[key];
+    if (topics[key as keyof typeof topics].length === 0) {
+      delete topics[key as keyof typeof topics];
     }
   });
   
