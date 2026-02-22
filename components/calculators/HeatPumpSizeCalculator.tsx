@@ -54,12 +54,12 @@ export default function HeatPumpSizeCalculator() {
   const selectedBackup = backupHeatTypes.find(b => b.value === backupHeat);
   
   // Calculate cooling load
-  const baseCoolingBTU = parseFloat(squareFeet) * selectedClimate.coolingBTU;
-  const baseHeatingBTU = parseFloat(squareFeet) * selectedClimate.heatingBTU;
+  const baseCoolingBTU = selectedClimate ? parseFloat(squareFeet) * selectedClimate.coolingBTU : parseFloat(squareFeet) * 25;
+  const baseHeatingBTU = selectedClimate ? parseFloat(squareFeet) * selectedClimate.heatingBTU : parseFloat(squareFeet) * 30;
   
   // Apply adjustments
-  let coolingLoad = baseCoolingBTU * selectedAge.factor;
-  let heatingLoad = baseHeatingBTU * selectedAge.factor;
+  let coolingLoad = baseCoolingBTU * (selectedAge?.factor || 1);
+  let heatingLoad = baseHeatingBTU * (selectedAge?.factor || 1);
   
   // Story adjustment
   const storyFactor = parseFloat(stories) === 1 ? 0.95 : parseFloat(stories) === 2 ? 1.0 : 1.1;
@@ -93,8 +93,8 @@ export default function HeatPumpSizeCalculator() {
   const balancePoint = heatPumpType === 'cold-climate' ? 5 : 25;
   
   // Operating cost estimates
-  const coolingHours = selectedClimate.value.includes('hot') ? 2000 : 1000;
-  const heatingHours = selectedClimate.value.includes('cold') ? 3000 : 1500;
+  const coolingHours = selectedClimate?.value.includes('hot') ? 2000 : 1000;
+  const heatingHours = selectedClimate?.value.includes('cold') ? 3000 : 1500;
   
   const coolingKWh = (recommendedSize * 12000 / selectedType.efficiency) * coolingHours / 1000;
   const heatingKWh = (recommendedSize * 12000 / selectedType.hspf) * heatingHours / 1000;
