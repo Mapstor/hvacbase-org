@@ -52,15 +52,15 @@ export default function BTUCalculator() {
   
   // Get base BTU from climate zone
   const selectedZone = climateZones.find(z => z.value === climate);
-  const baseBTU = roomArea * selectedZone.btuPerSqFt;
+  const baseBTU = selectedZone ? roomArea * selectedZone.btuPerSqFt : 0;
   
   // Apply room type factor
   const selectedRoom = roomTypes.find(r => r.value === roomType);
-  const roomFactor = selectedRoom.heatLoad;
+  const roomFactor = selectedRoom ? selectedRoom.heatLoad : 1;
   
   // Apply window factor
   const selectedWindow = windowTypes.find(w => w.value === windowType);
-  const windowFactor = selectedWindow.factor;
+  const windowFactor = selectedWindow ? selectedWindow.factor : 1;
   const windowAreaFactor = 1 + (parseFloat(windowArea) / roomArea) * 0.3;
   
   // Apply insulation factor
