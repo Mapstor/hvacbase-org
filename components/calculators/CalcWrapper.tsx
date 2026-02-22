@@ -153,7 +153,7 @@ interface CalcWrapperProps {
 export default function CalcWrapper({ type, calculator }: CalcWrapperProps) {
   // Support both 'type' and 'calculator' props for flexibility
   const calcType = type || calculator || 'btu';
-  const CalculatorComponent = calculators[calcType];
+  const CalculatorComponent = calculators[calcType as keyof typeof calculators];
   
   if (!CalculatorComponent) {
     return (
