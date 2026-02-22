@@ -62,11 +62,11 @@ export default function BatteryWattHoursCalculator() {
   const daysPerCycle = 1 / cyclesPerDay;
   
   // Battery life estimation
-  const estimatedLifeDays = selectedChemistry.cycles / cyclesPerDay;
+  const estimatedLifeDays = selectedChemistry ? selectedChemistry.cycles / cyclesPerDay : 0;
   const estimatedLifeYears = estimatedLifeDays / 365;
   
   // Energy efficiency
-  const systemEfficiency = selectedChemistry.efficiency * (parseFloat(inverterEfficiency) / 100);
+  const systemEfficiency = selectedChemistry ? selectedChemistry.efficiency * (parseFloat(inverterEfficiency) / 100) : 0;
   const energyLoss = batteryWattHours - effectiveWattHours;
   
   // Cost per kWh calculations (rough estimates)
