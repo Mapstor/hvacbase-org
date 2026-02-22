@@ -99,9 +99,9 @@ export default function GasVsElectricCalculator() {
   const co2Difference = yearlyElectricCO2 - yearlyGasCO2;
   
   // Efficiency comparison
-  const gasEffectiveBtu = gasBtuPerHour * selectedAppliance.gasEfficiency;
+  const gasEffectiveBtu = gasBtuPerHour * (selectedAppliance?.gasEfficiency || 1);
   const electricEquivalentBtu = electricWatts * 3.412; // Convert watts to BTU/hr
-  const electricEffectiveBtu = electricEquivalentBtu * selectedAppliance.electricEfficiency;
+  const electricEffectiveBtu = electricEquivalentBtu * (selectedAppliance?.electricEfficiency || 1);
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
