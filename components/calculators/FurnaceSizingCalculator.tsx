@@ -443,7 +443,7 @@ export default function FurnaceSizingCalculator() {
                 <p>• <strong>Venting:</strong> {parseInt(efficiency) >= 90 ? 'PVC venting (condensing)' : 'Metal B-vent or chimney (non-condensing)'}</p>
                 <p>• <strong>Electrical:</strong> Standard 115V circuit for blower and controls</p>
                 <p>• <strong>Gas Line:</strong> {recommendedSize >= 100000 ? '3/4" or 1" gas line recommended' : '1/2" gas line typically sufficient'}</p>
-                <p>• <strong>Installation Cost:</strong> ${selectedEfficiency?.price.toLocaleString()} - ${(selectedEfficiency?.price * 1.4).toLocaleString()} installed</p>
+                <p>• <strong>Installation Cost:</strong> ${selectedEfficiency?.price?.toLocaleString() || '0'} - ${selectedEfficiency?.price ? (selectedEfficiency.price * 1.4).toLocaleString() : '0'} installed</p>
                 <p>• <strong>Warranty:</strong> Typical 10-year heat exchanger, 5-year parts warranty</p>
               </div>
             </div>
