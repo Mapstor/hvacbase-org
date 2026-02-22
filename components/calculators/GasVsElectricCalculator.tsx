@@ -194,7 +194,7 @@ export default function GasVsElectricCalculator() {
               value={customGasSize}
               onChange={(e) => setCustomGasSize(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              placeholder={`Default: ${selectedAppliance?.gasSize.toLocaleString()} BTU/hr`}
+              placeholder={`Default: ${selectedAppliance?.gasSize?.toLocaleString() || '0'} BTU/hr`}
               min="1000"
               max="200000"
             />
@@ -209,7 +209,7 @@ export default function GasVsElectricCalculator() {
               value={customElectricSize}
               onChange={(e) => setCustomElectricSize(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              placeholder={`Default: ${selectedAppliance?.electricSize.toLocaleString()}W`}
+              placeholder={`Default: ${selectedAppliance?.electricSize?.toLocaleString() || '0'}W`}
               min="100"
               max="50000"
             />
@@ -355,11 +355,11 @@ export default function GasVsElectricCalculator() {
               <div className="space-y-2 text-sm text-purple-800">
                 <div className="flex justify-between">
                   <span>Gas efficiency:</span>
-                  <span className="font-medium">{(selectedAppliance?.gasEfficiency * 100).toFixed(0)}%</span>
+                  <span className="font-medium">{selectedAppliance?.gasEfficiency ? (selectedAppliance.gasEfficiency * 100).toFixed(0) : '0'}%</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Electric efficiency:</span>
-                  <span className="font-medium">{(selectedAppliance?.electricEfficiency * 100).toFixed(0)}%</span>
+                  <span className="font-medium">{selectedAppliance?.electricEfficiency ? (selectedAppliance.electricEfficiency * 100).toFixed(0) : '0'}%</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Gas effective BTU/hr:</span>
@@ -377,7 +377,7 @@ export default function GasVsElectricCalculator() {
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <h4 className="font-medium text-blue-900 mb-2">Summary</h4>
             <p className="text-sm text-blue-800">
-              For your {selectedAppliance?.name.toLowerCase()}, <strong>{gasCheaper ? 'natural gas' : 'electric'}</strong> is 
+              For your {selectedAppliance?.name?.toLowerCase() || 'appliance'}, <strong>{gasCheaper ? 'natural gas' : 'electric'}</strong> is 
               more economical, saving you <strong>${Math.abs(monthlySavings).toFixed(2)}/month</strong> or 
               <strong>${Math.abs(yearlySavings).toFixed(0)}/year</strong>. 
               {co2Difference > 0 
