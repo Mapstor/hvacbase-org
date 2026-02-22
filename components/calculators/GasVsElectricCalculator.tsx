@@ -64,9 +64,9 @@ export default function GasVsElectricCalculator() {
   const selectedAppliance = applianceTypes.find(a => a.value === applianceType);
   
   // Use custom values if provided, otherwise use defaults
-  const gasBtuPerHour = customGasSize ? parseFloat(customGasSize) : selectedAppliance.gasSize;
-  const electricWatts = customElectricSize ? parseFloat(customElectricSize) : selectedAppliance.electricSize;
-  const hoursPerDay = customHours ? parseFloat(customHours) : selectedAppliance.usageHours;
+  const gasBtuPerHour = customGasSize ? parseFloat(customGasSize) : selectedAppliance?.gasSize || 0;
+  const electricWatts = customElectricSize ? parseFloat(customElectricSize) : selectedAppliance?.electricSize || 0;
+  const hoursPerDay = customHours ? parseFloat(customHours) : selectedAppliance?.usageHours || 0;
   
   // Calculate energy consumption
   const dailyGasBtu = gasBtuPerHour * hoursPerDay;
