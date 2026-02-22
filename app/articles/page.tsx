@@ -187,7 +187,7 @@ export default async function ArticlesPage() {
             {Object.entries(byCluster)
               .sort((a, b) => b[1].length - a[1].length)
               .map(([cluster, clusterArticles]) => {
-                const info = categoryInfo[cluster] || { 
+                const info = categoryInfo[cluster as keyof typeof categoryInfo] || { 
                   name: cluster.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), 
                   description: '',
                   color: 'gray'

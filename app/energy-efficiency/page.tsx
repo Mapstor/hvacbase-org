@@ -156,7 +156,7 @@ export default async function EnergyEfficiencyHub() {
           
           <div className="grid gap-8">
             {Object.entries(categories).map(([cluster, clusterArticles]) => {
-              const info = categoryInfo[cluster] || { title: cluster, description: '', icon: Zap };
+              const info = categoryInfo[cluster as keyof typeof categoryInfo] || { title: cluster, description: '', icon: Zap };
               const Icon = info.icon;
               
               return (
