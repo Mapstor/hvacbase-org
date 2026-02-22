@@ -386,11 +386,11 @@ export default function BTUCalculator() {
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-600">Room Type:</span>
-                        <span className="font-medium">{selectedRoom.name}</span>
+                        <span className="font-medium">{selectedRoom?.name || 'Unknown'}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-600">Climate:</span>
-                        <span className="font-medium">{selectedZone.name.split(' (')[0]}</span>
+                        <span className="font-medium">{selectedZone?.name.split(' (')[0] || 'Unknown'}</span>
                       </div>
                     </div>
                   </div>
@@ -447,17 +447,17 @@ export default function BTUCalculator() {
                     <span className="text-sm text-gray-600">Base Load</span>
                     <div className="text-right">
                       <span className="font-semibold text-gray-800">{Math.round(baseBTU).toLocaleString()} BTU</span>
-                      <p className="text-xs text-gray-500">{roomArea.toFixed(0)} sq ft × {selectedZone.btuPerSqFt} BTU/sq ft</p>
+                      <p className="text-xs text-gray-500">{roomArea.toFixed(0)} sq ft × {selectedZone?.btuPerSqFt || 0} BTU/sq ft</p>
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Room Type ({selectedRoom.name})</span>
+                      <span className="text-sm text-gray-600">Room Type ({selectedRoom?.name || 'Unknown'})</span>
                       <span className="font-medium text-gray-700">×{roomFactor.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Windows ({selectedWindow.name})</span>
+                      <span className="text-sm text-gray-600">Windows ({selectedWindow?.name || 'Unknown'})</span>
                       <span className="font-medium text-gray-700">×{(windowFactor * windowAreaFactor).toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between items-center">
