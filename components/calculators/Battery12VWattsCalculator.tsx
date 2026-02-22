@@ -36,7 +36,7 @@ export default function Battery12VWattsCalculator() {
   
   // Get selected load data
   const selectedLoad = commonLoads.find(l => l.value === loadType);
-  const loadWatts = loadType === 'custom' ? parseFloat(customWatts) : selectedLoad.watts;
+  const loadWatts = loadType === 'custom' ? parseFloat(customWatts) : selectedLoad?.watts || 0;
   
   // Calculate current draw
   const currentAmps = loadWatts / 12; // Ohm's law: I = P/V
