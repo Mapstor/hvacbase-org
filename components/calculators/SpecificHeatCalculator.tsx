@@ -39,8 +39,8 @@ export default function SpecificHeatCalculator() {
   
   // Get material data
   const selectedMaterial = materials.find(m => m.value === material);
-  const specificHeat = material === 'custom' ? parseFloat(customSpecificHeat) : selectedMaterial.specificHeat;
-  const density = material === 'custom' ? parseFloat(customDensity) : selectedMaterial.density;
+  const specificHeat = material === 'custom' ? parseFloat(customSpecificHeat) : selectedMaterial?.specificHeat || 1;
+  const density = material === 'custom' ? parseFloat(customDensity) : selectedMaterial?.density || 1;
   
   // Calculate mass from volume if needed
   const actualMass = useVolume ? parseFloat(volume) * density : parseFloat(mass);
