@@ -351,7 +351,7 @@ export default function WaterHeaterSizingCalculator() {
                 <p className="text-lg font-medium text-gray-700">per year</p>
                 <div className="pt-2 border-t border-green-200 mt-4">
                   <p className="text-sm text-gray-600">${(yearlyCost/12).toFixed(2)}/month</p>
-                  <p className="text-sm text-gray-600">Efficiency: {selectedType?.efficiency > 1 ? 'COP ' : ''}{selectedType?.efficiency}</p>
+                  <p className="text-sm text-gray-600">Efficiency: {selectedType?.efficiency && selectedType.efficiency > 1 ? 'COP ' : ''}{selectedType?.efficiency || 'N/A'}</p>
                 </div>
               </div>
             </div>
