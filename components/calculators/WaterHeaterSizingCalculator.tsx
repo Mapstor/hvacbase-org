@@ -111,7 +111,7 @@ export default function WaterHeaterSizingCalculator() {
   // Payback analysis (vs standard tank)
   const standardTankCost = 500; // Annual operating cost baseline
   const annualSavings = standardTankCost - yearlyCost;
-  const paybackYears = (selectedType.price - 1200) / Math.max(1, annualSavings);
+  const paybackYears = ((selectedType?.price || 2000) - 1200) / Math.max(1, annualSavings);
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
