@@ -66,7 +66,7 @@ export default function SolarPanelCalculator() {
   const yearlyProduction = dailyProduction * 365;
   
   // Cost calculations
-  const systemCost = actualSystemWatts * selectedPanel.costPerWatt;
+  const systemCost = selectedPanel ? actualSystemWatts * selectedPanel.costPerWatt : actualSystemWatts * 3;
   const federalTaxCredit = systemCost * 0.30; // 30% federal tax credit
   const netSystemCost = systemCost - federalTaxCredit;
   
