@@ -102,9 +102,9 @@ export default function HeatPumpSizeCalculator() {
   const annualCost = totalKWh * 0.16; // $0.16/kWh average
   
   // Backup heat requirements
-  const coldestTemp = selectedClimate.value.includes('very-cold') ? -10 :
-                      selectedClimate.value.includes('cold') ? 0 :
-                      selectedClimate.value.includes('mixed') ? 15 : 30;
+  const coldestTemp = selectedClimate?.value.includes('very-cold') ? -10 :
+                      selectedClimate?.value.includes('cold') ? 0 :
+                      selectedClimate?.value.includes('mixed') ? 15 : 30;
   const backupNeeded = coldestTemp < balancePoint;
 
   return (
