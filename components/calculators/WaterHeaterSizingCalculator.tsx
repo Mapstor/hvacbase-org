@@ -78,7 +78,7 @@ export default function WaterHeaterSizingCalculator() {
   }
   
   // Energy calculations
-  const energyPerGallon = 8.33 * 60 / (selectedType.efficiency === 3.0 ? 3.0 : selectedType.efficiency); // BTU per gallon
+  const energyPerGallon = selectedType ? 8.33 * 60 / (selectedType.efficiency === 3.0 ? 3.0 : selectedType.efficiency) : 8.33 * 60 / 0.6; // BTU per gallon
   const dailyEnergyBTU = dailyGallons * energyPerGallon;
   const yearlyEnergyBTU = dailyEnergyBTU * 365;
   
