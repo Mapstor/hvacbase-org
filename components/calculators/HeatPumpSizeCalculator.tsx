@@ -96,8 +96,8 @@ export default function HeatPumpSizeCalculator() {
   const coolingHours = selectedClimate?.value.includes('hot') ? 2000 : 1000;
   const heatingHours = selectedClimate?.value.includes('cold') ? 3000 : 1500;
   
-  const coolingKWh = (recommendedSize * 12000 / selectedType.efficiency) * coolingHours / 1000;
-  const heatingKWh = (recommendedSize * 12000 / selectedType.hspf) * heatingHours / 1000;
+  const coolingKWh = selectedType ? (recommendedSize * 12000 / selectedType.efficiency) * coolingHours / 1000 : 0;
+  const heatingKWh = selectedType ? (recommendedSize * 12000 / selectedType.hspf) * heatingHours / 1000 : 0;
   const totalKWh = coolingKWh + heatingKWh;
   const annualCost = totalKWh * 0.16; // $0.16/kWh average
   
