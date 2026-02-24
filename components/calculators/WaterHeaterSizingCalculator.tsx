@@ -57,7 +57,7 @@ export default function WaterHeaterSizingCalculator() {
   const peakHourDemand = dailyGallons * 0.3;
   
   // Tank sizing
-  let recommendedTankSize, recommendedTanklessGPM;
+  let recommendedTankSize = 40, recommendedTanklessGPM = 5;
   
   if (heaterType.includes('tank')) {
     // Tank size based on first hour rating
@@ -97,7 +97,7 @@ export default function WaterHeaterSizingCalculator() {
   
   // Recovery time calculation (for tank heaters)
   const recoveryTime = heaterType.includes('tank') 
-    ? recommendedTankSize / (selectedType.recoveryRate || 20)
+    ? recommendedTankSize / (selectedType?.recoveryRate ? Number(selectedType.recoveryRate) : 20)
     : 0;
   
   // Tankless temperature rise capability
