@@ -62,7 +62,7 @@ export default function WaterHeaterSizingCalculator() {
   if (heaterType.includes('tank')) {
     // Tank size based on first hour rating
     const tankSizes = [30, 40, 50, 65, 75, 80, 100, 120];
-    const requiredFHR = peakHourDemand + (selectedType.recoveryRate || 20);
+    const requiredFHR = peakHourDemand + (selectedType?.recoveryRate ? Number(selectedType.recoveryRate) : 20);
     recommendedTankSize = tankSizes.find(size => size >= requiredFHR) || 120;
   } else {
     // Tankless sizing based on flow rate
