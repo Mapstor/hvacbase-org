@@ -47,7 +47,7 @@ export default function SEER2Calculator() {
   const meetsNewStandards = parseFloat(newSeer) >= 14.3;
 
   // Helper function for climate description
-  const getClimateDescription = (hours) => {
+  const getClimateDescription = (hours: number) => {
     if (hours <= 800) return { zone: 'Cool Climate', desc: 'Northern regions with mild summers' };
     if (hours <= 1200) return { zone: 'Moderate Climate', desc: 'Temperate regions with average cooling needs' };
     if (hours <= 1500) return { zone: 'Warm Climate', desc: 'Southern regions with hot summers' };
