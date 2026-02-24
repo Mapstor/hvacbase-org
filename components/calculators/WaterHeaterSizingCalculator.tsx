@@ -51,7 +51,7 @@ export default function WaterHeaterSizingCalculator() {
   const laundryGallons = (parseFloat(laundryLoads) / 7) * 25;
   const sinkGallons = parseFloat(residents) * 4; // Misc usage per person
   
-  const dailyGallons = (showerGallons + bathGallons + dishwasherGallons + laundryGallons + sinkGallons) * selectedUsage.factor;
+  const dailyGallons = (showerGallons + bathGallons + dishwasherGallons + laundryGallons + sinkGallons) * (selectedUsage?.factor || 1);
   
   // Peak hour demand (typically morning - 30% of daily in 1 hour)
   const peakHourDemand = dailyGallons * 0.3;
