@@ -85,10 +85,10 @@ export default function WaterHeaterSizingCalculator() {
   // Cost calculations
   let yearlyCost;
   if (heaterType.includes('electric') || heaterType === 'heat-pump') {
-    const kWhPerYear = yearlyEnergyBTU / 3412 / (heaterType === 'heat-pump' ? 3.0 : selectedType.efficiency);
+    const kWhPerYear = yearlyEnergyBTU / 3412 / (heaterType === 'heat-pump' ? 3.0 : selectedType?.efficiency || 0.9);
     yearlyCost = kWhPerYear * 0.16; // $0.16/kWh
   } else if (heaterType.includes('gas')) {
-    const thermsPerYear = yearlyEnergyBTU / 100000 / selectedType.efficiency;
+    const thermsPerYear = yearlyEnergyBTU / 100000 / (selectedType?.efficiency || 0.8);
     yearlyCost = thermsPerYear * 1.20; // $1.20/therm
   } else {
     // Solar - minimal operating cost
