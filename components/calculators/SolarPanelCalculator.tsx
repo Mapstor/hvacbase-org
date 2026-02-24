@@ -44,7 +44,7 @@ export default function SolarPanelCalculator() {
   // Calculate system size needed
   const shadingMultiplier = parseFloat(shadingFactor) / 100;
   const efficiencyMultiplier = parseFloat(systemEfficiency) / 100;
-  const effectiveSunHours = selectedLocation.sunHours * shadingMultiplier * efficiencyMultiplier;
+  const effectiveSunHours = selectedLocation ? selectedLocation.sunHours * shadingMultiplier * efficiencyMultiplier : 5;
   
   const systemSizeKW = dailyKwh / effectiveSunHours;
   const systemSizeWatts = systemSizeKW * 1000;
