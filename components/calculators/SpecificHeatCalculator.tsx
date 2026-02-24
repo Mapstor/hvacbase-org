@@ -46,7 +46,7 @@ export default function SpecificHeatCalculator() {
   const actualMass = useVolume ? parseFloat(volume) * density : parseFloat(mass);
   
   // Perform calculations based on type
-  let energyRequired, finalTemperature, requiredMass;
+  let energyRequired = 0, finalTemperature = 0, requiredMass = 0;
   const deltaT = parseFloat(finalTemp) - parseFloat(initialTemp);
   
   switch (calculationType) {
