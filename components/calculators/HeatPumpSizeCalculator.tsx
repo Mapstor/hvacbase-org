@@ -371,10 +371,10 @@ export default function HeatPumpSizeCalculator() {
                   <span>Backup type:</span>
                   <span className="font-medium">{selectedBackup?.name}</span>
                 </div>
-                {selectedBackup?.factor > 0 && (
+                {selectedBackup?.factor && selectedBackup.factor > 0 && (
                   <div className="flex justify-between">
                     <span>Backup capacity:</span>
-                    <span className="font-medium">{selectedBackup.factor} W</span>
+                    <span className="font-medium">{selectedBackup?.factor || 0} W</span>
                   </div>
                 )}
               </div>
