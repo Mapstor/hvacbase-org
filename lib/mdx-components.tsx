@@ -5,6 +5,7 @@ import RelatedArticles from '@/components/ui/RelatedArticles';
 import SourceLink from '@/components/ui/SourceLink';
 import TableOfContents from '@/components/ui/TableOfContents';
 import CalcWrapper from '@/components/calculators/CalcWrapper';
+import SEERCalculator from '@/components/tools/SEERCalculator';
 
 // Define SourcesBox component
 const SourcesBox = ({ sources }: { sources: Array<{ text?: string; label?: string; url: string }> }) => {
@@ -165,6 +166,7 @@ export const mdxComponents = {
   FAQ: FAQWrapper,
   KeyTakeaway,
   RelatedArticles,
+  SEERCalculator,
   SourceLink,
   SourcesBox,
   TableOfContents,
