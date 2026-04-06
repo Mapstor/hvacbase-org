@@ -83,11 +83,11 @@ export default async function HomePage() {
               </p>
               
               <div className="flex flex-wrap gap-4 mb-6">
-                <Link href="/air-conditioner-btu-calculator" className="bg-white text-brand-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-colors inline-flex items-center gap-2">
+                <Link href="/ac-sizing-selection/air-conditioner-btu-calculator" className="bg-white text-brand-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-colors inline-flex items-center gap-2">
                   <Calculator className="w-5 h-5" />
                   BTU Calculator
                 </Link>
-                <Link href="/seer2-savings-calculator" className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition-colors inline-flex items-center gap-2">
+                <Link href="/energy-efficiency-ratings/seer2-savings-calculator" className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition-colors inline-flex items-center gap-2">
                   <DollarSign className="w-5 h-5" />
                   Savings Calculator
                 </Link>
@@ -113,19 +113,19 @@ export default async function HomePage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <h3 className="font-semibold text-xl mb-4">Quick Access Tools</h3>
                 <div className="grid grid-cols-2 gap-3">
-                  <Link href="/ac-tonnage-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
+                  <Link href="/ac-sizing-selection/ac-tonnage-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
                     <Gauge className="w-6 h-6 mb-2" />
                     <div className="text-sm font-medium">Tonnage Calculator</div>
                   </Link>
-                  <Link href="/heat-pump-size-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
+                  <Link href="/ac-sizing-selection/heat-pump-size-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
                     <Activity className="w-6 h-6 mb-2" />
                     <div className="text-sm font-medium">Heat Pump Sizing</div>
                   </Link>
-                  <Link href="/furnace-sizing-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
+                  <Link href="/ac-sizing-selection/furnace-sizing-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
                     <Flame className="w-6 h-6 mb-2" />
                     <div className="text-sm font-medium">Furnace Sizing</div>
                   </Link>
-                  <Link href="/mini-split-sizing-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
+                  <Link href="/ac-sizing-selection/mini-split-sizing-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
                     <Zap className="w-6 h-6 mb-2" />
                     <div className="text-sm font-medium">Mini Split Size</div>
                   </Link>
@@ -174,7 +174,7 @@ export default async function HomePage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link href="/air-conditioner-btu-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
+            <Link href="/ac-sizing-selection/air-conditioner-btu-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-200 transition-colors">
                   <Calculator className="w-6 h-6 text-blue-700" />
@@ -189,7 +189,7 @@ export default async function HomePage() {
               </div>
             </Link>
 
-            <Link href="/ac-tonnage-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
+            <Link href="/ac-sizing-selection/ac-tonnage-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-green-100 p-3 rounded-lg group-hover:bg-green-200 transition-colors">
                   <Gauge className="w-6 h-6 text-green-700" />
@@ -204,7 +204,7 @@ export default async function HomePage() {
               </div>
             </Link>
 
-            <Link href="/seer2-savings-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
+            <Link href="/energy-efficiency-ratings/seer2-savings-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-emerald-100 p-3 rounded-lg group-hover:bg-emerald-200 transition-colors">
                   <DollarSign className="w-6 h-6 text-emerald-700" />
@@ -219,7 +219,7 @@ export default async function HomePage() {
               </div>
             </Link>
 
-            <Link href="/heat-pump-size-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
+            <Link href="/ac-sizing-selection/heat-pump-size-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-purple-100 p-3 rounded-lg group-hover:bg-purple-200 transition-colors">
                   <Activity className="w-6 h-6 text-purple-700" />
@@ -234,7 +234,7 @@ export default async function HomePage() {
               </div>
             </Link>
 
-            <Link href="/furnace-sizing-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
+            <Link href="/ac-sizing-selection/furnace-sizing-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-orange-100 p-3 rounded-lg group-hover:bg-orange-200 transition-colors">
                   <Flame className="w-6 h-6 text-orange-700" />
@@ -249,7 +249,7 @@ export default async function HomePage() {
               </div>
             </Link>
 
-            <Link href="/mini-split-sizing-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
+            <Link href="/ac-sizing-selection/mini-split-sizing-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-cyan-100 p-3 rounded-lg group-hover:bg-cyan-200 transition-colors">
                   <Zap className="w-6 h-6 text-cyan-700" />
@@ -270,13 +270,13 @@ export default async function HomePage() {
               All calculators updated for 2026 efficiency standards and include regional climate adjustments
             </p>
             <div className="flex items-center justify-center gap-6">
-              <Link href="/water-heater-sizing-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+              <Link href="/ac-sizing-selection/water-heater-sizing-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
                 Water Heater Calculator →
               </Link>
-              <Link href="/what-size-generator-do-i-need" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+              <Link href="/ac-sizing-selection/what-size-generator-do-i-need" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
                 Generator Sizing →
               </Link>
-              <Link href="/kwh-cost-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+              <Link href="/energy-costs/kwh-cost-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
                 Energy Cost Calculator →
               </Link>
             </div>
@@ -314,65 +314,65 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Central AC</h4>
-                <Link href="/ac-not-cooling" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/air-conditioners/ac-not-cooling" className="block text-gray-600 hover:text-brand-600 py-1">
                   AC Not Cooling: 12 Fixes
                 </Link>
-                <Link href="/ac-troubleshooting-guide" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Complete Troubleshooting
+                <Link href="/air-conditioners/ac-troubleshooting-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Complete Troubleshooting Guide
                 </Link>
-                <Link href="/ac-installation-cost" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hvac-brands/central-ac-cost-to-install" className="block text-gray-600 hover:text-brand-600 py-1">
                   Installation Costs 2026
                 </Link>
-                <Link href="/ac-maintenance-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hvac-maintenance/hvac-maintenance-checklist" className="block text-gray-600 hover:text-brand-600 py-1">
                   Maintenance Checklist
                 </Link>
               </div>
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Mini Splits</h4>
-                <Link href="/what-is-a-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/mini-split-air-conditioners/what-is-a-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
                   Complete Mini Split Guide
                 </Link>
-                <Link href="/best-mini-split-ac-units" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/mini-split-air-conditioners/best-mini-split-ac-units" className="block text-gray-600 hover:text-brand-600 py-1">
                   Best Mini Splits 2026
                 </Link>
-                <Link href="/mini-split-installation-cost" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/mini-split-air-conditioners/mini-split-installation-cost" className="block text-gray-600 hover:text-brand-600 py-1">
                   Installation Pricing
                 </Link>
-                <Link href="/mini-split-vs-central-air" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/mini-split-air-conditioners/mini-split-vs-central-air" className="block text-gray-600 hover:text-brand-600 py-1">
                   Mini Split vs Central
                 </Link>
               </div>
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Window Units</h4>
-                <Link href="/best-window-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/air-conditioners/best-window-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
                   Best Window ACs 2026
                 </Link>
-                <Link href="/quietest-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/air-conditioners/quietest-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
                   Quietest Models (42 dB)
                 </Link>
-                <Link href="/low-profile-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/air-conditioners/low-profile-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
                   Low Profile Options
                 </Link>
-                <Link href="/smallest-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/air-conditioners/smallest-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
                   Compact 5000 BTU Units
                 </Link>
               </div>
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Portable AC</h4>
-                <Link href="/best-portable-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/portable-air-conditioners/best-portable-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
                   Best Portable ACs
                 </Link>
-                <Link href="/quietest-portable-acs" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/portable-air-conditioners/quietest-portable-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
                   Quiet Models (48 dB)
                 </Link>
-                <Link href="/portable-ac-electricity-usage" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/portable-air-conditioners/portable-ac-electricity-cost" className="block text-gray-600 hover:text-brand-600 py-1">
                   Energy Usage Guide
                 </Link>
-                <Link href="/portable-vs-window-ac" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Portable vs Window
+                <Link href="/air-conditioners/portable-vs-window-ac" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Portable vs Window AC
                 </Link>
               </div>
             </div>
@@ -395,65 +395,65 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Furnaces</h4>
-                <Link href="/furnace-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/furnaces-heating/furnace-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Complete Furnace Guide
                 </Link>
-                <Link href="/furnace-blowing-cold-air" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/furnaces-heating/furnace-blowing-cold-air" className="block text-gray-600 hover:text-brand-600 py-1">
                   Blowing Cold Air Fix
                 </Link>
-                <Link href="/furnace-replacement-cost" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/furnaces-heating/furnace-installation-cost" className="block text-gray-600 hover:text-brand-600 py-1">
                   Replacement Costs
                 </Link>
-                <Link href="/furnace-maintenance" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Annual Maintenance
+                <Link href="/furnaces-heating/furnace-maintenance" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Annual Maintenance Guide
                 </Link>
               </div>
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Heat Pumps</h4>
-                <Link href="/what-is-a-heat-pump" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/heat-pumps/heat-pump-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump Explained
                 </Link>
-                <Link href="/best-cold-climate-heat-pumps" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/heat-pumps/best-cold-climate-heat-pumps" className="block text-gray-600 hover:text-brand-600 py-1">
                   Cold Climate Models
                 </Link>
-                <Link href="/furnace-vs-heat-pump" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/furnaces-heating/furnace-vs-heat-pump" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump vs Furnace
                 </Link>
-                <Link href="/heat-pump-tax-credits-2026" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/heat-pumps/heat-pump-tax-credits-2026" className="block text-gray-600 hover:text-brand-600 py-1">
                   2026 Tax Credits
                 </Link>
               </div>
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Alternative Heat</h4>
-                <Link href="/best-space-heaters" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/space-heaters/space-heater-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Best Space Heaters
                 </Link>
-                <Link href="/baseboard-heater-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/space-heaters/best-baseboard-heaters" className="block text-gray-600 hover:text-brand-600 py-1">
                   Baseboard Heating
                 </Link>
-                <Link href="/radiant-floor-heating-pros-cons" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Radiant Floor Heat
+                <Link href="/space-heaters/radiant-floor-heating-pros-cons" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Radiant Floor Heating Guide
                 </Link>
-                <Link href="/infrared-heaters-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/space-heaters/best-infrared-heaters" className="block text-gray-600 hover:text-brand-600 py-1">
                   Infrared Heaters
                 </Link>
               </div>
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Comparisons</h4>
-                <Link href="/gas-vs-electric-heating-cost" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/furnaces-heating/gas-vs-electric-heating-cost" className="block text-gray-600 hover:text-brand-600 py-1">
                   Gas vs Electric Cost
                 </Link>
-                <Link href="/boiler-vs-furnace" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Boiler vs Furnace
+                <Link href="/furnaces-heating/boiler-vs-furnace" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Boiler vs Furnace Guide
                 </Link>
-                <Link href="/heat-pump-vs-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/heat-pumps/heat-pump-vs-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump vs Mini Split
                 </Link>
-                <Link href="/heating-cost-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Cost Calculator
+                <Link href="/energy-costs/heating-cost-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Heating Cost Calculator
                 </Link>
               </div>
             </div>
@@ -476,16 +476,16 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Cooling Ratings</h4>
-                <Link href="/seer2-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/energy-efficiency-ratings/seer2-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   SEER2 Rating Guide
                 </Link>
-                <Link href="/eer2-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/energy-efficiency-ratings/eer2-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   EER2 Explained
                 </Link>
-                <Link href="/ceer-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/energy-efficiency-ratings/ceer-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   CEER for Window ACs
                 </Link>
-                <Link href="/14-seer-vs-16-seer" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/energy-efficiency-ratings/14-3-seer2-vs-16-seer" className="block text-gray-600 hover:text-brand-600 py-1">
                   14 vs 16 SEER2
                 </Link>
               </div>
@@ -524,14 +524,14 @@ export default async function HomePage() {
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Saving Tips</h4>
-                <Link href="/hvac-energy-saving-tips" className="block text-gray-600 hover:text-brand-600 py-1">
-                  25 Energy Tips
+                <Link href="/energy-efficiency/hvac-energy-saving-tips" className="block text-gray-600 hover:text-brand-600 py-1">
+                  25 Energy Saving Tips
                 </Link>
                 <Link href="/programmable-thermostat-settings" className="block text-gray-600 hover:text-brand-600 py-1">
                   Optimal Settings
                 </Link>
-                <Link href="/insulation-r-value-chart" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Insulation R-Values
+                <Link href="/insulation/insulation-r-value-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Insulation R-Value Guide
                 </Link>
                 <Link href="/duct-sealing-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Duct Sealing DIY
@@ -563,8 +563,8 @@ export default async function HomePage() {
                 <Link href="/hepa-filter-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   HEPA Filter Guide
                 </Link>
-                <Link href="/hvac-uv-light" className="block text-gray-600 hover:text-brand-600 py-1">
-                  UV Light Systems
+                <Link href="/air-quality/uv-light-hvac-systems" className="block text-gray-600 hover:text-brand-600 py-1">
+                  UV Light HVAC Systems
                 </Link>
                 <Link href="/activated-carbon-filters" className="block text-gray-600 hover:text-brand-600 py-1">
                   Carbon Filters
@@ -592,8 +592,8 @@ export default async function HomePage() {
                 <Link href="/merv-rating-chart" className="block text-gray-600 hover:text-brand-600 py-1">
                   MERV Rating Chart
                 </Link>
-                <Link href="/best-hvac-air-filters" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Best HVAC Filters
+                <Link href="/air-quality/best-hvac-air-filters" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Best HVAC Air Filters
                 </Link>
                 <Link href="/furnace-filter-direction" className="block text-gray-600 hover:text-brand-600 py-1">
                   Filter Direction Guide
@@ -712,7 +712,7 @@ export default async function HomePage() {
                 Troubleshooting
               </h3>
               <div className="space-y-2 text-sm">
-                <Link href="/ac-not-cooling" className="flex justify-between group">
+                <Link href="/air-conditioners/ac-not-cooling" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC not cooling?</span>
                   <span className="text-blue-600 font-medium">12 fixes →</span>
                 </Link>
@@ -774,9 +774,9 @@ export default async function HomePage() {
                   <span className="text-gray-600 group-hover:text-brand-600">AC tune-up?</span>
                   <span className="text-blue-600 font-medium">Annual →</span>
                 </Link>
-                <Link href="/furnace-maintenance" className="flex justify-between group">
+                <Link href="/furnaces-heating/furnace-maintenance" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Furnace service?</span>
-                  <span className="text-blue-600 font-medium">Fall prep →</span>
+                  <span className="text-blue-600 font-medium">Maintenance guide →</span>
                 </Link>
               </div>
             </div>
