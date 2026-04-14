@@ -20,35 +20,35 @@ const costCategories = {
     guides: [
       {
         title: 'Central AC Installation Cost',
-        href: '/air-conditioners/central-ac-installation-cost',
+        href: '/central-ac-installation-cost',
         priceRange: '$3,500 - $7,500',
         factors: ['System size', 'SEER rating', 'Ductwork', 'Labor'],
         savings: 'Save up to 20% off-season'
       },
       {
         title: 'Furnace Installation Cost',
-        href: '/furnaces-heating/furnace-installation-cost',
+        href: '/furnace-installation-cost',
         priceRange: '$2,500 - $6,500',
         factors: ['Fuel type', 'AFUE rating', 'Venting', 'Permits'],
         savings: 'Rebates up to $1,500'
       },
       {
         title: 'Heat Pump Installation Cost',
-        href: '/heat-pumps/heat-pump-installation-cost',
+        href: '/heat-pump-installation-cost',
         priceRange: '$4,000 - $8,500',
         factors: ['Type', 'HSPF/SEER', 'Dual fuel', 'Controls'],
         savings: 'Tax credits up to $2,000'
       },
       {
         title: 'Mini Split Installation Cost',
-        href: '/mini-split-air-conditioners/mini-split-installation-cost',
+        href: '/mini-split-installation-cost',
         priceRange: '$3,000 - $10,000',
         factors: ['Zones', 'BTUs', 'Line sets', 'Electrical'],
         savings: 'DIY saves 30-40%'
       },
       {
         title: 'Boiler Installation Cost',
-        href: '/furnaces-heating/boiler-installation-cost',
+        href: '/boiler-installation-cost',
         priceRange: '$3,500 - $8,000',
         factors: ['Type', 'Efficiency', 'Piping', 'Controls'],
         savings: 'Energy savings 20-30%'
@@ -68,21 +68,21 @@ const costCategories = {
     guides: [
       {
         title: 'AC Repair Cost Guide',
-        href: '/air-conditioners/ac-repair-costs',
+        href: '/ac-repair-costs',
         priceRange: '$150 - $1,200',
         commonRepairs: ['Capacitor', 'Compressor', 'Refrigerant', 'Fan motor'],
         avgCost: '$450'
       },
       {
         title: 'Furnace Repair Cost Guide',
-        href: '/furnaces-heating/furnace-repair-costs',
+        href: '/furnace-repair-costs',
         priceRange: '$100 - $1,500',
         commonRepairs: ['Ignitor', 'Blower motor', 'Heat exchanger', 'Control board'],
         avgCost: '$350'
       },
       {
         title: 'Heat Pump Repair Costs',
-        href: '/heat-pumps/heat-pump-repair-costs',
+        href: '/heat-pump-repair-costs',
         priceRange: '$150 - $1,500',
         commonRepairs: ['Reversing valve', 'Defrost board', 'Compressor', 'Coils'],
         avgCost: '$500'
@@ -109,14 +109,14 @@ const costCategories = {
       },
       {
         title: 'AC Tune-Up Cost',
-        href: '/air-conditioners/ac-tune-up-cost',
+        href: '/ac-tune-up-cost',
         priceRange: '$75 - $200',
         includes: ['Cleaning', 'Inspection', 'Refrigerant check', 'Electrical test'],
         savings: 'Improves efficiency 5-15%'
       },
       {
         title: 'Furnace Tune-Up Cost',
-        href: '/furnaces-heating/furnace-tune-up-cost',
+        href: '/furnace-tune-up-cost',
         priceRange: '$80 - $200',
         includes: ['Safety check', 'Cleaning', 'Calibration', 'Carbon monoxide test'],
         savings: 'Extends life 5+ years'

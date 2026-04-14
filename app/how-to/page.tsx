@@ -99,7 +99,7 @@ const howToCategories = {
     guides: [
       {
         title: 'How to Fix AC Not Cooling',
-        href: '/air-conditioners/ac-not-cooling',
+        href: '/ac-not-cooling',
         time: '30 min',
         difficulty: 'Medium',
         savings: 'Save $150-300',
@@ -107,7 +107,7 @@ const howToCategories = {
       },
       {
         title: 'How to Fix Furnace Not Heating',
-        href: '/furnaces-heating/furnace-not-heating',
+        href: '/furnace-not-heating',
         time: '45 min',
         difficulty: 'Medium',
         savings: 'Save $150-400',
@@ -115,7 +115,7 @@ const howToCategories = {
       },
       {
         title: 'How to Fix Frozen AC Unit',
-        href: '/air-conditioners/how-to-fix-frozen-ac',
+        href: '/how-to-fix-frozen-ac',
         time: '2-4 hours',
         difficulty: 'Medium',
         savings: 'Save $200-500',
@@ -185,7 +185,7 @@ const howToCategories = {
       },
       {
         title: 'How to Prepare Furnace for Winter',
-        href: '/furnaces-heating/prepare-furnace-for-winter',
+        href: '/prepare-furnace-for-winter',
         time: '1 hour',
         difficulty: 'Easy',
         savings: 'Ensure reliability',
@@ -193,7 +193,7 @@ const howToCategories = {
       },
       {
         title: 'How to Start Up AC for Summer',
-        href: '/air-conditioners/ac-summer-startup',
+        href: '/ac-summer-startup',
         time: '30 min',
         difficulty: 'Easy',
         savings: 'Prevent breakdowns',
@@ -216,7 +216,7 @@ const howToCategories = {
     guides: [
       {
         title: 'How to Install a Mini Split',
-        href: '/mini-split-air-conditioners/diy-mini-split-installation',
+        href: '/diy-mini-split-installation',
         time: '6-8 hours',
         difficulty: 'Advanced',
         savings: 'Save $1,500-3,000',
@@ -254,7 +254,7 @@ const popularGuides = [
   {
     title: 'Complete AC Maintenance Checklist',
     description: 'Everything you need to do to keep your AC running efficiently',
-    href: '/air-conditioners/ac-troubleshooting-guide',
+    href: '/ac-troubleshooting-guide',
     stats: { views: '125K', rating: 4.9, time: '30 min' },
     badge: 'Most Popular'
   },
@@ -268,7 +268,7 @@ const popularGuides = [
   {
     title: 'Fix Your AC in 10 Steps',
     description: 'Troubleshoot and repair common AC problems yourself',
-    href: '/air-conditioners/ac-not-cooling',
+    href: '/ac-not-cooling',
     stats: { views: '156K', rating: 4.9, time: '45 min' },
     badge: 'Top Rated'
   }

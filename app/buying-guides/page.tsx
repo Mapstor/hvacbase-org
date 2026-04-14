@@ -26,7 +26,7 @@ const buyingGuides = {
       },
       {
         title: 'Mini Split Buying Guide',
-        href: '/mini-split-air-conditioners/mini-split-buying-guide',
+        href: '/mini-split-buying-guide',
         readTime: '15 min',
         highlights: ['Single vs multi-zone', 'Installation costs', 'Best brands']
       },
@@ -50,19 +50,19 @@ const buyingGuides = {
     guides: [
       {
         title: 'Best Gas Furnaces 2024',
-        href: '/furnaces-heating/best-gas-furnaces',
+        href: '/best-gas-furnaces',
         readTime: '14 min',
         highlights: ['AFUE ratings', 'Single vs two-stage', 'Brand comparison']
       },
       {
         title: 'Heat Pump Buying Guide',
-        href: '/heat-pumps/heat-pump-buying-guide',
+        href: '/heat-pump-buying-guide',
         readTime: '16 min',
         highlights: ['Cold climate models', 'Dual fuel systems', 'Efficiency ratings']
       },
       {
         title: 'Boiler Selection Guide',
-        href: '/furnaces-heating/best-boilers',
+        href: '/best-boilers',
         readTime: '13 min',
         highlights: ['Combi vs system boilers', 'Efficiency standards', 'Sizing guide']
       },
@@ -207,7 +207,7 @@ const featuredGuides = [
   {
     title: 'Heat Pump vs Furnace: Which is Right for You?',
     description: 'Comprehensive comparison to help you choose between heat pumps and traditional furnaces',
-    href: '/heat-pumps/heat-pump-vs-furnace',
+    href: '/heat-pump-vs-furnace',
     badge: 'Editor\'s Choice',
     stats: { readTime: '15 min', updated: 'March 2024' }
   },
@@ -221,9 +221,9 @@ const featuredGuides = [
 ]
 
 const quickLinks = [
-  { title: 'Size Calculator', href: '/ac-sizing-selection/air-conditioner-btu-calculator', icon: '📐' },
+  { title: 'Size Calculator', href: '/air-conditioner-btu-calculator', icon: '📐' },
   { title: 'Energy Savings', href: '/energy-efficiency/hvac-energy-saving-tips', icon: '⚡' },
-  { title: 'Maintenance Guide', href: '/furnaces-heating/furnace-maintenance', icon: '🔧' },
+  { title: 'Maintenance Guide', href: '/furnace-maintenance', icon: '🔧' },
   { title: 'Troubleshooting', href: '/air-conditioners/ac-troubleshooting-guide', icon: '🛠️' }
 ]
 
@@ -438,7 +438,7 @@ export default function BuyingGuidesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/ac-sizing-selection/air-conditioner-btu-calculator"
+              href="/air-conditioner-btu-calculator"
               className="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
             >
               Size My System

@@ -20,7 +20,7 @@ const troubleshootingCategories = {
     problems: [
       {
         title: 'AC Not Cooling',
-        href: '/air-conditioners/ac-not-cooling',
+        href: '/ac-not-cooling',
         symptoms: ['Warm air from vents', 'No temperature change', 'Running but not cooling'],
         commonCauses: ['Dirty filter', 'Low refrigerant', 'Frozen coils'],
         difficulty: 'Easy to Medium',
@@ -28,7 +28,7 @@ const troubleshootingCategories = {
       },
       {
         title: 'AC Freezing Up',
-        href: '/air-conditioners/ac-freezing-up',
+        href: '/ac-freezing-up',
         symptoms: ['Ice on coils', 'Reduced airflow', 'Water leaks'],
         commonCauses: ['Airflow restriction', 'Low refrigerant', 'Dirty coils'],
         difficulty: 'Medium',
@@ -36,7 +36,7 @@ const troubleshootingCategories = {
       },
       {
         title: 'AC Short Cycling',
-        href: '/air-conditioners/ac-short-cycling',
+        href: '/ac-short-cycling',
         symptoms: ['Frequent on/off', 'Never reaches temperature', 'High bills'],
         commonCauses: ['Oversized unit', 'Thermostat issues', 'Refrigerant leak'],
         difficulty: 'Medium to Hard',
@@ -44,7 +44,7 @@ const troubleshootingCategories = {
       },
       {
         title: 'AC Won\'t Turn On',
-        href: '/air-conditioners/ac-wont-turn-on',
+        href: '/ac-wont-turn-on',
         symptoms: ['No response', 'No fan operation', 'Dead system'],
         commonCauses: ['Power issues', 'Capacitor failure', 'Control board'],
         difficulty: 'Easy to Hard',
@@ -58,7 +58,7 @@ const troubleshootingCategories = {
     problems: [
       {
         title: 'Furnace Not Heating',
-        href: '/furnaces-heating/furnace-not-heating',
+        href: '/furnace-not-heating',
         symptoms: ['No heat', 'Cold air', 'Won\'t ignite'],
         commonCauses: ['Pilot light out', 'Ignitor failure', 'Gas valve issues'],
         difficulty: 'Easy to Hard',
@@ -66,7 +66,7 @@ const troubleshootingCategories = {
       },
       {
         title: 'Furnace Short Cycling',
-        href: '/furnaces-heating/furnace-short-cycling',
+        href: '/furnace-short-cycling',
         symptoms: ['Frequent on/off', 'Overheating', 'Poor heating'],
         commonCauses: ['Dirty filter', 'Thermostat placement', 'Oversized furnace'],
         difficulty: 'Easy to Medium',
@@ -74,7 +74,7 @@ const troubleshootingCategories = {
       },
       {
         title: 'Heat Pump Not Heating',
-        href: '/heat-pumps/heat-pump-not-heating',
+        href: '/heat-pump-not-heating',
         symptoms: ['Cool air in heat mode', 'Constantly running', 'Ice buildup'],
         commonCauses: ['Defrost issues', 'Reversing valve', 'Low refrigerant'],
         difficulty: 'Medium to Hard',
@@ -134,7 +134,7 @@ const troubleshootingCategories = {
     problems: [
       {
         title: 'AC Water Leak',
-        href: '/air-conditioners/ac-water-leak',
+        href: '/ac-water-leak',
         symptoms: ['Water around unit', 'Ceiling stains', 'Pooling water'],
         commonCauses: ['Clogged drain', 'Frozen coils', 'Damaged pan'],
         difficulty: 'Easy to Medium',
@@ -150,7 +150,7 @@ const troubleshootingCategories = {
       },
       {
         title: 'Furnace Leaking Water',
-        href: '/furnaces-heating/furnace-water-leak',
+        href: '/furnace-water-leak',
         symptoms: ['Puddles near furnace', 'Rust spots', 'Water damage'],
         commonCauses: ['Condensate issues', 'Humidifier leak', 'Heat exchanger'],
         difficulty: 'Medium to Hard',
@@ -313,19 +313,19 @@ export default function TroubleshootingPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/air-conditioners/ac-troubleshooting-guide"
+                href="/ac-troubleshooting-guide"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors px-6 py-3 rounded-lg font-semibold"
               >
                 AC Troubleshooting
               </Link>
               <Link
-                href="/furnaces-heating/furnace-troubleshooting"
+                href="/furnace-troubleshooting"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors px-6 py-3 rounded-lg font-semibold"
               >
                 Furnace Problems
               </Link>
               <Link
-                href="/heat-pumps/heat-pump-troubleshooting"
+                href="/heat-pump-troubleshooting"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors px-6 py-3 rounded-lg font-semibold"
               >
                 Heat Pump Issues
@@ -607,7 +607,7 @@ export default function TroubleshootingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/air-conditioners/ac-troubleshooting-guide"
+              href="/ac-troubleshooting-guide"
               className="bg-white text-red-700 px-8 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
             >
               Complete AC Guide
