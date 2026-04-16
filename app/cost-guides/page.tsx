@@ -89,7 +89,7 @@ const costCategories = {
       },
       {
         title: 'Emergency Repair Pricing',
-        href: '/repairs/emergency-hvac-costs',
+        href: '/hvac-maintenance-cost',
         priceRange: '$200 - $2,000+',
         commonRepairs: ['After hours', 'Weekend rates', 'Holiday pricing', 'Rush service'],
         avgCost: '1.5-2x normal rates'
@@ -102,7 +102,7 @@ const costCategories = {
     guides: [
       {
         title: 'Annual Maintenance Cost',
-        href: '/maintenance/annual-hvac-maintenance-cost',
+        href: '/hvac-maintenance-cost',
         priceRange: '$150 - $500/year',
         includes: ['Spring AC tune-up', 'Fall heating check', 'Filter changes', 'Priority service'],
         savings: 'Prevents 95% of breakdowns'
@@ -123,7 +123,7 @@ const costCategories = {
       },
       {
         title: 'Service Contract Comparison',
-        href: '/maintenance/service-contract-comparison',
+        href: '/hvac-maintenance-cost',
         priceRange: '$200 - $600/year',
         includes: ['Basic vs premium', 'Coverage details', 'Exclusions', 'Value analysis'],
         savings: 'Save 15-20% on repairs'
@@ -136,28 +136,28 @@ const costCategories = {
     guides: [
       {
         title: 'Compressor Replacement Cost',
-        href: '/repairs/compressor-replacement-cost',
+        href: '/central-ac-cost-to-install',
         priceRange: '$1,500 - $2,800',
         factors: ['Type', 'Size', 'Brand', 'Warranty'],
         consideration: 'Consider full system if >10 years'
       },
       {
         title: 'Heat Exchanger Replacement',
-        href: '/repairs/heat-exchanger-replacement-cost',
+        href: '/cracked-heat-exchanger',
         priceRange: '$1,500 - $3,500',
         factors: ['Material', 'Warranty', 'Labor', 'Permits'],
         consideration: 'Often better to replace furnace'
       },
       {
         title: 'Blower Motor Replacement',
-        href: '/repairs/blower-motor-replacement-cost',
+        href: '/furnace-installation-cost',
         priceRange: '$450 - $1,200',
         factors: ['Type', 'ECM vs PSC', 'Horsepower', 'Speed'],
         consideration: 'Upgrade to variable speed'
       },
       {
         title: 'Thermostat Replacement Cost',
-        href: '/thermostats/thermostat-replacement-cost',
+        href: '/best-smart-thermostats',
         priceRange: '$150 - $500',
         factors: ['Smart features', 'Wiring', 'Zoning', 'Installation'],
         consideration: 'Smart upgrade saves 20%'
@@ -211,21 +211,21 @@ const costCategories = {
       },
       {
         title: 'Federal Tax Credits 2024',
-        href: '/incentives/federal-tax-credits',
+        href: '/hvac-tax-credits-2026',
         amount: 'Up to $2,000',
         eligible: ['Heat pumps', 'Central AC', 'Boilers', 'Furnaces'],
         requirements: 'Energy Star certified'
       },
       {
         title: 'Utility Rebates by State',
-        href: '/incentives/utility-rebates',
+        href: '/hvac-rebates-by-state',
         amount: '$50 - $2,500',
         programs: ['Equipment rebates', 'Efficiency upgrades', 'Smart thermostats', 'Tune-ups'],
         finder: 'State-by-state database'
       },
       {
         title: 'Lease vs Buy Analysis',
-        href: '/financing/lease-vs-buy-hvac',
+        href: '/best-hvac-brands-ranked',
         comparison: ['Monthly costs', 'Total cost', 'Maintenance', 'Flexibility'],
         recommendation: 'Best for each situation'
       }
@@ -519,10 +519,10 @@ export default function CostGuidesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/get-quotes"
+              href="/best-hvac-brands-ranked"
               className="bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors"
             >
-              Get Free Quotes
+              Compare HVAC Brands
             </Link>
             <span className="text-gray-600">
               Contact contractors for financing options
