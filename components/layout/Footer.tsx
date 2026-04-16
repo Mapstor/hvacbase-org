@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import { Thermometer, Calculator, BookOpen, Wrench, TrendingUp, Shield, Award, Mail } from 'lucide-react';
 
+const CATEGORY_ROUTES: Record<string, string> = {
+  'Calculators & Tools': '/calculators',
+  'Air Conditioning': '/air-conditioning',
+  'Heating Systems': '/heating',
+  'Energy Efficiency': '/energy-efficiency',
+  'Indoor Air Quality': '/air-quality',
+  'Resources': '/articles',
+};
+
 const footerLinks = {
   'Calculators & Tools': [
     { label: 'AC BTU Calculator', href: '/air-conditioner-btu-calculator' },
@@ -11,8 +20,8 @@ const footerLinks = {
     { label: 'Heat Pump Size Calculator', href: '/heat-pump-size-calculator' },
     { label: 'Water Heater Size Calculator', href: '/water-heater-sizing-calculator' },
     { label: 'Generator Size Calculator', href: '/what-size-generator-do-i-need' },
-    { label: 'kWh Cost Calculator', href: '/energy-costs/kwh-cost-calculator' },
-    { label: 'Wire Gauge Calculator', href: '/electrical/wire-gauge-chart' },
+    { label: 'kWh Cost Calculator', href: '/kwh-cost-calculator' },
+    { label: 'Wire Gauge Calculator', href: '/wire-gauge-chart' },
   ],
   'Air Conditioning': [
     { label: 'Mini Split Guide', href: '/what-is-a-mini-split' },
@@ -35,7 +44,7 @@ const footerLinks = {
     { label: 'Boiler vs Furnace', href: '/boiler-vs-furnace' },
     { label: 'Heat Pump vs Mini Split', href: '/heat-pump-vs-mini-split' },
     { label: 'Furnace Maintenance', href: '/furnace-maintenance' },
-    { label: 'Heating Cost Calculator', href: '/energy-costs/heating-cost-calculator' },
+    { label: 'Heating Cost Calculator', href: '/heating-cost-calculator' },
     { label: 'Heat Pump vs Furnace', href: '/furnace-vs-heat-pump' },
   ],
   'Energy Efficiency': [
@@ -47,8 +56,8 @@ const footerLinks = {
     { label: 'MERV Ratings', href: '/merv-rating-chart' },
     { label: 'Tax Credits', href: '/seer-rating-tax-credits' },
     { label: 'Insulation R-Value Guide', href: '/insulation-r-value-guide' },
-    { label: 'Energy Saving Tips', href: '/energy-efficiency/hvac-energy-saving-tips' },
-    { label: 'Smart Thermostats', href: '/smart-thermostats/best-smart-thermostats' },
+    { label: 'Energy Saving Tips', href: '/hvac-energy-saving-tips' },
+    { label: 'Smart Thermostats', href: '/best-smart-thermostats' },
   ],
   'Indoor Air Quality': [
     { label: 'Air Purifiers', href: '/best-air-purifiers' },
@@ -135,7 +144,7 @@ export default function Footer() {
                 {links.length > 8 && (
                   <li>
                     <Link
-                      href={`/${category.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={CATEGORY_ROUTES[category] || '/articles'}
                       className="text-sm text-brand-400 hover:text-brand-300 transition-colors block font-medium"
                     >
                       View All →

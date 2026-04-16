@@ -55,7 +55,7 @@ const costCategories = {
       },
       {
         title: 'Ductwork Installation Cost',
-        href: '/ductwork/ductwork-installation-cost',
+        href: '/hvac-ductwork-guide',
         priceRange: '$3,000 - $7,500',
         factors: ['Home size', 'Accessibility', 'Materials', 'Insulation'],
         savings: 'Improves efficiency 20%'
@@ -170,28 +170,28 @@ const costCategories = {
     guides: [
       {
         title: 'AC Operating Cost Calculator',
-        href: '/energy-costs/ac-operating-cost-calculator',
+        href: '/kwh-cost-calculator',
         monthlyRange: '$50 - $300',
         factors: ['SEER rating', 'Runtime', 'Electric rates', 'Home size'],
         tool: 'Interactive calculator'
       },
       {
         title: 'Heating Cost Comparison',
-        href: '/energy-costs/heating-cost-calculator',
+        href: '/heating-cost-calculator',
         monthlyRange: '$80 - $400',
         factors: ['Fuel type', 'Efficiency', 'Climate', 'Insulation'],
         tool: 'Compare all fuel types'
       },
       {
         title: 'Heat Pump vs Gas Cost',
-        href: '/energy-costs/heat-pump-vs-gas-cost',
+        href: '/furnace-vs-heat-pump',
         monthlyRange: 'Varies by region',
         factors: ['Electric vs gas rates', 'COP', 'Climate zone', 'Usage'],
         tool: 'Regional comparison'
       },
       {
         title: 'Energy Savings Calculator',
-        href: '/energy-costs/energy-savings-calculator',
+        href: '/seer2-savings-calculator',
         savingsRange: '$200 - $1,000/year',
         factors: ['Current system', 'New efficiency', 'Usage patterns', 'Rates'],
         tool: 'ROI calculator'
@@ -204,7 +204,7 @@ const costCategories = {
     guides: [
       {
         title: 'HVAC Financing Options',
-        href: '/financing/hvac-financing-options',
+        href: '/best-hvac-brands-ranked',
         options: ['0% APR', 'Home equity', 'Personal loans', 'Manufacturer financing'],
         terms: '6-120 months',
         tips: 'Compare rates and terms'
@@ -277,23 +277,12 @@ export default function CostGuidesPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/energy-costs/heating-cost-calculator"
+                href="/heating-cost-calculator"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors px-6 py-3 rounded-lg font-semibold"
               >
                 💰 Cost Calculator
               </Link>
-              <Link
-                href="/incentives/rebate-finder"
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors px-6 py-3 rounded-lg font-semibold"
-              >
-                🎁 Find Rebates
-              </Link>
-              <Link
-                href="/financing/hvac-financing-options"
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors px-6 py-3 rounded-lg font-semibold"
-              >
-                💳 Financing Options
-              </Link>
+              {/* Removed rebate and financing links - pages don't exist */}
             </div>
           </div>
         </div>
@@ -501,26 +490,21 @@ export default function CostGuidesPage() {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Interactive Cost Calculators</h2>
-          <div className="grid md:grid-cols-4 gap-4">
-            <Link href="/energy-costs/ac-operating-cost-calculator" className="bg-blue-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+          <div className="grid md:grid-cols-3 gap-4">
+            <Link href="/kwh-cost-calculator" className="bg-blue-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <Calculator className="w-8 h-8 text-blue-600 mx-auto mb-3" />
               <h3 className="font-semibold text-gray-900 mb-1">AC Cost Calculator</h3>
               <p className="text-sm text-gray-600">Monthly cooling costs</p>
             </Link>
-            <Link href="/energy-costs/heating-cost-calculator" className="bg-orange-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+            <Link href="/heating-cost-calculator" className="bg-orange-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <Calculator className="w-8 h-8 text-orange-600 mx-auto mb-3" />
               <h3 className="font-semibold text-gray-900 mb-1">Heating Calculator</h3>
               <p className="text-sm text-gray-600">Compare fuel costs</p>
             </Link>
-            <Link href="/financing/loan-calculator" className="bg-green-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-              <CreditCard className="w-8 h-8 text-green-600 mx-auto mb-3" />
-              <h3 className="font-semibold text-gray-900 mb-1">Finance Calculator</h3>
-              <p className="text-sm text-gray-600">Monthly payments</p>
-            </Link>
-            <Link href="/energy-costs/roi-calculator" className="bg-purple-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+            <Link href="/is-higher-seer-worth-it" className="bg-purple-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <TrendingUp className="w-8 h-8 text-purple-600 mx-auto mb-3" />
-              <h3 className="font-semibold text-gray-900 mb-1">ROI Calculator</h3>
-              <p className="text-sm text-gray-600">Upgrade payback</p>
+              <h3 className="font-semibold text-gray-900 mb-1">SEER Upgrade Worth It?</h3>
+              <p className="text-sm text-gray-600">Efficiency payback analysis</p>
             </Link>
           </div>
         </div>
@@ -540,12 +524,9 @@ export default function CostGuidesPage() {
             >
               Get Free Quotes
             </Link>
-            <Link
-              href="/financing/hvac-financing-options"
-              className="bg-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors border border-green-500"
-            >
-              Explore Financing
-            </Link>
+            <span className="text-gray-600">
+              Contact contractors for financing options
+            </span>
           </div>
         </div>
       </section>

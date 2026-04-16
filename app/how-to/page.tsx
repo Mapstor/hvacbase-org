@@ -138,7 +138,7 @@ const howToCategories = {
     guides: [
       {
         title: 'How to Seal Air Ducts',
-        href: '/ductwork/how-to-seal-air-ducts',
+        href: '/duct-leakage-testing',
         time: '2-3 hours',
         difficulty: 'Medium',
         savings: 'Save 20% on energy',
@@ -451,24 +451,24 @@ export default function HowToPage() {
               <Wrench className="w-8 h-8 text-green-600 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Essential Tools List</h3>
               <p className="text-gray-600 mb-4">Complete list of tools needed for DIY HVAC maintenance and repairs</p>
-              <Link href="/tools/essential-hvac-tools" className="text-green-600 hover:text-green-700 font-medium">
-                View Tool Guide →
-              </Link>
+              <span className="text-gray-500">
+                Tool guides coming soon
+              </span>
             </Card>
             <Card className="p-6">
               <Video className="w-8 h-8 text-green-600 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Video Tutorials</h3>
               <p className="text-gray-600 mb-4">Watch step-by-step video guides for visual learners</p>
-              <Link href="/videos/hvac-tutorials" className="text-green-600 hover:text-green-700 font-medium">
-                Watch Videos →
-              </Link>
+              <span className="text-gray-500">
+                Video tutorials coming soon
+              </span>
             </Card>
             <Card className="p-6">
               <BookOpen className="w-8 h-8 text-green-600 mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Maintenance Schedule</h3>
               <p className="text-gray-600 mb-4">Printable annual maintenance calendar and checklists</p>
-              <Link href="/maintenance/annual-schedule" className="text-green-600 hover:text-green-700 font-medium">
-                Get Schedule →
+              <Link href="/hvac-maintenance-checklist" className="text-green-600 hover:text-green-700 font-medium">
+                View Checklist →
               </Link>
             </Card>
           </div>
@@ -510,7 +510,7 @@ export default function HowToPage() {
               </div>
             </div>
             <Link
-              href="/installation/choosing-hvac-contractor"
+              href="/ac-troubleshooting-guide"
               className="inline-flex items-center mt-6 text-green-600 hover:text-green-700 font-medium"
             >
               How to Choose a Contractor
@@ -529,13 +529,13 @@ export default function HowToPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/maintenance/how-to-change-hvac-filter"
+              href="/how-often-change-hvac-filter"
               className="bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors"
             >
               Start with Filter Changes
             </Link>
             <Link
-              href="/troubleshooting/common-hvac-problems"
+              href="/ac-troubleshooting-guide"
               className="bg-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors border border-green-500"
             >
               Troubleshooting Guide

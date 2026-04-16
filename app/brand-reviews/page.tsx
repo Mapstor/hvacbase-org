@@ -515,54 +515,6 @@ export default function BrandReviewsPage() {
         </div>
       </section>
 
-      {/* Expert Recommendations */}
-      <section className="py-12 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Expert Recommendations</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 bg-white">
-              <div className="text-center">
-                <Award className="w-12 h-12 text-gold-500 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Best Overall</h3>
-                <div className="text-2xl font-bold text-gray-900 mb-2">Carrier</div>
-                <p className="text-gray-600 text-sm mb-4">
-                  Best combination of reliability, innovation, and dealer support
-                </p>
-                <Link href="/brand-reviews/carrier" className="text-blue-600 hover:text-blue-700 font-medium">
-                  View Review →
-                </Link>
-              </div>
-            </Card>
-            <Card className="p-6 bg-white">
-              <div className="text-center">
-                <DollarSign className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Best Value</h3>
-                <div className="text-2xl font-bold text-gray-900 mb-2">Goodman</div>
-                <p className="text-gray-600 text-sm mb-4">
-                  Excellent reliability and performance at budget-friendly prices
-                </p>
-                <Link href="/brand-reviews/goodman" className="text-blue-600 hover:text-blue-700 font-medium">
-                  View Review →
-                </Link>
-              </div>
-            </Card>
-            <Card className="p-6 bg-white">
-              <div className="text-center">
-                <Shield className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Most Efficient</h3>
-                <div className="text-2xl font-bold text-gray-900 mb-2">Mitsubishi</div>
-                <p className="text-gray-600 text-sm mb-4">
-                  Industry-leading efficiency ratings and innovative technology
-                </p>
-                <Link href="/brand-reviews/mitsubishi-electric" className="text-blue-600 hover:text-blue-700 font-medium">
-                  View Review →
-                </Link>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-12 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -570,18 +522,12 @@ export default function BrandReviewsPage() {
           <p className="text-xl text-blue-100 mb-8">
             Use our brand comparison tools and buying guides to make the best choice
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Link
               href="/buying-guides"
               className="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
             >
               Equipment Buying Guides
-            </Link>
-            <Link
-              href="/brand-reviews/brand-comparison-tool"
-              className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors border border-blue-500"
-            >
-              Compare Brands
             </Link>
           </div>
         </div>

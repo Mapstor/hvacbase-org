@@ -276,7 +276,7 @@ export default async function HomePage() {
               <Link href="/what-size-generator-do-i-need" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
                 Generator Sizing →
               </Link>
-              <Link href="/energy-costs/kwh-cost-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+              <Link href="/kwh-cost-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
                 Energy Cost Calculator →
               </Link>
             </div>
@@ -320,7 +320,7 @@ export default async function HomePage() {
                 <Link href="/ac-troubleshooting-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Complete Troubleshooting Guide
                 </Link>
-                <Link href="/hvac-brands/central-ac-cost-to-install" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/central-ac-cost-to-install" className="block text-gray-600 hover:text-brand-600 py-1">
                   Installation Costs 2026
                 </Link>
                 <Link href="/hvac-maintenance-checklist" className="block text-gray-600 hover:text-brand-600 py-1">
@@ -414,7 +414,7 @@ export default async function HomePage() {
                 <Link href="/heat-pump-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump Explained
                 </Link>
-                <Link href="/heat-pumps/best-cold-climate-heat-pumps" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/best-cold-climate-heat-pumps" className="block text-gray-600 hover:text-brand-600 py-1">
                   Cold Climate Models
                 </Link>
                 <Link href="/furnace-vs-heat-pump" className="block text-gray-600 hover:text-brand-600 py-1">
@@ -452,7 +452,7 @@ export default async function HomePage() {
                 <Link href="/heat-pump-vs-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump vs Mini Split
                 </Link>
-                <Link href="/energy-costs/heating-cost-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/heating-cost-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heating Cost Calculator
                 </Link>
               </div>
@@ -501,9 +501,6 @@ export default async function HomePage() {
                 <Link href="/coefficient-of-performance" className="block text-gray-600 hover:text-brand-600 py-1">
                   COP Coefficient
                 </Link>
-                <Link href="/80-vs-95-afue-furnace" className="block text-gray-600 hover:text-brand-600 py-1">
-                  80% vs 95% AFUE
-                </Link>
               </div>
               
               <div className="space-y-3">
@@ -514,26 +511,23 @@ export default async function HomePage() {
                 <Link href="/heat-pump-tax-credits-2026" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump Credits
                 </Link>
-                <Link href="/state-hvac-rebates" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hvac-rebates-by-state" className="block text-gray-600 hover:text-brand-600 py-1">
                   State Rebates Map
-                </Link>
-                <Link href="/utility-rebates-guide" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Utility Programs
                 </Link>
               </div>
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Saving Tips</h4>
-                <Link href="/energy-efficiency/hvac-energy-saving-tips" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hvac-energy-saving-tips" className="block text-gray-600 hover:text-brand-600 py-1">
                   25 Energy Saving Tips
                 </Link>
-                <Link href="/programmable-thermostat-settings" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/best-smart-thermostats" className="block text-gray-600 hover:text-brand-600 py-1">
                   Optimal Settings
                 </Link>
                 <Link href="/insulation-r-value-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Insulation R-Value Guide
                 </Link>
-                <Link href="/duct-sealing-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/duct-leakage-testing" className="block text-gray-600 hover:text-brand-600 py-1">
                   Duct Sealing DIY
                 </Link>
               </div>
@@ -560,30 +554,24 @@ export default async function HomePage() {
                 <Link href="/best-air-purifiers" className="block text-gray-600 hover:text-brand-600 py-1">
                   Best Air Purifiers
                 </Link>
-                <Link href="/hepa-filter-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hepa-filter-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   HEPA Filter Guide
                 </Link>
                 <Link href="/uv-light-hvac-systems" className="block text-gray-600 hover:text-brand-600 py-1">
                   UV Light HVAC Systems
                 </Link>
-                <Link href="/activated-carbon-filters" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/best-hvac-air-filters" className="block text-gray-600 hover:text-brand-600 py-1">
                   Carbon Filters
                 </Link>
               </div>
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Humidity Control</h4>
-                <Link href="/best-dehumidifiers" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/dehumidifier-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Best Dehumidifiers
                 </Link>
-                <Link href="/best-whole-house-humidifiers" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/best-humidifiers-for-large-rooms" className="block text-gray-600 hover:text-brand-600 py-1">
                   Whole House Units
-                </Link>
-                <Link href="/ideal-humidity-levels" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Ideal Humidity 30-50%
-                </Link>
-                <Link href="/humidity-control-guide" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Control Strategies
                 </Link>
               </div>
               
@@ -598,7 +586,7 @@ export default async function HomePage() {
                 <Link href="/furnace-filter-direction" className="block text-gray-600 hover:text-brand-600 py-1">
                   Filter Direction Guide
                 </Link>
-                <Link href="/how-often-change-filter" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/how-often-change-hvac-filter" className="block text-gray-600 hover:text-brand-600 py-1">
                   Change Frequency
                 </Link>
               </div>
@@ -608,13 +596,13 @@ export default async function HomePage() {
                 <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
                   IAQ Testing Guide
                 </Link>
-                <Link href="/vocs-in-home" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
                   VOC Sources & Risks
                 </Link>
-                <Link href="/radon-testing-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
                   Radon Testing
                 </Link>
-                <Link href="/mold-prevention" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/mold-prevention-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Mold Prevention
                 </Link>
               </div>
@@ -649,7 +637,7 @@ export default async function HomePage() {
                   <span className="text-gray-600 group-hover:text-brand-600">AC for 2500 sq ft?</span>
                   <span className="text-green-600 font-medium">4-5 tons</span>
                 </Link>
-                <Link href="/heat-pump-size-guide" className="flex justify-between group">
+                <Link href="/heat-pump-size-calculator" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Heat pump sizing?</span>
                   <span className="text-green-600 font-medium">600 sq ft/ton</span>
                 </Link>
@@ -662,11 +650,11 @@ export default async function HomePage() {
                 Cost Questions
               </h3>
               <div className="space-y-2 text-sm">
-                <Link href="/ac-installation-cost" className="flex justify-between group">
+                <Link href="/central-ac-cost-to-install" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC install cost?</span>
                   <span className="text-green-600 font-medium">$3,500-$7,500</span>
                 </Link>
-                <Link href="/furnace-replacement-cost" className="flex justify-between group">
+                <Link href="/furnace-installation-cost" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Furnace replacement?</span>
                   <span className="text-green-600 font-medium">$2,500-$6,500</span>
                 </Link>
@@ -720,11 +708,11 @@ export default async function HomePage() {
                   <span className="text-gray-600 group-hover:text-brand-600">Furnace cold air?</span>
                   <span className="text-blue-600 font-medium">8 causes →</span>
                 </Link>
-                <Link href="/heat-pump-not-heating" className="flex justify-between group">
+                <Link href="/heat-pump-guide" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Heat pump issues?</span>
                   <span className="text-blue-600 font-medium">Diagnose →</span>
                 </Link>
-                <Link href="/ac-freezing-up" className="flex justify-between group">
+                <Link href="/ac-troubleshooting-guide" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC freezing up?</span>
                   <span className="text-blue-600 font-medium">5 causes →</span>
                 </Link>
@@ -741,11 +729,7 @@ export default async function HomePage() {
                   <span className="text-gray-600 group-hover:text-brand-600">Mini split watts?</span>
                   <span className="text-green-600 font-medium">500-1500W</span>
                 </Link>
-                <Link href="/how-much-does-ac-cost-to-run" className="flex justify-between group">
-                  <span className="text-gray-600 group-hover:text-brand-600">AC running cost?</span>
-                  <span className="text-green-600 font-medium">$0.06-0.88/hr</span>
-                </Link>
-                <Link href="/furnace-electricity-usage" className="flex justify-between group">
+                <Link href="/furnace-guide" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Furnace watts?</span>
                   <span className="text-green-600 font-medium">300-800W</span>
                 </Link>
@@ -766,11 +750,11 @@ export default async function HomePage() {
                   <span className="text-gray-600 group-hover:text-brand-600">HVAC checklist</span>
                   <span className="text-blue-600 font-medium">21 tasks →</span>
                 </Link>
-                <Link href="/how-often-change-filter" className="flex justify-between group">
+                <Link href="/how-often-change-hvac-filter" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Filter frequency?</span>
                   <span className="text-green-600 font-medium">1-3 months</span>
                 </Link>
-                <Link href="/ac-tune-up-checklist" className="flex justify-between group">
+                <Link href="/hvac-maintenance-checklist" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC tune-up?</span>
                   <span className="text-blue-600 font-medium">Annual →</span>
                 </Link>
@@ -787,69 +771,20 @@ export default async function HomePage() {
       {/* Brand Comparison Section */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            HVAC Brand Comparisons & Reviews
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div>
-              <h3 className="font-semibold text-gray-700 mb-3">Premium Brands</h3>
-              <div className="space-y-2">
-                <Link href="/carrier-vs-trane" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Carrier vs Trane
-                </Link>
-                <Link href="/lennox-vs-american-standard" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Lennox vs American Standard
-                </Link>
-                <Link href="/bryant-vs-york" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Bryant vs York
-                </Link>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-gray-700 mb-3">Value Brands</h3>
-              <div className="space-y-2">
-                <Link href="/goodman-vs-rheem" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Goodman vs Rheem
-                </Link>
-                <Link href="/coleman-vs-payne" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Coleman vs Payne
-                </Link>
-                <Link href="/ruud-vs-amana" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Ruud vs Amana
-                </Link>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-gray-700 mb-3">Mini Split Brands</h3>
-              <div className="space-y-2">
-                <Link href="/mitsubishi-vs-daikin" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Mitsubishi vs Daikin
-                </Link>
-                <Link href="/lg-vs-fujitsu" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  LG vs Fujitsu
-                </Link>
-                <Link href="/mrcool-diy-mini-split-review" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  MrCool DIY Review
-                </Link>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-gray-700 mb-3">Heat Pump Brands</h3>
-              <div className="space-y-2">
-                <Link href="/bosch-heat-pump-review" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Bosch Heat Pumps
-                </Link>
-                <Link href="/trane-xv20i-review" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Trane XV20i Review
-                </Link>
-                <Link href="/carrier-infinity-review" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Carrier Infinity Series
-                </Link>
-              </div>
+          <div className="bg-gradient-to-r from-brand-50 to-blue-50 rounded-xl p-8 text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Compare HVAC Brands & Reviews
+            </h2>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              Explore detailed comparisons of top HVAC brands including Carrier, Trane, Lennox, Goodman, and more. 
+              Find reliability ratings, pricing, and real customer reviews.
+            </p>
+            <Link href="/best-hvac-brands-ranked" className="inline-flex items-center gap-2 bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors font-semibold">
+              View All Brand Comparisons
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <div className="mt-4 text-sm text-gray-500">
+              Includes: Central AC • Heat Pumps • Mini Splits • Furnaces
             </div>
           </div>
         </div>
@@ -863,12 +798,11 @@ export default async function HomePage() {
               Smart HVAC Technology & Controls
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Optimize comfort and efficiency with smart thermostats, zoning systems, and advanced controls. 
-              Save 20-30% on energy costs with proper automation.
+              Optimize comfort and efficiency with smart thermostats and zoning systems for precise climate control.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="bg-white rounded-lg p-6 border border-gray-200">
               <div className="bg-blue-100 p-3 rounded-lg w-fit mb-4">
                 <Settings className="w-6 h-6 text-blue-700" />
@@ -902,41 +836,17 @@ export default async function HomePage() {
                 Control temperature independently in different areas for maximum comfort and efficiency.
               </p>
               <div className="space-y-2">
-                <Link href="/hvac-zoning-system-guide" className="block text-brand-600 hover:text-brand-700 font-medium">
-                  Complete Zoning Guide →
+                <Link href="/how-many-mini-splits-do-i-need" className="block text-brand-600 hover:text-brand-700 font-medium">
+                  Multi-Zone Planning Guide →
                 </Link>
-                <Link href="/zoning-dampers-explained" className="block text-gray-600 hover:text-brand-600">
-                  How Dampers Work
+                <Link href="/best-2-zone-mini-split" className="block text-gray-600 hover:text-brand-600">
+                  Best 2-Zone Systems
                 </Link>
-                <Link href="/multi-zone-mini-split-guide" className="block text-gray-600 hover:text-brand-600">
-                  Multi-Zone Mini Splits
+                <Link href="/best-mini-split-ac-units" className="block text-gray-600 hover:text-brand-600">
+                  Top Mini Split Systems
                 </Link>
-                <Link href="/zoning-system-cost" className="block text-gray-600 hover:text-brand-600">
+                <Link href="/central-ac-cost-to-install" className="block text-gray-600 hover:text-brand-600">
                   Installation Costs
-                </Link>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 border border-gray-200">
-              <div className="bg-green-100 p-3 rounded-lg w-fit mb-4">
-                <Activity className="w-6 h-6 text-green-700" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Variable Speed Tech</h3>
-              <p className="text-gray-600 mb-4">
-                Inverter and variable speed systems adjust output for optimal efficiency and comfort.
-              </p>
-              <div className="space-y-2">
-                <Link href="/variable-speed-vs-single-stage" className="block text-brand-600 hover:text-brand-700 font-medium">
-                  Variable vs Single Stage →
-                </Link>
-                <Link href="/inverter-ac-technology" className="block text-gray-600 hover:text-brand-600">
-                  Inverter AC Explained
-                </Link>
-                <Link href="/ecm-motor-benefits" className="block text-gray-600 hover:text-brand-600">
-                  ECM Motor Benefits
-                </Link>
-                <Link href="/modulating-furnace-guide" className="block text-gray-600 hover:text-brand-600">
-                  Modulating Furnaces
                 </Link>
               </div>
             </div>
@@ -954,27 +864,6 @@ export default async function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
               <h3 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-brand-600" />
-                Buying Guides
-              </h3>
-              <div className="space-y-2">
-                <Link href="/hvac-buying-guide" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Complete HVAC Buying Guide
-                </Link>
-                <Link href="/questions-to-ask-hvac-contractor" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Questions for Contractors
-                </Link>
-                <Link href="/hvac-warranty-guide" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Warranty Comparison
-                </Link>
-                <Link href="/hvac-financing-options" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Financing Options
-                </Link>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
                 <Wrench className="w-5 h-5 text-brand-600" />
                 DIY Guides
               </h3>
@@ -985,10 +874,10 @@ export default async function HomePage() {
                 <Link href="/how-to-clean-ac-coils" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Clean AC Coils Yourself
                 </Link>
-                <Link href="/thermostat-wiring-guide" className="block text-gray-600 hover:text-brand-600 text-sm">
+                <Link href="/best-smart-thermostats" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Thermostat Wiring
                 </Link>
-                <Link href="/duct-sealing-diy" className="block text-gray-600 hover:text-brand-600 text-sm">
+                <Link href="/duct-leakage-testing" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Seal Ducts DIY
                 </Link>
               </div>
@@ -1000,17 +889,8 @@ export default async function HomePage() {
                 Troubleshooting
               </h3>
               <div className="space-y-2">
-                <Link href="/hvac-troubleshooting-guide" className="block text-gray-600 hover:text-brand-600 text-sm">
+                <Link href="/ac-troubleshooting-guide" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Master Troubleshooting
-                </Link>
-                <Link href="/thermostat-not-working" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Thermostat Issues
-                </Link>
-                <Link href="/hvac-noises-explained" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Strange Noises Guide
-                </Link>
-                <Link href="/short-cycling-causes" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Short Cycling Fixes
                 </Link>
               </div>
             </div>
@@ -1021,17 +901,8 @@ export default async function HomePage() {
                 Cost Guides
               </h3>
               <div className="space-y-2">
-                <Link href="/hvac-cost-guide" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Complete Cost Guide
-                </Link>
-                <Link href="/hvac-repair-costs" className="block text-gray-600 hover:text-brand-600 text-sm">
+                <Link href="/hvac-maintenance-cost" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Common Repair Costs
-                </Link>
-                <Link href="/emergency-hvac-costs" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Emergency Service Rates
-                </Link>
-                <Link href="/hvac-service-contract-cost" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Service Contracts
                 </Link>
               </div>
             </div>

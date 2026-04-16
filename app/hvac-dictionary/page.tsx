@@ -543,38 +543,10 @@ export default function HVACDictionaryPage() {
       {/* Categories */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Browse by Category</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Equipment Terms</h3>
-              <p className="text-gray-600 mb-4">
-                Furnaces, air conditioners, heat pumps, boilers, and system components
-              </p>
-              <Link href="/hvac-dictionary/equipment" className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center">
-                View Equipment Terms
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </Link>
-            </Card>
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Technical Terms</h3>
-              <p className="text-gray-600 mb-4">
-                Efficiency ratings, measurements, refrigeration cycle, and diagnostics
-              </p>
-              <Link href="/hvac-dictionary/technical" className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center">
-                View Technical Terms
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </Link>
-            </Card>
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Indoor Air Quality</h3>
-              <p className="text-gray-600 mb-4">
-                Filtration, humidity, ventilation, and air purification terminology
-              </p>
-              <Link href="/hvac-dictionary/air-quality" className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center">
-                View IAQ Terms
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </Link>
-            </Card>
+          <div className="text-center py-8">
+            <p className="text-gray-600 text-lg">
+              Browse all HVAC terms alphabetically using the search above.
+            </p>
           </div>
         </div>
       </section>

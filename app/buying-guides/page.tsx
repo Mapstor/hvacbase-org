@@ -444,7 +444,7 @@ export default function BuyingGuidesPage() {
               Size My System
             </Link>
             <Link
-              href="/energy-costs/heating-cost-calculator"
+              href="/heating-cost-calculator"
               className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors border border-blue-500"
             >
               Calculate Savings

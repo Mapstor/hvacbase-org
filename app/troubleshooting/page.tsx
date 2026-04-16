@@ -179,14 +179,6 @@ const troubleshootingCategories = {
         avgCost: '$0-300'
       },
       {
-        title: 'Frequent Breaker Trips',
-        href: '/electrical/breaker-tripping',
-        symptoms: ['Power loss', 'Repeated trips', 'Electrical smell'],
-        commonCauses: ['Short circuit', 'Overload', 'Compressor issues'],
-        difficulty: 'Hard',
-        avgCost: '$200-1500'
-      },
-      {
         title: 'System Won\'t Turn Off',
         href: '/troubleshooting/wont-turn-off',
         symptoms: ['Constant running', 'Won\'t cycle off', 'Frozen thermostat'],
@@ -319,13 +311,13 @@ export default function TroubleshootingPage() {
                 AC Troubleshooting
               </Link>
               <Link
-                href="/furnace-troubleshooting"
+                href="/furnace-blowing-cold-air"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors px-6 py-3 rounded-lg font-semibold"
               >
                 Furnace Problems
               </Link>
               <Link
-                href="/heat-pump-troubleshooting"
+                href="/heat-pump-guide"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors px-6 py-3 rounded-lg font-semibold"
               >
                 Heat Pump Issues
@@ -612,12 +604,9 @@ export default function TroubleshootingPage() {
             >
               Complete AC Guide
             </Link>
-            <Link
-              href="/installation/choosing-hvac-contractor"
-              className="bg-red-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors border border-red-500"
-            >
-              Find a Professional
-            </Link>
+            <span className="text-gray-600">
+              Research contractors in your area
+            </span>
           </div>
         </div>
       </section>
