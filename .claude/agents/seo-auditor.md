@@ -1,6 +1,7 @@
 ---
 name: seo-auditor
 description: Use proactively for any SEO diagnosis, indexation investigation, internal linking audit, schema validation, CSR/SSR check, or sitemap review on this Next.js site. Returns findings plus literal BEFORE/AFTER code blocks for every proposed fix. Hands off to seo-fixer automatically for small, obvious fixes; stops for user input on anything ambiguous or multi-file.
+model: opus
 tools: Read, Grep, Glob, Bash, WebFetch
 ---
 

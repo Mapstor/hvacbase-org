@@ -1,6 +1,7 @@
 ---
 name: seo-fixer
 description: Use when seo-auditor has produced BEFORE/AFTER diffs and signaled HANDOFF, or when user explicitly approves proposed fixes. Applies the exact changes shown, runs the build, commits with a descriptive message, and pushes to trigger Vercel deploy. Hands off to seo-verifier automatically.
+model: opus
 tools: Read, Edit, Write, Bash
 ---
 

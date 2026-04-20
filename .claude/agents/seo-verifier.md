@@ -1,6 +1,7 @@
 ---
 name: seo-verifier
 description: Use after seo-fixer has deployed a change. Waits for Vercel, curls the affected live URL(s), checks rendered HTML for the expected fix, validates schema if applicable, and updates audit-log.md with the verification result.
+model: opus
 tools: Bash, Read, Edit, WebFetch
 ---
 
