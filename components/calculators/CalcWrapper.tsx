@@ -92,6 +92,12 @@ const calculators = {
   }),
   'small-room-portable-ac': dynamic(() => import('./SmallRoomPortableACCalculator'), { 
     loading: () => <LoadingCalculator />
+  }),
+  'hvac-roi': dynamic(() => import('./HVACROICalculator'), { 
+    loading: () => <LoadingCalculator />
+  }),
+  'heat-pump-vs-furnace': dynamic(() => import('./HeatPumpVsFurnaceCalculator'), { 
+    loading: () => <LoadingCalculator />
   })
 };
 

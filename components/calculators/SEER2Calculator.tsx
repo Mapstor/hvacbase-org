@@ -1,7 +1,58 @@
 'use client';
 
 import { useState } from 'react';
-import { Calculator, TrendingUp, DollarSign, Zap, Info, CheckCircle, AlertCircle, Leaf } from 'lucide-react';
+import { Calculator, TrendingUp, DollarSign, Zap, Info, CheckCircle, AlertCircle, Leaf, Search, MapPin, ExternalLink } from 'lucide-react';
+import EmbedCode from '../EmbedCode';
+import SocialShare from '../SocialShare';
+
+// Major utility rebate programs database
+const utilityRebates = [
+  // Texas
+  { utility: 'Austin Energy', state: 'TX', city: 'Austin', rebate: '$1200', minSeer: 16, website: 'austinenergy.com/rebates' },
+  { utility: 'CenterPoint Energy', state: 'TX', city: 'Houston', rebate: '$500', minSeer: 15, website: 'centerpointenergy.com/rebates' },
+  { utility: 'Oncor Electric', state: 'TX', city: 'Dallas', rebate: '$400', minSeer: 16, website: 'oncor.com/rebates' },
+  { utility: 'CPS Energy', state: 'TX', city: 'San Antonio', rebate: '$800', minSeer: 15, website: 'cpsenergy.com/rebates' },
+  
+  // California
+  { utility: 'PG&E', state: 'CA', city: 'San Francisco', rebate: '$600', minSeer: 16, website: 'pge.com/rebates' },
+  { utility: 'SCE', state: 'CA', city: 'Los Angeles', rebate: '$500', minSeer: 15, website: 'sce.com/rebates' },
+  { utility: 'SDG&E', state: 'CA', city: 'San Diego', rebate: '$400', minSeer: 16, website: 'sdge.com/rebates' },
+  { utility: 'SMUD', state: 'CA', city: 'Sacramento', rebate: '$1500', minSeer: 18, website: 'smud.org/rebates' },
+  
+  // Florida
+  { utility: 'FPL', state: 'FL', city: 'Miami', rebate: '$300', minSeer: 16, website: 'fpl.com/save' },
+  { utility: 'Duke Energy Florida', state: 'FL', city: 'Tampa', rebate: '$250', minSeer: 15, website: 'duke-energy.com/fl-rebates' },
+  { utility: 'TECO', state: 'FL', city: 'Tampa', rebate: '$300', minSeer: 16, website: 'tecoenergy.com/rebates' },
+  
+  // Arizona
+  { utility: 'APS', state: 'AZ', city: 'Phoenix', rebate: '$400', minSeer: 16, website: 'aps.com/rebates' },
+  { utility: 'Salt River Project', state: 'AZ', city: 'Phoenix', rebate: '$500', minSeer: 15, website: 'srpnet.com/rebates' },
+  { utility: 'TEP', state: 'AZ', city: 'Tucson', rebate: '$350', minSeer: 16, website: 'tep.com/rebates' },
+  
+  // New York
+  { utility: 'Con Edison', state: 'NY', city: 'New York', rebate: '$1000', minSeer: 16, website: 'coned.com/coolny' },
+  { utility: 'PSEG Long Island', state: 'NY', city: 'Long Island', rebate: '$500', minSeer: 15, website: 'psegliny.com/rebates' },
+  { utility: 'NYSEG', state: 'NY', city: 'Albany', rebate: '$400', minSeer: 16, website: 'nyseg.com/rebates' },
+  
+  // Georgia
+  { utility: 'Georgia Power', state: 'GA', city: 'Atlanta', rebate: '$600', minSeer: 16, website: 'georgiapower.com/rebates' },
+  { utility: 'Walton EMC', state: 'GA', city: 'Monroe', rebate: '$500', minSeer: 15, website: 'waltonemc.com/rebates' },
+  
+  // Colorado
+  { utility: 'Xcel Energy Colorado', state: 'CO', city: 'Denver', rebate: '$800', minSeer: 16, website: 'xcelenergy.com/co-rebates' },
+  { utility: 'Colorado Springs Utilities', state: 'CO', city: 'Colorado Springs', rebate: '$600', minSeer: 15, website: 'csu.org/rebates' },
+  
+  // Illinois
+  { utility: 'ComEd', state: 'IL', city: 'Chicago', rebate: '$500', minSeer: 16, website: 'comed.com/rebates' },
+  { utility: 'Ameren Illinois', state: 'IL', city: 'Springfield', rebate: '$400', minSeer: 15, website: 'ameren.com/il-rebates' },
+  
+  // Nevada
+  { utility: 'NV Energy', state: 'NV', city: 'Las Vegas', rebate: '$300', minSeer: 15, website: 'nvenergy.com/rebates' },
+  
+  // North Carolina
+  { utility: 'Duke Energy Carolinas', state: 'NC', city: 'Charlotte', rebate: '$350', minSeer: 16, website: 'duke-energy.com/nc-rebates' },
+  { utility: 'Progress Energy', state: 'NC', city: 'Raleigh', rebate: '$300', minSeer: 15, website: 'progress-energy.com/rebates' }
+];
 
 export default function SEER2Calculator() {
   const [currentSeer, setCurrentSeer] = useState('10');
@@ -11,6 +62,11 @@ export default function SEER2Calculator() {
   const [coolingHours, setCoolingHours] = useState('1500');
   const [systemAge, setSystemAge] = useState('15');
   const [calculated, setCalculated] = useState(false);
+  
+  // Rebate finder state
+  const [rebateSearch, setRebateSearch] = useState('');
+  const [showRebates, setShowRebates] = useState(false);
+  const [selectedState, setSelectedState] = useState('');
 
   // Calculations
   const tons = parseFloat(acSize);
@@ -56,6 +112,24 @@ export default function SEER2Calculator() {
   };
 
   const climate = getClimateDescription(parseFloat(coolingHours));
+
+  // Rebate finder logic
+  const filteredRebates = utilityRebates.filter(rebate => {
+    const searchTerm = rebateSearch.toLowerCase();
+    const matchesSearch = rebate.city.toLowerCase().includes(searchTerm) || 
+                         rebate.state.toLowerCase().includes(searchTerm) ||
+                         rebate.utility.toLowerCase().includes(searchTerm);
+    const matchesState = selectedState === '' || rebate.state === selectedState;
+    const qualifiesForRebate = parseFloat(newSeer) >= rebate.minSeer;
+    
+    return matchesSearch && matchesState && qualifiesForRebate;
+  });
+
+  const uniqueStates = [...new Set(utilityRebates.map(r => r.state))].sort();
+
+  const handleRebateSearch = () => {
+    setShowRebates(true);
+  };
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 my-8 max-w-4xl mx-auto">
@@ -179,6 +253,82 @@ export default function SEER2Calculator() {
             />
             <p className="text-xs text-gray-500 mt-1">Average lifespan: 15-20 years</p>
           </div>
+        </div>
+        
+        {/* Rebate Finder */}
+        <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+          <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <Search className="w-4 h-4 text-yellow-600" />
+            Find Utility Rebates
+          </h4>
+          <div className="grid md:grid-cols-3 gap-3">
+            <div>
+              <input
+                type="text"
+                placeholder="Enter city or utility name"
+                value={rebateSearch}
+                onChange={(e) => setRebateSearch(e.target.value)}
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500"
+              />
+            </div>
+            <div>
+              <select
+                value={selectedState}
+                onChange={(e) => setSelectedState(e.target.value)}
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500"
+              >
+                <option value="">All States</option>
+                {uniqueStates.map(state => (
+                  <option key={state} value={state}>{state}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <button
+                onClick={handleRebateSearch}
+                className="w-full bg-yellow-600 text-white font-medium py-2 px-4 rounded-md hover:bg-yellow-700 transition-colors flex items-center justify-center gap-2"
+              >
+                <Search className="w-4 h-4" />
+                Find Rebates
+              </button>
+            </div>
+          </div>
+          
+          {showRebates && (
+            <div className="mt-4">
+              <p className="text-sm text-gray-600 mb-3">
+                Found {filteredRebates.length} rebate program{filteredRebates.length !== 1 ? 's' : ''} for SEER2 {newSeer}+ systems:
+              </p>
+              <div className="space-y-2 max-h-40 overflow-y-auto">
+                {filteredRebates.length === 0 ? (
+                  <p className="text-sm text-gray-500 italic">No rebates found for your search criteria. Try a different city or lower SEER2 rating.</p>
+                ) : (
+                  filteredRebates.map((rebate, index) => (
+                    <div key={index} className="bg-white rounded-md p-3 border border-yellow-200">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <p className="font-medium text-gray-800">{rebate.utility}</p>
+                          <p className="text-sm text-gray-600">{rebate.city}, {rebate.state}</p>
+                          <p className="text-xs text-gray-500">Min. SEER2: {rebate.minSeer}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-bold text-green-600">{rebate.rebate}</p>
+                          <a
+                            href={`https://${rebate.website}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                          >
+                            Details <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          )}
         </div>
         
         <button
@@ -408,6 +558,13 @@ export default function SEER2Calculator() {
           </div>
         </div>
       )}
+      
+      <SocialShare 
+        title="SEER2 Energy Savings Calculator" 
+        description="Calculate exact energy savings when upgrading your AC system. Includes utility rebates, environmental impact, and ROI analysis." 
+      />
+      
+      <EmbedCode calculatorType="seer2-savings-calculator" title="SEER2 Energy Savings Calculator" />
     </div>
   );
 }

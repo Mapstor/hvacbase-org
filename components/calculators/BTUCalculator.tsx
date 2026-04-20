@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { Calculator, Thermometer, Home, Sun, Snowflake, Wind, CheckCircle, Info, AlertTriangle, Zap } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Calculator, Thermometer, Home, Sun, Snowflake, Wind, CheckCircle, Info, AlertTriangle, Zap, MapPin } from 'lucide-react';
+import EmbedCode from '../EmbedCode';
+import SocialShare from '../SocialShare';
 
 const climateZones = [
   { value: 'very-hot', name: 'Very Hot (Zone 1)', description: 'Southern FL, HI', btuPerSqFt: 18 },
@@ -45,6 +47,40 @@ export default function BTUCalculator() {
   const [occupants, setOccupants] = useState('2');
   const [appliances, setAppliances] = useState('2');
   const [calculated, setCalculated] = useState(false);
+  const [locationDetected, setLocationDetected] = useState(false);
+  const [detectingLocation, setDetectingLocation] = useState(false);
+
+  // Auto-detect climate zone based on location
+  const detectClimateZone = () => {
+    if (!navigator.geolocation) {
+      return;
+    }
+
+    setDetectingLocation(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude } = position.coords;
+        let detectedZone = 'mixed-humid'; // Default
+
+        // Simplified latitude-based climate zone detection
+        if (latitude >= 48) detectedZone = 'very-cold';
+        else if (latitude >= 45) detectedZone = 'cold';
+        else if (latitude >= 42) detectedZone = 'cool';
+        else if (latitude >= 38) detectedZone = 'mixed-humid';
+        else if (latitude >= 32) detectedZone = 'hot-humid';
+        else if (latitude >= 28) detectedZone = 'hot-dry';
+        else detectedZone = 'very-hot';
+
+        setClimate(detectedZone);
+        setLocationDetected(true);
+        setDetectingLocation(false);
+      },
+      () => {
+        setDetectingLocation(false);
+      },
+      { timeout: 5000, enableHighAccuracy: false }
+    );
+  };
   
   // Calculate room area and volume
   const roomArea = parseFloat(length) * parseFloat(width);
@@ -201,7 +237,18 @@ export default function BTUCalculator() {
                   </option>
                 ))}
               </select>
-              <p className="text-xs text-gray-500 mt-1">{selectedZone?.description}</p>
+              <button
+                onClick={detectClimateZone}
+                disabled={detectingLocation}
+                className="mt-2 flex items-center gap-2 px-3 py-2 text-sm bg-blue-50 text-blue-700 rounded-md hover:bg-blue-100 transition-colors disabled:opacity-50"
+              >
+                <MapPin className="w-4 h-4" />
+                {detectingLocation ? 'Detecting...' : 'Auto-detect location'}
+              </button>
+              <p className="text-xs text-gray-500 mt-1">
+                {locationDetected && <span className="text-green-600 font-medium">✓ Location detected: </span>}
+                {selectedZone?.description}
+              </p>
             </div>
             
             <div>
@@ -567,6 +614,13 @@ export default function BTUCalculator() {
           </div>
         </div>
       )}
+      
+      <SocialShare 
+        title="BTU Calculator" 
+        description="Calculate the exact cooling capacity needed for any room. Free HVAC sizing tool that helps you choose the perfect air conditioner size." 
+      />
+      
+      <EmbedCode calculatorType="air-conditioner-btu-calculator" title="BTU Calculator" />
     </div>
   );
 }
