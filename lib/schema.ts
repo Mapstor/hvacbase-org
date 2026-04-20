@@ -2,7 +2,7 @@ import { ArticleMeta } from './content';
 
 const SITE_URL = 'https://www.hvacbase.org';
 const SITE_NAME = 'HVAC Base';
-const AUTHOR_NAME = 'HVAC Base Editorial Team';
+const AUTHOR_NAME = 'HVAC Base Team';
 const LOGO_URL = `${SITE_URL}/images/logo.png`;
 
 export function generateArticleSchema(meta: ArticleMeta) {

@@ -7,11 +7,27 @@ interface SEOHeadProps {
 }
 
 export default function SEOHead({ meta, additionalSchema = [] }: SEOHeadProps) {
-  const url = `https://hvacbase.org/${meta.slug}/`;
+  const url = `https://www.hvacbase.org/${meta.slug}/`;
+  
+  // Map cluster names to actual route paths
+  const getClusterPath = (cluster: string) => {
+    const clusterMapping: Record<string, { name: string; path: string }> = {
+      'ac-sizing-selection': { name: 'Air Conditioning', path: '/air-conditioning' },
+      'energy-efficiency-ratings': { name: 'Energy Efficiency', path: '/energy-efficiency' },
+      'air-conditioners': { name: 'Air Conditioning', path: '/air-conditioning' },
+      'furnaces-heating': { name: 'Heating', path: '/heating' },
+      'heat-pumps': { name: 'Heat Pumps', path: '/heat-pumps' },
+      'indoor-air-quality': { name: 'Air Quality', path: '/air-quality' },
+    };
+    
+    return clusterMapping[cluster] || { name: cluster, path: `/${cluster.toLowerCase().replace(/\s+/g, '-')}` };
+  };
+  
+  const clusterInfo = getClusterPath(meta.cluster);
   const articleSchema = generateArticleSchema(meta);
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: meta.cluster, url: `/${meta.cluster.toLowerCase().replace(/\s+/g, '-')}/` },
+    { name: clusterInfo.name, url: clusterInfo.path },
     { name: meta.title, url: `/${meta.slug}/` },
   ]);
 
@@ -21,7 +37,7 @@ export default function SEOHead({ meta, additionalSchema = [] }: SEOHeadProps) {
     <>
       <title>{meta.title} | HVAC Base</title>
       <meta name="description" content={meta.description} />
-      <meta name="author" content={meta.author || 'HVAC Base Editorial Team'} />
+      <meta name="author" content={meta.author || 'HVAC Base Team'} />
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}
@@ -31,7 +47,7 @@ export default function SEOHead({ meta, additionalSchema = [] }: SEOHeadProps) {
       <meta property="og:type" content="article" />
       <meta property="og:site_name" content="HVAC Base" />
       {meta.featuredImage && (
-        <meta property="og:image" content={`https://hvacbase.org${meta.featuredImage}`} />
+        <meta property="og:image" content={`https://www.hvacbase.org${meta.featuredImage}`} />
       )}
       <meta property="article:published_time" content={meta.datePublished} />
       <meta property="article:modified_time" content={meta.dateModified} />
