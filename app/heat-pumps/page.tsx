@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import { Zap, Calculator, TrendingUp, Wrench, DollarSign, ArrowRight, Activity } from 'lucide-react';
 import { getAllArticles } from '@/lib/content';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Heat Pump Guides, Calculators & Reviews',
+  description: 'Complete heat pump resource center. Sizing calculators, installation guides, efficiency comparisons, troubleshooting, and unbiased heat pump reviews.',
+  alternates: {
+    canonical: 'https://www.hvacbase.org/heat-pumps',
+  },
+  openGraph: {
+    title: 'Heat Pump Guides & Resources',
+    description: 'Expert heat pump guides, sizing calculators, and efficiency analysis.',
+    type: 'website',
+  }
+};
 
 // Heat pump related clusters
 const heatPumpClusters = [

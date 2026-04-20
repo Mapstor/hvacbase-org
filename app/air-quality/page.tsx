@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import { Wind, Calculator, TrendingUp, Shield, DollarSign, ArrowRight, Droplets } from 'lucide-react';
 import { getAllArticles } from '@/lib/content';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Indoor Air Quality Guides, Solutions & Resources',
+  description: 'Complete indoor air quality resource center. Air purifier reviews, dehumidifier guides, mold prevention, ventilation strategies, and air quality monitoring.',
+  alternates: {
+    canonical: 'https://www.hvacbase.org/air-quality',
+  },
+  openGraph: {
+    title: 'Indoor Air Quality Guides & Resources',
+    description: 'Expert air quality guides, purifier reviews, and healthy home solutions.',
+    type: 'website',
+  }
+};
 
 // Air quality related clusters
 const airQualityClusters = [

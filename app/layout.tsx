@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 import { generateWebSiteSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hvacbase.org'),
+  metadataBase: new URL('https://www.hvacbase.org'),
   title: {
     default: 'HVAC Base — Data-Driven HVAC Guides, Calculators & Comparisons',
     template: '%s | HVAC Base',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://hvacbase.org',
+    url: 'https://www.hvacbase.org',
     siteName: 'HVAC Base',
     title: 'HVAC Base — Your Comprehensive HVAC Knowledge Resource',
     description: 'Expert HVAC guides with 339+ articles, 15+ interactive calculators, and unbiased recommendations for all your heating and cooling needs.',

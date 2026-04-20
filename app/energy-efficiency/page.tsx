@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import { Zap, Calculator, TrendingUp, Award, DollarSign, ArrowRight, BarChart3 } from 'lucide-react';
 import { getAllArticles } from '@/lib/content';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Energy Efficiency Guides, Calculators & Resources',
+  description: 'Comprehensive energy efficiency resource center. SEER ratings, tax credits, rebates, smart thermostats, and cost-saving strategies for HVAC systems.',
+  alternates: {
+    canonical: 'https://www.hvacbase.org/energy-efficiency',
+  },
+  openGraph: {
+    title: 'Energy Efficiency Guides & Resources',
+    description: 'Expert energy efficiency guides, calculators, and money-saving tips.',
+    type: 'website',
+  }
+};
 
 // Energy efficiency related clusters
 const energyEfficiencyClusters = [

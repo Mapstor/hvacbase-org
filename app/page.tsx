@@ -8,6 +8,13 @@ import {
   Building, Factory, ChevronRight, Activity, Battery, Flame
 } from 'lucide-react';
 import { getAllArticles } from '@/lib/content';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.hvacbase.org/',
+  },
+};
 
 // Get article counts and popular articles
 async function getHomePageData() {
@@ -1052,11 +1059,11 @@ export default async function HomePage() {
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "HVAC Base",
-            "url": "https://hvacbase.org",
+            "url": "https://www.hvacbase.org",
             "description": "Professional HVAC calculators, sizing guides, and unbiased equipment reviews. 340+ expert guides based on ACCA Manual J calculations and real manufacturer data.",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://hvacbase.org/search?q={search_term_string}",
+              "target": "https://www.hvacbase.org/search?q={search_term_string}",
               "query-input": "required name=search_term_string"
             },
             "publisher": {
@@ -1064,10 +1071,10 @@ export default async function HomePage() {
               "name": "HVAC Base",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://hvacbase.org/logo.png"
+                "url": "https://www.hvacbase.org/logo.png"
               },
               "sameAs": [
-                "https://hvacbase.org"
+                "https://www.hvacbase.org"
               ]
             }
           })

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://hvacbase.org/</loc>
+    <loc>https://www.hvacbase.org/</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -10,31 +10,31 @@
   
   <!-- Main Hub Pages -->
   <url>
-    <loc>https://hvacbase.org/air-conditioning</loc>
+    <loc>https://www.hvacbase.org/air-conditioning</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heating</loc>
+    <loc>https://www.hvacbase.org/heating</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pumps</loc>
+    <loc>https://www.hvacbase.org/heat-pumps</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/energy-efficiency</loc>
+    <loc>https://www.hvacbase.org/energy-efficiency</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/air-quality</loc>
+    <loc>https://www.hvacbase.org/air-quality</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -42,37 +42,37 @@
   
   <!-- Other Important Pages -->
   <url>
-    <loc>https://hvacbase.org/articles</loc>
+    <loc>https://www.hvacbase.org/articles</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/about</loc>
+    <loc>https://www.hvacbase.org/about</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/contact</loc>
+    <loc>https://www.hvacbase.org/contact</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/privacy</loc>
+    <loc>https://www.hvacbase.org/privacy</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/terms</loc>
+    <loc>https://www.hvacbase.org/terms</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/disclaimer</loc>
+    <loc>https://www.hvacbase.org/disclaimer</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -81,115 +81,115 @@
   <!-- All 340 MDX Content Pages -->
   <!-- AC Sizing & Selection -->
   <url>
-    <loc>https://hvacbase.org/5000-btu-air-conditioner-room-size</loc>
+    <loc>https://www.hvacbase.org/5000-btu-air-conditioner-room-size</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ac-size-for-1000-sq-ft</loc>
+    <loc>https://www.hvacbase.org/ac-size-for-1000-sq-ft</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ac-size-for-1500-sq-ft</loc>
+    <loc>https://www.hvacbase.org/ac-size-for-1500-sq-ft</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ac-size-for-2000-sq-ft</loc>
+    <loc>https://www.hvacbase.org/ac-size-for-2000-sq-ft</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ac-size-for-2500-sq-ft</loc>
+    <loc>https://www.hvacbase.org/ac-size-for-2500-sq-ft</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ac-size-for-3000-sq-ft</loc>
+    <loc>https://www.hvacbase.org/ac-size-for-3000-sq-ft</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ac-size-for-500-sq-ft</loc>
+    <loc>https://www.hvacbase.org/ac-size-for-500-sq-ft</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ac-tonnage-calculator</loc>
+    <loc>https://www.hvacbase.org/ac-tonnage-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/air-conditioner-btu-calculator</loc>
+    <loc>https://www.hvacbase.org/air-conditioner-btu-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-sizing-calculator</loc>
+    <loc>https://www.hvacbase.org/furnace-sizing-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-size-calculator</loc>
+    <loc>https://www.hvacbase.org/heat-pump-size-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-many-btu-per-square-foot</loc>
+    <loc>https://www.hvacbase.org/how-many-btu-per-square-foot</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-many-mini-splits-do-i-need</loc>
+    <loc>https://www.hvacbase.org/how-many-mini-splits-do-i-need</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/is-it-ok-to-oversize-mini-split</loc>
+    <loc>https://www.hvacbase.org/is-it-ok-to-oversize-mini-split</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-sizing-calculator</loc>
+    <loc>https://www.hvacbase.org/mini-split-sizing-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/water-heater-sizing-calculator</loc>
+    <loc>https://www.hvacbase.org/water-heater-sizing-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-size-generator-do-i-need</loc>
+    <loc>https://www.hvacbase.org/what-size-generator-do-i-need</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-size-mini-split-for-garage</loc>
+    <loc>https://www.hvacbase.org/what-size-mini-split-for-garage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-size-tankless-water-heater</loc>
+    <loc>https://www.hvacbase.org/what-size-tankless-water-heater</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -197,133 +197,133 @@
   
   <!-- Air Conditioners -->
   <url>
-    <loc>https://hvacbase.org/air-conditioner-types</loc>
+    <loc>https://www.hvacbase.org/air-conditioner-types</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-10000-btu-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/best-10000-btu-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-12000-btu-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/best-12000-btu-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-window-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/best-window-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/biggest-window-acs</loc>
+    <loc>https://www.hvacbase.org/biggest-window-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/casement-window-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/casement-window-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/do-window-acs-pull-air-from-outside</loc>
+    <loc>https://www.hvacbase.org/do-window-acs-pull-air-from-outside</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-to-tilt-window-ac</loc>
+    <loc>https://www.hvacbase.org/how-to-tilt-window-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/lightweight-window-acs</loc>
+    <loc>https://www.hvacbase.org/lightweight-window-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/low-profile-window-acs</loc>
+    <loc>https://www.hvacbase.org/low-profile-window-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/most-energy-efficient-window-acs</loc>
+    <loc>https://www.hvacbase.org/most-energy-efficient-window-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/quietest-window-acs</loc>
+    <loc>https://www.hvacbase.org/quietest-window-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/saddle-u-shaped-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/saddle-u-shaped-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/smallest-acs-for-small-rooms</loc>
+    <loc>https://www.hvacbase.org/smallest-acs-for-small-rooms</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/smallest-window-acs</loc>
+    <loc>https://www.hvacbase.org/smallest-window-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/through-the-wall-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/through-the-wall-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/window-ac-installation-guide</loc>
+    <loc>https://www.hvacbase.org/window-ac-installation-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/window-ac-support-brackets</loc>
+    <loc>https://www.hvacbase.org/window-ac-support-brackets</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/window-ac-vs-mini-split</loc>
+    <loc>https://www.hvacbase.org/window-ac-vs-mini-split</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/window-ac-with-heater</loc>
+    <loc>https://www.hvacbase.org/window-ac-with-heater</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/window-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/window-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/window-too-small-for-ac</loc>
+    <loc>https://www.hvacbase.org/window-too-small-for-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -331,79 +331,79 @@
   
   <!-- Air Purifier Reviews -->
   <url>
-    <loc>https://hvacbase.org/airdog-air-purifier-review</loc>
+    <loc>https://www.hvacbase.org/airdog-air-purifier-review</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/alen-breathesmart-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/alen-breathesmart-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/blueair-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/blueair-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/coway-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/coway-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dyson-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/dyson-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dyson-vs-levoit-vs-coway</loc>
+    <loc>https://www.hvacbase.org/dyson-vs-levoit-vs-coway</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/germguardian-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/germguardian-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/honeywell-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/honeywell-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/iqair-healthpro-plus-review</loc>
+    <loc>https://www.hvacbase.org/iqair-healthpro-plus-review</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/levoit-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/levoit-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/medify-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/medify-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/molekule-air-purifier-review</loc>
+    <loc>https://www.hvacbase.org/molekule-air-purifier-review</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/winix-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/winix-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -411,127 +411,127 @@
   
   <!-- Air Quality -->
   <url>
-    <loc>https://hvacbase.org/air-changes-per-hour-calculator</loc>
+    <loc>https://www.hvacbase.org/air-changes-per-hour-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/air-purifier-guide</loc>
+    <loc>https://www.hvacbase.org/air-purifier-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/air-purifier-placement</loc>
+    <loc>https://www.hvacbase.org/air-purifier-placement</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/air-purifier-sizing-guide</loc>
+    <loc>https://www.hvacbase.org/air-purifier-sizing-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-air-curtains</loc>
+    <loc>https://www.hvacbase.org/best-air-curtains</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-air-purifier-humidifier-combo</loc>
+    <loc>https://www.hvacbase.org/best-air-purifier-humidifier-combo</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/best-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-air-purifiers-for-allergies</loc>
+    <loc>https://www.hvacbase.org/best-air-purifiers-for-allergies</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-air-purifiers-for-dust</loc>
+    <loc>https://www.hvacbase.org/best-air-purifiers-for-dust</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-air-purifiers-for-mold</loc>
+    <loc>https://www.hvacbase.org/best-air-purifiers-for-mold</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-air-purifiers-for-smoke</loc>
+    <loc>https://www.hvacbase.org/best-air-purifiers-for-smoke</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-air-scrubbers</loc>
+    <loc>https://www.hvacbase.org/best-air-scrubbers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-bedroom-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/best-bedroom-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-dehumidifier-air-purifier-combo</loc>
+    <loc>https://www.hvacbase.org/best-dehumidifier-air-purifier-combo</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-hepa-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/best-hepa-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-large-room-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/best-large-room-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/do-air-purifiers-really-work</loc>
+    <loc>https://www.hvacbase.org/do-air-purifiers-really-work</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hepa-filter-explained</loc>
+    <loc>https://www.hvacbase.org/hepa-filter-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/quietest-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/quietest-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/smallest-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/smallest-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/wall-mounted-air-purifiers</loc>
+    <loc>https://www.hvacbase.org/wall-mounted-air-purifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -539,31 +539,31 @@
   
   <!-- Battery Backup -->
   <url>
-    <loc>https://hvacbase.org/battery-watt-hours</loc>
+    <loc>https://www.hvacbase.org/battery-watt-hours</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/home-battery-backup-guide</loc>
+    <loc>https://www.hvacbase.org/home-battery-backup-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-many-watts-in-12v-battery</loc>
+    <loc>https://www.hvacbase.org/how-many-watts-in-12v-battery</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/solar-panel-calculator</loc>
+    <loc>https://www.hvacbase.org/solar-panel-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/solar-panel-cost-by-state</loc>
+    <loc>https://www.hvacbase.org/solar-panel-cost-by-state</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -571,115 +571,115 @@
   
   <!-- Dehumidifiers -->
   <url>
-    <loc>https://hvacbase.org/basement-dehumidifier-setting</loc>
+    <loc>https://www.hvacbase.org/basement-dehumidifier-setting</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-basement-dehumidifiers</loc>
+    <loc>https://www.hvacbase.org/best-basement-dehumidifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-commercial-dehumidifiers</loc>
+    <loc>https://www.hvacbase.org/best-commercial-dehumidifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-humidifiers-for-bedroom</loc>
+    <loc>https://www.hvacbase.org/best-humidifiers-for-bedroom</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-humidifiers-for-large-rooms</loc>
+    <loc>https://www.hvacbase.org/best-humidifiers-for-large-rooms</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-small-dehumidifiers</loc>
+    <loc>https://www.hvacbase.org/best-small-dehumidifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-whole-house-dehumidifiers</loc>
+    <loc>https://www.hvacbase.org/best-whole-house-dehumidifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dehumidifier-and-ac-same-time</loc>
+    <loc>https://www.hvacbase.org/dehumidifier-and-ac-same-time</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dehumidifier-electricity-usage</loc>
+    <loc>https://www.hvacbase.org/dehumidifier-electricity-usage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dehumidifier-guide</loc>
+    <loc>https://www.hvacbase.org/dehumidifier-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dehumidifier-running-cost</loc>
+    <loc>https://www.hvacbase.org/dehumidifier-running-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dehumidifier-vs-air-purifier</loc>
+    <loc>https://www.hvacbase.org/dehumidifier-vs-air-purifier</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/does-dehumidifier-cool-a-room</loc>
+    <loc>https://www.hvacbase.org/does-dehumidifier-cool-a-room</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-does-a-dehumidifier-work</loc>
+    <loc>https://www.hvacbase.org/how-does-a-dehumidifier-work</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-does-humidity-affect-temperature</loc>
+    <loc>https://www.hvacbase.org/how-does-humidity-affect-temperature</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ideal-indoor-humidity-level</loc>
+    <loc>https://www.hvacbase.org/ideal-indoor-humidity-level</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/most-energy-efficient-dehumidifiers</loc>
+    <loc>https://www.hvacbase.org/most-energy-efficient-dehumidifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/quietest-dehumidifiers</loc>
+    <loc>https://www.hvacbase.org/quietest-dehumidifiers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-size-dehumidifier-do-i-need</loc>
+    <loc>https://www.hvacbase.org/what-size-dehumidifier-do-i-need</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -687,25 +687,25 @@
   
   <!-- Ductwork -->
   <url>
-    <loc>https://hvacbase.org/btucfm-ductwork-relationship</loc>
+    <loc>https://www.hvacbase.org/btucfm-ductwork-relationship</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/duct-leakage-testing</loc>
+    <loc>https://www.hvacbase.org/duct-leakage-testing</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ductwork-sizing-calculator</loc>
+    <loc>https://www.hvacbase.org/ductwork-sizing-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/flexible-vs-rigid-ductwork</loc>
+    <loc>https://www.hvacbase.org/flexible-vs-rigid-ductwork</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -713,31 +713,31 @@
   
   <!-- Electric Fireplaces -->
   <url>
-    <loc>https://hvacbase.org/best-electric-fireplaces</loc>
+    <loc>https://www.hvacbase.org/best-electric-fireplaces</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-pellet-stoves</loc>
+    <loc>https://www.hvacbase.org/best-pellet-stoves</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-wall-mount-electric-fireplaces</loc>
+    <loc>https://www.hvacbase.org/best-wall-mount-electric-fireplaces</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/electric-fireplace-cost-to-run</loc>
+    <loc>https://www.hvacbase.org/electric-fireplace-cost-to-run</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/pellet-stove-cost-to-run</loc>
+    <loc>https://www.hvacbase.org/pellet-stove-cost-to-run</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -745,85 +745,85 @@
   
   <!-- Electrical -->
   <url>
-    <loc>https://hvacbase.org/10-2-or-10-3-wire-for-ac</loc>
+    <loc>https://www.hvacbase.org/10-2-or-10-3-wire-for-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/3-phase-power-calculator</loc>
+    <loc>https://www.hvacbase.org/3-phase-power-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/electrical-panel-upgrade-cost</loc>
+    <loc>https://www.hvacbase.org/electrical-panel-upgrade-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/electrical-wiring-guide</loc>
+    <loc>https://www.hvacbase.org/electrical-wiring-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-many-amps-does-a-house-use</loc>
+    <loc>https://www.hvacbase.org/how-many-amps-does-a-house-use</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/power-consumption-calculator</loc>
+    <loc>https://www.hvacbase.org/power-consumption-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/water-heater-amps</loc>
+    <loc>https://www.hvacbase.org/water-heater-amps</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/water-heater-breaker-size</loc>
+    <loc>https://www.hvacbase.org/water-heater-breaker-size</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/water-heater-wattage</loc>
+    <loc>https://www.hvacbase.org/water-heater-wattage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/water-heater-wire-size</loc>
+    <loc>https://www.hvacbase.org/water-heater-wire-size</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-wire-size-for-30-amp</loc>
+    <loc>https://www.hvacbase.org/what-wire-size-for-30-amp</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-wire-size-for-50-amp</loc>
+    <loc>https://www.hvacbase.org/what-wire-size-for-50-amp</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/wire-for-220-volt</loc>
+    <loc>https://www.hvacbase.org/wire-for-220-volt</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/wire-gauge-chart</loc>
+    <loc>https://www.hvacbase.org/wire-gauge-chart</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -831,61 +831,61 @@
   
   <!-- Energy Costs -->
   <url>
-    <loc>https://hvacbase.org/average-electric-bill-by-state</loc>
+    <loc>https://www.hvacbase.org/average-electric-bill-by-state</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/electric-water-heating-cost-by-state</loc>
+    <loc>https://www.hvacbase.org/electric-water-heating-cost-by-state</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/electricity-cost-by-state</loc>
+    <loc>https://www.hvacbase.org/electricity-cost-by-state</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/energy-costs-guide</loc>
+    <loc>https://www.hvacbase.org/energy-costs-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/home-energy-audit-diy</loc>
+    <loc>https://www.hvacbase.org/home-energy-audit-diy</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-many-kwh-per-day-is-normal</loc>
+    <loc>https://www.hvacbase.org/how-many-kwh-per-day-is-normal</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-to-read-electric-meter</loc>
+    <loc>https://www.hvacbase.org/how-to-read-electric-meter</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/kwh-cost-calculator</loc>
+    <loc>https://www.hvacbase.org/kwh-cost-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/specific-heat-capacity-calculator</loc>
+    <loc>https://www.hvacbase.org/specific-heat-capacity-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/time-of-use-rates-explained</loc>
+    <loc>https://www.hvacbase.org/time-of-use-rates-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -893,181 +893,181 @@
   
   <!-- Energy Efficiency Ratings -->
   <url>
-    <loc>https://hvacbase.org/14-3-seer2-vs-16-seer</loc>
+    <loc>https://www.hvacbase.org/14-3-seer2-vs-16-seer</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/14-seer-vs-16-seer-vs-20-seer</loc>
+    <loc>https://www.hvacbase.org/14-seer-vs-16-seer-vs-20-seer</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/15-2-seer2-vs-16-seer</loc>
+    <loc>https://www.hvacbase.org/15-2-seer2-vs-16-seer</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/16-seer-vs-14-seer</loc>
+    <loc>https://www.hvacbase.org/16-seer-vs-14-seer</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/16-seer-vs-20-seer</loc>
+    <loc>https://www.hvacbase.org/16-seer-vs-20-seer</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/afue-rating-explained</loc>
+    <loc>https://www.hvacbase.org/afue-rating-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/cadr-rating-explained</loc>
+    <loc>https://www.hvacbase.org/cadr-rating-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ceer-rating-explained</loc>
+    <loc>https://www.hvacbase.org/ceer-rating-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/coefficient-of-performance</loc>
+    <loc>https://www.hvacbase.org/coefficient-of-performance</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/eer-chart-for-ac-units</loc>
+    <loc>https://www.hvacbase.org/eer-chart-for-ac-units</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/eer-rating-explained</loc>
+    <loc>https://www.hvacbase.org/eer-rating-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/eer-vs-seer</loc>
+    <loc>https://www.hvacbase.org/eer-vs-seer</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/eer2-rating-explained</loc>
+    <loc>https://www.hvacbase.org/eer2-rating-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/eseer-explained</loc>
+    <loc>https://www.hvacbase.org/eseer-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/good-seer-rating-for-ac</loc>
+    <loc>https://www.hvacbase.org/good-seer-rating-for-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-to-calculate-seer</loc>
+    <loc>https://www.hvacbase.org/how-to-calculate-seer</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hspf-rating-explained</loc>
+    <loc>https://www.hvacbase.org/hspf-rating-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hspf2-rating-explained</loc>
+    <loc>https://www.hvacbase.org/hspf2-rating-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-efficiency-ratings-compared</loc>
+    <loc>https://www.hvacbase.org/hvac-efficiency-ratings-compared</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ieer-explained</loc>
+    <loc>https://www.hvacbase.org/ieer-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/is-higher-seer-worth-it</loc>
+    <loc>https://www.hvacbase.org/is-higher-seer-worth-it</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/merv-rating-chart</loc>
+    <loc>https://www.hvacbase.org/merv-rating-chart</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/minimum-seer-rating-by-state</loc>
+    <loc>https://www.hvacbase.org/minimum-seer-rating-by-state</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/seer-rating-tax-credits</loc>
+    <loc>https://www.hvacbase.org/seer-rating-tax-credits</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/seer-vs-seer2</loc>
+    <loc>https://www.hvacbase.org/seer-vs-seer2</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/seer2-comparison-calculator</loc>
+    <loc>https://www.hvacbase.org/seer2-comparison-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/seer2-rating-explained</loc>
+    <loc>https://www.hvacbase.org/seer2-rating-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/seer2-savings-calculator</loc>
+    <loc>https://www.hvacbase.org/seer2-savings-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/seer2-to-seer-conversion</loc>
+    <loc>https://www.hvacbase.org/seer2-to-seer-conversion</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-is-seer-rating</loc>
+    <loc>https://www.hvacbase.org/what-is-seer-rating</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1075,19 +1075,19 @@
   
   <!-- Evaporative Coolers -->
   <url>
-    <loc>https://hvacbase.org/best-evaporative-coolers</loc>
+    <loc>https://www.hvacbase.org/best-evaporative-coolers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-tower-fans</loc>
+    <loc>https://www.hvacbase.org/best-tower-fans</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/evaporative-cooler-vs-ac</loc>
+    <loc>https://www.hvacbase.org/evaporative-cooler-vs-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1095,139 +1095,139 @@
   
   <!-- Furnaces & Heating -->
   <url>
-    <loc>https://hvacbase.org/best-electric-furnace</loc>
+    <loc>https://www.hvacbase.org/best-electric-furnace</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-gas-furnace-brands</loc>
+    <loc>https://www.hvacbase.org/best-gas-furnace-brands</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-oil-furnace</loc>
+    <loc>https://www.hvacbase.org/best-oil-furnace</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/cold-air-return-vents</loc>
+    <loc>https://www.hvacbase.org/cold-air-return-vents</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/cracked-heat-exchanger</loc>
+    <loc>https://www.hvacbase.org/cracked-heat-exchanger</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dirty-furnace-filter-photos</loc>
+    <loc>https://www.hvacbase.org/dirty-furnace-filter-photos</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/do-furnaces-have-pilot-lights</loc>
+    <loc>https://www.hvacbase.org/do-furnaces-have-pilot-lights</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-blowing-cold-air</loc>
+    <loc>https://www.hvacbase.org/furnace-blowing-cold-air</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-efficiency-explained</loc>
+    <loc>https://www.hvacbase.org/furnace-efficiency-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-filter-direction</loc>
+    <loc>https://www.hvacbase.org/furnace-filter-direction</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-filter-merv-rating</loc>
+    <loc>https://www.hvacbase.org/furnace-filter-merv-rating</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-flame-sensor</loc>
+    <loc>https://www.hvacbase.org/furnace-flame-sensor</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-guide</loc>
+    <loc>https://www.hvacbase.org/furnace-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-installation-cost</loc>
+    <loc>https://www.hvacbase.org/furnace-installation-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-leaking-water</loc>
+    <loc>https://www.hvacbase.org/furnace-leaking-water</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-vs-heat-pump</loc>
+    <loc>https://www.hvacbase.org/furnace-vs-heat-pump</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/gas-furnace-wattage</loc>
+    <loc>https://www.hvacbase.org/gas-furnace-wattage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/gas-vs-electric-heating-cost</loc>
+    <loc>https://www.hvacbase.org/gas-vs-electric-heating-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-long-do-furnaces-last</loc>
+    <loc>https://www.hvacbase.org/how-long-do-furnaces-last</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/pilot-light-gas-usage</loc>
+    <loc>https://www.hvacbase.org/pilot-light-gas-usage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/thermostat-heat-on-but-no-heat</loc>
+    <loc>https://www.hvacbase.org/thermostat-heat-on-but-no-heat</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/thermostat-temperature-winter</loc>
+    <loc>https://www.hvacbase.org/thermostat-temperature-winter</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/upflow-vs-downflow-furnace</loc>
+    <loc>https://www.hvacbase.org/upflow-vs-downflow-furnace</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1235,73 +1235,73 @@
   
   <!-- Generators -->
   <url>
-    <loc>https://hvacbase.org/best-portable-generators</loc>
+    <loc>https://www.hvacbase.org/best-portable-generators</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-whole-house-generators</loc>
+    <loc>https://www.hvacbase.org/best-whole-house-generators</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/generator-cost-per-kwh</loc>
+    <loc>https://www.hvacbase.org/generator-cost-per-kwh</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/generator-guide</loc>
+    <loc>https://www.hvacbase.org/generator-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/generator-vs-solar-battery-backup</loc>
+    <loc>https://www.hvacbase.org/generator-vs-solar-battery-backup</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-long-do-generators-last</loc>
+    <loc>https://www.hvacbase.org/how-long-do-generators-last</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-long-generator-on-5-gallons</loc>
+    <loc>https://www.hvacbase.org/how-long-generator-on-5-gallons</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-many-amps-does-generator-produce</loc>
+    <loc>https://www.hvacbase.org/how-many-amps-does-generator-produce</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/natural-gas-generator-running-cost</loc>
+    <loc>https://www.hvacbase.org/natural-gas-generator-running-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/portable-generator-safety-tips</loc>
+    <loc>https://www.hvacbase.org/portable-generator-safety-tips</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/propane-generator-usage-per-hour</loc>
+    <loc>https://www.hvacbase.org/propane-generator-usage-per-hour</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-size-generator-for-fridge</loc>
+    <loc>https://www.hvacbase.org/what-size-generator-for-fridge</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1309,79 +1309,79 @@
   
   <!-- Heat Pumps -->
   <url>
-    <loc>https://hvacbase.org/air-source-vs-ground-source-heat-pump</loc>
+    <loc>https://www.hvacbase.org/air-source-vs-ground-source-heat-pump</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-cold-climate-heat-pumps</loc>
+    <loc>https://www.hvacbase.org/best-cold-climate-heat-pumps</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-mini-split-heat-pumps</loc>
+    <loc>https://www.hvacbase.org/best-mini-split-heat-pumps</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/disadvantages-of-heat-pumps</loc>
+    <loc>https://www.hvacbase.org/disadvantages-of-heat-pumps</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-cop-explained</loc>
+    <loc>https://www.hvacbase.org/heat-pump-cop-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-cost-to-install</loc>
+    <loc>https://www.hvacbase.org/heat-pump-cost-to-install</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-electricity-usage</loc>
+    <loc>https://www.hvacbase.org/heat-pump-electricity-usage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-guide</loc>
+    <loc>https://www.hvacbase.org/heat-pump-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-in-cold-weather</loc>
+    <loc>https://www.hvacbase.org/heat-pump-in-cold-weather</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-running-cost-calculator</loc>
+    <loc>https://www.hvacbase.org/heat-pump-running-cost-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-tax-credits-2026</loc>
+    <loc>https://www.hvacbase.org/heat-pump-tax-credits-2026</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-vs-ac</loc>
+    <loc>https://www.hvacbase.org/heat-pump-vs-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-is-a-heat-pump</loc>
+    <loc>https://www.hvacbase.org/what-is-a-heat-pump</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1389,61 +1389,61 @@
   
   <!-- HVAC Brands -->
   <url>
-    <loc>https://hvacbase.org/best-central-ac-brands</loc>
+    <loc>https://www.hvacbase.org/best-central-ac-brands</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-hvac-brands-ranked</loc>
+    <loc>https://www.hvacbase.org/best-hvac-brands-ranked</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/carrier-hvac-age-serial-number</loc>
+    <loc>https://www.hvacbase.org/carrier-hvac-age-serial-number</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/central-ac-cost-to-install</loc>
+    <loc>https://www.hvacbase.org/central-ac-cost-to-install</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/central-ac-vs-mini-split-vs-window</loc>
+    <loc>https://www.hvacbase.org/central-ac-vs-mini-split-vs-window</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/central-air-conditioner-guide</loc>
+    <loc>https://www.hvacbase.org/central-air-conditioner-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/goodman-ac-age-serial-number</loc>
+    <loc>https://www.hvacbase.org/goodman-ac-age-serial-number</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-serial-number-decoder</loc>
+    <loc>https://www.hvacbase.org/hvac-serial-number-decoder</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-system-lifespan</loc>
+    <loc>https://www.hvacbase.org/hvac-system-lifespan</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-size-generator-for-5-ton-ac</loc>
+    <loc>https://www.hvacbase.org/what-size-generator-for-5-ton-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1451,37 +1451,37 @@
   
   <!-- HVAC Costs by State -->
   <url>
-    <loc>https://hvacbase.org/hvac-cost-by-state</loc>
+    <loc>https://www.hvacbase.org/hvac-cost-by-state</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-cost-california</loc>
+    <loc>https://www.hvacbase.org/hvac-cost-california</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-cost-florida</loc>
+    <loc>https://www.hvacbase.org/hvac-cost-florida</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-cost-illinois</loc>
+    <loc>https://www.hvacbase.org/hvac-cost-illinois</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-cost-new-york</loc>
+    <loc>https://www.hvacbase.org/hvac-cost-new-york</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-cost-texas</loc>
+    <loc>https://www.hvacbase.org/hvac-cost-texas</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1489,37 +1489,37 @@
   
   <!-- HVAC Maintenance -->
   <url>
-    <loc>https://hvacbase.org/air-duct-cleaning-worth-it</loc>
+    <loc>https://www.hvacbase.org/air-duct-cleaning-worth-it</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-often-change-hvac-filter</loc>
+    <loc>https://www.hvacbase.org/how-often-change-hvac-filter</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-to-clean-ac-coils</loc>
+    <loc>https://www.hvacbase.org/how-to-clean-ac-coils</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-ductwork-guide</loc>
+    <loc>https://www.hvacbase.org/hvac-ductwork-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-maintenance-checklist</loc>
+    <loc>https://www.hvacbase.org/hvac-maintenance-checklist</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-maintenance-cost</loc>
+    <loc>https://www.hvacbase.org/hvac-maintenance-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1527,19 +1527,19 @@
   
   <!-- HVAC Noise -->
   <url>
-    <loc>https://hvacbase.org/how-to-reduce-hvac-noise</loc>
+    <loc>https://www.hvacbase.org/how-to-reduce-hvac-noise</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-noise-levels-explained</loc>
+    <loc>https://www.hvacbase.org/hvac-noise-levels-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/quietest-mini-splits</loc>
+    <loc>https://www.hvacbase.org/quietest-mini-splits</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1547,43 +1547,43 @@
   
   <!-- Indoor Air Quality -->
   <url>
-    <loc>https://hvacbase.org/indoor-air-quality-testing</loc>
+    <loc>https://www.hvacbase.org/indoor-air-quality-testing</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-indoor-air-quality-monitors</loc>
+    <loc>https://www.hvacbase.org/best-indoor-air-quality-monitors</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/carbon-monoxide-detector-guide</loc>
+    <loc>https://www.hvacbase.org/carbon-monoxide-detector-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-to-improve-indoor-air-quality</loc>
+    <loc>https://www.hvacbase.org/how-to-improve-indoor-air-quality</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/indoor-air-quality-guide</loc>
+    <loc>https://www.hvacbase.org/indoor-air-quality-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/voc-in-home-sources</loc>
+    <loc>https://www.hvacbase.org/voc-in-home-sources</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/whole-house-ventilation-systems</loc>
+    <loc>https://www.hvacbase.org/whole-house-ventilation-systems</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1591,169 +1591,169 @@
   
   <!-- Mini Split Air Conditioners -->
   <url>
-    <loc>https://hvacbase.org/ac-dry-mode-vs-dehumidifier</loc>
+    <loc>https://www.hvacbase.org/ac-dry-mode-vs-dehumidifier</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-2-zone-mini-split</loc>
+    <loc>https://www.hvacbase.org/best-2-zone-mini-split</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-3-zone-mini-split</loc>
+    <loc>https://www.hvacbase.org/best-3-zone-mini-split</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-4-zone-mini-split</loc>
+    <loc>https://www.hvacbase.org/best-4-zone-mini-split</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-5-zone-mini-split</loc>
+    <loc>https://www.hvacbase.org/best-5-zone-mini-split</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-diy-mini-splits</loc>
+    <loc>https://www.hvacbase.org/best-diy-mini-splits</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-mini-split-ac-units</loc>
+    <loc>https://www.hvacbase.org/best-mini-split-ac-units</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-mini-split-for-garage</loc>
+    <loc>https://www.hvacbase.org/best-mini-split-for-garage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/cassette-ceiling-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/cassette-ceiling-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/daikin-mini-split-reviews</loc>
+    <loc>https://www.hvacbase.org/daikin-mini-split-reviews</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/dry-mode-in-ac</loc>
+    <loc>https://www.hvacbase.org/dry-mode-in-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-does-a-mini-split-work</loc>
+    <loc>https://www.hvacbase.org/how-does-a-mini-split-work</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-much-does-mini-split-cost-to-run</loc>
+    <loc>https://www.hvacbase.org/how-much-does-mini-split-cost-to-run</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/mini-split-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-amps</loc>
+    <loc>https://www.hvacbase.org/mini-split-amps</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-brands-ranked</loc>
+    <loc>https://www.hvacbase.org/mini-split-brands-ranked</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-electricity-usage</loc>
+    <loc>https://www.hvacbase.org/mini-split-electricity-usage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-for-bedroom</loc>
+    <loc>https://www.hvacbase.org/mini-split-for-bedroom</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-in-cold-climates</loc>
+    <loc>https://www.hvacbase.org/mini-split-in-cold-climates</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-installation-cost</loc>
+    <loc>https://www.hvacbase.org/mini-split-installation-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-line-set-covers</loc>
+    <loc>https://www.hvacbase.org/mini-split-line-set-covers</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-maintenance-guide</loc>
+    <loc>https://www.hvacbase.org/mini-split-maintenance-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mini-split-vs-central-air</loc>
+    <loc>https://www.hvacbase.org/mini-split-vs-central-air</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mrcool-3rd-gen-vs-4th-gen</loc>
+    <loc>https://www.hvacbase.org/mrcool-3rd-gen-vs-4th-gen</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mrcool-diy-mini-split-review</loc>
+    <loc>https://www.hvacbase.org/mrcool-diy-mini-split-review</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/senville-mini-split-reviews</loc>
+    <loc>https://www.hvacbase.org/senville-mini-split-reviews</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/smallest-mini-splits</loc>
+    <loc>https://www.hvacbase.org/smallest-mini-splits</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/what-is-a-mini-split</loc>
+    <loc>https://www.hvacbase.org/what-is-a-mini-split</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1761,25 +1761,25 @@
   
   <!-- Mold Prevention -->
   <url>
-    <loc>https://hvacbase.org/how-to-identify-mold</loc>
+    <loc>https://www.hvacbase.org/how-to-identify-mold</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/moisture-barrier-crawl-space</loc>
+    <loc>https://www.hvacbase.org/moisture-barrier-crawl-space</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mold-prevention-guide</loc>
+    <loc>https://www.hvacbase.org/mold-prevention-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/mold-remediation-cost</loc>
+    <loc>https://www.hvacbase.org/mold-remediation-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1787,109 +1787,109 @@
   
   <!-- Portable Air Conditioners -->
   <url>
-    <loc>https://hvacbase.org/best-dual-hose-portable-acs</loc>
+    <loc>https://www.hvacbase.org/best-dual-hose-portable-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-portable-ac-for-apartment</loc>
+    <loc>https://www.hvacbase.org/best-portable-ac-for-apartment</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-portable-ac-heater-combos</loc>
+    <loc>https://www.hvacbase.org/best-portable-ac-heater-combos</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-portable-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/best-portable-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/biggest-portable-acs</loc>
+    <loc>https://www.hvacbase.org/biggest-portable-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/can-you-use-portable-ac-without-hose</loc>
+    <loc>https://www.hvacbase.org/can-you-use-portable-ac-without-hose</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/cheapest-portable-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/cheapest-portable-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/do-portable-acs-pull-air-from-outside</loc>
+    <loc>https://www.hvacbase.org/do-portable-acs-pull-air-from-outside</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-do-portable-acs-work</loc>
+    <loc>https://www.hvacbase.org/how-do-portable-acs-work</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-to-drain-portable-ac</loc>
+    <loc>https://www.hvacbase.org/how-to-drain-portable-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-to-vent-portable-ac-without-window</loc>
+    <loc>https://www.hvacbase.org/how-to-vent-portable-ac-without-window</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/portable-ac-electricity-cost</loc>
+    <loc>https://www.hvacbase.org/portable-ac-electricity-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/portable-ac-vs-window-ac</loc>
+    <loc>https://www.hvacbase.org/portable-ac-vs-window-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/portable-ac-window-seal-kits</loc>
+    <loc>https://www.hvacbase.org/portable-ac-window-seal-kits</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/portable-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/portable-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/quietest-portable-air-conditioners</loc>
+    <loc>https://www.hvacbase.org/quietest-portable-air-conditioners</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/single-hose-vs-dual-hose-portable-ac</loc>
+    <loc>https://www.hvacbase.org/single-hose-vs-dual-hose-portable-ac</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/smallest-portable-acs</loc>
+    <loc>https://www.hvacbase.org/smallest-portable-acs</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1897,19 +1897,19 @@
   
   <!-- Refrigerants -->
   <url>
-    <loc>https://hvacbase.org/hvac-refrigerant-phase-out</loc>
+    <loc>https://www.hvacbase.org/hvac-refrigerant-phase-out</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/r410a-vs-r32-refrigerant</loc>
+    <loc>https://www.hvacbase.org/r410a-vs-r32-refrigerant</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/refrigerant-types-explained</loc>
+    <loc>https://www.hvacbase.org/refrigerant-types-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1917,31 +1917,31 @@
   
   <!-- Smart Thermostats -->
   <url>
-    <loc>https://hvacbase.org/best-smart-thermostats</loc>
+    <loc>https://www.hvacbase.org/best-smart-thermostats</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-thermostat-for-heat-pump</loc>
+    <loc>https://www.hvacbase.org/best-thermostat-for-heat-pump</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/nest-vs-ecobee-vs-honeywell</loc>
+    <loc>https://www.hvacbase.org/nest-vs-ecobee-vs-honeywell</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/programmable-vs-smart-thermostat</loc>
+    <loc>https://www.hvacbase.org/programmable-vs-smart-thermostat</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/smart-thermostat-savings</loc>
+    <loc>https://www.hvacbase.org/smart-thermostat-savings</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1949,79 +1949,79 @@
   
   <!-- Space Heaters -->
   <url>
-    <loc>https://hvacbase.org/battery-operated-heaters</loc>
+    <loc>https://www.hvacbase.org/battery-operated-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-baseboard-heaters</loc>
+    <loc>https://www.hvacbase.org/best-baseboard-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-energy-efficient-space-heaters</loc>
+    <loc>https://www.hvacbase.org/best-energy-efficient-space-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-garage-heaters</loc>
+    <loc>https://www.hvacbase.org/best-garage-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-infrared-heaters</loc>
+    <loc>https://www.hvacbase.org/best-infrared-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-small-heaters</loc>
+    <loc>https://www.hvacbase.org/best-small-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-space-heaters-for-large-rooms</loc>
+    <loc>https://www.hvacbase.org/best-space-heaters-for-large-rooms</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-ventless-propane-heaters</loc>
+    <loc>https://www.hvacbase.org/best-ventless-propane-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/electric-heater-running-cost</loc>
+    <loc>https://www.hvacbase.org/electric-heater-running-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/safest-heater-for-bedroom</loc>
+    <loc>https://www.hvacbase.org/safest-heater-for-bedroom</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/safest-space-heaters</loc>
+    <loc>https://www.hvacbase.org/safest-space-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/space-heater-guide</loc>
+    <loc>https://www.hvacbase.org/space-heater-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/space-heater-vs-central-heat</loc>
+    <loc>https://www.hvacbase.org/space-heater-vs-central-heat</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -2029,91 +2029,91 @@
   
   <!-- Tankless Water Heaters -->
   <url>
-    <loc>https://hvacbase.org/best-electric-tankless-water-heaters</loc>
+    <loc>https://www.hvacbase.org/best-electric-tankless-water-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-tankless-gas-water-heaters</loc>
+    <loc>https://www.hvacbase.org/best-tankless-gas-water-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-tankless-water-heaters</loc>
+    <loc>https://www.hvacbase.org/best-tankless-water-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/electric-vs-gas-tankless</loc>
+    <loc>https://www.hvacbase.org/electric-vs-gas-tankless</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hot-water-recirculating-pump</loc>
+    <loc>https://www.hvacbase.org/hot-water-recirculating-pump</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/is-tankless-water-heater-worth-it</loc>
+    <loc>https://www.hvacbase.org/is-tankless-water-heater-worth-it</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/outdoor-portable-tankless-heaters</loc>
+    <loc>https://www.hvacbase.org/outdoor-portable-tankless-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/smallest-tankless-water-heaters</loc>
+    <loc>https://www.hvacbase.org/smallest-tankless-water-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/tankless-vs-tank-water-heater</loc>
+    <loc>https://www.hvacbase.org/tankless-vs-tank-water-heater</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/tankless-water-heater-breaker-size</loc>
+    <loc>https://www.hvacbase.org/tankless-water-heater-breaker-size</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/tankless-water-heater-cost</loc>
+    <loc>https://www.hvacbase.org/tankless-water-heater-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/tankless-water-heater-electricity</loc>
+    <loc>https://www.hvacbase.org/tankless-water-heater-electricity</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/tankless-water-heater-guide</loc>
+    <loc>https://www.hvacbase.org/tankless-water-heater-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/tankless-water-heater-propane-usage</loc>
+    <loc>https://www.hvacbase.org/tankless-water-heater-propane-usage</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/tankless-water-heater-wire-size</loc>
+    <loc>https://www.hvacbase.org/tankless-water-heater-wire-size</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -2121,25 +2121,25 @@
   
   <!-- Tax Credits & Rebates -->
   <url>
-    <loc>https://hvacbase.org/25c-tax-credit-explained</loc>
+    <loc>https://www.hvacbase.org/25c-tax-credit-explained</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/energy-star-tax-credits</loc>
+    <loc>https://www.hvacbase.org/energy-star-tax-credits</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-rebates-by-state</loc>
+    <loc>https://www.hvacbase.org/hvac-rebates-by-state</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-tax-credits-2026</loc>
+    <loc>https://www.hvacbase.org/hvac-tax-credits-2026</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -2147,37 +2147,37 @@
   
   <!-- Water Heaters -->
   <url>
-    <loc>https://hvacbase.org/best-water-heaters</loc>
+    <loc>https://www.hvacbase.org/best-water-heaters</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/electric-water-heating-cost</loc>
+    <loc>https://www.hvacbase.org/electric-water-heating-cost</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-water-heater-guide</loc>
+    <loc>https://www.hvacbase.org/heat-pump-water-heater-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-long-does-water-heater-last</loc>
+    <loc>https://www.hvacbase.org/how-long-does-water-heater-last</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/water-heater-cost-to-install</loc>
+    <loc>https://www.hvacbase.org/water-heater-cost-to-install</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/water-heater-guide</loc>
+    <loc>https://www.hvacbase.org/water-heater-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -2185,79 +2185,79 @@
 
   <!-- New Content Pages Added -->
   <url>
-    <loc>https://hvacbase.org/ac-troubleshooting-guide</loc>
+    <loc>https://www.hvacbase.org/ac-troubleshooting-guide</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/ac-not-cooling</loc>
+    <loc>https://www.hvacbase.org/ac-not-cooling</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heating-cost-calculator</loc>
+    <loc>https://www.hvacbase.org/heating-cost-calculator</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/furnace-maintenance</loc>
+    <loc>https://www.hvacbase.org/furnace-maintenance</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/best-hvac-air-filters</loc>
+    <loc>https://www.hvacbase.org/best-hvac-air-filters</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-energy-saving-tips</loc>
+    <loc>https://www.hvacbase.org/hvac-energy-saving-tips</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/portable-vs-window-ac</loc>
+    <loc>https://www.hvacbase.org/portable-vs-window-ac</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/radiant-floor-heating-pros-cons</loc>
+    <loc>https://www.hvacbase.org/radiant-floor-heating-pros-cons</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/boiler-vs-furnace</loc>
+    <loc>https://www.hvacbase.org/boiler-vs-furnace</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/heat-pump-vs-mini-split</loc>
+    <loc>https://www.hvacbase.org/heat-pump-vs-mini-split</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/insulation-r-value-guide</loc>
+    <loc>https://www.hvacbase.org/insulation-r-value-guide</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/uv-light-hvac-systems</loc>
+    <loc>https://www.hvacbase.org/uv-light-hvac-systems</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/allergen-control-guide</loc>
+    <loc>https://www.hvacbase.org/allergen-control-guide</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2265,43 +2265,43 @@
 
   <!-- New Category Pages -->
   <url>
-    <loc>https://hvacbase.org/buying-guides</loc>
+    <loc>https://www.hvacbase.org/buying-guides</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/how-to</loc>
+    <loc>https://www.hvacbase.org/how-to</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/troubleshooting</loc>
+    <loc>https://www.hvacbase.org/troubleshooting</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/hvac-dictionary</loc>
+    <loc>https://www.hvacbase.org/hvac-dictionary</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/cost-guides</loc>
+    <loc>https://www.hvacbase.org/cost-guides</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/brand-reviews</loc>
+    <loc>https://www.hvacbase.org/brand-reviews</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hvacbase.org/editorial-policy</loc>
+    <loc>https://www.hvacbase.org/editorial-policy</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

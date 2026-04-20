@@ -1,6 +1,6 @@
 import { ArticleMeta } from './content';
 
-const SITE_URL = 'https://hvacbase.org';
+const SITE_URL = 'https://www.hvacbase.org';
 const SITE_NAME = 'HVAC Base';
 const AUTHOR_NAME = 'HVAC Base Editorial Team';
 const LOGO_URL = `${SITE_URL}/images/logo.png`;

@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import { Search, Filter, BookOpen, Clock, TrendingUp, Tag, ChevronRight, Grid, List, ArrowUpDown } from 'lucide-react';
 import { getAllArticles } from '@/lib/content';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'All HVAC Articles, Guides & Resources',
+  description: 'Browse our complete library of 350+ HVAC articles, guides, calculators, and resources. Find expert information on air conditioning, heating, heat pumps, and energy efficiency.',
+  alternates: {
+    canonical: 'https://www.hvacbase.org/articles',
+  },
+  openGraph: {
+    title: 'HVAC Articles Library',
+    description: 'Complete collection of HVAC guides, articles, and resources.',
+    type: 'website',
+  }
+};
 
 // Organize articles by cluster/category
 function organizeArticles(articles: any[]) {

@@ -1,0 +1,13 @@
+# Robots.txt for hvacbase.org
+# Allow all crawlers full access
+
+User-agent: *
+Allow: /
+Crawl-delay: 0
+
+# Sitemap location
+Sitemap: https://www.hvacbase.org/sitemap.xml
+
+# Block development/staging paths if any
+Disallow: /_next/static/
+Disallow: /api/

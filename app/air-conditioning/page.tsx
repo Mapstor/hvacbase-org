@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import { Thermometer, Calculator, TrendingUp, Wrench, DollarSign, ArrowRight } from 'lucide-react';
 import { getAllArticles } from '@/lib/content';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Air Conditioning Guides, Calculators & Reviews',
+  description: 'Complete air conditioning resource center. BTU calculators, buying guides, energy efficiency ratings, troubleshooting, and unbiased AC reviews.',
+  alternates: {
+    canonical: 'https://www.hvacbase.org/air-conditioning',
+  },
+  openGraph: {
+    title: 'Air Conditioning Guides & Resources',
+    description: 'Expert AC guides, sizing calculators, and efficiency comparisons.',
+    type: 'website',
+  }
+};
 
 // Air conditioning related clusters
 const airConditioningClusters = [

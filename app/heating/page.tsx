@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import { Flame, Calculator, TrendingUp, Wrench, DollarSign, ArrowRight, Thermometer } from 'lucide-react';
 import { getAllArticles } from '@/lib/content';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Heating Systems Guides, Calculators & Reviews',
+  description: 'Comprehensive heating resource center. Furnace sizing, space heater guides, energy efficiency ratings, troubleshooting, and unbiased heating system reviews.',
+  alternates: {
+    canonical: 'https://www.hvacbase.org/heating',
+  },
+  openGraph: {
+    title: 'Heating Systems Guides & Resources',
+    description: 'Expert heating guides, sizing calculators, and efficiency comparisons.',
+    type: 'website',
+  }
+};
 
 // Heating related clusters
 const heatingClusters = [

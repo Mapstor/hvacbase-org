@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       modifiedTime: article.meta.dateModified || article.meta.datePublished,
     },
     alternates: {
-      canonical: `https://hvacbase.org/${article.meta.slug}/`,
+      canonical: `https://www.hvacbase.org/${article.meta.slug}/`,
     },
   };
 }
