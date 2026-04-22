@@ -116,8 +116,7 @@ export default function SEER2Calculator() {
   // Rebate finder logic
   const filteredRebates = utilityRebates.filter(rebate => {
     const searchTerm = rebateSearch.toLowerCase();
-    const matchesSearch = rebate.city.toLowerCase().includes(searchTerm) || 
-                         rebate.state.toLowerCase().includes(searchTerm) ||
+    const matchesSearch = searchTerm === '' || 
                          rebate.utility.toLowerCase().includes(searchTerm);
     const matchesState = selectedState === '' || rebate.state === selectedState;
     const qualifiesForRebate = parseFloat(newSeer) >= rebate.minSeer;
@@ -125,11 +124,20 @@ export default function SEER2Calculator() {
     return matchesSearch && matchesState && qualifiesForRebate;
   });
 
-  const uniqueStates = [...new Set(utilityRebates.map(r => r.state))].sort();
-
-  const handleRebateSearch = () => {
-    setShowRebates(true);
+  const stateNames = {
+    'AZ': 'Arizona',
+    'CA': 'California', 
+    'CO': 'Colorado',
+    'FL': 'Florida',
+    'GA': 'Georgia',
+    'IL': 'Illinois',
+    'NC': 'North Carolina',
+    'NV': 'Nevada',
+    'NY': 'New York',
+    'TX': 'Texas'
   };
+  
+  const uniqueStates = [...new Set(utilityRebates.map(r => r.state))].sort();
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 my-8 max-w-4xl mx-auto">
@@ -259,51 +267,49 @@ export default function SEER2Calculator() {
         <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
           <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
             <Search className="w-4 h-4 text-yellow-600" />
-            Find Utility Rebates
+            Find Utility Rebates for Your State
           </h4>
-          <div className="grid md:grid-cols-3 gap-3">
+          <div className="grid md:grid-cols-2 gap-3">
             <div>
+              <label className="block text-xs font-medium text-gray-700 mb-1">Select Your State</label>
+              <select
+                value={selectedState}
+                onChange={(e) => {
+                  setSelectedState(e.target.value);
+                  setShowRebates(e.target.value !== '');
+                }}
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500"
+              >
+                <option value="">Choose a State...</option>
+                {uniqueStates.map(state => (
+                  <option key={state} value={state}>{stateNames[state as keyof typeof stateNames] || state}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-gray-700 mb-1">Optional: Search by Utility Name</label>
               <input
                 type="text"
-                placeholder="Enter city or utility name"
+                placeholder="e.g., Austin Energy, PG&E"
                 value={rebateSearch}
                 onChange={(e) => setRebateSearch(e.target.value)}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500"
               />
             </div>
-            <div>
-              <select
-                value={selectedState}
-                onChange={(e) => setSelectedState(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-500"
-              >
-                <option value="">All States</option>
-                {uniqueStates.map(state => (
-                  <option key={state} value={state}>{state}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <button
-                onClick={handleRebateSearch}
-                className="w-full bg-yellow-600 text-white font-medium py-2 px-4 rounded-md hover:bg-yellow-700 transition-colors flex items-center justify-center gap-2"
-              >
-                <Search className="w-4 h-4" />
-                Find Rebates
-              </button>
-            </div>
           </div>
           
-          {showRebates && (
+          {showRebates && selectedState && (
             <div className="mt-4">
               <p className="text-sm text-gray-600 mb-3">
-                Found {filteredRebates.length} rebate program{filteredRebates.length !== 1 ? 's' : ''} for SEER2 {newSeer}+ systems:
-              </p>
-              <div className="space-y-2 max-h-40 overflow-y-auto">
-                {filteredRebates.length === 0 ? (
-                  <p className="text-sm text-gray-500 italic">No rebates found for your search criteria. Try a different city or lower SEER2 rating.</p>
+                {filteredRebates.length > 0 ? (
+                  <>Found <span className="font-semibold text-green-600">{filteredRebates.length} rebate program{filteredRebates.length !== 1 ? 's' : ''}</span> in {stateNames[selectedState as keyof typeof stateNames]} for {newSeer}+ SEER2 systems:</>
                 ) : (
-                  filteredRebates.map((rebate, index) => (
+                  <>No rebates found in {stateNames[selectedState as keyof typeof stateNames]} for {newSeer} SEER2 systems. Try a lower SEER2 rating or check neighboring states.</>
+                )}
+              </p>
+              {filteredRebates.length > 0 && (
+                <div className="space-y-2 max-h-40 overflow-y-auto">
+                  {filteredRebates.map((rebate, index) => (
                     <div key={index} className="bg-white rounded-md p-3 border border-yellow-200">
                       <div className="flex justify-between items-start">
                         <div>
@@ -324,9 +330,9 @@ export default function SEER2Calculator() {
                         </div>
                       </div>
                     </div>
-                  ))
-                )}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
