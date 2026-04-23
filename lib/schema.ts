@@ -6,6 +6,9 @@ const AUTHOR_NAME = 'HVAC Base Team';
 const LOGO_URL = `${SITE_URL}/images/logo.png`;
 
 export function generateArticleSchema(meta: ArticleMeta) {
+  // Calculate word count from reading time (assuming ~200 words per minute)
+  const wordCount = meta.readingTime ? parseInt(meta.readingTime) * 200 : 1000;
+  
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -26,8 +29,15 @@ export function generateArticleSchema(meta: ArticleMeta) {
     dateModified: meta.dateModified,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE_URL}/${meta.slug}/`,
+      '@id': `${SITE_URL}/${meta.slug}`,
     },
+    articleSection: meta.cluster,
+    keywords: meta.cluster.replace(/-/g, ' ') + ', hvac, ' + (meta.contentType || ''),
+    wordCount: wordCount,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.prose p:first-of-type', 'h1', 'h2']
+    }
   };
 }
 

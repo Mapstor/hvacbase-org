@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { ArticleMeta } from '@/lib/content';
 import { Calendar, Clock, User } from 'lucide-react';
 import Link from 'next/link';
+import { getClusterRoute } from '@/lib/cluster-mapping';
 
 interface ArticleLayoutProps {
   meta: ArticleMeta;
@@ -9,7 +10,7 @@ interface ArticleLayoutProps {
 }
 
 export default function ArticleLayout({ meta, children }: ArticleLayoutProps) {
-  const clusterSlug = meta.cluster.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const clusterRoute = getClusterRoute(meta.cluster);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -17,7 +18,9 @@ export default function ArticleLayout({ meta, children }: ArticleLayoutProps) {
       <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-brand-600">Home</Link>
         <span>/</span>
-        <Link href={`/${clusterSlug}/`} className="hover:text-brand-600">{meta.cluster}</Link>
+        <Link href={`/${clusterRoute}`} className="hover:text-brand-600">
+          {clusterRoute.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+        </Link>
         <span>/</span>
         <span className="text-gray-700 truncate max-w-xs">{meta.title}</span>
       </nav>

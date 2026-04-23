@@ -6,6 +6,7 @@ import ArticleLayout from '@/components/layout/ArticleLayout';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schema';
 import { mdxComponents } from '@/lib/mdx-components';
+import { getClusterRoute } from '@/lib/cluster-mapping';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       modifiedTime: article.meta.dateModified || article.meta.datePublished,
     },
     alternates: {
-      canonical: `https://www.hvacbase.org/${article.meta.slug}/`,
+      canonical: `https://www.hvacbase.org/${article.meta.slug}`,
     },
   };
 }
@@ -42,12 +43,13 @@ export default function ArticlePage({ params }: PageProps) {
   if (!article) notFound();
 
   const related = getRelatedArticles(params.slug, 4);
+  const clusterRoute = getClusterRoute(article.meta.cluster);
   const schemas = [
     generateArticleSchema(article.meta),
     generateBreadcrumbSchema([
       { name: 'Home', url: '/' },
-      { name: article.meta.cluster, url: `/${article.meta.cluster.toLowerCase().replace(/\s+/g, '-')}/` },
-      { name: article.meta.title, url: `/${article.meta.slug}/` },
+      { name: clusterRoute.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '), url: `/${clusterRoute}` },
+      { name: article.meta.title, url: `/${article.meta.slug}` },
     ]),
   ];
 
