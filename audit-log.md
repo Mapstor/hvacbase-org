@@ -15,6 +15,24 @@ Verification: [pending / ✅ date + details / ❌ date + what failed]
 
 <!-- New entries append below this line -->
 
+## 2026-05-11 — Unified Calculator Design System (all 31 calculators redesigned)
+Fixed:
+- All 31 calculator components redesigned with a unified design language
+- New shared primitives library (components/calculators/_shared.tsx)
+- Section-based layouts, card choosers, segmented controls, range sliders, info tooltips
+- Live result hero cards with fit badges + side stats panels
+- Per-factor calculation breakdown tables
+- 5-color accent system (orange/blue/purple/emerald/red) per calculator category
+- Locale-explicit fmt()/fmtMoney() eliminating SSR/CSR hydration mismatches
+- 14 MDX files updated to embed <CalcWrapper> where missing
+- Net code reduction: -3,200 lines despite added features
+Files:
+- components/calculators/_shared.tsx (new, ~600 lines design system)
+- components/calculators/*.tsx (all 31 calculators rewritten)
+- 14 content/*.mdx files (CalcWrapper embeds added)
+Commit: b3fba92
+Verification: ✅ 2026-05-11 — Deployment dpl_niybwo1rh, all 31 calc URLs on www.hvacbase.org verified rendering new design with Googlebot UA. Etag changed from 4ab9b3fd... → 1a066f45... confirming new build. Mobile UA test on /furnace-sizing-calculator showed 5 section headers, tabular-nums alignment, 9 overflow-x-auto table wrappers, info tooltips. All 8 hub pages and sample article pages returned 200 (no regressions). 376 static pages built, 87.9 kB First Load JS unchanged.
+
 ## 2026-05-11 — Missing Calculator Widgets + Mobile Table Overflow
 Fixed:
 - 3 MDX pages had calculator H2/intro promising a tool but never included `<CalcWrapper>` tag — only static text rendered.
