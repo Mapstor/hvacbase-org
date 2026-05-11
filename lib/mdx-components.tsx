@@ -194,7 +194,11 @@ export const mdxComponents = {
   ),
   code: (props: any) => <code className="bg-gray-100 rounded px-1 py-0.5 text-sm" {...props} />,
   pre: (props: any) => <pre className="bg-gray-100 rounded p-4 overflow-x-auto my-4" {...props} />,
-  table: (props: any) => <table className="min-w-full divide-y divide-gray-200 my-6" {...props} />,
+  table: (props: any) => (
+    <div className="overflow-x-auto my-6">
+      <table className="min-w-full divide-y divide-gray-200" {...props} />
+    </div>
+  ),
   thead: (props: any) => <thead className="bg-gray-50" {...props} />,
   tbody: (props: any) => <tbody className="bg-white divide-y divide-gray-200" {...props} />,
   th: (props: any) => (
