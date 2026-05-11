@@ -1,379 +1,272 @@
 'use client';
 
-import { useState } from 'react';
-import { DollarSign, MapPin, Droplets, TrendingUp } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  DollarSign,
+  MapPin,
+  Droplets,
+  TrendingUp,
+  Users,
+  Flame,
+} from 'lucide-react';
+import {
+  fmt,
+  fmtMoney,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  Segmented,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+} from './_shared';
 
-// State electricity rates (cents/kWh) - 2024 data
+const ACCENT = 'red' as const;
+
 const stateRates: Record<string, { rate: number; name: string }> = {
-  'AL': { rate: 14.91, name: 'Alabama' },
-  'AK': { rate: 24.42, name: 'Alaska' },
-  'AZ': { rate: 13.73, name: 'Arizona' },
-  'AR': { rate: 12.82, name: 'Arkansas' },
-  'CA': { rate: 29.45, name: 'California' },
-  'CO': { rate: 14.87, name: 'Colorado' },
-  'CT': { rate: 25.49, name: 'Connecticut' },
-  'DE': { rate: 14.05, name: 'Delaware' },
-  'FL': { rate: 13.85, name: 'Florida' },
-  'GA': { rate: 13.73, name: 'Georgia' },
-  'HI': { rate: 44.19, name: 'Hawaii' },
-  'ID': { rate: 11.34, name: 'Idaho' },
-  'IL': { rate: 15.83, name: 'Illinois' },
-  'IN': { rate: 14.79, name: 'Indiana' },
-  'IA': { rate: 13.81, name: 'Iowa' },
-  'KS': { rate: 14.33, name: 'Kansas' },
-  'KY': { rate: 12.82, name: 'Kentucky' },
-  'LA': { rate: 12.15, name: 'Louisiana' },
-  'ME': { rate: 22.87, name: 'Maine' },
-  'MD': { rate: 14.48, name: 'Maryland' },
-  'MA': { rate: 25.21, name: 'Massachusetts' },
-  'MI': { rate: 17.72, name: 'Michigan' },
-  'MN': { rate: 14.36, name: 'Minnesota' },
-  'MS': { rate: 13.15, name: 'Mississippi' },
-  'MO': { rate: 13.53, name: 'Missouri' },
-  'MT': { rate: 12.70, name: 'Montana' },
-  'NE': { rate: 12.07, name: 'Nebraska' },
-  'NV': { rate: 12.54, name: 'Nevada' },
-  'NH': { rate: 23.15, name: 'New Hampshire' },
-  'NJ': { rate: 16.84, name: 'New Jersey' },
-  'NM': { rate: 14.37, name: 'New Mexico' },
-  'NY': { rate: 21.88, name: 'New York' },
-  'NC': { rate: 12.44, name: 'North Carolina' },
-  'ND': { rate: 11.66, name: 'North Dakota' },
-  'OH': { rate: 14.22, name: 'Ohio' },
-  'OK': { rate: 12.49, name: 'Oklahoma' },
-  'OR': { rate: 12.16, name: 'Oregon' },
-  'PA': { rate: 16.42, name: 'Pennsylvania' },
-  'RI': { rate: 25.27, name: 'Rhode Island' },
-  'SC': { rate: 13.70, name: 'South Carolina' },
-  'SD': { rate: 13.04, name: 'South Dakota' },
-  'TN': { rate: 12.51, name: 'Tennessee' },
-  'TX': { rate: 13.30, name: 'Texas' },
-  'UT': { rate: 11.23, name: 'Utah' },
-  'VT': { rate: 20.24, name: 'Vermont' },
-  'VA': { rate: 13.52, name: 'Virginia' },
-  'WA': { rate: 11.38, name: 'Washington' },
-  'WV': { rate: 13.72, name: 'West Virginia' },
-  'WI': { rate: 15.69, name: 'Wisconsin' },
-  'WY': { rate: 11.55, name: 'Wyoming' }
+  AL: { rate: 14.91, name: 'Alabama' }, AK: { rate: 24.42, name: 'Alaska' }, AZ: { rate: 13.73, name: 'Arizona' },
+  AR: { rate: 12.82, name: 'Arkansas' }, CA: { rate: 29.45, name: 'California' }, CO: { rate: 14.87, name: 'Colorado' },
+  CT: { rate: 25.49, name: 'Connecticut' }, DE: { rate: 14.05, name: 'Delaware' }, FL: { rate: 13.85, name: 'Florida' },
+  GA: { rate: 13.73, name: 'Georgia' }, HI: { rate: 44.19, name: 'Hawaii' }, ID: { rate: 11.34, name: 'Idaho' },
+  IL: { rate: 15.83, name: 'Illinois' }, IN: { rate: 14.79, name: 'Indiana' }, IA: { rate: 13.81, name: 'Iowa' },
+  KS: { rate: 14.33, name: 'Kansas' }, KY: { rate: 12.82, name: 'Kentucky' }, LA: { rate: 12.15, name: 'Louisiana' },
+  ME: { rate: 22.87, name: 'Maine' }, MD: { rate: 14.48, name: 'Maryland' }, MA: { rate: 25.21, name: 'Massachusetts' },
+  MI: { rate: 17.72, name: 'Michigan' }, MN: { rate: 14.36, name: 'Minnesota' }, MS: { rate: 13.15, name: 'Mississippi' },
+  MO: { rate: 13.53, name: 'Missouri' }, MT: { rate: 12.70, name: 'Montana' }, NE: { rate: 12.07, name: 'Nebraska' },
+  NV: { rate: 12.54, name: 'Nevada' }, NH: { rate: 23.15, name: 'New Hampshire' }, NJ: { rate: 16.84, name: 'New Jersey' },
+  NM: { rate: 14.37, name: 'New Mexico' }, NY: { rate: 21.88, name: 'New York' }, NC: { rate: 12.44, name: 'North Carolina' },
+  ND: { rate: 11.66, name: 'North Dakota' }, OH: { rate: 14.22, name: 'Ohio' }, OK: { rate: 12.49, name: 'Oklahoma' },
+  OR: { rate: 12.16, name: 'Oregon' }, PA: { rate: 16.42, name: 'Pennsylvania' }, RI: { rate: 25.27, name: 'Rhode Island' },
+  SC: { rate: 13.70, name: 'South Carolina' }, SD: { rate: 13.04, name: 'South Dakota' }, TN: { rate: 12.51, name: 'Tennessee' },
+  TX: { rate: 13.30, name: 'Texas' }, UT: { rate: 11.23, name: 'Utah' }, VT: { rate: 20.24, name: 'Vermont' },
+  VA: { rate: 13.52, name: 'Virginia' }, WA: { rate: 11.38, name: 'Washington' }, WV: { rate: 13.72, name: 'West Virginia' },
+  WI: { rate: 15.69, name: 'Wisconsin' }, WY: { rate: 11.55, name: 'Wyoming' },
 };
 
-interface HeaterSpecs {
-  type: string;
-  capacity: number;
-  watts: number;
-  efficiency: number;
-  standbyLoss: number; // kWh/day
-}
+const heaterTypes = [
+  { value: 'tank-40', name: '40-gal tank', summary: '4.5kW resistive', watts: 4500, efficiency: 0.90, standbyLoss: 1.2, capacity: 40 },
+  { value: 'tank-50', name: '50-gal tank', summary: '4.5kW resistive', watts: 4500, efficiency: 0.90, standbyLoss: 1.4, capacity: 50 },
+  { value: 'tank-80', name: '80-gal tank', summary: '4.5kW resistive', watts: 4500, efficiency: 0.90, standbyLoss: 1.8, capacity: 80 },
+  { value: 'heat-pump', name: 'Heat pump (50 gal)', summary: '3.5 COP — 3× efficient', watts: 2000, efficiency: 3.5, standbyLoss: 0.5, capacity: 50 },
+  { value: 'tankless', name: 'Tankless electric', summary: '18kW on demand', watts: 18000, efficiency: 0.98, standbyLoss: 0, capacity: 999 },
+];
 
-const heaterTypes: Record<string, HeaterSpecs> = {
-  'tank-40': {
-    type: '40 Gallon Tank',
-    capacity: 40,
-    watts: 4500,
-    efficiency: 0.90,
-    standbyLoss: 1.2
-  },
-  'tank-50': {
-    type: '50 Gallon Tank',
-    capacity: 50,
-    watts: 4500,
-    efficiency: 0.90,
-    standbyLoss: 1.4
-  },
-  'tank-80': {
-    type: '80 Gallon Tank',
-    capacity: 80,
-    watts: 4500,
-    efficiency: 0.90,
-    standbyLoss: 1.8
-  },
-  'heat-pump': {
-    type: 'Heat Pump (50 gal)',
-    capacity: 50,
-    watts: 2000,
-    efficiency: 3.5, // COP
-    standbyLoss: 0.5
-  },
-  'tankless': {
-    type: 'Tankless Electric',
-    capacity: 999,
-    watts: 18000,
-    efficiency: 0.98,
-    standbyLoss: 0
-  }
-};
+const householdOptions = [
+  { value: '1', name: '1 person', sub: '~15 gal/day' },
+  { value: '2', name: '2 people', sub: '~30 gal/day' },
+  { value: '3', name: '3 people', sub: '~60 gal/day' },
+  { value: '4', name: '4 people', sub: '~80 gal/day' },
+  { value: '5', name: '5 people', sub: '~100 gal/day' },
+  { value: '6', name: '6+ people', sub: '~120+ gal/day' },
+];
+
+const usageOptions = [
+  { value: 'low', name: 'Low', sub: 'Quick showers, conservative' },
+  { value: 'average', name: 'Average', sub: 'Typical use' },
+  { value: 'high', name: 'High', sub: 'Long showers + lots of laundry' },
+];
 
 export default function WaterHeatingCostCalculator() {
   const [state, setState] = useState('CA');
   const [heaterType, setHeaterType] = useState('tank-50');
   const [householdSize, setHouseholdSize] = useState('3');
   const [usage, setUsage] = useState('average');
-  const [results, setResults] = useState<any>(null);
 
-  const calculateCost = () => {
-    const stateData = stateRates[state];
-    const heater = heaterTypes[heaterType];
-    const people = parseInt(householdSize);
-    const rate = stateData.rate / 100; // Convert to dollars
+  const stateData = stateRates[state];
+  const heater = heaterTypes.find((h) => h.value === heaterType)!;
+  const people = parseInt(householdSize);
 
-    // Gallons per day based on household and usage
-    let gallonsPerDay = people * 20; // Base usage
+  const calc = useMemo(() => {
+    const rate = stateData.rate / 100;
+    let gallonsPerDay = people * 20;
     if (usage === 'low') gallonsPerDay *= 0.75;
     else if (usage === 'high') gallonsPerDay *= 1.5;
-
-    // Energy to heat water (BTU)
-    const tempRise = 70; // 50°F to 120°F
+    const tempRise = 70;
     const btuPerDay = gallonsPerDay * 8.34 * tempRise;
     const kwhPerDay = btuPerDay / 3412;
-
-    // Actual energy used (accounting for efficiency)
-    let actualKwhPerDay: number;
-    if (heater.type.includes('Heat Pump')) {
-      actualKwhPerDay = kwhPerDay / heater.efficiency; // COP
-    } else {
-      actualKwhPerDay = kwhPerDay / heater.efficiency;
-    }
-
-    // Add standby losses
-    actualKwhPerDay += heater.standbyLoss;
-
-    // Calculate costs
+    const actualKwhPerDay = (kwhPerDay / heater.efficiency) + heater.standbyLoss;
     const dailyCost = actualKwhPerDay * rate;
     const monthlyCost = dailyCost * 30.4;
     const annualCost = dailyCost * 365;
-
-    // Compare to other states
-    const nationalAvg = Object.values(stateRates).reduce((sum, s) => sum + s.rate, 0) / Object.keys(stateRates).length;
-    const cheapestState = Object.entries(stateRates).reduce((min, [key, val]) => 
-      val.rate < min[1].rate ? [key, val] : min
-    );
-    const mostExpensiveState = Object.entries(stateRates).reduce((max, [key, val]) => 
-      val.rate > max[1].rate ? [key, val] : max
-    );
-
-    // Savings calculations
-    const tankCost = heaterType.includes('tank') ? annualCost : 
-      (kwhPerDay / 0.90 + 1.4) * rate * 365; // Standard tank baseline
+    const annualKwh = actualKwhPerDay * 365;
+    const tankCost = heaterType === 'heat-pump' ? (kwhPerDay / 0.90 + 1.4) * rate * 365 : annualCost;
     const heatPumpCost = (kwhPerDay / 3.5 + 0.5) * rate * 365;
     const heatPumpSavings = tankCost - heatPumpCost;
+    const heatPumpPayback = heatPumpSavings > 0 ? 1500 / heatPumpSavings : 0;
+    const allRates = Object.values(stateRates);
+    const nationalAvg = allRates.reduce((s, x) => s + x.rate, 0) / allRates.length;
+    const cheapestEntry = Object.entries(stateRates).reduce((min, [k, v]) => v.rate < min[1].rate ? [k, v] as [string, typeof v] : min);
+    const mostExpensiveEntry = Object.entries(stateRates).reduce((max, [k, v]) => v.rate > max[1].rate ? [k, v] as [string, typeof v] : max);
+    const cheapestSavings = annualCost - (actualKwhPerDay * 365 * cheapestEntry[1].rate / 100);
+    const mostExpensiveExtra = (actualKwhPerDay * 365 * mostExpensiveEntry[1].rate / 100) - annualCost;
+    return { rate, gallonsPerDay, kwhPerDay, actualKwhPerDay, dailyCost, monthlyCost, annualCost, annualKwh, tankCost, heatPumpCost, heatPumpSavings, heatPumpPayback, nationalAvg, cheapestEntry, mostExpensiveEntry, cheapestSavings, mostExpensiveExtra };
+  }, [stateData, heater, people, usage, heaterType]);
 
-    setResults({
-      stateData,
-      heater,
-      gallonsPerDay,
-      kwhPerDay,
-      actualKwhPerDay,
-      dailyCost,
-      monthlyCost,
-      annualCost,
-      nationalAvg,
-      cheapestState,
-      mostExpensiveState,
-      heatPumpSavings,
-      rate,
-      people
-    });
-  };
+  const fit =
+    calc.annualCost < 200 ? { tone: 'good' as const, text: 'Low cost — efficient setup or low usage' } :
+    calc.annualCost < 500 ? { tone: 'ok' as const, text: 'Typical annual cost' } :
+    calc.annualCost < 800 ? { tone: 'warn' as const, text: 'High — explore heat pump or solar' } :
+                            { tone: 'bad' as const, text: 'Very high — major savings available' };
+
+  const sortedStates = Object.entries(stateRates).sort((a, b) => a[1].name.localeCompare(b[1].name));
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-blue-100 p-3 rounded-lg">
-          <Droplets className="w-6 h-6 text-blue-600" />
-        </div>
+    <CalcShell
+      Icon={Droplets}
+      title="State Water Heating Cost Calculator"
+      subtitle="Annual electric water-heating cost using your state's actual rate. Updates live."
+      accent={ACCENT}
+    >
+      <section>
+        <SectionHeader step={1} title="Your state" subtitle="Determines your electric rate" Icon={MapPin} accent={ACCENT} />
+
         <div>
-          <h3 className="text-xl font-semibold text-gray-900">State-Specific Water Heating Cost Calculator</h3>
-          <p className="text-sm text-gray-600">Calculate your electric water heating costs based on your state's rates</p>
+          <label className="text-sm font-medium text-gray-700 mb-2 block">Pick state</label>
+          <select
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          >
+            {sortedStates.map(([code, data]) => (
+              <option key={code} value={code}>{data.name} — {data.rate}¢/kWh</option>
+            ))}
+          </select>
+          <p className="text-xs text-gray-500 mt-1.5">
+            <span className="font-semibold text-gray-800">{stateData.name}:</span> {stateData.rate}¢/kWh
+            {stateData.rate > calc.nationalAvg + 3 && ' — above national average'}
+            {stateData.rate < calc.nationalAvg - 3 && ' — below national average'}
+            {' '}(national avg: {calc.nationalAvg.toFixed(1)}¢/kWh)
+          </p>
         </div>
-      </div>
+      </section>
 
-      <div className="space-y-4">
-        <div className="grid md:grid-cols-2 gap-4">
+      <section>
+        <SectionHeader step={2} title="Heater type" subtitle="Tank, tankless, or heat pump" Icon={Flame} accent={ACCENT} />
+        <CardChoice value={heaterType} onChange={setHeaterType} options={heaterTypes} ariaLabel="Heater type" accent={ACCENT} columns={3} />
+      </section>
+
+      <section>
+        <SectionHeader step={3} title="Household" subtitle="Size + use pattern" Icon={Users} accent={ACCENT} />
+        <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Your State
-            </label>
-            <select
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              {Object.entries(stateRates)
-                .sort((a, b) => a[1].name.localeCompare(b[1].name))
-                .map(([code, data]) => (
-                  <option key={code} value={code}>
-                    {data.name} ({data.rate}¢/kWh)
-                  </option>
-                ))}
-            </select>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Household size</label>
+            <Segmented value={householdSize} onChange={setHouseholdSize} options={householdOptions} ariaLabel="Household size" accent={ACCENT} />
           </div>
-
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Water Heater Type
-            </label>
-            <select
-              value={heaterType}
-              onChange={(e) => setHeaterType(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              {Object.entries(heaterTypes).map(([key, data]) => (
-                <option key={key} value={key}>{data.type}</option>
-              ))}
-            </select>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Hot water usage</label>
+            <CardChoice value={usage} onChange={setUsage} options={usageOptions} ariaLabel="Usage" accent={ACCENT} columns={3} />
           </div>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Household Size
-            </label>
-            <select
-              value={householdSize}
-              onChange={(e) => setHouseholdSize(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="1">1 Person</option>
-              <option value="2">2 People</option>
-              <option value="3">3 People</option>
-              <option value="4">4 People</option>
-              <option value="5">5 People</option>
-              <option value="6">6+ People</option>
-            </select>
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Annual water-heating cost"
+          value={`$${fmtMoney(calc.annualCost)}`}
+          unit={`/yr (${fmt(Math.round(calc.annualKwh))} kWh)`}
+          secondaryText={
+            <>
+              In {stateData.name} at {stateData.rate}¢/kWh, your {heater.name.toLowerCase()} heats <strong>{fmt(Math.round(calc.gallonsPerDay))} gallons/day</strong> for {people} {people === 1 ? 'person' : 'people'}.
+              Monthly cost: <strong>${fmtMoney(calc.monthlyCost)}</strong> · Daily: <strong>${calc.dailyCost.toFixed(2)}</strong>.
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Per day', value: `$${calc.dailyCost.toFixed(2)}` },
+            { label: 'Per month', value: `$${fmtMoney(calc.monthlyCost)}` },
+            { label: 'kWh/day', value: `${calc.actualKwhPerDay.toFixed(1)}` },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Droplets className="w-4 h-4 text-red-600" />
+              Energy + cost breakdown
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Gallons/day', detail: `${people} × ${usage === 'low' ? 15 : usage === 'high' ? 30 : 20}`, factor: `${fmt(Math.round(calc.gallonsPerDay))} gal` },
+                { label: 'Temp rise', detail: '50°F → 120°F', factor: '70°F' },
+                { label: 'Energy to heat', detail: `gal × 8.34 lb × 70°F ÷ 3412`, factor: `${calc.kwhPerDay.toFixed(1)} kWh` },
+                { label: 'Efficiency factor', detail: heater.name, factor: `÷ ${heater.efficiency}${heater.efficiency >= 1 ? ' (COP)' : ''}` },
+                { label: 'Standby loss', detail: 'Heat radiated from tank', factor: `+ ${heater.standbyLoss} kWh/day` },
+              ]}
+              totals={[
+                { label: 'Actual daily', value: `${calc.actualKwhPerDay.toFixed(1)} kWh`, valueClass: 'text-red-700' },
+                { label: 'Annual cost', value: `$${fmtMoney(calc.annualCost)}`, valueClass: 'text-red-700' },
+              ]}
+            />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Hot Water Usage
-            </label>
-            <select
-              value={usage}
-              onChange={(e) => setUsage(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="low">Low (Quick showers)</option>
-              <option value="average">Average</option>
-              <option value="high">High (Long showers, frequent laundry)</option>
-            </select>
-          </div>
-        </div>
-
-        <button
-          onClick={calculateCost}
-          className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium"
-        >
-          Calculate Cost
-        </button>
-      </div>
-
-      {results && (
-        <div className="mt-6 space-y-6">
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="w-5 h-5 text-blue-600" />
-              <h4 className="font-semibold text-blue-900">Your Annual Cost: ${results.annualCost.toFixed(0)}</h4>
-            </div>
-            <p className="text-sm text-blue-700">
-              In {results.stateData.name}, your {results.heater.type.toLowerCase()} water heater costs ${results.monthlyCost.toFixed(2)}/month 
-              to heat {results.gallonsPerDay.toFixed(0)} gallons daily for {results.people} {results.people === 1 ? 'person' : 'people'}.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h5 className="font-semibold text-gray-900 mb-2">Daily Breakdown</h5>
-              <div className="space-y-1 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Gallons heated:</span>
-                  <span className="font-medium">{results.gallonsPerDay.toFixed(0)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Energy used:</span>
-                  <span className="font-medium">{results.actualKwhPerDay.toFixed(1)} kWh</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Daily cost:</span>
-                  <span className="font-medium">${results.dailyCost.toFixed(2)}</span>
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <MapPin className="w-4 h-4 text-red-600" />
+              State comparison
+            </h4>
+            <div className="space-y-2">
+              <div className="p-3 bg-red-50 rounded-lg">
+                <div className="flex justify-between items-baseline">
+                  <div>
+                    <div className="font-semibold text-red-900 text-sm">Your state: {stateData.name}</div>
+                    <div className="text-[11px] text-red-700">{stateData.rate}¢/kWh</div>
+                  </div>
+                  <div className="font-bold text-red-700 tabular-nums">${fmtMoney(calc.annualCost)}/yr</div>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h5 className="font-semibold text-gray-900 mb-2">Monthly Cost</h5>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-gray-900">${results.monthlyCost.toFixed(0)}</p>
-                <p className="text-sm text-gray-600 mt-1">
-                  {results.actualKwhPerDay.toFixed(0) * 30} kWh/month
-                </p>
+              <div className="p-3 bg-emerald-50 rounded-lg">
+                <div className="flex justify-between items-baseline">
+                  <div>
+                    <div className="font-semibold text-emerald-900 text-sm">Cheapest: {calc.cheapestEntry[1].name}</div>
+                    <div className="text-[11px] text-emerald-700">{calc.cheapestEntry[1].rate}¢/kWh</div>
+                  </div>
+                  <div className="font-bold text-emerald-700 tabular-nums">−${fmtMoney(calc.cheapestSavings)}/yr</div>
+                </div>
               </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h5 className="font-semibold text-gray-900 mb-2">Annual Cost</h5>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-gray-900">${results.annualCost.toFixed(0)}</p>
-                <p className="text-sm text-gray-600 mt-1">
-                  {(results.actualKwhPerDay * 365).toFixed(0)} kWh/year
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-green-50 rounded-lg p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <MapPin className="w-5 h-5 text-green-600" />
-              <h4 className="font-semibold text-green-900">State Comparison</h4>
-            </div>
-            <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div>
-                <span className="text-green-700">Your State:</span>
-                <p className="font-bold text-green-900">{results.stateData.name}</p>
-                <p className="text-green-600">{results.stateData.rate}¢/kWh</p>
-              </div>
-              <div>
-                <span className="text-green-700">Cheapest State:</span>
-                <p className="font-bold text-green-900">{results.cheapestState[1].name}</p>
-                <p className="text-green-600">{results.cheapestState[1].rate}¢/kWh</p>
-                <p className="text-xs">Would save ${(results.annualCost - (results.actualKwhPerDay * 365 * results.cheapestState[1].rate / 100)).toFixed(0)}/yr</p>
-              </div>
-              <div>
-                <span className="text-green-700">Most Expensive:</span>
-                <p className="font-bold text-green-900">{results.mostExpensiveState[1].name}</p>
-                <p className="text-green-600">{results.mostExpensiveState[1].rate}¢/kWh</p>
-                <p className="text-xs">Would cost ${((results.actualKwhPerDay * 365 * results.mostExpensiveState[1].rate / 100) - results.annualCost).toFixed(0)} more/yr</p>
+              <div className="p-3 bg-amber-50 rounded-lg">
+                <div className="flex justify-between items-baseline">
+                  <div>
+                    <div className="font-semibold text-amber-900 text-sm">Most expensive: {calc.mostExpensiveEntry[1].name}</div>
+                    <div className="text-[11px] text-amber-700">{calc.mostExpensiveEntry[1].rate}¢/kWh</div>
+                  </div>
+                  <div className="font-bold text-amber-700 tabular-nums">+${fmtMoney(calc.mostExpensiveExtra)}/yr</div>
+                </div>
               </div>
             </div>
           </div>
 
-          {!heaterType.includes('heat-pump') && results.heatPumpSavings > 0 && (
-            <div className="bg-yellow-50 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <TrendingUp className="w-5 h-5 text-yellow-600" />
-                <h4 className="font-semibold text-yellow-900">Heat Pump Savings Potential</h4>
-              </div>
-              <p className="text-sm text-yellow-700">
-                Switching to a heat pump water heater would save approximately <span className="font-bold">${results.heatPumpSavings.toFixed(0)}/year</span> 
-                ({((results.heatPumpSavings / results.annualCost) * 100).toFixed(0)}% reduction). 
-                With {results.stateData.name}'s electricity rate of {results.stateData.rate}¢/kWh, 
-                a heat pump water heater would pay for itself in {(1500 / results.heatPumpSavings).toFixed(1)} years.
+          {heaterType !== 'heat-pump' && calc.heatPumpSavings > 0 && (
+            <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4 lg:col-span-2">
+              <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
+                <TrendingUp className="w-4 h-4 text-emerald-700" />
+                Heat pump water heater (HPWH) savings potential
+              </h4>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Switching to a heat pump water heater would save roughly <strong>${fmtMoney(calc.heatPumpSavings)}/yr</strong> ({((calc.heatPumpSavings / calc.annualCost) * 100).toFixed(0)}% reduction).
+                In {stateData.name} at {stateData.rate}¢/kWh, a $1,500 HPWH pays back in <strong>{calc.heatPumpPayback.toFixed(1)} years</strong>.
+                Federal tax credit (25C) covers up to $2,000 for ENERGY STAR HPWHs.
               </p>
             </div>
           )}
-
-          <div className="bg-amber-50 rounded-lg p-4">
-            <h4 className="font-semibold text-amber-900 mb-2">Cost Reduction Tips</h4>
-            <ul className="text-sm text-amber-700 space-y-1 list-disc list-inside">
-              <li>Lower temperature to 120°F (saves 3-5% per 10°F reduction)</li>
-              <li>Install low-flow showerheads (saves 25-60% on shower water)</li>
-              <li>Fix dripping faucets (1 drip/sec wastes 3,000 gallons/year)</li>
-              <li>Insulate hot water pipes (saves 2-4% annually)</li>
-              <li>Add tank insulation blanket for older units (saves 4-9%)</li>
-              {results.stateData.rate > 15 && <li className="font-bold">Consider solar or heat pump water heater in your high-rate state</li>}
-            </ul>
-          </div>
         </div>
-      )}
-    </div>
+
+        <DisclaimerBox title="Cost reduction levers (ranked by impact)">
+          <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li><strong>Heat pump water heater</strong> — saves 60–70% vs electric tank in most climates</li>
+            <li><strong>Lower temp to 120°F</strong> — saves 3–5% per 10°F reduction; reduces scalding risk</li>
+            <li><strong>Low-flow showerheads</strong> — 1.5 GPM vs 2.5 GPM saves 25–60% on shower water</li>
+            <li>Insulate hot pipes + tank blanket (older units) — saves 4–9%</li>
+            <li>Fix dripping faucets (1 drip/sec = 3,000 gallons wasted/year)</li>
+            <li>Solar pre-heat — uses thermal panels to warm cold incoming water before the electric heater finishes it</li>
+          </ul>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

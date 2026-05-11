@@ -1,27 +1,50 @@
 'use client';
 
-import { useState } from 'react';
-import { Calculator, Battery, Zap, Clock, TrendingUp, Gauge } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Battery,
+  Zap,
+  Clock,
+  TrendingUp,
+  Gauge,
+  Lightbulb,
+  Refrigerator,
+  Wind,
+} from 'lucide-react';
+import {
+  fmt,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  Segmented,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+} from './_shared';
 
-const commonLoads = [
-  { value: 'led-lights', name: 'LED Light Strip (5m)', watts: 24, description: '12V LED strip lighting' },
-  { value: 'car-fridge', name: '12V Car Fridge', watts: 45, description: 'Portable refrigerator' },
-  { value: 'fan', name: '12V Fan', watts: 15, description: 'Small DC cooling fan' },
-  { value: 'water-pump', name: 'Water Pump', watts: 60, description: '12V water circulation pump' },
-  { value: 'radio', name: 'CB/Ham Radio', watts: 25, description: 'Two-way radio equipment' },
-  { value: 'inverter-small', name: '300W Inverter Load', watts: 300, description: 'Small AC devices via inverter' },
-  { value: 'inverter-medium', name: '600W Inverter Load', watts: 600, description: 'Medium AC devices via inverter' },
-  { value: 'winch', name: '12V Winch', watts: 1200, description: 'Electric winch (peak load)' },
-  { value: 'custom', name: 'Custom Load', watts: 100, description: 'Enter custom wattage' }
-];
+const ACCENT = 'blue' as const;
 
 const batterySizes = [
-  { value: '35', name: '35Ah (Small)', type: 'Group 24' },
-  { value: '55', name: '55Ah (Medium)', type: 'Group 24F' },
-  { value: '75', name: '75Ah (Large)', type: 'Group 31' },
-  { value: '100', name: '100Ah (Deep Cycle)', type: 'Marine/RV' },
-  { value: '150', name: '150Ah (Large Deep Cycle)', type: 'Marine/RV' },
-  { value: '200', name: '200Ah (Extra Large)', type: 'Marine/RV' }
+  { value: '35', name: '35Ah', sub: 'Group 24' },
+  { value: '55', name: '55Ah', sub: 'Group 24F' },
+  { value: '75', name: '75Ah', sub: 'Group 31' },
+  { value: '100', name: '100Ah', sub: 'Deep cycle' },
+  { value: '150', name: '150Ah', sub: 'Large deep cycle' },
+  { value: '200', name: '200Ah', sub: 'Extra large' },
+];
+
+const commonLoads = [
+  { value: 'led-lights', name: 'LED strip (5m)', summary: '12V — 24W', watts: 24, Icon: Lightbulb },
+  { value: 'car-fridge', name: '12V fridge', summary: '12V — 45W', watts: 45, Icon: Refrigerator },
+  { value: 'fan', name: '12V fan', summary: '12V — 15W', watts: 15, Icon: Wind },
+  { value: 'water-pump', name: 'Water pump', summary: '12V — 60W', watts: 60, Icon: Wind },
+  { value: 'radio', name: 'CB / ham radio', summary: '12V — 25W', watts: 25, Icon: Wind },
+  { value: 'inverter-small', name: '300W inverter load', summary: 'AC via inverter', watts: 300, Icon: Zap },
+  { value: 'inverter-medium', name: '600W inverter load', summary: 'AC via inverter', watts: 600, Icon: Zap },
+  { value: 'winch', name: '12V winch (peak)', summary: '12V — 1200W surge', watts: 1200, Icon: Wind },
 ];
 
 export default function Battery12VWattsCalculator() {
@@ -32,374 +55,200 @@ export default function Battery12VWattsCalculator() {
   const [depthOfDischarge, setDepthOfDischarge] = useState('50');
   const [batteryEfficiency, setBatteryEfficiency] = useState('85');
   const [temperature, setTemperature] = useState('68');
-  const [calculated, setCalculated] = useState(false);
-  
-  // Get selected load data
-  const selectedLoad = commonLoads.find(l => l.value === loadType);
-  const loadWatts = loadType === 'custom' ? parseFloat(customWatts) : selectedLoad?.watts || 0;
-  
-  // Calculate current draw
-  const currentAmps = loadWatts / 12; // Ohm's law: I = P/V
-  
-  // Calculate usable capacity
-  const totalCapacity = parseFloat(batteryCapacity);
-  const usableCapacity = totalCapacity * (parseFloat(depthOfDischarge) / 100);
-  
-  // Temperature derating factor (approximation)
-  const tempF = parseFloat(temperature);
-  const tempDerating = tempF < 32 ? 0.7 : tempF < 50 ? 0.85 : tempF < 80 ? 1.0 : 0.95;
-  const adjustedCapacity = usableCapacity * tempDerating;
-  
-  // Calculate runtime
-  const runtimeHours = (adjustedCapacity * (parseFloat(batteryEfficiency) / 100)) / currentAmps;
-  const requestedHours = parseFloat(operatingHours);
-  const canMeetRequirement = runtimeHours >= requestedHours;
-  
-  // Calculate power consumption
-  const hourlyWattHours = loadWatts;
-  const dailyWattHours = hourlyWattHours * requestedHours;
-  const requiredBatteryCapacity = (dailyWattHours / 12) / (parseFloat(depthOfDischarge) / 100);
-  
-  // Voltage drop under load (simple approximation)
-  const voltageDropEstimate = currentAmps * 0.02; // Rough estimate based on internal resistance
-  const loadVoltage = 12 - voltageDropEstimate;
-  
-  // Charging calculations
-  const recommendedChargeRate = totalCapacity * 0.1; // 10% of capacity (C/10 rate)
-  const fastChargeRate = totalCapacity * 0.2; // 20% of capacity (C/5 rate)
-  const chargeTimeHours = (totalCapacity - adjustedCapacity) / recommendedChargeRate;
-  
-  // Wire size recommendation (very simplified)
-  const wireSize = currentAmps <= 10 ? '14 AWG' :
-                   currentAmps <= 15 ? '12 AWG' :
-                   currentAmps <= 20 ? '10 AWG' :
-                   currentAmps <= 30 ? '8 AWG' :
-                   currentAmps <= 50 ? '6 AWG' :
-                   currentAmps <= 75 ? '4 AWG' :
-                   currentAmps <= 100 ? '2 AWG' : '1 AWG+';
-  
-  // Fuse/breaker recommendation
-  const fuseRating = Math.ceil(currentAmps * 1.25); // 125% of load current
-  
-  // Battery bank configurations for higher capacity
-  const parallelBatteries = Math.ceil(requiredBatteryCapacity / totalCapacity);
+
+  const load = commonLoads.find((l) => l.value === loadType);
+  const isCustom = loadType === 'custom';
+  const loadWatts = isCustom ? Math.max(parseFloat(customWatts) || 0, 1) : load?.watts || 0;
+  const totalCapacity = Math.max(parseFloat(batteryCapacity) || 0, 1);
+  const requestedHours = Math.max(parseFloat(operatingHours) || 0, 0.1);
+  const dod = Math.min(Math.max(parseFloat(depthOfDischarge) || 50, 20), 100);
+  const battEff = Math.min(Math.max(parseFloat(batteryEfficiency) || 85, 50), 100);
+  const tempF = parseFloat(temperature) || 68;
+
+  const calc = useMemo(() => {
+    const currentAmps = loadWatts / 12;
+    const usableCapacity = totalCapacity * (dod / 100);
+    const tempDerating = tempF < 32 ? 0.7 : tempF < 50 ? 0.85 : tempF < 80 ? 1.0 : 0.95;
+    const adjustedCapacity = usableCapacity * tempDerating;
+    const runtimeHours = currentAmps > 0 ? (adjustedCapacity * (battEff / 100)) / currentAmps : 0;
+    const canMeet = runtimeHours >= requestedHours;
+    const dailyWh = loadWatts * requestedHours;
+    const requiredBatteryCapacity = (dailyWh / 12) / (dod / 100);
+    const voltageDropEstimate = currentAmps * 0.02;
+    const loadVoltage = 12 - voltageDropEstimate;
+    const recommendedChargeRate = totalCapacity * 0.1;
+    const chargeTimeHours = recommendedChargeRate > 0 ? (totalCapacity - adjustedCapacity) / recommendedChargeRate : 0;
+    const wireSize = currentAmps <= 10 ? '14 AWG' : currentAmps <= 15 ? '12 AWG' : currentAmps <= 20 ? '10 AWG'
+      : currentAmps <= 30 ? '8 AWG' : currentAmps <= 50 ? '6 AWG' : currentAmps <= 75 ? '4 AWG'
+      : currentAmps <= 100 ? '2 AWG' : '1 AWG+';
+    const fuseRating = Math.ceil(currentAmps * 1.25);
+    const parallelBatteries = Math.max(1, Math.ceil(requiredBatteryCapacity / totalCapacity));
+    return { currentAmps, usableCapacity, tempDerating, adjustedCapacity, runtimeHours, canMeet, dailyWh, requiredBatteryCapacity, voltageDropEstimate, loadVoltage, recommendedChargeRate, chargeTimeHours, wireSize, fuseRating, parallelBatteries };
+  }, [loadWatts, totalCapacity, requestedHours, dod, battEff, tempF]);
+
+  const fit =
+    !calc.canMeet ? { tone: 'bad' as const, text: `Need ${calc.parallelBatteries}× battery in parallel for ${requestedHours} hr` } :
+    calc.runtimeHours >= requestedHours * 2 ? { tone: 'good' as const, text: 'Excellent reserve — 2× your need' } :
+    { tone: 'good' as const, text: 'Battery covers requested runtime' };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-blue-100 p-3 rounded-lg">
-          <Calculator className="w-6 h-6 text-blue-700" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">12V Battery Watts Calculator</h2>
-          <p className="text-sm text-gray-600">Calculate 12V DC system power requirements and battery runtime</p>
-        </div>
-      </div>
-      
-      {/* Input Section */}
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-4">
+    <CalcShell
+      Icon={Battery}
+      title="12V Battery Watts Calculator"
+      subtitle="Runtime + circuit sizing for 12V DC systems. Updates live."
+      accent={ACCENT}
+    >
+      <section>
+        <SectionHeader step={1} title="Battery & load" subtitle="What you've got + what you're running" Icon={Battery} accent={ACCENT} />
+        <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Battery Capacity
-            </label>
-            <select
-              value={batteryCapacity}
-              onChange={(e) => setBatteryCapacity(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              {batterySizes.map(battery => (
-                <option key={battery.value} value={battery.value}>
-                  {battery.name} - {battery.type}
-                </option>
-              ))}
-            </select>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Battery capacity</label>
+            <Segmented value={batteryCapacity} onChange={setBatteryCapacity} options={batterySizes} ariaLabel="Battery capacity" accent={ACCENT} />
           </div>
-          
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Load Type
-            </label>
-            <select
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Load type</label>
+            <CardChoice
               value={loadType}
-              onChange={(e) => setLoadType(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              {commonLoads.map(load => (
-                <option key={load.value} value={load.value}>
-                  {load.name} ({load.watts}W)
-                </option>
-              ))}
-            </select>
-            <p className="text-xs text-gray-500 mt-1">{selectedLoad?.description}</p>
+              onChange={setLoadType}
+              options={[
+                ...commonLoads.map(({ value, name, summary, Icon }) => ({ value, name, summary, Icon })),
+                { value: 'custom', name: 'Custom', summary: 'Enter watts' },
+              ]}
+              ariaLabel="Load type"
+              accent={ACCENT}
+              columns={3}
+            />
           </div>
-          
-          {loadType === 'custom' && (
+          {isCustom && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Custom Load (Watts)
-              </label>
-              <input
-                type="number"
-                value={customWatts}
-                onChange={(e) => setCustomWatts(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="100"
-                min="1"
-                max="2000"
-              />
-            </div>
-          )}
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Operating Hours per Day
-            </label>
-            <input
-              type="number"
-              value={operatingHours}
-              onChange={(e) => setOperatingHours(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="4"
-              min="0.1"
-              max="24"
-              step="0.1"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Depth of Discharge (%)
-            </label>
-            <input
-              type="number"
-              value={depthOfDischarge}
-              onChange={(e) => setDepthOfDischarge(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="50"
-              min="20"
-              max="80"
-            />
-            <p className="text-xs text-gray-500 mt-1">50% recommended for lead-acid</p>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Battery Efficiency (%)
-            </label>
-            <input
-              type="number"
-              value={batteryEfficiency}
-              onChange={(e) => setBatteryEfficiency(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="85"
-              min="70"
-              max="95"
-            />
-            <p className="text-xs text-gray-500 mt-1">Includes system losses</p>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Operating Temperature (°F)
-            </label>
-            <input
-              type="number"
-              value={temperature}
-              onChange={(e) => setTemperature(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="68"
-              min="0"
-              max="120"
-            />
-            <p className="text-xs text-gray-500 mt-1">Battery capacity varies with temperature</p>
-          </div>
-        </div>
-        
-        {/* Calculate Button */}
-        <button
-          onClick={() => setCalculated(true)}
-          className="w-full md:w-auto md:mx-auto md:px-12 bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-        >
-          <Calculator className="w-5 h-5" />
-          Calculate 12V System
-        </button>
-      </div>
-      
-      {/* Results Section - Only show after calculation */}
-      {calculated && (
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <h3 className="text-xl font-bold text-gray-800 mb-6">12V System Analysis</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-            {/* Current Draw */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
-              <div className="text-center space-y-2">
-                <Zap className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Current Draw</p>
-                <p className="text-3xl font-bold text-blue-600">
-                  {currentAmps.toFixed(1)}
-                </p>
-                <p className="text-lg font-medium text-gray-700">Amps</p>
-                <div className="pt-2 border-t border-blue-200 mt-4">
-                  <p className="text-sm text-gray-600">{loadWatts}W load</p>
-                  <p className="text-sm text-gray-600">@ {loadVoltage.toFixed(1)}V under load</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Runtime */}
-            <div className={`bg-gradient-to-br rounded-lg p-6 border ${
-              canMeetRequirement 
-                ? 'from-green-50 to-emerald-50 border-green-200' 
-                : 'from-red-50 to-pink-50 border-red-200'
-            }`}>
-              <div className="text-center space-y-2">
-                <Clock className={`w-8 h-8 mx-auto mb-2 ${
-                  canMeetRequirement ? 'text-green-600' : 'text-red-600'
-                }`} />
-                <p className="text-sm text-gray-600">Maximum Runtime</p>
-                <p className={`text-3xl font-bold ${
-                  canMeetRequirement ? 'text-green-600' : 'text-red-600'
-                }`}>
-                  {runtimeHours.toFixed(1)}
-                </p>
-                <p className="text-lg font-medium text-gray-700">hours</p>
-                <div className={`pt-2 border-t mt-4 ${
-                  canMeetRequirement ? 'border-green-200' : 'border-red-200'
-                }`}>
-                  <p className="text-sm text-gray-600">Requested: {requestedHours} hrs</p>
-                  <p className={`text-sm ${canMeetRequirement ? 'text-green-600' : 'text-red-600'}`}>
-                    {canMeetRequirement ? '✓ Sufficient' : '✗ Insufficient'}
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Battery Status */}
-            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-6 border border-yellow-200">
-              <div className="text-center space-y-2">
-                <Battery className="w-8 h-8 text-yellow-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Usable Capacity</p>
-                <p className="text-3xl font-bold text-yellow-600">
-                  {adjustedCapacity.toFixed(0)}
-                </p>
-                <p className="text-lg font-medium text-gray-700">Ah</p>
-                <div className="pt-2 border-t border-yellow-200 mt-4">
-                  <p className="text-sm text-gray-600">Total: {totalCapacity}Ah</p>
-                  <p className="text-sm text-gray-600">{depthOfDischarge}% DOD limit</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Power Requirements */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h4 className="font-medium text-gray-700 mb-3">Daily Power Requirements</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Hourly consumption:</span>
-                  <span className="font-medium">{hourlyWattHours} Wh</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Daily consumption:</span>
-                  <span className="font-medium">{dailyWattHours} Wh</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Daily amp-hours:</span>
-                  <span className="font-medium">{(dailyWattHours/12).toFixed(1)} Ah</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Required capacity:</span>
-                  <span className="font-medium">{requiredBatteryCapacity.toFixed(0)} Ah</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* System Components */}
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-              <h4 className="font-medium text-purple-900 mb-2 flex items-center gap-2">
-                <Gauge className="w-4 h-4" />
-                Recommended Components
-              </h4>
-              <div className="space-y-2 text-sm text-purple-800">
-                <div className="flex justify-between">
-                  <span>Wire size:</span>
-                  <span className="font-medium">{wireSize}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Fuse/breaker:</span>
-                  <span className="font-medium">{fuseRating}A</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Charge rate:</span>
-                  <span className="font-medium">{recommendedChargeRate.toFixed(1)}A</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Charge time:</span>
-                  <span className="font-medium">{chargeTimeHours.toFixed(1)} hrs</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Temperature Effects */}
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-              <h4 className="font-medium text-orange-900 mb-2 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4" />
-                Temperature Impact
-              </h4>
-              <div className="space-y-2 text-sm text-orange-800">
-                <div className="flex justify-between">
-                  <span>Operating temp:</span>
-                  <span className="font-medium">{temperature}°F</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Capacity factor:</span>
-                  <span className="font-medium">{(tempDerating * 100).toFixed(0)}%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Cold weather loss:</span>
-                  <span className="font-medium">{((1 - tempDerating) * totalCapacity).toFixed(0)} Ah</span>
-                </div>
-                <p className="text-xs text-orange-700 mt-2">
-                  {tempF < 50 ? 'Cold weather reduces capacity' : 'Temperature within good range'}
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Recommendations */}
-          {!canMeetRequirement && (
-            <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
-              <h4 className="font-medium text-red-900 mb-2">⚠️ Insufficient Battery Capacity</h4>
-              <p className="text-sm text-red-800">
-                Current battery ({totalCapacity}Ah) cannot support {requestedHours} hours of operation. 
-                You need at least {requiredBatteryCapacity.toFixed(0)}Ah capacity or 
-                {parallelBatteries > 1 ? `${parallelBatteries} batteries in parallel` : 'a larger battery'}.
-              </p>
-            </div>
-          )}
-          
-          {currentAmps > 50 && (
-            <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h4 className="font-medium text-yellow-900 mb-2">⚡ High Current Draw</h4>
-              <p className="text-sm text-yellow-800">
-                The load draws {currentAmps.toFixed(1)} amps, which is quite high. Consider using thicker wiring ({wireSize}), 
-                a {fuseRating}A fuse/breaker, and ensure good connections to minimize voltage drop and heat buildup.
-              </p>
-            </div>
-          )}
-          
-          {runtimeHours >= requestedHours * 2 && (
-            <div className="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
-              <h4 className="font-medium text-green-900 mb-2">✅ Battery Well-Sized</h4>
-              <p className="text-sm text-green-800">
-                Your battery has excellent capacity for this load, providing {runtimeHours.toFixed(1)} hours of runtime
-                ({(runtimeHours/requestedHours).toFixed(1)}× your requirement). This gives you good reserve capacity.
-              </p>
+              <label className="text-sm font-medium text-gray-700 mb-2 block">Custom load (watts)</label>
+              <NumberInput value={customWatts} onChange={setCustomWatts} min={1} max={2000} suffix="W" ariaLabel="Custom watts" accent={ACCENT} />
             </div>
           )}
         </div>
-      )}
-    </div>
+      </section>
+
+      <section>
+        <SectionHeader step={2} title="Operating conditions" subtitle="Runtime, DOD, temperature" Icon={Gauge} accent={ACCENT} />
+        <div className="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Operating hours/day</label>
+            <NumberInput value={operatingHours} onChange={setOperatingHours} min={0.1} max={24} suffix="hr" ariaLabel="Operating hours" accent={ACCENT} />
+          </div>
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Depth of discharge
+              <InfoTip label="DOD">50% for lead-acid (preserves life), 80% for AGM, 90–100% for lithium.</InfoTip>
+              <span className="ml-auto text-sm font-semibold text-blue-700">{dod}%</span>
+            </label>
+            <input type="range" min={20} max={100} step={5} value={depthOfDischarge} onChange={(e) => setDepthOfDischarge(e.target.value)} className="w-full accent-blue-600" aria-label="DOD" />
+          </div>
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Battery efficiency
+              <InfoTip label="efficiency">Includes inverter, wiring, and battery internal resistance losses. Typical 80–90%.</InfoTip>
+              <span className="ml-auto text-sm font-semibold text-blue-700">{battEff}%</span>
+            </label>
+            <input type="range" min={50} max={100} step={1} value={batteryEfficiency} onChange={(e) => setBatteryEfficiency(e.target.value)} className="w-full accent-blue-600" aria-label="Efficiency" />
+          </div>
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Operating temperature
+              <InfoTip label="temperature">Below 50°F, lead-acid loses 15–30% capacity. Lithium loses much less.</InfoTip>
+              <span className="ml-auto text-sm font-semibold text-blue-700">{tempF}°F</span>
+            </label>
+            <input type="range" min={0} max={120} step={1} value={temperature} onChange={(e) => setTemperature(e.target.value)} className="w-full accent-blue-600" aria-label="Temperature" />
+          </div>
+        </div>
+      </section>
+
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Maximum runtime"
+          value={calc.runtimeHours.toFixed(1)}
+          unit={`hr at ${loadWatts}W draw`}
+          secondaryText={
+            <>
+              Your {totalCapacity}Ah battery delivers <strong>{calc.adjustedCapacity.toFixed(0)}Ah usable</strong> (after DOD + temp), running{' '}
+              {isCustom ? `${loadWatts}W` : load?.name.toLowerCase()} at <strong>{calc.currentAmps.toFixed(1)}A draw</strong> for <strong>{calc.runtimeHours.toFixed(1)} hours</strong>.
+              {!calc.canMeet && <> Need {calc.parallelBatteries} batteries in parallel to hit {requestedHours} hr.</>}
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Current draw', value: `${calc.currentAmps.toFixed(1)}A` },
+            { label: 'Wire size', value: calc.wireSize },
+            { label: 'Fuse', value: `${calc.fuseRating}A` },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Battery className="w-4 h-4 text-blue-600" />
+              Capacity calculation
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Nominal capacity', detail: `${totalCapacity}Ah`, factor: `${(totalCapacity * 12).toFixed(0)} Wh` },
+                { label: 'DOD limit', detail: `× ${dod}%`, factor: `${calc.usableCapacity.toFixed(0)}Ah` },
+                { label: 'Temperature derating', detail: `${tempF}°F = ${(calc.tempDerating * 100).toFixed(0)}%`, factor: `${calc.adjustedCapacity.toFixed(0)}Ah` },
+                { label: 'Battery efficiency', detail: `× ${battEff}%`, factor: `${(calc.adjustedCapacity * battEff / 100).toFixed(0)}Ah effective` },
+                { label: 'Load current', detail: `${loadWatts}W ÷ 12V`, factor: `${calc.currentAmps.toFixed(1)}A` },
+                { label: 'Voltage drop', detail: 'Under load', factor: `−${calc.voltageDropEstimate.toFixed(2)}V` },
+              ]}
+              totals={[
+                { label: 'Max runtime', value: `${calc.runtimeHours.toFixed(1)} hours`, valueClass: calc.canMeet ? 'text-emerald-700' : 'text-red-700' },
+                { label: 'Required for daily use', value: `${requestedHours.toFixed(1)} hours` },
+              ]}
+            />
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Zap className="w-4 h-4 text-blue-600" />
+              Circuit + charging
+            </h4>
+            <div className="space-y-1.5 text-xs text-gray-700">
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Wire size (75°C, ≤10ft)</span><strong>{calc.wireSize}</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Fuse rating (125% load)</span><strong>{calc.fuseRating}A</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Recommended charger (C/10)</span><strong>{calc.recommendedChargeRate.toFixed(1)}A</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Charge time (from empty)</span><strong>{calc.chargeTimeHours.toFixed(1)} hr</strong></div>
+              <div className="flex justify-between py-1.5"><span>Voltage under load</span><strong>{calc.loadVoltage.toFixed(2)}V</strong></div>
+            </div>
+            {!calc.canMeet && (
+              <div className="mt-3 p-3 bg-red-50 rounded text-xs text-red-900">
+                ⚠ <strong>{totalCapacity}Ah is too small.</strong> For {requestedHours} hr × {loadWatts}W, you need <strong>{Math.round(calc.requiredBatteryCapacity)}Ah</strong>{' '}
+                ({calc.parallelBatteries} × {totalCapacity}Ah batteries in parallel).
+              </div>
+            )}
+            {calc.currentAmps > 50 && (
+              <div className="mt-3 p-3 bg-amber-50 rounded text-xs text-amber-900">
+                ⚡ <strong>High current ({calc.currentAmps.toFixed(0)}A)</strong> — use {calc.wireSize} wire, {calc.fuseRating}A fuse, and short cable runs to minimize voltage drop.
+              </div>
+            )}
+            {tempF < 50 && (
+              <div className="mt-3 p-3 bg-blue-50 rounded text-xs text-blue-900">
+                ❄ Cold-weather derating: capacity reduced by {((1 - calc.tempDerating) * 100).toFixed(0)}%. Switch to lithium for cold climates.
+              </div>
+            )}
+          </div>
+        </div>
+
+        <DisclaimerBox title="12V DC system tips">
+          <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li>For inverters, derate your battery — AC loads through an inverter lose 10–15% to inverter efficiency on top of battery efficiency</li>
+            <li>Lithium (LiFePO4) costs 2–3× more upfront but lasts 5–10× longer than lead-acid — break-even in 2–4 years</li>
+            <li>Run wires direct from battery to load — never daisy chain through other connections</li>
+            <li>Always fuse within 7 inches of the positive battery terminal — shorts in unfused wire can melt copper</li>
+            <li>Parallel batteries should be identical age + chemistry — mismatched batteries kill cycle life</li>
+          </ul>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

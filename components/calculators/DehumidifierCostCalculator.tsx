@@ -1,34 +1,53 @@
 'use client';
 
-import { useState } from 'react';
-import { Calculator, Droplets, DollarSign, TrendingUp, Clock, Zap } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Droplets,
+  DollarSign,
+  TrendingUp,
+  Clock,
+  Zap,
+  Leaf,
+} from 'lucide-react';
+import {
+  fmt,
+  fmtMoney,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+} from './_shared';
+
+const ACCENT = 'emerald' as const;
 
 const dehumidifierSizes = [
-  { value: '30', name: '30-Pint', watts: 300, coverage: 1500, price: 200 },
-  { value: '50', name: '50-Pint', watts: 590, coverage: 3000, price: 280 },
-  { value: '70', name: '70-Pint', watts: 700, coverage: 4500, price: 350 },
-  { value: '95', name: '95-Pint', watts: 800, coverage: 6000, price: 450 },
-  { value: '110', name: '110-Pint', watts: 900, coverage: 7000, price: 550 },
-  { value: 'custom', name: 'Custom Size', watts: 600, coverage: 3000, price: 300 }
+  { value: '30', name: '30-pint', summary: '~300W, ≤1,500 sq ft', watts: 300, price: 200, pints: 30 },
+  { value: '50', name: '50-pint', summary: '~590W, ≤3,000 sq ft', watts: 590, price: 280, pints: 50 },
+  { value: '70', name: '70-pint', summary: '~700W, ≤4,500 sq ft', watts: 700, price: 350, pints: 70 },
+  { value: '95', name: '95-pint', summary: '~800W, ≤6,000 sq ft', watts: 800, price: 450, pints: 95 },
+  { value: '110', name: '110-pint', summary: '~900W, ≤7,000 sq ft', watts: 900, price: 550, pints: 110 },
 ];
 
 const climateZones = [
-  { value: 'dry', name: 'Dry Climate', humidityFactor: 0.7, description: 'Desert regions, low humidity' },
-  { value: 'moderate', name: 'Moderate Climate', humidityFactor: 1.0, description: 'Most temperate regions' },
-  { value: 'humid', name: 'Humid Climate', humidityFactor: 1.3, description: 'Coastal, southeastern US' },
-  { value: 'very-humid', name: 'Very Humid Climate', humidityFactor: 1.5, description: 'Tropical, bayous, swamps' }
+  { value: 'dry', name: 'Dry', summary: 'Desert / SW', humidityFactor: 0.7 },
+  { value: 'moderate', name: 'Moderate', summary: 'Temperate', humidityFactor: 1.0 },
+  { value: 'humid', name: 'Humid', summary: 'SE coastal', humidityFactor: 1.3 },
+  { value: 'very-humid', name: 'Very humid', summary: 'Tropical / bayou', humidityFactor: 1.5 },
 ];
 
 const usagePatterns = [
-  { value: 'seasonal', name: 'Seasonal (4 months)', monthsPerYear: 4, description: 'Summer months only' },
-  { value: 'extended', name: 'Extended Season (7 months)', monthsPerYear: 7, description: 'Spring through fall' },
-  { value: 'year-round', name: 'Year-Round (12 months)', monthsPerYear: 12, description: 'Continuous operation' }
+  { value: 'seasonal', name: 'Seasonal', sub: '4 months (summer)', monthsPerYear: 4 },
+  { value: 'extended', name: 'Extended', sub: '7 months (spring–fall)', monthsPerYear: 7 },
+  { value: 'year-round', name: 'Year-round', sub: '12 months', monthsPerYear: 12 },
 ];
 
 export default function DehumidifierCostCalculator() {
   const [dehumidifierSize, setDehumidifierSize] = useState('50');
-  const [customWatts, setCustomWatts] = useState('600');
-  const [customPrice, setCustomPrice] = useState('300');
   const [spaceSize, setSpaceSize] = useState('1200');
   const [climateZone, setClimateZone] = useState('moderate');
   const [currentHumidity, setCurrentHumidity] = useState('65');
@@ -36,438 +55,217 @@ export default function DehumidifierCostCalculator() {
   const [electricRate, setElectricRate] = useState('0.16');
   const [usagePattern, setUsagePattern] = useState('seasonal');
   const [hoursPerDay, setHoursPerDay] = useState('12');
-  const [calculated, setCalculated] = useState(false);
-  
-  // Get selected data
-  const selectedSize = dehumidifierSizes.find(s => s.value === dehumidifierSize);
-  const selectedClimate = climateZones.find(c => c.value === climateZone);
-  const selectedUsage = usagePatterns.find(u => u.value === usagePattern);
-  
-  // Use custom values if specified
-  const actualWatts = dehumidifierSize === 'custom' ? parseFloat(customWatts) : selectedSize?.watts || 0;
-  const unitPrice = dehumidifierSize === 'custom' ? parseFloat(customPrice) : selectedSize?.price || 0;
-  
-  // Calculate runtime based on humidity differential and climate
-  const humidityDiff = parseFloat(currentHumidity) - parseFloat(targetHumidity);
-  const baseRuntime = Math.min(24, Math.max(4, humidityDiff * 0.6)); // Base hours per day
-  const climateAdjustedRuntime = selectedClimate ? baseRuntime * selectedClimate.humidityFactor : baseRuntime;
-  const actualRuntime = Math.min(parseFloat(hoursPerDay), climateAdjustedRuntime);
-  
-  // Energy consumption calculations
-  const dailyKwh = (actualWatts * actualRuntime) / 1000;
-  const monthlyKwh = dailyKwh * 30;
-  const seasonalKwh = selectedUsage ? monthlyKwh * selectedUsage.monthsPerYear : monthlyKwh * 6;
-  const yearlyKwh = dailyKwh * 365;
-  
-  // Cost calculations
-  const rate = parseFloat(electricRate);
-  const dailyCost = dailyKwh * rate;
-  const monthlyCost = monthlyKwh * rate;
-  const seasonalCost = seasonalKwh * rate;
-  const yearlyCost = yearlyKwh * rate;
-  
-  // Calculate moisture removal
-  const pintsPerHour = dehumidifierSize === 'custom' ? 50 : parseFloat(dehumidifierSize);
-  const dailyMoistureRemoval = pintsPerHour * actualRuntime;
-  const monthlyMoistureRemoval = dailyMoistureRemoval * 30;
-  
-  // Efficiency calculations
-  const energyPerPint = actualWatts / pintsPerHour; // Watts per pint capacity
-  const costPerPint = dailyCost / dailyMoistureRemoval; // Cost per pint removed
-  
-  // Total cost of ownership (5 years)
-  const fiveYearEnergyCost = seasonalCost * 5;
-  const maintenanceCost = 50 * 5; // Estimated $50/year maintenance
-  const totalCostOfOwnership = unitPrice + fiveYearEnergyCost + maintenanceCost;
-  
-  // Payback for energy efficient model (comparison)
-  const standardWatts = selectedSize ? selectedSize.watts : actualWatts;
-  const efficientWatts = standardWatts * 0.75; // 25% more efficient
-  const efficientPrice = unitPrice * 1.3; // 30% more expensive
-  const energySavingsPerYear = ((standardWatts - efficientWatts) * actualRuntime * 365 / 1000) * rate;
-  const paybackYears = (efficientPrice - unitPrice) / energySavingsPerYear;
-  
-  // Environmental impact
-  const annualCO2 = yearlyKwh * 0.92; // lbs CO2 per kWh (US average)
-  const fiveYearCO2 = annualCO2 * 5;
-  
-  // Sizing adequacy
-  const recommendedCapacity = selectedClimate ? (parseFloat(spaceSize) / 150) * selectedClimate.humidityFactor : parseFloat(spaceSize) / 150;
-  const adequateSize = pintsPerHour >= recommendedCapacity;
+
+  const selected = dehumidifierSizes.find((d) => d.value === dehumidifierSize)!;
+  const climate = climateZones.find((c) => c.value === climateZone)!;
+  const usage = usagePatterns.find((u) => u.value === usagePattern)!;
+
+  const sqft = Math.max(parseFloat(spaceSize) || 0, 0);
+  const cur = Math.max(parseFloat(currentHumidity) || 0, 0);
+  const tgt = Math.max(parseFloat(targetHumidity) || 0, 0);
+  const rate = Math.max(parseFloat(electricRate) || 0, 0);
+  const maxHr = Math.max(parseFloat(hoursPerDay) || 0, 0);
+
+  const calc = useMemo(() => {
+    const watts = selected.watts;
+    const price = selected.price;
+    const humidityDiff = cur - tgt;
+    const baseRuntime = Math.min(24, Math.max(4, humidityDiff * 0.6));
+    const climateAdjustedRuntime = baseRuntime * climate.humidityFactor;
+    const actualRuntime = Math.min(maxHr, climateAdjustedRuntime);
+    const dailyKwh = (watts * actualRuntime) / 1000;
+    const monthlyKwh = dailyKwh * 30;
+    const seasonalKwh = monthlyKwh * usage.monthsPerYear;
+    const yearlyKwh = dailyKwh * 365;
+    const dailyCost = dailyKwh * rate;
+    const monthlyCost = monthlyKwh * rate;
+    const seasonalCost = seasonalKwh * rate;
+    const yearlyCost = yearlyKwh * rate;
+    const dailyMoistureRemoval = selected.pints * (actualRuntime / 24);
+    const monthlyMoistureRemoval = dailyMoistureRemoval * 30;
+    const energyPerPint = selected.pints > 0 ? watts / selected.pints : 0;
+    const costPerPint = dailyMoistureRemoval > 0 ? dailyCost / dailyMoistureRemoval : 0;
+    const fiveYearEnergyCost = seasonalCost * 5;
+    const maintenanceCost = 50 * 5;
+    const totalCostOfOwnership = price + fiveYearEnergyCost + maintenanceCost;
+    const efficientWatts = watts * 0.75;
+    const efficientPrice = price * 1.3;
+    const energySavingsPerYear = ((watts - efficientWatts) * actualRuntime * 365 / 1000) * rate;
+    const paybackYears = energySavingsPerYear > 0 ? (efficientPrice - price) / energySavingsPerYear : 999;
+    const annualCO2 = yearlyKwh * 0.92;
+    const fiveYearCO2 = annualCO2 * 5;
+    const recommendedCapacity = (sqft / 150) * climate.humidityFactor;
+    const adequateSize = selected.pints >= recommendedCapacity;
+    return { watts, price, actualRuntime, dailyKwh, monthlyKwh, seasonalKwh, yearlyKwh, dailyCost, monthlyCost, seasonalCost, yearlyCost, dailyMoistureRemoval, monthlyMoistureRemoval, energyPerPint, costPerPint, fiveYearEnergyCost, maintenanceCost, totalCostOfOwnership, efficientPrice, energySavingsPerYear, paybackYears, annualCO2, fiveYearCO2, recommendedCapacity, adequateSize };
+  }, [selected, sqft, climate, cur, tgt, rate, maxHr, usage]);
+
+  const fit =
+    !calc.adequateSize ? { tone: 'warn' as const, text: `Undersized — recommend ${Math.ceil(calc.recommendedCapacity)}+ pint` } :
+    calc.actualRuntime >= 20 ? { tone: 'warn' as const, text: 'High runtime — address moisture source' } :
+    calc.seasonalCost < 100 ? { tone: 'good' as const, text: 'Low operating cost — strong value' } :
+    { tone: 'ok' as const, text: 'Reasonable cost for capacity' };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-cyan-100 p-3 rounded-lg">
-          <Calculator className="w-6 h-6 text-cyan-700" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">Dehumidifier Cost Calculator</h2>
-          <p className="text-sm text-gray-600">Calculate operating costs and total cost of ownership</p>
-        </div>
-      </div>
-      
-      {/* Input Section */}
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-4">
+    <CalcShell
+      Icon={Droplets}
+      title="Dehumidifier Cost Calculator"
+      subtitle="Operating cost + 5-year cost of ownership. Updates live."
+      accent={ACCENT}
+    >
+      <section>
+        <SectionHeader step={1} title="Unit & space" subtitle="Dehumidifier size and area" Icon={Droplets} accent={ACCENT} />
+        <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Dehumidifier Size
-            </label>
-            <select
-              value={dehumidifierSize}
-              onChange={(e) => setDehumidifierSize(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-            >
-              {dehumidifierSizes.map(size => (
-                <option key={size.value} value={size.value}>
-                  {size.name} - {size.watts}W
-                </option>
-              ))}
-            </select>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Dehumidifier size</label>
+            <CardChoice value={dehumidifierSize} onChange={setDehumidifierSize} options={dehumidifierSizes} ariaLabel="Dehumidifier size" accent={ACCENT} columns={5} />
           </div>
-          
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label className="text-sm font-medium text-gray-700 mb-2 block">Space size</label>
+              <NumberInput value={spaceSize} onChange={setSpaceSize} min={100} max={10000} suffix="sq ft" ariaLabel="Space size" accent={ACCENT} />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-700 mb-2 block">Max hours/day</label>
+              <NumberInput value={hoursPerDay} onChange={setHoursPerDay} min={1} max={24} suffix="hr" ariaLabel="Max hours per day" accent={ACCENT} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <SectionHeader step={2} title="Climate & usage" subtitle="Local humidity load + how long you run it" Icon={Clock} accent={ACCENT} />
+        <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Space Size (sq ft)
-            </label>
-            <input
-              type="number"
-              value={spaceSize}
-              onChange={(e) => setSpaceSize(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              placeholder="1200"
-              min="100"
-              max="10000"
-            />
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Climate zone</label>
+            <CardChoice value={climateZone} onChange={setClimateZone} options={climateZones} ariaLabel="Climate zone" accent={ACCENT} columns={4} />
           </div>
-          
-          {dehumidifierSize === 'custom' && (
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Usage pattern</label>
+            <CardChoice value={usagePattern} onChange={setUsagePattern} options={usagePatterns} ariaLabel="Usage pattern" accent={ACCENT} columns={3} />
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Current humidity
+                <span className="ml-auto text-sm font-semibold text-emerald-700">{cur}%</span>
+              </label>
+              <input type="range" min={30} max={95} step={1} value={currentHumidity} onChange={(e) => setCurrentHumidity(e.target.value)} className="w-full accent-emerald-600" aria-label="Current humidity" />
+            </div>
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Target humidity
+                <span className="ml-auto text-sm font-semibold text-emerald-700">{tgt}%</span>
+              </label>
+              <input type="range" min={30} max={60} step={1} value={targetHumidity} onChange={(e) => setTargetHumidity(e.target.value)} className="w-full accent-emerald-600" aria-label="Target humidity" />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-700 mb-2 block">Electric rate</label>
+              <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Seasonal operating cost"
+          value={`$${fmtMoney(calc.seasonalCost)}`}
+          unit={`/${usage.name.toLowerCase()} (${fmt(Math.round(calc.seasonalKwh))} kWh)`}
+          secondaryText={
             <>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Power Consumption (Watts)
-                </label>
-                <input
-                  type="number"
-                  value={customWatts}
-                  onChange={(e) => setCustomWatts(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-                  placeholder="600"
-                  min="200"
-                  max="1500"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Purchase Price ($)
-                </label>
-                <input
-                  type="number"
-                  value={customPrice}
-                  onChange={(e) => setCustomPrice(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-                  placeholder="300"
-                  min="100"
-                  max="1000"
-                />
-              </div>
+              {selected.name} runs ~{calc.actualRuntime.toFixed(1)} hr/day in your {climate.name.toLowerCase()} climate, removing{' '}
+              <strong>{calc.dailyMoistureRemoval.toFixed(0)} pints/day</strong>.
+              Monthly cost: <strong>${fmtMoney(calc.monthlyCost)}</strong>; yearly (if continuous): <strong>${fmtMoney(calc.yearlyCost)}</strong>.
             </>
-          )}
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Climate Zone
-            </label>
-            <select
-              value={climateZone}
-              onChange={(e) => setClimateZone(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-            >
-              {climateZones.map(zone => (
-                <option key={zone.value} value={zone.value}>
-                  {zone.name}
-                </option>
-              ))}
-            </select>
-            <p className="text-xs text-gray-500 mt-1">{selectedClimate?.description}</p>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Usage Pattern
-            </label>
-            <select
-              value={usagePattern}
-              onChange={(e) => setUsagePattern(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-            >
-              {usagePatterns.map(pattern => (
-                <option key={pattern.value} value={pattern.value}>
-                  {pattern.name}
-                </option>
-              ))}
-            </select>
-            <p className="text-xs text-gray-500 mt-1">{selectedUsage?.description}</p>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Current Humidity (%)
-            </label>
-            <input
-              type="number"
-              value={currentHumidity}
-              onChange={(e) => setCurrentHumidity(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              placeholder="65"
-              min="30"
-              max="95"
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Daily cost', value: `$${calc.dailyCost.toFixed(2)}` },
+            { label: 'Monthly cost', value: `$${fmtMoney(calc.monthlyCost)}` },
+            { label: 'Cost per pint', value: `$${calc.costPerPint.toFixed(3)}` },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <DollarSign className="w-4 h-4 text-emerald-600" />
+              5-year cost of ownership
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Unit price', detail: selected.name, factor: `$${fmtMoney(calc.price)}` },
+                { label: 'Energy (5 yr)', detail: `${usage.name} use × 5`, factor: `$${fmtMoney(calc.fiveYearEnergyCost)}` },
+                { label: 'Maintenance', detail: '~$50/yr × 5', factor: `$${fmtMoney(calc.maintenanceCost)}` },
+              ]}
+              totals={[
+                { label: 'Total 5-yr cost', value: `$${fmtMoney(calc.totalCostOfOwnership)}`, valueClass: 'text-emerald-700' },
+              ]}
             />
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Target Humidity (%)
-            </label>
-            <input
-              type="number"
-              value={targetHumidity}
-              onChange={(e) => setTargetHumidity(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              placeholder="45"
-              min="30"
-              max="60"
-            />
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Zap className="w-4 h-4 text-emerald-600" />
+              Efficiency metrics
+            </h4>
+            <div className="space-y-1.5 text-xs text-gray-700">
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Watts per pint</span><strong>{calc.energyPerPint.toFixed(1)}W</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>kWh per pint</span><strong>{(calc.energyPerPint / 1000).toFixed(3)}</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Capacity utilization</span><strong>{((calc.actualRuntime / 24) * 100).toFixed(0)}%</strong></div>
+              <div className="flex justify-between py-1.5"><span>Moisture removed/mo</span><strong>{fmt(Math.round(calc.monthlyMoistureRemoval))} pints</strong></div>
+            </div>
+            {calc.paybackYears < 10 && (
+              <div className="mt-3 p-3 bg-emerald-50 rounded text-xs text-emerald-900">
+                <strong>ENERGY STAR upgrade:</strong> A 25%-more-efficient model (${fmtMoney(calc.efficientPrice)}) saves <strong>${fmtMoney(calc.energySavingsPerYear)}/yr</strong> — pays back in <strong>{calc.paybackYears.toFixed(1)} yrs</strong>.
+              </div>
+            )}
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Electric Rate ($/kWh)
-            </label>
-            <input
-              type="number"
-              value={electricRate}
-              onChange={(e) => setElectricRate(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              placeholder="0.16"
-              min="0.05"
-              max="0.50"
-              step="0.01"
-            />
+
+          <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
+              <Leaf className="w-4 h-4 text-emerald-700" />
+              Environmental impact
+            </h4>
+            <div className="space-y-1 text-xs text-gray-700">
+              <div className="flex justify-between"><span>Annual CO₂</span><strong>{fmt(Math.round(calc.annualCO2))} lbs ({(calc.annualCO2 / 2000).toFixed(2)} tons)</strong></div>
+              <div className="flex justify-between"><span>5-year CO₂</span><strong>{fmt(Math.round(calc.fiveYearCO2 / 1000))}k lbs</strong></div>
+            </div>
+            <p className="text-[11px] text-gray-600 mt-2 leading-snug">Based on US grid average (0.92 lbs CO₂/kWh). Renewable-heavy grids cut this 30–60%.</p>
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Max Hours/Day
-            </label>
-            <input
-              type="number"
-              value={hoursPerDay}
-              onChange={(e) => setHoursPerDay(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              placeholder="12"
-              min="1"
-              max="24"
-            />
-            <p className="text-xs text-gray-500 mt-1">Actual runtime may be less</p>
-          </div>
-        </div>
-        
-        {/* Calculate Button */}
-        <button
-          onClick={() => setCalculated(true)}
-          className="w-full md:w-auto md:mx-auto md:px-12 bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-cyan-700 transition-colors flex items-center justify-center gap-2"
-        >
-          <Calculator className="w-5 h-5" />
-          Calculate Dehumidifier Costs
-        </button>
-      </div>
-      
-      {/* Results Section - Only show after calculation */}
-      {calculated && (
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <h3 className="text-xl font-bold text-gray-800 mb-6">Cost Analysis Results</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-            {/* Operating Costs */}
-            <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-              <div className="text-center space-y-2">
-                <DollarSign className="w-8 h-8 text-cyan-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Operating Costs</p>
-                <div className="space-y-1">
-                  <p className="text-2xl font-bold text-cyan-600">
-                    ${monthlyCost.toFixed(2)}
-                  </p>
-                  <p className="text-sm text-gray-600">per month</p>
-                  <p className="text-sm text-gray-600">
-                    ${dailyCost.toFixed(2)}/day
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    ${seasonalCost.toFixed(0)}/season
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Energy Consumption */}
-            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-6 border border-yellow-200">
-              <div className="text-center space-y-2">
-                <Zap className="w-8 h-8 text-yellow-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Energy Use</p>
-                <div className="space-y-1">
-                  <p className="text-2xl font-bold text-yellow-600">
-                    {monthlyKwh.toFixed(0)}
-                  </p>
-                  <p className="text-sm text-gray-600">kWh/month</p>
-                  <p className="text-sm text-gray-600">
-                    {dailyKwh.toFixed(1)} kWh/day
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    {actualRuntime.toFixed(1)} hrs/day runtime
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Moisture Removal */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
-              <div className="text-center space-y-2">
-                <Droplets className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Moisture Removal</p>
-                <div className="space-y-1">
-                  <p className="text-2xl font-bold text-blue-600">
-                    {monthlyMoistureRemoval.toFixed(0)}
-                  </p>
-                  <p className="text-sm text-gray-600">pints/month</p>
-                  <p className="text-sm text-gray-600">
-                    {dailyMoistureRemoval.toFixed(0)} pints/day
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    {pintsPerHour} pint capacity
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Total Cost of Ownership */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h4 className="font-medium text-gray-700 mb-3">5-Year Cost of Ownership</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Unit price:</span>
-                  <span className="font-medium">${unitPrice}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Energy (5 years):</span>
-                  <span className="font-medium">${fiveYearEnergyCost.toFixed(0)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Maintenance:</span>
-                  <span className="font-medium">${maintenanceCost}</span>
-                </div>
-                <div className="border-t pt-2 flex justify-between">
-                  <span className="font-semibold text-gray-700">Total:</span>
-                  <span className="font-bold text-cyan-600">${totalCostOfOwnership.toFixed(0)}</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Efficiency Metrics */}
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <h4 className="font-medium text-green-900 mb-2 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4" />
-                Efficiency Metrics
-              </h4>
-              <div className="space-y-2 text-sm text-green-800">
-                <div className="flex justify-between">
-                  <span>Energy per pint:</span>
-                  <span className="font-medium">{energyPerPint.toFixed(1)}W/pint</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Cost per pint:</span>
-                  <span className="font-medium">${costPerPint.toFixed(4)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>kWh per pint:</span>
-                  <span className="font-medium">{(energyPerPint/1000).toFixed(3)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Capacity utilization:</span>
-                  <span className="font-medium">{((actualRuntime/24)*100).toFixed(0)}%</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Energy Efficiency Upgrade */}
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-              <h4 className="font-medium text-purple-900 mb-2 flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                Efficient Model ROI
-              </h4>
-              <div className="space-y-2 text-sm text-purple-800">
-                <div className="flex justify-between">
-                  <span>Efficient model cost:</span>
-                  <span className="font-medium">${efficientPrice.toFixed(0)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Annual savings:</span>
-                  <span className="font-medium">${energySavingsPerYear.toFixed(0)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Payback period:</span>
-                  <span className="font-medium">{paybackYears.toFixed(1)} years</span>
-                </div>
-                <p className="text-xs text-purple-700 mt-2">
-                  {paybackYears < 3 ? 'Excellent ROI' : paybackYears < 5 ? 'Good ROI' : 'Consider standard model'}
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Size Adequacy Check */}
-          {!adequateSize && (
-            <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h4 className="font-medium text-yellow-900 mb-2">⚠️ Undersized Unit</h4>
-              <p className="text-sm text-yellow-800">
-                The selected {selectedSize?.name || 'custom'} dehumidifier may be undersized for {spaceSize} sq ft in a {selectedClimate?.name.toLowerCase()} climate. 
-                Consider a {Math.ceil(recommendedCapacity)}-pint or larger capacity for optimal performance.
-              </p>
-            </div>
-          )}
-          
-          {actualRuntime >= 20 && (
-            <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
-              <h4 className="font-medium text-red-900 mb-2">⚡ High Runtime</h4>
-              <p className="text-sm text-red-800">
-                The unit will run {actualRuntime.toFixed(1)} hours/day, which is quite high. This may indicate high humidity levels, 
-                inadequate ventilation, or an undersized unit. Consider addressing the moisture source or upgrading to a larger capacity.
-              </p>
-            </div>
-          )}
-          
-          {seasonalCost < 100 && (
-            <div className="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
-              <h4 className="font-medium text-green-900 mb-2">✅ Low Operating Cost</h4>
-              <p className="text-sm text-green-800">
-                Annual operating costs are very reasonable at ${seasonalCost.toFixed(0)} per season. 
-                The dehumidifier will provide excellent value for humidity control in your space.
-              </p>
-            </div>
-          )}
-          
-          {/* Environmental Impact */}
-          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <h4 className="font-medium text-blue-900 mb-2">🌍 Environmental Impact</h4>
-            <p className="text-sm text-blue-800">
-              Annual CO₂ emissions: <strong>{Math.round(annualCO2)} lbs</strong> 
-              ({(annualCO2/2000).toFixed(1)} tons). Over 5 years: {Math.round(fiveYearCO2/1000)}k lbs CO₂.
-              Consider energy-efficient models or renewable energy to reduce environmental impact.
+
+          <div className="bg-amber-50 rounded-xl border border-amber-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
+              <TrendingUp className="w-4 h-4 text-amber-700" />
+              Sizing check
+            </h4>
+            <p className="text-xs text-gray-700 leading-relaxed">
+              {calc.adequateSize ? (
+                <>
+                  <strong>Adequate.</strong> {selected.name} handles {selected.pints} pints/day; your space needs ~{Math.ceil(calc.recommendedCapacity)} pints/day adjusted for {climate.name.toLowerCase()} climate.
+                </>
+              ) : (
+                <>
+                  <strong>Undersized.</strong> {selected.name} only handles {selected.pints} pints/day, but your {fmt(sqft)} sq ft space in a {climate.name.toLowerCase()} climate needs ~{Math.ceil(calc.recommendedCapacity)} pints/day. Bump up one size.
+                </>
+              )}
             </p>
           </div>
         </div>
-      )}
-    </div>
+
+        <DisclaimerBox title="Notes on dehumidifier economics">
+          <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li>ENERGY STAR units use ~25% less power than standard models — usually worth the upcharge for year-round use</li>
+            <li>Auto-defrost-equipped models work below 65°F (cold basements) without ice-up; standard models stall</li>
+            <li>Pump-equipped units drain to a sink/upstairs; gravity drain limits placement</li>
+            <li>For continuous-runtime applications (whole basement), consider a whole-house dehumidifier ducted to the HVAC system — lower lifetime cost</li>
+          </ul>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

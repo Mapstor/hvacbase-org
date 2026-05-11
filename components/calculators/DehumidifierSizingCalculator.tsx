@@ -1,24 +1,48 @@
 'use client';
 
-import { useState } from 'react';
-import { Calculator, Droplets, Home, TrendingUp, Info } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Droplets,
+  Home,
+  TrendingUp,
+  Bed,
+  Bath,
+  Shirt,
+} from 'lucide-react';
+import {
+  fmt,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  PresetChips,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+} from './_shared';
+
+const ACCENT = 'emerald' as const;
 
 const spaceTypes = [
-  { value: 'basement', name: 'Basement', moistureFactor: 1.3 },
-  { value: 'living', name: 'Living Areas', moistureFactor: 1.0 },
-  { value: 'bedroom', name: 'Bedrooms', moistureFactor: 0.9 },
-  { value: 'bathroom', name: 'Bathroom', moistureFactor: 1.5 },
-  { value: 'laundry', name: 'Laundry Room', moistureFactor: 1.4 },
-  { value: 'crawlspace', name: 'Crawl Space', moistureFactor: 1.2 },
-  { value: 'garage', name: 'Garage', moistureFactor: 1.1 }
+  { value: 'basement', name: 'Basement', summary: 'Damp by default', moistureFactor: 1.3, Icon: Home },
+  { value: 'living', name: 'Living areas', summary: 'Standard residential', moistureFactor: 1.0, Icon: Home },
+  { value: 'bedroom', name: 'Bedroom', summary: 'Quiet, lower load', moistureFactor: 0.9, Icon: Bed },
+  { value: 'bathroom', name: 'Bathroom', summary: 'Showers + tub', moistureFactor: 1.5, Icon: Bath },
+  { value: 'laundry', name: 'Laundry', summary: 'Wet clothes evap.', moistureFactor: 1.4, Icon: Shirt },
+  { value: 'crawlspace', name: 'Crawlspace', summary: 'Ground moisture', moistureFactor: 1.2, Icon: Home },
+  { value: 'garage', name: 'Garage', summary: 'Mixed humidity', moistureFactor: 1.1, Icon: Home },
 ];
 
 const moistureConditions = [
-  { value: 'moderate', name: 'Moderately Damp', description: 'Musty odor, damp feeling', factor: 1.0 },
-  { value: 'very', name: 'Very Damp', description: 'Occasional water stains', factor: 1.2 },
-  { value: 'wet', name: 'Wet', description: 'Water stains, mold spots', factor: 1.4 },
-  { value: 'extremely', name: 'Extremely Wet', description: 'Standing water, severe mold', factor: 1.6 }
+  { value: 'moderate', name: 'Moderately damp', summary: 'Musty odor, damp feel', factor: 1.0 },
+  { value: 'very', name: 'Very damp', summary: 'Occasional water stains', factor: 1.2 },
+  { value: 'wet', name: 'Wet', summary: 'Stains + mold spots', factor: 1.4 },
+  { value: 'extremely', name: 'Extremely wet', summary: 'Standing water / severe mold', factor: 1.6 },
 ];
+
+const sqftPresets = [500, 1000, 1500, 2000, 3000];
 
 export default function DehumidifierSizingCalculator() {
   const [squareFeet, setSquareFeet] = useState('1000');
@@ -26,279 +50,164 @@ export default function DehumidifierSizingCalculator() {
   const [moistureLevel, setMoistureLevel] = useState('moderate');
   const [currentHumidity, setCurrentHumidity] = useState('65');
   const [targetHumidity, setTargetHumidity] = useState('45');
-  const [calculated, setCalculated] = useState(false);
-  
-  // Get factors
-  const selectedSpace = spaceTypes.find(s => s.value === spaceType);
-  const selectedMoisture = moistureConditions.find(m => m.value === moistureLevel);
-  
-  // Calculate base capacity needed (pints per day)
-  // Base: 1 pint per 150 sq ft for moderate conditions
-  const baseCapacity = parseFloat(squareFeet) / 150;
-  
-  // Apply space and moisture factors
-  const adjustedCapacity = baseCapacity * (selectedSpace?.moistureFactor || 1) * (selectedMoisture?.factor || 1);
-  
-  // Additional capacity based on humidity difference
-  const humidityDifference = parseFloat(currentHumidity) - parseFloat(targetHumidity);
-  const humidityFactor = 1 + (humidityDifference - 20) * 0.02; // Base assumption: 20% reduction
-  
-  const totalCapacity = adjustedCapacity * Math.max(0.5, humidityFactor);
-  
-  // Recommend standard sizes
-  const getRecommendedSizes = () => {
+
+  const space = spaceTypes.find((s) => s.value === spaceType)!;
+  const moisture = moistureConditions.find((m) => m.value === moistureLevel)!;
+  const sqft = Math.max(parseFloat(squareFeet) || 0, 0);
+  const cur = Math.max(parseFloat(currentHumidity) || 0, 0);
+  const tgt = Math.max(parseFloat(targetHumidity) || 0, 0);
+
+  const calc = useMemo(() => {
+    const baseCapacity = sqft / 150;
+    const adjustedCapacity = baseCapacity * space.moistureFactor * moisture.factor;
+    const humidityDiff = cur - tgt;
+    const humidityFactor = Math.max(0.5, 1 + (humidityDiff - 20) * 0.02);
+    const totalCapacity = adjustedCapacity * humidityFactor;
     const standardSizes = [30, 35, 50, 70, 95, 110, 130];
-    const ideal = standardSizes.find(size => size >= totalCapacity) || 130;
-    const minimum = standardSizes[Math.max(0, standardSizes.indexOf(ideal) - 1)] || ideal;
-    const maximum = standardSizes[Math.min(standardSizes.length - 1, standardSizes.indexOf(ideal) + 1)] || ideal;
-    
-    return { minimum, ideal, maximum };
-  };
-  
-  const recommended = getRecommendedSizes();
-  
-  // Calculate operating estimates
-  const dailyRuntime = Math.min(24, totalCapacity / recommended.ideal * 12); // Estimated hours per day
-  const dailyEnergyUse = (recommended.ideal * 8 * dailyRuntime) / 1000; // kWh (assuming ~8W per pint capacity)
-  const monthlyEnergyUse = dailyEnergyUse * 30;
+    const ideal = standardSizes.find((s) => s >= totalCapacity) || 130;
+    const idx = standardSizes.indexOf(ideal);
+    const minimum = standardSizes[Math.max(0, idx - 1)] || ideal;
+    const maximum = standardSizes[Math.min(standardSizes.length - 1, idx + 1)] || ideal;
+    const dailyRuntime = ideal > 0 ? Math.min(24, (totalCapacity / ideal) * 12) : 0;
+    const dailyEnergyUse = (ideal * 8 * dailyRuntime) / 1000;
+    const monthlyEnergyUse = dailyEnergyUse * 30;
+    return { baseCapacity, adjustedCapacity, humidityFactor, totalCapacity, ideal, minimum, maximum, dailyRuntime, dailyEnergyUse, monthlyEnergyUse };
+  }, [sqft, space, moisture, cur, tgt]);
+
+  const fit =
+    sqft === 0 ? { tone: 'warn' as const, text: 'Enter space size' } :
+    calc.ideal === 130 && calc.totalCapacity > 110 ? { tone: 'warn' as const, text: 'Above 110 pints — consider whole-house unit' } :
+    { tone: 'good' as const, text: `${calc.ideal}-pint unit covers your load` };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-cyan-100 p-3 rounded-lg">
-          <Calculator className="w-6 h-6 text-cyan-700" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">Dehumidifier Sizing Calculator</h2>
-          <p className="text-sm text-gray-600">Find the right capacity dehumidifier for your space</p>
-        </div>
-      </div>
-      
-      {/* Input Section */}
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-4">
+    <CalcShell
+      Icon={Droplets}
+      title="Dehumidifier Sizing Calculator"
+      subtitle="Right pint-per-day capacity for your space + moisture level. Updates live."
+      accent={ACCENT}
+    >
+      <section>
+        <SectionHeader step={1} title="Space" subtitle="Size and what kind of room" Icon={Home} accent={ACCENT} />
+        <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Space Size (Square Feet)
-            </label>
-            <input
-              type="number"
-              value={squareFeet}
-              onChange={(e) => setSquareFeet(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              placeholder="1000"
-              min="100"
-              max="5000"
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Floor area</label>
+            <div className="mb-2">
+              <PresetChips value={squareFeet} onChange={setSquareFeet} presets={sqftPresets} accent={ACCENT} />
+            </div>
+            <NumberInput value={squareFeet} onChange={setSquareFeet} min={100} max={5000} suffix="sq ft" ariaLabel="Square feet" accent={ACCENT} />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Space type</label>
+            <CardChoice value={spaceType} onChange={setSpaceType} options={spaceTypes} ariaLabel="Space type" accent={ACCENT} />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <SectionHeader step={2} title="Moisture conditions" subtitle="How damp does it feel today?" Icon={Droplets} accent={ACCENT} />
+        <div className="space-y-5">
+          <CardChoice value={moistureLevel} onChange={setMoistureLevel} options={moistureConditions} ariaLabel="Moisture level" accent={ACCENT} />
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Current humidity
+                <InfoTip label="current humidity">Measure with a $15 hygrometer. Anything above 60% RH in summer or 50% RH year-round is too high.</InfoTip>
+                <span className="ml-auto text-sm font-semibold text-emerald-700">{cur}%</span>
+              </label>
+              <input type="range" min={30} max={95} step={1} value={currentHumidity} onChange={(e) => setCurrentHumidity(e.target.value)} className="w-full accent-emerald-600" aria-label="Current humidity" />
+            </div>
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Target humidity
+                <InfoTip label="target humidity">Target 30–50% for basements, 40–50% for living spaces. Below 30% feels dry; above 60% encourages mold.</InfoTip>
+                <span className="ml-auto text-sm font-semibold text-emerald-700">{tgt}%</span>
+              </label>
+              <input type="range" min={30} max={60} step={1} value={targetHumidity} onChange={(e) => setTargetHumidity(e.target.value)} className="w-full accent-emerald-600" aria-label="Target humidity" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Recommended dehumidifier capacity"
+          value={`${calc.ideal}`}
+          unit="pints/day"
+          secondaryText={
+            <>
+              Your {fmt(sqft)} sq ft {space.name.toLowerCase()} at {moisture.name.toLowerCase()} levels needs roughly{' '}
+              <strong>{calc.totalCapacity.toFixed(0)} pints/day</strong> of moisture removal.
+              The closest standard size is <strong>{calc.ideal} pints</strong>.
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Minimum', value: `${calc.minimum} pint` },
+            { label: 'Maximum', value: `${calc.maximum} pint` },
+            { label: 'Est. runtime', value: `${calc.dailyRuntime.toFixed(1)} hr/day` },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Droplets className="w-4 h-4 text-emerald-600" />
+              Calculation breakdown
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Base capacity', detail: `${fmt(sqft)} sq ft ÷ 150`, factor: `${calc.baseCapacity.toFixed(1)} pints` },
+                { label: 'Space factor', detail: space.name, factor: `× ${space.moistureFactor.toFixed(1)}` },
+                { label: 'Moisture factor', detail: moisture.name, factor: `× ${moisture.factor.toFixed(1)}` },
+                { label: 'Humidity factor', detail: `Δ${cur - tgt}% RH`, factor: `× ${calc.humidityFactor.toFixed(2)}` },
+              ]}
+              totals={[
+                { label: 'Required capacity', value: `${calc.totalCapacity.toFixed(0)} pints/day`, valueClass: 'text-emerald-700' },
+                { label: 'Standard size match', value: `${calc.ideal} pint`, valueClass: 'text-emerald-700' },
+              ]}
             />
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Space Type
-            </label>
-            <select
-              value={spaceType}
-              onChange={(e) => setSpaceType(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-            >
-              {spaceTypes.map(type => (
-                <option key={type.value} value={type.value}>
-                  {type.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Moisture Condition
-            </label>
-            <select
-              value={moistureLevel}
-              onChange={(e) => setMoistureLevel(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-            >
-              {moistureConditions.map(condition => (
-                <option key={condition.value} value={condition.value}>
-                  {condition.name}
-                </option>
-              ))}
-            </select>
-            <p className="text-xs text-gray-500 mt-1">{selectedMoisture?.description}</p>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Current Humidity (%)
-            </label>
-            <input
-              type="number"
-              value={currentHumidity}
-              onChange={(e) => setCurrentHumidity(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              placeholder="65"
-              min="30"
-              max="95"
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <TrendingUp className="w-4 h-4 text-emerald-600" />
+              Operating estimate
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Daily runtime', detail: 'Auto-cycles on humidistat', factor: `${calc.dailyRuntime.toFixed(1)} hr` },
+                { label: 'Daily energy', detail: `${calc.ideal} pint × ~8W per pint`, factor: `${calc.dailyEnergyUse.toFixed(1)} kWh` },
+                { label: 'Monthly energy', detail: '30 days × daily', factor: `${calc.monthlyEnergyUse.toFixed(0)} kWh` },
+                { label: 'Monthly cost', detail: '@ $0.16/kWh', factor: `$${(calc.monthlyEnergyUse * 0.16).toFixed(2)}` },
+              ]}
+              totals={[]}
             />
-          </div>
-          
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Target Humidity (%)
-            </label>
-            <input
-              type="number"
-              value={targetHumidity}
-              onChange={(e) => setTargetHumidity(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              placeholder="45"
-              min="30"
-              max="60"
-            />
-            <p className="text-xs text-gray-500 mt-1">Recommended: 30-50% for basements, 40-50% for living areas</p>
-          </div>
-        </div>
-        
-        {/* Calculate Button */}
-        <button
-          onClick={() => setCalculated(true)}
-          className="w-full md:w-auto md:mx-auto md:px-12 bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-cyan-700 transition-colors flex items-center justify-center gap-2"
-        >
-          <Calculator className="w-5 h-5" />
-          Calculate Dehumidifier Size
-        </button>
-      </div>
-      
-      {/* Results Section - Only show after calculation */}
-      {calculated && (
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <h3 className="text-xl font-bold text-gray-800 mb-6">Sizing Results</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-            {/* Capacity Requirement */}
-            <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-              <div className="text-center space-y-2">
-                <Droplets className="w-8 h-8 text-cyan-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Required Capacity</p>
-                <p className="text-3xl font-bold text-cyan-600">
-                  {Math.round(totalCapacity)}
-                </p>
-                <p className="text-lg font-medium text-gray-700">pints/day</p>
-                <p className="text-sm text-gray-600 mt-2">
-                  Based on {squareFeet} sq ft {selectedSpace?.name.toLowerCase()}
-                </p>
+            <div className="mt-3 bg-emerald-50 rounded-lg p-3 text-xs text-emerald-900">
+              <div className="font-semibold mb-1">Standard size guide</div>
+              <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px]">
+                <div className="flex justify-between"><span>30-pint</span><span>≤1,500 sq ft</span></div>
+                <div className="flex justify-between"><span>50-pint</span><span>≤2,500 sq ft</span></div>
+                <div className="flex justify-between"><span>70-pint</span><span>≤3,500 sq ft</span></div>
+                <div className="flex justify-between"><span>95-pint</span><span>≤4,500 sq ft</span></div>
               </div>
-            </div>
-            
-            {/* Recommended Sizes */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
-              <div className="text-center space-y-2">
-                <Home className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Recommended Sizes</p>
-                <div className="space-y-1">
-                  <p className="text-sm text-gray-600">
-                    Minimum: <span className="font-semibold">{recommended.minimum} pint</span>
-                  </p>
-                  <p className="text-xl font-bold text-green-600">
-                    {recommended.ideal} pint
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Maximum: <span className="font-semibold">{recommended.maximum} pint</span>
-                  </p>
-                </div>
-                <p className="text-xs text-gray-500 mt-2">Standard dehumidifier sizes</p>
-              </div>
-            </div>
-            
-            {/* Operating Estimates */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-200">
-              <div className="text-center space-y-2">
-                <TrendingUp className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Operating Estimates</p>
-                <div className="space-y-1">
-                  <p className="text-sm text-gray-600">
-                    Runtime: <span className="font-semibold">{dailyRuntime.toFixed(1)} hrs/day</span>
-                  </p>
-                  <p className="text-lg font-bold text-purple-600">
-                    {dailyEnergyUse.toFixed(1)} kWh/day
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Monthly: <span className="font-semibold">{monthlyEnergyUse.toFixed(0)} kWh</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Calculation Breakdown */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h4 className="font-medium text-gray-700 mb-3">Calculation Factors</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Base capacity:</span>
-                  <span className="font-medium">{baseCapacity.toFixed(1)} pints</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Space factor:</span>
-                  <span className="font-medium">×{selectedSpace?.moistureFactor}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Moisture factor:</span>
-                  <span className="font-medium">×{selectedMoisture?.factor}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Humidity adjustment:</span>
-                  <span className="font-medium">×{humidityFactor.toFixed(2)}</span>
-                </div>
-                <div className="border-t pt-2 flex justify-between">
-                  <span className="font-semibold text-gray-700">Total needed:</span>
-                  <span className="font-bold text-cyan-600">{Math.round(totalCapacity)} pints</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Humidity Benefits */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="font-medium text-blue-900 mb-2 flex items-center gap-2">
-                <Info className="w-4 h-4" />
-                Benefits of Proper Humidity
-              </h4>
-              <ul className="text-sm text-blue-800 space-y-1">
-                <li>• Prevents mold and mildew growth</li>
-                <li>• Reduces dust mites and allergens</li>
-                <li>• Protects wood and furniture</li>
-                <li>• Improves indoor air quality</li>
-                <li>• Eliminates musty odors</li>
-              </ul>
-            </div>
-            
-            {/* Size Recommendations */}
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h4 className="font-medium text-yellow-900 mb-2">Standard Sizes Guide</h4>
-              <div className="space-y-1 text-xs text-yellow-800">
-                <div className="flex justify-between">
-                  <span>30-pint:</span>
-                  <span>Up to 1,500 sq ft</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>50-pint:</span>
-                  <span>Up to 2,500 sq ft</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>70-pint:</span>
-                  <span>Up to 3,500 sq ft</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>95-pint:</span>
-                  <span>Up to 4,500 sq ft</span>
-                </div>
-              </div>
-              <p className="text-xs text-yellow-700 mt-2">
-                Larger is better for severe moisture problems
-              </p>
             </div>
           </div>
         </div>
-      )}
-    </div>
+
+        <DisclaimerBox title="Why proper sizing matters">
+          <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li>Undersized: runs continuously, never reaches target — wears out fast</li>
+            <li>Oversized: short-cycles, doesn't actually remove much moisture, wastes capacity</li>
+            <li>For severe moisture (visible mold, standing water), <strong>address the source first</strong> — dehumidifier alone won't solve it</li>
+            <li>Whole-house dehumidifiers (90+ pints) are usually a better long-term answer for full basements or whole-home humidity</li>
+            <li>Set + leave at 45–50% RH — chasing 30% wastes energy without health benefit</li>
+          </ul>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

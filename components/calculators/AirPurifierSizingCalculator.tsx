@@ -1,22 +1,53 @@
 'use client';
 
-import { useState } from 'react';
-import { Calculator, Wind, Home, TrendingUp, Info } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Wind,
+  Home,
+  Bed,
+  Sofa,
+  ChefHat,
+  Briefcase,
+  Bath,
+  Cat,
+  Cigarette,
+} from 'lucide-react';
+import {
+  fmt,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+  accentMap,
+} from './_shared';
+
+const ACCENT = 'blue' as const;
+const a = accentMap[ACCENT];
 
 const roomTypes = [
-  { value: 'bedroom', name: 'Bedroom', acph: 2, sizeFactor: 1.0 },
-  { value: 'living', name: 'Living Room', acph: 2, sizeFactor: 1.2 },
-  { value: 'kitchen', name: 'Kitchen', acph: 3, sizeFactor: 1.5 },
-  { value: 'office', name: 'Home Office', acph: 2, sizeFactor: 1.0 },
-  { value: 'basement', name: 'Basement', acph: 1, sizeFactor: 0.8 },
-  { value: 'bathroom', name: 'Bathroom', acph: 4, sizeFactor: 1.3 }
+  { value: 'bedroom', name: 'Bedroom', summary: 'Sleep — 2 ACH baseline', acph: 2, Icon: Bed },
+  { value: 'living', name: 'Living room', summary: '2 ACH + extra for guests', acph: 2, Icon: Sofa },
+  { value: 'kitchen', name: 'Kitchen', summary: 'Cooking fumes — 3 ACH', acph: 3, Icon: ChefHat },
+  { value: 'office', name: 'Home office', summary: '2 ACH for focus comfort', acph: 2, Icon: Briefcase },
+  { value: 'basement', name: 'Basement', summary: 'Lower contam — 1 ACH', acph: 1, Icon: Home },
+  { value: 'bathroom', name: 'Bathroom', summary: 'Moisture + odor — 4 ACH', acph: 4, Icon: Bath },
 ];
 
 const pollutionLevels = [
-  { value: 'low', name: 'Low', description: 'Rural area, no smoking', multiplier: 1.0 },
-  { value: 'moderate', name: 'Moderate', description: 'Suburban, light traffic', multiplier: 1.3 },
-  { value: 'high', name: 'High', description: 'Urban, heavy traffic, pets', multiplier: 1.6 },
-  { value: 'severe', name: 'Severe', description: 'Smoking, allergies, construction', multiplier: 2.0 }
+  { value: 'low', name: 'Low', summary: 'Rural, clean air, no smoking', multiplier: 1.0 },
+  { value: 'moderate', name: 'Moderate', summary: 'Suburban, light traffic', multiplier: 1.3 },
+  { value: 'high', name: 'High', summary: 'Urban, heavy traffic, pets', multiplier: 1.6 },
+  { value: 'severe', name: 'Severe', summary: 'Smoking, construction, wildfire', multiplier: 2.0 },
+];
+
+const extras = [
+  { id: 'allergies', label: 'Household allergies', factor: 1.3, Icon: Cigarette },
+  { id: 'pets', label: 'Pets in home', factor: 1.2, Icon: Cat },
 ];
 
 export default function AirPurifierSizingCalculator() {
@@ -25,332 +56,209 @@ export default function AirPurifierSizingCalculator() {
   const [ceilingHeight, setCeilingHeight] = useState('8');
   const [roomType, setRoomType] = useState('bedroom');
   const [pollutionLevel, setPollutionLevel] = useState('moderate');
-  const [hasAllergies, setHasAllergies] = useState(false);
-  const [hasPets, setHasPets] = useState(false);
-  const [calculated, setCalculated] = useState(false);
-  
-  // Get room and pollution factors
-  const selectedRoom = roomTypes.find(r => r.value === roomType);
-  const selectedPollution = pollutionLevels.find(p => p.value === pollutionLevel);
-  
-  // Calculate room volume
-  const roomVolume = parseFloat(roomLength) * parseFloat(roomWidth) * parseFloat(ceilingHeight);
-  const roomArea = parseFloat(roomLength) * parseFloat(roomWidth);
-  
-  // Calculate required CADR (Clean Air Delivery Rate)
-  // Base CADR = room volume × ACH (Air Changes per Hour) / 60 minutes
-  let requiredCadr = selectedRoom ? (roomVolume * selectedRoom.acph) / 60 : 0;
-  
-  // Apply pollution multiplier
-  if (selectedPollution) {
-    requiredCadr *= selectedPollution.multiplier;
-  }
-  
-  // Apply additional factors
-  if (hasAllergies) requiredCadr *= 1.3;
-  if (hasPets) requiredCadr *= 1.2;
-  
-  // Recommend purifier sizes based on coverage area
-  const getRecommendedSizes = () => {
-    const standardSizes = [
-      { area: 150, cadr: 100, name: 'Small Room' },
-      { area: 300, cadr: 200, name: 'Medium Room' },
-      { area: 500, cadr: 300, name: 'Large Room' },
-      { area: 800, cadr: 450, name: 'Extra Large Room' },
-      { area: 1200, cadr: 600, name: 'Whole Home' }
-    ];
-    
-    const suitable = standardSizes.filter(size => 
-      size.area >= roomArea && size.cadr >= requiredCadr
-    );
-    
-    return suitable.length > 0 ? suitable[0] : standardSizes[standardSizes.length - 1];
+  const [extraFactors, setExtraFactors] = useState<Set<string>>(new Set());
+
+  const room = roomTypes.find((r) => r.value === roomType)!;
+  const pollution = pollutionLevels.find((p) => p.value === pollutionLevel)!;
+  const L = Math.max(parseFloat(roomLength) || 0, 0);
+  const W = Math.max(parseFloat(roomWidth) || 0, 0);
+  const H = Math.max(parseFloat(ceilingHeight) || 0, 0);
+
+  const toggle = (id: string) => {
+    setExtraFactors((prev) => {
+      const n = new Set(prev);
+      n.has(id) ? n.delete(id) : n.add(id);
+      return n;
+    });
   };
-  
-  const recommended = getRecommendedSizes();
-  
-  // Calculate air changes achieved with recommended purifier
-  const actualAch = (recommended.cadr * 60) / roomVolume;
-  
-  // Operating estimates
-  const dailyRuntime = 16; // Typical continuous operation
-  const powerConsumption = Math.round(recommended.cadr * 0.8); // Approximate watts
-  const dailyEnergyUse = (powerConsumption * dailyRuntime) / 1000;
-  const monthlyEnergyUse = dailyEnergyUse * 30;
+
+  const calc = useMemo(() => {
+    const area = L * W;
+    const volume = area * H;
+    let requiredCadr = (volume * room.acph) / 60;
+    requiredCadr *= pollution.multiplier;
+    for (const id of extraFactors) {
+      const e = extras.find((x) => x.id === id);
+      if (e) requiredCadr *= e.factor;
+    }
+    const standardSizes = [
+      { area: 150, cadr: 100, name: 'Small room' },
+      { area: 300, cadr: 200, name: 'Medium room' },
+      { area: 500, cadr: 300, name: 'Large room' },
+      { area: 800, cadr: 450, name: 'Extra large' },
+      { area: 1200, cadr: 600, name: 'Whole home' },
+    ];
+    const recommended = standardSizes.find((s) => s.area >= area && s.cadr >= requiredCadr) || standardSizes[standardSizes.length - 1];
+    const actualAch = volume > 0 ? (recommended.cadr * 60) / volume : 0;
+    const powerConsumption = Math.round(recommended.cadr * 0.8);
+    const dailyEnergyUse = (powerConsumption * 16) / 1000;
+    const monthlyEnergyUse = dailyEnergyUse * 30;
+    return { area, volume, requiredCadr, recommended, actualAch, powerConsumption, dailyEnergyUse, monthlyEnergyUse };
+  }, [L, W, H, room, pollution, extraFactors]);
+
+  const fit =
+    calc.requiredCadr === 0 ? { tone: 'warn' as const, text: 'Enter room dimensions' } :
+    calc.actualAch >= room.acph * 1.5 ? { tone: 'good' as const, text: `Comfortably hits ${room.acph} ACH target` } :
+    calc.actualAch >= room.acph ? { tone: 'good' as const, text: `Meets ${room.acph} ACH target` } :
+    { tone: 'warn' as const, text: 'Slightly under-spec — consider bigger unit' };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-blue-100 p-3 rounded-lg">
-          <Calculator className="w-6 h-6 text-blue-700" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">Air Purifier Sizing Calculator</h2>
-          <p className="text-sm text-gray-600">Find the right CADR rating and coverage for your space</p>
-        </div>
-      </div>
-      
-      {/* Input Section */}
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-4">
+    <CalcShell
+      Icon={Wind}
+      title="Air Purifier Sizing Calculator"
+      subtitle="Right CADR + coverage area for your space. Updates live."
+      accent={ACCENT}
+    >
+      <section>
+        <SectionHeader step={1} title="Room dimensions" subtitle="Length × width × ceiling" Icon={Home} accent={ACCENT} />
+        <div className="grid sm:grid-cols-3 gap-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Room Length (feet)
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Length</label>
+            <NumberInput value={roomLength} onChange={setRoomLength} min={5} max={50} suffix="ft" ariaLabel="Length" accent={ACCENT} className="max-w-none" />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Width</label>
+            <NumberInput value={roomWidth} onChange={setRoomWidth} min={5} max={50} suffix="ft" ariaLabel="Width" accent={ACCENT} className="max-w-none" />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Ceiling height</label>
+            <NumberInput value={ceilingHeight} onChange={setCeilingHeight} min={7} max={20} suffix="ft" ariaLabel="Ceiling height" accent={ACCENT} className="max-w-none" />
+          </div>
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+          <div className="px-2 py-1 bg-gray-50 rounded"><span className="text-gray-500">Floor area:</span> <strong className="text-gray-800">{fmt(Math.round(calc.area))} sq ft</strong></div>
+          <div className="px-2 py-1 bg-gray-50 rounded"><span className="text-gray-500">Volume:</span> <strong className="text-gray-800">{fmt(Math.round(calc.volume))} cu ft</strong></div>
+        </div>
+      </section>
+
+      <section>
+        <SectionHeader step={2} title="Room type & pollution" subtitle="Drives the ACH target" Icon={Wind} accent={ACCENT} />
+        <div className="space-y-5">
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Room type</label>
+            <CardChoice value={roomType} onChange={setRoomType} options={roomTypes} ariaLabel="Room type" accent={ACCENT} columns={3} />
+          </div>
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Pollution level
+              <InfoTip label="pollution level">
+                Includes outdoor air pollution, traffic proximity, smoking, cooking style, construction nearby, wildfire smoke seasons.
+              </InfoTip>
             </label>
-            <input
-              type="number"
-              value={roomLength}
-              onChange={(e) => setRoomLength(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="12"
-              min="5"
-              max="50"
+            <CardChoice value={pollutionLevel} onChange={setPollutionLevel} options={pollutionLevels} ariaLabel="Pollution level" accent={ACCENT} />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Extra factors</label>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {extras.map((e) => {
+                const active = extraFactors.has(e.id);
+                const Icon = e.Icon;
+                return (
+                  <button
+                    key={e.id}
+                    type="button"
+                    role="checkbox"
+                    aria-checked={active}
+                    onClick={() => toggle(e.id)}
+                    className={`text-left p-3 rounded-lg border-2 transition-all flex items-center gap-2 ${
+                      active ? `${a.selectedBorder} ${a.selectedBg} ring-1 ${a.selectedRing}` : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50/50'
+                    }`}
+                  >
+                    <div className={`w-4 h-4 rounded border-2 flex items-center justify-center ${active ? `${a.iconBg} border-transparent` : 'border-gray-300'}`}>
+                      {active && <span className="text-white text-[10px] leading-none">✓</span>}
+                    </div>
+                    <Icon className={`w-4 h-4 ${active ? a.sectionIconText : 'text-gray-500'}`} />
+                    <span className="text-sm font-medium text-gray-900">{e.label}</span>
+                    <span className="ml-auto text-[11px] text-gray-500">+{((e.factor - 1) * 100).toFixed(0)}%</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Required CADR rating"
+          value={`${Math.round(calc.requiredCadr)}`}
+          unit={`CFM · ${calc.recommended.name}`}
+          secondaryText={
+            <>
+              For your {fmt(Math.round(calc.area))} sq ft {room.name.toLowerCase()} with {pollution.name.toLowerCase()} pollution{extraFactors.size > 0 && ' + extras'},
+              you need at least <strong>{Math.round(calc.requiredCadr)} CFM</strong> CADR.
+              The closest standard tier is <strong>{calc.recommended.name}</strong> at {calc.recommended.cadr} CFM (covers up to {calc.recommended.area} sq ft).
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Recommended CADR', value: `${calc.recommended.cadr} CFM` },
+            { label: 'Coverage rating', value: `${calc.recommended.area} sq ft` },
+            { label: 'Achieved ACH', value: `${calc.actualAch.toFixed(1)}` },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Wind className="w-4 h-4 text-blue-600" />
+              CADR calculation
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Room volume', detail: `${L} × ${W} × ${H}`, factor: `${fmt(Math.round(calc.volume))} cu ft` },
+                { label: 'Target ACH', detail: room.name, factor: `${room.acph} ACH` },
+                { label: 'Base CADR', detail: `Volume × ACH ÷ 60`, factor: `${fmt(Math.round((calc.volume * room.acph) / 60))} CFM` },
+                { label: 'Pollution factor', detail: pollution.name, factor: `× ${pollution.multiplier.toFixed(1)}` },
+                ...Array.from(extraFactors).map((id) => {
+                  const e = extras.find((x) => x.id === id)!;
+                  return { label: e.label, detail: '', factor: `× ${e.factor.toFixed(1)}` };
+                }),
+              ]}
+              totals={[
+                { label: 'Required CADR', value: `${Math.round(calc.requiredCadr)} CFM`, valueClass: 'text-blue-700' },
+              ]}
             />
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Room Width (feet)
-            </label>
-            <input
-              type="number"
-              value={roomWidth}
-              onChange={(e) => setRoomWidth(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="10"
-              min="5"
-              max="50"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Ceiling Height (feet)
-            </label>
-            <input
-              type="number"
-              value={ceilingHeight}
-              onChange={(e) => setCeilingHeight(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="8"
-              min="7"
-              max="20"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Room Type
-            </label>
-            <select
-              value={roomType}
-              onChange={(e) => setRoomType(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              {roomTypes.map(type => (
-                <option key={type.value} value={type.value}>
-                  {type.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Pollution Level
-            </label>
-            <select
-              value={pollutionLevel}
-              onChange={(e) => setPollutionLevel(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              {pollutionLevels.map(level => (
-                <option key={level.value} value={level.value}>
-                  {level.name}
-                </option>
-              ))}
-            </select>
-            <p className="text-xs text-gray-500 mt-1">{selectedPollution?.description}</p>
-          </div>
-          
-          <div className="space-y-3">
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="allergies"
-                checked={hasAllergies}
-                onChange={(e) => setHasAllergies(e.target.checked)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-              />
-              <label htmlFor="allergies" className="ml-2 text-sm text-gray-700">
-                Household member has allergies
-              </label>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Home className="w-4 h-4 text-blue-600" />
+              Operating + reference
+            </h4>
+            <div className="space-y-1.5 text-xs text-gray-700">
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Power consumption</span><strong>{calc.powerConsumption}W</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily energy (16hr)</span><strong>{calc.dailyEnergyUse.toFixed(1)} kWh</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Monthly energy</span><strong>{fmt(Math.round(calc.monthlyEnergyUse))} kWh</strong></div>
+              <div className="flex justify-between py-1.5"><span>Monthly cost @ $0.16</span><strong>${(calc.monthlyEnergyUse * 0.16).toFixed(2)}</strong></div>
             </div>
-            
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="pets"
-                checked={hasPets}
-                onChange={(e) => setHasPets(e.target.checked)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-              />
-              <label htmlFor="pets" className="ml-2 text-sm text-gray-700">
-                Have pets in the home
-              </label>
-            </div>
-          </div>
-        </div>
-        
-        {/* Calculate Button */}
-        <button
-          onClick={() => setCalculated(true)}
-          className="w-full md:w-auto md:mx-auto md:px-12 bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-        >
-          <Calculator className="w-5 h-5" />
-          Calculate Air Purifier Size
-        </button>
-      </div>
-      
-      {/* Results Section - Only show after calculation */}
-      {calculated && (
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <h3 className="text-xl font-bold text-gray-800 mb-6">Sizing Results</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-            {/* Required CADR */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
-              <div className="text-center space-y-2">
-                <Wind className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Required CADR</p>
-                <p className="text-3xl font-bold text-blue-600">
-                  {Math.round(requiredCadr)}
-                </p>
-                <p className="text-lg font-medium text-gray-700">CFM</p>
-                <p className="text-sm text-gray-600 mt-2">
-                  For {roomArea} sq ft room
-                </p>
-              </div>
-            </div>
-            
-            {/* Recommended Purifier */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-200">
-              <div className="text-center space-y-2">
-                <Home className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Recommended Size</p>
-                <p className="text-xl font-bold text-green-600">
-                  {recommended.name}
-                </p>
-                <div className="space-y-1">
-                  <p className="text-sm text-gray-600">
-                    CADR: <span className="font-semibold">{recommended.cadr} CFM</span>
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Coverage: <span className="font-semibold">{recommended.area} sq ft</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Air Changes Per Hour */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-200">
-              <div className="text-center space-y-2">
-                <TrendingUp className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Air Changes Achieved</p>
-                <p className="text-3xl font-bold text-purple-600">
-                  {actualAch.toFixed(1)}
-                </p>
-                <p className="text-lg font-medium text-gray-700">ACH</p>
-                <p className="text-xs text-gray-500 mt-2">
-                  Target: {selectedRoom?.acph} ACH for {selectedRoom?.name.toLowerCase()}
-                </p>
-              </div>
-            </div>
-            
-            {/* Room Analysis */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h4 className="font-medium text-gray-700 mb-3">Room Analysis</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Room volume:</span>
-                  <span className="font-medium">{Math.round(roomVolume)} cu ft</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Floor area:</span>
-                  <span className="font-medium">{roomArea} sq ft</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Room type:</span>
-                  <span className="font-medium">{selectedRoom?.name}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Pollution level:</span>
-                  <span className="font-medium">{selectedPollution?.name}</span>
-                </div>
-                {hasAllergies && (
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Allergy factor:</span>
-                    <span className="font-medium">+30%</span>
-                  </div>
-                )}
-                {hasPets && (
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Pet factor:</span>
-                    <span className="font-medium">+20%</span>
-                  </div>
-                )}
-              </div>
-            </div>
-            
-            {/* Operating Estimates */}
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h4 className="font-medium text-yellow-900 mb-2">Operating Estimates</h4>
-              <div className="space-y-2 text-sm text-yellow-800">
-                <div className="flex justify-between">
-                  <span>Power consumption:</span>
-                  <span className="font-medium">{powerConsumption}W</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Daily energy:</span>
-                  <span className="font-medium">{dailyEnergyUse.toFixed(1)} kWh</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Monthly energy:</span>
-                  <span className="font-medium">{monthlyEnergyUse.toFixed(0)} kWh</span>
-                </div>
-                <p className="text-xs text-yellow-700 mt-2">
-                  Based on 16 hours/day operation
-                </p>
-              </div>
-            </div>
-            
-            {/* CADR Guide */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="font-medium text-blue-900 mb-2 flex items-center gap-2">
-                <Info className="w-4 h-4" />
-                CADR Guidelines
-              </h4>
-              <div className="space-y-1 text-xs text-blue-800">
-                <div className="flex justify-between">
-                  <span>Smoke particles:</span>
-                  <span>10-450 CFM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Dust particles:</span>
-                  <span>10-400 CFM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Pollen particles:</span>
-                  <span>25-450 CFM</span>
-                </div>
-                <p className="text-xs text-blue-700 mt-2">
-                  Higher CADR = faster air cleaning
-                </p>
+            <div className="mt-3 bg-blue-50 rounded-lg p-3 text-xs">
+              <div className="font-semibold text-blue-900 mb-1">CADR reference (AHAM tested)</div>
+              <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px] text-blue-800">
+                <div className="flex justify-between"><span>Small room</span><span>100 CFM</span></div>
+                <div className="flex justify-between"><span>Medium room</span><span>200 CFM</span></div>
+                <div className="flex justify-between"><span>Large room</span><span>300 CFM</span></div>
+                <div className="flex justify-between"><span>XL room</span><span>450 CFM</span></div>
+                <div className="flex justify-between"><span>Whole home</span><span>600+ CFM</span></div>
               </div>
             </div>
           </div>
         </div>
-      )}
-    </div>
+
+        <DisclaimerBox title="What CADR doesn't capture">
+          <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li>CADR is AHAM-certified for smoke, dust, and pollen — VOCs and viruses need different filtration (carbon, UV-C, HEPA-13)</li>
+            <li>The "coverage area" sticker assumes 4.8 ACH at lab conditions; for allergy sufferers, target 5 ACH+</li>
+            <li>HEPA filters need replacing every 6–12 months; pre-filters every 3 months — factor into total cost</li>
+            <li>Whole-house purifiers in the HVAC return are more efficient than individual room units for multiple rooms</li>
+            <li>For wildfire smoke season: bump up one tier and run continuously on high</li>
+          </ul>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

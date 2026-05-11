@@ -1,373 +1,255 @@
 'use client';
 
-import { useState } from 'react';
-import { Calculator, Zap, DollarSign, Clock, TrendingUp, CheckCircle, AlertTriangle, Info, Leaf } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Zap,
+  DollarSign,
+  Clock,
+  Leaf,
+  TrendingUp,
+  Plug,
+} from 'lucide-react';
+import {
+  fmt,
+  fmtMoney,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  PresetChips,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+} from './_shared';
+
+const ACCENT = 'emerald' as const;
+
+const appliancePresets = [
+  { value: '9', name: 'LED bulb', sub: '9W' },
+  { value: '700', name: 'Dehumidifier', sub: '700W' },
+  { value: '1000', name: 'Microwave', sub: '1000W' },
+  { value: '1200', name: 'Window AC', sub: '1200W' },
+  { value: '1500', name: 'Space heater', sub: '1500W' },
+  { value: '1800', name: 'Hair dryer', sub: '1800W' },
+];
+
+const wattPresets = [100, 500, 1000, 1500, 3000, 5000];
 
 export default function KWhCostCalculator() {
   const [powerWatts, setPowerWatts] = useState('1500');
   const [hoursPerDay, setHoursPerDay] = useState('8');
   const [daysPerMonth, setDaysPerMonth] = useState('30');
   const [electricRate, setElectricRate] = useState('0.16');
-  const [calculated, setCalculated] = useState(false);
-  
-  // Calculate energy consumption
-  const dailyKwh = (parseFloat(powerWatts) * parseFloat(hoursPerDay)) / 1000;
-  const monthlyKwh = dailyKwh * parseFloat(daysPerMonth);
-  const yearlyKwh = monthlyKwh * 12;
-  
-  // Calculate costs
-  const dailyCost = dailyKwh * parseFloat(electricRate);
-  const monthlyCost = monthlyKwh * parseFloat(electricRate);
-  const yearlyCost = yearlyKwh * parseFloat(electricRate);
-  
-  // Cost per hour
-  const hourlyKwh = parseFloat(powerWatts) / 1000;
-  const hourlyCost = hourlyKwh * parseFloat(electricRate);
+
+  const w = Math.max(parseFloat(powerWatts) || 0, 0);
+  const h = Math.max(parseFloat(hoursPerDay) || 0, 0);
+  const d = Math.max(parseFloat(daysPerMonth) || 0, 0);
+  const r = Math.max(parseFloat(electricRate) || 0, 0);
+
+  const calc = useMemo(() => {
+    const hourlyKwh = w / 1000;
+    const dailyKwh = hourlyKwh * h;
+    const monthlyKwh = dailyKwh * d;
+    const yearlyKwh = monthlyKwh * 12;
+    const hourlyCost = hourlyKwh * r;
+    const dailyCost = dailyKwh * r;
+    const monthlyCost = monthlyKwh * r;
+    const yearlyCost = yearlyKwh * r;
+    const co2LbsPerYear = yearlyKwh * 0.92;
+    const treesNeeded = Math.round(co2LbsPerYear / 48);
+    return { hourlyKwh, dailyKwh, monthlyKwh, yearlyKwh, hourlyCost, dailyCost, monthlyCost, yearlyCost, co2LbsPerYear, treesNeeded };
+  }, [w, h, d, r]);
+
+  const fit =
+    w === 0 || h === 0 ? { tone: 'warn' as const, text: 'Enter wattage + hours' } :
+    calc.yearlyCost < 50 ? { tone: 'good' as const, text: 'Trivial annual cost' } :
+    calc.yearlyCost < 200 ? { tone: 'good' as const, text: 'Modest annual cost' } :
+    calc.yearlyCost < 1000 ? { tone: 'ok' as const, text: 'Significant — worth optimizing' } :
+                             { tone: 'warn' as const, text: 'Major energy load — high-priority for upgrade' };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-yellow-100 p-3 rounded-lg">
-          <Calculator className="w-6 h-6 text-yellow-700" />
-        </div>
+    <CalcShell
+      Icon={Zap}
+      title="kWh Cost Calculator"
+      subtitle="Exact electricity cost for any appliance. Updates live."
+      accent={ACCENT}
+    >
+      {/* Section 1 — Appliance */}
+      <section>
+        <SectionHeader step={1} title="Appliance power" subtitle="Pick a preset or enter exact wattage" Icon={Plug} accent={ACCENT} />
+
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">kWh Cost Calculator</h2>
-          <p className="text-sm text-gray-600">Calculate electricity costs for any appliance</p>
-        </div>
-      </div>
-      
-      {/* Input Section */}
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Power Consumption (Watts)
-            </label>
-            <input
-              type="number"
+          <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+            Common appliances
+            <InfoTip label="appliance wattage">Look at the appliance's nameplate or manual. Heaters and AC are the biggest electricity consumers; LEDs and chargers are trivial.</InfoTip>
+          </label>
+          <div className="mb-3">
+            <CardChoice
               value={powerWatts}
-              onChange={(e) => setPowerWatts(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-              placeholder="1500"
-              min="1"
-              max="10000"
+              onChange={setPowerWatts}
+              options={appliancePresets}
+              ariaLabel="Appliance preset"
+              columns={3}
+              accent={ACCENT}
             />
-            <p className="text-xs text-gray-500 mt-1">Check appliance label or manual</p>
           </div>
-          
+          <label className="text-sm font-medium text-gray-700 mb-2 block">Or enter exact wattage</label>
+          <div className="mb-2">
+            <PresetChips value={powerWatts} onChange={setPowerWatts} presets={wattPresets} accent={ACCENT} />
+          </div>
+          <NumberInput value={powerWatts} onChange={setPowerWatts} min={1} max={10000} suffix="W" ariaLabel="Custom wattage" accent={ACCENT} />
+        </div>
+      </section>
+
+      {/* Section 2 — Usage */}
+      <section>
+        <SectionHeader step={2} title="Usage pattern" subtitle="How often it runs" Icon={Clock} accent={ACCENT} />
+
+        <div className="grid sm:grid-cols-2 gap-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Hours Used Per Day
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Hours per day
+              <span className="ml-auto text-sm font-semibold text-emerald-700">{h.toFixed(1)} hr</span>
             </label>
             <input
-              type="number"
+              type="range"
+              min={0.1}
+              max={24}
+              step={0.1}
               value={hoursPerDay}
               onChange={(e) => setHoursPerDay(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-              placeholder="8"
-              min="0.1"
-              max="24"
-              step="0.1"
+              className="w-full accent-emerald-600"
+              aria-label="Hours per day"
             />
+            <div className="flex justify-between text-[10px] text-gray-500 mt-1">
+              <span>0</span><span>8</span><span>16</span><span>24 (always on)</span>
+            </div>
           </div>
-          
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Days Used Per Month
-            </label>
-            <input
-              type="number"
-              value={daysPerMonth}
-              onChange={(e) => setDaysPerMonth(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-              placeholder="30"
-              min="1"
-              max="31"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Electricity Rate ($/kWh)
-            </label>
-            <input
-              type="number"
-              value={electricRate}
-              onChange={(e) => setElectricRate(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-              placeholder="0.16"
-              min="0.05"
-              max="0.50"
-              step="0.01"
-            />
-            <p className="text-xs text-gray-500 mt-1">US average: $0.16/kWh</p>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Days per month</label>
+            <NumberInput value={daysPerMonth} onChange={setDaysPerMonth} min={1} max={31} suffix="days" ariaLabel="Days per month" accent={ACCENT} />
           </div>
         </div>
-        
-        {/* Calculate Button */}
-        <button
-          onClick={() => setCalculated(true)}
-          className="w-full md:w-auto md:mx-auto md:px-12 bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center gap-2"
-        >
-          <Calculator className="w-5 h-5" />
-          Calculate Energy Costs
-        </button>
-      </div>
-      
-      {/* Results Section - Only show after calculation */}
-      {calculated && (
-        <div className="mt-8 space-y-8">
-          <div className="border-t border-gray-200 pt-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-              <div className="bg-green-100 p-2 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-              </div>
-              Energy Cost Analysis
-            </h3>
-            
-            {/* Main Results Grid */}
-            <div className="grid lg:grid-cols-3 gap-6 mb-8">
-              {/* Primary Cost Result */}
-              <div className="lg:col-span-2 bg-gradient-to-br from-yellow-50 to-orange-100 rounded-xl p-6 border border-yellow-200">
-                <div className="flex items-center gap-3 mb-4">
-                  <DollarSign className="w-6 h-6 text-yellow-600" />
-                  <h4 className="text-lg font-semibold text-gray-800">Operating Costs</h4>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
+      </section>
+
+      {/* Section 3 — Electric rate */}
+      <section>
+        <SectionHeader step={3} title="Your electric rate" subtitle="Check a recent bill" Icon={DollarSign} accent={ACCENT} />
+
+        <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
+        <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.16/kWh · CA averages $0.30+ · South averages $0.10–$0.13</p>
+      </section>
+
+      {/* Results */}
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Annual operating cost"
+          value={`$${fmtMoney(calc.yearlyCost)}`}
+          unit={`/yr (${fmt(Math.round(calc.yearlyKwh))} kWh)`}
+          secondaryText={
+            <>
+              At {fmt(w)}W running {h.toFixed(1)} hr/day × {d.toFixed(0)} days/month
+              at ${r.toFixed(2)}/kWh, this appliance costs <strong>${calc.monthlyCost.toFixed(2)}/month</strong>.
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Per hour', value: `$${calc.hourlyCost.toFixed(3)}` },
+            { label: 'Per day', value: `$${calc.dailyCost.toFixed(2)}` },
+            { label: 'Per month', value: `$${calc.monthlyCost.toFixed(2)}` },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Clock className="w-4 h-4 text-emerald-600" />
+              Usage scenarios at this wattage
+            </h4>
+            <div className="space-y-1.5">
+              {[
+                { label: 'Light use', hrs: 4, color: 'bg-emerald-50 ring-emerald-200 text-emerald-900' },
+                { label: 'Medium use', hrs: 8, color: 'bg-amber-50 ring-amber-200 text-amber-900' },
+                { label: 'Heavy use', hrs: 16, color: 'bg-orange-50 ring-orange-200 text-orange-900' },
+                { label: 'Always on', hrs: 24, color: 'bg-red-50 ring-red-200 text-red-900' },
+              ].map((scenario) => {
+                const yearly = ((w / 1000) * scenario.hrs * 365 * r);
+                return (
+                  <div key={scenario.label} className={`flex items-center justify-between p-2.5 rounded-lg ring-1 text-xs ${scenario.color}`}>
                     <div>
-                      <p className="text-sm font-medium text-gray-600 mb-1">Monthly Cost</p>
-                      <p className="text-3xl font-bold text-yellow-600">
-                        ${monthlyCost.toFixed(2)}
-                      </p>
-                      <p className="text-sm text-gray-500">per month</p>
+                      <div className="font-semibold">{scenario.label}</div>
+                      <div className="text-[11px] opacity-80">{scenario.hrs} hrs/day</div>
                     </div>
-                    
-                    <div>
-                      <p className="text-sm font-medium text-gray-600 mb-1">Annual Cost</p>
-                      <p className="text-2xl font-bold text-gray-800">
-                        ${yearlyCost.toFixed(0)}
-                      </p>
-                      <p className="text-sm text-gray-500">per year</p>
-                    </div>
+                    <div className="font-bold tabular-nums text-base">${fmtMoney(yearly)}/yr</div>
                   </div>
-                  
-                  <div>
-                    <p className="text-sm font-medium text-gray-600 mb-3">Cost Breakdown</p>
-                    <div className="bg-white/60 rounded-lg p-3 space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Per Hour:</span>
-                        <span className="font-medium">${hourlyCost.toFixed(3)}</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Per Day:</span>
-                        <span className="font-medium">${dailyCost.toFixed(2)}</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Per Month:</span>
-                        <span className="font-medium">${monthlyCost.toFixed(2)}</span>
-                      </div>
-                      <div className="flex justify-between text-sm border-t pt-2">
-                        <span className="text-gray-700 font-semibold">Per Year:</span>
-                        <span className="font-bold text-yellow-600">${yearlyCost.toFixed(0)}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Energy Consumption */}
-              <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
-                <div className="flex items-center gap-2 mb-4">
-                  <Zap className="w-5 h-5 text-blue-600" />
-                  <h4 className="font-semibold text-gray-800">Energy Usage</h4>
-                </div>
-                <div className="space-y-3">
-                  <div className="text-center p-3">
-                    <p className="text-2xl font-bold text-blue-600">{dailyKwh.toFixed(2)}</p>
-                    <p className="text-sm text-gray-600">kWh per day</p>
-                  </div>
-                  <div className="text-center p-3">
-                    <p className="text-xl font-bold text-gray-800">{monthlyKwh.toFixed(1)}</p>
-                    <p className="text-sm text-gray-600">kWh per month</p>
-                  </div>
-                  <div className="text-center p-3">
-                    <p className="text-lg font-bold text-gray-700">{yearlyKwh.toFixed(0)}</p>
-                    <p className="text-sm text-gray-600">kWh per year</p>
-                  </div>
-                  
-                  <div className="pt-2 border-t border-blue-300">
-                    <p className="text-xs text-gray-600 text-center">
-                      At {parseFloat(hoursPerDay)} hours/day, {parseFloat(daysPerMonth)} days/month
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Usage Scenarios & Efficiency */}
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              {/* Usage Scenarios */}
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-purple-600" />
-                  Usage Scenarios
-                </h4>
-                <div className="space-y-3">
-                  <div className="p-3 bg-gray-50 rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-gray-700">Light Usage (4 hrs/day)</span>
-                      <span className="text-lg font-bold text-green-600">
-                        ${(yearlyCost * 4 / parseFloat(hoursPerDay)).toFixed(0)}/yr
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-600">
-                      {(monthlyKwh * 4 / parseFloat(hoursPerDay)).toFixed(1)} kWh/month
-                    </p>
-                  </div>
-                  
-                  <div className="p-3 bg-gray-50 rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-gray-700">Medium Usage (8 hrs/day)</span>
-                      <span className="text-lg font-bold text-yellow-600">
-                        ${(yearlyCost * 8 / parseFloat(hoursPerDay)).toFixed(0)}/yr
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-600">
-                      {(monthlyKwh * 8 / parseFloat(hoursPerDay)).toFixed(1)} kWh/month
-                    </p>
-                  </div>
-                  
-                  <div className="p-3 bg-gray-50 rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-gray-700">Continuous (24/7)</span>
-                      <span className="text-lg font-bold text-red-600">
-                        ${(yearlyCost * 24 / parseFloat(hoursPerDay)).toFixed(0)}/yr
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-600">
-                      {(monthlyKwh * 24 / parseFloat(hoursPerDay)).toFixed(0)} kWh/month
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Efficiency & Savings */}
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Leaf className="w-5 h-5 text-green-600" />
-                  Efficiency Insights
-                </h4>
-                <div className="space-y-4">
-                  <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                    <p className="font-semibold text-green-800 mb-1">Energy Star Savings</p>
-                    <p className="text-sm text-green-700">
-                      ENERGY STAR appliances use 10-25% less energy. Potential annual savings: 
-                      ${(yearlyCost * 0.175).toFixed(0)}
-                    </p>
-                  </div>
-                  
-                  <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
-                    <p className="font-semibold text-blue-800 mb-1">Timer Controls</p>
-                    <p className="text-sm text-blue-700">
-                      Using smart timers to reduce usage by 2 hours daily could save ${(yearlyCost * 2 / parseFloat(hoursPerDay)).toFixed(0)}/year
-                    </p>
-                  </div>
-                  
-                  <div className="p-3 bg-purple-50 rounded-lg border border-purple-200">
-                    <p className="font-semibold text-purple-800 mb-1">Peak Hour Avoidance</p>
-                    <p className="text-sm text-purple-700">
-                      Time-of-use rates: Avoid peak hours (2-7 PM) to save 20-40% on electricity costs
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Appliance Reference & Environmental Impact */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Common Appliances */}
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Info className="w-5 h-5 text-blue-600" />
-                  Common Appliance Power Consumption
-                </h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-sm text-gray-600">Space Heater</span>
-                    <span className="font-medium text-gray-800">1500W</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-sm text-gray-600">Window AC Unit</span>
-                    <span className="font-medium text-gray-800">1200W</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-sm text-gray-600">Dehumidifier</span>
-                    <span className="font-medium text-gray-800">700W</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-sm text-gray-600">Hair Dryer</span>
-                    <span className="font-medium text-gray-800">1800W</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-sm text-gray-600">Microwave Oven</span>
-                    <span className="font-medium text-gray-800">1000W</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2">
-                    <span className="text-sm text-gray-600">LED Bulb (60W equiv)</span>
-                    <span className="font-medium text-gray-800">9W</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Environmental Impact */}
-              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
-                <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Leaf className="w-5 h-5 text-green-600" />
-                  Environmental Impact
-                </h4>
-                <div className="space-y-3">
-                  <div className="text-center p-3">
-                    <p className="text-2xl font-bold text-green-600">
-                      {(yearlyKwh * 0.92 / 1000).toFixed(1)}
-                    </p>
-                    <p className="text-sm text-gray-600">Metric tons CO₂/year</p>
-                  </div>
-                  <div className="text-center p-3">
-                    <p className="text-xl font-bold text-blue-600">
-                      {Math.round(yearlyKwh * 0.92 / 48)}
-                    </p>
-                    <p className="text-sm text-gray-600">Tree seedlings needed to offset</p>
-                  </div>
-                  <div className="pt-3 border-t border-gray-200">
-                    <p className="text-xs text-gray-600 text-center">
-                      Based on US average grid emissions (0.92 lbs CO₂/kWh)
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Professional Disclaimer */}
-            <div className="mt-8 bg-gray-50 rounded-xl p-6 border border-gray-200">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-amber-600 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Important Cost Considerations</h4>
-                  <div className="text-sm text-gray-700 space-y-1">
-                    <p>• Electricity rates vary by region, season, and time of day - check with your utility provider</p>
-                    <p>• Actual appliance power consumption may vary based on settings, age, and efficiency</p>
-                    <p>• Additional fees (delivery charges, taxes) may apply to your electric bill</p>
-                    <p>• Consider demand charges for large commercial/industrial loads</p>
-                    <p>• Energy-efficient models can significantly reduce long-term operating costs</p>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <TrendingUp className="w-4 h-4 text-emerald-600" />
+              Energy & cost breakdown
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Per hour', detail: `${fmt(w)}W = ${calc.hourlyKwh.toFixed(3)} kWh`, factor: `$${calc.hourlyCost.toFixed(3)}` },
+                { label: 'Per day', detail: `${h.toFixed(1)} hrs × ${calc.hourlyKwh.toFixed(3)} kWh`, factor: `${calc.dailyKwh.toFixed(2)} kWh` },
+                { label: 'Per month', detail: `${d.toFixed(0)} days × ${calc.dailyKwh.toFixed(2)} kWh`, factor: `${calc.monthlyKwh.toFixed(1)} kWh` },
+                { label: 'Per year', detail: `12 × monthly`, factor: `${fmt(Math.round(calc.yearlyKwh))} kWh` },
+                { label: 'Rate', detail: 'Your utility', factor: `× $${r.toFixed(2)}/kWh` },
+              ]}
+              totals={[
+                { label: 'Annual cost', value: `$${fmtMoney(calc.yearlyCost)}`, valueClass: 'text-emerald-700' },
+              ]}
+            />
+          </div>
+
+          <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4 lg:col-span-2">
+            <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
+              <Leaf className="w-4 h-4 text-emerald-700" />
+              Environmental impact (US grid average)
+            </h4>
+            <div className="grid sm:grid-cols-3 gap-3 text-center">
+              <div className="bg-white rounded-lg p-3 border border-emerald-100">
+                <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Annual CO₂</div>
+                <div className="text-xl font-bold text-emerald-900 tabular-nums">{fmt(Math.round(calc.co2LbsPerYear))} lbs</div>
+                <div className="text-[11px] text-gray-500">{(calc.co2LbsPerYear / 2000).toFixed(2)} tons</div>
+              </div>
+              <div className="bg-white rounded-lg p-3 border border-emerald-100">
+                <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Trees to offset</div>
+                <div className="text-xl font-bold text-emerald-900 tabular-nums">{fmt(calc.treesNeeded)}</div>
+                <div className="text-[11px] text-gray-500">seedlings/yr</div>
+              </div>
+              <div className="bg-white rounded-lg p-3 border border-emerald-100">
+                <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">ENERGY STAR could save</div>
+                <div className="text-xl font-bold text-emerald-900 tabular-nums">${fmtMoney(calc.yearlyCost * 0.175)}</div>
+                <div className="text-[11px] text-gray-500">~17.5% lower draw</div>
+              </div>
+            </div>
+            <p className="text-[11px] text-gray-600 mt-2 leading-snug">
+              Based on US average grid emission factor (0.92 lbs CO₂/kWh). Renewable-heavy grids (CA, WA, OR) are lower; coal-heavy grids (WV, KY, MO) are higher.
+            </p>
+          </div>
         </div>
-      )}
-    </div>
+
+        <DisclaimerBox title="What this calculator misses">
+          <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li>Time-of-use rates (some utilities charge 2–4× more during 2–7 PM)</li>
+            <li>Tiered rates — your kWh price may jump after a monthly threshold</li>
+            <li>Demand charges (rare in residential, common in commercial)</li>
+            <li>Delivery / connection / regulatory fees layered on top of the energy charge</li>
+            <li>Nameplate watts vary with cycling — a 1500W heater rarely runs at 1500W continuously</li>
+          </ul>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

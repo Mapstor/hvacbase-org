@@ -1,483 +1,603 @@
 'use client';
 
-import { useState } from 'react';
-import { Calculator, Home, Flame, MapPin, Thermometer, Info, CheckCircle, AlertTriangle, TrendingUp, DollarSign, Settings, Leaf } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Home,
+  Flame,
+  MapPin,
+  TrendingUp,
+  Settings,
+  Leaf,
+  Layers,
+  Sun,
+  CloudSun,
+  Cloud,
+  Building2,
+  Wind,
+  Ruler,
+  Snowflake,
+} from 'lucide-react';
+import {
+  fmt,
+  fmtMoney,
+  CalcShell,
+  SectionHeader,
+  Segmented,
+  CardChoice,
+  PresetChips,
+  RangeSlider,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+} from './_shared';
+
+const ACCENT = 'orange' as const;
+
+type StoriesValue = '1' | '2' | '3';
 
 const climateZones = [
-  { value: 'zone1', name: 'Zone 1 (Hot)', btuPerSqFt: 30, description: 'Southern Florida, Hawaii' },
-  { value: 'zone2', name: 'Zone 2 (Warm)', btuPerSqFt: 35, description: 'Southern Texas, Southern California' },
-  { value: 'zone3', name: 'Zone 3 (Moderate)', btuPerSqFt: 40, description: 'Virginia, Tennessee, Arkansas' },
-  { value: 'zone4', name: 'Zone 4 (Cool)', btuPerSqFt: 45, description: 'New York, Illinois, Missouri' },
-  { value: 'zone5', name: 'Zone 5 (Cold)', btuPerSqFt: 50, description: 'Iowa, Michigan, Maine' },
-  { value: 'zone6', name: 'Zone 6 (Very Cold)', btuPerSqFt: 55, description: 'Minnesota, Wisconsin, Montana' },
-  { value: 'zone7', name: 'Zone 7 (Extreme Cold)', btuPerSqFt: 60, description: 'Northern Minnesota, Alaska' }
+  { value: 'zone1', short: 'Z1', name: 'Zone 1', label: 'Hot',
+    btuPerSqFt: 30, hdd: 1000, designTemp: '40°F', months: '2–3',
+    description: 'Southern Florida, Hawaii' },
+  { value: 'zone2', short: 'Z2', name: 'Zone 2', label: 'Warm',
+    btuPerSqFt: 35, hdd: 2000, designTemp: '30°F', months: '3–4',
+    description: 'Southern Texas, Southern California' },
+  { value: 'zone3', short: 'Z3', name: 'Zone 3', label: 'Moderate',
+    btuPerSqFt: 40, hdd: 3500, designTemp: '20°F', months: '4–5',
+    description: 'Virginia, Tennessee, Arkansas' },
+  { value: 'zone4', short: 'Z4', name: 'Zone 4', label: 'Cool',
+    btuPerSqFt: 45, hdd: 5000, designTemp: '10°F', months: '5–6',
+    description: 'New York, Illinois, Missouri' },
+  { value: 'zone5', short: 'Z5', name: 'Zone 5', label: 'Cold',
+    btuPerSqFt: 50, hdd: 6500, designTemp: '0°F', months: '6–7',
+    description: 'Iowa, Michigan, Maine' },
+  { value: 'zone6', short: 'Z6', name: 'Zone 6', label: 'Very Cold',
+    btuPerSqFt: 55, hdd: 8000, designTemp: '−10°F', months: '7–8',
+    description: 'Minnesota, Wisconsin, Montana' },
+  { value: 'zone7', short: 'Z7', name: 'Zone 7', label: 'Extreme Cold',
+    btuPerSqFt: 60, hdd: 10000, designTemp: '−30°F', months: '8–9',
+    description: 'Northern Minnesota, Alaska' },
 ];
 
-const insulationQuality = [
-  { value: 'poor', name: 'Poor', factor: 1.25, description: 'Old/no insulation, single pane windows' },
-  { value: 'average', name: 'Average', factor: 1.0, description: 'Standard insulation, double pane windows' },
-  { value: 'good', name: 'Good', factor: 0.9, description: 'Modern insulation, energy efficient windows' },
-  { value: 'excellent', name: 'Excellent', factor: 0.8, description: 'Spray foam, triple pane windows' }
+const insulationOptions = [
+  { value: 'poor', name: 'Poor', factor: 1.25,
+    summary: 'Pre-1970 build, single-pane windows, little/no wall insulation' },
+  { value: 'average', name: 'Average', factor: 1.0,
+    summary: 'Code-minimum walls and attic, double-pane windows' },
+  { value: 'good', name: 'Good', factor: 0.9,
+    summary: 'Above-code (R-21+ walls), Low-E double-pane, sealed envelope' },
+  { value: 'excellent', name: 'Excellent', factor: 0.8,
+    summary: 'Spray foam, triple-pane glass, near-passive house tightness' },
 ];
 
 const ceilingHeights = [
-  { value: '8', name: '8 ft (Standard)', factor: 1.0 },
-  { value: '9', name: '9 ft', factor: 1.125 },
-  { value: '10', name: '10 ft', factor: 1.25 },
-  { value: '12', name: '12 ft (Vaulted)', factor: 1.5 }
+  { value: '8', name: '8 ft', sub: 'Standard', factor: 1.0 },
+  { value: '9', name: '9 ft', sub: 'Tall', factor: 1.125 },
+  { value: '10', name: '10 ft', sub: 'Extra tall', factor: 1.25 },
+  { value: '12', name: '12 ft+', sub: 'Vaulted', factor: 1.5 },
 ];
 
 const furnaceEfficiency = [
-  { value: '80', name: '80% AFUE (Standard)', efficiency: 0.80, price: 2500 },
-  { value: '90', name: '90% AFUE (High)', efficiency: 0.90, price: 3500 },
-  { value: '95', name: '95% AFUE (High)', efficiency: 0.95, price: 4500 },
-  { value: '98', name: '98% AFUE (Ultra High)', efficiency: 0.98, price: 5500 }
+  { value: '80', name: '80% AFUE', tier: 'Standard',
+    efficiency: 0.80, price: 2500, venting: 'Metal B-vent / chimney',
+    note: 'Cheapest upfront. Only allowed in southern US in 2026.' },
+  { value: '90', name: '90% AFUE', tier: 'Mid',
+    efficiency: 0.90, price: 3500, venting: 'PVC condensing vent',
+    note: 'Good balance of upfront cost and yearly savings.' },
+  { value: '95', name: '95% AFUE', tier: 'High',
+    efficiency: 0.95, price: 4500, venting: 'PVC condensing vent',
+    note: '2026 minimum in northern US. Best mainstream value.' },
+  { value: '98', name: '98% AFUE', tier: 'Ultra',
+    efficiency: 0.98, price: 5500, venting: 'PVC condensing vent',
+    note: 'Modulating/variable-speed. Top comfort, lowest bills.' },
 ];
+
+const sunExposureOptions = [
+  { value: 'low', name: 'Mostly shaded', sub: 'Heavy tree cover, north-facing',
+    factor: 0.9, Icon: Cloud },
+  { value: 'average', name: 'Average', sub: 'Mixed sun and shade',
+    factor: 1.0, Icon: CloudSun },
+  { value: 'high', name: 'Full sun', sub: 'Open exposure, south-facing',
+    factor: 1.1, Icon: Sun },
+];
+
+const storiesOptions = [
+  { value: '1' as const, name: '1 story', factor: 1.0 },
+  { value: '2' as const, name: '2 stories', factor: 0.92 },
+  { value: '3' as const, name: '3 stories', factor: 0.88 },
+];
+
+const basementOptions = [
+  { value: 'heated', name: 'Heated', sub: 'Finished, conditioned', factor: 1.10 },
+  { value: 'unheated', name: 'Unheated', sub: 'Unfinished basement / crawlspace', factor: 1.0 },
+  { value: 'slab', name: 'Slab / none', sub: 'Slab on grade or no basement', factor: 1.05 },
+];
+
+const ductOptions = [
+  { value: 'conditioned', name: 'Conditioned space', sub: 'Inside heated envelope', factor: 0.95 },
+  { value: 'insulated_attic', name: 'Insulated attic', sub: 'Sealed, insulated ducts', factor: 1.0 },
+  { value: 'uninsulated_attic', name: 'Uninsulated attic', sub: 'Lossy ducts in attic', factor: 1.15 },
+  { value: 'crawlspace', name: 'Crawlspace', sub: 'Below floor, vented', factor: 1.10 },
+];
+
+const squareFootPresets = [1000, 1500, 2000, 2500, 3000, 4000];
 
 export default function FurnaceSizingCalculator() {
   const [squareFeet, setSquareFeet] = useState('2000');
+  const [stories, setStories] = useState<StoriesValue>('1');
   const [climateZone, setClimateZone] = useState('zone4');
   const [insulation, setInsulation] = useState('average');
   const [ceilingHeight, setCeilingHeight] = useState('8');
-  const [efficiency, setEfficiency] = useState('90');
+  const [efficiency, setEfficiency] = useState('95');
   const [windowPercentage, setWindowPercentage] = useState('15');
   const [sunExposure, setSunExposure] = useState('average');
-  const [calculated, setCalculated] = useState(false);
-  
-  // Get selected options
-  const selectedZone = climateZones.find(z => z.value === climateZone);
-  const selectedInsulation = insulationQuality.find(i => i.value === insulation);
-  const selectedCeiling = ceilingHeights.find(c => c.value === ceilingHeight);
-  const selectedEfficiency = furnaceEfficiency.find(e => e.value === efficiency);
-  
-  // Calculate base BTU requirement
-  const baseBTU = selectedZone ? parseFloat(squareFeet) * selectedZone.btuPerSqFt : parseFloat(squareFeet) * 30;
-  
-  // Apply adjustment factors
-  let adjustedBTU = baseBTU;
-  adjustedBTU *= selectedInsulation?.factor || 1;
-  adjustedBTU *= selectedCeiling?.factor || 1;
-  
-  // Window adjustment
-  const windowFactor = 1 + ((parseFloat(windowPercentage) - 15) * 0.01);
-  adjustedBTU *= windowFactor;
-  
-  // Sun exposure adjustment
-  const sunFactor = sunExposure === 'high' ? 1.1 : sunExposure === 'low' ? 0.9 : 1.0;
-  adjustedBTU *= sunFactor;
-  
-  // This is OUTPUT BTU needed
-  const outputBTUNeeded = Math.round(adjustedBTU);
-  
-  // Calculate INPUT BTU (what furnace is rated at)
-  const inputBTUNeeded = selectedEfficiency ? Math.round(outputBTUNeeded / selectedEfficiency.efficiency) : outputBTUNeeded;
-  
-  // Standard furnace sizes (INPUT BTU)
-  const standardSizes = [40000, 60000, 80000, 100000, 120000, 140000];
-  const recommendedSize = standardSizes.find(size => size >= inputBTUNeeded) || 140000;
-  
-  // Actual output with selected furnace
-  const actualOutput = selectedEfficiency ? recommendedSize * selectedEfficiency.efficiency : recommendedSize;
-  
-  // Oversizing percentage
-  const oversizing = ((actualOutput - outputBTUNeeded) / outputBTUNeeded) * 100;
-  
-  // Operating cost estimates
-  const heatingDegreeDays = selectedZone?.value === 'zone7' ? 10000 :
-                           selectedZone?.value === 'zone6' ? 8000 :
-                           selectedZone?.value === 'zone5' ? 6500 :
-                           selectedZone?.value === 'zone4' ? 5000 :
-                           selectedZone?.value === 'zone3' ? 3500 :
-                           selectedZone?.value === 'zone2' ? 2000 : 1000;
-  
-  const annualGasUsage = selectedEfficiency ? (outputBTUNeeded * heatingDegreeDays * 24) / (selectedEfficiency.efficiency * 100000 * 65) : 0;
-  const annualCost = annualGasUsage * 1.20; // $1.20 per therm average
+  const [basement, setBasement] = useState('unheated');
+  const [ducts, setDucts] = useState('insulated_attic');
+
+  const selectedZone = climateZones.find((z) => z.value === climateZone)!;
+  const selectedInsulation = insulationOptions.find((i) => i.value === insulation)!;
+  const selectedCeiling = ceilingHeights.find((c) => c.value === ceilingHeight)!;
+  const selectedEfficiency = furnaceEfficiency.find((e) => e.value === efficiency)!;
+  const selectedSun = sunExposureOptions.find((s) => s.value === sunExposure)!;
+  const selectedStories = storiesOptions.find((s) => s.value === stories)!;
+  const selectedBasement = basementOptions.find((b) => b.value === basement)!;
+  const selectedDucts = ductOptions.find((d) => d.value === ducts)!;
+
+  const sqFt = Math.max(parseFloat(squareFeet) || 0, 0);
+  const winPct = Math.min(Math.max(parseFloat(windowPercentage) || 15, 5), 50);
+
+  const calc = useMemo(() => {
+    const baseBTU = sqFt * selectedZone.btuPerSqFt;
+    let adjustedBTU = baseBTU;
+    adjustedBTU *= selectedInsulation.factor;
+    adjustedBTU *= selectedCeiling.factor;
+    adjustedBTU *= selectedStories.factor;
+    adjustedBTU *= selectedBasement.factor;
+    adjustedBTU *= selectedDucts.factor;
+    const windowFactor = 1 + (winPct - 15) * 0.01;
+    adjustedBTU *= windowFactor;
+    adjustedBTU *= selectedSun.factor;
+
+    const outputBTUNeeded = Math.max(Math.round(adjustedBTU), 0);
+    const inputBTUNeeded = Math.round(outputBTUNeeded / selectedEfficiency.efficiency);
+
+    const standardSizes = [40000, 60000, 80000, 100000, 120000, 140000];
+    const recommendedSize = standardSizes.find((size) => size >= inputBTUNeeded) || 140000;
+    const requiresMultipleUnits = inputBTUNeeded > 140000;
+    const actualOutput = Math.round(recommendedSize * selectedEfficiency.efficiency);
+    const oversizing = outputBTUNeeded > 0
+      ? ((actualOutput - outputBTUNeeded) / outputBTUNeeded) * 100
+      : 0;
+
+    const annualGasUsage =
+      (outputBTUNeeded * selectedZone.hdd * 24) /
+      (selectedEfficiency.efficiency * 100000 * 65);
+    const annualCost = annualGasUsage * 1.2;
+
+    return {
+      baseBTU: Math.round(baseBTU),
+      outputBTUNeeded,
+      inputBTUNeeded,
+      recommendedSize,
+      requiresMultipleUnits,
+      actualOutput,
+      oversizing,
+      windowFactor,
+      annualGasUsage,
+      annualCost,
+    };
+  }, [
+    sqFt, winPct, selectedZone, selectedInsulation, selectedCeiling,
+    selectedStories, selectedBasement, selectedDucts, selectedSun, selectedEfficiency,
+  ]);
+
+  const fit =
+    calc.oversizing < 5 ? { tone: 'good' as const, text: 'Excellent fit' } :
+    calc.oversizing < 15 ? { tone: 'ok' as const, text: 'Good fit' } :
+    calc.oversizing < 25 ? { tone: 'warn' as const, text: 'Acceptable, watch short-cycling' } :
+                           { tone: 'bad' as const, text: 'Risk of oversizing' };
+
+  const tons = calc.outputBTUNeeded / 12000;
+  const btuPerSqFtResult = sqFt > 0 ? calc.outputBTUNeeded / sqFt : 0;
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-orange-100 p-3 rounded-lg">
-          <Calculator className="w-6 h-6 text-orange-700" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">Furnace Sizing Calculator</h2>
-          <p className="text-sm text-gray-600">Calculate the right furnace size for your home</p>
-        </div>
-      </div>
-      
-      {/* Input Section */}
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-4">
+    <CalcShell
+      Icon={Flame}
+      title="Furnace Sizing Calculator"
+      subtitle="Manual J–style heat-load estimate. Updates as you change inputs."
+      accent={ACCENT}
+    >
+      {/* Section 1 — Your Home */}
+      <section>
+        <SectionHeader step={1} title="Your home" subtitle="Size, layout, and how it's built" Icon={Home} accent={ACCENT} />
+
+        <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Home Square Footage
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Heated floor area (sq ft)
+              <InfoTip label="square footage">
+                Total area you actively heat. Don't count unheated garage, unheated basement, or unfinished attic.
+              </InfoTip>
             </label>
-            <input
-              type="number"
+            <div className="mb-2">
+              <PresetChips
+                value={squareFeet}
+                onChange={setSquareFeet}
+                presets={squareFootPresets}
+                accent={ACCENT}
+              />
+            </div>
+            <NumberInput
               value={squareFeet}
-              onChange={(e) => setSquareFeet(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              onChange={setSquareFeet}
+              min={500}
+              max={10000}
+              suffix="sq ft"
               placeholder="2000"
-              min="500"
-              max="10000"
+              ariaLabel="Custom square footage"
+              accent={ACCENT}
             />
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Climate Zone
-            </label>
-            <select
-              value={climateZone}
-              onChange={(e) => setClimateZone(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-            >
-              {climateZones.map((zone) => (
-                <option key={zone.value} value={zone.value}>
-                  {zone.name}
-                </option>
-              ))}
-            </select>
-            <p className="text-xs text-gray-500 mt-1">{selectedZone?.description}</p>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                <Layers className="w-4 h-4 mr-1.5 text-gray-500" />
+                Number of stories
+              </label>
+              <Segmented<StoriesValue>
+                value={stories}
+                onChange={setStories}
+                options={storiesOptions.map((s) => ({ value: s.value, name: s.name }))}
+                ariaLabel="Number of stories"
+                accent={ACCENT}
+              />
+              <p className="text-xs text-gray-500 mt-1.5">
+                More stories = smaller envelope per floor = slightly less heat loss.
+              </p>
+            </div>
+
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                <Ruler className="w-4 h-4 mr-1.5 text-gray-500" />
+                Ceiling height
+              </label>
+              <Segmented
+                value={ceilingHeight}
+                onChange={setCeilingHeight}
+                options={ceilingHeights.map((c) => ({ value: c.value, name: c.name, sub: c.sub }))}
+                ariaLabel="Ceiling height"
+                accent={ACCENT}
+              />
+            </div>
           </div>
-          
+
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Insulation Quality
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Insulation & air tightness
+              <InfoTip label="insulation quality">
+                Best proxy: when was the home built and have you upgraded? Pre-1970 with original windows is Poor; 2000s code-built is Average; modern energy-rebuilt is Good or Excellent.
+              </InfoTip>
             </label>
-            <select
+            <CardChoice
               value={insulation}
-              onChange={(e) => setInsulation(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-            >
-              {insulationQuality.map((qual) => (
-                <option key={qual.value} value={qual.value}>
-                  {qual.name}
-                </option>
-              ))}
-            </select>
-            <p className="text-xs text-gray-500 mt-1">{selectedInsulation?.description}</p>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Ceiling Height
-            </label>
-            <select
-              value={ceilingHeight}
-              onChange={(e) => setCeilingHeight(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-            >
-              {ceilingHeights.map((height) => (
-                <option key={height.value} value={height.value}>
-                  {height.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Furnace Efficiency
-            </label>
-            <select
-              value={efficiency}
-              onChange={(e) => setEfficiency(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-            >
-              {furnaceEfficiency.map((eff) => (
-                <option key={eff.value} value={eff.value}>
-                  {eff.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Window Area (% of wall)
-            </label>
-            <input
-              type="number"
-              value={windowPercentage}
-              onChange={(e) => setWindowPercentage(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              placeholder="15"
-              min="5"
-              max="50"
+              onChange={setInsulation}
+              options={insulationOptions}
+              ariaLabel="Insulation quality"
+              accent={ACCENT}
             />
-            <p className="text-xs text-gray-500 mt-1">Typical: 10-20%</p>
           </div>
-          
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                <Building2 className="w-4 h-4 mr-1.5 text-gray-500" />
+                Basement / foundation
+              </label>
+              <CardChoice
+                value={basement}
+                onChange={setBasement}
+                options={basementOptions}
+                ariaLabel="Basement type"
+                columns={3}
+                accent={ACCENT}
+              />
+            </div>
+
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Window area
+                <InfoTip label="window area">
+                  Fraction of exterior wall area that is glass. Typical homes are 12–18%. Lots of glass walls or large picture windows push this to 25–35%.
+                </InfoTip>
+                <span className="ml-auto text-sm font-semibold text-orange-700">{winPct}%</span>
+              </label>
+              <RangeSlider
+                value={windowPercentage}
+                onChange={setWindowPercentage}
+                min={5}
+                max={50}
+                ariaLabel="Window area percent"
+                ticks={[
+                  { value: 5, label: '5% (very few)' },
+                  { value: 15, label: '15% (typical)' },
+                  { value: 50, label: '50% (glass walls)' },
+                ]}
+                accent={ACCENT}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2 — Climate */}
+      <section>
+        <SectionHeader step={2} title="Your climate" subtitle="Local winter severity and sun" Icon={Snowflake} accent={ACCENT} />
+
+        <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Sun Exposure
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Climate zone
+              <InfoTip label="climate zone">
+                US DOE climate zones run from 1 (Miami) to 7 (Alaska). Pick the row whose example states are closest to yours. Zone 4 is the country's middle band.
+              </InfoTip>
             </label>
-            <select
+            <div role="radiogroup" aria-label="Climate zone" className="grid grid-cols-4 sm:grid-cols-7 gap-1.5">
+              {climateZones.map((zone) => {
+                const active = zone.value === climateZone;
+                return (
+                  <button
+                    key={zone.value}
+                    type="button"
+                    role="radio"
+                    aria-checked={active}
+                    onClick={() => setClimateZone(zone.value)}
+                    title={zone.description}
+                    className={`px-2 py-2 rounded-lg border text-xs font-semibold transition-colors ${
+                      active
+                        ? 'bg-orange-600 border-orange-600 text-white'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-orange-400 hover:bg-orange-50'
+                    }`}
+                  >
+                    <div className="font-bold text-sm">{zone.short}</div>
+                    <div className={`text-[10px] mt-0.5 ${active ? 'text-orange-100' : 'text-gray-500'}`}>
+                      {zone.label}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="mt-2 flex items-center gap-2 text-xs text-gray-600">
+              <MapPin className="w-3.5 h-3.5 text-orange-500" />
+              <span className="font-medium text-gray-800">{selectedZone.name} ({selectedZone.label}):</span>
+              <span>{selectedZone.description}</span>
+            </div>
+            <div className="mt-1 grid grid-cols-3 gap-2 text-[11px]">
+              <div className="px-2 py-1 bg-gray-50 rounded">
+                <span className="text-gray-500">Heating Degree Days:</span>{' '}
+                <span className="font-semibold text-gray-800">{fmt(selectedZone.hdd)}</span>
+              </div>
+              <div className="px-2 py-1 bg-gray-50 rounded">
+                <span className="text-gray-500">Design temp:</span>{' '}
+                <span className="font-semibold text-gray-800">{selectedZone.designTemp}</span>
+              </div>
+              <div className="px-2 py-1 bg-gray-50 rounded">
+                <span className="text-gray-500">Heating season:</span>{' '}
+                <span className="font-semibold text-gray-800">{selectedZone.months} months</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              <Sun className="w-4 h-4 mr-1.5 text-gray-500" />
+              Sun exposure
+            </label>
+            <CardChoice
               value={sunExposure}
-              onChange={(e) => setSunExposure(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-            >
-              <option value="low">Low (Heavy shade)</option>
-              <option value="average">Average</option>
-              <option value="high">High (Full sun)</option>
-            </select>
+              onChange={setSunExposure}
+              options={sunExposureOptions}
+              ariaLabel="Sun exposure"
+              columns={3}
+              accent={ACCENT}
+            />
           </div>
         </div>
-        
-        {/* Calculate Button */}
-        <button
-          onClick={() => setCalculated(true)}
-          className="w-full md:w-auto md:mx-auto md:px-12 bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors flex items-center justify-center gap-2"
-        >
-          <Calculator className="w-5 h-5" />
-          Calculate Furnace Size
-        </button>
-      </div>
-      
-      {/* Results Section - Only show after calculation */}
-      {calculated && (
-        <div className="mt-8 space-y-6">
-          {/* Results Header */}
-          <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <div className="bg-green-100 p-1.5 rounded-lg">
-                <CheckCircle className="w-4 h-4 text-green-600" />
-              </div>
-              Your Furnace Requirements
-            </h3>
+      </section>
+
+      {/* Section 3 — Furnace */}
+      <section>
+        <SectionHeader step={3} title="Your furnace preference" subtitle="Efficiency tier and where the ducts run" Icon={Flame} accent={ACCENT} />
+
+        <div className="space-y-5">
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Furnace efficiency (AFUE)
+              <InfoTip label="AFUE">
+                Annual Fuel Utilization Efficiency. 80% means 80¢ of every $1 of gas becomes heat; 20¢ goes up the flue. Northern US requires 95%+ for new installs in 2026.
+              </InfoTip>
+            </label>
+            <CardChoice
+              value={efficiency}
+              onChange={setEfficiency}
+              options={furnaceEfficiency}
+              ariaLabel="Furnace efficiency"
+              accent={ACCENT}
+            />
           </div>
-          
-          {/* Primary Results - Compact */}
-          <div className="grid lg:grid-cols-3 gap-4">
-            {/* Primary Recommendation - More Compact */}
-            <div className="lg:col-span-2 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-4 border border-orange-200">
-              <div className="flex items-start gap-3">
-                <Flame className="w-5 h-5 text-orange-600 mt-1" />
-                <div className="flex-1">
-                  <div className="flex items-baseline justify-between mb-2">
-                    <h4 className="font-semibold text-gray-800">Recommended Furnace</h4>
-                    <span className="text-2xl font-bold text-orange-600">{recommendedSize.toLocaleString()} BTU</span>
-                  </div>
-                  <div className="grid grid-cols-3 gap-3 text-sm">
-                    <div>
-                      <span className="text-gray-600">Input Rating:</span>
-                      <p className="font-semibold">{recommendedSize.toLocaleString()} BTU/hr</p>
-                    </div>
-                    <div>
-                      <span className="text-gray-600">Heat Output:</span>
-                      <p className="font-semibold">{actualOutput.toLocaleString()} BTU/hr</p>
-                    </div>
-                    <div>
-                      <span className="text-gray-600">Heat Required:</span>
-                      <p className="font-semibold">{outputBTUNeeded.toLocaleString()} BTU/hr</p>
-                    </div>
-                  </div>
-                  <div className="mt-2 p-2 bg-white/60 rounded text-xs text-gray-700">
-                    <strong>System Match:</strong> {oversizing < 10 ? 'Excellent fit' : oversizing < 20 ? 'Good fit' : 'Slightly oversized'} ({oversizing.toFixed(0)}% margin). 
-                    This {efficiency}% AFUE furnace converts {recommendedSize.toLocaleString()} BTU input to {actualOutput.toLocaleString()} BTU heat output, 
-                    providing {(actualOutput - outputBTUNeeded).toLocaleString()} BTU safety margin for extreme cold days.
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Annual Cost - Compact */}
-            <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-              <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="w-4 h-4 text-green-600" />
-                <h4 className="font-semibold text-gray-800">Annual Operating Cost</h4>
-              </div>
-              <p className="text-xl font-bold text-green-600 mb-1">${annualCost.toFixed(0)}/year</p>
-              <div className="space-y-1 text-xs text-gray-600">
-                <p>• {Math.round(annualGasUsage)} therms @ $1.20/therm</p>
-                <p>• {heatingDegreeDays.toLocaleString()} heating degree days</p>
-                <p>• Based on {efficiency}% AFUE efficiency</p>
-              </div>
-            </div>
+
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              <Wind className="w-4 h-4 mr-1.5 text-gray-500" />
+              Where do your ducts run?
+              <InfoTip label="ductwork location">
+                Ducts in unconditioned spaces (uninsulated attic, vented crawlspace) lose 10–25% of their heat before it reaches the rooms. This is one of the biggest sizing variables most homeowners miss.
+              </InfoTip>
+            </label>
+            <CardChoice
+              value={ducts}
+              onChange={setDucts}
+              options={ductOptions}
+              ariaLabel="Ductwork location"
+              accent={ACCENT}
+            />
           </div>
-          
-          {/* Detailed Analysis Grid */}
-          <div className="grid md:grid-cols-2 gap-4">
-            {/* Heat Load Breakdown */}
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
-              <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                <Home className="w-4 h-4 text-blue-600" />
-                Heat Load Analysis
-              </h4>
-              <div className="space-y-3">
-                <div className="p-3 bg-blue-50 rounded">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm font-medium text-gray-700">Total Heat Load</span>
-                    <span className="text-lg font-bold text-blue-600">{outputBTUNeeded.toLocaleString()} BTU</span>
-                  </div>
-                  <div className="text-xs text-gray-600 space-y-0.5">
-                    <p>• {(outputBTUNeeded/parseFloat(squareFeet)).toFixed(0)} BTU per sq ft</p>
-                    <p>• Equivalent to {(outputBTUNeeded/12000).toFixed(1)} tons of heating</p>
-                    <p>• {((outputBTUNeeded/inputBTUNeeded)*100).toFixed(0)}% efficiency factor applied</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-2 text-sm">
-                  <div className="font-medium text-gray-700">Load Calculation Factors:</div>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="flex justify-between p-2 bg-gray-50 rounded">
-                      <span className="text-gray-600">Climate ({selectedZone?.name}):</span>
-                      <span className="font-medium">{selectedZone?.btuPerSqFt} BTU/ft²</span>
-                    </div>
-                    <div className="flex justify-between p-2 bg-gray-50 rounded">
-                      <span className="text-gray-600">Insulation:</span>
-                      <span className="font-medium">×{selectedInsulation?.factor}</span>
-                    </div>
-                    <div className="flex justify-between p-2 bg-gray-50 rounded">
-                      <span className="text-gray-600">Ceiling Height:</span>
-                      <span className="font-medium">×{selectedCeiling?.factor}</span>
-                    </div>
-                    <div className="flex justify-between p-2 bg-gray-50 rounded">
-                      <span className="text-gray-600">Windows:</span>
-                      <span className="font-medium">×{windowFactor.toFixed(2)}</span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-600 mt-2">
-                    Base load of {baseBTU.toLocaleString()} BTU adjusted by insulation, ceiling height, 
-                    window percentage ({windowPercentage}%), and sun exposure factors.
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Efficiency & Savings Analysis */}
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
-              <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-green-600" />
-                Efficiency & Savings Options
-              </h4>
-              <div className="space-y-3">
-                <div className="p-3 bg-green-50 rounded">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm font-medium text-gray-700">Current Selection</span>
-                    <span className="font-bold text-green-600">{efficiency}% AFUE</span>
-                  </div>
-                  <p className="text-xs text-gray-600">Annual fuel cost: ${annualCost.toFixed(0)}</p>
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="text-sm font-medium text-gray-700">Efficiency Comparison:</div>
-                  {furnaceEfficiency.map((eff) => {
-                    const effCost = selectedEfficiency ? (annualGasUsage / (eff.efficiency / selectedEfficiency.efficiency)) * 1.20 : 0;
-                    const savings = annualCost - effCost;
-                    return (
-                      <div key={eff.value} className={`p-2 rounded text-xs ${eff.value === efficiency ? 'bg-blue-50 border border-blue-200' : 'bg-gray-50'}`}>
-                        <div className="flex justify-between items-center">
-                          <span className="font-medium">{eff.name}</span>
-                          <span>${effCost.toFixed(0)}/yr</span>
-                        </div>
-                        {eff.value !== efficiency && (
-                          <p className="text-gray-600 mt-0.5">
-                            {savings > 0 ? `Save $${savings.toFixed(0)}/yr` : `Cost $${Math.abs(savings).toFixed(0)}/yr more`}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-                <p className="text-xs text-gray-600">
-                  Higher AFUE units cost more upfront but save on fuel. 10-year savings with 95% AFUE: 
-                  ${selectedEfficiency ? ((annualCost - (annualGasUsage / (0.95 / selectedEfficiency.efficiency)) * 1.20) * 10).toFixed(0) : '0'}
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Climate & Regional Context */}
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 border border-blue-200">
-            <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-blue-600" />
-              Climate Zone Analysis: {selectedZone?.name}
+        </div>
+      </section>
+
+      {/* Results */}
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Recommended furnace size"
+          value={calc.recommendedSize}
+          unit="BTU/hr input"
+          secondaryText={
+            <>
+              Delivers <strong>{fmt(calc.actualOutput)} BTU/hr</strong> of heat at{' '}
+              {selectedEfficiency.name} • Your home needs{' '}
+              <strong>{fmt(calc.outputBTUNeeded)} BTU/hr</strong>
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={`${fit.text} (${calc.oversizing >= 0 ? '+' : ''}${calc.oversizing.toFixed(0)}% headroom)`}
+          warning={calc.requiresMultipleUnits ? (
+            <>
+              Your calculated need ({fmt(calc.inputBTUNeeded)} BTU) exceeds the largest
+              standard residential furnace. Consider two zoned furnaces or envelope upgrades
+              to lower the load before purchasing.
+            </>
+          ) : undefined}
+          sidePanel={[
+            { label: 'Per sq ft', value: `${btuPerSqFtResult.toFixed(0)} BTU` },
+            { label: 'Tonnage equiv.', value: `${tons.toFixed(1)} tons` },
+            { label: 'Est. annual cost', value: `$${fmtMoney(calc.annualCost)}`, valueClass: 'text-emerald-700' },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          {/* Heat load breakdown */}
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Home className="w-4 h-4 text-blue-600" />
+              Heat load breakdown
             </h4>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div>
-                <p className="text-sm font-medium text-gray-700 mb-1">Your Region</p>
-                <p className="text-xs text-gray-600">{selectedZone?.description}</p>
-                <p className="text-lg font-bold text-blue-600 mt-1">{heatingDegreeDays.toLocaleString()} HDD</p>
-                <p className="text-xs text-gray-500">Heating Degree Days</p>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-700 mb-1">Design Temperature</p>
-                <p className="text-xs text-gray-600">Typical winter low:</p>
-                <p className="text-lg font-bold text-purple-600 mt-1">
-                  {selectedZone?.value === 'zone7' ? '-30°F' :
-                   selectedZone?.value === 'zone6' ? '-10°F' :
-                   selectedZone?.value === 'zone5' ? '0°F' :
-                   selectedZone?.value === 'zone4' ? '10°F' :
-                   selectedZone?.value === 'zone3' ? '20°F' :
-                   selectedZone?.value === 'zone2' ? '30°F' : '40°F'}
-                </p>
-                <p className="text-xs text-gray-500">99% design temp</p>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-700 mb-1">Heating Season</p>
-                <p className="text-xs text-gray-600">Typical duration:</p>
-                <p className="text-lg font-bold text-orange-600 mt-1">
-                  {selectedZone?.value === 'zone7' ? '8-9' :
-                   selectedZone?.value === 'zone6' ? '7-8' :
-                   selectedZone?.value === 'zone5' ? '6-7' :
-                   selectedZone?.value === 'zone4' ? '5-6' :
-                   selectedZone?.value === 'zone3' ? '4-5' :
-                   selectedZone?.value === 'zone2' ? '3-4' : '2-3'} months
-                </p>
-                <p className="text-xs text-gray-500">Active heating needed</p>
-              </div>
-            </div>
+            <BreakdownTable
+              rows={[
+                { label: 'Base load', detail: `${fmt(sqFt)} sq ft × ${selectedZone.btuPerSqFt} BTU/sq ft`, factor: `${fmt(calc.baseBTU)} BTU` },
+                { label: 'Insulation', detail: selectedInsulation.name, factor: `× ${selectedInsulation.factor.toFixed(2)}` },
+                { label: 'Ceiling', detail: selectedCeiling.name, factor: `× ${selectedCeiling.factor.toFixed(3)}` },
+                { label: 'Stories', detail: selectedStories.name, factor: `× ${selectedStories.factor.toFixed(2)}` },
+                { label: 'Basement', detail: selectedBasement.name, factor: `× ${selectedBasement.factor.toFixed(2)}` },
+                { label: 'Ductwork', detail: selectedDucts.name, factor: `× ${selectedDucts.factor.toFixed(2)}` },
+                { label: 'Windows', detail: `${winPct}% of wall`, factor: `× ${calc.windowFactor.toFixed(2)}` },
+                { label: 'Sun', detail: selectedSun.name, factor: `× ${selectedSun.factor.toFixed(2)}` },
+              ]}
+              totals={[
+                { label: 'Output heat needed', value: `${fmt(calc.outputBTUNeeded)} BTU/hr`, valueClass: 'text-blue-700' },
+                { label: 'Input required (÷ AFUE)', value: `${fmt(calc.inputBTUNeeded)} BTU/hr`, valueClass: 'text-orange-700' },
+              ]}
+            />
           </div>
-          
-          {/* Additional Insights */}
-          <div className="grid md:grid-cols-2 gap-4">
-            {/* Installation Considerations */}
-            <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
-              <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                <Settings className="w-4 h-4 text-amber-600" />
-                Installation Considerations
-              </h4>
-              <div className="space-y-2 text-xs text-gray-700">
-                <p>• <strong>Venting:</strong> {parseInt(efficiency) >= 90 ? 'PVC venting (condensing)' : 'Metal B-vent or chimney (non-condensing)'}</p>
-                <p>• <strong>Electrical:</strong> Standard 115V circuit for blower and controls</p>
-                <p>• <strong>Gas Line:</strong> {recommendedSize >= 100000 ? '3/4" or 1" gas line recommended' : '1/2" gas line typically sufficient'}</p>
-                <p>• <strong>Installation Cost:</strong> ${selectedEfficiency?.price?.toLocaleString() || '0'} - ${selectedEfficiency?.price ? (selectedEfficiency.price * 1.4).toLocaleString() : '0'} installed</p>
-                <p>• <strong>Warranty:</strong> Typical 10-year heat exchanger, 5-year parts warranty</p>
-              </div>
+
+          {/* Efficiency comparison */}
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <TrendingUp className="w-4 h-4 text-emerald-600" />
+              What other efficiency tiers would cost
+            </h4>
+            <div className="space-y-1.5">
+              {furnaceEfficiency.map((eff) => {
+                const altCost = (calc.annualGasUsage * selectedEfficiency.efficiency / eff.efficiency) * 1.2;
+                const delta = altCost - calc.annualCost;
+                const isCurrent = eff.value === efficiency;
+                return (
+                  <div
+                    key={eff.value}
+                    className={`flex items-center justify-between p-2.5 rounded-lg text-xs ${
+                      isCurrent ? 'bg-orange-50 ring-1 ring-orange-200' : 'bg-gray-50'
+                    }`}
+                  >
+                    <div>
+                      <div className={`font-semibold ${isCurrent ? 'text-orange-900' : 'text-gray-900'}`}>
+                        {eff.name} <span className="font-normal text-gray-500">· {eff.tier}</span>
+                      </div>
+                      <div className="text-[11px] text-gray-500 mt-0.5">
+                        ~${fmtMoney(eff.price)} equipment · {eff.venting.split(' ')[0].toLowerCase()} vent
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className={`font-bold tabular-nums ${isCurrent ? 'text-orange-700' : 'text-gray-800'}`}>
+                        ${fmtMoney(altCost)}/yr
+                      </div>
+                      {!isCurrent && (
+                        <div className={`text-[11px] ${delta < 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                          {delta < 0 ? `−$${fmtMoney(Math.abs(delta))}` : `+$${fmtMoney(delta)}`}/yr
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            
-            {/* Environmental Impact */}
-            <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-              <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                <Leaf className="w-4 h-4 text-green-600" />
-                Environmental Impact
-              </h4>
-              <div className="space-y-2 text-xs text-gray-700">
-                <p>• <strong>CO₂ Emissions:</strong> {(annualGasUsage * 11.7).toFixed(0)} lbs/year</p>
-                <p>• <strong>Efficiency Impact:</strong> {efficiency}% AFUE means {100 - parseInt(efficiency)}% heat lost to exhaust</p>
-                <p>• <strong>Upgrade Benefit:</strong> Moving to 95% AFUE would reduce emissions by {selectedEfficiency ? ((annualGasUsage - annualGasUsage / (0.95 / selectedEfficiency.efficiency)) * 11.7).toFixed(0) : '0'} lbs/year</p>
-                <p>• <strong>Alternative:</strong> Heat pumps can reduce emissions 30-50% with grid electricity</p>
-              </div>
-            </div>
+            <p className="text-[11px] text-gray-500 mt-2 leading-snug">
+              Costs based on {fmt(selectedZone.hdd)} HDD and $1.20/therm. 10-yr fuel difference
+              between 80% and 98% AFUE on this load: roughly{' '}
+              <strong>
+                ${fmtMoney(
+                  Math.abs(
+                    ((calc.annualGasUsage * selectedEfficiency.efficiency / 0.8) -
+                     (calc.annualGasUsage * selectedEfficiency.efficiency / 0.98)) * 1.2 * 10
+                  )
+                )}
+              </strong>.
+            </p>
           </div>
-          
-          {/* Professional Disclaimer */}
-          <div className="mt-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
-            <div className="flex items-start gap-2">
-              <AlertTriangle className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
-              <div className="text-xs text-gray-700 space-y-1">
-                <p className="font-semibold text-gray-800">Professional Installation Required</p>
-                <p>• This calculator provides estimates based on industry-standard heat load calculations (similar to Manual J)</p>
-                <p>• Actual requirements vary based on home construction, air infiltration, and local climate conditions</p>
-                <p>• Professional HVAC contractors should perform detailed load calculations and ensure proper sizing</p>
-                <p>• Oversizing reduces efficiency and comfort; undersizing can't maintain temperature on coldest days</p>
-              </div>
-            </div>
+
+          {/* Installation considerations */}
+          <div className="bg-amber-50 rounded-xl border border-amber-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
+              <Settings className="w-4 h-4 text-amber-700" />
+              Installation notes
+            </h4>
+            <ul className="space-y-1 text-xs text-gray-700">
+              <li><strong>Venting:</strong> {selectedEfficiency.venting}.</li>
+              <li><strong>Gas line:</strong> {calc.recommendedSize >= 100000 ? '3/4″ or 1″ recommended' : '1/2″ typically sufficient'} for {fmt(calc.recommendedSize)} BTU input.</li>
+              <li><strong>Electrical:</strong> Standard 115V circuit for blower and controls.</li>
+              <li><strong>Equipment cost:</strong> ~${fmtMoney(selectedEfficiency.price)} unit + labor (typically 40–80% on top).</li>
+              <li><strong>Warranty:</strong> Usually 10-year heat exchanger, 5-year parts.</li>
+            </ul>
+          </div>
+
+          {/* Environmental */}
+          <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
+              <Leaf className="w-4 h-4 text-emerald-700" />
+              Environmental & comfort impact
+            </h4>
+            <ul className="space-y-1 text-xs text-gray-700">
+              <li><strong>CO₂ emissions:</strong> ~{fmt(Math.round(calc.annualGasUsage * 11.7))} lbs/year at this efficiency.</li>
+              <li><strong>Waste heat:</strong> {(100 - parseInt(efficiency))}% of fuel goes up the flue (vs. {100 - 95}% at 95% AFUE).</li>
+              <li><strong>Cold-climate alternative:</strong> A modern heat pump can cover most of this load with {selectedZone.btuPerSqFt >= 50 ? 'electric backup' : 'no backup heat'} and cut emissions 30–60% on a typical grid mix.</li>
+              <li><strong>Comfort:</strong> {selectedEfficiency.note}</li>
+            </ul>
           </div>
         </div>
-      )}
-    </div>
+
+        <DisclaimerBox title="This is an estimate, not a Manual J.">
+          <p>
+            Real residential load calculations measure each room, every window's orientation,
+            the home's air leakage rate (ACH50), and local 99% design temperatures. Have a
+            licensed HVAC contractor run a proper Manual J before purchasing equipment —
+            especially if your result is near a size boundary or above 120,000 BTU.
+          </p>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

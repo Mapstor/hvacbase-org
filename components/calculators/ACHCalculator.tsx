@@ -1,19 +1,47 @@
 'use client';
 
-import { useState } from 'react';
-import { Calculator, Wind, Gauge, TrendingUp, Info } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Wind,
+  Gauge,
+  TrendingUp,
+  Home,
+  ChefHat,
+  Bath,
+  Bed,
+  Briefcase,
+} from 'lucide-react';
+import {
+  fmt,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+} from './_shared';
 
-const ventilationStandards = [
-  { category: 'Residential Living Areas', minACH: 0.35, recommendedACH: 2.0 },
-  { category: 'Bedrooms', minACH: 0.35, recommendedACH: 1.5 },
-  { category: 'Kitchens', minACH: 5.0, recommendedACH: 15.0 },
-  { category: 'Bathrooms', minACH: 5.0, recommendedACH: 10.0 },
-  { category: 'Basements', minACH: 0.35, recommendedACH: 1.0 },
-  { category: 'Laundry Rooms', minACH: 3.0, recommendedACH: 8.0 },
-  { category: 'Garages', minACH: 4.0, recommendedACH: 6.0 },
-  { category: 'Commercial Offices', minACH: 4.0, recommendedACH: 8.0 },
-  { category: 'Restaurants', minACH: 7.5, recommendedACH: 15.0 },
-  { category: 'Hospitals', minACH: 6.0, recommendedACH: 12.0 }
+const ACCENT = 'emerald' as const;
+
+const spaceTypes = [
+  { value: 'living', name: 'Living areas', summary: 'Code minimum 0.35, target 2 ACH', minACH: 0.35, recommendedACH: 2.0, Icon: Home },
+  { value: 'bedroom', name: 'Bedrooms', summary: 'Quieter, low contaminant', minACH: 0.35, recommendedACH: 1.5, Icon: Bed },
+  { value: 'kitchen', name: 'Kitchens', summary: 'Range hood required', minACH: 5.0, recommendedACH: 15.0, Icon: ChefHat },
+  { value: 'bathroom', name: 'Bathrooms', summary: 'Moisture + odor exhaust', minACH: 5.0, recommendedACH: 10.0, Icon: Bath },
+  { value: 'basement', name: 'Basements', summary: 'Stagnant air, radon risk', minACH: 0.35, recommendedACH: 1.0, Icon: Home },
+  { value: 'laundry', name: 'Laundry', summary: 'Lint + moisture', minACH: 3.0, recommendedACH: 8.0, Icon: Wind },
+  { value: 'garage', name: 'Garages', summary: 'Vehicle exhaust + fumes', minACH: 4.0, recommendedACH: 6.0, Icon: Home },
+  { value: 'office', name: 'Commercial office', summary: 'ASHRAE 62.1 target', minACH: 4.0, recommendedACH: 8.0, Icon: Briefcase },
+];
+
+const dimensionPresets = [
+  { value: '8', name: '8 ft', sub: 'Standard' },
+  { value: '9', name: '9 ft', sub: 'Tall' },
+  { value: '10', name: '10 ft', sub: 'Extra' },
+  { value: '12', name: '12 ft+', sub: 'Vaulted' },
 ];
 
 export default function ACHCalculator() {
@@ -21,319 +49,221 @@ export default function ACHCalculator() {
   const [roomWidth, setRoomWidth] = useState('10');
   const [ceilingHeight, setCeilingHeight] = useState('8');
   const [airflow, setAirflow] = useState('240');
-  const [spaceType, setSpaceType] = useState('Residential Living Areas');
-  const [calculated, setCalculated] = useState(false);
-  
-  // Calculate room volume and ACH
-  const roomVolume = parseFloat(roomLength) * parseFloat(roomWidth) * parseFloat(ceilingHeight);
-  const roomArea = parseFloat(roomLength) * parseFloat(roomWidth);
-  const currentACH = (parseFloat(airflow) * 60) / roomVolume; // CFM to ACH conversion
-  
-  // Get standard for selected space type
-  const selectedStandard = ventilationStandards.find(s => s.category === spaceType);
-  
-  // Calculate required airflow for recommended ACH
-  const requiredAirflowMin = selectedStandard ? (selectedStandard.minACH * roomVolume) / 60 : 0;
-  const requiredAirflowRec = selectedStandard ? (selectedStandard.recommendedACH * roomVolume) / 60 : 0;
-  
-  // Determine compliance status
-  const meetsMinimum = selectedStandard ? currentACH >= selectedStandard.minACH : false;
-  const meetsRecommended = selectedStandard ? currentACH >= selectedStandard.recommendedACH : false;
-  
-  // Calculate air change interval
-  const minutesPerChange = 60 / currentACH;
-  
-  // Energy implications
-  const dailyAirVolume = parseFloat(airflow) * 60 * 24; // cubic feet per day
-  const estimatedFanPower = parseFloat(airflow) * 0.1; // rough estimate: 0.1W per CFM
-  const dailyEnergyUse = (estimatedFanPower * 24) / 1000; // kWh per day
+  const [spaceType, setSpaceType] = useState('living');
+
+  const space = spaceTypes.find((s) => s.value === spaceType)!;
+  const L = Math.max(parseFloat(roomLength) || 0, 0);
+  const W = Math.max(parseFloat(roomWidth) || 0, 0);
+  const H = Math.max(parseFloat(ceilingHeight) || 0, 0);
+  const cfm = Math.max(parseFloat(airflow) || 0, 0);
+
+  const calc = useMemo(() => {
+    const area = L * W;
+    const volume = area * H;
+    const ach = volume > 0 ? (cfm * 60) / volume : 0;
+    const minutesPerChange = ach > 0 ? 60 / ach : 0;
+    const reqMinCfm = (space.minACH * volume) / 60;
+    const reqRecCfm = (space.recommendedACH * volume) / 60;
+    const meetsMin = ach >= space.minACH;
+    const meetsRec = ach >= space.recommendedACH;
+    const fanWatts = cfm * 0.1;
+    const dailyKwh = (fanWatts * 24) / 1000;
+    const dailyAirVolume = cfm * 60 * 24;
+    return { area, volume, ach, minutesPerChange, reqMinCfm, reqRecCfm, meetsMin, meetsRec, fanWatts, dailyKwh, dailyAirVolume };
+  }, [L, W, H, cfm, space]);
+
+  const fit =
+    calc.ach === 0 ? { tone: 'warn' as const, text: 'Enter room dimensions + airflow' } :
+    calc.meetsRec ? { tone: 'good' as const, text: 'Exceeds recommended standard' } :
+    calc.meetsMin ? { tone: 'ok' as const, text: 'Meets minimum — room to improve' } :
+                    { tone: 'bad' as const, text: 'Below minimum ventilation' };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-teal-100 p-3 rounded-lg">
-          <Calculator className="w-6 h-6 text-teal-700" />
+    <CalcShell
+      Icon={Wind}
+      title="Air Changes Per Hour (ACH) Calculator"
+      subtitle="Ventilation rate + ASHRAE compliance check. Updates live."
+      accent={ACCENT}
+    >
+      <section>
+        <SectionHeader step={1} title="Room dimensions" subtitle="Length × width × ceiling = volume" Icon={Home} accent={ACCENT} />
+
+        <div className="grid sm:grid-cols-3 gap-5">
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Length</label>
+            <NumberInput value={roomLength} onChange={setRoomLength} min={5} max={100} suffix="ft" ariaLabel="Length" accent={ACCENT} className="max-w-none" />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Width</label>
+            <NumberInput value={roomWidth} onChange={setRoomWidth} min={5} max={100} suffix="ft" ariaLabel="Width" accent={ACCENT} className="max-w-none" />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Ceiling height</label>
+            <div className="mb-2 flex flex-wrap gap-1.5">
+              {dimensionPresets.map((p) => {
+                const active = ceilingHeight === p.value;
+                return (
+                  <button
+                    key={p.value}
+                    type="button"
+                    onClick={() => setCeilingHeight(p.value)}
+                    className={`px-2.5 py-1 rounded-full text-xs font-medium border ${active ? 'bg-emerald-600 border-emerald-600 text-white' : 'bg-white border-gray-300 text-gray-700 hover:border-emerald-400'}`}
+                  >
+                    {p.name}
+                  </button>
+                );
+              })}
+            </div>
+            <NumberInput value={ceilingHeight} onChange={setCeilingHeight} min={7} max={20} suffix="ft" ariaLabel="Ceiling height" accent={ACCENT} className="max-w-none" />
+          </div>
         </div>
+        <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+          <div className="px-2 py-1 bg-gray-50 rounded">
+            <span className="text-gray-500">Floor area:</span>{' '}
+            <span className="font-semibold text-gray-800">{fmt(Math.round(calc.area))} sq ft</span>
+          </div>
+          <div className="px-2 py-1 bg-gray-50 rounded">
+            <span className="text-gray-500">Volume:</span>{' '}
+            <span className="font-semibold text-gray-800">{fmt(Math.round(calc.volume))} cu ft</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <SectionHeader step={2} title="Space type" subtitle="Determines the target ACH" Icon={Gauge} accent={ACCENT} />
+
+        <CardChoice value={spaceType} onChange={setSpaceType} options={spaceTypes} ariaLabel="Space type" accent={ACCENT} columns={4} />
+      </section>
+
+      <section>
+        <SectionHeader step={3} title="Current airflow" subtitle="Measured or designed CFM into the room" Icon={Wind} accent={ACCENT} />
+
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Air Changes Per Hour (ACH) Calculator</h2>
-          <p className="text-sm text-gray-600">Calculate ventilation rates and compliance with standards</p>
+          <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+            Airflow rate
+            <InfoTip label="airflow">
+              Measure with an anemometer at the supply register, or use the rated CFM on the fan/HVAC equipment.
+              Typical residential supply registers deliver 50–200 CFM each.
+            </InfoTip>
+          </label>
+          <NumberInput value={airflow} onChange={setAirflow} min={0} max={5000} suffix="CFM" ariaLabel="Airflow CFM" accent={ACCENT} />
+          <p className="text-xs text-gray-500 mt-1.5">
+            For comparison: bathroom exhaust fans are typically 50–110 CFM; range hoods 200–600 CFM; whole-house ERVs 100–400 CFM.
+          </p>
         </div>
-      </div>
-      
-      {/* Input Section */}
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Room Length (feet)
-            </label>
-            <input
-              type="number"
-              value={roomLength}
-              onChange={(e) => setRoomLength(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              placeholder="12"
-              min="5"
-              max="100"
+      </section>
+
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Current air changes per hour"
+          value={calc.ach.toFixed(1)}
+          unit={`ACH · ${calc.minutesPerChange.toFixed(1)} min per full change`}
+          secondaryText={
+            <>
+              Your {fmt(Math.round(calc.volume))} cu ft {space.name.toLowerCase()} gets <strong>{calc.ach.toFixed(1)} air changes/hr</strong> at {fmt(cfm)} CFM.
+              {' '}{space.name} need minimum <strong>{space.minACH} ACH</strong>, target <strong>{space.recommendedACH} ACH</strong>.
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Required (min)', value: `${fmt(Math.round(calc.reqMinCfm))} CFM` },
+            { label: 'Required (target)', value: `${fmt(Math.round(calc.reqRecCfm))} CFM` },
+            { label: 'CFM per sq ft', value: `${calc.area > 0 ? (cfm / calc.area).toFixed(2) : '0'} CFM/sf` },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Gauge className="w-4 h-4 text-emerald-600" />
+              Compliance check
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Space type', detail: space.name, factor: '—' },
+                { label: 'Min ACH (ASHRAE)', detail: 'Health-based minimum', factor: `${space.minACH}` },
+                { label: 'Recommended ACH', detail: 'Best practice', factor: `${space.recommendedACH}` },
+                { label: 'Your current ACH', detail: '', factor: `${calc.ach.toFixed(1)}` },
+                { label: 'Required min airflow', detail: 'To meet minimum', factor: `${fmt(Math.round(calc.reqMinCfm))} CFM` },
+                { label: 'Required target airflow', detail: 'To hit recommended', factor: `${fmt(Math.round(calc.reqRecCfm))} CFM` },
+              ]}
+              totals={[
+                { label: 'Status', value: calc.meetsRec ? 'Excellent' : calc.meetsMin ? 'Adequate' : 'Below minimum',
+                  valueClass: calc.meetsRec ? 'text-emerald-700' : calc.meetsMin ? 'text-amber-700' : 'text-red-700' },
+              ]}
             />
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Room Width (feet)
-            </label>
-            <input
-              type="number"
-              value={roomWidth}
-              onChange={(e) => setRoomWidth(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              placeholder="10"
-              min="5"
-              max="100"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Ceiling Height (feet)
-            </label>
-            <input
-              type="number"
-              value={ceilingHeight}
-              onChange={(e) => setCeilingHeight(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              placeholder="8"
-              min="7"
-              max="20"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Airflow Rate (CFM)
-            </label>
-            <input
-              type="number"
-              value={airflow}
-              onChange={(e) => setAirflow(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              placeholder="240"
-              min="10"
-              max="5000"
-            />
-            <p className="text-xs text-gray-500 mt-1">Measured or designed airflow</p>
-          </div>
-          
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Space Type
-            </label>
-            <select
-              value={spaceType}
-              onChange={(e) => setSpaceType(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-            >
-              {ventilationStandards.map(standard => (
-                <option key={standard.category} value={standard.category}>
-                  {standard.category}
-                </option>
-              ))}
-            </select>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <TrendingUp className="w-4 h-4 text-emerald-600" />
+              Energy impact + reference
+            </h4>
+            <div className="space-y-2 text-xs text-gray-700">
+              <div className="flex justify-between py-1.5 border-b border-gray-100">
+                <span>Estimated fan power</span>
+                <strong>{Math.round(calc.fanWatts)}W</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100">
+                <span>Daily fan energy</span>
+                <strong>{calc.dailyKwh.toFixed(1)} kWh</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100">
+                <span>Air moved per day</span>
+                <strong>{fmt(Math.round(calc.dailyAirVolume / 1000))}k cu ft</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100">
+                <span>Time per full change</span>
+                <strong>{calc.minutesPerChange.toFixed(1)} min</strong>
+              </div>
+            </div>
+            <div className="mt-3 bg-gray-50 rounded p-3">
+              <div className="text-xs font-semibold text-gray-700 mb-2">Common ACH targets:</div>
+              <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-[11px] text-gray-600">
+                <div className="flex justify-between"><span>Living areas</span><span>0.35–2</span></div>
+                <div className="flex justify-between"><span>Bedrooms</span><span>0.35–1.5</span></div>
+                <div className="flex justify-between"><span>Bathrooms</span><span>5–10</span></div>
+                <div className="flex justify-between"><span>Kitchens</span><span>5–15</span></div>
+                <div className="flex justify-between"><span>Hospitals</span><span>6–12</span></div>
+                <div className="flex justify-between"><span>Clean rooms</span><span>20–600</span></div>
+              </div>
+            </div>
           </div>
         </div>
-        
-        {/* Calculate Button */}
-        <button
-          onClick={() => setCalculated(true)}
-          className="w-full md:w-auto md:mx-auto md:px-12 bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors flex items-center justify-center gap-2"
-        >
-          <Calculator className="w-5 h-5" />
-          Calculate ACH
-        </button>
-      </div>
-      
-      {/* Results Section - Only show after calculation */}
-      {calculated && (
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <h3 className="text-xl font-bold text-gray-800 mb-6">Ventilation Analysis</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-            {/* Current ACH */}
-            <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-lg p-6 border border-teal-200">
-              <div className="text-center space-y-2">
-                <Wind className="w-8 h-8 text-teal-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Current ACH</p>
-                <p className="text-3xl font-bold text-teal-600">
-                  {currentACH.toFixed(1)}
-                </p>
-                <p className="text-lg font-medium text-gray-700">changes/hour</p>
-                <p className="text-sm text-gray-600 mt-2">
-                  {roomVolume.toLocaleString()} cu ft room
-                </p>
-              </div>
-            </div>
-            
-            {/* Compliance Status */}
-            <div className={`bg-gradient-to-br rounded-lg p-6 border ${
-              meetsRecommended 
-                ? 'from-green-50 to-emerald-50 border-green-200' 
-                : meetsMinimum 
-                  ? 'from-yellow-50 to-orange-50 border-yellow-200'
-                  : 'from-red-50 to-pink-50 border-red-200'
-            }`}>
-              <div className="text-center space-y-2">
-                <Gauge className={`w-8 h-8 mx-auto mb-2 ${
-                  meetsRecommended 
-                    ? 'text-green-600' 
-                    : meetsMinimum 
-                      ? 'text-yellow-600'
-                      : 'text-red-600'
-                }`} />
-                <p className="text-sm text-gray-600">Compliance Status</p>
-                <p className={`text-xl font-bold ${
-                  meetsRecommended 
-                    ? 'text-green-600' 
-                    : meetsMinimum 
-                      ? 'text-yellow-600'
-                      : 'text-red-600'
-                }`}>
-                  {meetsRecommended ? 'Exceeds Standards' : meetsMinimum ? 'Meets Minimum' : 'Below Minimum'}
-                </p>
-                <div className="space-y-1">
-                  <p className="text-sm text-gray-600">
-                    Minimum: <span className="font-semibold">{selectedStandard?.minACH} ACH</span>
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Recommended: <span className="font-semibold">{selectedStandard?.recommendedACH} ACH</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Air Change Frequency */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
-              <div className="text-center space-y-2">
-                <TrendingUp className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Complete Air Change</p>
-                <p className="text-3xl font-bold text-blue-600">
-                  {minutesPerChange.toFixed(1)}
-                </p>
-                <p className="text-lg font-medium text-gray-700">minutes</p>
-                <p className="text-sm text-gray-600 mt-2">
-                  Time to replace all air in room
-                </p>
-              </div>
-            </div>
-            
-            {/* Required Airflow */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h4 className="font-medium text-gray-700 mb-3">Required Airflow</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">For minimum ACH:</span>
-                  <span className="font-medium">{Math.round(requiredAirflowMin)} CFM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">For recommended ACH:</span>
-                  <span className="font-medium">{Math.round(requiredAirflowRec)} CFM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Current airflow:</span>
-                  <span className="font-medium">{airflow} CFM</span>
-                </div>
-                <div className="border-t pt-2">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Airflow per sq ft:</span>
-                    <span className="font-medium">{(parseFloat(airflow) / roomArea).toFixed(1)} CFM/sq ft</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Energy Impact */}
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-              <h4 className="font-medium text-purple-900 mb-2">Energy Impact</h4>
-              <div className="space-y-2 text-sm text-purple-800">
-                <div className="flex justify-between">
-                  <span>Est. fan power:</span>
-                  <span className="font-medium">{Math.round(estimatedFanPower)}W</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Daily energy:</span>
-                  <span className="font-medium">{dailyEnergyUse.toFixed(1)} kWh</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Air volume/day:</span>
-                  <span className="font-medium">{Math.round(dailyAirVolume/1000)}k cu ft</span>
-                </div>
-                <p className="text-xs text-purple-700 mt-2">
-                  Higher ACH = more energy use
-                </p>
-              </div>
-            </div>
-            
-            {/* Ventilation Standards */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="font-medium text-blue-900 mb-2 flex items-center gap-2">
-                <Info className="w-4 h-4" />
-                Common ACH Standards
-              </h4>
-              <div className="space-y-1 text-xs text-blue-800">
-                <div className="flex justify-between">
-                  <span>Living areas:</span>
-                  <span>0.35-2.0 ACH</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Bathrooms:</span>
-                  <span>5-10 ACH</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Kitchens:</span>
-                  <span>5-15 ACH</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Hospitals:</span>
-                  <span>6-12 ACH</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Clean rooms:</span>
-                  <span>20-600 ACH</span>
-                </div>
-              </div>
-            </div>
+
+        {!calc.meetsMin && calc.ach > 0 && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+            <h4 className="font-semibold text-red-900 mb-1 text-sm">⚠ Insufficient ventilation</h4>
+            <p className="text-xs text-red-800 leading-relaxed">
+              Current <strong>{calc.ach.toFixed(1)} ACH</strong> is below the <strong>{space.minACH} ACH</strong> minimum for {space.name.toLowerCase()}.
+              Increase airflow to at least <strong>{fmt(Math.round(calc.reqMinCfm))} CFM</strong> to meet code.
+              Poor ventilation = CO₂ buildup, lingering odors, moisture/mold risk in bathrooms.
+            </p>
           </div>
-          
-          {/* Recommendations */}
-          {!meetsMinimum && (
-            <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
-              <h4 className="font-medium text-red-900 mb-2">⚠️ Insufficient Ventilation</h4>
-              <p className="text-sm text-red-800">
-                Current ACH ({currentACH.toFixed(1)}) is below the minimum requirement ({selectedStandard?.minACH} ACH) for {spaceType.toLowerCase()}. 
-                Increase airflow to at least {Math.round(requiredAirflowMin)} CFM to meet minimum standards.
-              </p>
-            </div>
-          )}
-          
-          {meetsMinimum && !meetsRecommended && (
-            <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h4 className="font-medium text-yellow-900 mb-2">💡 Room for Improvement</h4>
-              <p className="text-sm text-yellow-800">
-                Current ACH meets minimum requirements but is below recommended levels. 
-                Consider increasing airflow to {Math.round(requiredAirflowRec)} CFM for optimal ventilation.
-              </p>
-            </div>
-          )}
-          
-          {meetsRecommended && (
-            <div className="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
-              <h4 className="font-medium text-green-900 mb-2">✅ Excellent Ventilation</h4>
-              <p className="text-sm text-green-800">
-                Current ACH exceeds recommended standards, providing excellent air quality and comfort.
-              </p>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
+        )}
+        {calc.meetsMin && !calc.meetsRec && (
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+            <h4 className="font-semibold text-amber-900 mb-1 text-sm">Room to improve</h4>
+            <p className="text-xs text-amber-800 leading-relaxed">
+              Meeting minimum, but bumping airflow from <strong>{fmt(cfm)} CFM</strong> to <strong>{fmt(Math.round(calc.reqRecCfm))} CFM</strong> reaches the recommended ACH for noticeably better air quality.
+            </p>
+          </div>
+        )}
+
+        <DisclaimerBox title="What ACH does and doesn't tell you">
+          <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li>ACH measures bulk air movement — doesn't measure filtration efficiency or pollutant removal</li>
+            <li>For viruses + fine particulates, MERV-13+ filtration matters more than ACH alone</li>
+            <li>ACH50 (blower-door test) measures envelope leakage, not mechanical ventilation — different number</li>
+            <li>In heated/cooled spaces, very high ACH wastes conditioning energy — use ERVs to capture 70%+ of that energy</li>
+            <li>For kitchens + bathrooms, ACH applies only during peak use — these are intermittent-exhaust spaces</li>
+          </ul>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

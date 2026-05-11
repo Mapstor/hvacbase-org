@@ -1,32 +1,61 @@
 'use client';
 
-import { useState } from 'react';
-import { Flame, TrendingUp, DollarSign, Leaf } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Flame,
+  TrendingUp,
+  DollarSign,
+  Leaf,
+  Calendar,
+  Wallet,
+} from 'lucide-react';
+import {
+  fmt,
+  fmtMoney,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  NumberInput,
+  Segmented,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+} from './_shared';
 
-interface FurnaceData {
-  afue: number;
-  label: string;
-  annualCost: number; // per 100k BTU heating load
-}
+const ACCENT = 'orange' as const;
 
-const furnaceTypes: Record<string, FurnaceData> = {
-  'old-60': { afue: 60, label: 'Old Low-Efficiency (60% AFUE)', annualCost: 1667 },
-  'old-70': { afue: 70, label: 'Old Standard (70% AFUE)', annualCost: 1429 },
-  'standard-80': { afue: 80, label: 'Standard Efficiency (80% AFUE)', annualCost: 1250 },
-  'mid-85': { afue: 85, label: 'Mid-Efficiency (85% AFUE)', annualCost: 1176 },
-  'high-90': { afue: 90, label: 'High-Efficiency (90% AFUE)', annualCost: 1111 },
-  'high-92': { afue: 92, label: 'High-Efficiency (92% AFUE)', annualCost: 1087 },
-  'high-95': { afue: 95, label: 'High-Efficiency (95% AFUE)', annualCost: 1053 },
-  'ultra-97': { afue: 97, label: 'Ultra High-Efficiency (97% AFUE)', annualCost: 1031 },
-  'ultra-98': { afue: 98, label: 'Ultra High-Efficiency (98% AFUE)', annualCost: 1020 }
-};
+const furnaceTiers = [
+  { value: 'old-60', name: '60% AFUE', tier: 'Old low', afue: 60, summary: 'Pre-1980, no condensing tech' },
+  { value: 'old-70', name: '70% AFUE', tier: 'Old std', afue: 70, summary: '1980s–early 1990s standard' },
+  { value: 'standard-80', name: '80% AFUE', tier: 'Standard', afue: 80, summary: 'Non-condensing, metal vent' },
+  { value: 'mid-85', name: '85% AFUE', tier: 'Mid', afue: 85, summary: 'Transitional efficiency' },
+  { value: 'high-90', name: '90% AFUE', tier: 'High', afue: 90, summary: 'Entry condensing furnace' },
+  { value: 'high-92', name: '92% AFUE', tier: 'High', afue: 92, summary: 'Common high-efficiency' },
+  { value: 'high-95', name: '95% AFUE', tier: 'High', afue: 95, summary: '2026 northern US minimum' },
+  { value: 'ultra-97', name: '97% AFUE', tier: 'Ultra', afue: 97, summary: 'Modulating premium' },
+  { value: 'ultra-98', name: '98% AFUE', tier: 'Ultra', afue: 98, summary: 'Top of market' },
+];
 
-const gasPrices: Record<string, number> = {
-  'low': 0.60,
-  'average': 1.00,
-  'high': 1.40,
-  'very-high': 1.80
-};
+const gasPriceOptions = [
+  { value: 'low', name: 'Low', sub: '$0.60/therm' },
+  { value: 'average', name: 'Average', sub: '$1.00/therm' },
+  { value: 'high', name: 'High', sub: '$1.40/therm' },
+  { value: 'very-high', name: 'Very high', sub: '$1.80/therm' },
+];
+
+const gasPrices: Record<string, number> = { low: 0.6, average: 1.0, high: 1.4, 'very-high': 1.8 };
+
+const climateOptions = [
+  { value: '120', name: 'Mild', sub: '120 heating days', btuPerSqFt: 30 },
+  { value: '150', name: 'Moderate', sub: '150 days', btuPerSqFt: 35 },
+  { value: '180', name: 'Average', sub: '180 days', btuPerSqFt: 40 },
+  { value: '210', name: 'Cold', sub: '210 days', btuPerSqFt: 50 },
+  { value: '240', name: 'Very cold', sub: '240 days', btuPerSqFt: 55 },
+];
+
+const homeSizePresets = [1000, 1500, 2000, 2500, 3000, 4000];
 
 export default function AFUECalculator() {
   const [currentAfue, setCurrentAfue] = useState('old-70');
@@ -35,322 +64,248 @@ export default function AFUECalculator() {
   const [gasPrice, setGasPrice] = useState('average');
   const [heatingDays, setHeatingDays] = useState('180');
   const [currentAge, setCurrentAge] = useState('15');
-  const [results, setResults] = useState<any>(null);
 
-  const calculateSavings = () => {
-    const current = furnaceTypes[currentAfue];
-    const newFurnace = furnaceTypes[newAfue];
-    const sqft = parseFloat(homeSize);
-    const days = parseFloat(heatingDays);
-    const age = parseFloat(currentAge);
-    const price = gasPrices[gasPrice];
+  const cur = furnaceTiers.find((t) => t.value === currentAfue)!;
+  const nxt = furnaceTiers.find((t) => t.value === newAfue)!;
+  const climate = climateOptions.find((c) => c.value === heatingDays)!;
+  const price = gasPrices[gasPrice];
 
-    // BTU requirement estimation (simplified)
-    const btusPerSqFt = days > 200 ? 50 : days > 150 ? 40 : 30;
+  const sqft = Math.max(parseFloat(homeSize) || 0, 0);
+  const age = Math.max(parseFloat(currentAge) || 0, 0);
+
+  const calc = useMemo(() => {
+    const btusPerSqFt = climate.btuPerSqFt;
     const totalBtus = sqft * btusPerSqFt;
     const therms = totalBtus / 100000;
-
-    // Current costs
-    const currentThermsUsed = therms / (current.afue / 100);
+    const currentThermsUsed = therms / (cur.afue / 100);
+    const newThermsUsed = therms / (nxt.afue / 100);
     const currentAnnualCost = currentThermsUsed * price * 100;
-
-    // New costs
-    const newThermsUsed = therms / (newFurnace.afue / 100);
     const newAnnualCost = newThermsUsed * price * 100;
 
-    // Savings
-    const annualSavings = currentAnnualCost - newAnnualCost;
-    const percentSavings = (annualSavings / currentAnnualCost) * 100;
-    const thermsSaved = currentThermsUsed - newThermsUsed;
+    // Degradation factor for old units
+    let degradation = 1;
+    if (age > 20) degradation = 0.85;
+    else if (age > 15) degradation = 0.9;
+    else if (age > 10) degradation = 0.95;
 
-    // CO2 reduction (5.3 kg CO2 per therm)
-    const co2Reduction = thermsSaved * 5.3;
+    const adjustedCurrentCost = currentAnnualCost / degradation;
+    const adjustedCurrentTherms = currentThermsUsed / degradation;
+    const annualSavings = adjustedCurrentCost - newAnnualCost;
+    const percentSavings = adjustedCurrentCost > 0 ? (annualSavings / adjustedCurrentCost) * 100 : 0;
+    const thermsSaved = adjustedCurrentTherms - newThermsUsed;
+    const co2ReductionKg = Math.max(thermsSaved * 5.3, 0);
 
-    // Payback calculation
-    const installCost = newFurnace.afue >= 95 ? 6000 : newFurnace.afue >= 90 ? 5000 : 4000;
-    const paybackYears = installCost / annualSavings;
-
-    // 10-year and lifetime savings
+    const installCost = nxt.afue >= 95 ? 6000 : nxt.afue >= 90 ? 5000 : 4000;
+    const paybackYears = annualSavings > 0 ? installCost / annualSavings : 0;
+    const fiveYearSavings = annualSavings * 5;
     const tenYearSavings = annualSavings * 10;
-    const lifetimeSavings = annualSavings * 20; // 20-year lifespan
+    const twentyYearSavings = annualSavings * 20;
 
-    // Efficiency degradation adjustment for old furnace
-    let degradationFactor = 1;
-    if (age > 20) degradationFactor = 0.85;
-    else if (age > 15) degradationFactor = 0.90;
-    else if (age > 10) degradationFactor = 0.95;
-
-    const adjustedCurrentCost = currentAnnualCost / degradationFactor;
-
-    setResults({
-      current,
-      newFurnace,
+    return {
+      currentThermsUsed: adjustedCurrentTherms,
+      newThermsUsed,
       currentAnnualCost: adjustedCurrentCost,
       newAnnualCost,
       annualSavings,
       percentSavings,
       thermsSaved,
-      co2Reduction,
+      co2ReductionKg,
       installCost,
       paybackYears,
+      fiveYearSavings,
       tenYearSavings,
-      lifetimeSavings,
-      sqft,
-      days,
-      price,
-      currentThermsUsed: currentThermsUsed / degradationFactor,
-      newThermsUsed
-    });
-  };
+      twentyYearSavings,
+      degradation,
+    };
+  }, [sqft, age, cur, nxt, climate, price]);
+
+  const isUpgrade = nxt.afue > cur.afue;
+  const fit =
+    !isUpgrade ? { tone: 'warn' as const, text: 'New AFUE must exceed current to show savings' } :
+    calc.percentSavings >= 25 ? { tone: 'good' as const, text: 'Massive savings — strong upgrade' } :
+    calc.percentSavings >= 15 ? { tone: 'good' as const, text: 'Strong upgrade' } :
+    calc.percentSavings >= 5  ? { tone: 'ok' as const, text: 'Meaningful savings' } :
+                                { tone: 'warn' as const, text: 'Modest improvement — comfort + reliability matter too' };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-orange-100 p-3 rounded-lg">
-          <Flame className="w-6 h-6 text-orange-600" />
-        </div>
-        <div>
-          <h3 className="text-xl font-semibold text-gray-900">AFUE Efficiency Savings Calculator</h3>
-          <p className="text-sm text-gray-600">Calculate your savings by upgrading to a high-efficiency furnace</p>
-        </div>
-      </div>
+    <CalcShell
+      Icon={Flame}
+      title="AFUE Efficiency Savings Calculator"
+      subtitle="What you save by upgrading from one AFUE tier to another. Updates live."
+      accent={ACCENT}
+    >
+      {/* Section 1 — Current vs new */}
+      <section>
+        <SectionHeader step={1} title="Current vs new furnace" subtitle="Pick efficiency tiers" Icon={Flame} accent={ACCENT} />
 
-      <div className="space-y-4">
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Current Furnace Efficiency
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Current furnace
+              <InfoTip label="current AFUE">
+                Look at the yellow EnergyGuide sticker on your existing furnace. Pre-1990 units are often 60–70% AFUE; 2000s code-min is 80%; modern condensing is 90%+.
+              </InfoTip>
             </label>
-            <select
-              value={currentAfue}
-              onChange={(e) => setCurrentAfue(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            >
-              {Object.entries(furnaceTypes).map(([key, data]) => (
-                <option key={key} value={key}>{data.label}</option>
-              ))}
-            </select>
+            <CardChoice value={currentAfue} onChange={setCurrentAfue} options={furnaceTiers} ariaLabel="Current AFUE" accent={ACCENT} columns={5} />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              New Furnace Efficiency
-            </label>
-            <select
-              value={newAfue}
-              onChange={(e) => setNewAfue(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            >
-              {Object.entries(furnaceTypes).map(([key, data]) => (
-                <option key={key} value={key}>{data.label}</option>
-              ))}
-            </select>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">New furnace</label>
+            <CardChoice value={newAfue} onChange={setNewAfue} options={furnaceTiers} ariaLabel="New AFUE" accent={ACCENT} columns={5} />
           </div>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 gap-4">
+      {/* Section 2 — Home + climate */}
+      <section>
+        <SectionHeader step={2} title="Your home & climate" subtitle="Drives heating load" Icon={TrendingUp} accent={ACCENT} />
+
+        <div className="space-y-5">
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label className="text-sm font-medium text-gray-700 mb-2 block">Home size</label>
+              <NumberInput value={homeSize} onChange={setHomeSize} min={500} max={10000} suffix="sq ft" ariaLabel="Home size" accent={ACCENT} />
+            </div>
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Current furnace age
+                <InfoTip label="age">Old furnaces lose 5–15% of their nameplate efficiency over their lifetime. We adjust your current annual cost up accordingly.</InfoTip>
+              </label>
+              <NumberInput value={currentAge} onChange={setCurrentAge} min={0} max={30} suffix="years" ariaLabel="Furnace age" accent={ACCENT} />
+              {calc.degradation < 1 && (
+                <p className="text-xs text-amber-700 mt-1.5">
+                  ⚠ {age}-year-old furnace loses ~{((1 - calc.degradation) * 100).toFixed(0)}% of nameplate efficiency.
+                </p>
+              )}
+            </div>
+          </div>
+
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Home Size (sq ft)
-            </label>
-            <input
-              type="number"
-              value={homeSize}
-              onChange={(e) => setHomeSize(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-              placeholder="e.g., 2000"
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Climate (heating days per year)</label>
+            <CardChoice value={heatingDays} onChange={setHeatingDays} options={climateOptions} ariaLabel="Climate" accent={ACCENT} columns={5} />
+          </div>
+
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Natural gas price</label>
+            <Segmented value={gasPrice} onChange={setGasPrice} options={gasPriceOptions} ariaLabel="Gas price" accent={ACCENT} />
+          </div>
+        </div>
+      </section>
+
+      {/* Results */}
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Annual savings from upgrading"
+          value={`$${fmtMoney(Math.max(calc.annualSavings, 0))}`}
+          unit={`/yr (${calc.percentSavings > 0 ? calc.percentSavings.toFixed(1) : 0}% lower heating cost)`}
+          secondaryText={
+            <>
+              Upgrading from {cur.afue}% → {nxt.afue}% AFUE saves {fmt(Math.max(Math.round(calc.thermsSaved), 0))} therms/year.
+              Estimated installed cost: <strong>${fmtMoney(calc.installCost)}</strong> · payback in{' '}
+              <strong>{calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : '—'}</strong>.
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Therms saved', value: `${fmt(Math.max(Math.round(calc.thermsSaved), 0))}/yr` },
+            { label: 'CO₂ reduced', value: `${fmt(Math.round(calc.co2ReductionKg))} kg/yr`, valueClass: 'text-emerald-700' },
+            { label: '20-yr savings', value: `$${fmtMoney(Math.max(calc.twentyYearSavings, 0))}`, valueClass: 'text-emerald-700' },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Wallet className="w-4 h-4 text-orange-600" />
+              Annual operating cost
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Heat load', detail: `${fmt(sqft)} sq ft × ${climate.btuPerSqFt} BTU/sf`, factor: `${fmt(Math.round(sqft * climate.btuPerSqFt))} BTU/sf` },
+                { label: 'Current efficiency', detail: `${cur.afue}% AFUE × ${(calc.degradation * 100).toFixed(0)}% age`, factor: `${fmt(Math.round(calc.currentThermsUsed))} therms` },
+                { label: 'New efficiency', detail: `${nxt.afue}% AFUE`, factor: `${fmt(Math.round(calc.newThermsUsed))} therms` },
+                { label: 'Gas price', detail: `${gasPriceOptions.find(g => g.value === gasPrice)?.sub}`, factor: `× $${price.toFixed(2)}/therm` },
+              ]}
+              totals={[
+                { label: 'Current annual cost', value: `$${fmtMoney(calc.currentAnnualCost)}`, valueClass: 'text-red-700' },
+                { label: 'New annual cost', value: `$${fmtMoney(calc.newAnnualCost)}`, valueClass: 'text-emerald-700' },
+                { label: 'Annual savings', value: `$${fmtMoney(Math.max(calc.annualSavings, 0))}`, valueClass: 'text-emerald-700' },
+              ]}
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Current Furnace Age (years)
-            </label>
-            <input
-              type="number"
-              value={currentAge}
-              onChange={(e) => setCurrentAge(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-              placeholder="e.g., 15"
-            />
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Calendar className="w-4 h-4 text-emerald-600" />
+              Long-term savings
+            </h4>
+            <div className="grid grid-cols-3 gap-2 text-center">
+              {[
+                { label: '5-yr', value: calc.fiveYearSavings },
+                { label: '10-yr', value: calc.tenYearSavings },
+                { label: '20-yr', value: calc.twentyYearSavings },
+              ].map(({ label, value }) => (
+                <div key={label} className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
+                  <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">{label} savings</div>
+                  <div className="text-xl font-bold text-emerald-900 tabular-nums">${fmtMoney(Math.max(value, 0))}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-[11px] text-gray-500 mt-3 leading-snug">
+              Assumes stable gas prices. Gas has averaged 3%/yr inflation over the last 20 years, so real savings are likely higher.
+            </p>
+            <div className="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
+              <div className="font-semibold text-amber-900 text-sm mb-1">
+                {nxt.afue >= 95 ? 'Condensing furnace (95%+ AFUE)' : nxt.afue >= 90 ? 'High-efficiency (90–94% AFUE)' : 'Standard efficiency (80–89% AFUE)'}
+              </div>
+              <p className="text-xs text-amber-800">
+                {nxt.afue >= 95
+                  ? `Requires PVC venting + condensate drain. Best for cold climates with ${climate.value}+ heating days.`
+                  : nxt.afue >= 90
+                  ? `Uses traditional metal venting. Lower install cost than condensing units.`
+                  : `Meets bare minimum standards. Only allowed in southern US for 2026 installs.`}
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Natural Gas Price
-            </label>
-            <select
-              value={gasPrice}
-              onChange={(e) => setGasPrice(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            >
-              <option value="low">Low ($0.60/therm)</option>
-              <option value="average">Average ($1.00/therm)</option>
-              <option value="high">High ($1.40/therm)</option>
-              <option value="very-high">Very High ($1.80/therm)</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Heating Days per Year
-            </label>
-            <select
-              value={heatingDays}
-              onChange={(e) => setHeatingDays(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            >
-              <option value="120">Mild Climate (120 days)</option>
-              <option value="150">Moderate Climate (150 days)</option>
-              <option value="180">Average Climate (180 days)</option>
-              <option value="210">Cold Climate (210 days)</option>
-              <option value="240">Very Cold Climate (240 days)</option>
-            </select>
+        <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4">
+          <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
+            <Leaf className="w-4 h-4 text-emerald-700" />
+            Environmental impact
+          </h4>
+          <div className="grid sm:grid-cols-3 gap-3 text-xs text-gray-700">
+            <div className="bg-white rounded-lg p-3 border border-emerald-100">
+              <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Annual CO₂ avoided</div>
+              <div className="text-lg font-bold text-emerald-900 tabular-nums">{fmt(Math.round(calc.co2ReductionKg))} kg</div>
+              <div className="text-[11px] text-gray-500">({fmt(Math.round(calc.co2ReductionKg * 2.2))} lbs)</div>
+            </div>
+            <div className="bg-white rounded-lg p-3 border border-emerald-100">
+              <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Equivalent trees</div>
+              <div className="text-lg font-bold text-emerald-900 tabular-nums">{fmt(Math.round(calc.co2ReductionKg / 21))}</div>
+              <div className="text-[11px] text-gray-500">planted per year</div>
+            </div>
+            <div className="bg-white rounded-lg p-3 border border-emerald-100">
+              <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Cars off road</div>
+              <div className="text-lg font-bold text-emerald-900 tabular-nums">{(calc.co2ReductionKg / 4040).toFixed(1)}</div>
+              <div className="text-[11px] text-gray-500">for one year</div>
+            </div>
           </div>
         </div>
 
-        <button
-          onClick={calculateSavings}
-          disabled={!homeSize || parseFloat(newAfue) <= parseFloat(currentAfue)}
-          className="w-full bg-orange-600 text-white py-3 px-4 rounded-md hover:bg-orange-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed font-medium"
-        >
-          Calculate Savings
-        </button>
-      </div>
-
-      {results && (
-        <div className="mt-6 space-y-6">
-          <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="w-5 h-5 text-green-600" />
-              <h4 className="font-semibold text-green-900">Annual Savings: ${Math.round(results.annualSavings).toLocaleString()}</h4>
-            </div>
-            <p className="text-sm text-green-700">
-              Upgrading from {results.current.afue}% to {results.newFurnace.afue}% AFUE will save you {results.percentSavings.toFixed(1)}% on heating costs.
-              Your investment will pay for itself in {results.paybackYears.toFixed(1)} years.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-gray-50 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <TrendingUp className="w-5 h-5 text-blue-600" />
-                <h5 className="font-semibold text-gray-900">Efficiency Gain</h5>
-              </div>
-              <div className="space-y-1 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Current:</span>
-                  <span className="font-medium">{results.current.afue}% AFUE</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">New:</span>
-                  <span className="font-medium">{results.newFurnace.afue}% AFUE</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Improvement:</span>
-                  <span className="font-medium text-green-600">+{results.newFurnace.afue - results.current.afue}%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="w-5 h-5 text-green-600" />
-                <h5 className="font-semibold text-gray-900">Cost Analysis</h5>
-              </div>
-              <div className="space-y-1 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Current/year:</span>
-                  <span className="font-medium">${Math.round(results.currentAnnualCost).toLocaleString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">New/year:</span>
-                  <span className="font-medium">${Math.round(results.newAnnualCost).toLocaleString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Saved/year:</span>
-                  <span className="font-medium text-green-600">${Math.round(results.annualSavings).toLocaleString()}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Flame className="w-5 h-5 text-orange-600" />
-                <h5 className="font-semibold text-gray-900">Gas Usage</h5>
-              </div>
-              <div className="space-y-1 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Current:</span>
-                  <span className="font-medium">{Math.round(results.currentThermsUsed)} therms</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">New:</span>
-                  <span className="font-medium">{Math.round(results.newThermsUsed)} therms</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Saved:</span>
-                  <span className="font-medium text-green-600">{Math.round(results.thermsSaved)} therms</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-blue-50 rounded-lg p-4">
-            <h4 className="font-semibold text-blue-900 mb-3">Long-Term Savings Projection</h4>
-            <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div>
-                <span className="text-blue-700">5-Year Savings:</span>
-                <p className="text-2xl font-bold text-blue-900">${Math.round(results.annualSavings * 5).toLocaleString()}</p>
-              </div>
-              <div>
-                <span className="text-blue-700">10-Year Savings:</span>
-                <p className="text-2xl font-bold text-blue-900">${Math.round(results.tenYearSavings).toLocaleString()}</p>
-              </div>
-              <div>
-                <span className="text-blue-700">20-Year Savings:</span>
-                <p className="text-2xl font-bold text-blue-900">${Math.round(results.lifetimeSavings).toLocaleString()}</p>
-              </div>
-            </div>
-            <p className="text-xs text-blue-600 mt-2">
-              *Assumes stable gas prices. Actual savings may be higher with rising energy costs.
-            </p>
-          </div>
-
-          <div className="bg-green-50 rounded-lg p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <Leaf className="w-5 h-5 text-green-600" />
-              <h4 className="font-semibold text-green-900">Environmental Impact</h4>
-            </div>
-            <p className="text-sm text-green-700">
-              Annual CO₂ reduction: <span className="font-bold">{Math.round(results.co2Reduction).toLocaleString()} kg</span> 
-              ({Math.round(results.co2Reduction * 2.2).toLocaleString()} lbs)
-            </p>
-            <p className="text-sm text-green-700 mt-1">
-              Equivalent to planting {Math.round(results.co2Reduction / 21).toLocaleString()} trees per year or 
-              removing a car from the road for {Math.round(results.co2Reduction / 404).toLocaleString()} months.
-            </p>
-          </div>
-
-          <div className="bg-amber-50 rounded-lg p-4">
-            <h4 className="font-semibold text-amber-900 mb-2">Professional Insight</h4>
-            <p className="text-sm text-amber-700">
-              {results.newFurnace.afue >= 95 
-                ? `Condensing furnaces (95%+ AFUE) extract heat from exhaust gases, requiring PVC venting. They're ideal for cold climates with ${results.days}+ heating days. `
-                : results.newFurnace.afue >= 90
-                ? `90-94% AFUE furnaces offer good efficiency without condensing technology. They use traditional metal venting and cost less to install. `
-                : `80-85% AFUE furnaces meet minimum standards but miss significant savings opportunities. `}
-              {results.paybackYears < 5 
-                ? 'Your quick payback period makes this upgrade highly recommended.'
-                : results.paybackYears < 8
-                ? 'Your moderate payback period still makes this a solid investment.'
-                : 'Consider utility rebates and tax credits to improve your payback period.'}
-            </p>
-          </div>
-        </div>
-      )}
-    </div>
+        <DisclaimerBox title="Real-world AFUE notes">
+          <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li>Lab AFUE is a steady-state rating. Real-world efficiency depends on cycling, duct leakage, and house tightness.</li>
+            <li>Condensing furnaces (90%+) only deliver their full rating when return-air temp is below 130°F. Hot returns kill condensing efficiency.</li>
+            <li>Above 95% AFUE, every 1% gain costs disproportionately more — diminishing returns set in.</li>
+            <li>A modulating two-stage furnace at 95% AFUE often outperforms a single-stage 97% in real-world comfort and total bills.</li>
+          </ul>
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }

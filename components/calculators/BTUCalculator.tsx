@@ -1,38 +1,94 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Calculator, Thermometer, Home, Sun, Snowflake, Wind, CheckCircle, Info, AlertTriangle, Zap, MapPin } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Calculator,
+  Thermometer,
+  Home,
+  Sun,
+  CloudSun,
+  Cloud,
+  CloudRain,
+  Snowflake,
+  CheckCircle,
+  AlertTriangle,
+  Users,
+  Tv,
+  MapPin,
+  Loader2,
+  Bed,
+  Sofa,
+  Utensils,
+  Briefcase,
+  Wind,
+} from 'lucide-react';
 import EmbedCode from '../EmbedCode';
 import SocialShare from '../SocialShare';
+import {
+  fmt,
+  fmtMoney,
+  CalcShell,
+  SectionHeader,
+  Segmented,
+  CardChoice,
+  PresetChips,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+  accentMap,
+} from './_shared';
+
+const ACCENT = 'blue' as const;
+const a = accentMap[ACCENT];
 
 const climateZones = [
-  { value: 'very-hot', name: 'Very Hot (Zone 1)', description: 'Southern FL, HI', btuPerSqFt: 18 },
-  { value: 'hot-humid', name: 'Hot & Humid (Zone 2)', description: 'Southern TX, LA, MS, AL, GA', btuPerSqFt: 20 },
-  { value: 'hot-dry', name: 'Hot & Dry (Zone 3)', description: 'AZ, Southern CA, NV', btuPerSqFt: 22 },
-  { value: 'mixed-humid', name: 'Mixed-Humid (Zone 4)', description: 'NC, SC, TN, AR, OK', btuPerSqFt: 25 },
-  { value: 'mixed-dry', name: 'Mixed-Dry (Zone 5)', description: 'Northern CA, OR, WA', btuPerSqFt: 28 },
-  { value: 'cool', name: 'Cool (Zone 6)', description: 'PA, NY, MI, WI, IL', btuPerSqFt: 30 },
-  { value: 'cold', name: 'Cold (Zone 7)', description: 'MN, ND, MT, ME', btuPerSqFt: 35 },
-  { value: 'very-cold', name: 'Very Cold (Zone 8)', description: 'Northern MN, AK', btuPerSqFt: 40 }
+  { value: 'very-hot', short: 'Z1', label: 'Very Hot', btuPerSqFt: 18, description: 'Southern FL, HI' },
+  { value: 'hot-humid', short: 'Z2', label: 'Hot Humid', btuPerSqFt: 20, description: 'Southern TX, LA, MS, AL, GA' },
+  { value: 'hot-dry', short: 'Z3', label: 'Hot Dry', btuPerSqFt: 22, description: 'AZ, S. CA, NV' },
+  { value: 'mixed-humid', short: 'Z4', label: 'Mixed Humid', btuPerSqFt: 25, description: 'NC, SC, TN, AR, OK' },
+  { value: 'mixed-dry', short: 'Z5', label: 'Mixed Dry', btuPerSqFt: 28, description: 'N. CA, OR, WA' },
+  { value: 'cool', short: 'Z6', label: 'Cool', btuPerSqFt: 30, description: 'PA, NY, MI, WI, IL' },
+  { value: 'cold', short: 'Z7', label: 'Cold', btuPerSqFt: 35, description: 'MN, ND, MT, ME' },
+  { value: 'very-cold', short: 'Z8', label: 'Very Cold', btuPerSqFt: 40, description: 'Northern MN, AK' },
 ];
 
 const roomTypes = [
-  { value: 'bedroom', name: 'Bedroom', heatLoad: 1.0 },
-  { value: 'living', name: 'Living Room', heatLoad: 1.1 },
-  { value: 'kitchen', name: 'Kitchen', heatLoad: 1.4 },
-  { value: 'bathroom', name: 'Bathroom', heatLoad: 0.9 },
-  { value: 'office', name: 'Home Office', heatLoad: 1.2 },
-  { value: 'sunroom', name: 'Sunroom', heatLoad: 1.5 },
-  { value: 'basement', name: 'Basement', heatLoad: 0.8 },
-  { value: 'garage', name: 'Garage', heatLoad: 1.3 }
+  { value: 'bedroom', name: 'Bedroom', heatLoad: 1.0, sub: 'Quiet, low heat sources', Icon: Bed },
+  { value: 'living', name: 'Living room', heatLoad: 1.1, sub: 'Mid-traffic, TV/electronics', Icon: Sofa },
+  { value: 'kitchen', name: 'Kitchen', heatLoad: 1.4, sub: 'Stove + appliances heat load', Icon: Utensils },
+  { value: 'office', name: 'Home office', heatLoad: 1.2, sub: 'PC + monitor heat', Icon: Briefcase },
+  { value: 'sunroom', name: 'Sunroom', heatLoad: 1.5, sub: 'Heavy solar gain', Icon: Sun },
+  { value: 'basement', name: 'Basement', heatLoad: 0.8, sub: 'Naturally cooler', Icon: Home },
+  { value: 'bathroom', name: 'Bathroom', heatLoad: 0.9, sub: 'Small, occasional use', Icon: Wind },
+  { value: 'garage', name: 'Garage', heatLoad: 1.3, sub: 'Poor insulation, big door', Icon: Home },
 ];
 
 const windowTypes = [
-  { value: 'single', name: 'Single Pane', factor: 1.3 },
-  { value: 'double', name: 'Double Pane', factor: 1.0 },
-  { value: 'triple', name: 'Triple Pane', factor: 0.8 },
-  { value: 'low-e', name: 'Low-E Coated', factor: 0.9 }
+  { value: 'single', name: 'Single pane', factor: 1.3, sub: 'Old aluminum/wood frames' },
+  { value: 'double', name: 'Double pane', factor: 1.0, sub: 'Modern standard, sealed gas-fill' },
+  { value: 'low-e', name: 'Low-E coated', factor: 0.9, sub: 'Reflective coating cuts solar gain' },
+  { value: 'triple', name: 'Triple pane', factor: 0.8, sub: 'Top-tier, often in cold climates' },
 ];
+
+const insulationOptions = [
+  { value: 'poor', name: 'Poor', factor: 1.3, summary: 'Pre-1970, little/no insulation' },
+  { value: 'average', name: 'Average', factor: 1.0, summary: 'Code-built walls + attic, sealed' },
+  { value: 'good', name: 'Good', factor: 0.9, summary: 'Above-code, modern envelope' },
+  { value: 'excellent', name: 'Excellent', factor: 0.85, summary: 'ENERGY STAR / passive house' },
+];
+
+const sunExposureOptions = [
+  { value: 'heavy-shade', name: 'Heavy shade', sub: 'North-facing, tree cover', factor: 0.9, Icon: Cloud },
+  { value: 'moderate', name: 'Moderate', sub: 'East-facing or partial sun', factor: 1.0, Icon: CloudSun },
+  { value: 'direct-sun', name: 'Direct sun', sub: 'West-facing, afternoon glare', factor: 1.1, Icon: Sun },
+  { value: 'southwest', name: 'Heavy sun', sub: 'South/SW, all-day exposure', factor: 1.15, Icon: Sun },
+];
+
+const lengthPresets = [10, 12, 15, 20, 25];
+const heightPresets = [8, 9, 10, 12];
 
 export default function BTUCalculator() {
   const [length, setLength] = useState('15');
@@ -46,581 +102,429 @@ export default function BTUCalculator() {
   const [sunExposure, setSunExposure] = useState('moderate');
   const [occupants, setOccupants] = useState('2');
   const [appliances, setAppliances] = useState('2');
-  const [calculated, setCalculated] = useState(false);
   const [locationDetected, setLocationDetected] = useState(false);
   const [detectingLocation, setDetectingLocation] = useState(false);
 
-  // Auto-detect climate zone based on location
   const detectClimateZone = () => {
-    if (!navigator.geolocation) {
-      return;
-    }
-
+    if (typeof navigator === 'undefined' || !navigator.geolocation) return;
     setDetectingLocation(true);
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude } = position.coords;
-        let detectedZone = 'mixed-humid'; // Default
-
-        // Simplified latitude-based climate zone detection
-        if (latitude >= 48) detectedZone = 'very-cold';
-        else if (latitude >= 45) detectedZone = 'cold';
-        else if (latitude >= 42) detectedZone = 'cool';
-        else if (latitude >= 38) detectedZone = 'mixed-humid';
-        else if (latitude >= 32) detectedZone = 'hot-humid';
-        else if (latitude >= 28) detectedZone = 'hot-dry';
-        else detectedZone = 'very-hot';
-
-        setClimate(detectedZone);
+        let detected = 'mixed-humid';
+        if (latitude >= 48) detected = 'very-cold';
+        else if (latitude >= 45) detected = 'cold';
+        else if (latitude >= 42) detected = 'cool';
+        else if (latitude >= 38) detected = 'mixed-humid';
+        else if (latitude >= 32) detected = 'hot-humid';
+        else if (latitude >= 28) detected = 'hot-dry';
+        else detected = 'very-hot';
+        setClimate(detected);
         setLocationDetected(true);
         setDetectingLocation(false);
       },
-      () => {
-        setDetectingLocation(false);
-      },
+      () => setDetectingLocation(false),
       { timeout: 5000, enableHighAccuracy: false }
     );
   };
-  
-  // Calculate room area and volume
-  const roomArea = parseFloat(length) * parseFloat(width);
-  const roomVolume = roomArea * parseFloat(height);
-  
-  // Get base BTU from climate zone
-  const selectedZone = climateZones.find(z => z.value === climate);
-  const baseBTU = selectedZone ? roomArea * selectedZone.btuPerSqFt : 0;
-  
-  // Apply room type factor
-  const selectedRoom = roomTypes.find(r => r.value === roomType);
-  const roomFactor = selectedRoom ? selectedRoom.heatLoad : 1;
-  
-  // Apply window factor
-  const selectedWindow = windowTypes.find(w => w.value === windowType);
-  const windowFactor = selectedWindow ? selectedWindow.factor : 1;
-  const windowAreaFactor = 1 + (parseFloat(windowArea) / roomArea) * 0.3;
-  
-  // Apply insulation factor
-  const insulationFactors = {
-    'poor': 1.3,
-    'average': 1.0,
-    'good': 0.9,
-    'excellent': 0.85
-  };
-  const insulationFactor = insulationFactors[insulation as keyof typeof insulationFactors];
-  
-  // Apply sun exposure factor
-  const sunFactors = {
-    'heavy-shade': 0.9,
-    'moderate': 1.0,
-    'direct-sun': 1.1,
-    'southwest': 1.15
-  };
-  const sunFactor = sunFactors[sunExposure as keyof typeof sunFactors];
-  
-  // Add for ceiling height (adjustment for volumes over standard 8ft)
-  const heightFactor = parseFloat(height) / 8;
-  
-  // Add for occupants (600 BTU per person over 2)
-  const occupantBTU = Math.max(0, parseInt(occupants) - 2) * 600;
-  
-  // Add for appliances (400 BTU each)
-  const applianceBTU = parseInt(appliances) * 400;
-  
-  // Calculate total BTU
-  const adjustedBTU = baseBTU * roomFactor * windowFactor * windowAreaFactor * 
-                      insulationFactor * sunFactor * heightFactor;
-  const totalBTU = adjustedBTU + occupantBTU + applianceBTU;
-  
-  // Calculate tonnage
-  const tonnage = totalBTU / 12000;
-  
-  // Get recommended unit sizes
-  const getRecommendedUnits = () => {
+
+  const selectedZone = climateZones.find((z) => z.value === climate)!;
+  const selectedRoom = roomTypes.find((r) => r.value === roomType)!;
+  const selectedWindow = windowTypes.find((w) => w.value === windowType)!;
+  const selectedInsulation = insulationOptions.find((i) => i.value === insulation)!;
+  const selectedSun = sunExposureOptions.find((s) => s.value === sunExposure)!;
+
+  const lenN = Math.max(parseFloat(length) || 0, 0);
+  const wdtN = Math.max(parseFloat(width) || 0, 0);
+  const htN = Math.max(parseFloat(height) || 0, 0);
+  const winAreaN = Math.max(parseFloat(windowArea) || 0, 0);
+  const occN = Math.max(parseInt(occupants) || 0, 0);
+  const appN = Math.max(parseInt(appliances) || 0, 0);
+
+  const calc = useMemo(() => {
+    const roomArea = lenN * wdtN;
+    const roomVolume = roomArea * htN;
+    const baseBTU = roomArea * selectedZone.btuPerSqFt;
+    const windowAreaFactor = roomArea > 0 ? 1 + (winAreaN / roomArea) * 0.3 : 1;
+    const heightFactor = htN > 0 ? htN / 8 : 1;
+    const occupantBTU = Math.max(0, occN - 2) * 600;
+    const applianceBTU = appN * 400;
+
+    const adjustedBTU =
+      baseBTU *
+      selectedRoom.heatLoad *
+      selectedWindow.factor *
+      windowAreaFactor *
+      selectedInsulation.factor *
+      selectedSun.factor *
+      heightFactor;
+    const totalBTU = Math.max(adjustedBTU + occupantBTU + applianceBTU, 0);
+    const tonnage = totalBTU / 12000;
+
     const standardSizes = [5000, 6000, 8000, 10000, 12000, 14000, 18000, 24000, 30000, 36000];
-    const ideal = standardSizes.find(size => size >= totalBTU) || 36000;
-    const minimum = standardSizes[Math.max(0, standardSizes.indexOf(ideal) - 1)] || ideal;
-    return { minimum, ideal };
-  };
-  
-  const recommended = getRecommendedUnits();
+    const ideal = standardSizes.find((size) => size >= totalBTU) || 36000;
+    const idealIdx = standardSizes.indexOf(ideal);
+    const minimum = standardSizes[Math.max(0, idealIdx - 1)] || ideal;
+
+    return {
+      roomArea,
+      roomVolume,
+      baseBTU: Math.round(baseBTU),
+      windowAreaFactor,
+      heightFactor,
+      occupantBTU,
+      applianceBTU,
+      totalBTU: Math.round(totalBTU),
+      tonnage,
+      ideal,
+      minimum,
+    };
+  }, [
+    lenN, wdtN, htN, winAreaN, occN, appN,
+    selectedZone, selectedRoom, selectedWindow, selectedInsulation, selectedSun,
+  ]);
+
+  const fit =
+    calc.totalBTU === 0 ? { tone: 'warn' as const, text: 'Enter room dimensions' } :
+    calc.totalBTU < 5000 ? { tone: 'ok' as const, text: 'Tiny load — smallest unit fits' } :
+    calc.ideal - calc.totalBTU < calc.ideal * 0.1 ? { tone: 'good' as const, text: 'Exact match' } :
+    calc.ideal - calc.totalBTU < calc.ideal * 0.25 ? { tone: 'ok' as const, text: 'Good fit' } :
+                                                     { tone: 'warn' as const, text: 'Slightly oversized at this tier' };
+
+  const systemRec =
+    calc.totalBTU <= 8000 ? { name: 'Window AC or portable unit', tone: 'blue',
+      desc: 'Affordable for a single room. Window beats portable on efficiency and noise.',
+      cost: '$200–$800', install: 'DIY-friendly' } :
+    calc.totalBTU <= 24000 ? { name: 'Mini-split (recommended)', tone: 'emerald',
+      desc: 'Most efficient, quiet, and precise temperature control for one zone.',
+      cost: '$1,500–$4,000', install: 'Professional install required' } :
+    { name: 'Central AC or multi-zone', tone: 'purple',
+      desc: 'Large load needs a whole-home system or multiple mini-splits.',
+      cost: '$3,000–$8,000+', install: 'Pro design + install' };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-blue-100 p-3 rounded-lg">
-          <Calculator className="w-6 h-6 text-blue-700" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">BTU Calculator</h2>
-          <p className="text-sm text-gray-600">Calculate exact cooling capacity for any room</p>
-        </div>
-      </div>
-      
-      {/* Input Section */}
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Room Dimensions */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-gray-700 flex items-center gap-2">
-              <Home className="w-5 h-5 text-gray-500" />
-              Room Dimensions
-            </h3>
-          
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Room Length (feet)
-              </label>
-              <input
-                type="number"
-                value={length}
-                onChange={(e) => setLength(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                min="5"
-                max="100"
-              />
+    <CalcShell
+      Icon={Calculator}
+      title="BTU Calculator"
+      subtitle="Exact cooling capacity for any room. Updates as you change inputs."
+      accent={ACCENT}
+    >
+      {/* Section 1 — Room dimensions */}
+      <section>
+        <SectionHeader step={1} title="Room dimensions" subtitle="Length × width × ceiling height" Icon={Home} accent={ACCENT} />
+
+        <div className="grid sm:grid-cols-3 gap-5">
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Length</label>
+            <div className="mb-2">
+              <PresetChips value={length} onChange={setLength} presets={lengthPresets} accent={ACCENT} />
             </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Room Width (feet)
-              </label>
-              <input
-                type="number"
-                value={width}
-                onChange={(e) => setWidth(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                min="5"
-                max="100"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Ceiling Height (feet)
-              </label>
-              <input
-                type="number"
-                value={height}
-                onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                min="7"
-                max="20"
-              />
-            </div>
-            
-            <div className="bg-gray-50 rounded p-3 text-sm">
-              <p className="font-medium text-gray-700">Room Stats:</p>
-              <p className="text-gray-600">Area: {roomArea.toFixed(0)} sq ft</p>
-              <p className="text-gray-600">Volume: {roomVolume.toFixed(0)} cu ft</p>
-            </div>
+            <NumberInput value={length} onChange={setLength} min={5} max={100} suffix="ft" ariaLabel="Room length" accent={ACCENT} className="max-w-none" />
           </div>
-          
-          {/* Environmental Factors */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-gray-700 flex items-center gap-2">
-              <Thermometer className="w-5 h-5 text-gray-500" />
-              Environmental Factors
-            </h3>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Climate Zone
-              </label>
-              <select
-                value={climate}
-                onChange={(e) => setClimate(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              >
-                {climateZones.map((zone) => (
-                  <option key={zone.value} value={zone.value}>
-                    {zone.name}
-                  </option>
-                ))}
-              </select>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Width</label>
+            <div className="mb-2">
+              <PresetChips value={width} onChange={setWidth} presets={lengthPresets} accent={ACCENT} />
+            </div>
+            <NumberInput value={width} onChange={setWidth} min={5} max={100} suffix="ft" ariaLabel="Room width" accent={ACCENT} className="max-w-none" />
+          </div>
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Ceiling height
+              <InfoTip label="ceiling height">Most rooms are 8 ft. Cathedral/vaulted ceilings push 10–14 ft and meaningfully raise the BTU load.</InfoTip>
+            </label>
+            <div className="mb-2">
+              <PresetChips value={height} onChange={setHeight} presets={heightPresets} accent={ACCENT} />
+            </div>
+            <NumberInput value={height} onChange={setHeight} min={7} max={20} suffix="ft" ariaLabel="Ceiling height" accent={ACCENT} className="max-w-none" />
+          </div>
+        </div>
+
+        <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+          <div className="px-2 py-1 bg-gray-50 rounded">
+            <span className="text-gray-500">Floor area:</span>{' '}
+            <span className="font-semibold text-gray-800">{fmt(calc.roomArea, { maximumFractionDigits: 0 })} sq ft</span>
+          </div>
+          <div className="px-2 py-1 bg-gray-50 rounded">
+            <span className="text-gray-500">Volume:</span>{' '}
+            <span className="font-semibold text-gray-800">{fmt(calc.roomVolume, { maximumFractionDigits: 0 })} cu ft</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2 — Room context */}
+      <section>
+        <SectionHeader step={2} title="Room context" subtitle="What the room is for and where it sits" Icon={MapPin} accent={ACCENT} />
+
+        <div className="space-y-5">
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Room type
+              <InfoTip label="room type">
+                Different rooms put different heat into the air. Kitchens (stoves), home offices (computers), and sunrooms (glass) all run hotter than bedrooms.
+              </InfoTip>
+            </label>
+            <CardChoice
+              value={roomType}
+              onChange={setRoomType}
+              options={roomTypes}
+              ariaLabel="Room type"
+              accent={ACCENT}
+            />
+          </div>
+
+          <div>
+            <label className="flex items-center justify-between text-sm font-medium text-gray-700 mb-2">
+              <span className="flex items-center">
+                Climate zone
+                <InfoTip label="climate zone">
+                  US DOE climate zones 1 (Miami) through 8 (Northern Alaska). Cooling load drops steadily as you go north — though humidity in southern zones increases the latent load on AC equipment.
+                </InfoTip>
+              </span>
               <button
+                type="button"
                 onClick={detectClimateZone}
                 disabled={detectingLocation}
-                className="mt-2 flex items-center gap-2 px-3 py-2 text-sm bg-blue-50 text-blue-700 rounded-md hover:bg-blue-100 transition-colors disabled:opacity-50"
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-md ${a.selectedBg} ${a.bigNumber} hover:opacity-80 transition-opacity disabled:opacity-50`}
               >
-                <MapPin className="w-4 h-4" />
-                {detectingLocation ? 'Detecting...' : 'Auto-detect location'}
+                {detectingLocation
+                  ? <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Detecting…</>
+                  : <><MapPin className="w-3.5 h-3.5" /> Auto-detect</>}
               </button>
-              <p className="text-xs text-gray-500 mt-1">
-                {locationDetected && <span className="text-green-600 font-medium">✓ Location detected: </span>}
-                {selectedZone?.description}
+            </label>
+            <div role="radiogroup" aria-label="Climate zone" className="grid grid-cols-4 sm:grid-cols-8 gap-1.5">
+              {climateZones.map((zone) => {
+                const active = zone.value === climate;
+                return (
+                  <button
+                    key={zone.value}
+                    type="button"
+                    role="radio"
+                    aria-checked={active}
+                    onClick={() => setClimate(zone.value)}
+                    title={zone.description}
+                    className={`px-2 py-2 rounded-lg border text-xs font-semibold transition-colors ${
+                      active
+                        ? 'bg-blue-600 border-blue-600 text-white'
+                        : 'bg-white border-gray-300 text-gray-700 hover:border-blue-400 hover:bg-blue-50'
+                    }`}
+                  >
+                    <div className="font-bold text-sm">{zone.short}</div>
+                    <div className={`text-[10px] mt-0.5 ${active ? 'text-blue-100' : 'text-gray-500'}`}>
+                      {zone.label}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="mt-2 flex items-center gap-2 text-xs text-gray-600">
+              <MapPin className="w-3.5 h-3.5 text-blue-500" />
+              {locationDetected && <span className="text-emerald-600 font-medium">✓ Location detected:</span>}
+              <span><span className="font-medium text-gray-800">{selectedZone.label}:</span> {selectedZone.description}</span>
+            </div>
+          </div>
+
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              <Sun className="w-4 h-4 mr-1.5 text-gray-500" />
+              Sun exposure
+            </label>
+            <CardChoice
+              value={sunExposure}
+              onChange={setSunExposure}
+              options={sunExposureOptions}
+              ariaLabel="Sun exposure"
+              accent={ACCENT}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3 — Construction & loads */}
+      <section>
+        <SectionHeader step={3} title="Construction & heat sources" subtitle="Windows, insulation, people, electronics" Icon={Thermometer} accent={ACCENT} />
+
+        <div className="space-y-5">
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Window type
+                <InfoTip label="window type">
+                  Single-pane lets ~3× as much heat through as double-pane. Low-E coatings reflect infrared, cutting cooling load substantially in sunny rooms.
+                </InfoTip>
+              </label>
+              <CardChoice
+                value={windowType}
+                onChange={setWindowType}
+                options={windowTypes}
+                ariaLabel="Window type"
+                columns={2}
+                accent={ACCENT}
+              />
+            </div>
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Total window area
+                <InfoTip label="window area">
+                  Sum of every window's width × height in square feet. A typical bedroom has one 3×4 ft window (12 sq ft); a living room with three windows averages 25–40 sq ft.
+                </InfoTip>
+              </label>
+              <NumberInput
+                value={windowArea}
+                onChange={setWindowArea}
+                min={0}
+                max={200}
+                suffix="sq ft"
+                ariaLabel="Total window area"
+                accent={ACCENT}
+                className="max-w-none"
+              />
+              <p className="text-xs text-gray-500 mt-1.5">
+                Typical bedroom: 10–15 sq ft. Typical living room: 25–40 sq ft.
               </p>
             </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Room Type
-              </label>
-              <select
-                value={roomType}
-                onChange={(e) => setRoomType(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              >
-                {roomTypes.map((type) => (
-                  <option key={type.value} value={type.value}>
-                    {type.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Sun Exposure
-              </label>
-              <select
-                value={sunExposure}
-                onChange={(e) => setSunExposure(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="heavy-shade">Heavy Shade (North facing)</option>
-                <option value="moderate">Moderate (East facing)</option>
-                <option value="direct-sun">Direct Sun (West facing)</option>
-                <option value="southwest">Heavy Sun (South/Southwest)</option>
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Insulation Quality
-              </label>
-              <select
-                value={insulation}
-                onChange={(e) => setInsulation(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="poor">Poor (Old/No insulation)</option>
-                <option value="average">Average (Standard)</option>
-                <option value="good">Good (Modern)</option>
-                <option value="excellent">Excellent (Energy Star)</option>
-              </select>
-            </div>
           </div>
-          
-          {/* Additional Factors */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-gray-700 flex items-center gap-2">
-              <Sun className="w-5 h-5 text-gray-500" />
-              Additional Factors
-            </h3>
-            
+
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Insulation quality</label>
+            <CardChoice
+              value={insulation}
+              onChange={setInsulation}
+              options={insulationOptions}
+              ariaLabel="Insulation quality"
+              accent={ACCENT}
+            />
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Window Type
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                <Users className="w-4 h-4 mr-1.5 text-gray-500" />
+                Regular occupants
+                <InfoTip label="occupants">Each person adds ~600 BTU/hr of body heat. The first 2 are baked into the base load — only enter additional people.</InfoTip>
               </label>
-              <select
-                value={windowType}
-                onChange={(e) => setWindowType(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              >
-                {windowTypes.map((type) => (
-                  <option key={type.value} value={type.value}>
-                    {type.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Total Window Area (sq ft)
-              </label>
-              <input
-                type="number"
-                value={windowArea}
-                onChange={(e) => setWindowArea(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                min="0"
-                max="200"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Number of Occupants
-              </label>
-              <input
-                type="number"
+              <NumberInput
                 value={occupants}
-                onChange={(e) => setOccupants(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                min="0"
-                max="20"
+                onChange={setOccupants}
+                min={0}
+                max={20}
+                suffix="people"
+                ariaLabel="Number of occupants"
+                accent={ACCENT}
+                className="max-w-none"
               />
-              <p className="text-xs text-gray-500 mt-1">People regularly in room</p>
             </div>
-            
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Heat-Generating Appliances
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                <Tv className="w-4 h-4 mr-1.5 text-gray-500" />
+                Heat-generating appliances
+                <InfoTip label="appliances">TVs, desktops, gaming consoles, kitchen appliances each add ~400 BTU/hr. Phone chargers and small electronics don't count.</InfoTip>
               </label>
-              <input
-                type="number"
+              <NumberInput
                 value={appliances}
-                onChange={(e) => setAppliances(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                min="0"
-                max="10"
+                onChange={setAppliances}
+                min={0}
+                max={10}
+                suffix="items"
+                ariaLabel="Heat-generating appliances"
+                accent={ACCENT}
+                className="max-w-none"
               />
-              <p className="text-xs text-gray-500 mt-1">TVs, computers, etc.</p>
             </div>
           </div>
         </div>
-        
-        {/* Calculate Button */}
-        <button
-          onClick={() => setCalculated(true)}
-          className="w-full md:w-auto md:mx-auto md:px-12 bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-        >
-          <Calculator className="w-5 h-5" />
-          Calculate BTU Requirements
-        </button>
-      </div>
-      
-      {/* Results Section - Only show after calculation */}
-      {calculated && (
-        <div className="mt-8 space-y-8">
-          <div className="border-t border-gray-200 pt-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-              <div className="bg-green-100 p-2 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-              </div>
-              BTU Requirements for Your Room
-            </h3>
-            
-            {/* Main Results Grid */}
-            <div className="grid lg:grid-cols-3 gap-6 mb-8">
-              {/* Primary Result */}
-              <div className="lg:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6 border border-blue-200">
-                <div className="flex items-center gap-3 mb-4">
-                  <Thermometer className="w-6 h-6 text-blue-600" />
-                  <h4 className="text-lg font-semibold text-gray-800">Required Cooling Capacity</h4>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <div>
-                      <p className="text-sm font-medium text-gray-600 mb-1">Total BTU Requirement</p>
-                      <p className="text-3xl font-bold text-blue-600">
-                        {Math.round(totalBTU).toLocaleString()}
-                      </p>
-                      <p className="text-sm text-gray-500">BTU per hour</p>
-                    </div>
-                    
-                    <div>
-                      <p className="text-sm font-medium text-gray-600 mb-1">Equivalent Tonnage</p>
-                      <p className="text-2xl font-bold text-gray-800">
-                        {tonnage.toFixed(2)} tons
-                      </p>
-                      <p className="text-sm text-gray-500">({Math.round(tonnage * 2) / 2} tons rounded)</p>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <p className="text-sm font-medium text-gray-600 mb-3">Room Details</p>
-                    <div className="bg-white/60 rounded-lg p-3 space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Area:</span>
-                        <span className="font-medium">{roomArea.toFixed(0)} sq ft</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Volume:</span>
-                        <span className="font-medium">{roomVolume.toFixed(0)} cu ft</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Room Type:</span>
-                        <span className="font-medium">{selectedRoom?.name || 'Unknown'}</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Climate:</span>
-                        <span className="font-medium">{selectedZone?.name.split(' (')[0] || 'Unknown'}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Unit Recommendations */}
-              <div className="bg-green-50 rounded-xl p-5 border border-green-200">
-                <div className="flex items-center gap-2 mb-4">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <h4 className="font-semibold text-gray-800">AC Unit Sizes</h4>
-                </div>
-                <div className="space-y-3">
-                  <div className="bg-white/60 rounded-lg p-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-gray-700">Minimum Size</span>
-                      <span className="text-lg font-bold text-gray-800">
-                        {recommended.minimum.toLocaleString()}
-                      </span>
-                    </div>
-                    <p className="text-xs text-gray-500 mt-1">BTU per hour</p>
-                  </div>
-                  <div className="bg-green-200/50 rounded-lg p-3 border-2 border-green-300">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-semibold text-green-800">Recommended</span>
-                      <span className="text-xl font-bold text-green-800">
-                        {recommended.ideal.toLocaleString()}
-                      </span>
-                    </div>
-                    <p className="text-xs text-green-700 mt-1">BTU per hour - Optimal choice</p>
-                  </div>
-                  
-                  <div className="pt-2">
-                    <p className="text-xs text-gray-600">
-                      {totalBTU <= 8000 ? 'Window AC or Portable unit suitable' :
-                       totalBTU <= 24000 ? 'Mini-split system recommended' :
-                       'Central AC or multi-zone system needed'}
-                    </p>
-                  </div>
-                </div>
+      </section>
+
+      {/* Results */}
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Recommended AC capacity"
+          value={calc.ideal}
+          unit="BTU/hr"
+          secondaryText={
+            <>
+              Your room needs <strong>{fmt(calc.totalBTU)} BTU/hr</strong> of cooling
+              ({calc.tonnage.toFixed(2)} tons) — the closest standard unit is <strong>{fmt(calc.ideal)} BTU</strong>.
+            </>
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Floor area', value: `${fmt(calc.roomArea, { maximumFractionDigits: 0 })} sq ft` },
+            { label: 'Tonnage', value: `${calc.tonnage.toFixed(2)} tons` },
+            { label: 'Minimum size', value: `${fmt(calc.minimum)} BTU`, valueClass: 'text-gray-600' },
+          ]}
+        />
+
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Calculator className="w-4 h-4 text-blue-600" />
+              Calculation breakdown
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Base load', detail: `${fmt(calc.roomArea, { maximumFractionDigits: 0 })} sq ft × ${selectedZone.btuPerSqFt} BTU/sq ft`, factor: `${fmt(calc.baseBTU)} BTU` },
+                { label: 'Room type', detail: selectedRoom.name, factor: `× ${selectedRoom.heatLoad.toFixed(2)}` },
+                { label: 'Window type', detail: selectedWindow.name, factor: `× ${selectedWindow.factor.toFixed(2)}` },
+                { label: 'Window area', detail: `${fmt(winAreaN, { maximumFractionDigits: 0 })} sq ft of glass`, factor: `× ${calc.windowAreaFactor.toFixed(2)}` },
+                { label: 'Insulation', detail: selectedInsulation.name, factor: `× ${selectedInsulation.factor.toFixed(2)}` },
+                { label: 'Sun', detail: selectedSun.name, factor: `× ${selectedSun.factor.toFixed(2)}` },
+                { label: 'Ceiling', detail: `${fmt(htN)} ft ceiling`, factor: `× ${calc.heightFactor.toFixed(2)}` },
+                { label: 'People (>2)', detail: `${Math.max(0, occN - 2)} extra × 600`, factor: `+ ${fmt(calc.occupantBTU)} BTU` },
+                { label: 'Appliances', detail: `${appN} × 400 BTU`, factor: `+ ${fmt(calc.applianceBTU)} BTU` },
+              ]}
+              totals={[
+                { label: 'Total cooling load', value: `${fmt(calc.totalBTU)} BTU/hr`, valueClass: 'text-blue-700' },
+              ]}
+            />
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <CheckCircle className="w-4 h-4 text-emerald-600" />
+              Right system type for this load
+            </h4>
+            <div className={`p-3 rounded-lg mb-3 ${
+              systemRec.tone === 'blue' ? 'bg-blue-50 border border-blue-200'
+              : systemRec.tone === 'emerald' ? 'bg-emerald-50 border border-emerald-200'
+              : 'bg-purple-50 border border-purple-200'
+            }`}>
+              <div className="font-semibold text-gray-900 mb-1">{systemRec.name}</div>
+              <p className="text-xs text-gray-700 mb-2">{systemRec.desc}</p>
+              <div className="text-[11px] text-gray-600 flex flex-wrap gap-x-3">
+                <span><strong>Cost:</strong> {systemRec.cost}</span>
+                <span><strong>Install:</strong> {systemRec.install}</span>
               </div>
             </div>
-            
-            {/* Detailed Analysis */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Calculation Breakdown */}
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Calculator className="w-5 h-5 text-blue-600" />
-                  Calculation Breakdown
-                </h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-sm text-gray-600">Base Load</span>
-                    <div className="text-right">
-                      <span className="font-semibold text-gray-800">{Math.round(baseBTU).toLocaleString()} BTU</span>
-                      <p className="text-xs text-gray-500">{roomArea.toFixed(0)} sq ft × {selectedZone?.btuPerSqFt || 0} BTU/sq ft</p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Room Type ({selectedRoom?.name || 'Unknown'})</span>
-                      <span className="font-medium text-gray-700">×{roomFactor.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Windows ({selectedWindow?.name || 'Unknown'})</span>
-                      <span className="font-medium text-gray-700">×{(windowFactor * windowAreaFactor).toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Insulation ({insulation})</span>
-                      <span className="font-medium text-gray-700">×{insulationFactor}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Sun Exposure</span>
-                      <span className="font-medium text-gray-700">×{sunFactor}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Ceiling Height ({height} ft)</span>
-                      <span className="font-medium text-gray-700">×{heightFactor.toFixed(2)}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="pt-2 space-y-1">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Extra Occupants</span>
-                      <span className="font-medium text-gray-700">+{occupantBTU} BTU</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Appliances ({appliances})</span>
-                      <span className="font-medium text-gray-700">+{applianceBTU} BTU</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex justify-between items-center pt-3 border-t border-gray-200">
-                    <span className="font-semibold text-gray-800">Final Requirement</span>
-                    <div className="text-right">
-                      <span className="text-lg font-bold text-blue-600">{Math.round(totalBTU).toLocaleString()}</span>
-                      <p className="text-xs text-gray-500">BTU/hr</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* System Type & Efficiency */}
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-orange-500" />
-                  System Recommendations
-                </h4>
-                <div className="space-y-4">
-                  {totalBTU <= 8000 && (
-                    <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
-                      <p className="font-semibold text-blue-800 mb-1">Window AC or Portable Unit</p>
-                      <p className="text-sm text-blue-700">
-                        Affordable option for single room. Window units are more efficient than portable.
-                      </p>
-                      <p className="text-xs text-blue-600 mt-2">
-                        Expected cost: $200-$800 • Installation: DIY friendly
-                      </p>
-                    </div>
-                  )}
-                  
-                  {totalBTU > 8000 && totalBTU <= 24000 && (
-                    <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                      <p className="font-semibold text-green-800 mb-1">Mini-Split System (Recommended)</p>
-                      <p className="text-sm text-green-700">
-                        Most efficient, quiet operation, and precise temperature control.
-                      </p>
-                      <p className="text-xs text-green-600 mt-2">
-                        Expected cost: $1,500-$4,000 • Professional installation required
-                      </p>
-                    </div>
-                  )}
-                  
-                  {totalBTU > 24000 && (
-                    <div className="p-3 bg-purple-50 rounded-lg border border-purple-200">
-                      <p className="font-semibold text-purple-800 mb-1">Central AC or Multi-Zone System</p>
-                      <p className="text-sm text-purple-700">
-                        Large room requires whole-home solution or multiple mini-splits.
-                      </p>
-                      <p className="text-xs text-purple-600 mt-2">
-                        Expected cost: $3,000-$8,000+ • Professional design & installation
-                      </p>
-                    </div>
-                  )}
-                  
-                  <div className="p-3 bg-amber-50 rounded-lg border border-amber-200">
-                    <p className="font-semibold text-amber-800 mb-1">Energy Efficiency Tip</p>
-                    <p className="text-sm text-amber-700">
-                      Look for ENERGY STAR certified units with SEER2 ratings of 15+ for best efficiency and lowest operating costs.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Professional Disclaimer */}
-            <div className="mt-8 bg-gray-50 rounded-xl p-6 border border-gray-200">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-amber-600 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Important Considerations</h4>
-                  <div className="text-sm text-gray-700 space-y-1">
-                    <p>• This calculator provides estimates based on standard industry formulas and typical room conditions</p>
-                    <p>• Actual BTU requirements may vary based on local climate, building construction, and usage patterns</p>
-                    <p>• For rooms over 500 sq ft, consider professional load calculation (Manual J) for optimal sizing</p>
-                    <p>• Proper unit sizing is critical - oversized units cycle frequently and don't dehumidify effectively</p>
-                    <p>• Installation quality significantly affects performance - use licensed HVAC professionals for best results</p>
-                  </div>
-                </div>
-              </div>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+              <div className="font-semibold text-gray-900 mb-1 text-sm">Efficiency tip</div>
+              <p className="text-xs text-gray-700">
+                Look for ENERGY STAR units with SEER2 of 15+ (window/portable) or 16+ (mini-split / central).
+                Higher SEER2 cuts running cost 15–30%.
+              </p>
             </div>
           </div>
         </div>
-      )}
-      
-      <SocialShare 
-        title="BTU Calculator" 
-        description="Calculate the exact cooling capacity needed for any room. Free HVAC sizing tool that helps you choose the perfect air conditioner size." 
+
+        <DisclaimerBox title="Sizing right matters more than going bigger.">
+          <p>
+            An oversized AC cools the air fast but turns off before it can dehumidify — leaving the room
+            cold and clammy. Stay within one tier of the calculated load. For rooms over 500 sq ft or with
+            unusual layouts (open-plan, lofts, or vaulted ceilings), have a contractor run a proper Manual J.
+          </p>
+        </DisclaimerBox>
+      </section>
+
+      <SocialShare
+        title="BTU Calculator"
+        description="Calculate the exact cooling capacity needed for any room. Free HVAC sizing tool that helps you choose the perfect air conditioner size."
       />
-      
+
       <EmbedCode calculatorType="air-conditioner-btu-calculator" title="BTU Calculator" />
-    </div>
+    </CalcShell>
   );
 }

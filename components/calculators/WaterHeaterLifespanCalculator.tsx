@@ -1,404 +1,342 @@
 'use client';
 
-import { useState } from 'react';
-import { Droplets, AlertTriangle, CheckCircle, TrendingDown } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import {
+  Droplets,
+  AlertTriangle,
+  TrendingDown,
+  Clock,
+  Wrench,
+  DollarSign,
+} from 'lucide-react';
+import {
+  fmt,
+  fmtMoney,
+  CalcShell,
+  SectionHeader,
+  CardChoice,
+  Segmented,
+  NumberInput,
+  InfoTip,
+  ResultHero,
+  BreakdownTable,
+  DisclaimerBox,
+  ResultsHeader,
+  accentMap,
+} from './_shared';
 
-interface HeaterData {
-  type: string;
-  avgLifespan: number;
-  minLifespan: number;
-  maxLifespan: number;
-  replacementCost: { min: number; max: number };
-  annualMaintenance: number;
-}
+const ACCENT = 'red' as const;
+const a = accentMap[ACCENT];
 
-const waterHeaters: Record<string, HeaterData> = {
-  'gas-tank': {
-    type: 'Gas Tank Water Heater',
-    avgLifespan: 10,
-    minLifespan: 8,
-    maxLifespan: 12,
-    replacementCost: { min: 1200, max: 2500 },
-    annualMaintenance: 100
-  },
-  'electric-tank': {
-    type: 'Electric Tank Water Heater',
-    avgLifespan: 12,
-    minLifespan: 10,
-    maxLifespan: 15,
-    replacementCost: { min: 1000, max: 2000 },
-    annualMaintenance: 75
-  },
-  'gas-tankless': {
-    type: 'Gas Tankless Water Heater',
-    avgLifespan: 20,
-    minLifespan: 15,
-    maxLifespan: 25,
-    replacementCost: { min: 2500, max: 4500 },
-    annualMaintenance: 150
-  },
-  'electric-tankless': {
-    type: 'Electric Tankless Water Heater',
-    avgLifespan: 20,
-    minLifespan: 15,
-    maxLifespan: 25,
-    replacementCost: { min: 1500, max: 3000 },
-    annualMaintenance: 100
-  },
-  'heat-pump': {
-    type: 'Heat Pump Water Heater',
-    avgLifespan: 13,
-    minLifespan: 10,
-    maxLifespan: 15,
-    replacementCost: { min: 2000, max: 3500 },
-    annualMaintenance: 125
-  },
-  'solar': {
-    type: 'Solar Water Heater',
-    avgLifespan: 20,
-    minLifespan: 15,
-    maxLifespan: 25,
-    replacementCost: { min: 4000, max: 8000 },
-    annualMaintenance: 200
-  }
-};
+const waterHeaters = [
+  { value: 'gas-tank', name: 'Gas tank', summary: 'Standard tank with gas burner', avgLifespan: 10, minLifespan: 8, maxLifespan: 12, replacementMin: 1200, replacementMax: 2500 },
+  { value: 'electric-tank', name: 'Electric tank', summary: 'Tank with resistive heating element', avgLifespan: 12, minLifespan: 10, maxLifespan: 15, replacementMin: 1000, replacementMax: 2000 },
+  { value: 'gas-tankless', name: 'Gas tankless', summary: 'On-demand gas heater', avgLifespan: 20, minLifespan: 15, maxLifespan: 25, replacementMin: 2500, replacementMax: 4500 },
+  { value: 'electric-tankless', name: 'Electric tankless', summary: 'On-demand electric heater', avgLifespan: 20, minLifespan: 15, maxLifespan: 25, replacementMin: 1500, replacementMax: 3000 },
+  { value: 'heat-pump', name: 'Heat pump (HPWH)', summary: '3× efficient hybrid tank', avgLifespan: 13, minLifespan: 10, maxLifespan: 15, replacementMin: 2000, replacementMax: 3500 },
+  { value: 'solar', name: 'Solar + backup', summary: 'Roof collectors + tank', avgLifespan: 20, minLifespan: 15, maxLifespan: 25, replacementMin: 4000, replacementMax: 8000 },
+];
 
-const warningSignScores: Record<string, number> = {
-  'rust': 3,
-  'leaking': 5,
-  'noisy': 2,
-  'temperature': 3,
-  'age': 2,
-  'sediment': 2,
-  'pilot': 2,
-  'pressure': 3,
-  'smell': 4
-};
+const waterHardnessOptions = [
+  { value: 'soft', name: 'Soft', sub: '0–3.5 gpg', delta: 1 },
+  { value: 'moderate', name: 'Moderate', sub: '3.5–7 gpg', delta: 0 },
+  { value: 'hard', name: 'Hard', sub: '7–10 gpg', delta: -2 },
+  { value: 'very-hard', name: 'Very hard', sub: '10+ gpg', delta: -3 },
+];
+
+const maintenanceOptions = [
+  { value: 'annual', name: 'Annual flush', sub: 'Once a year service', delta: 1 },
+  { value: 'occasional', name: 'Occasional', sub: 'Every 2–3 yrs', delta: 0 },
+  { value: 'rare', name: 'Rare', sub: 'Every 4+ yrs', delta: -2 },
+  { value: 'never', name: 'Never', sub: 'No flush ever', delta: -3 },
+];
+
+const warningSignsList = [
+  { id: 'rust', label: 'Rusty hot water', score: 3 },
+  { id: 'leaking', label: 'Tank leaking', score: 5, critical: true },
+  { id: 'noisy', label: 'Rumbling / noises', score: 2 },
+  { id: 'temperature', label: 'Inconsistent temp', score: 3 },
+  { id: 'age', label: 'Over 10 yrs old', score: 2 },
+  { id: 'sediment', label: 'Sediment in water', score: 2 },
+  { id: 'pilot', label: 'Pilot light issues', score: 2 },
+  { id: 'pressure', label: 'Low water pressure', score: 3 },
+  { id: 'smell', label: 'Rotten egg smell', score: 4, critical: true },
+];
+
+const repairPresets = [200, 500, 1000, 2000];
 
 export default function WaterHeaterLifespanCalculator() {
   const [heaterType, setHeaterType] = useState('gas-tank');
-  const [heaterAge, setHeaterAge] = useState('');
+  const [heaterAge, setHeaterAge] = useState('8');
   const [waterHardness, setWaterHardness] = useState('moderate');
   const [maintenanceFreq, setMaintenanceFreq] = useState('annual');
-  const [warningSigns, setWarningSigns] = useState<string[]>([]);
-  const [repairCost, setRepairCost] = useState('');
-  const [results, setResults] = useState<any>(null);
+  const [warningSigns, setWarningSigns] = useState<Set<string>>(new Set());
+  const [repairCost, setRepairCost] = useState('500');
 
-  const toggleWarningSign = (sign: string) => {
-    setWarningSigns(prev => 
-      prev.includes(sign) 
-        ? prev.filter(s => s !== sign)
-        : [...prev, sign]
-    );
-  };
+  const heater = waterHeaters.find((h) => h.value === heaterType)!;
+  const hardness = waterHardnessOptions.find((w) => w.value === waterHardness)!;
+  const maint = maintenanceOptions.find((m) => m.value === maintenanceFreq)!;
+  const age = Math.max(parseFloat(heaterAge) || 0, 0);
+  const repair = Math.max(parseFloat(repairCost) || 0, 0);
 
-  const calculateLifespan = () => {
-    const heater = waterHeaters[heaterType];
-    const age = parseFloat(heaterAge);
-    const repair = parseFloat(repairCost) || 0;
-
-    // Calculate adjusted lifespan
-    let adjustedLifespan = heater.avgLifespan;
-    
-    // Water hardness adjustment
-    if (waterHardness === 'very-hard') adjustedLifespan -= 3;
-    else if (waterHardness === 'hard') adjustedLifespan -= 2;
-    else if (waterHardness === 'soft') adjustedLifespan += 1;
-
-    // Maintenance adjustment
-    if (maintenanceFreq === 'never') adjustedLifespan -= 3;
-    else if (maintenanceFreq === 'rare') adjustedLifespan -= 2;
-    else if (maintenanceFreq === 'annual') adjustedLifespan += 1;
-
-    // Calculate remaining years
-    const remainingYears = Math.max(0, adjustedLifespan - age);
-    const percentLifeUsed = (age / adjustedLifespan) * 100;
-
-    // Calculate warning sign severity
-    const totalWarningScore = warningSigns.reduce((sum, sign) => sum + warningSignScores[sign], 0);
-    const criticalIssue = warningSigns.includes('leaking') || warningSigns.includes('smell');
-
-    // Replacement recommendation
-    const avgReplacementCost = (heater.replacementCost.min + heater.replacementCost.max) / 2;
-    const repairThreshold = avgReplacementCost * 0.5;
-    const shouldReplace = criticalIssue || 
-                         repair > repairThreshold || 
-                         age > adjustedLifespan * 0.8 || 
-                         totalWarningScore >= 8;
-
-    // Energy efficiency loss calculation
-    let efficiencyLoss = 0;
-    if (age > 8) efficiencyLoss = Math.min((age - 8) * 5, 30); // Up to 30% loss
-
-    // Annual operating cost increase
-    const baseOperatingCost = heaterType.includes('gas') ? 350 : 500;
-    const currentOperatingCost = baseOperatingCost * (1 + efficiencyLoss / 100);
-    const annualExtraCost = currentOperatingCost - baseOperatingCost;
-
-    setResults({
-      heater,
-      age,
-      repair,
-      adjustedLifespan,
-      remainingYears,
-      percentLifeUsed,
-      avgReplacementCost,
-      repairThreshold,
-      shouldReplace,
-      totalWarningScore,
-      criticalIssue,
-      efficiencyLoss,
-      annualExtraCost,
-      waterHardness,
-      maintenanceFreq
+  const toggleSign = (id: string) => {
+    setWarningSigns((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
     });
   };
 
+  const calc = useMemo(() => {
+    const adjustedLifespan = Math.max(heater.avgLifespan + hardness.delta + maint.delta, 1);
+    const remainingYears = Math.max(adjustedLifespan - age, 0);
+    const percentLifeUsed = (age / adjustedLifespan) * 100;
+    const totalScore = Array.from(warningSigns).reduce((sum, id) => {
+      const sign = warningSignsList.find((s) => s.id === id);
+      return sum + (sign?.score || 0);
+    }, 0);
+    const hasCritical = Array.from(warningSigns).some((id) => warningSignsList.find((s) => s.id === id)?.critical);
+    const avgReplacementCost = (heater.replacementMin + heater.replacementMax) / 2;
+    const repairThreshold = avgReplacementCost * 0.5;
+    const shouldReplace = hasCritical || repair > repairThreshold || age > adjustedLifespan * 0.8 || totalScore >= 8;
+    const efficiencyLoss = age > 8 ? Math.min((age - 8) * 5, 30) : 0;
+    const baseOperatingCost = heaterType.includes('gas') ? 350 : 500;
+    const currentOperatingCost = baseOperatingCost * (1 + efficiencyLoss / 100);
+    const annualExtraCost = currentOperatingCost - baseOperatingCost;
+    const severity = totalScore >= 10 ? 'critical' : totalScore >= 6 ? 'high' : totalScore > 0 ? 'moderate' : 'none';
+    return { adjustedLifespan, remainingYears, percentLifeUsed, totalScore, hasCritical, avgReplacementCost, repairThreshold, shouldReplace, efficiencyLoss, annualExtraCost, severity };
+  }, [heater, hardness, maint, age, repair, warningSigns, heaterType]);
+
+  const fit =
+    age === 0 ? { tone: 'warn' as const, text: 'Enter heater age' } :
+    calc.hasCritical ? { tone: 'bad' as const, text: 'Critical issue — replace immediately' } :
+    calc.shouldReplace ? { tone: 'warn' as const, text: 'Replace recommended' } :
+                         { tone: 'good' as const, text: 'Keep + maintain — repair is economical' };
+
+  const severityColor =
+    calc.severity === 'critical' ? 'bg-red-500' :
+    calc.severity === 'high' ? 'bg-amber-500' :
+    calc.severity === 'moderate' ? 'bg-yellow-500' : 'bg-gray-300';
+
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 my-8">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-blue-100 p-3 rounded-lg">
-          <Droplets className="w-6 h-6 text-blue-600" />
-        </div>
-        <div>
-          <h3 className="text-xl font-semibold text-gray-900">Water Heater Lifespan Calculator</h3>
-          <p className="text-sm text-gray-600">Determine when to repair or replace your water heater</p>
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Water Heater Type
-          </label>
-          <select
-            value={heaterType}
-            onChange={(e) => setHeaterType(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {Object.entries(waterHeaters).map(([key, data]) => (
-              <option key={key} value={key}>{data.type}</option>
-            ))}
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Current Age (years)
-          </label>
-          <input
-            type="number"
-            value={heaterAge}
-            onChange={(e) => setHeaterAge(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="e.g., 8"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Water Hardness Level
-          </label>
-          <select
-            value={waterHardness}
-            onChange={(e) => setWaterHardness(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="soft">Soft (0-3.5 gpg)</option>
-            <option value="moderate">Moderate (3.5-7 gpg)</option>
-            <option value="hard">Hard (7-10 gpg)</option>
-            <option value="very-hard">Very Hard (10+ gpg)</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Maintenance Frequency
-          </label>
-          <select
-            value={maintenanceFreq}
-            onChange={(e) => setMaintenanceFreq(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="annual">Annual Flushing</option>
-            <option value="occasional">Occasional (Every 2-3 years)</option>
-            <option value="rare">Rare (Every 4+ years)</option>
-            <option value="never">Never</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Warning Signs Present (Select all that apply)
-          </label>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              { id: 'rust', label: 'Rusty Water' },
-              { id: 'leaking', label: 'Tank Leaking' },
-              { id: 'noisy', label: 'Rumbling/Noises' },
-              { id: 'temperature', label: 'Inconsistent Temperature' },
-              { id: 'age', label: 'Over 10 Years Old' },
-              { id: 'sediment', label: 'Sediment in Water' },
-              { id: 'pilot', label: 'Pilot Light Issues' },
-              { id: 'pressure', label: 'Low Water Pressure' },
-              { id: 'smell', label: 'Rotten Egg Smell' }
-            ].map(sign => (
-              <label key={sign.id} className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={warningSigns.includes(sign.id)}
-                  onChange={() => toggleWarningSign(sign.id)}
-                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                />
-                {sign.label}
+    <CalcShell
+      Icon={Droplets}
+      title="Water Heater Lifespan Calculator"
+      subtitle="Repair vs replace — 50% rule + age + warning signs. Updates live."
+      accent={ACCENT}
+    >
+      <section>
+        <SectionHeader step={1} title="Your water heater" subtitle="Type, age, and water conditions" Icon={Droplets} accent={ACCENT} />
+        <div className="space-y-5">
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Type</label>
+            <CardChoice value={heaterType} onChange={setHeaterType} options={waterHeaters} ariaLabel="Heater type" accent={ACCENT} columns={3} />
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label className="text-sm font-medium text-gray-700 mb-2 block">Current age</label>
+              <NumberInput value={heaterAge} onChange={setHeaterAge} min={0} max={40} suffix="years" ariaLabel="Heater age" accent={ACCENT} />
+              <p className="text-xs text-gray-500 mt-1.5">{heater.name} typically lasts {heater.minLifespan}–{heater.maxLifespan} years</p>
+            </div>
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Repair cost (if quoted)
+                <InfoTip label="repair cost">If you don't have a quote yet, skip — the calculator still factors age + warning signs.</InfoTip>
               </label>
-            ))}
+              <div className="mb-2">
+                <Segmented value={repairCost} onChange={setRepairCost} options={repairPresets.map(p => ({ value: String(p), name: `$${fmt(p)}` }))} ariaLabel="Repair preset" accent={ACCENT} />
+              </div>
+              <NumberInput value={repairCost} onChange={setRepairCost} min={0} max={10000} suffix="$" ariaLabel="Custom repair cost" accent={ACCENT} />
+            </div>
           </div>
         </div>
+      </section>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Estimated Repair Cost ($ - Optional)
-          </label>
-          <input
-            type="number"
-            value={repairCost}
-            onChange={(e) => setRepairCost(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="e.g., 500"
-          />
+      <section>
+        <SectionHeader step={2} title="Conditions" subtitle="Water hardness and maintenance shape lifespan" Icon={Wrench} accent={ACCENT} />
+        <div className="space-y-5">
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Water hardness
+              <InfoTip label="hardness">Hard water deposits scale inside the tank, insulating the heating element and accelerating failure. If you have a water softener, treat as soft.</InfoTip>
+            </label>
+            <CardChoice value={waterHardness} onChange={setWaterHardness} options={waterHardnessOptions} ariaLabel="Water hardness" accent={ACCENT} />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Maintenance frequency</label>
+            <CardChoice value={maintenanceFreq} onChange={setMaintenanceFreq} options={maintenanceOptions} ariaLabel="Maintenance" accent={ACCENT} />
+          </div>
         </div>
+      </section>
 
-        <button
-          onClick={calculateLifespan}
-          disabled={!heaterAge}
-          className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed font-medium"
-        >
-          Calculate
-        </button>
-      </div>
+      <section>
+        <SectionHeader step={3} title="Warning signs" subtitle="Check any symptoms you've noticed" Icon={AlertTriangle} accent={ACCENT} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          {warningSignsList.map((sign) => {
+            const active = warningSigns.has(sign.id);
+            return (
+              <button
+                key={sign.id}
+                type="button"
+                role="checkbox"
+                aria-checked={active}
+                onClick={() => toggleSign(sign.id)}
+                className={`text-left p-2.5 rounded-lg border-2 transition-all flex items-center gap-2 ${
+                  active
+                    ? `${a.selectedBorder} ${a.selectedBg} ring-1 ${a.selectedRing}`
+                    : `border-gray-200 bg-white ${a.hoverBorder} ${a.hoverBg}/50`
+                }`}
+              >
+                <div className={`w-4 h-4 rounded border-2 flex-shrink-0 flex items-center justify-center ${active ? `${a.iconBg} border-transparent` : 'border-gray-300'}`}>
+                  {active && <span className="text-white text-[10px] leading-none">✓</span>}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className={`text-sm font-medium ${active ? a.selectedText : 'text-gray-900'}`}>
+                    {sign.label}
+                  </div>
+                  {sign.critical && <div className="text-[10px] text-red-700 uppercase font-bold">Critical</div>}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </section>
 
-      {results && (
-        <div className="mt-6 space-y-6">
-          <div className={`p-4 rounded-lg ${results.shouldReplace ? 'bg-red-50 border-2 border-red-200' : 'bg-green-50 border-2 border-green-200'}`}>
-            <div className="flex items-center gap-2 mb-2">
-              {results.shouldReplace ? (
-                <AlertTriangle className="w-5 h-5 text-red-600" />
-              ) : (
-                <CheckCircle className="w-5 h-5 text-green-600" />
-              )}
-              <h4 className={`font-semibold ${results.shouldReplace ? 'text-red-900' : 'text-green-900'}`}>
-                Recommendation: {results.shouldReplace ? 'REPLACE' : 'KEEP & MAINTAIN'}
+      <section aria-live="polite" className="space-y-5">
+        <ResultsHeader />
+
+        <ResultHero
+          accent={ACCENT}
+          eyebrow="Recommendation"
+          value={calc.shouldReplace ? 'Replace' : 'Keep & maintain'}
+          unit=""
+          secondaryText={
+            calc.hasCritical ? (
+              <>
+                <strong>Critical safety issue detected</strong> — leaks cause water damage; gas smell is a CO/explosion hazard.
+                Call a plumber today; replace, don't repair.
+              </>
+            ) : calc.shouldReplace ? (
+              <>
+                Your {fmt(age)}-year-old {heater.name.toLowerCase()} has used {calc.percentLifeUsed.toFixed(0)}% of expected life.
+                {repair > 0 && <> Quoted repair (${fmtMoney(repair)}) is {((repair / calc.avgReplacementCost) * 100).toFixed(0)}% of replacement.</>}
+              </>
+            ) : (
+              <>
+                Your repair is well under the 50%-of-replacement threshold (${fmtMoney(calc.repairThreshold)}).
+                System has roughly <strong>{calc.remainingYears.toFixed(1)} years</strong> of expected life remaining.
+              </>
+            )
+          }
+          fitTone={fit.tone}
+          fitText={fit.text}
+          sidePanel={[
+            { label: 'Adjusted lifespan', value: `${calc.adjustedLifespan} yrs` },
+            { label: 'Remaining', value: `${calc.remainingYears.toFixed(1)} yrs` },
+            { label: '50% rule threshold', value: `$${fmtMoney(calc.repairThreshold)}` },
+          ]}
+        />
+
+        {calc.totalScore > 0 && (
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-semibold text-gray-900 flex items-center gap-2 text-sm">
+                <AlertTriangle className="w-4 h-4 text-red-600" />
+                Warning sign severity
               </h4>
+              <span className={`font-bold text-sm capitalize ${
+                calc.severity === 'critical' ? 'text-red-700' :
+                calc.severity === 'high' ? 'text-amber-700' :
+                'text-yellow-700'
+              }`}>
+                {calc.severity} ({calc.totalScore} pts)
+              </span>
             </div>
-            <p className={`text-sm ${results.shouldReplace ? 'text-red-700' : 'text-green-700'}`}>
-              {results.criticalIssue 
-                ? 'Critical issues detected. Immediate replacement recommended for safety.'
-                : results.shouldReplace 
-                ? `Your ${results.age}-year-old water heater has reached ${Math.round(results.percentLifeUsed)}% of its expected life. Multiple warning signs indicate replacement is the best option.`
-                : `Your water heater has ${results.remainingYears.toFixed(1)} years of expected life remaining. Continue with regular maintenance.`}
-            </p>
-          </div>
-
-          {results.totalWarningScore > 0 && (
-            <div className="bg-amber-50 rounded-lg p-4">
-              <h4 className="font-semibold text-amber-900 mb-2">Warning Sign Severity</h4>
-              <div className="flex items-center gap-4">
-                <div className="flex-1">
-                  <div className="bg-gray-200 rounded-full h-3 overflow-hidden">
-                    <div 
-                      className={`h-full transition-all ${
-                        results.totalWarningScore >= 10 ? 'bg-red-500' :
-                        results.totalWarningScore >= 6 ? 'bg-amber-500' : 'bg-yellow-500'
-                      }`}
-                      style={{ width: `${Math.min(results.totalWarningScore * 10, 100)}%` }}
-                    />
-                  </div>
-                </div>
-                <span className={`font-medium ${
-                  results.totalWarningScore >= 10 ? 'text-red-700' :
-                  results.totalWarningScore >= 6 ? 'text-amber-700' : 'text-yellow-700'
-                }`}>
-                  {results.totalWarningScore >= 10 ? 'Critical' :
-                   results.totalWarningScore >= 6 ? 'High' : 'Moderate'}
-                </span>
-              </div>
-            </div>
-          )}
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-3">Lifespan Analysis</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Expected Lifespan:</span>
-                  <span className="font-medium">{results.heater.minLifespan}-{results.heater.maxLifespan} years</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Adjusted for Conditions:</span>
-                  <span className="font-medium">{results.adjustedLifespan} years</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Remaining Life:</span>
-                  <span className="font-medium">{results.remainingYears.toFixed(1)} years</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Life Used:</span>
-                  <span className="font-medium">{Math.round(results.percentLifeUsed)}%</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-3">Cost Analysis</h4>
-              <div className="space-y-2 text-sm">
-                {results.repair > 0 && (
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Repair Cost:</span>
-                    <span className="font-medium">${results.repair.toLocaleString()}</span>
-                  </div>
-                )}
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Replacement Cost:</span>
-                  <span className="font-medium">${results.heater.replacementCost.min.toLocaleString()}-${results.heater.replacementCost.max.toLocaleString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">50% Rule Threshold:</span>
-                  <span className="font-medium">${results.repairThreshold.toLocaleString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Annual Energy Loss:</span>
-                  <span className="font-medium">${Math.round(results.annualExtraCost)}/year</span>
-                </div>
-              </div>
+            <div className="bg-gray-200 rounded-full h-2.5 overflow-hidden">
+              <div className={`h-full transition-all ${severityColor}`} style={{ width: `${Math.min(calc.totalScore * 10, 100)}%` }} />
             </div>
           </div>
+        )}
 
-          {results.efficiencyLoss > 0 && (
-            <div className="bg-blue-50 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <TrendingDown className="w-5 h-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-900">Efficiency Loss: {results.efficiencyLoss}%</h4>
-              </div>
-              <p className="text-sm text-blue-700">
-                Your {results.age}-year-old water heater has lost approximately {results.efficiencyLoss}% efficiency due to sediment buildup and component wear. 
-                This adds roughly ${Math.round(results.annualExtraCost)} to your annual energy costs. 
-                A new high-efficiency model could save ${Math.round(results.annualExtraCost * 1.5)}-${Math.round(results.annualExtraCost * 2)} per year.
+        <div className="grid lg:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <Clock className="w-4 h-4 text-red-600" />
+              Lifespan breakdown
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Industry typical', detail: heater.name, factor: `${heater.minLifespan}–${heater.maxLifespan} yrs` },
+                { label: 'Average', detail: '', factor: `${heater.avgLifespan} yrs` },
+                { label: 'Water hardness', detail: hardness.name, factor: `${hardness.delta >= 0 ? '+' : ''}${hardness.delta} yrs` },
+                { label: 'Maintenance', detail: maint.name, factor: `${maint.delta >= 0 ? '+' : ''}${maint.delta} yrs` },
+                { label: 'Your adjusted', detail: '', factor: `${calc.adjustedLifespan} yrs` },
+                { label: 'Current age', detail: '', factor: `${fmt(age)} yrs` },
+              ]}
+              totals={[
+                { label: 'Years remaining', value: `${calc.remainingYears.toFixed(1)} yrs`, valueClass: calc.remainingYears < 2 ? 'text-red-700' : calc.remainingYears < 5 ? 'text-amber-700' : 'text-emerald-700' },
+              ]}
+            />
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+              <DollarSign className="w-4 h-4 text-red-600" />
+              Cost analysis (50% rule)
+            </h4>
+            <BreakdownTable
+              rows={[
+                { label: 'Quoted repair', detail: 'Your number', factor: `$${fmtMoney(repair)}` },
+                { label: 'Replacement range', detail: heater.name, factor: `$${fmtMoney(heater.replacementMin)}–$${fmtMoney(heater.replacementMax)}` },
+                { label: 'Avg replacement', detail: 'Midpoint', factor: `$${fmtMoney(calc.avgReplacementCost)}` },
+                { label: '50% threshold', detail: '50% of avg replacement', factor: `$${fmtMoney(calc.repairThreshold)}` },
+                { label: 'Efficiency loss', detail: `Age >${heater.avgLifespan}yr = scale + element wear`, factor: `${calc.efficiencyLoss}%` },
+                { label: 'Extra energy cost', detail: `Due to loss above`, factor: `$${fmtMoney(calc.annualExtraCost)}/yr` },
+              ]}
+              totals={[]}
+            />
+          </div>
+
+          {calc.efficiencyLoss > 0 && (
+            <div className="bg-blue-50 rounded-xl border border-blue-200 p-4 lg:col-span-2">
+              <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
+                <TrendingDown className="w-4 h-4 text-blue-700" />
+                Efficiency loss penalty
+              </h4>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Your {fmt(age)}-year-old unit has lost roughly <strong>{calc.efficiencyLoss}%</strong> of original efficiency due to sediment buildup, anode rod depletion, and component wear.
+                That adds about <strong>${fmtMoney(calc.annualExtraCost)}/yr</strong> to your energy bill.
+                A new high-efficiency model would save roughly <strong>${fmtMoney(calc.annualExtraCost * 1.5)}–${fmtMoney(calc.annualExtraCost * 2)}</strong> per year vs your current unit.
               </p>
             </div>
           )}
-
-          <div className="bg-amber-50 rounded-lg p-4">
-            <h4 className="font-semibold text-amber-900 mb-2">Professional Insight</h4>
-            <p className="text-sm text-amber-700">
-              {results.heater.type.includes('Tank') 
-                ? `Tank water heaters typically fail suddenly when the tank corrodes through. ${results.age > 8 ? 'At ' + results.age + ' years, consider proactive replacement to avoid water damage.' : 'Annual flushing removes sediment and extends tank life.'}`
-                : `Tankless units last longer but require annual descaling in hard water areas. ${results.waterHardness === 'hard' || results.waterHardness === 'very-hard' ? 'Your hard water significantly impacts lifespan - consider a water softener.' : 'Regular maintenance is crucial for longevity.'}`}
-              {results.criticalIssue && ' Leaking tanks or gas odors are safety hazards requiring immediate attention.'}
-            </p>
-          </div>
         </div>
-      )}
-    </div>
+
+        <DisclaimerBox title="Type-specific lifespan notes">
+          {heater.value.includes('tank') && !heater.value.includes('tankless') ? (
+            <p>
+              Tank heaters typically fail by tank corrosion through the bottom — usually sudden and catastrophic (40–60 gallons of water on the floor).
+              {age > 8 && ' At your age, proactive replacement avoids water damage to flooring + drywall.'}
+              {' '}Annual flushing removes sediment and extends life 3–5 years.
+            </p>
+          ) : heater.value.includes('tankless') ? (
+            <p>
+              Tankless units last longer but need annual descaling — especially in hard water areas. The heat exchanger is the failure point.
+              {(waterHardness === 'hard' || waterHardness === 'very-hard') && ' Your hard water materially shortens lifespan — a water softener pays for itself.'}
+            </p>
+          ) : heater.value === 'heat-pump' ? (
+            <p>HPWH compressors are the failure mode (similar to refrigerators). Lifespan is shorter than gas tankless but operating cost is 60–70% lower.</p>
+          ) : (
+            <p>Solar systems last as long as their backup heater. The collectors themselves usually exceed 25 years; tanks and pumps need replacement on standard schedules.</p>
+          )}
+          {calc.hasCritical && (
+            <p className="text-red-800 font-semibold pt-2">
+              ⚠ Leaking tanks or gas odors are <strong>safety hazards</strong>. Shut off water + gas/electric supply and call a licensed plumber immediately.
+            </p>
+          )}
+        </DisclaimerBox>
+      </section>
+    </CalcShell>
   );
 }
