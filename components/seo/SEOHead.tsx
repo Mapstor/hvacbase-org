@@ -37,7 +37,7 @@ export default function SEOHead({ meta, additionalSchema = [] }: SEOHeadProps) {
     <>
       <title>{meta.title} | HVAC Base</title>
       <meta name="description" content={meta.description} />
-      <meta name="author" content={meta.author || 'HVAC Base Team'} />
+      <meta name="author" content={meta.author || 'HVAC Base'} />
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}

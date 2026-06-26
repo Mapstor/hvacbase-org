@@ -2,7 +2,10 @@ import { ArticleMeta } from './content';
 
 const SITE_URL = 'https://www.hvacbase.org';
 const SITE_NAME = 'HVAC Base';
-const AUTHOR_NAME = 'HVAC Base Team';
+// {{TODO-IDENTITY}} — placeholder until real Person author is wired in
+// next gate. Schema falls back to the publisher Organization so Article
+// validation still passes.
+const AUTHOR_NAME = SITE_NAME;
 const LOGO_URL = `${SITE_URL}/images/logo.png`;
 
 export function generateArticleSchema(meta: ArticleMeta) {

@@ -46,7 +46,7 @@ export default function ArticleLayout({ meta, children }: ArticleLayoutProps) {
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
           <span className="flex items-center gap-1">
             <User size={14} />
-            {meta.author || 'HVAC Base Team'}
+            {meta.author || '{{TODO-IDENTITY}}'}
           </span>
           <span className="flex items-center gap-1">
             <Calendar size={14} />
