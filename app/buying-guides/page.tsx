@@ -19,7 +19,7 @@ const buyingGuides = {
     description: 'Complete guides for selecting central AC, mini splits, and portable units',
     guides: [
       {
-        title: 'Best Central Air Conditioners 2024',
+        title: 'Best Central Air Conditioners 2026',
         href: '/air-conditioners/best-central-air-conditioners',
         readTime: '12 min',
         highlights: ['Top 10 brands reviewed', 'SEER2 ratings explained', 'Cost analysis']
@@ -49,7 +49,7 @@ const buyingGuides = {
     description: 'Comprehensive guides for furnaces, boilers, heat pumps, and space heaters',
     guides: [
       {
-        title: 'Best Gas Furnaces 2024',
+        title: 'Best Gas Furnaces 2026',
         href: '/best-gas-furnaces',
         readTime: '14 min',
         highlights: ['AFUE ratings', 'Single vs two-stage', 'Brand comparison']
@@ -109,7 +109,7 @@ const buyingGuides = {
     description: 'Reviews and comparisons of smart and programmable thermostats',
     guides: [
       {
-        title: 'Best Smart Thermostats 2024',
+        title: 'Best Smart Thermostats 2026',
         href: '/thermostats/best-smart-thermostats',
         readTime: '13 min',
         highlights: ['Feature comparison', 'Compatibility guide', 'Energy savings']
@@ -198,25 +198,25 @@ const buyingGuides = {
 
 const featuredGuides = [
   {
-    title: 'Ultimate AC Buying Guide 2024',
+    title: 'Ultimate AC Buying Guide 2026',
     description: 'Everything you need to know about selecting the perfect air conditioning system for your home',
     href: '/air-conditioners/ultimate-buying-guide',
     badge: 'Most Popular',
-    stats: { readTime: '18 min', updated: 'March 2024' }
+    stats: { readTime: '18 min', updated: '{{NEEDS-VERIFICATION}}' }
   },
   {
     title: 'Heat Pump vs Furnace: Which is Right for You?',
     description: 'Comprehensive comparison to help you choose between heat pumps and traditional furnaces',
     href: '/heat-pump-vs-furnace',
     badge: 'Editor\'s Choice',
-    stats: { readTime: '15 min', updated: 'March 2024' }
+    stats: { readTime: '15 min', updated: '{{NEEDS-VERIFICATION}}' }
   },
   {
     title: 'Smart Thermostat ROI Calculator',
     description: 'Calculate exactly how much you can save with a smart thermostat upgrade',
     href: '/thermostats/smart-thermostat-roi-calculator',
     badge: 'Interactive Tool',
-    stats: { readTime: '5 min', updated: 'March 2024' }
+    stats: { readTime: '5 min', updated: '{{NEEDS-VERIFICATION}}' }
   }
 ]
 

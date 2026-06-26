@@ -81,7 +81,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Content Updates</h3>
                 <p className="text-gray-700">
-                  Our content is continuously updated to reflect the latest HVAC technologies, regulations, and best practices.
+                  Content is reviewed and updated as HVAC technologies, regulations, and best practices change.
                 </p>
               </div>
               <div>

@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card'
 import { ChevronRight, Star, Shield, Award, TrendingUp, Users, CheckCircle, XCircle, DollarSign } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'HVAC Brand Reviews 2024: Best AC, Furnace & Heat Pump Brands',
+  title: 'HVAC Brand Reviews 2026: Best AC, Furnace & Heat Pump Brands',
   description: 'Unbiased HVAC brand reviews and rankings. Compare top AC, furnace, and heat pump manufacturers. Reliability ratings, warranty coverage, and value analysis.',
   openGraph: {
     title: 'HVAC Brand Reviews | Top Manufacturer Rankings',
