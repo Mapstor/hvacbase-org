@@ -243,27 +243,19 @@ export default function BrandReviewsPage() {
           <div className="text-center">
             <Award className="w-16 h-16 mx-auto mb-4 text-blue-200" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              HVAC Brand Reviews 2024
+              HVAC Brand Reviews 2026
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Unbiased reviews and rankings of top HVAC manufacturers based on reliability, performance, and customer satisfaction
+              Reviews and rankings of HVAC manufacturers based on AHRI-certified efficiency data, manufacturer warranty terms, and published specifications.
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-4xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold">50+</div>
-                  <div className="text-sm text-blue-200">Brands Reviewed</div>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
                 <div>
                   <div className="text-2xl font-bold">100%</div>
                   <div className="text-sm text-blue-200">Unbiased Analysis</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold">10K+</div>
-                  <div className="text-sm text-blue-200">Customer Reviews</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">2024</div>
+                  <div className="text-2xl font-bold">2026</div>
                   <div className="text-sm text-blue-200">Updated Rankings</div>
                 </div>
               </div>

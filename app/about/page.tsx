@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { Building2, Users, Target, BookOpen, Award, TrendingUp, Lightbulb, Globe, Shield, Heart, Microscope, GraduationCap, BarChart, Clock, CheckCircle, Star, Zap, Database, HandshakeIcon } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Us | HVACBase.org - Your Trusted HVAC Knowledge Resource',
-  description: 'Learn about HVACBase.org, the comprehensive HVAC knowledge base helping homeowners and professionals make informed decisions about heating, ventilation, and air conditioning systems.',
+  title: 'About HVACBase.org',
+  description: 'Learn about HVACBase.org, an HVAC knowledge base helping homeowners and professionals make informed decisions about heating, ventilation, and air conditioning systems.',
 };
 
 export default function AboutPage() {
@@ -51,10 +51,10 @@ export default function AboutPage() {
               We realized that while technical information existed, it was scattered across manufacturer websites, trade publications, and forums – often written in jargon that was impenetrable to non-professionals. There was no single, comprehensive resource that served everyone from curious homeowners to seasoned professionals.
             </p>
             <p>
-              That's why we created HVACBase.org – to be the definitive online resource for HVAC knowledge. The goal: a resource that could answer any HVAC question, from "What size AC do I need?" to "How do variable refrigerant flow systems work?"
+              That's why we created HVACBase.org – to be an accessible online resource for HVAC knowledge. The goal: answer common HVAC questions, from "What size AC do I need?" to "How do variable refrigerant flow systems work?"
             </p>
             <p>
-              Today, with over 339 comprehensive articles, 15+ interactive calculators, and thousands of daily visitors, HVACBase.org has become the go-to resource for anyone seeking reliable HVAC information. We continue to grow and improve, adding new content, updating existing articles, and developing new tools to serve our community better.
+              HVACBase.org continues to grow, adding new content, updating existing articles, and developing new tools to serve readers better.
             </p>
           </div>
         </div>
@@ -594,11 +594,6 @@ export default function AboutPage() {
               <p className="text-gray-600">Topics Covered</p>
             </div>
           </div>
-          <div className="mt-8 text-center text-gray-700">
-            <p>
-              Every day, thousands of people turn to HVACBase.org for reliable information that helps them make better decisions about their heating and cooling systems. From homeowners saving money on energy bills to technicians solving complex problems, our impact is measured in real improvements to comfort, efficiency, and understanding.
-            </p>
-          </div>
         </div>
 
         {/* Future Vision */}
@@ -615,7 +610,7 @@ export default function AboutPage() {
               We're developing new interactive features, expanding our calculator suite, and creating more video content to complement our written guides. We're also exploring partnerships with educational institutions to support HVAC education and career development.
             </p>
             <p>
-              Our vision is to become the most comprehensive and trusted HVAC resource globally, helping millions of people make informed decisions that improve comfort, reduce energy consumption, and contribute to a more sustainable future. We're building a platform that serves not just today's needs but anticipates tomorrow's challenges.
+              The vision is to provide comprehensive HVAC information for homeowners and professionals — explaining how HVAC systems work, helping readers make informed decisions, and improving energy efficiency in residential buildings.
             </p>
           </div>
         </div>
@@ -626,7 +621,7 @@ export default function AboutPage() {
             Join Our Community
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Whether you're a homeowner, professional, student, or simply curious about HVAC systems, HVACBase.org is here to support your journey. Explore our resources, use our tools, and join thousands of others who trust us for reliable HVAC information.
+            Whether you're a homeowner, professional, student, or simply curious about HVAC systems, HVACBase.org is here to support your journey. Explore the articles and calculators below.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="/" className="bg-brand-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors">

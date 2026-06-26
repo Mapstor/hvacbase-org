@@ -77,9 +77,6 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Domain</h3>
                 <p className="text-lg text-gray-700">hvacbase.org</p>
-                <p className="text-gray-600 text-sm mt-1">
-                  Your trusted HVAC knowledge resource since 2024
-                </p>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Content Updates</h3>

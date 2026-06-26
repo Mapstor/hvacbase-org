@@ -76,7 +76,6 @@ export default async function HomePage() {
                   <h1 className="text-3xl md:text-4xl font-bold">
                     HVAC<span className="text-brand-300">Base</span>
                   </h1>
-                  <p className="text-sm text-brand-200">Your Trusted HVAC Resource Since 2024</p>
                 </div>
               </div>
               
@@ -783,8 +782,8 @@ export default async function HomePage() {
               Compare HVAC Brands & Reviews
             </h2>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Explore detailed comparisons of top HVAC brands including Carrier, Trane, Lennox, Goodman, and more. 
-              Find reliability ratings, pricing, and real customer reviews.
+              Explore detailed comparisons of top HVAC brands including Carrier, Trane, Lennox, Goodman, and more.
+              Compare manufacturer warranty terms, AHRI-certified efficiency ratings, and price tiers.
             </p>
             <Link href="/best-hvac-brands-ranked" className="inline-flex items-center gap-2 bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors font-semibold">
               View All Brand Comparisons
