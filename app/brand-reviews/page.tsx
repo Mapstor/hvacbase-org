@@ -1,175 +1,150 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Card } from '@/components/ui/card'
-import { ChevronRight, Star, Shield, Award, TrendingUp, Users, CheckCircle, XCircle, DollarSign } from 'lucide-react'
+import { ChevronRight, Shield, Award, TrendingUp, Users, CheckCircle, XCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'HVAC Brand Reviews 2026: Best AC, Furnace & Heat Pump Brands',
-  description: 'Unbiased HVAC brand reviews and rankings. Compare top AC, furnace, and heat pump manufacturers. Reliability ratings, warranty coverage, and value analysis.',
+  description: 'HVAC brand reviews based on manufacturer-published warranty terms, AHRI-certified efficiency data, and dealer network coverage. Strengths, weaknesses, and warranty details for the top AC, furnace, and heat pump manufacturers.',
   openGraph: {
     title: 'HVAC Brand Reviews | Top Manufacturer Rankings',
-    description: 'Complete HVAC brand reviews with reliability ratings, warranty details, and expert recommendations.',
+    description: 'HVAC brand reviews based on manufacturer warranty terms, AHRI-certified efficiency data, and dealer network coverage.',
     type: 'website',
   }
 }
 
+// Brand categories listed in alphabetical order within each category. No
+// numeric brand ratings — we do not run a contractor survey or own bench
+// equipment, so any "4.7/5 stars" precision would be fabricated. The
+// qualitative pros/cons + verifiable warranty terms below are the honest
+// substance.
 const brandCategories = {
   'Premium Brands': {
     icon: <Award className="w-6 h-6 text-gold-600" />,
-    description: 'Top-tier manufacturers with superior quality and features',
+    description: 'Top-tier manufacturers with broad dealer networks, premium warranty coverage, and the highest-efficiency model lines.',
     brands: [
       {
-        name: 'Carrier',
-        rating: 4.8,
-        strengths: ['Reliability', 'Innovation', 'Dealer network'],
-        weaknesses: ['Premium pricing', 'Complex controls'],
-        warranty: '10 years parts',
-        priceRange: '$$$',
-        marketShare: '15%'
-      },
-      {
-        name: 'Trane',
-        rating: 4.7,
-        strengths: ['Durability', 'Commercial grade', 'Service network'],
-        weaknesses: ['Higher cost', 'Loud operation'],
-        warranty: '10-12 years',
-        priceRange: '$$$',
-        marketShare: '12%'
-      },
-      {
-        name: 'Lennox',
-        rating: 4.6,
-        strengths: ['Efficiency', 'Quiet operation', 'Innovation'],
-        weaknesses: ['Expensive parts', 'Dealer dependence'],
-        warranty: '10 years',
-        priceRange: '$$$',
-        marketShare: '8%'
-      },
-      {
         name: 'American Standard',
-        rating: 4.5,
         strengths: ['Reliability', 'Value', 'Wide availability'],
         weaknesses: ['Limited features', 'Average efficiency'],
         warranty: '10 years parts',
-        priceRange: '$$',
-        marketShare: '10%'
+        priceRange: '$$'
+      },
+      {
+        name: 'Carrier',
+        strengths: ['Reliability', 'Innovation', 'Dealer network'],
+        weaknesses: ['Premium pricing', 'Complex controls'],
+        warranty: '10 years parts',
+        priceRange: '$$$'
+      },
+      {
+        name: 'Lennox',
+        strengths: ['Efficiency', 'Quiet operation', 'Innovation'],
+        weaknesses: ['Expensive parts', 'Dealer dependence'],
+        warranty: '10 years',
+        priceRange: '$$$'
+      },
+      {
+        name: 'Trane',
+        strengths: ['Durability', 'Commercial grade', 'Service network'],
+        weaknesses: ['Higher cost', 'Loud operation'],
+        warranty: '10-12 years',
+        priceRange: '$$$'
       }
     ]
   },
   'Value Brands': {
     icon: <TrendingUp className="w-6 h-6 text-green-600" />,
-    description: 'Quality manufacturers offering great value for money',
+    description: 'Manufacturers offering competitive warranty terms and parts availability at lower price points.',
     brands: [
       {
-        name: 'Goodman',
-        rating: 4.2,
-        strengths: ['Affordability', 'Parts availability', 'Simple design'],
-        weaknesses: ['Shorter lifespan', 'Basic features'],
-        warranty: '10 years parts',
-        priceRange: '$',
-        marketShare: '18%'
-      },
-      {
         name: 'Amana',
-        rating: 4.1,
         strengths: ['Budget friendly', 'Reliability', 'Lifetime warranty'],
         weaknesses: ['Limited efficiency', 'Fewer features'],
         warranty: 'Lifetime heat exchanger',
-        priceRange: '$',
-        marketShare: '8%'
+        priceRange: '$'
       },
       {
-        name: 'Ruud',
-        rating: 4.3,
-        strengths: ['Value pricing', 'Solid performance', 'Easy service'],
-        weaknesses: ['Average efficiency', 'Limited dealers'],
-        warranty: '10 years',
-        priceRange: '$$',
-        marketShare: '6%'
+        name: 'Goodman',
+        strengths: ['Affordability', 'Parts availability', 'Simple design'],
+        weaknesses: ['Shorter lifespan', 'Basic features'],
+        warranty: '10 years parts',
+        priceRange: '$'
       },
       {
         name: 'Rheem',
-        rating: 4.2,
         strengths: ['Reliability', 'Good warranty', 'Wide range'],
         weaknesses: ['Inconsistent quality', 'Service issues'],
         warranty: '10 years parts',
-        priceRange: '$$',
-        marketShare: '12%'
+        priceRange: '$$'
+      },
+      {
+        name: 'Ruud',
+        strengths: ['Value pricing', 'Solid performance', 'Easy service'],
+        weaknesses: ['Average efficiency', 'Limited dealers'],
+        warranty: '10 years',
+        priceRange: '$$'
       }
     ]
   },
   'High-Efficiency Brands': {
     icon: <Shield className="w-6 h-6 text-green-500" />,
-    description: 'Manufacturers focused on energy efficiency and innovation',
+    description: 'Manufacturers focused on highest-efficiency model lines, ductless mini splits, and low-GWP refrigerant transition.',
     brands: [
       {
-        name: 'Mitsubishi Electric',
-        rating: 4.9,
-        strengths: ['Efficiency', 'Quiet operation', 'Reliability'],
-        weaknesses: ['Premium pricing', 'Limited dealers'],
-        warranty: '12 years',
-        priceRange: '$$$$',
-        marketShare: '3%'
-      },
-      {
         name: 'Daikin',
-        rating: 4.7,
         strengths: ['Innovation', 'Efficiency', 'Global presence'],
         weaknesses: ['Price premium', 'Complex systems'],
         warranty: '12 years',
-        priceRange: '$$$',
-        marketShare: '4%'
+        priceRange: '$$$'
       },
       {
         name: 'Fujitsu',
-        rating: 4.6,
         strengths: ['Efficiency', 'Compact design', 'Quiet'],
         weaknesses: ['Limited availability', 'Higher cost'],
         warranty: '12 years',
-        priceRange: '$$$',
-        marketShare: '2%'
+        priceRange: '$$$'
       },
       {
         name: 'LG',
-        rating: 4.4,
         strengths: ['Modern features', 'Efficiency', 'Design'],
         weaknesses: ['Service network', 'Reliability questions'],
         warranty: '10 years',
-        priceRange: '$$',
-        marketShare: '3%'
+        priceRange: '$$'
+      },
+      {
+        name: 'Mitsubishi Electric',
+        strengths: ['Efficiency', 'Quiet operation', 'Reliability'],
+        weaknesses: ['Premium pricing', 'Limited dealers'],
+        warranty: '12 years',
+        priceRange: '$$$$'
       }
     ]
   },
   'Commercial Brands': {
     icon: <Users className="w-6 h-6 text-blue-600" />,
-    description: 'Heavy-duty manufacturers for commercial applications',
+    description: 'Manufacturers with a commercial / heavy-duty focus; residential lines exist but are not the primary specialty.',
     brands: [
       {
-        name: 'York',
-        rating: 4.4,
-        strengths: ['Commercial focus', 'Durability', 'Service'],
-        weaknesses: ['Residential limited', 'Higher cost'],
-        warranty: '5-10 years',
-        priceRange: '$$$',
-        marketShare: '7%'
-      },
-      {
         name: 'McQuay',
-        rating: 4.3,
         strengths: ['Commercial expertise', 'Reliability', 'Custom solutions'],
         weaknesses: ['Limited residential', 'Complex systems'],
         warranty: '5-10 years',
-        priceRange: '$$$',
-        marketShare: '2%'
+        priceRange: '$$$'
       },
       {
         name: 'Nordyne',
-        rating: 4.0,
         strengths: ['Value pricing', 'Multiple brands', 'Availability'],
         weaknesses: ['Quality inconsistent', 'Limited features'],
         warranty: '10 years',
-        priceRange: '$',
-        marketShare: '5%'
+        priceRange: '$'
+      },
+      {
+        name: 'York',
+        strengths: ['Commercial focus', 'Durability', 'Service'],
+        weaknesses: ['Residential limited', 'Higher cost'],
+        warranty: '5-10 years',
+        priceRange: '$$$'
       }
     ]
   }
@@ -210,19 +185,6 @@ const brandComparisons = [
   }
 ]
 
-const reliabilityRankings = [
-  { brand: 'Mitsubishi Electric', score: 9.2, issues: 'Very Low', satisfaction: '95%' },
-  { brand: 'Carrier', score: 8.8, issues: 'Low', satisfaction: '92%' },
-  { brand: 'Trane', score: 8.6, issues: 'Low', satisfaction: '90%' },
-  { brand: 'Daikin', score: 8.5, issues: 'Low', satisfaction: '89%' },
-  { brand: 'Lennox', score: 8.3, issues: 'Low', satisfaction: '87%' },
-  { brand: 'American Standard', score: 8.0, issues: 'Medium', satisfaction: '85%' },
-  { brand: 'Ruud', score: 7.8, issues: 'Medium', satisfaction: '82%' },
-  { brand: 'Rheem', score: 7.6, issues: 'Medium', satisfaction: '80%' },
-  { brand: 'Goodman', score: 7.2, issues: 'Medium-High', satisfaction: '75%' },
-  { brand: 'York', score: 7.5, issues: 'Medium', satisfaction: '78%' }
-]
-
 const warrantyComparison = [
   { brand: 'Mitsubishi Electric', parts: '12 years', compressor: '12 years', labor: '1-2 years', transferable: 'Yes' },
   { brand: 'Daikin', parts: '12 years', compressor: '12 years', labor: '1 year', transferable: 'Yes' },
@@ -246,88 +208,8 @@ export default function BrandReviewsPage() {
               HVAC Brand Reviews 2026
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Reviews and rankings of HVAC manufacturers based on AHRI-certified efficiency data, manufacturer warranty terms, and published specifications.
+              HVAC brand reviews based on manufacturer-published warranty terms, AHRI-certified efficiency data, and dealer network coverage. Brands are listed alphabetically within each category — we do not assign numeric star ratings.
             </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold">100%</div>
-                  <div className="text-sm text-blue-200">Unbiased Analysis</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">2026</div>
-                  <div className="text-sm text-blue-200">Updated Rankings</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reliability Rankings */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">2024 Reliability Rankings</h2>
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Rank</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Brand</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Score</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Issues</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Satisfaction</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {reliabilityRankings.map((brand, idx) => (
-                    <tr key={brand.brand} className="hover:bg-gray-50">
-                      <td className="px-6 py-4">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-800 rounded-full font-semibold text-sm">
-                          {idx + 1}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <Link href={`/brand-reviews/${brand.brand.toLowerCase().replace(/\s+/g, '-')}`} className="font-medium text-gray-900 hover:text-blue-600">
-                          {brand.brand}
-                        </Link>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center">
-                          <div className="text-lg font-bold text-gray-900 mr-2">{brand.score}</div>
-                          <div className="flex">
-                            {[...Array(5)].map((_, i) => (
-                              <Star
-                                key={i}
-                                className={`w-4 h-4 ${
-                                  i < Math.floor(brand.score / 2) 
-                                    ? 'text-yellow-400 fill-current' 
-                                    : 'text-gray-300'
-                                }`}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                          brand.issues === 'Very Low' ? 'bg-green-100 text-green-800' :
-                          brand.issues === 'Low' ? 'bg-blue-100 text-blue-800' :
-                          brand.issues === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                          'bg-red-100 text-red-800'
-                        }`}>
-                          {brand.issues}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 font-semibold text-gray-900">
-                        {brand.satisfaction}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </section>
@@ -335,7 +217,10 @@ export default function BrandReviewsPage() {
       {/* Brand Categories */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Brands by Category</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Brands by Category</h2>
+          <p className="text-gray-600 mb-8">
+            Brands within each category are listed alphabetically. Strengths, weaknesses, and warranty terms are the load-bearing comparisons — there is no numeric scoring.
+          </p>
           <div className="space-y-12">
             {Object.entries(brandCategories).map(([category, data]) => (
               <div key={category}>
@@ -360,24 +245,7 @@ export default function BrandReviewsPage() {
                             {brand.priceRange}
                           </span>
                         </div>
-                        
-                        <div className="flex items-center mb-3">
-                          <div className="text-lg font-bold text-gray-900 mr-2">{brand.rating}</div>
-                          <div className="flex">
-                            {[...Array(5)].map((_, i) => (
-                              <Star
-                                key={i}
-                                className={`w-4 h-4 ${
-                                  i < Math.floor(brand.rating) 
-                                    ? 'text-yellow-400 fill-current' 
-                                    : 'text-gray-300'
-                                }`}
-                              />
-                            ))}
-                          </div>
-                          <span className="text-sm text-gray-500 ml-2">({brand.marketShare})</span>
-                        </div>
-                        
+
                         <div className="mb-3">
                           <div className="text-xs font-medium text-green-600 mb-1">Strengths:</div>
                           <div className="flex flex-wrap gap-1">
@@ -388,7 +256,7 @@ export default function BrandReviewsPage() {
                             ))}
                           </div>
                         </div>
-                        
+
                         <div className="mb-3">
                           <div className="text-xs font-medium text-red-600 mb-1">Weaknesses:</div>
                           <div className="flex flex-wrap gap-1">
@@ -399,11 +267,11 @@ export default function BrandReviewsPage() {
                             ))}
                           </div>
                         </div>
-                        
+
                         <div className="text-sm text-gray-600 mb-3">
                           <strong>Warranty:</strong> {brand.warranty}
                         </div>
-                        
+
                         <Link
                           href={`/brand-reviews/${brand.name.toLowerCase().replace(/\s+/g, '-')}`}
                           className="inline-flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium"
@@ -437,7 +305,7 @@ export default function BrandReviewsPage() {
                   <p className="text-gray-600 mb-4">{comparison.description}</p>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex space-x-2">
-                      {comparison.brands.map((brand, idx) => (
+                      {comparison.brands.map((brand) => (
                         <span key={brand} className="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded">
                           {brand}
                         </span>
@@ -468,7 +336,10 @@ export default function BrandReviewsPage() {
       {/* Warranty Comparison */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Warranty Comparison</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Warranty Comparison</h2>
+          <p className="text-gray-600 mb-8">
+            Warranty terms below come from each manufacturer's published warranty documents. Coverage may require online registration within 60–90 days of installation.
+          </p>
           <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
