@@ -922,7 +922,7 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
-              Why HVAC Professionals & Homeowners Trust HVACBase
+              How We Source Our Content
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We provide accurate, unbiased HVAC information based on manufacturer data,

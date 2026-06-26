@@ -51,7 +51,7 @@ export default function AboutPage() {
               We realized that while technical information existed, it was scattered across manufacturer websites, trade publications, and forums – often written in jargon that was impenetrable to non-professionals. There was no single, comprehensive resource that served everyone from curious homeowners to seasoned professionals.
             </p>
             <p>
-              That's why we created HVACBase.org – to be the definitive online resource for HVAC knowledge. We assembled a team of HVAC experts, technical writers, and web developers to build a platform that combines deep technical knowledge with clear, accessible presentation. Our goal was ambitious: create a resource that could answer any HVAC question, from "What size AC do I need?" to "How do variable refrigerant flow systems work?"
+              That's why we created HVACBase.org – to be the definitive online resource for HVAC knowledge. The goal: a resource that could answer any HVAC question, from "What size AC do I need?" to "How do variable refrigerant flow systems work?"
             </p>
             <p>
               Today, with over 339 comprehensive articles, 15+ interactive calculators, and thousands of daily visitors, HVACBase.org has become the go-to resource for anyone seeking reliable HVAC information. We continue to grow and improve, adding new content, updating existing articles, and developing new tools to serve our community better.

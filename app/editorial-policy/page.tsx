@@ -54,7 +54,7 @@ export default function EditorialPolicyPage() {
                 <h3 className="text-xl font-semibold text-gray-900">Accuracy First</h3>
               </div>
               <p className="text-gray-600">
-                All technical information is fact-checked by HVAC professionals and verified against industry standards from ASHRAE, ACCA, and EPA guidelines.
+                All technical information is verified against industry standards from ASHRAE, ACCA, and EPA guidelines, plus manufacturer-published specifications.
               </p>
             </Card>
             <Card className="p-6">
@@ -125,12 +125,6 @@ export default function EditorialPolicyPage() {
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <strong>Professional Review:</strong> All technical content is reviewed by licensed HVAC professionals with 10+ years experience
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                    <div>
                       <strong>Data Verification:</strong> Performance claims are verified against AHRI certification databases and independent testing
                     </div>
                   </li>
@@ -157,19 +151,7 @@ export default function EditorialPolicyPage() {
                   <li className="flex items-start">
                     <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full font-semibold text-sm mr-3 mt-1">2</span>
                     <div>
-                      <strong>Expert Consultation:</strong> Consult with HVAC professionals to ensure technical accuracy
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full font-semibold text-sm mr-3 mt-1">3</span>
-                    <div>
                       <strong>Content Creation:</strong> Write comprehensive content focusing on practical value and clear explanations
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full font-semibold text-sm mr-3 mt-1">4</span>
-                    <div>
-                      <strong>Technical Review:</strong> Independent fact-checking by qualified HVAC professionals
                     </div>
                   </li>
                   <li className="flex items-start">
@@ -219,33 +201,6 @@ export default function EditorialPolicyPage() {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Expert Team */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Expert Review Team</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Technical Reviewers</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Licensed HVAC contractors with 10+ years experience</li>
-                <li>• NATE-certified technicians</li>
-                <li>• Mechanical engineers with HVAC specialization</li>
-                <li>• Energy efficiency specialists</li>
-              </ul>
-            </Card>
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Editorial Team</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Professional technical writers</li>
-                <li>• Home improvement specialists</li>
-                <li>• Safety and code compliance experts</li>
-                <li>• Consumer advocacy professionals</li>
-              </ul>
-            </Card>
           </div>
         </div>
       </section>
@@ -334,7 +289,7 @@ export default function EditorialPolicyPage() {
             </ul>
             
             <div className="bg-white rounded-lg p-4">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Contact Our Editorial Team</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Contact Us</h3>
               <div className="space-y-2 text-gray-700">
                 <p><strong>General Editorial:</strong> <Link href="mailto:editorial@hvacbase.org" className="text-blue-600 hover:text-blue-700">editorial@hvacbase.org</Link></p>
                 <p><strong>Technical Questions:</strong> <Link href="mailto:technical@hvacbase.org" className="text-blue-600 hover:text-blue-700">technical@hvacbase.org</Link></p>

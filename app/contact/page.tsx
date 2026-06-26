@@ -186,7 +186,7 @@ export default function ContactPage() {
             <Clock className="w-12 h-12 text-brand-400 mx-auto mb-4" />
             <h2 className="text-3xl font-bold mb-4">Quick Response Guaranteed</h2>
             <p className="text-gray-300 mb-6">
-              When you email us, you're not sending a message into the void. Our team reviews every inquiry and responds promptly. Whether you have a technical question, found an error, or want to suggest improvements, we value your input and will get back to you.
+              When you email us, you're not sending a message into the void. Every inquiry is reviewed promptly. Whether you have a technical question, found an error, or want to suggest improvements, we value your input and will get back to you.
             </p>
             <div className="bg-gray-800 rounded-lg p-6">
               <h3 className="font-semibold text-brand-300 mb-3">What to Include in Your Email</h3>

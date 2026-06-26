@@ -281,13 +281,6 @@ export default function BuyingGuidesPage() {
               <div className="text-2xl font-bold text-gray-900">2024</div>
               <div className="text-sm text-gray-600">Updated Guides</div>
             </div>
-            <div>
-              <div className="flex justify-center mb-2">
-                <Award className="w-6 h-6 text-purple-600" />
-              </div>
-              <div className="text-2xl font-bold text-gray-900">Expert</div>
-              <div className="text-sm text-gray-600">HVAC Professionals</div>
-            </div>
           </div>
         </div>
       </section>
