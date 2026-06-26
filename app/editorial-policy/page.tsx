@@ -195,7 +195,7 @@ export default function EditorialPolicyPage() {
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <strong>Affiliate Links:</strong> When present, affiliate links are clearly marked and do not influence our recommendations
+                      <strong>No Affiliate Links:</strong> HVACBase does not use affiliate links, sponsored content, or paid product placements.
                     </div>
                   </li>
                 </ul>
