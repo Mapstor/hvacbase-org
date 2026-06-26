@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 import { ArticleMeta } from '@/lib/content';
-import { Calendar, Clock, User } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { getClusterRoute } from '@/lib/cluster-mapping';
+import AuthorBox from './AuthorBox';
 
 interface ArticleLayoutProps {
   meta: ArticleMeta;
@@ -44,10 +45,7 @@ export default function ArticleLayout({ meta, children }: ArticleLayoutProps) {
           {meta.description}
         </p>
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-          <span className="flex items-center gap-1">
-            <User size={14} />
-            {meta.author || '{{TODO-IDENTITY}}'}
-          </span>
+          <AuthorBox variant="inline" />
           <span className="flex items-center gap-1">
             <Calendar size={14} />
             Updated {meta.dateModified ? new Date(meta.dateModified).toLocaleDateString('en-US', {
@@ -65,6 +63,9 @@ export default function ArticleLayout({ meta, children }: ArticleLayoutProps) {
       <article className="prose max-w-none">
         {children}
       </article>
+
+      {/* Author footer card */}
+      <AuthorBox variant="card" />
     </div>
   );
 }
