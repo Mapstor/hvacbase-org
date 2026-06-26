@@ -600,13 +600,7 @@ export default async function HomePage() {
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Testing & VOCs</h4>
                 <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
-                  IAQ Testing Guide
-                </Link>
-                <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
-                  VOC Sources & Risks
-                </Link>
-                <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Radon Testing
+                  Indoor Air Quality Testing (IAQ, VOCs, Radon)
                 </Link>
                 <Link href="/mold-prevention-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Mold Prevention
