@@ -304,7 +304,7 @@ export default function EditorialPolicyPage() {
       <section className="py-6 bg-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm text-gray-600">
-            This editorial policy was last updated on {{NEEDS-VERIFICATION}}. The policy is reviewed annually or as needed to reflect changes in industry standards and best practices.
+            This editorial policy was last updated on June 26, 2026. The policy is reviewed annually or as needed to reflect changes in industry standards and best practices.
           </p>
         </div>
       </section>

@@ -198,25 +198,11 @@ const buyingGuides = {
 
 const featuredGuides = [
   {
-    title: 'Ultimate AC Buying Guide 2026',
-    description: 'Everything you need to know about selecting the perfect air conditioning system for your home',
-    href: '/air-conditioners/ultimate-buying-guide',
-    badge: 'Most Popular',
-    stats: { readTime: '18 min', updated: '{{NEEDS-VERIFICATION}}' }
-  },
-  {
-    title: 'Heat Pump vs Furnace: Which is Right for You?',
-    description: 'Comprehensive comparison to help you choose between heat pumps and traditional furnaces',
-    href: '/heat-pump-vs-furnace',
+    title: 'Furnace vs Heat Pump: Which Is Better?',
+    description: 'Comprehensive comparison across 14 factors — cost, efficiency, climate suitability, lifespan, and comfort.',
+    href: '/furnace-vs-heat-pump',
     badge: 'Editor\'s Choice',
-    stats: { readTime: '15 min', updated: '{{NEEDS-VERIFICATION}}' }
-  },
-  {
-    title: 'Smart Thermostat ROI Calculator',
-    description: 'Calculate exactly how much you can save with a smart thermostat upgrade',
-    href: '/thermostats/smart-thermostat-roi-calculator',
-    badge: 'Interactive Tool',
-    stats: { readTime: '5 min', updated: '{{NEEDS-VERIFICATION}}' }
+    stats: { readTime: '15 min', updated: 'February 2026' }
   }
 ]
 
