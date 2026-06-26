@@ -925,8 +925,8 @@ export default async function HomePage() {
               Why HVAC Professionals & Homeowners Trust HVACBase
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide accurate, unbiased HVAC information based on manufacturer data, 
-              industry standards, and real-world testing — no affiliate links or sponsored content.
+              We provide accurate, unbiased HVAC information based on manufacturer data,
+              industry standards, and AHRI-certified efficiency ratings — no affiliate links or sponsored content.
             </p>
           </div>
           
