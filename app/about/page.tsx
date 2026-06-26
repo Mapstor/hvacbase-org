@@ -576,22 +576,14 @@ export default function AboutPage() {
             <BarChart className="w-8 h-8 text-brand-600" />
             <h2 className="text-3xl font-bold text-gray-900">Our Impact</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
             <div>
-              <p className="text-4xl font-bold text-brand-600 mb-2">339+</p>
-              <p className="text-gray-600">Comprehensive Articles</p>
+              <p className="text-4xl font-bold text-brand-600 mb-2">355</p>
+              <p className="text-gray-600">Articles</p>
             </div>
             <div>
-              <p className="text-4xl font-bold text-brand-600 mb-2">15+</p>
+              <p className="text-4xl font-bold text-brand-600 mb-2">31</p>
               <p className="text-gray-600">Interactive Calculators</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-brand-600 mb-2">1000s</p>
-              <p className="text-gray-600">Daily Visitors</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-brand-600 mb-2">50+</p>
-              <p className="text-gray-600">Topics Covered</p>
             </div>
           </div>
         </div>

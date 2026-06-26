@@ -94,12 +94,12 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="flex flex-col items-center">
               <Award className="h-8 w-8 text-brand-400 mb-2" />
-              <div className="text-white font-semibold">339+ Guides</div>
+              <div className="text-white font-semibold">355 Guides</div>
               <div className="text-xs text-gray-400">Expert-Written Content</div>
             </div>
             <div className="flex flex-col items-center">
               <Calculator className="h-8 w-8 text-brand-400 mb-2" />
-              <div className="text-white font-semibold">15+ Calculators</div>
+              <div className="text-white font-semibold">31 Calculators</div>
               <div className="text-xs text-gray-400">Free HVAC Tools</div>
             </div>
             <div className="flex flex-col items-center">

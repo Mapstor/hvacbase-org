@@ -259,14 +259,7 @@ export default function BuyingGuidesPage() {
       {/* Trust Indicators */}
       <section className="py-8 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div>
-              <div className="flex justify-center mb-2">
-                <Star className="w-6 h-6 text-yellow-500" />
-              </div>
-              <div className="text-2xl font-bold text-gray-900">500+</div>
-              <div className="text-sm text-gray-600">Products Reviewed</div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
             <div>
               <div className="flex justify-center mb-2">
                 <Shield className="w-6 h-6 text-green-600" />
@@ -278,7 +271,7 @@ export default function BuyingGuidesPage() {
               <div className="flex justify-center mb-2">
                 <Clock className="w-6 h-6 text-blue-600" />
               </div>
-              <div className="text-2xl font-bold text-gray-900">2024</div>
+              <div className="text-2xl font-bold text-gray-900">2026</div>
               <div className="text-sm text-gray-600">Updated Guides</div>
             </div>
           </div>
