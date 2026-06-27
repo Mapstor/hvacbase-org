@@ -37,7 +37,7 @@ const costCategories = {
         href: '/heat-pump-installation-cost',
         priceRange: '$4,000 - $8,500',
         factors: ['Type', 'HSPF/SEER', 'Dual fuel', 'Controls'],
-        savings: 'Tax credits up to $2,000'
+        savings: 'State + utility rebates + IRA HEAR/HOMES'
       },
       {
         title: 'Mini Split Installation Cost',

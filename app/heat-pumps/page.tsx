@@ -129,7 +129,7 @@ export default async function HeatPumpsHub() {
               </div>
               <div className="flex items-center gap-1">
                 <DollarSign className="w-4 h-4" />
-                <span>Tax credits up to $2,000</span>
+                <span>State + utility rebates</span>
               </div>
             </div>
           </div>
