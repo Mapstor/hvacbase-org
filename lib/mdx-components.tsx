@@ -25,44 +25,44 @@ const SourcesBox = ({ sources }: { sources: Array<{ text?: string; label?: strin
   );
 };
 
-// FAQ wrapper to handle both 'questions' prop and FAQ.Item children
+// Recursively extract plain text from MDX children (strings, fragments,
+// React elements). Used by FAQWrapper to turn FAQ.Item bodies into answer
+// strings for the FAQPage JSON-LD + the visible answer text.
+function extractText(node: any): string {
+  if (node == null || node === false) return '';
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(extractText).join(' ').replace(/\s+/g, ' ').trim();
+  if (typeof node === 'object' && node.props) return extractText(node.props.children);
+  return '';
+}
+
+// FAQ wrapper to handle both items / questions props AND <FAQ.Item> children
+// syntax. The FAQ.Item children form silently failed in MDX-RSC because the
+// prior detection (`child.type.name === 'FAQ.Item'`) didn't match — the actual
+// type name is just "Item". The marker now is the `question` prop, which is
+// only present on FAQ.Item children.
 const FAQWrapper = ({ questions, items, children, ...props }: any) => {
-  // If items or questions are provided, use them directly
   if (items || questions) {
     return <FAQ items={items || questions || []} {...props} />;
   }
-  
-  // If children are provided (FAQ.Item format), extract the questions and answers
+
   if (children) {
-    const extractedItems: any[] = [];
-    
-    // Handle children as array or single element
     const childArray = Array.isArray(children) ? children : [children];
-    
-    childArray.forEach((child: any) => {
-      // Look for FAQ.Item components
-      if (child?.props?.mdxType === 'FAQ.Item' || child?.type?.name === 'FAQ.Item') {
-        extractedItems.push({
-          question: child.props.question,
-          answer: typeof child.props.children === 'string' 
-            ? child.props.children 
-            : child.props.children?.props?.children || ''
-        });
-      }
-    });
-    
-    if (extractedItems.length > 0) {
-      return <FAQ items={extractedItems} {...props} />;
-    }
+    const extractedItems = childArray
+      .filter((child: any) => child?.props?.question)
+      .map((child: any) => ({
+        question: child.props.question,
+        answer: extractText(child.props.children),
+      }));
+    return <FAQ items={extractedItems} {...props} />;
   }
-  
+
   return <FAQ items={[]} {...props} />;
 };
 
-// FAQ.Item component for nested syntax
+// FAQ.Item marker — never renders on its own; FAQWrapper extracts its
+// `question` prop + children text and passes them to <FAQ items={...}>.
 FAQWrapper.Item = ({ question, children }: { question: string; children: any }) => {
-  // This component is only used as a marker for extraction
-  // The actual rendering is done by the parent FAQ component
   return null;
 };
 

@@ -24,6 +24,7 @@ export interface ArticleMeta {
   externalLinks?: { text: string; url: string }[];
   featuredImage?: string;
   featuredImageAlt?: string;
+  faqData?: { question: string; answer: string }[];
 }
 
 export interface Article {
@@ -53,9 +54,35 @@ export function getArticleBySlug(slug: string): Article | null {
     const raw = fs.readFileSync(file, 'utf8');
     const { data, content } = matter(raw);
     if (data.slug === slug) {
+      // Extract FAQ data from content if present
+      let faqData: { question: string; answer: string }[] | undefined;
+      const faqMatch = content.match(/export\s+const\s+faqData\s*=\s*\[([\s\S]*?)\]/);
+      if (faqMatch) {
+        try {
+          const faqContent = faqMatch[1];
+          // Match { question: "..." | '...', answer: "..." | '...' } — allows
+          // apostrophes inside double-quoted strings and vice versa, and
+          // multi-line answer/question bodies (character class matches \n).
+          const faqItems = faqContent.match(/\{\s*question:\s*(?:"[^"]+"|'[^']+')\s*,\s*answer:\s*(?:"[^"]+"|'[^']+')\s*\}/g);
+          if (faqItems) {
+            faqData = faqItems.map(item => {
+              const qMatch = item.match(/question:\s*(?:"([^"]+)"|'([^']+)')/);
+              const aMatch = item.match(/answer:\s*(?:"([^"]+)"|'([^']+)')/);
+              return {
+                question: qMatch ? (qMatch[1] || qMatch[2] || '') : '',
+                answer: aMatch ? (aMatch[1] || aMatch[2] || '') : ''
+              };
+            });
+          }
+        } catch (e) {
+          // If parsing fails, we'll skip FAQ data
+        }
+      }
+      
       // Remove import statements and first H1 from content
       let cleanContent = content
         .replace(/^import\s+{[^}]+}\s+from\s+['"][^'"]+['"]\s*\n*/gm, '')
+        .replace(/^export\s+const\s+faqData\s*=\s*\[[\s\S]*?\]\n*/gm, '')
         .replace(/^#\s+.+$/m, ''); // Remove first H1
       
       const stats = readingTime(cleanContent);
@@ -64,6 +91,7 @@ export function getArticleBySlug(slug: string): Article | null {
           ...data,
           dateModified: data.dateModified || data.dateUpdated || data.datePublished,
           readingTime: stats.text,
+          faqData: faqData,
         } as ArticleMeta,
         content: cleanContent,
         rawContent: raw,

@@ -525,7 +525,7 @@ export default function HowToPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Start Saving with DIY Maintenance</h2>
           <p className="text-xl text-green-100 mb-8">
-            Join thousands of homeowners who save money with our step-by-step guides
+            Step-by-step guides to common HVAC tasks you can do yourself.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

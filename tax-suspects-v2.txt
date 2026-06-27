@@ -1,0 +1,24 @@
+================================================================================================
+GATE 12 — TAX SUSPECTS V2 (re-verification after comprehensive close)
+================================================================================================
+
+Total: 3  (YES: 0, BORDERLINE: 3)
+
+Method: same broadened sentence-level extraction that produced
+tax-suspects-final.txt, with one refinement — sentences whose only
+credit mention is state-level (state tax credit / NY-Sun / SMART /
+SREC / SGIP / sales-tax exemption / property-tax exemption) are
+excluded since the user's focus is federal credits.
+
+Target: 0 YES.
+
+================================================================================================
+
+✅ YES — present-tense / implied 2026 federal-credit claims: 0 (TARGET ACHIEVED)
+
+
+BORDERLINE — 3 sentences on dedicated 25C/25D historical-explainer pages (page-level frame OK):
+
+  content/tax-credits-rebates/25c-tax-credit-explained.mdx:205  |  If you owe $1,800 in federal taxes and your calculated 25C credit is $2,960, you'll receive a $1,800 credit.
+  content/tax-credits-rebates/25c-tax-credit-explained.mdx:335  |  Section 25C only applies to your principal residence (primary home) or a second home that you use personally.
+  content/tax-credits-rebates/hvac-tax-credits-2026.mdx:53  |  Equipment had to be installed and operational by December 31, **2025** to qualify for the 25C credit.

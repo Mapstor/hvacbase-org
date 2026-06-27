@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card'
 import { ChevronRight, DollarSign, TrendingUp, Calculator, PiggyBank, CreditCard, FileText, Home } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'HVAC Cost Guide 2024: Installation, Repair & Maintenance Pricing',
+  title: 'HVAC Cost Guide 2026: Installation, Repair & Maintenance Pricing',
   description: 'Complete HVAC cost guide with detailed pricing for installation, repairs, and maintenance. Get accurate estimates, financing options, and money-saving tips.',
   openGraph: {
     title: 'HVAC Cost Guide | Installation & Repair Pricing',
@@ -37,7 +37,7 @@ const costCategories = {
         href: '/heat-pump-installation-cost',
         priceRange: '$4,000 - $8,500',
         factors: ['Type', 'HSPF/SEER', 'Dual fuel', 'Controls'],
-        savings: 'Tax credits up to $2,000'
+        savings: 'State + utility rebates + IRA HEAR/HOMES'
       },
       {
         title: 'Mini Split Installation Cost',
@@ -210,7 +210,7 @@ const costCategories = {
         tips: 'Compare rates and terms'
       },
       {
-        title: 'Federal Tax Credits 2024',
+        title: 'Federal Tax Credits',
         href: '/hvac-tax-credits-2026',
         amount: 'Up to $2,000',
         eligible: ['Heat pumps', 'Central AC', 'Boilers', 'Furnaces'],
@@ -270,7 +270,7 @@ export default function CostGuidesPage() {
           <div className="text-center">
             <DollarSign className="w-16 h-16 mx-auto mb-4 text-green-200" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              HVAC Cost Guide 2024
+              HVAC Cost Guide 2026
             </h1>
             <p className="text-xl text-green-100 max-w-3xl mx-auto mb-8">
               Complete pricing guide for installation, repairs, maintenance, and operating costs with money-saving tips

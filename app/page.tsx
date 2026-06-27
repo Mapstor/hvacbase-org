@@ -76,7 +76,6 @@ export default async function HomePage() {
                   <h1 className="text-3xl md:text-4xl font-bold">
                     HVAC<span className="text-brand-300">Base</span>
                   </h1>
-                  <p className="text-sm text-brand-200">Your Trusted HVAC Resource Since 2024</p>
                 </div>
               </div>
               
@@ -106,7 +105,7 @@ export default async function HomePage() {
                   <div className="text-sm text-brand-200">Expert Guides</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-white">15+</div>
+                  <div className="text-3xl font-bold text-white">31</div>
                   <div className="text-sm text-brand-200">Calculators</div>
                 </div>
                 <div>
@@ -601,13 +600,7 @@ export default async function HomePage() {
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Testing & VOCs</h4>
                 <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
-                  IAQ Testing Guide
-                </Link>
-                <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
-                  VOC Sources & Risks
-                </Link>
-                <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Radon Testing
+                  Indoor Air Quality Testing (IAQ, VOCs, Radon)
                 </Link>
                 <Link href="/mold-prevention-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Mold Prevention
@@ -783,8 +776,8 @@ export default async function HomePage() {
               Compare HVAC Brands & Reviews
             </h2>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Explore detailed comparisons of top HVAC brands including Carrier, Trane, Lennox, Goodman, and more. 
-              Find reliability ratings, pricing, and real customer reviews.
+              Explore detailed comparisons of top HVAC brands including Carrier, Trane, Lennox, Goodman, and more.
+              Compare manufacturer warranty terms, AHRI-certified efficiency ratings, and price tiers.
             </p>
             <Link href="/best-hvac-brands-ranked" className="inline-flex items-center gap-2 bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors font-semibold">
               View All Brand Comparisons
@@ -922,15 +915,15 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
-              Why HVAC Professionals & Homeowners Trust HVACBase
+              How We Source Our Content
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide accurate, unbiased HVAC information based on manufacturer data, 
-              industry standards, and real-world testing — no affiliate links or sponsored content.
+              We provide accurate, unbiased HVAC information based on manufacturer data,
+              industry standards, and AHRI-certified efficiency ratings — no affiliate links or sponsored content.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             <div className="text-center">
               <div className="bg-brand-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <BookOpen className="w-8 h-8 text-brand-700" />
@@ -940,17 +933,7 @@ export default async function HomePage() {
                 Every guide backed by AHRI certifications, DOE data, and ACCA Manual J calculations
               </p>
             </div>
-            
-            <div className="text-center">
-              <div className="bg-green-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                <Shield className="w-8 h-8 text-green-700" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">100% Unbiased</h3>
-              <p className="text-sm text-gray-600">
-                No affiliate commissions, no sponsored content, no brand partnerships — just facts
-              </p>
-            </div>
-            
+
             <div className="text-center">
               <div className="bg-blue-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <Award className="w-8 h-8 text-blue-700" />
@@ -960,7 +943,7 @@ export default async function HomePage() {
                 Following ASHRAE, ACCA, EPA, and ENERGY STAR guidelines in all recommendations
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-purple-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <Clock className="w-8 h-8 text-purple-700" />
@@ -1060,7 +1043,7 @@ export default async function HomePage() {
             "@type": "WebSite",
             "name": "HVAC Base",
             "url": "https://www.hvacbase.org",
-            "description": "Professional HVAC calculators, sizing guides, and unbiased equipment reviews. 340+ expert guides based on ACCA Manual J calculations and real manufacturer data.",
+            "description": "Professional HVAC calculators, sizing guides, and unbiased equipment reviews. 355 articles and 31 calculators based on ACCA Manual J calculations and manufacturer-published data.",
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://www.hvacbase.org/search?q={search_term_string}",
