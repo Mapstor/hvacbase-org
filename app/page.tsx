@@ -923,7 +923,7 @@ export default async function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             <div className="text-center">
               <div className="bg-brand-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <BookOpen className="w-8 h-8 text-brand-700" />
@@ -933,17 +933,7 @@ export default async function HomePage() {
                 Every guide backed by AHRI certifications, DOE data, and ACCA Manual J calculations
               </p>
             </div>
-            
-            <div className="text-center">
-              <div className="bg-green-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                <Shield className="w-8 h-8 text-green-700" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">100% Unbiased</h3>
-              <p className="text-sm text-gray-600">
-                No affiliate commissions, no sponsored content, no brand partnerships — just facts
-              </p>
-            </div>
-            
+
             <div className="text-center">
               <div className="bg-blue-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <Award className="w-8 h-8 text-blue-700" />
@@ -953,7 +943,7 @@ export default async function HomePage() {
                 Following ASHRAE, ACCA, EPA, and ENERGY STAR guidelines in all recommendations
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-purple-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <Clock className="w-8 h-8 text-purple-700" />
