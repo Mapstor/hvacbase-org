@@ -1,0 +1,297 @@
+================================================================================================
+GATE 11 — TAX SUSPECTS FINAL (sentence-level broadened verification)
+================================================================================================
+
+Method: extract every sentence in content/ + app/ containing any of the credit tokens
+(tax credit, 25C, 25D, ITC, $2,000, $600, $1,200, 30%...credit, 26%, federal credit,
+IRA credit, federal solar tax credit). For each, classify by READING IT — does the
+sentence assert or imply a federal tax credit is AVAILABLE for a 2026 install, in
+present/future tense, WITHOUT an expiry/past-tense/2025-date/historical marker in the
+SAME sentence? Output ONLY the suspect list (the YES + BORDERLINE calls).
+
+This list combines two passes:
+  1. v2 sentence-extractor script (captured 35 with positive-verb + passive-availability rules)
+  2. Manual broader grep (captured 13 more: unusual verb constructions like 'Combined with the X credit',
+     'with IRA tax credits, the premium drops to Y', 'reduces the cost gap', etc.)
+
+TOTAL SUSPECTS: 49  (YES: 48, BORDERLINE: 1)
+Affected files (unique): 24
+
+================================================================================================
+YES — live 2026 federal-credit claims (need fix in Gate 12)
+================================================================================================
+
+
+--- content/battery-backup/home-battery-backup-guide.mdx ---
+
+  L254:
+    QUOTE: Homes with older 100A or 150A panels may need a panel upgrade ($2,000–$4,000), which can be rolled into the total cost and covered by the tax credit.
+    WHY:   Implies tax credit covers panel upgrade in 2026 (25D was the relevant credit for solar/battery systems including panel upgrades; expired Dec 31, 2025).
+
+  L296:
+    QUOTE: **The 30% federal tax credit** now applies to standalone batteries (no solar required) through 2032
+    WHY:   Key Takeaway bullet asserts credit 'now applies through 2032' — 25D expired Dec 31, 2025 under OBBBA.
+
+  L310:
+    QUOTE: A Tesla Powerwall 3 costs $12,500–$15,500 fully installed... After the 30% federal tax credit, your net cost is $8,750–$10,850.
+    WHY:   FAQ 'How much does a Tesla Powerwall cost in 2026?' — explicitly 2026 question, implies 25D active.
+
+  L334:
+    QUOTE: The 30% federal tax credit applies to standalone batteries.
+    WHY:   FAQ 'Can I install a home battery without solar panels?' — present-tense assertion.
+
+--- content/battery-backup/solar-panel-calculator.mdx ---
+
+  L133:
+    QUOTE: **Estimated cost:** $16,400–$19,700 before 30% tax credit
+    WHY:   Worked-example bullet (Phoenix 6.5 kW system) implies 30% credit is currently deductible.
+
+  L134:
+    QUOTE: **After ITC:** $11,480–$13,790
+    WHY:   Phoenix example deduction line — implies 25D ITC active in 2026.
+
+  L148:
+    QUOTE: **After ITC:** $18,550–$21,700
+    WHY:   Seattle example deduction line.
+
+  L162:
+    QUOTE: **After ITC:** $20,440–$24,080
+    WHY:   Atlanta example deduction line.
+
+  L176:
+    QUOTE: **After ITC:** $15,680–$19,040
+    WHY:   Boston example deduction line.
+
+  L178:
+    QUOTE: Even in cloudy Seattle, solar makes financial sense thanks to Washington's favorable net metering policies and no state income tax to complicate the federal credit.
+    WHY:   Implies federal credit currently applies (would be irrelevant if expired).
+
+  L262:
+    QUOTE: | City | Avg System Cost (After ITC) | Annual Savings | Payback Period | 25-Year Savings |
+    WHY:   Comparison table HEADER labels system cost as 'After ITC' — implies ITC active for the data rows.
+
+  L292:
+    QUOTE: **The 30% federal tax credit** remains available through 2032 under the IRA
+    WHY:   Key Takeaway bullet — explicitly contradicts OBBBA repeal.
+
+  L336:
+    QUOTE: The 30% federal tax credit is still available, panel costs have dropped 70% in the last decade...
+    WHY:   FAQ answer explicitly asserts credit 'is still available' — direct FALSE statement post-OBBBA.
+
+--- content/battery-backup/solar-panel-cost-by-state.mdx ---
+
+  L29:
+    QUOTE: After the 30% federal tax credit, that drops to **$11,830–$15,925**.
+    WHY:   Lead-paragraph deduction implies 25D active in 2026.
+
+  L45:
+    QUOTE: | Average cost after federal credit | $16,933 |
+    WHY:   Table row implies federal credit reduces 2026 cost.
+
+  L207:
+    QUOTE: Texas's competitive installer market and lack of permitting complexity keeps costs down, though the absence of state incentives means you're relying entirely on the federal credit.
+    WHY:   Asserts homeowner is 'relying entirely on the federal credit' — implies credit exists in 2026.
+
+  L278:
+    QUOTE: - **Average U.S. solar cost in 2026:** $2.95/W before incentives, $2.07/W after federal ITC
+    WHY:   Key Takeaway bullet explicitly dated 2026 + 'after federal ITC' calculation.
+
+  L290:
+    QUOTE: After the 30% federal tax credit, the average drops to $16,520.
+    WHY:   FAQ answer (the question is 'How much does a typical residential solar installation cost?' — implicitly 2026).
+
+  L298:
+    QUOTE: Yes. The Inflation Reduction Act extended the 30% Investment Tax Credit through 2032. It will step down to 26% in 2033 and 22% in 2034. The credit applies to the total installed cost of solar panels and battery storage...
+    WHY:   FAQ 'Is the 30% solar tax credit still available in 2026?' — answer is 'Yes' followed by full pre-OBBBA description. Direct FALSE claim post-OBBBA.
+
+--- content/water-heaters/water-heater-cost-to-install.mdx ---
+
+  L29:
+    QUOTE: Heat pump water heaters fall in between at **$2,500–$4,500** installed, but drop to **$1,750–$3,150** after the 30% federal tax credit.
+    WHY:   Lead paragraph of '2026' cost guide — implies 25C HPWH credit active.
+
+  L352:
+    QUOTE: The best value considering both installation and lifetime operating costs is a heat pump water heater after the 30% federal tax credit.
+    WHY:   FAQ answer — implies credit active in 2026.
+
+--- content/water-heaters/best-water-heaters.mdx ---
+
+  L133:
+    QUOTE: After the 30% federal tax credit (roughly $900–$1,100 depending on installed cost), the net price is competitive with a mid-range gas tank.
+    WHY:   Product writeup — implies credit reduces 2026 net price.
+
+--- content/water-heaters/heat-pump-water-heater-guide.mdx ---
+
+  L68:
+    QUOTE: ["After 30% Tax Credit", "N/A", "$1,750–$3,150", "$750–$1,150 more"]
+    WHY:   Comparison table row labels post-credit price as the active 2026 comparison.
+
+  L159:
+    QUOTE: Federal tax credit: $1,020.
+    WHY:   Worked-example line — implies 25C HPWH credit active.
+
+  L230:
+    QUOTE: Even without income-based rebates, the federal credit + utility rebate often reduces net cost to $1,500–$2,500.
+    WHY:   Implies federal credit (25C HPWH) is currently available alongside utility rebate.
+
+--- content/water-heaters/how-long-does-water-heater-last.mdx ---
+
+  L349:
+    QUOTE: A heat pump water heater costs $2,500–$4,500 ($1,750–$3,150 after the 30% federal tax credit).
+    WHY:   FAQ answer dated 'In 2026' implies 25C HPWH credit active.
+
+--- content/water-heaters/water-heater-guide.mdx ---
+
+  L315:
+    QUOTE: Total installed cost: $3,400 (before $1,020 tax credit).
+    WHY:   Patel (Atlanta) worked example — no 2025 date marker in the sentence. Paragraph below correctly states OBBBA expiration, but the example itself reads as live.
+
+--- content/water-heaters/electric-water-heating-cost.mdx ---
+
+  L359:
+    QUOTE: ...that's $7,500–$14,000 before the 30% federal solar tax credit.
+    WHY:   FAQ answer — implies 25D solar credit currently deductible.
+
+--- content/tankless-water-heaters/tankless-water-heater-guide.mdx ---
+
+  L245:
+    QUOTE: After the 30% federal tax credit on the unit: **$2,680 effective cost.**
+    WHY:   Worked-example bullet implies 25C tankless credit active.
+
+--- content/tankless-water-heaters/tankless-water-heater-cost.mdx ---
+
+  L196:
+    QUOTE: **Stacking strategy:** You can combine the federal 30% tax credit with state rebates and utility rebates. On a $1,800 condensing gas unit, that could mean: $540 federal credit + $300 utility rebate + $200 state rebate = **$1,040 total savings**, dropping your effective unit cost to $760.
+    WHY:   Multi-part live claim — 'You can combine' + worked example with $540 federal credit.
+
+  L236:
+    QUOTE: With tax credits, the payback drops to 3–5 years.
+    WHY:   Implies tax credits currently apply to tankless conversions.
+
+--- content/tankless-water-heaters/is-tankless-water-heater-worth-it.mdx ---
+
+  L118:
+    QUOTE: With IRA tax credits, the effective premium drops to $500–$900.
+    WHY:   Implies IRA tax credits (25C tankless bucket) currently active.
+
+--- content/energy-costs/electric-water-heating-cost-by-state.mdx ---
+
+  L176:
+    QUOTE: Installed cost: $2,600. Federal tax credit: $780. Net cost: **$1,820**.
+    WHY:   Worked-example bullet line — implies 25C HPWH credit active.
+
+--- content/energy-costs/electricity-cost-by-state.mdx ---
+
+  L240:
+    QUOTE: | State | Rate (cents/kWh) | Annual Solar Savings (6kW) | Payback (After 30% Credit) |
+    WHY:   Comparison table HEADER 'Payback (After 30% Credit)' — implies 25D active for the rows.
+
+--- content/energy-costs/energy-costs-guide.mdx ---
+
+  L379:
+    QUOTE: After the 30% federal tax credit, a $15,000 system costs effectively $10,500, with a payback period of 6–9 years and 25+ years of remaining production.
+    WHY:   FAQ answer 'How much can solar panels reduce my energy bill?' — implies 25D currently deductible.
+
+--- content/energy-efficiency-ratings/14-3-seer2-vs-16-seer.mdx ---
+
+  L164:
+    QUOTE: - Federal tax credit: -$600
+    WHY:   Worked-example bullet — implies 25C $600 AC credit active.
+
+--- content/energy-efficiency-ratings/16-seer-vs-20-seer.mdx ---
+
+  L175:
+    QUOTE: However, factor in the $600 federal tax credit and a $400 FPL rebate, and the effective premium drops to $3,500—bringing payback down to **33 years**.
+    WHY:   Worked example — implies 25C $600 AC credit active.
+
+  L185:
+    QUOTE: - Federal tax credit: -$600
+    WHY:   Worked-example bullet — implies 25C $600 AC credit active.
+
+  L200:
+    QUOTE: - Federal tax credit: -$600
+    WHY:   Worked-example bullet (Phoenix) — implies 25C $600 AC credit active.
+
+  L215:
+    QUOTE: - Federal tax credit: -$600
+    WHY:   Worked-example bullet — implies 25C $600 AC credit active.
+
+--- content/energy-efficiency-ratings/16-seer-vs-14-seer.mdx ---
+
+  L338:
+    QUOTE: Factor in utility rebates ($200–$500) and the federal 25C tax credit (up to $600), and payback can drop to 3–6 years.
+    WHY:   FAQ answer implies 25C $600 AC credit active in 2026.
+
+--- content/heat-pumps/air-source-vs-ground-source-heat-pump.mdx ---
+
+  L135:
+    QUOTE: Air-source (Bosch IDS 2.0): $8,400 installed ($6,400 after 25C credit).
+    WHY:   Chen family (Boise) worked example — 'after 25C credit' implies 25C active in 2026.
+
+  L135:
+    QUOTE: Geothermal (ClimateMaster Tranquility): $26,000 installed ($18,200 after 25D credit).
+    WHY:   Same Chen example — 'after 25D credit' implies 25D active in 2026.
+
+  L244:
+    QUOTE: The 30% uncapped tax credit (25D) significantly reduces the cost gap.
+    WHY:   FAQ answer — 'reduces the cost gap' implies 25D currently active.
+
+--- content/heat-pumps/heat-pump-running-cost-calculator.mdx ---
+
+  L252:
+    QUOTE: Combined with the 30% solar tax credit and the heat pump tax credit, the payback period for both investments together is typically 6–10 years.
+    WHY:   Implies 25D solar credit AND 25C heat-pump credit both active in 2026.
+
+--- content/mini-split-air-conditioners/mini-split-installation-cost.mdx ---
+
+  L30:
+    QUOTE: We also cover the tax credits and rebates that can reduce your out-of-pocket cost by 30–60%.
+    WHY:   Asserts tax credits 'can reduce' cost — implies they're currently available.
+
+--- content/generators/generator-vs-solar-battery-backup.mdx ---
+
+  L214:
+    QUOTE: A homeowner in coastal North Carolina installed both: a 16kW Generac standby ($9,500 installed) and a 6kW solar + 1× Powerwall ($18,000, $12,600 after ITC).
+    WHY:   Worked-example dollar — '$12,600 after ITC' implies 25D ITC active in 2026.
+
+--- content/hvac-brands/central-ac-cost-to-install.mdx ---
+
+  L272:
+    QUOTE: ...the federal tax credit for heat pumps ($2,000 vs. $600 for AC) can offset most of that premium.
+    WHY:   FAQ answer asserts both 25C buckets ('$2,000 heat pump' and '$600 AC') are currently available.
+
+
+================================================================================================
+BORDERLINE — sentence is present-tense but page-level historical frame may save it
+================================================================================================
+
+--- content/tax-credits-rebates/25c-tax-credit-explained.mdx ---
+  L335:
+    QUOTE: Section 25C only applies to your principal residence (primary home) or a second home that you use personally.
+    WHY:   On dedicated 25C historical-explainer page (page-level frame: 'The Section 25C tax credit terminated for equipment placed in service after December 31, 2025' on line 31). FAQ answer starts with 'No' (negation). Page-level frame rescues this present-tense sentence — but borderline because the sentence read alone is present-tense.
+
+================================================================================================
+SCRIPT BLIND SPOTS — known limitations
+================================================================================================
+
+The v2 sentence-extraction script captured 35 of these 48 YES suspects.
+The remaining 13 were caught by a manual second-pass grep + reading. Constructions
+that the v2 script doesn't reliably flag include:
+
+  - 'Combined with the X credit and the Y credit, the payback period is...'
+    (verb 'combined' not in POS_VERB_RE)
+  - 'With IRA tax credits, the effective premium drops to $X.'
+    (verb 'drops' on a different subject; the credit is in a prepositional phrase)
+  - 'With tax credits, the payback drops to 3-5 years.'
+    (same as above)
+  - 'The 30% uncapped tax credit (25D) significantly reduces the cost gap.'
+    (POS_VERB_RE has 'reduces? \w+ (by|to)' — too restrictive)
+  - 'Factor in utility rebates ($200-$500) and the federal 25C tax credit (up to $600),
+     and payback can drop to 3-6 years.'
+    (verb 'factor in' / 'drop' not in regex; credit token is parenthetical)
+  - 'We also cover the tax credits and rebates that can reduce your cost by 30-60%.'
+    (verb 'cover' applies to the GUIDE not the credit; credit is the object)
+
+Building a regex that catches ALL such constructions would be high-effort and probably
+still incomplete; per user instruction ('stop chasing regex syntax'), the final word is
+manual sentence-by-sentence reading. This list reflects that read.
