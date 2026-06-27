@@ -180,7 +180,7 @@ export default function SEER2Calculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               New SEER2 rating
               <InfoTip label="SEER2">
-                SEER2 is the post-2023 testing standard — about 4.5% stricter than old SEER. 2024 minimums: 14.3 (South), 13.8 (North).
+                SEER2 is the post-2023 testing standard — about 4.5% stricter than old SEER. Current federal minimums: 14.3 (South), 13.8 (North).
               </InfoTip>
             </label>
             <NumberInput value={newSeer} onChange={setNewSeer} min={13} max={30} suffix="SEER2" ariaLabel="New SEER2" accent={ACCENT} />

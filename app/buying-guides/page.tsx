@@ -19,7 +19,7 @@ const buyingGuides = {
     description: 'Complete guides for selecting central AC, mini splits, and portable units',
     guides: [
       {
-        title: 'Best Central Air Conditioners 2024',
+        title: 'Best Central Air Conditioners 2026',
         href: '/air-conditioners/best-central-air-conditioners',
         readTime: '12 min',
         highlights: ['Top 10 brands reviewed', 'SEER2 ratings explained', 'Cost analysis']
@@ -49,7 +49,7 @@ const buyingGuides = {
     description: 'Comprehensive guides for furnaces, boilers, heat pumps, and space heaters',
     guides: [
       {
-        title: 'Best Gas Furnaces 2024',
+        title: 'Best Gas Furnaces 2026',
         href: '/best-gas-furnaces',
         readTime: '14 min',
         highlights: ['AFUE ratings', 'Single vs two-stage', 'Brand comparison']
@@ -109,7 +109,7 @@ const buyingGuides = {
     description: 'Reviews and comparisons of smart and programmable thermostats',
     guides: [
       {
-        title: 'Best Smart Thermostats 2024',
+        title: 'Best Smart Thermostats 2026',
         href: '/thermostats/best-smart-thermostats',
         readTime: '13 min',
         highlights: ['Feature comparison', 'Compatibility guide', 'Energy savings']
@@ -198,25 +198,11 @@ const buyingGuides = {
 
 const featuredGuides = [
   {
-    title: 'Ultimate AC Buying Guide 2024',
-    description: 'Everything you need to know about selecting the perfect air conditioning system for your home',
-    href: '/air-conditioners/ultimate-buying-guide',
-    badge: 'Most Popular',
-    stats: { readTime: '18 min', updated: 'March 2024' }
-  },
-  {
-    title: 'Heat Pump vs Furnace: Which is Right for You?',
-    description: 'Comprehensive comparison to help you choose between heat pumps and traditional furnaces',
-    href: '/heat-pump-vs-furnace',
+    title: 'Furnace vs Heat Pump: Which Is Better?',
+    description: 'Comprehensive comparison across 14 factors — cost, efficiency, climate suitability, lifespan, and comfort.',
+    href: '/furnace-vs-heat-pump',
     badge: 'Editor\'s Choice',
-    stats: { readTime: '15 min', updated: 'March 2024' }
-  },
-  {
-    title: 'Smart Thermostat ROI Calculator',
-    description: 'Calculate exactly how much you can save with a smart thermostat upgrade',
-    href: '/thermostats/smart-thermostat-roi-calculator',
-    badge: 'Interactive Tool',
-    stats: { readTime: '5 min', updated: 'March 2024' }
+    stats: { readTime: '15 min', updated: 'February 2026' }
   }
 ]
 
@@ -259,14 +245,7 @@ export default function BuyingGuidesPage() {
       {/* Trust Indicators */}
       <section className="py-8 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div>
-              <div className="flex justify-center mb-2">
-                <Star className="w-6 h-6 text-yellow-500" />
-              </div>
-              <div className="text-2xl font-bold text-gray-900">500+</div>
-              <div className="text-sm text-gray-600">Products Reviewed</div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
             <div>
               <div className="flex justify-center mb-2">
                 <Shield className="w-6 h-6 text-green-600" />
@@ -278,15 +257,8 @@ export default function BuyingGuidesPage() {
               <div className="flex justify-center mb-2">
                 <Clock className="w-6 h-6 text-blue-600" />
               </div>
-              <div className="text-2xl font-bold text-gray-900">2024</div>
+              <div className="text-2xl font-bold text-gray-900">2026</div>
               <div className="text-sm text-gray-600">Updated Guides</div>
-            </div>
-            <div>
-              <div className="flex justify-center mb-2">
-                <Award className="w-6 h-6 text-purple-600" />
-              </div>
-              <div className="text-2xl font-bold text-gray-900">Expert</div>
-              <div className="text-sm text-gray-600">HVAC Professionals</div>
             </div>
           </div>
         </div>
