@@ -34,6 +34,22 @@ const howToCategories = {
         difficulty: 'Medium',
         savings: 'Restores cooling capacity',
         preview: 'Safely clean your AC coils to improve cooling efficiency'
+      },
+      {
+        title: 'How to Identify Mold in Your Home',
+        href: '/how-to-identify-mold',
+        time: '15 min',
+        difficulty: 'Easy',
+        savings: 'Catches mold before major remediation is needed',
+        preview: 'Visual color-by-color guide, DIY confirmation tests, and when to call a pro'
+      },
+      {
+        title: 'How to Tilt a Window AC',
+        href: '/how-to-tilt-window-ac',
+        time: '10 min',
+        difficulty: 'Easy',
+        savings: 'Prevents leaks and drainage damage',
+        preview: 'Get the 1/4 to 1/2 inch backward tilt right so condensation drains outside, not into your room'
       }
     ]
   },
@@ -73,6 +89,14 @@ const howToCategories = {
         savings: 'Reduces conditioned-air loss',
         preview: 'Seal duct leaks to prevent energy waste'
       },
+      {
+        title: 'How to Calculate SEER Rating',
+        href: '/how-to-calculate-seer',
+        time: '15 min',
+        difficulty: 'Easy',
+        savings: 'Compare units on equal ground before buying',
+        preview: 'SEER and SEER2 formulas with worked examples and annual cost calculations'
+      },
     ]
   },
   'Seasonal Preparation': {
@@ -81,12 +105,12 @@ const howToCategories = {
     difficulty: 'Beginner',
     guides: [
       {
-        title: 'How to Maintain Heat Pump Year-Round',
-        href: '/heat-pumps/year-round-maintenance',
-        time: '30 min/season',
+        title: 'Mini Split Maintenance Guide',
+        href: '/mini-split-maintenance-guide',
+        time: '30 min',
         difficulty: 'Easy',
-        savings: 'Extend lifespan',
-        preview: 'Seasonal maintenance for heat pump systems'
+        savings: 'Prevents 5-15% annual efficiency loss and mold buildup',
+        preview: 'Filter cleaning, coil cleaning, drain clearing, and annual service schedule'
       }
     ]
   },
@@ -102,6 +126,14 @@ const howToCategories = {
         difficulty: 'Advanced',
         savings: 'Substantial labor savings for DIY-eligible installs',
         preview: 'Complete mini split installation guide (where legal)'
+      },
+      {
+        title: 'How to Install a Window AC Unit',
+        href: '/window-ac-installation-guide',
+        time: '20-45 min',
+        difficulty: 'Medium',
+        savings: 'Skip a $100-200 install service call',
+        preview: 'Step-by-step DIY window AC installation for double-hung, sliding, and irregular windows'
       }
     ]
   }
