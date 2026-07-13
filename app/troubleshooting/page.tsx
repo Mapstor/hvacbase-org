@@ -53,6 +53,22 @@ const troubleshootingCategories = {
         commonCauses: ['Carbon buildup on sensor rod', 'Oxidation coating', 'Sensor position drift'],
         difficulty: 'Easy',
         avgCost: '$0-200'
+      },
+      {
+        title: 'Furnace Blowing Cold Air',
+        href: '/furnace-blowing-cold-air',
+        symptoms: ['Cold air from vents', 'Furnace runs but no heat', 'Cycling between warm and cold'],
+        commonCauses: ['Thermostat fan set to ON', 'Dirty filter (high-limit trip)', 'Pilot or flame sensor issue'],
+        difficulty: 'Easy to Medium',
+        avgCost: '$0-1000'
+      },
+      {
+        title: 'Cracked Heat Exchanger',
+        href: '/cracked-heat-exchanger',
+        symptoms: ['Yellow or flickering flame', 'CO detector alarms', 'Headaches or nausea when furnace runs'],
+        commonCauses: ['Furnace age (>15 years)', 'Thermal stress and cycling', 'Metal fatigue and corrosion'],
+        difficulty: 'Hard',
+        avgCost: '$1,500-$8,500'
       }
     ]
   },

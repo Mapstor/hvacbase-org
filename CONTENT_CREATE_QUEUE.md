@@ -95,3 +95,26 @@ Deferred pending future enumeration of a "Noise Problems" panel in `troubleshoot
 | Topic | Slug | Note |
 |---|---|---|
 | HVAC Noise Levels Explained | hvac-noise-levels-explained | Deferred pending future Noise Problems panel enumeration (dB reference article, may be better placed as reference than as a symptom-fix troubleshooting tile) |
+
+---
+
+## Batch 1 STEP A Finalize — additions (2026-07-13)
+
+Result of the STEP A candidate scan. Two candidates enumerated into troubleshooting Heating Problems panel (`cracked-heat-exchanger`, `furnace-blowing-cold-air`). Remaining candidates parked below.
+
+### CANNIBALIZATION — needs canonical ruling
+
+Same-intent duplicates that shouldn't both be enumerated into the hub until the canonical is chosen. Do NOT wire either broader tile into the hub until the ruling is made.
+
+| Candidate | Words | Competes with | Note |
+|---|---|---|---|
+| ac-troubleshooting-guide (Complete AC Troubleshooting Guide: Fix 12 Common Problems) | 3,802 | `ac-not-cooling` (already in troubleshooting Cooling Problems panel) | Both target the AC-won't-work symptom-fix intent. `ac-troubleshooting-guide` is broader canonical (12 problems); `ac-not-cooling` is a single-symptom fix. Ruling needed: which becomes the canonical linked from the hub, and does the other get consolidated / redirected / re-scoped? |
+
+### Panel-seed backlogs — deferred until 3+ sibling articles exist
+
+Rule: don't open a single-tile panel. When the corpus grows to 3+ sibling articles fitting a proposed panel, revisit.
+
+| Slug | Title | Suggested panel | Sibling count today | Status |
+|---|---|---|---|---|
+| heat-pump-in-cold-weather | Do Heat Pumps Work in Cold Weather? (Below Freezing Guide) | Heat Pump Problems | 1 (this is the only fit today) | Panel opens when 3+ heat-pump symptom-fix articles exist. Not enumerated. |
+| how-to-reduce-hvac-noise | How to Reduce HVAC Noise: 8 Soundproofing Solutions That Actually Work | Noise Problems (troubleshooting) | 1 (currently a how-to hub tile — leave it there) | Article is a treatment/how-to, not a symptom-fix. Stays in the how-to hub for now. Panel opens when 3+ noise symptom-fix articles exist. |
