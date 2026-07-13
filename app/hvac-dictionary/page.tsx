@@ -594,12 +594,6 @@ export default function HVACDictionaryPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/ultimate-buying-guide"
-              className="bg-white text-indigo-700 px-8 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors"
-            >
-              AC Buying Guide
-            </Link>
-            <Link
               href="/furnace-maintenance"
               className="bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-600 transition-colors border border-indigo-500"
             >
