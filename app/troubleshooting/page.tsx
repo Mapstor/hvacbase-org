@@ -25,106 +25,6 @@ const troubleshootingCategories = {
         commonCauses: ['Dirty filter', 'Low refrigerant', 'Frozen coils'],
         difficulty: 'Easy to Medium',
         avgCost: '$0-500'
-      },
-      {
-        title: 'AC Freezing Up',
-        href: '/ac-freezing-up',
-        symptoms: ['Ice on coils', 'Reduced airflow', 'Water leaks'],
-        commonCauses: ['Airflow restriction', 'Low refrigerant', 'Dirty coils'],
-        difficulty: 'Medium',
-        avgCost: '$100-800'
-      },
-      {
-        title: 'AC Short Cycling',
-        href: '/ac-short-cycling',
-        symptoms: ['Frequent on/off', 'Never reaches temperature', 'High bills'],
-        commonCauses: ['Oversized unit', 'Thermostat issues', 'Refrigerant leak'],
-        difficulty: 'Medium to Hard',
-        avgCost: '$150-1500'
-      },
-      {
-        title: 'AC Won\'t Turn On',
-        href: '/ac-wont-turn-on',
-        symptoms: ['No response', 'No fan operation', 'Dead system'],
-        commonCauses: ['Power issues', 'Capacitor failure', 'Control board'],
-        difficulty: 'Easy to Hard',
-        avgCost: '$50-1200'
-      }
-    ]
-  },
-  'Heating Problems': {
-    icon: <ThermometerSun className="w-6 h-6 text-orange-500" />,
-    description: 'Furnace and heat pump heating issues',
-    problems: [
-      {
-        title: 'Furnace Not Heating',
-        href: '/furnace-not-heating',
-        symptoms: ['No heat', 'Cold air', 'Won\'t ignite'],
-        commonCauses: ['Pilot light out', 'Ignitor failure', 'Gas valve issues'],
-        difficulty: 'Easy to Hard',
-        avgCost: '$50-1000'
-      },
-      {
-        title: 'Furnace Short Cycling',
-        href: '/furnace-short-cycling',
-        symptoms: ['Frequent on/off', 'Overheating', 'Poor heating'],
-        commonCauses: ['Dirty filter', 'Thermostat placement', 'Oversized furnace'],
-        difficulty: 'Easy to Medium',
-        avgCost: '$0-500'
-      },
-      {
-        title: 'Heat Pump Not Heating',
-        href: '/heat-pump-not-heating',
-        symptoms: ['Cool air in heat mode', 'Constantly running', 'Ice buildup'],
-        commonCauses: ['Defrost issues', 'Reversing valve', 'Low refrigerant'],
-        difficulty: 'Medium to Hard',
-        avgCost: '$200-1500'
-      },
-      {
-        title: 'Uneven Heating',
-        href: '/heating/uneven-heating',
-        symptoms: ['Cold rooms', 'Hot spots', 'Temperature variance'],
-        commonCauses: ['Duct issues', 'Insulation gaps', 'System sizing'],
-        difficulty: 'Medium',
-        avgCost: '$100-2000'
-      }
-    ]
-  },
-  'Noise Problems': {
-    icon: <Volume2 className="w-6 h-6 text-purple-500" />,
-    description: 'Unusual sounds from HVAC equipment',
-    problems: [
-      {
-        title: 'Banging or Clanking',
-        href: '/troubleshooting/banging-noises',
-        symptoms: ['Loud bangs', 'Metal sounds', 'Startup noises'],
-        commonCauses: ['Loose parts', 'Expanding ducts', 'Compressor issues'],
-        difficulty: 'Easy to Hard',
-        avgCost: '$50-800'
-      },
-      {
-        title: 'Squealing or Screeching',
-        href: '/troubleshooting/squealing-noises',
-        symptoms: ['High-pitched sounds', 'Belt noise', 'Bearing sounds'],
-        commonCauses: ['Belt issues', 'Motor bearings', 'Fan problems'],
-        difficulty: 'Medium',
-        avgCost: '$100-500'
-      },
-      {
-        title: 'Clicking or Ticking',
-        href: '/troubleshooting/clicking-noises',
-        symptoms: ['Repetitive clicks', 'Relay sounds', 'Ignition clicking'],
-        commonCauses: ['Relay problems', 'Ignitor issues', 'Control board'],
-        difficulty: 'Medium to Hard',
-        avgCost: '$150-600'
-      },
-      {
-        title: 'Humming or Buzzing',
-        href: '/troubleshooting/humming-noises',
-        symptoms: ['Constant hum', 'Electrical buzz', 'Vibration sounds'],
-        commonCauses: ['Electrical issues', 'Loose wiring', 'Capacitor problems'],
-        difficulty: 'Easy to Medium',
-        avgCost: '$75-400'
       }
     ]
   },
@@ -133,36 +33,12 @@ const troubleshootingCategories = {
     description: 'Leaks, condensation, and drainage problems',
     problems: [
       {
-        title: 'AC Water Leak',
-        href: '/ac-water-leak',
-        symptoms: ['Water around unit', 'Ceiling stains', 'Pooling water'],
-        commonCauses: ['Clogged drain', 'Frozen coils', 'Damaged pan'],
-        difficulty: 'Easy to Medium',
-        avgCost: '$75-500'
-      },
-      {
-        title: 'High Indoor Humidity',
-        href: '/air-quality/high-humidity',
-        symptoms: ['Muggy feeling', 'Condensation', 'Mold growth'],
-        commonCauses: ['Oversized AC', 'Poor ventilation', 'System issues'],
-        difficulty: 'Medium',
-        avgCost: '$200-2000'
-      },
-      {
         title: 'Furnace Leaking Water',
-        href: '/furnace-water-leak',
+        href: '/furnace-leaking-water',
         symptoms: ['Puddles near furnace', 'Rust spots', 'Water damage'],
         commonCauses: ['Condensate issues', 'Humidifier leak', 'Heat exchanger'],
         difficulty: 'Medium to Hard',
         avgCost: '$100-3000'
-      },
-      {
-        title: 'Frozen Condensate Line',
-        href: '/troubleshooting/frozen-condensate',
-        symptoms: ['No heat', 'Error codes', 'Gurgling sounds'],
-        commonCauses: ['Cold weather', 'Poor insulation', 'Improper pitch'],
-        difficulty: 'Easy to Medium',
-        avgCost: '$0-300'
       }
     ]
   },
@@ -177,60 +53,6 @@ const troubleshootingCategories = {
         commonCauses: ['Dead batteries', 'Wiring issues', 'Calibration'],
         difficulty: 'Easy',
         avgCost: '$0-300'
-      },
-      {
-        title: 'System Won\'t Turn Off',
-        href: '/troubleshooting/wont-turn-off',
-        symptoms: ['Constant running', 'Won\'t cycle off', 'Frozen thermostat'],
-        commonCauses: ['Thermostat stuck', 'Relay failure', 'Control board'],
-        difficulty: 'Medium',
-        avgCost: '$100-600'
-      },
-      {
-        title: 'Intermittent Operation',
-        href: '/troubleshooting/intermittent-operation',
-        symptoms: ['Random shutoffs', 'Sporadic operation', 'Inconsistent cooling'],
-        commonCauses: ['Loose connections', 'Failing components', 'Power issues'],
-        difficulty: 'Medium to Hard',
-        avgCost: '$150-800'
-      }
-    ]
-  },
-  'Airflow Problems': {
-    icon: <Wind className="w-6 h-6 text-green-500" />,
-    description: 'Poor airflow, pressure, and ventilation issues',
-    problems: [
-      {
-        title: 'Weak Airflow',
-        href: '/airflow/weak-airflow',
-        symptoms: ['Low air pressure', 'Poor circulation', 'Slow cooling'],
-        commonCauses: ['Dirty filter', 'Duct leaks', 'Blower issues'],
-        difficulty: 'Easy to Medium',
-        avgCost: '$20-800'
-      },
-      {
-        title: 'No Air From Vents',
-        href: '/airflow/no-air-from-vents',
-        symptoms: ['No airflow', 'System running', 'Silent vents'],
-        commonCauses: ['Blower failure', 'Duct blockage', 'Damper closed'],
-        difficulty: 'Medium',
-        avgCost: '$100-1200'
-      },
-      {
-        title: 'Hot/Cold Spots',
-        href: '/airflow/hot-cold-spots',
-        symptoms: ['Uneven temperatures', 'Room differences', 'Comfort issues'],
-        commonCauses: ['Duct design', 'Insulation', 'System balance'],
-        difficulty: 'Medium to Hard',
-        avgCost: '$200-3000'
-      },
-      {
-        title: 'Dusty or Smelly Air',
-        href: '/air-quality/dusty-smelly-air',
-        symptoms: ['Dust from vents', 'Musty odor', 'Poor air quality'],
-        commonCauses: ['Dirty ducts', 'Mold growth', 'Filter issues'],
-        difficulty: 'Easy to Hard',
-        avgCost: '$50-1500'
       }
     ]
   }
@@ -267,26 +89,8 @@ const diagnosticTools = [
   {
     name: 'System Diagnostic Checklist',
     description: 'Step-by-step guide to diagnose any HVAC problem',
-    href: '/tools/diagnostic-checklist',
+    href: '/hvac-maintenance-checklist',
     icon: '📋'
-  },
-  {
-    name: 'Error Code Database',
-    description: 'Look up error codes for all major HVAC brands',
-    href: '/tools/error-codes',
-    icon: '🔍'
-  },
-  {
-    name: 'Troubleshooting Flowchart',
-    description: 'Visual guide to finding the root cause',
-    href: '/tools/troubleshooting-flowchart',
-    icon: '🗺️'
-  },
-  {
-    name: 'Cost Estimator',
-    description: 'Estimate repair costs for common problems',
-    href: '/tools/repair-cost-estimator',
-    icon: '💰'
   }
 ]
 
