@@ -154,31 +154,15 @@ const brandComparisons = [
   {
     title: 'Carrier vs Trane: Ultimate Comparison',
     description: 'Head-to-head comparison of the top two premium HVAC brands',
-    href: '/brand-reviews/carrier-vs-trane',
+    href: '/trane-vs-carrier',
     brands: ['Carrier', 'Trane'],
     winner: 'Tie - depends on priorities',
     readTime: '12 min'
   },
   {
-    title: 'Goodman vs Rheem: Value Brand Showdown',
-    description: 'Compare the most popular budget-friendly HVAC manufacturers',
-    href: '/brand-reviews/goodman-vs-rheem',
-    brands: ['Goodman', 'Rheem'],
-    winner: 'Goodman for budget',
-    readTime: '10 min'
-  },
-  {
-    title: 'Lennox vs American Standard Analysis',
-    description: 'Premium vs mainstream brand detailed comparison',
-    href: '/brand-reviews/lennox-vs-american-standard',
-    brands: ['Lennox', 'American Standard'],
-    winner: 'Lennox for features',
-    readTime: '11 min'
-  },
-  {
     title: 'Mini Split Brand Comparison',
     description: 'Mitsubishi vs Daikin vs Fujitsu ductless systems',
-    href: '/brand-reviews/mini-split-brand-comparison',
+    href: '/mini-split-brands-ranked',
     brands: ['Mitsubishi', 'Daikin', 'Fujitsu'],
     winner: 'Mitsubishi overall',
     readTime: '15 min'
