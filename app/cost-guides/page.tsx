@@ -30,7 +30,7 @@ const costCategories = {
         href: '/furnace-installation-cost',
         priceRange: '$2,500 - $6,500',
         factors: ['Fuel type', 'AFUE rating', 'Venting', 'Permits'],
-        savings: 'Federal, state, and utility rebates available'
+        savings: 'Federal, state, and utility rebates vary — see /hvac-rebates-by-state'
       },
       {
         title: 'Heat Pump Installation Cost',
@@ -208,13 +208,6 @@ const costCategories = {
         options: ['0% APR', 'Home equity', 'Personal loans', 'Manufacturer financing'],
         terms: '6-120 months',
         tips: 'Compare rates and terms'
-      },
-      {
-        title: 'Federal Tax Credits',
-        href: '/hvac-tax-credits-2026',
-        amount: 'See current eligibility',
-        eligible: ['Heat pumps', 'Central AC', 'Boilers', 'Furnaces'],
-        requirements: 'Energy Star certified'
       },
       {
         title: 'Utility Rebates by State',

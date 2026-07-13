@@ -60,7 +60,7 @@ export default function HVACROICalculator() {
   const [electricityRate, setElectricityRate] = useState('0.16');
   const [gasRate, setGasRate] = useState('1.25');
 
-  const [federalCredit, setFederalCredit] = useState('600');
+  const [federalCredit, setFederalCredit] = useState('0');
   const [utilityRebate, setUtilityRebate] = useState('300');
 
   const selectedClimate = climateZones.find((z) => z.value === climate)!;
@@ -224,13 +224,13 @@ export default function HVACROICalculator() {
 
       {/* Section 4 — Incentives */}
       <section>
-        <SectionHeader step={4} title="Incentives" subtitle="Federal credits + utility rebates reduce net cost" Icon={Receipt} accent={ACCENT} />
+        <SectionHeader step={4} title="Incentives" subtitle="Utility rebates reduce net cost (federal 25C credit ended for 2026 installs)" Icon={Receipt} accent={ACCENT} />
 
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Federal tax credit
-              <InfoTip label="federal credit">25C credit covers 30% up to $600 for AC/furnace, $2,000 for heat pumps. Check current IRS guidance.</InfoTip>
+              <InfoTip label="federal credit">The federal Section 25C tax credit ended for property placed in service after Dec 31, 2025 (OBBBA), with no federal successor. Enter 0 for a 2026 install. For a 2024–2025 install, enter the amount you actually claimed — consult a tax professional if unsure.</InfoTip>
             </label>
             <NumberInput value={federalCredit} onChange={setFederalCredit} min={0} max={2000} suffix="$" ariaLabel="Federal tax credit" accent={ACCENT} />
           </div>
@@ -308,7 +308,7 @@ export default function HVACROICalculator() {
             <BreakdownTable
               rows={[
                 { label: 'Equipment + install', detail: 'Quoted system cost', factor: `$${fmtMoney(calc.cost)}` },
-                { label: 'Federal credit', detail: '25C / 25D credit', factor: `−$${fmtMoney(calc.credit)}` },
+                { label: 'Federal credit', detail: 'If any — 25C ended for 2026 installs', factor: `−$${fmtMoney(calc.credit)}` },
                 { label: 'Utility rebate', detail: 'Local utility program', factor: `−$${fmtMoney(calc.rebate)}` },
               ]}
               totals={[
