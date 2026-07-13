@@ -24,7 +24,7 @@ const howToCategories = {
         href: '/maintenance/how-to-change-hvac-filter',
         time: '5 min',
         difficulty: 'Easy',
-        savings: 'Save $50-100/year',
+        savings: 'Extends system life, protects efficiency',
         preview: 'Step-by-step guide to changing air filters for better air quality and efficiency'
       },
       {
@@ -32,7 +32,7 @@ const howToCategories = {
         href: '/maintenance/how-to-clean-ac-coils',
         time: '30 min',
         difficulty: 'Medium',
-        savings: 'Save $100-200/year',
+        savings: 'Restores cooling capacity',
         preview: 'Safely clean your AC coils to improve cooling efficiency'
       },
       {
@@ -63,7 +63,7 @@ const howToCategories = {
         href: '/thermostats/how-to-install-smart-thermostat',
         time: '60 min',
         difficulty: 'Medium',
-        savings: 'Save 20% on energy',
+        savings: 'Enables scheduling and remote control',
         preview: 'Complete installation guide for Nest, Ecobee, and other smart thermostats'
       },
       {
@@ -79,7 +79,7 @@ const howToCategories = {
         href: '/thermostats/how-to-program-thermostat',
         time: '20 min',
         difficulty: 'Easy',
-        savings: 'Save 10% on bills',
+        savings: 'Aligns runtime with occupancy',
         preview: 'Optimize temperature schedules for comfort and efficiency'
       },
       {
@@ -102,7 +102,7 @@ const howToCategories = {
         href: '/ac-not-cooling',
         time: '30 min',
         difficulty: 'Medium',
-        savings: 'Save $150-300',
+        savings: 'Restores cooling without a service call',
         preview: 'Troubleshoot and fix common cooling problems'
       },
       {
@@ -110,7 +110,7 @@ const howToCategories = {
         href: '/furnace-not-heating',
         time: '45 min',
         difficulty: 'Medium',
-        savings: 'Save $150-400',
+        savings: 'Restores heat without a service call',
         preview: 'Step-by-step furnace troubleshooting guide'
       },
       {
@@ -118,7 +118,7 @@ const howToCategories = {
         href: '/how-to-fix-frozen-ac',
         time: '2-4 hours',
         difficulty: 'Medium',
-        savings: 'Save $200-500',
+        savings: 'Restores airflow, prevents coil damage',
         preview: 'Safely thaw and prevent AC freezing issues'
       },
       {
@@ -126,7 +126,7 @@ const howToCategories = {
         href: '/troubleshooting/how-to-fix-hvac-noises',
         time: '30 min',
         difficulty: 'Easy-Medium',
-        savings: 'Save $100-300',
+        savings: 'Identifies fixable noise sources',
         preview: 'Identify and fix common HVAC noise problems'
       }
     ]
@@ -141,7 +141,7 @@ const howToCategories = {
         href: '/duct-leakage-testing',
         time: '2-3 hours',
         difficulty: 'Medium',
-        savings: 'Save 20% on energy',
+        savings: 'Reduces conditioned-air loss',
         preview: 'Seal duct leaks to prevent energy waste'
       },
       {
@@ -149,7 +149,7 @@ const howToCategories = {
         href: '/insulation/how-to-insulate-hvac-lines',
         time: '1 hour',
         difficulty: 'Easy',
-        savings: 'Save 5-10% energy',
+        savings: 'Reduces heat loss on line sets',
         preview: 'Properly insulate refrigerant and duct lines'
       },
       {
@@ -157,7 +157,7 @@ const howToCategories = {
         href: '/zoning/how-to-zone-hvac',
         time: '4-6 hours',
         difficulty: 'Advanced',
-        savings: 'Save 30% on bills',
+        savings: 'Aligns comfort with occupied areas',
         preview: 'Create heating and cooling zones for efficiency'
       },
       {
@@ -165,7 +165,7 @@ const howToCategories = {
         href: '/airflow/how-to-optimize-airflow',
         time: '1 hour',
         difficulty: 'Easy',
-        savings: 'Save 10-15%',
+        savings: 'Balances temperature across rooms',
         preview: 'Balance airflow for even temperatures'
       }
     ]
@@ -219,7 +219,7 @@ const howToCategories = {
         href: '/diy-mini-split-installation',
         time: '6-8 hours',
         difficulty: 'Advanced',
-        savings: 'Save $1,500-3,000',
+        savings: 'Substantial labor savings for DIY-eligible installs',
         preview: 'Complete mini split installation guide (where legal)'
       },
       {
@@ -227,7 +227,7 @@ const howToCategories = {
         href: '/repairs/how-to-replace-capacitor',
         time: '30 min',
         difficulty: 'Advanced',
-        savings: 'Save $150-350',
+        savings: 'Avoids a service call for a common failure',
         preview: 'Safely replace AC or furnace capacitors'
       },
       {
@@ -235,7 +235,7 @@ const howToCategories = {
         href: '/air-quality/install-uv-light',
         time: '2-3 hours',
         difficulty: 'Advanced',
-        savings: 'Save $200-400',
+        savings: 'Adds coil-surface disinfection',
         preview: 'Add UV purification to your HVAC system'
       },
       {
@@ -243,7 +243,7 @@ const howToCategories = {
         href: '/humidifiers/install-whole-house-humidifier',
         time: '3-4 hours',
         difficulty: 'Advanced',
-        savings: 'Save $300-500',
+        savings: 'Improves winter comfort in dry climates',
         preview: 'Install whole-house humidification system'
       }
     ]

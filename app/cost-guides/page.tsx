@@ -23,14 +23,14 @@ const costCategories = {
         href: '/central-ac-installation-cost',
         priceRange: '$3,500 - $7,500',
         factors: ['System size', 'SEER rating', 'Ductwork', 'Labor'],
-        savings: 'Save up to 20% off-season'
+        savings: 'Off-season pricing often available'
       },
       {
         title: 'Furnace Installation Cost',
         href: '/furnace-installation-cost',
         priceRange: '$2,500 - $6,500',
         factors: ['Fuel type', 'AFUE rating', 'Venting', 'Permits'],
-        savings: 'Rebates up to $1,500'
+        savings: 'Federal, state, and utility rebates available'
       },
       {
         title: 'Heat Pump Installation Cost',
@@ -44,21 +44,21 @@ const costCategories = {
         href: '/mini-split-installation-cost',
         priceRange: '$3,000 - $10,000',
         factors: ['Zones', 'BTUs', 'Line sets', 'Electrical'],
-        savings: 'DIY saves 30-40%'
+        savings: 'Significant labor savings for DIY-eligible installs'
       },
       {
         title: 'Boiler Installation Cost',
         href: '/boiler-installation-cost',
         priceRange: '$3,500 - $8,000',
         factors: ['Type', 'Efficiency', 'Piping', 'Controls'],
-        savings: 'Energy savings 20-30%'
+        savings: 'Higher-efficiency options available'
       },
       {
         title: 'Ductwork Installation Cost',
         href: '/hvac-ductwork-guide',
         priceRange: '$3,000 - $7,500',
         factors: ['Home size', 'Accessibility', 'Materials', 'Insulation'],
-        savings: 'Improves efficiency 20%'
+        savings: 'Reduces air leakage and improves comfort'
       }
     ]
   },
@@ -105,28 +105,28 @@ const costCategories = {
         href: '/hvac-maintenance-cost',
         priceRange: '$150 - $500/year',
         includes: ['Spring AC tune-up', 'Fall heating check', 'Filter changes', 'Priority service'],
-        savings: 'Prevents 95% of breakdowns'
+        savings: 'Catches issues before they become failures'
       },
       {
         title: 'AC Tune-Up Cost',
         href: '/ac-tune-up-cost',
         priceRange: '$75 - $200',
         includes: ['Cleaning', 'Inspection', 'Refrigerant check', 'Electrical test'],
-        savings: 'Improves efficiency 5-15%'
+        savings: 'Restores efficiency lost to dirt and wear'
       },
       {
         title: 'Furnace Tune-Up Cost',
         href: '/furnace-tune-up-cost',
         priceRange: '$80 - $200',
         includes: ['Safety check', 'Cleaning', 'Calibration', 'Carbon monoxide test'],
-        savings: 'Extends life 5+ years'
+        savings: 'Extends operating life'
       },
       {
         title: 'Service Contract Comparison',
         href: '/hvac-maintenance-cost',
         priceRange: '$200 - $600/year',
         includes: ['Basic vs premium', 'Coverage details', 'Exclusions', 'Value analysis'],
-        savings: 'Save 15-20% on repairs'
+        savings: 'Discounted repair pricing for members'
       }
     ]
   },
@@ -160,7 +160,7 @@ const costCategories = {
         href: '/best-smart-thermostats',
         priceRange: '$150 - $500',
         factors: ['Smart features', 'Wiring', 'Zoning', 'Installation'],
-        consideration: 'Smart upgrade saves 20%'
+        consideration: 'Smart features enable easier scheduling'
       }
     ]
   },
@@ -212,14 +212,14 @@ const costCategories = {
       {
         title: 'Federal Tax Credits',
         href: '/hvac-tax-credits-2026',
-        amount: 'Up to $2,000',
+        amount: 'See current eligibility',
         eligible: ['Heat pumps', 'Central AC', 'Boilers', 'Furnaces'],
         requirements: 'Energy Star certified'
       },
       {
         title: 'Utility Rebates by State',
         href: '/hvac-rebates-by-state',
-        amount: '$50 - $2,500',
+        amount: 'Varies by state and utility',
         programs: ['Equipment rebates', 'Efficiency upgrades', 'Smart thermostats', 'Tune-ups'],
         finder: 'State-by-state database'
       },
@@ -253,11 +253,11 @@ const priceRanges = {
 }
 
 const moneySavingTips = [
-  'Get 3+ quotes for major work - prices vary 20-40%',
-  'Schedule installation in off-season for 10-20% savings',
-  'Regular maintenance prevents 95% of breakdowns',
+  'Get 3+ quotes for major work — installer pricing varies widely',
+  'Schedule installation in the off-season for lower pricing',
+  'Regular maintenance catches most issues before they cause a failure',
   'Upgrade during replacement for best efficiency ROI',
-  'Check for rebates before purchasing - save up to $2,500',
+  'Check federal, state, and utility rebates before purchasing — see /hvac-rebates-by-state for current programs',
   'Consider financing for 0% APR promotional periods'
 ]
 
@@ -470,7 +470,7 @@ export default function CostGuidesPage() {
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">💰 Money-Saving Tips</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Smart strategies to reduce your HVAC costs by 20-40%
+              Smart strategies to reduce your HVAC costs
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
@@ -515,7 +515,7 @@ export default function CostGuidesPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Get Accurate Pricing for Your Project</h2>
           <p className="text-xl text-green-100 mb-8">
-            Compare quotes from qualified contractors and save up to 40%
+            Compare quotes from qualified contractors and save on installation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
