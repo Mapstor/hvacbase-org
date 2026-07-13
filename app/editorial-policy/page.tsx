@@ -48,6 +48,18 @@ export default function EditorialPolicyPage() {
             underlying physics.
           </p>
 
+          <p>
+            The site may display third-party programmatic advertisements. When such
+            advertisements appear, they are served by ad networks and placed by those
+            networks, not by us. Advertising does not influence what we cover, how we
+            rank products, or which specifications we cite. Data processing associated
+            with advertising is described in the{' '}
+            <a href="/privacy" className="text-brand-600 hover:underline">
+              privacy policy
+            </a>
+            .
+          </p>
+
           <h2>Corrections</h2>
           <p>
             Specifications change as manufacturers update equipment and as standards

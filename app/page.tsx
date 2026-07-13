@@ -85,7 +85,7 @@ export default async function HomePage() {
               
               <p className="text-lg text-brand-100 mb-6">
                 Make informed HVAC decisions with our {totalArticles}+ expert guides, ACCA Manual J calculators, 
-                and real-world efficiency data. No affiliate links, no bias — just accurate information.
+                and real-world efficiency data. No affiliate links or paid product placements.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-6">
@@ -918,8 +918,8 @@ export default async function HomePage() {
               How We Source Our Content
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide accurate, unbiased HVAC information based on manufacturer data,
-              industry standards, and AHRI-certified efficiency ratings — no affiliate links or sponsored content.
+              We provide HVAC information based on manufacturer data,
+              industry standards, and AHRI-certified efficiency ratings — no affiliate links or paid product placements.
             </p>
           </div>
           
@@ -930,7 +930,7 @@ export default async function HomePage() {
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Data-Driven Content</h3>
               <p className="text-sm text-gray-600">
-                Every guide backed by AHRI certifications, DOE data, and ACCA Manual J calculations
+                Guides reference AHRI certifications, DOE data, and ACCA Manual J methods where applicable
               </p>
             </div>
 
@@ -948,9 +948,9 @@ export default async function HomePage() {
               <div className="bg-purple-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <Clock className="w-8 h-8 text-purple-700" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Always Current</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Reviewed and Updated Regularly</h3>
               <p className="text-sm text-gray-600">
-                Updated weekly with 2026 efficiency standards, tax credits, and equipment releases
+                Content is refreshed as standards, tax law, and equipment specifications change
               </p>
             </div>
           </div>

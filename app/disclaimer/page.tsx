@@ -331,6 +331,28 @@ export default function Disclaimer() {
             </div>
           </div>
 
+          {/* Advertising */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <DollarSign className="w-6 h-6 text-yellow-600" />
+              <h2 className="text-2xl font-bold text-gray-900">Advertising</h2>
+            </div>
+
+            <div className="bg-yellow-50 rounded-lg p-6">
+              <p className="text-gray-700 mb-4">
+                HVACBase.org may display third-party programmatic advertisements. When such advertisements appear, they are served by ad networks and are not selected, endorsed, or reviewed by the HVACBase editorial team.
+              </p>
+
+              <div className="bg-white rounded p-4">
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Editorial content and rankings are governed by the <Link href="/editorial-policy" className="text-brand-600 hover:text-brand-700">Editorial Policy</Link>. Advertising has no influence on what we cover, how we rank equipment, or which specifications we cite.</li>
+                  <li>• Data processing associated with advertising, when applicable, is described in the <Link href="/privacy" className="text-brand-600 hover:text-brand-700">Privacy Policy</Link>.</li>
+                  <li>• Third-party ad content, when displayed, links to third-party sites; HVACBase is not responsible for the accuracy, safety, or legality of those destinations.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {/* Limitation of Liability */}
           <div>
             <div className="flex items-center gap-3 mb-4">
