@@ -320,7 +320,7 @@ export default async function ArticlesPage() {
             {[
               { label: 'BTU Calculator', href: '/air-conditioner-btu-calculator', color: 'blue' },
               { label: 'SEER2 Ratings', href: '/seer2-rating-explained', color: 'green' },
-              { label: 'Heat Pump Guide', href: '/what-is-a-heat-pump', color: 'purple' },
+              { label: 'Heat Pump Guide', href: '/heat-pump-guide', color: 'purple' },
               { label: 'Mini Splits', href: '/mini-split-air-conditioners', color: 'cyan' },
               { label: 'Furnace Sizing', href: '/furnace-sizing-calculator', color: 'orange' },
               { label: 'Tax Credits', href: '/hvac-tax-credits-2026', color: 'red' },
