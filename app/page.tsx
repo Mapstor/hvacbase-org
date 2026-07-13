@@ -105,7 +105,7 @@ export default async function HomePage() {
                   <div className="text-sm text-brand-200">Expert Guides</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-white">31</div>
+                  <div className="text-3xl font-bold text-white">9</div>
                   <div className="text-sm text-brand-200">Calculators</div>
                 </div>
                 <div>
@@ -1043,7 +1043,7 @@ export default async function HomePage() {
             "@type": "WebSite",
             "name": "HVAC Base",
             "url": "https://www.hvacbase.org",
-            "description": "Professional HVAC calculators, sizing guides, and unbiased equipment reviews. 355 articles and 31 calculators based on ACCA Manual J calculations and manufacturer-published data.",
+            "description": "Professional HVAC calculators, sizing guides, and unbiased equipment reviews. 355 articles and 9 calculators based on ACCA Manual J calculations and manufacturer-published data.",
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://www.hvacbase.org/search?q={search_term_string}",

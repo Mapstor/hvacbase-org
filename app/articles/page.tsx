@@ -123,7 +123,7 @@ export default async function ArticlesPage() {
               <div className="text-sm text-gray-600">Hub Pages</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600">45+</div>
+              <div className="text-2xl font-bold text-orange-600">9</div>
               <div className="text-sm text-gray-600">Calculators</div>
             </div>
           </div>

@@ -99,7 +99,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col items-center">
               <Calculator className="h-8 w-8 text-brand-400 mb-2" />
-              <div className="text-white font-semibold">31 Calculators</div>
+              <div className="text-white font-semibold">9 Calculators</div>
               <div className="text-xs text-gray-400">Free HVAC Tools</div>
             </div>
             <div className="flex flex-col items-center">

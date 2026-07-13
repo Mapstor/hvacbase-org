@@ -155,8 +155,6 @@ const popularCalculators = [
 ];
 
 export default function CalculatorsHub() {
-  const totalCalculators = Object.values(calculatorCategories).reduce((sum, category) => sum + category.calculators.length, 0);
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -167,7 +165,7 @@ export default function CalculatorsHub() {
               Free HVAC Calculators & Sizing Tools
             </h1>
             <p className="text-lg text-green-100 mb-4">
-              {totalCalculators} professional calculators for sizing air conditioners, furnaces, heat pumps, and calculating energy costs
+              Interactive calculators and sizing guides for air conditioners, furnaces, heat pumps, water heaters, and energy costs
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">
