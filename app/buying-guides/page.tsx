@@ -20,7 +20,7 @@ const buyingGuides = {
     guides: [
       {
         title: 'Best Central Air Conditioners 2026',
-        href: '/air-conditioners/best-central-air-conditioners',
+        href: '/best-central-ac-brands',
         readTime: '12 min',
         highlights: ['Top 10 brands reviewed', 'SEER2 ratings explained', 'Cost analysis']
       },
@@ -32,13 +32,13 @@ const buyingGuides = {
       },
       {
         title: 'Window AC Selection Guide',
-        href: '/air-conditioners/best-window-air-conditioners',
+        href: '/best-window-air-conditioners',
         readTime: '10 min',
         highlights: ['Room size calculator', 'Energy efficiency', 'Quiet models']
       },
       {
         title: 'Portable AC Buyer\'s Guide',
-        href: '/air-conditioners/best-portable-air-conditioners',
+        href: '/best-portable-air-conditioners',
         readTime: '11 min',
         highlights: ['Single vs dual hose', 'BTU requirements', 'Top picks']
       }
@@ -50,25 +50,19 @@ const buyingGuides = {
     guides: [
       {
         title: 'Best Gas Furnaces 2026',
-        href: '/best-gas-furnaces',
+        href: '/best-gas-furnace-brands',
         readTime: '14 min',
         highlights: ['AFUE ratings', 'Single vs two-stage', 'Brand comparison']
       },
       {
         title: 'Heat Pump Buying Guide',
-        href: '/heat-pump-buying-guide',
+        href: '/heat-pump-guide',
         readTime: '16 min',
         highlights: ['Cold climate models', 'Dual fuel systems', 'Efficiency ratings']
       },
       {
-        title: 'Boiler Selection Guide',
-        href: '/best-boilers',
-        readTime: '13 min',
-        highlights: ['Combi vs system boilers', 'Efficiency standards', 'Sizing guide']
-      },
-      {
         title: 'Space Heater Buyer\'s Guide',
-        href: '/space-heaters/best-space-heaters',
+        href: '/best-space-heaters-for-large-rooms',
         readTime: '9 min',
         highlights: ['Safety features', 'Energy efficiency', 'Room coverage']
       }
@@ -79,26 +73,14 @@ const buyingGuides = {
     description: 'Selection guides for air purifiers, humidifiers, and filtration systems',
     guides: [
       {
-        title: 'Best Whole House Air Purifiers',
-        href: '/air-quality/best-whole-house-air-purifiers',
-        readTime: '12 min',
-        highlights: ['HEPA vs UV systems', 'Installation costs', 'Maintenance']
-      },
-      {
         title: 'Dehumidifier Buying Guide',
-        href: '/dehumidifiers/best-whole-house-dehumidifiers',
+        href: '/best-whole-house-dehumidifiers',
         readTime: '11 min',
         highlights: ['Capacity sizing', 'Energy efficiency', 'Drainage options']
       },
       {
-        title: 'Humidifier Selection Guide',
-        href: '/humidifiers/best-whole-house-humidifiers',
-        readTime: '10 min',
-        highlights: ['Bypass vs fan-powered', 'Maintenance requirements', 'Controls']
-      },
-      {
         title: 'UV Light System Guide',
-        href: '/air-quality/uv-light-hvac-systems',
+        href: '/uv-light-hvac-systems',
         readTime: '15 min',
         highlights: ['Coil vs air sterilization', 'Effectiveness data', 'Safety']
       }
@@ -110,13 +92,13 @@ const buyingGuides = {
     guides: [
       {
         title: 'Best Smart Thermostats 2026',
-        href: '/thermostats/best-smart-thermostats',
+        href: '/best-smart-thermostats',
         readTime: '13 min',
         highlights: ['Feature comparison', 'Compatibility guide', 'Energy savings']
       },
       {
         title: 'Nest vs Ecobee Comparison',
-        href: '/thermostats/nest-vs-ecobee',
+        href: '/nest-vs-ecobee-vs-honeywell',
         readTime: '10 min',
         highlights: ['Feature breakdown', 'Installation process', 'Smart home integration']
       },
@@ -126,12 +108,6 @@ const buyingGuides = {
         readTime: '8 min',
         highlights: ['7-day programming', 'WiFi features', 'Budget options']
       },
-      {
-        title: 'Zoning System Controllers',
-        href: '/thermostats/zone-control-systems',
-        readTime: '11 min',
-        highlights: ['Multi-zone control', 'Damper systems', 'Cost analysis']
-      }
     ]
   },
   'Brand Comparisons': {
@@ -140,27 +116,15 @@ const buyingGuides = {
     guides: [
       {
         title: 'Carrier vs Trane: Complete Comparison',
-        href: '/brand-reviews/carrier-vs-trane',
+        href: '/trane-vs-carrier',
         readTime: '14 min',
         highlights: ['Product lines', 'Warranty comparison', 'Dealer networks']
       },
       {
-        title: 'Lennox vs Goodman Analysis',
-        href: '/brand-reviews/lennox-vs-goodman',
-        readTime: '12 min',
-        highlights: ['Price vs quality', 'Efficiency ratings', 'Parts availability']
-      },
-      {
         title: 'HVAC Brand Reliability Rankings',
-        href: '/brand-reviews/hvac-reliability-rankings',
+        href: '/best-hvac-brands-ranked',
         readTime: '15 min',
         highlights: ['Consumer Reports data', 'Repair frequency', 'Customer satisfaction']
-      },
-      {
-        title: 'Budget HVAC Brand Guide',
-        href: '/brand-reviews/best-budget-hvac-brands',
-        readTime: '11 min',
-        highlights: ['Value brands', 'Warranty coverage', 'Long-term costs']
       }
     ]
   },
@@ -173,24 +137,6 @@ const buyingGuides = {
         href: '/installation/hvac-installation-costs',
         readTime: '16 min',
         highlights: ['National averages', 'Cost factors', 'Financing options']
-      },
-      {
-        title: 'DIY vs Professional Installation',
-        href: '/installation/diy-vs-professional',
-        readTime: '10 min',
-        highlights: ['Legal requirements', 'Safety considerations', 'Warranty impacts']
-      },
-      {
-        title: 'HVAC Financing Options',
-        href: '/installation/hvac-financing-guide',
-        readTime: '9 min',
-        highlights: ['Loan types', 'Interest rates', 'Rebate programs']
-      },
-      {
-        title: 'Contractor Selection Guide',
-        href: '/installation/choosing-hvac-contractor',
-        readTime: '12 min',
-        highlights: ['Certification requirements', 'Red flags', 'Contract tips']
       }
     ]
   }
@@ -208,9 +154,9 @@ const featuredGuides = [
 
 const quickLinks = [
   { title: 'Size Calculator', href: '/air-conditioner-btu-calculator', icon: '📐' },
-  { title: 'Energy Savings', href: '/energy-efficiency/hvac-energy-saving-tips', icon: '⚡' },
+  { title: 'Energy Savings', href: '/hvac-energy-saving-tips', icon: '⚡' },
   { title: 'Maintenance Guide', href: '/furnace-maintenance', icon: '🔧' },
-  { title: 'Troubleshooting', href: '/air-conditioners/ac-troubleshooting-guide', icon: '🛠️' }
+  { title: 'Troubleshooting', href: '/ac-troubleshooting-guide', icon: '🛠️' }
 ]
 
 export default function BuyingGuidesPage() {
