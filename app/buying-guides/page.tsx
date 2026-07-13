@@ -25,12 +25,6 @@ const buyingGuides = {
         highlights: ['Top 10 brands reviewed', 'SEER2 ratings explained', 'Cost analysis']
       },
       {
-        title: 'Mini Split Buying Guide',
-        href: '/mini-split-buying-guide',
-        readTime: '15 min',
-        highlights: ['Single vs multi-zone', 'Installation costs', 'Best brands']
-      },
-      {
         title: 'Window AC Selection Guide',
         href: '/best-window-air-conditioners',
         readTime: '10 min',
@@ -102,12 +96,6 @@ const buyingGuides = {
         readTime: '10 min',
         highlights: ['Feature breakdown', 'Installation process', 'Smart home integration']
       },
-      {
-        title: 'Programmable Thermostat Guide',
-        href: '/thermostats/best-programmable-thermostats',
-        readTime: '8 min',
-        highlights: ['7-day programming', 'WiFi features', 'Budget options']
-      },
     ]
   },
   'Brand Comparisons': {
@@ -134,7 +122,7 @@ const buyingGuides = {
     guides: [
       {
         title: 'HVAC Installation Cost Guide',
-        href: '/installation/hvac-installation-costs',
+        href: '/hvac-cost-by-state',
         readTime: '16 min',
         highlights: ['National averages', 'Cost factors', 'Financing options']
       }
