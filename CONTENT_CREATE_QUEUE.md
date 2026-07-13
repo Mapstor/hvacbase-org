@@ -72,3 +72,26 @@ Total: 55 unique rows above (some CREATE items collapsed into a single row where
 - Do not commit stubs. Each MDX file must clear the portfolio-page-quality bar (primary-source research, verified data, prose on every number).
 - Several thin-slug troubleshooting topics (e.g., single-symptom noise pages) may be better consolidated into a single canonical `hvac-noise-diagnosis` article with anchors. Consider before authoring 4 separate noise pages.
 - The 3 "diagnostic tool" entries (error code DB, flowchart, repair cost estimator) are calculator/tool builds — different capex than editorial articles. Scope separately.
+
+---
+
+## Batch 1 Finalize — additions (2026-07-13)
+
+Added during the Batch 1 finalization pass (hub reconnection). These are class-(c) HIDE decisions from `AUDIT_BATCH1_PREVIEW.md` §1e that the user ruled as HIDE + backlog rather than route.
+
+| Topic | Hub | Suggested slug |
+|---|---|---|
+| Thermostat Troubleshooting (broad canonical hub article) | troubleshooting | thermostat-troubleshooting-guide |
+| Mini Split Buying Guide (canonical) | buying-guides | mini-split-buying-guide |
+| Best Programmable Thermostats (canonical) | buying-guides | best-programmable-thermostats |
+| Heat Pump Year-Round Maintenance (canonical) | how-to | heat-pump-year-round-maintenance |
+
+**Rationale — Heat Pump Year-Round Maintenance HIDE:** the how-to hub previously pointed at `/heat-pumps/year-round-maintenance` (broken). The conditional test was whether `content/hvac-maintenance/hvac-maintenance-checklist.mdx` contained a substantive dedicated heat-pump section. Result: the article has only a 4-sentence passing paragraph inside a "System-Specific Adjustments" section (line 344 "### Heat Pump (Air-Source)") plus a handful of scattered "if you have a heat pump" mentions in the general seasonal checklist. No dedicated month-by-month table, no year-round task list specific to heat-pump users. Not substantive enough to route — HIDE + backlog for future canonical.
+
+### Backlog — troubleshooting Noise Panel candidates:
+
+Deferred pending future enumeration of a "Noise Problems" panel in `troubleshooting/page.tsx`. Currently no such panel exists.
+
+| Topic | Slug | Note |
+|---|---|---|
+| HVAC Noise Levels Explained | hvac-noise-levels-explained | Deferred pending future Noise Problems panel enumeration (dB reference article, may be better placed as reference than as a symptom-fix troubleshooting tile) |
