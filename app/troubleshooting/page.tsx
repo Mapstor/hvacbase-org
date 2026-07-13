@@ -42,17 +42,31 @@ const troubleshootingCategories = {
       }
     ]
   },
+  'Heating Problems': {
+    icon: <ThermometerSun className="w-6 h-6 text-orange-500" />,
+    description: 'Furnace, ignition, and no-heat issues',
+    problems: [
+      {
+        title: 'Furnace Flame Sensor',
+        href: '/furnace-flame-sensor',
+        symptoms: ['Burner lights then shuts off in 3-10 seconds', 'Lockout after failed ignition attempts', 'Flame failure error code'],
+        commonCauses: ['Carbon buildup on sensor rod', 'Oxidation coating', 'Sensor position drift'],
+        difficulty: 'Easy',
+        avgCost: '$0-200'
+      }
+    ]
+  },
   'Electrical & Control Issues': {
     icon: <Zap className="w-6 h-6 text-yellow-500" />,
     description: 'Power, thermostat, and control problems',
     problems: [
       {
-        title: 'Thermostat Not Working',
-        href: '/thermostats/thermostat-troubleshooting',
-        symptoms: ['Blank screen', 'Wrong temperature', 'No response'],
-        commonCauses: ['Dead batteries', 'Wiring issues', 'Calibration'],
-        difficulty: 'Easy',
-        avgCost: '$0-300'
+        title: 'Thermostat Heat On But No Heat',
+        href: '/thermostat-heat-on-but-no-heat',
+        symptoms: ['Thermostat shows heating but house stays cold', 'Blower runs but no warm air', 'Furnace short-cycles or locks out'],
+        commonCauses: ['Wrong thermostat settings', 'Tripped breaker or dead batteries', 'Dirty flame sensor or clogged filter'],
+        difficulty: 'Easy to Medium',
+        avgCost: '$0-600'
       }
     ]
   }
