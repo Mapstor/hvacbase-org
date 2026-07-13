@@ -20,7 +20,7 @@ const costCategories = {
     guides: [
       {
         title: 'Central AC Installation Cost',
-        href: '/central-ac-installation-cost',
+        href: '/central-ac-cost-to-install',
         priceRange: '$3,500 - $7,500',
         factors: ['System size', 'SEER rating', 'Ductwork', 'Labor'],
         savings: 'Off-season pricing often available'
@@ -33,25 +33,11 @@ const costCategories = {
         savings: 'Federal, state, and utility rebates vary — see /hvac-rebates-by-state'
       },
       {
-        title: 'Heat Pump Installation Cost',
-        href: '/heat-pump-installation-cost',
-        priceRange: '$4,000 - $8,500',
-        factors: ['Type', 'HSPF/SEER', 'Dual fuel', 'Controls'],
-        savings: 'State + utility rebates + IRA HEAR/HOMES'
-      },
-      {
         title: 'Mini Split Installation Cost',
         href: '/mini-split-installation-cost',
         priceRange: '$3,000 - $10,000',
         factors: ['Zones', 'BTUs', 'Line sets', 'Electrical'],
         savings: 'Significant labor savings for DIY-eligible installs'
-      },
-      {
-        title: 'Boiler Installation Cost',
-        href: '/boiler-installation-cost',
-        priceRange: '$3,500 - $8,000',
-        factors: ['Type', 'Efficiency', 'Piping', 'Controls'],
-        savings: 'Higher-efficiency options available'
       },
       {
         title: 'Ductwork Installation Cost',
@@ -66,27 +52,6 @@ const costCategories = {
     icon: <DollarSign className="w-6 h-6 text-green-600" />,
     description: 'Common repair pricing and diagnostic fees',
     guides: [
-      {
-        title: 'AC Repair Cost Guide',
-        href: '/ac-repair-costs',
-        priceRange: '$150 - $1,200',
-        commonRepairs: ['Capacitor', 'Compressor', 'Refrigerant', 'Fan motor'],
-        avgCost: '$450'
-      },
-      {
-        title: 'Furnace Repair Cost Guide',
-        href: '/furnace-repair-costs',
-        priceRange: '$100 - $1,500',
-        commonRepairs: ['Ignitor', 'Blower motor', 'Heat exchanger', 'Control board'],
-        avgCost: '$350'
-      },
-      {
-        title: 'Heat Pump Repair Costs',
-        href: '/heat-pump-repair-costs',
-        priceRange: '$150 - $1,500',
-        commonRepairs: ['Reversing valve', 'Defrost board', 'Compressor', 'Coils'],
-        avgCost: '$500'
-      },
       {
         title: 'Emergency Repair Pricing',
         href: '/hvac-maintenance-cost',
@@ -106,20 +71,6 @@ const costCategories = {
         priceRange: '$150 - $500/year',
         includes: ['Spring AC tune-up', 'Fall heating check', 'Filter changes', 'Priority service'],
         savings: 'Catches issues before they become failures'
-      },
-      {
-        title: 'AC Tune-Up Cost',
-        href: '/ac-tune-up-cost',
-        priceRange: '$75 - $200',
-        includes: ['Cleaning', 'Inspection', 'Refrigerant check', 'Electrical test'],
-        savings: 'Restores efficiency lost to dirt and wear'
-      },
-      {
-        title: 'Furnace Tune-Up Cost',
-        href: '/furnace-tune-up-cost',
-        priceRange: '$80 - $200',
-        includes: ['Safety check', 'Cleaning', 'Calibration', 'Carbon monoxide test'],
-        savings: 'Extends operating life'
       },
       {
         title: 'Service Contract Comparison',
