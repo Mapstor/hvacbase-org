@@ -21,7 +21,7 @@ const howToCategories = {
     guides: [
       {
         title: 'How to Change Your HVAC Filter',
-        href: '/maintenance/how-to-change-hvac-filter',
+        href: '/how-often-change-hvac-filter',
         time: '5 min',
         difficulty: 'Easy',
         savings: 'Extends system life, protects efficiency',
@@ -29,66 +29,11 @@ const howToCategories = {
       },
       {
         title: 'How to Clean AC Coils',
-        href: '/maintenance/how-to-clean-ac-coils',
+        href: '/how-to-clean-ac-coils',
         time: '30 min',
         difficulty: 'Medium',
         savings: 'Restores cooling capacity',
         preview: 'Safely clean your AC coils to improve cooling efficiency'
-      },
-      {
-        title: 'How to Clean Air Vents and Registers',
-        href: '/maintenance/how-to-clean-air-vents',
-        time: '45 min',
-        difficulty: 'Easy',
-        savings: 'Improve airflow',
-        preview: 'Remove dust and debris from vents for better air circulation'
-      },
-      {
-        title: 'How to Test Your Thermostat',
-        href: '/thermostats/how-to-test-thermostat',
-        time: '15 min',
-        difficulty: 'Easy',
-        savings: 'Diagnose issues',
-        preview: 'Simple tests to check if your thermostat is working properly'
-      }
-    ]
-  },
-  'Thermostat Installation': {
-    icon: '📱',
-    description: 'Install and program thermostats for optimal comfort and savings',
-    difficulty: 'Intermediate',
-    guides: [
-      {
-        title: 'How to Install a Smart Thermostat',
-        href: '/thermostats/how-to-install-smart-thermostat',
-        time: '60 min',
-        difficulty: 'Medium',
-        savings: 'Enables scheduling and remote control',
-        preview: 'Complete installation guide for Nest, Ecobee, and other smart thermostats'
-      },
-      {
-        title: 'How to Wire a Thermostat (C-Wire Guide)',
-        href: '/thermostats/how-to-wire-thermostat',
-        time: '45 min',
-        difficulty: 'Advanced',
-        savings: 'Enable smart features',
-        preview: 'Understanding thermostat wiring and adding a C-wire'
-      },
-      {
-        title: 'How to Program Your Thermostat',
-        href: '/thermostats/how-to-program-thermostat',
-        time: '20 min',
-        difficulty: 'Easy',
-        savings: 'Aligns runtime with occupancy',
-        preview: 'Optimize temperature schedules for comfort and efficiency'
-      },
-      {
-        title: 'How to Calibrate Your Thermostat',
-        href: '/thermostats/how-to-calibrate-thermostat',
-        time: '15 min',
-        difficulty: 'Easy',
-        savings: 'Improve accuracy',
-        preview: 'Ensure your thermostat reads the correct temperature'
       }
     ]
   },
@@ -106,24 +51,8 @@ const howToCategories = {
         preview: 'Troubleshoot and fix common cooling problems'
       },
       {
-        title: 'How to Fix Furnace Not Heating',
-        href: '/furnace-not-heating',
-        time: '45 min',
-        difficulty: 'Medium',
-        savings: 'Restores heat without a service call',
-        preview: 'Step-by-step furnace troubleshooting guide'
-      },
-      {
-        title: 'How to Fix Frozen AC Unit',
-        href: '/how-to-fix-frozen-ac',
-        time: '2-4 hours',
-        difficulty: 'Medium',
-        savings: 'Restores airflow, prevents coil damage',
-        preview: 'Safely thaw and prevent AC freezing issues'
-      },
-      {
         title: 'How to Stop HVAC Noises',
-        href: '/troubleshooting/how-to-fix-hvac-noises',
+        href: '/how-to-reduce-hvac-noise',
         time: '30 min',
         difficulty: 'Easy-Medium',
         savings: 'Identifies fixable noise sources',
@@ -144,30 +73,6 @@ const howToCategories = {
         savings: 'Reduces conditioned-air loss',
         preview: 'Seal duct leaks to prevent energy waste'
       },
-      {
-        title: 'How to Insulate HVAC Lines',
-        href: '/insulation/how-to-insulate-hvac-lines',
-        time: '1 hour',
-        difficulty: 'Easy',
-        savings: 'Reduces heat loss on line sets',
-        preview: 'Properly insulate refrigerant and duct lines'
-      },
-      {
-        title: 'How to Zone Your HVAC System',
-        href: '/zoning/how-to-zone-hvac',
-        time: '4-6 hours',
-        difficulty: 'Advanced',
-        savings: 'Aligns comfort with occupied areas',
-        preview: 'Create heating and cooling zones for efficiency'
-      },
-      {
-        title: 'How to Optimize Airflow',
-        href: '/airflow/how-to-optimize-airflow',
-        time: '1 hour',
-        difficulty: 'Easy',
-        savings: 'Balances temperature across rooms',
-        preview: 'Balance airflow for even temperatures'
-      }
     ]
   },
   'Seasonal Preparation': {
@@ -175,30 +80,6 @@ const howToCategories = {
     description: 'Prepare your HVAC system for seasonal changes',
     difficulty: 'Beginner',
     guides: [
-      {
-        title: 'How to Winterize Your AC',
-        href: '/maintenance/how-to-winterize-ac',
-        time: '45 min',
-        difficulty: 'Easy',
-        savings: 'Prevent damage',
-        preview: 'Protect your AC unit during winter months'
-      },
-      {
-        title: 'How to Prepare Furnace for Winter',
-        href: '/prepare-furnace-for-winter',
-        time: '1 hour',
-        difficulty: 'Easy',
-        savings: 'Ensure reliability',
-        preview: 'Get your furnace ready for heating season'
-      },
-      {
-        title: 'How to Start Up AC for Summer',
-        href: '/ac-summer-startup',
-        time: '30 min',
-        difficulty: 'Easy',
-        savings: 'Prevent breakdowns',
-        preview: 'Safely start your AC after winter'
-      },
       {
         title: 'How to Maintain Heat Pump Year-Round',
         href: '/heat-pumps/year-round-maintenance',
@@ -216,35 +97,11 @@ const howToCategories = {
     guides: [
       {
         title: 'How to Install a Mini Split',
-        href: '/diy-mini-split-installation',
+        href: '/best-diy-mini-splits',
         time: '6-8 hours',
         difficulty: 'Advanced',
         savings: 'Substantial labor savings for DIY-eligible installs',
         preview: 'Complete mini split installation guide (where legal)'
-      },
-      {
-        title: 'How to Replace Capacitor',
-        href: '/repairs/how-to-replace-capacitor',
-        time: '30 min',
-        difficulty: 'Advanced',
-        savings: 'Avoids a service call for a common failure',
-        preview: 'Safely replace AC or furnace capacitors'
-      },
-      {
-        title: 'How to Install UV Light System',
-        href: '/air-quality/install-uv-light',
-        time: '2-3 hours',
-        difficulty: 'Advanced',
-        savings: 'Adds coil-surface disinfection',
-        preview: 'Add UV purification to your HVAC system'
-      },
-      {
-        title: 'How to Add Humidifier to Furnace',
-        href: '/humidifiers/install-whole-house-humidifier',
-        time: '3-4 hours',
-        difficulty: 'Advanced',
-        savings: 'Improves winter comfort in dry climates',
-        preview: 'Install whole-house humidification system'
       }
     ]
   }
@@ -257,13 +114,6 @@ const popularGuides = [
     href: '/ac-troubleshooting-guide',
     stats: { views: '125K', rating: 4.9, time: '30 min' },
     badge: 'Most Popular'
-  },
-  {
-    title: 'Smart Thermostat Installation Guide',
-    description: 'Step-by-step instructions for installing any smart thermostat',
-    href: '/thermostats/how-to-install-smart-thermostat',
-    stats: { views: '89K', rating: 4.8, time: '60 min' },
-    badge: 'Trending'
   },
   {
     title: 'Fix Your AC in 10 Steps',
