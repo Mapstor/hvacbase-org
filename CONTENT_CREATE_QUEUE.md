@@ -1,0 +1,74 @@
+# Content Create Queue — Batch 1
+
+> **Human-planned backlog, NOT an action queue.** These 57 unique topics were referenced by broken hub tiles that have now been hidden (grid tiles removed) per `AUDIT_BATCH1_PREVIEW.md`. Do not batch-generate. Each entry is a candidate for future MDX authoring — prioritise by search intent, cluster fit, and editorial capacity. Shipping stubs violates Google Search Essentials (thin content) and Marko's portfolio quality bar.
+
+Source: `AUDIT_BATCH1_PREVIEW.md` (class-b CREATE rows, 58 edges → 57 unique topics; `how-to-install-smart-thermostat` and `furnace-not-heating` each appeared twice).
+
+Format: `topic | hub that wanted it | suggested slug (from broken href)`
+
+| Topic | Hub | Suggested slug |
+|---|---|---|
+| AC freezing up (ice on coils, low refrigerant, airflow restriction) | troubleshooting | ac-freezing-up |
+| AC short cycling (oversized unit, thermostat, refrigerant leak) | troubleshooting | ac-short-cycling |
+| AC won't turn on (power, capacitor, control board) | troubleshooting | ac-wont-turn-on |
+| Furnace not heating (pilot, ignitor, gas valve) | troubleshooting + how-to | furnace-not-heating |
+| Furnace short cycling (dirty filter, oversized furnace) | troubleshooting | furnace-short-cycling |
+| Heat pump not heating (defrost, reversing valve, refrigerant) | troubleshooting | heat-pump-not-heating |
+| Uneven heating between rooms (ducts, insulation, sizing) | troubleshooting | uneven-heating |
+| Banging / clanking HVAC noises | troubleshooting | banging-noises |
+| Squealing / screeching HVAC noises | troubleshooting | squealing-noises |
+| Clicking / ticking HVAC noises | troubleshooting | clicking-noises |
+| Humming / buzzing HVAC noises | troubleshooting | humming-noises |
+| AC water leak (clogged drain, frozen coils, pan damage) | troubleshooting | ac-water-leak |
+| High indoor humidity (oversized AC, poor ventilation) | troubleshooting | high-humidity |
+| Frozen condensate line (cold weather, insulation, pitch) | troubleshooting | frozen-condensate |
+| HVAC system won't turn off (stuck thermostat, relay, control board) | troubleshooting | hvac-wont-turn-off |
+| Intermittent HVAC operation (loose connections, failing components) | troubleshooting | intermittent-hvac-operation |
+| Weak HVAC airflow (dirty filter, duct leaks, blower) | troubleshooting | weak-airflow |
+| No air from vents (blower, duct blockage, damper) | troubleshooting | no-air-from-vents |
+| Hot/cold spots in the home (duct design, insulation, balance) | troubleshooting | hot-cold-spots |
+| Dusty or smelly air from vents (dirty ducts, mold, filter) | troubleshooting | dusty-smelly-air |
+| HVAC error code database (brand-indexed lookup) | troubleshooting | hvac-error-code-database |
+| Interactive HVAC troubleshooting flowchart | troubleshooting | hvac-troubleshooting-flowchart |
+| HVAC repair cost estimator tool | troubleshooting | hvac-repair-cost-estimator |
+| Best boilers (brand rankings) | buying-guides | best-boilers |
+| Best whole-house air purifiers | buying-guides | best-whole-house-air-purifiers |
+| Best whole-house humidifiers | buying-guides | best-whole-house-humidifiers |
+| Zone-control HVAC systems (buying guide) | buying-guides | zone-control-systems |
+| Lennox vs Goodman comparison | buying-guides | lennox-vs-goodman |
+| Best budget HVAC brands | buying-guides | best-budget-hvac-brands |
+| DIY vs professional HVAC install decision guide | buying-guides | diy-vs-professional-hvac |
+| HVAC financing options guide | buying-guides | hvac-financing-options |
+| How to choose an HVAC contractor | buying-guides | how-to-choose-hvac-contractor |
+| How to test your thermostat | how-to | how-to-test-thermostat |
+| How to install a smart thermostat (Nest/Ecobee/etc.) | how-to (used twice) | how-to-install-smart-thermostat |
+| How to wire a thermostat (C-wire guide) | how-to | how-to-wire-thermostat |
+| How to program your thermostat | how-to | how-to-program-thermostat |
+| How to calibrate your thermostat | how-to | how-to-calibrate-thermostat |
+| How to fix frozen AC unit | how-to | how-to-fix-frozen-ac |
+| How to insulate HVAC refrigerant/duct lines | how-to | how-to-insulate-hvac-lines |
+| How to zone your HVAC system | how-to | how-to-zone-hvac |
+| How to optimize HVAC airflow | how-to | how-to-optimize-airflow |
+| How to winterize your AC | how-to | how-to-winterize-ac |
+| How to prepare furnace for winter | how-to | prepare-furnace-for-winter |
+| How to start up AC for summer | how-to | ac-summer-startup |
+| How to replace an AC/furnace capacitor | how-to | how-to-replace-capacitor |
+| How to install a UV light HVAC system | how-to | how-to-install-uv-light |
+| How to install a whole-house humidifier | how-to | how-to-install-whole-house-humidifier |
+| Heat pump installation cost | cost-guides | heat-pump-installation-cost |
+| Boiler installation cost | cost-guides | boiler-installation-cost |
+| AC repair costs (breakdown by part) | cost-guides | ac-repair-costs |
+| Furnace repair costs (breakdown by part) | cost-guides | furnace-repair-costs |
+| Heat pump repair costs (breakdown by part) | cost-guides | heat-pump-repair-costs |
+| AC tune-up cost | cost-guides | ac-tune-up-cost |
+| Furnace tune-up cost | cost-guides | furnace-tune-up-cost |
+| Goodman vs Rheem comparison | brand-reviews | goodman-vs-rheem |
+| Lennox vs American Standard comparison | brand-reviews | lennox-vs-american-standard |
+
+Total: 55 unique rows above (some CREATE items collapsed into a single row where the same topic served two hubs — the two "used twice" entries: `furnace-not-heating` and `how-to-install-smart-thermostat`).
+
+## Notes
+
+- Do not commit stubs. Each MDX file must clear the portfolio-page-quality bar (primary-source research, verified data, prose on every number).
+- Several thin-slug troubleshooting topics (e.g., single-symptom noise pages) may be better consolidated into a single canonical `hvac-noise-diagnosis` article with anchors. Consider before authoring 4 separate noise pages.
+- The 3 "diagnostic tool" entries (error code DB, flowchart, repair cost estimator) are calculator/tool builds — different capex than editorial articles. Scope separately.
