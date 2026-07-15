@@ -22,18 +22,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const article = getArticleBySlug(params.slug);
   if (!article) return {};
 
+  const url = `https://www.hvacbase.org/${article.meta.slug}`;
+  const ogImage = `${url}/opengraph-image`;
+
   return {
     title: article.meta.title,
     description: article.meta.description,
     openGraph: {
       title: article.meta.title,
       description: article.meta.description,
+      url,
       type: 'article',
       publishedTime: article.meta.datePublished,
       modifiedTime: article.meta.dateModified || article.meta.datePublished,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: article.meta.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.meta.title,
+      description: article.meta.description,
+      images: [ogImage],
     },
     alternates: {
-      canonical: `https://www.hvacbase.org/${article.meta.slug}`,
+      canonical: url,
     },
   };
 }

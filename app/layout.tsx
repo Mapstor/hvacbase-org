@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     description: 'Expert HVAC guides with 355 articles, 9 interactive calculators, and unbiased recommendations for all your heating and cooling needs.',
     images: [
       {
-        url: '/og-image.svg',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'HVACBase.org - Your Comprehensive HVAC Knowledge Resource',
+        alt: 'HVAC Base — Data-Driven HVAC Guides & Calculators',
       },
     ],
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'HVAC Base — Data-Driven HVAC Guides & Calculators',
     description: 'Expert HVAC guides with interactive calculators and unbiased recommendations.',
-    images: ['/og-image.svg'],
+    images: ['/opengraph-image'],
   },
   icons: {
     icon: [
