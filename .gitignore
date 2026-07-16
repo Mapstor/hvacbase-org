@@ -39,3 +39,6 @@ next-env.d.ts
 
 # accidental build artifacts from wrong-cwd next build
 public/.next/
+
+# per-URL curl status (transient, not source)
+LINK_STATUS.txt
