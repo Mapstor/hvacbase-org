@@ -6,7 +6,7 @@ import ArticleLayout from '@/components/layout/ArticleLayout';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schema';
 import { mdxComponents } from '@/lib/mdx-components';
-import { getClusterRoute } from '@/lib/cluster-mapping';
+import { getClusterRoute, getClusterDisplayName } from '@/lib/cluster-mapping';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -55,11 +55,12 @@ export default function ArticlePage({ params }: PageProps) {
 
   const related = getRelatedArticles(params.slug, 4);
   const clusterRoute = getClusterRoute(article.meta.cluster);
+  const clusterName = getClusterDisplayName(article.meta.cluster);
   const schemas = [
     generateArticleSchema(article.meta),
     generateBreadcrumbSchema([
       { name: 'Home', url: '/' },
-      { name: clusterRoute.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '), url: `/${clusterRoute}` },
+      { name: clusterName, url: `/${clusterRoute}` },
       { name: article.meta.title, url: `/${article.meta.slug}` },
     ]),
   ];
