@@ -98,6 +98,19 @@ Deferred pending future enumeration of a "Noise Problems" panel in `troubleshoot
 
 ---
 
+## Batch 3 pre-review — brand-review tile queue (2026-07-16)
+
+Two brand tiles on `/brand-reviews` were unlinked during pre-Raptive-review broken-link fix (commit for Blocker 1). These brands aren't currently covered in any best-of ranking (best-central-ac-brands, best-hvac-brands-ranked, mini-split-brands-ranked), so the "Full Review" tile CTA had no honest destination.
+
+| Brand | Category | Current status | Options |
+|---|---|---|---|
+| McQuay | Commercial | Tile shows brand card without any link | (a) write single-brand review, (b) add to best-hvac-brands-ranked and link tile there, (c) delete the tile |
+| Nordyne | Commercial | Tile shows brand card without any link | Same three options |
+
+Do NOT commit stubs. Each brand review needs primary-source warranty verification, real dealer-network research, and honest strengths/weaknesses assessment.
+
+---
+
 ## Batch 1 STEP A Finalize — additions (2026-07-13)
 
 Result of the STEP A candidate scan. Two candidates enumerated into troubleshooting Heating Problems panel (`cracked-heat-exchanger`, `furnace-blowing-cold-air`). Remaining candidates parked below.

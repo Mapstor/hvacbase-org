@@ -27,6 +27,9 @@ export const metadata: Metadata = {
 // equipment, so any "4.7/5 stars" precision would be fabricated. The
 // qualitative pros/cons + verifiable warranty terms below are the honest
 // substance.
+// Per-brand `href` points to the best-of article that covers that brand. Where
+// no such article exists (McQuay, Nordyne), href is null → tile renders without
+// a link (queued to CONTENT_CREATE_QUEUE.md pending real single-brand review).
 const brandCategories = {
   'Premium Brands': {
     icon: <Award className="w-6 h-6 text-gold-600" />,
@@ -34,6 +37,7 @@ const brandCategories = {
     brands: [
       {
         name: 'American Standard',
+        href: '/best-central-ac-brands',
         strengths: ['Reliability', 'Value', 'Wide availability'],
         weaknesses: ['Limited features', 'Average efficiency'],
         warranty: '10 years parts',
@@ -41,6 +45,7 @@ const brandCategories = {
       },
       {
         name: 'Carrier',
+        href: '/best-central-ac-brands',
         strengths: ['Reliability', 'Innovation', 'Dealer network'],
         weaknesses: ['Premium pricing', 'Complex controls'],
         warranty: '10 years parts',
@@ -48,6 +53,7 @@ const brandCategories = {
       },
       {
         name: 'Lennox',
+        href: '/best-central-ac-brands',
         strengths: ['Efficiency', 'Quiet operation', 'Innovation'],
         weaknesses: ['Expensive parts', 'Dealer dependence'],
         warranty: '10 years',
@@ -55,6 +61,7 @@ const brandCategories = {
       },
       {
         name: 'Trane',
+        href: '/best-central-ac-brands',
         strengths: ['Durability', 'Commercial grade', 'Service network'],
         weaknesses: ['Higher cost', 'Loud operation'],
         warranty: '10-12 years',
@@ -68,6 +75,7 @@ const brandCategories = {
     brands: [
       {
         name: 'Amana',
+        href: '/best-central-ac-brands',
         strengths: ['Budget friendly', 'Reliability', 'Lifetime warranty'],
         weaknesses: ['Limited efficiency', 'Fewer features'],
         warranty: 'Lifetime heat exchanger',
@@ -75,6 +83,7 @@ const brandCategories = {
       },
       {
         name: 'Goodman',
+        href: '/best-central-ac-brands',
         strengths: ['Affordability', 'Parts availability', 'Simple design'],
         weaknesses: ['Shorter lifespan', 'Basic features'],
         warranty: '10 years parts',
@@ -82,6 +91,7 @@ const brandCategories = {
       },
       {
         name: 'Rheem',
+        href: '/best-central-ac-brands',
         strengths: ['Reliability', 'Good warranty', 'Wide range'],
         weaknesses: ['Inconsistent quality', 'Service issues'],
         warranty: '10 years parts',
@@ -89,6 +99,7 @@ const brandCategories = {
       },
       {
         name: 'Ruud',
+        href: '/best-central-ac-brands',
         strengths: ['Value pricing', 'Solid performance', 'Easy service'],
         weaknesses: ['Average efficiency', 'Limited dealers'],
         warranty: '10 years',
@@ -102,6 +113,7 @@ const brandCategories = {
     brands: [
       {
         name: 'Daikin',
+        href: '/mini-split-brands-ranked',
         strengths: ['Innovation', 'Efficiency', 'Global presence'],
         weaknesses: ['Price premium', 'Complex systems'],
         warranty: '12 years',
@@ -109,6 +121,7 @@ const brandCategories = {
       },
       {
         name: 'Fujitsu',
+        href: '/mini-split-brands-ranked',
         strengths: ['Efficiency', 'Compact design', 'Quiet'],
         weaknesses: ['Limited availability', 'Higher cost'],
         warranty: '12 years',
@@ -116,6 +129,7 @@ const brandCategories = {
       },
       {
         name: 'LG',
+        href: '/mini-split-brands-ranked',
         strengths: ['Modern features', 'Efficiency', 'Design'],
         weaknesses: ['Service network', 'Reliability questions'],
         warranty: '10 years',
@@ -123,6 +137,7 @@ const brandCategories = {
       },
       {
         name: 'Mitsubishi Electric',
+        href: '/mini-split-brands-ranked',
         strengths: ['Efficiency', 'Quiet operation', 'Reliability'],
         weaknesses: ['Premium pricing', 'Limited dealers'],
         warranty: '12 years',
@@ -136,6 +151,7 @@ const brandCategories = {
     brands: [
       {
         name: 'McQuay',
+        href: null,
         strengths: ['Commercial expertise', 'Reliability', 'Custom solutions'],
         weaknesses: ['Limited residential', 'Complex systems'],
         warranty: '5-10 years',
@@ -143,6 +159,7 @@ const brandCategories = {
       },
       {
         name: 'Nordyne',
+        href: null,
         strengths: ['Value pricing', 'Multiple brands', 'Availability'],
         weaknesses: ['Quality inconsistent', 'Limited features'],
         warranty: '10 years',
@@ -150,6 +167,7 @@ const brandCategories = {
       },
       {
         name: 'York',
+        href: '/best-central-ac-brands',
         strengths: ['Commercial focus', 'Durability', 'Service'],
         weaknesses: ['Residential limited', 'Higher cost'],
         warranty: '5-10 years',
@@ -230,9 +248,13 @@ export default function BrandReviewsPage() {
                       <div className="p-5">
                         <div className="flex items-center justify-between mb-3">
                           <h4 className="text-lg font-semibold text-gray-900">
-                            <Link href={`/brand-reviews/${brand.name.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-blue-600">
-                              {brand.name}
-                            </Link>
+                            {brand.href ? (
+                              <Link href={brand.href} className="hover:text-blue-600">
+                                {brand.name}
+                              </Link>
+                            ) : (
+                              <span>{brand.name}</span>
+                            )}
                           </h4>
                           <span className="text-2xl font-bold text-gray-600">
                             {brand.priceRange}
@@ -265,13 +287,15 @@ export default function BrandReviewsPage() {
                           <strong>Warranty:</strong> {brand.warranty}
                         </div>
 
-                        <Link
-                          href={`/brand-reviews/${brand.name.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="inline-flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium"
-                        >
-                          Full Review
-                          <ChevronRight className="ml-1 w-3 h-3" />
-                        </Link>
+                        {brand.href && (
+                          <Link
+                            href={brand.href}
+                            className="inline-flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium"
+                          >
+                            Read More
+                            <ChevronRight className="ml-1 w-3 h-3" />
+                          </Link>
+                        )}
                       </div>
                     </Card>
                   ))}

@@ -103,26 +103,32 @@ export function getArticleBySlug(slug: string): Article | null {
 
 export function getAllArticles(): Article[] {
   const files = getAllMdxFiles(contentDir);
-  return files.map((file) => {
-    const raw = fs.readFileSync(file, 'utf8');
-    const { data, content } = matter(raw);
-    
-    // Remove import statements and first H1 from content
-    let cleanContent = content
-      .replace(/^import\s+{[^}]+}\s+from\s+['"][^'"]+['"]\s*\n*/gm, '')
-      .replace(/^#\s+.+$/m, ''); // Remove first H1
-    
-    const stats = readingTime(cleanContent);
-    return {
-      meta: {
-        ...data,
-        dateModified: data.dateModified || data.dateUpdated || data.datePublished,
-        readingTime: stats.text,
-      } as ArticleMeta,
-      content: cleanContent,
-      rawContent: raw,
-    };
-  });
+  return files
+    .map((file) => {
+      const raw = fs.readFileSync(file, 'utf8');
+      const { data, content } = matter(raw);
+
+      // Remove import statements and first H1 from content
+      let cleanContent = content
+        .replace(/^import\s+{[^}]+}\s+from\s+['"][^'"]+['"]\s*\n*/gm, '')
+        .replace(/^#\s+.+$/m, ''); // Remove first H1
+
+      const stats = readingTime(cleanContent);
+      return {
+        meta: {
+          ...data,
+          dateModified: data.dateModified || data.dateUpdated || data.datePublished,
+          readingTime: stats.text,
+        } as ArticleMeta,
+        content: cleanContent,
+        rawContent: raw,
+      };
+    })
+    // Guard: skip MDX files without a slug in frontmatter. Prevents /undefined
+    // links, sitemap poisoning, and RSC serialization failures downstream. Any
+    // MDX without a slug is either a WIP orphan (like mini-split-in-cold-climates)
+    // or a broken frontmatter block that needs manual repair.
+    .filter((a) => typeof a.meta.slug === 'string' && a.meta.slug.length > 0);
 }
 
 export function getArticlesByCluster(cluster: string): Article[] {
