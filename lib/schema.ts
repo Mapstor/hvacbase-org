@@ -72,7 +72,7 @@ export function generateArticleSchema(meta: ArticleMeta) {
     '@type': 'Article',
     headline: meta.title,
     description: meta.description,
-    image: meta.featuredImage ? `${SITE_URL}${meta.featuredImage}` : LOGO_URL,
+    image: `${SITE_URL}/${meta.slug}/opengraph-image`,
     author: {
       '@type': 'Person',
       '@id': `${AUTHOR_URL}#marko-visic`,
