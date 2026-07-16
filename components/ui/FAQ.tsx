@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import Script from 'next/script';
 
 interface FAQItem {
   question: string;
@@ -36,8 +35,7 @@ export default function FAQ({ items = [], title = 'Frequently Asked Questions' }
 
   return (
     <section className="my-10">
-      <Script
-        id="faq-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
