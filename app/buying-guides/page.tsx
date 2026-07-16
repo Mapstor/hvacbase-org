@@ -6,11 +6,20 @@ import { ChevronRight, Star, TrendingUp, DollarSign, Shield, Clock, Award } from
 export const metadata: Metadata = {
   title: 'HVAC Buying Guides: Expert Equipment Selection & Recommendations',
   description: 'Complete HVAC buying guides for air conditioners, furnaces, heat pumps, and more. Professional recommendations, pricing analysis, and brand comparisons to help you choose the right system.',
+  alternates: { canonical: 'https://www.hvacbase.org/buying-guides' },
   openGraph: {
     title: 'HVAC Buying Guides | Equipment Selection & Brand Reviews',
     description: 'Expert HVAC buying guides with detailed reviews, pricing, and recommendations for all heating and cooling equipment.',
+    url: 'https://www.hvacbase.org/buying-guides',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Buying Guides' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC Buying Guides | Equipment Selection & Brand Reviews',
+    description: 'Expert HVAC buying guides with reviews, pricing, and recommendations.',
+    images: ['/opengraph-image'],
+  },
 }
 
 const buyingGuides = {

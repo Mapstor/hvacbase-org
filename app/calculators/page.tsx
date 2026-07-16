@@ -5,11 +5,20 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'HVAC Calculators: Free BTU, Tonnage, Sizing & Cost Calculators',
   description: 'Professional HVAC calculators for BTU sizing, AC tonnage, heat pump sizing, furnace sizing, energy costs, and more. Free tools to size your HVAC system correctly.',
+  alternates: { canonical: 'https://www.hvacbase.org/calculators' },
   openGraph: {
     title: 'Free HVAC Calculators | BTU, Sizing, Cost & Energy Tools',
     description: 'Professional HVAC calculators for system sizing, energy costs, and equipment selection. Size your AC, furnace, heat pump and more.',
+    url: 'https://www.hvacbase.org/calculators',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Calculators' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Free HVAC Calculators | BTU, Sizing, Cost & Energy Tools',
+    description: 'Professional HVAC calculators for system sizing, energy costs, and equipment selection.',
+    images: ['/opengraph-image'],
+  },
 }
 
 // Calculator categories and their tools

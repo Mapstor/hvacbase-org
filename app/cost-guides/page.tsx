@@ -6,11 +6,20 @@ import { ChevronRight, DollarSign, TrendingUp, Calculator, PiggyBank, CreditCard
 export const metadata: Metadata = {
   title: 'HVAC Cost Guide 2026: Installation, Repair & Maintenance Pricing',
   description: 'Complete HVAC cost guide with detailed pricing for installation, repairs, and maintenance. Get accurate estimates, financing options, and money-saving tips.',
+  alternates: { canonical: 'https://www.hvacbase.org/cost-guides' },
   openGraph: {
     title: 'HVAC Cost Guide | Installation & Repair Pricing',
     description: 'Comprehensive pricing guide for all HVAC services. Installation costs, repair estimates, and maintenance pricing.',
+    url: 'https://www.hvacbase.org/cost-guides',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Cost Guide' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC Cost Guide | Installation & Repair Pricing',
+    description: 'Comprehensive pricing guide for all HVAC services.',
+    images: ['/opengraph-image'],
+  },
 }
 
 const costCategories = {

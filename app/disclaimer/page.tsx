@@ -1,5 +1,25 @@
 import Link from 'next/link';
 import { AlertTriangle, Shield, XOctagon, Info, Users, Wrench, DollarSign, Heart, Scale, BookOpen, ExternalLink } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Disclaimer — HVACBase',
+  description: 'Important information about the limitations of HVACBase content and services. Editorial disclaimers, safety warnings, and terms of use.',
+  alternates: { canonical: 'https://www.hvacbase.org/disclaimer' },
+  openGraph: {
+    title: 'Disclaimer — HVACBase',
+    description: 'Important information about the limitations of HVACBase content and services.',
+    url: 'https://www.hvacbase.org/disclaimer',
+    type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Disclaimer' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Disclaimer — HVACBase',
+    description: 'Important information about the limitations of HVACBase content and services.',
+    images: ['/opengraph-image'],
+  },
+};
 
 export default function Disclaimer() {
   const lastUpdated = 'February 12, 2026';

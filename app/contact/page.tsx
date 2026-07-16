@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: 'Contact HVACBase',
   description:
     'Contact HVACBase: email info@hvacbase.org. Published by Moving Data Systems d.o.o., Smolnik 62, 2342 Ruše, Slovenia. Author/owner: Marko Visic, BSc Physics.',
+  alternates: { canonical: 'https://www.hvacbase.org/contact' },
+  openGraph: {
+    title: 'Contact HVACBase',
+    description: 'Contact HVACBase: email info@hvacbase.org. Published by Moving Data Systems d.o.o., Slovenia.',
+    url: 'https://www.hvacbase.org/contact',
+    type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Contact HVAC Base' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact HVACBase',
+    description: 'Contact HVACBase: email info@hvacbase.org.',
+    images: ['/opengraph-image'],
+  },
 };
 
 export default function ContactPage() {

@@ -6,11 +6,20 @@ import { ChevronRight, Clock, CheckCircle, AlertCircle, Wrench, BookOpen, Video 
 export const metadata: Metadata = {
   title: 'HVAC How-To Guides: DIY Maintenance, Repairs & Installation Tips',
   description: 'Step-by-step HVAC how-to guides for homeowners. Learn DIY maintenance, simple repairs, troubleshooting, and when to call professionals. Save money with expert tutorials.',
+  alternates: { canonical: 'https://www.hvacbase.org/how-to' },
   openGraph: {
     title: 'HVAC How-To Guides | DIY Maintenance & Repair Tutorials',
     description: 'Professional HVAC how-to guides with step-by-step instructions for maintenance, repairs, and troubleshooting.',
+    url: 'https://www.hvacbase.org/how-to',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC How-To Guides' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC How-To Guides | DIY Maintenance & Repair Tutorials',
+    description: 'Professional HVAC how-to guides with step-by-step instructions.',
+    images: ['/opengraph-image'],
+  },
 }
 
 const howToCategories = {

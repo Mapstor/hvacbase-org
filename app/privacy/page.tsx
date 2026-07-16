@@ -1,5 +1,25 @@
 import Link from 'next/link';
 import { Shield, Lock, Eye, Database, Mail, Globe, FileText, Users, AlertCircle, CheckCircle } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy — HVACBase',
+  description: 'How HVACBase collects, uses, and protects your data. Analytics, cookies, GDPR/CCPA rights, and data-retention policy.',
+  alternates: { canonical: 'https://www.hvacbase.org/privacy' },
+  openGraph: {
+    title: 'Privacy Policy — HVACBase',
+    description: 'How HVACBase collects, uses, and protects your data.',
+    url: 'https://www.hvacbase.org/privacy',
+    type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Privacy Policy' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy — HVACBase',
+    description: 'How HVACBase collects, uses, and protects your data.',
+    images: ['/opengraph-image'],
+  },
+};
 
 export default function PrivacyPolicy() {
   const lastUpdated = 'February 12, 2026';

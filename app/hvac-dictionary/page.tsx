@@ -6,11 +6,20 @@ import { Search, BookOpen, ChevronRight } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'HVAC Dictionary: Complete Glossary of Terms & Definitions',
   description: 'Comprehensive HVAC dictionary with 500+ terms, acronyms, and technical definitions. Learn heating, cooling, and ventilation terminology explained in simple language.',
+  alternates: { canonical: 'https://www.hvacbase.org/hvac-dictionary' },
   openGraph: {
     title: 'HVAC Dictionary | Complete Glossary of Terms',
     description: 'Master HVAC terminology with our comprehensive dictionary. 500+ terms explained clearly.',
+    url: 'https://www.hvacbase.org/hvac-dictionary',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Dictionary' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC Dictionary | Complete Glossary of Terms',
+    description: 'Master HVAC terminology with 500+ terms explained clearly.',
+    images: ['/opengraph-image'],
+  },
 }
 
 const hvacTerms = {

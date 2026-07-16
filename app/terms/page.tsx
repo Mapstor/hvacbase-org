@@ -1,5 +1,25 @@
 import Link from 'next/link';
 import { FileText, AlertTriangle, Scale, Shield, Ban, Globe, Users, CheckCircle, XCircle, Info } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service — HVACBase',
+  description: 'HVACBase terms of service: acceptable use, limitations of liability, intellectual property, and governing law.',
+  alternates: { canonical: 'https://www.hvacbase.org/terms' },
+  openGraph: {
+    title: 'Terms of Service — HVACBase',
+    description: 'HVACBase terms of service, acceptable use, and limitations of liability.',
+    url: 'https://www.hvacbase.org/terms',
+    type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Terms of Service' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service — HVACBase',
+    description: 'HVACBase terms of service, acceptable use, and limitations of liability.',
+    images: ['/opengraph-image'],
+  },
+};
 
 export default function TermsOfService() {
   const lastUpdated = 'February 12, 2026';

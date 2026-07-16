@@ -6,11 +6,20 @@ import { ChevronRight, Shield, Award, TrendingUp, Users, CheckCircle, XCircle } 
 export const metadata: Metadata = {
   title: 'HVAC Brand Reviews 2026: Best AC, Furnace & Heat Pump Brands',
   description: 'HVAC brand reviews based on manufacturer-published warranty terms, AHRI-certified efficiency data, and dealer network coverage. Strengths, weaknesses, and warranty details for the top AC, furnace, and heat pump manufacturers.',
+  alternates: { canonical: 'https://www.hvacbase.org/brand-reviews' },
   openGraph: {
     title: 'HVAC Brand Reviews | Top Manufacturer Rankings',
     description: 'HVAC brand reviews based on manufacturer warranty terms, AHRI-certified efficiency data, and dealer network coverage.',
+    url: 'https://www.hvacbase.org/brand-reviews',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Brand Reviews' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC Brand Reviews | Top Manufacturer Rankings',
+    description: 'HVAC brand reviews based on manufacturer warranty terms and AHRI-certified data.',
+    images: ['/opengraph-image'],
+  },
 }
 
 // Brand categories listed in alphabetical order within each category. No

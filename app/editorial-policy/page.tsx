@@ -5,6 +5,20 @@ export const metadata: Metadata = {
   title: 'Editorial Policy — HVACBase',
   description:
     'How HVACBase sources specifications (AHRI Directory, ENERGY STAR, manufacturer documentation), the verified-or-omitted rule, what we do not do (no testing lab, no first-person measurements, no affiliate links), and the corrections process.',
+  alternates: { canonical: 'https://www.hvacbase.org/editorial-policy' },
+  openGraph: {
+    title: 'Editorial Policy — HVACBase',
+    description: 'How HVACBase sources specifications, the verified-or-omitted rule, and the corrections process.',
+    url: 'https://www.hvacbase.org/editorial-policy',
+    type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Editorial Policy' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Editorial Policy — HVACBase',
+    description: 'How HVACBase sources specifications, the verified-or-omitted rule, and the corrections process.',
+    images: ['/opengraph-image'],
+  },
 };
 
 export default function EditorialPolicyPage() {

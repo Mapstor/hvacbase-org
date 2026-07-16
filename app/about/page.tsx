@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: 'About HVACBase',
   description:
     'HVACBase is written by Marko Visic, a physicist (BSc, University of Ljubljana) specializing in thermodynamics and heat transfer. The site explains HVAC from first principles, using manufacturer documentation and AHRI-certified specifications. Published by Moving Data Systems d.o.o., Slovenia.',
+  alternates: { canonical: 'https://www.hvacbase.org/about' },
+  openGraph: {
+    title: 'About HVACBase',
+    description: 'HVACBase is written by Marko Visic, a physicist specializing in thermodynamics and heat transfer. Published by Moving Data Systems d.o.o.',
+    url: 'https://www.hvacbase.org/about',
+    type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'About HVAC Base' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About HVACBase',
+    description: 'HVACBase is written by Marko Visic, a physicist specializing in thermodynamics and heat transfer.',
+    images: ['/opengraph-image'],
+  },
 };
 
 export default function AboutPage() {

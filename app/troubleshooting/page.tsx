@@ -6,11 +6,20 @@ import { ChevronRight, AlertTriangle, ThermometerSun, Snowflake, Volume2, Drople
 export const metadata: Metadata = {
   title: 'HVAC Troubleshooting Guide: Fix Common Problems & Save Money',
   description: 'Complete HVAC troubleshooting guide for homeowners. Diagnose and fix common AC, furnace, and heat pump problems. Step-by-step solutions and when to call professionals.',
+  alternates: { canonical: 'https://www.hvacbase.org/troubleshooting' },
   openGraph: {
     title: 'HVAC Troubleshooting Guide | Fix Common Problems',
     description: 'Expert troubleshooting guides for all HVAC problems. Step-by-step diagnosis and repair instructions.',
+    url: 'https://www.hvacbase.org/troubleshooting',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Troubleshooting Guide' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC Troubleshooting Guide | Fix Common Problems',
+    description: 'Expert troubleshooting guides for all HVAC problems.',
+    images: ['/opengraph-image'],
+  },
 }
 
 const troubleshootingCategories = {
