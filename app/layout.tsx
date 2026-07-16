@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { generateWebSiteSchema } from '@/lib/schema';
+import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.hvacbase.org'),
@@ -59,7 +59,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const siteSchema = generateWebSiteSchema();
+  const siteGraph = {
+    '@context': 'https://schema.org',
+    '@graph': [generateWebSiteSchema(), generateOrganizationSchema()],
+  };
 
   return (
     <html lang="en">
@@ -78,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteGraph) }}
         />
       </head>
       <body className="font-sans antialiased">

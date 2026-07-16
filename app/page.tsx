@@ -1034,35 +1034,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Schema.org structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "HVAC Base",
-            "url": "https://www.hvacbase.org",
-            "description": "Professional HVAC calculators, sizing guides, and unbiased equipment reviews. 355 articles and 9 calculators based on ACCA Manual J calculations and manufacturer-published data.",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://www.hvacbase.org/search?q={search_term_string}",
-              "query-input": "required name=search_term_string"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "HVAC Base",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.hvacbase.org/logo.png"
-              },
-              "sameAs": [
-                "https://www.hvacbase.org"
-              ]
-            }
-          })
-        }}
-      />
     </div>
   );
 }

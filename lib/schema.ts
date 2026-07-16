@@ -2,7 +2,9 @@ import { ArticleMeta } from './content';
 
 const SITE_URL = 'https://www.hvacbase.org';
 const SITE_NAME = 'HVAC Base';
-const LOGO_URL = `${SITE_URL}/images/logo.png`;
+const LOGO_URL = `${SITE_URL}/logo.png`;
+const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
 
 // Real author/owner. Single named author across the site.
 export const AUTHOR_NAME = 'Marko Visic';
@@ -79,11 +81,7 @@ export function generateArticleSchema(meta: ArticleMeta) {
       image: AUTHOR_IMAGE,
       sameAs: [AUTHOR_LINKEDIN],
     },
-    publisher: {
-      '@type': 'Organization',
-      name: PUBLISHER_NAME,
-      logo: { '@type': 'ImageObject', url: LOGO_URL },
-    },
+    publisher: { '@id': ORGANIZATION_ID },
     datePublished: meta.datePublished,
     dateModified: meta.dateModified,
     mainEntityOfPage: {
@@ -167,12 +165,22 @@ export function generateWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': WEBSITE_ID,
     name: SITE_NAME,
     url: SITE_URL,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_URL}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
+    publisher: { '@id': ORGANIZATION_ID },
+  };
+}
+
+export function generateOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': ORGANIZATION_ID,
+    name: PUBLISHER_NAME,
+    legalName: PUBLISHER_NAME,
+    url: SITE_URL,
+    logo: { '@type': 'ImageObject', url: LOGO_URL, width: 512, height: 512 },
+    address: PUBLISHER_ADDRESS,
   };
 }
