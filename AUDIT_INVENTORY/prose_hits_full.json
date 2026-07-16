@@ -1,0 +1,801 @@
+{
+  "hits": [
+    {
+      "file": "content/ac-sizing-selection/air-conditioner-btu-calculator.mdx",
+      "line": 62,
+      "text": "from ENERGY STAR and the DOE is simple: **20",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "20"
+    },
+    {
+      "file": "content/ac-sizing-selection/furnace-sizing-calculator.mdx",
+      "line": 207,
+      "text": "states (DOE North region) | 95%",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "95%"
+    },
+    {
+      "file": "content/ac-sizing-selection/furnace-sizing-calculator.mdx",
+      "line": 208,
+      "text": "states (DOE South region) | 80%",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "80%"
+    },
+    {
+      "file": "content/ac-sizing-selection/mini-split-sizing-calculator.mdx",
+      "line": 80,
+      "text": "perate down to \u221222\u00b0F depending on the unit: Daikin Aurora to \u221213\u00b0F (AHRI-certified), Fujitsu XLTH to \u221215",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "22"
+    },
+    {
+      "file": "content/ac-sizing-selection/mini-split-sizing-calculator.mdx",
+      "line": 284,
+      "text": "perate down to \u221222\u00b0F depending on the unit: Daikin Aurora -13\u00b0F (AHRI-certified), Fujitsu XLTH -15",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "22"
+    },
+    {
+      "file": "content/ac-sizing-selection/what-size-tankless-water-heater.mdx",
+      "line": 227,
+      "text": "per year** for qualifying ENERGY STAR water heaters, including heat pump water heaters and high-efficiency gas tankless units with UEF \u2265 0.95",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "0.95"
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 56,
+      "text": "According to ACCA data, this accounts for 32%",
+      "class": "named-attributed",
+      "source": "ACCA",
+      "figure": "32%"
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 94,
+      "text": "## Fix #1: Replace Dirty Air Filter (Success Rate: 42%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 140,
+      "text": "## Fix #2: Clean Outdoor Condenser Coils (Success Rate: 28%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 182,
+      "text": "## Fix #3: Check and Adjust Thermostat Settings (Success Rate: 18%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 227,
+      "text": "## Fix #4: Verify and Open All Vents (Success Rate: 15%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 266,
+      "text": "## Fix #5: Clear Refrigerant Line Restrictions (Success Rate: 12%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 308,
+      "text": "## Fix #6: Test and Reset Circuit Breakers (Success Rate: 10%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 356,
+      "text": "## Fix #7: Inspect and Clean Evaporator Coil (Success Rate: 8%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 405,
+      "text": "## Fix #8: Check Refrigerant Levels (Success Rate: 7%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 462,
+      "text": "## Fix #9: Address Frozen Evaporator Coil (Success Rate: 6%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 511,
+      "text": "## Fix #10: Verify Proper System Sizing (Success Rate: 4%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 562,
+      "text": "## Fix #11: Address Ductwork Problems (Success Rate: 3%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 611,
+      "text": "## Fix #12: Compressor and Advanced Electrical Issues (Success Rate: 2%)",
+      "class": "success-rate",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 0,
+      "text": "table col sum=100.0 vals=[60.0, 20.0, 15.0, 3.0, 2.0]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+      "line": 31,
+      "text": "Based on data from the Air Conditioning Contractors of America (ACCA), the problems covered here account for 85%",
+      "class": "named-attributed",
+      "source": "ACCA",
+      "figure": "85%"
+    },
+    {
+      "file": "content/air-conditioners/best-window-air-conditioners.mdx",
+      "line": 0,
+      "text": "table col sum=100.0 vals=[30.0, 25.0, 15.0, 15.0, 15.0]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/window-air-conditioners.mdx",
+      "line": 53,
+      "text": "recommendation from the DOE and ENERGY STAR is 20",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "20"
+    },
+    {
+      "file": "content/air-quality/air-changes-per-hour-calculator.mdx",
+      "line": 85,
+      "text": "perating room\", \"15\", \"20\u201325\", \"ASHRAE 170",
+      "class": "named-attributed",
+      "source": "ASHRAE",
+      "figure": "15"
+    },
+    {
+      "file": "content/air-quality/do-air-purifiers-really-work.mdx",
+      "line": 4,
+      "text": "studies, EPA data, and peer-reviewed field studies show HEPA purifiers reduce allergens 50",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "50"
+    },
+    {
+      "file": "content/dehumidifiers/ideal-indoor-humidity-level.mdx",
+      "line": 32,
+      "text": "according to the EPA and ASHRAE Standard 55",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "55"
+    },
+    {
+      "file": "content/electric-fireplaces/best-pellet-stoves.mdx",
+      "line": 275,
+      "text": "states offer rebates for EPA-certified wood and pellet stoves \u2014 Maine, Vermont, New Hampshire, and Maryland have historically offered $500",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "500"
+    },
+    {
+      "file": "content/electrical/power-consumption-calculator.mdx",
+      "line": 0,
+      "text": "table col sum=100.0 vals=[16.3, 14.8, 13.8, 9.6, 6.8, 5.4, 5.1, 3.2]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/energy-costs/electric-water-heating-cost-by-state.mdx",
+      "line": 0,
+      "text": "table col sum=100.0 vals=[37.0, 25.0, 10.0, 20.0, 8.0]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/energy-costs/energy-costs-guide.mdx",
+      "line": 0,
+      "text": "table col sum=100.0 vals=[29.0, 16.0, 14.0, 10.0, 7.0, 6.0, 4.0, 4.0]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/energy-costs/how-many-kwh-per-day-is-normal.mdx",
+      "line": 0,
+      "text": "table col sum=100.0 vals=[19.0, 16.0, 14.0, 7.0, 10.0, 6.0, 5.0, 4.0]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/energy-efficiency-ratings/15-2-seer2-vs-16-seer.mdx",
+      "line": 176,
+      "text": "study by NIST found that improper refrigerant charge alone can reduce efficiency by 5",
+      "class": "named-attributed",
+      "source": "NIST",
+      "figure": "5"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/16-seer-vs-14-seer.mdx",
+      "line": 255,
+      "text": "states (DOE North region):** Minimum 14.0",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "14.0"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/16-seer-vs-14-seer.mdx",
+      "line": 256,
+      "text": "states (DOE South/Southwest):** Minimum 15.0",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "15.0"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/is-higher-seer-worth-it.mdx",
+      "line": 32,
+      "text": "from baseline to the ENERGY STAR threshold (roughly 14.3",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "14.3"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer-vs-seer2.mdx",
+      "line": 61,
+      "text": "studies by ACCA, ASHRAE, and various utilities consistently found that typical residential duct systems create 0.3",
+      "class": "named-attributed",
+      "source": "ACCA",
+      "figure": "0.3"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer2-rating-explained.mdx",
+      "line": 217,
+      "text": "figure is **SEER** (the legacy 2018 metric, when XC25 first earned ENERGY STAR placement) or **SEER2** (the 2023",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "2018 "
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer2-rating-explained.mdx",
+      "line": 220,
+      "text": "According to ACCA (Air Conditioning Contractors of America), poor installation can reduce a system's actual efficiency by 30%",
+      "class": "named-attributed",
+      "source": "ACCA",
+      "figure": "30%"
+    },
+    {
+      "file": "content/evaporative-coolers/best-evaporative-coolers.mdx",
+      "line": 0,
+      "text": "table col sum=100.7 vals=[16.6, 10.6, 10.3, 7.9, 5.3, 50.0]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/furnaces-heating/furnace-vs-heat-pump.mdx",
+      "line": 287,
+      "text": "per year for qualifying heat pumps meeting ENERGY STAR Most Efficient / CEE Tier 1",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "1"
+    },
+    {
+      "file": "content/furnaces-heating/gas-vs-electric-heating-cost.mdx",
+      "line": 233,
+      "text": "Based on EPA eGRID 2024",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "2024"
+    },
+    {
+      "file": "content/heat-pumps/best-cold-climate-heat-pumps.mdx",
+      "line": 179,
+      "text": "states (EPA amended final rule, effective Jul 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/hvac-brands/best-central-ac-brands.mdx",
+      "line": 185,
+      "text": "figure is **SEER** (the legacy 2018 metric, when the XC25 first earned ENERGY STAR placement) or **SEER2** (the 2023",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "2018 "
+    },
+    {
+      "file": "content/hvac-brands/best-central-ac-brands.mdx",
+      "line": 261,
+      "text": "per the EPA Technology Transitions Rule; new equipment now ships with R-454",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "454"
+    },
+    {
+      "file": "content/hvac-brands/best-central-ac-brands.mdx",
+      "line": 261,
+      "text": "states under the EPA's amended final rule (effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/hvac-brands/best-hvac-brands-ranked.mdx",
+      "line": 0,
+      "text": "table col sum=100.0 vals=[25.0, 20.0, 15.0, 15.0, 10.0, 10.0, 5.0]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/hvac-maintenance/hvac-maintenance-checklist.mdx",
+      "line": 105,
+      "text": "According to ENERGY STAR, the average home loses 20",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "20"
+    },
+    {
+      "file": "content/hvac-noise/hvac-noise-levels-explained.mdx",
+      "line": 254,
+      "text": "according to AHRI Standard 270",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "270"
+    },
+    {
+      "file": "content/indoor-air-quality-testing.mdx",
+      "line": 30,
+      "text": "based on ASHRAE 62.1",
+      "class": "named-attributed",
+      "source": "ASHRAE",
+      "figure": "62.1"
+    },
+    {
+      "file": "content/indoor-air-quality-testing.mdx",
+      "line": 190,
+      "text": "per ASHRAE 62.2",
+      "class": "named-attributed",
+      "source": "ASHRAE",
+      "figure": "62.2"
+    },
+    {
+      "file": "content/indoor-air-quality/indoor-air-quality-guide.mdx",
+      "line": 32,
+      "text": "according to the EPA \u2014 and Americans spend roughly 90%",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "90%"
+    },
+    {
+      "file": "content/indoor-air-quality/whole-house-ventilation-systems.mdx",
+      "line": 277,
+      "text": "calculate your CFM requirement using ASHRAE 62.2",
+      "class": "named-attributed",
+      "source": "ASHRAE",
+      "figure": "62.2"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-diy-mini-splits.mdx",
+      "line": 107,
+      "text": "states (EPA amended final rule, effective Jul 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-mini-split-ac-units.mdx",
+      "line": 49,
+      "text": "states (per the EPA's amended final rule effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-mini-split-ac-units.mdx",
+      "line": 125,
+      "text": "from pre-2025 inventory in most states (per the EPA amended final rule, effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "2025 "
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-mini-split-ac-units.mdx",
+      "line": 138,
+      "text": "figure belongs to the separate C&H Hyper Heat / HPR line (manufacturer-rated, not AHRI-tested), which runs 24",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "24"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-air-conditioners.mdx",
+      "line": 47,
+      "text": "from Daikin (Aurora, -13\u00b0F, AHRI-certified) and Fujitsu (XLTH, -15",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "13"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-brands-ranked.mdx",
+      "line": 50,
+      "text": "states (per the EPA's amended final rule effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-brands-ranked.mdx",
+      "line": 97,
+      "text": "figure | **AHRI Certified Ref# 209832204",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "209832204"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-brands-ranked.mdx",
+      "line": 111,
+      "text": "from pre-2025 inventory in most states (per the EPA amended final rule, effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "2025 "
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-in-cold-climates.mdx",
+      "line": 13,
+      "text": "perate down to -13\u00b0F to -22\u00b0F depending on model** \u2014 Daikin Aurora (-13\u00b0F, AHRI-certified) and Fujitsu XLTH (-15",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "13"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-in-cold-climates.mdx",
+      "line": 13,
+      "text": "per Fujitsu General spec sheet) are AHRI- or manufacturer-verified; deeper -22",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "22"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mrcool-3rd-gen-vs-4th-gen.mdx",
+      "line": 31,
+      "text": "states (EPA amended final rule, effective Jul 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mrcool-3rd-gen-vs-4th-gen.mdx",
+      "line": 89,
+      "text": "states (EPA amended final rule, effective Jul 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mrcool-diy-mini-split-review.mdx",
+      "line": 33,
+      "text": "states (EPA amended final rule, effective Jul 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/portable-air-conditioners/best-portable-air-conditioners.mdx",
+      "line": 294,
+      "text": "Per DOE BTU of cooling, the Midea delivers 11.2",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "11.2"
+    },
+    {
+      "file": "content/portable-air-conditioners/best-portable-air-conditioners.mdx",
+      "line": 0,
+      "text": "table col sum=100.2 vals=[11.2, 10.8, 10.3, 10.1, 9.8, 9.5, 9.8, 10.5]",
+      "class": "sum-100",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/portable-air-conditioners/cheapest-portable-air-conditioners.mdx",
+      "line": 107,
+      "text": "from 6,000 to 8,000 DOE BTU extends room coverage from 200",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "6,000 "
+    },
+    {
+      "file": "content/portable-air-conditioners/portable-ac-vs-window-ac.mdx",
+      "line": 171,
+      "text": "shows same-BTU rated units (10,000 DOE BTU) cooling an identical 300",
+      "class": "named-attributed",
+      "source": "DOE",
+      "figure": "10,000 "
+    },
+    {
+      "file": "content/refrigerants/hvac-refrigerant-phase-out.mdx",
+      "line": 35,
+      "text": "per the EPA's amended final rule, effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/refrigerants/hvac-refrigerant-phase-out.mdx",
+      "line": 138,
+      "text": "per the EPA amended final rule effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/refrigerants/hvac-refrigerant-phase-out.mdx",
+      "line": 315,
+      "text": "states \u2014 still legal to install in 2026 (per the EPA's amended final rule effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "2026 "
+    },
+    {
+      "file": "content/refrigerants/hvac-refrigerant-phase-out.mdx",
+      "line": 344,
+      "text": "from decommissioned systems, purified to AHRI 700",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "700"
+    },
+    {
+      "file": "content/refrigerants/hvac-refrigerant-phase-out.mdx",
+      "line": 444,
+      "text": "from decommissioned systems and purify it to AHRI 700",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "700"
+    },
+    {
+      "file": "content/refrigerants/r410a-vs-r32-refrigerant.mdx",
+      "line": 107,
+      "text": "show R-32 systems achieving 3-5% higher COP compared to R-410A systems at AHRI standard conditions (95",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "32 "
+    },
+    {
+      "file": "content/refrigerants/refrigerant-types-explained.mdx",
+      "line": 88,
+      "text": "from decommissioned systems, purify it to AHRI Standard 700",
+      "class": "named-attributed",
+      "source": "AHRI",
+      "figure": "700"
+    },
+    {
+      "file": "content/refrigerants/refrigerant-types-explained.mdx",
+      "line": 114,
+      "text": "states (per the EPA's amended final rule effective July 27",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "27"
+    },
+    {
+      "file": "content/smart-thermostats/best-smart-thermostats.mdx",
+      "line": 68,
+      "text": "studies, validated by the EPA, show **23%",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "23%"
+    },
+    {
+      "file": "content/smart-thermostats/smart-thermostat-savings.mdx",
+      "line": 31,
+      "text": "from EPA-verified field studies submitted by manufacturers for ENERGY STAR certification, not marketing estimates \u2014 and they translate to a **payback period of 6",
+      "class": "named-attributed",
+      "source": "EPA",
+      "figure": "6"
+    },
+    {
+      "file": "content/tax-credits-rebates/energy-star-tax-credits.mdx",
+      "line": 4,
+      "text": "state rebates, how ENERGY STAR certification affects eligibility in 2026",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "2026"
+    },
+    {
+      "file": "content/tax-credits-rebates/energy-star-tax-credits.mdx",
+      "line": 68,
+      "text": "shows ENERGY STAR certification thresholds in effect for 2026",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "2026"
+    },
+    {
+      "file": "content/water-heaters/heat-pump-water-heater-guide.mdx",
+      "line": 213,
+      "text": "per year, for qualifying HPWHs meeting ENERGY STAR UEF \u2265 2.00",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "2.00"
+    },
+    {
+      "file": "content/water-heaters/heat-pump-water-heater-guide.mdx",
+      "line": 332,
+      "text": "per year, for ENERGY STAR-certified HPWHs with UEF \u2265 2.00",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "2.00"
+    },
+    {
+      "file": "content/water-heaters/water-heater-guide.mdx",
+      "line": 320,
+      "text": "per year for qualifying ENERGY STAR heat pump water heaters expired under the OBBBA (PL 119",
+      "class": "named-attributed",
+      "source": "ENERGY STAR",
+      "figure": "119"
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "line": 0,
+      "text": "desc-heads len=12, first=Fix #1: Replace Dirty Air Filter (Success Rate: 42%)",
+      "class": "desc-heads",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+      "line": 0,
+      "text": "desc-heads len=12, first=1. AC Not Cooling \u2014 Most Common Problem (32% of service call",
+      "class": "desc-heads",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/dehumidifiers/basement-dehumidifier-setting.mdx",
+      "line": 0,
+      "text": "desc-heads len=4, first=The Ideal Setting: 45\u201350% RH",
+      "class": "desc-heads",
+      "source": "",
+      "figure": ""
+    },
+    {
+      "file": "content/smart-thermostats/smart-thermostat-savings.mdx",
+      "line": 0,
+      "text": "desc-heads len=5, first=1. Occupancy-Based Setbacks (5\u20138% savings)",
+      "class": "desc-heads",
+      "source": "",
+      "figure": ""
+    }
+  ],
+  "per_file": {
+    "content/air-conditioners/ac-not-cooling.mdx": 15,
+    "content/refrigerants/hvac-refrigerant-phase-out.mdx": 5,
+    "content/hvac-brands/best-central-ac-brands.mdx": 3,
+    "content/mini-split-air-conditioners/best-mini-split-ac-units.mdx": 3,
+    "content/mini-split-air-conditioners/mini-split-brands-ranked.mdx": 3,
+    "content/ac-sizing-selection/furnace-sizing-calculator.mdx": 2,
+    "content/ac-sizing-selection/mini-split-sizing-calculator.mdx": 2,
+    "content/air-conditioners/ac-troubleshooting-guide.mdx": 2,
+    "content/energy-efficiency-ratings/16-seer-vs-14-seer.mdx": 2,
+    "content/energy-efficiency-ratings/seer2-rating-explained.mdx": 2,
+    "content/indoor-air-quality-testing.mdx": 2,
+    "content/mini-split-air-conditioners/mini-split-in-cold-climates.mdx": 2,
+    "content/mini-split-air-conditioners/mrcool-3rd-gen-vs-4th-gen.mdx": 2,
+    "content/portable-air-conditioners/best-portable-air-conditioners.mdx": 2,
+    "content/refrigerants/refrigerant-types-explained.mdx": 2,
+    "content/smart-thermostats/smart-thermostat-savings.mdx": 2,
+    "content/tax-credits-rebates/energy-star-tax-credits.mdx": 2,
+    "content/water-heaters/heat-pump-water-heater-guide.mdx": 2,
+    "content/ac-sizing-selection/air-conditioner-btu-calculator.mdx": 1,
+    "content/ac-sizing-selection/what-size-tankless-water-heater.mdx": 1,
+    "content/air-conditioners/best-window-air-conditioners.mdx": 1,
+    "content/air-conditioners/window-air-conditioners.mdx": 1,
+    "content/air-quality/air-changes-per-hour-calculator.mdx": 1,
+    "content/air-quality/do-air-purifiers-really-work.mdx": 1,
+    "content/dehumidifiers/ideal-indoor-humidity-level.mdx": 1,
+    "content/electric-fireplaces/best-pellet-stoves.mdx": 1,
+    "content/electrical/power-consumption-calculator.mdx": 1,
+    "content/energy-costs/electric-water-heating-cost-by-state.mdx": 1,
+    "content/energy-costs/energy-costs-guide.mdx": 1,
+    "content/energy-costs/how-many-kwh-per-day-is-normal.mdx": 1,
+    "content/energy-efficiency-ratings/15-2-seer2-vs-16-seer.mdx": 1,
+    "content/energy-efficiency-ratings/is-higher-seer-worth-it.mdx": 1,
+    "content/energy-efficiency-ratings/seer-vs-seer2.mdx": 1,
+    "content/evaporative-coolers/best-evaporative-coolers.mdx": 1,
+    "content/furnaces-heating/furnace-vs-heat-pump.mdx": 1,
+    "content/furnaces-heating/gas-vs-electric-heating-cost.mdx": 1,
+    "content/heat-pumps/best-cold-climate-heat-pumps.mdx": 1,
+    "content/hvac-brands/best-hvac-brands-ranked.mdx": 1,
+    "content/hvac-maintenance/hvac-maintenance-checklist.mdx": 1,
+    "content/hvac-noise/hvac-noise-levels-explained.mdx": 1,
+    "content/indoor-air-quality/indoor-air-quality-guide.mdx": 1,
+    "content/indoor-air-quality/whole-house-ventilation-systems.mdx": 1,
+    "content/mini-split-air-conditioners/best-diy-mini-splits.mdx": 1,
+    "content/mini-split-air-conditioners/mini-split-air-conditioners.mdx": 1,
+    "content/mini-split-air-conditioners/mrcool-diy-mini-split-review.mdx": 1,
+    "content/portable-air-conditioners/cheapest-portable-air-conditioners.mdx": 1,
+    "content/portable-air-conditioners/portable-ac-vs-window-ac.mdx": 1,
+    "content/refrigerants/r410a-vs-r32-refrigerant.mdx": 1,
+    "content/smart-thermostats/best-smart-thermostats.mdx": 1,
+    "content/water-heaters/water-heater-guide.mdx": 1,
+    "content/dehumidifiers/basement-dehumidifier-setting.mdx": 1
+  },
+  "per_class": {
+    "named-attributed": 63,
+    "success-rate": 12,
+    "sum-100": 9,
+    "desc-heads": 4
+  },
+  "bare_percent_file_counts": {
+    "content/energy-efficiency-ratings/afue-rating-explained.mdx": 128,
+    "content/dehumidifiers/basement-dehumidifier-setting.mdx": 111,
+    "content/dehumidifiers/ideal-indoor-humidity-level.mdx": 110,
+    "content/air-quality/hepa-filter-explained.mdx": 101,
+    "content/water-heaters/electric-water-heating-cost.mdx": 89,
+    "content/furnaces-heating/furnace-efficiency-explained.mdx": 86,
+    "content/furnaces-heating/best-gas-furnace-brands.mdx": 81,
+    "content/dehumidifiers/how-does-humidity-affect-temperature.mdx": 65,
+    "content/furnaces-heating/furnace-guide.mdx": 62,
+    "content/smart-thermostats/smart-thermostat-savings.mdx": 61,
+    "content/ductwork/duct-leakage-testing.mdx": 54,
+    "content/refrigerants/hvac-refrigerant-phase-out.mdx": 54,
+    "content/electric-fireplaces/best-pellet-stoves.mdx": 53,
+    "content/refrigerants/r410a-vs-r32-refrigerant.mdx": 53,
+    "content/generators/how-long-generator-on-5-gallons.mdx": 51,
+    "content/furnaces-heating/furnace-installation-cost.mdx": 49,
+    "content/energy-efficiency-ratings/is-higher-seer-worth-it.mdx": 48,
+    "content/furnaces-heating/gas-vs-electric-heating-cost.mdx": 47,
+    "content/dehumidifiers/dehumidifier-guide.mdx": 46,
+    "content/refrigerants/refrigerant-types-explained.mdx": 46,
+    "content/smart-thermostats/best-smart-thermostats.mdx": 46,
+    "content/heat-pumps/heat-pump-in-cold-weather.mdx": 45,
+    "content/ac-sizing-selection/air-conditioner-btu-calculator.mdx": 44,
+    "content/air-quality/do-air-purifiers-really-work.mdx": 44,
+    "content/furnaces-heating/thermostat-temperature-winter.mdx": 44,
+    "content/generators/propane-generator-usage-per-hour.mdx": 44,
+    "content/battery-backup/solar-panel-calculator.mdx": 43,
+    "content/energy-costs/heating-cost-calculator.mdx": 43,
+    "content/generators/generator-cost-per-kwh.mdx": 43,
+    "content/ac-sizing-selection/furnace-sizing-calculator.mdx": 40
+  },
+  "bare_percent_total_files": 329,
+  "bare_percent_total_hits": 5250
+}

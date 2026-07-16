@@ -63,6 +63,17 @@ These are same-class as the C.1 strips (bare N-N% claims with no inline citation
 
 The `BATCH_C2_CENSUS.md` cover-sheet estimated **~30-50 more Tier-2 items** across the wider corpus (heat-pumps, refrigerants, energy-efficiency-ratings, water-heaters, mold-prevention, ductwork, generators, tax-credits-rebates clusters). Not enumerated here; each cluster is a follow-up mini-batch when the time comes.
 
+### 1.g — HVAC maintenance cluster (Batch 2B surfacing)
+
+Surfaced during Batch 2B while stripping the fabricated ACCA-75% claim at hvac-maintenance-checklist.mdx:37. These 3 bare stats sit in the same file's data callout (lines 54, 57) and its comparison table (lines 45-52), all unsourced or with derivative arithmetic. Same class as the 5,250 bare-N% tail — parking-lot, not action.
+
+| file:line | verbatim | notes |
+| --- | --- | --- |
+| `content/hvac-maintenance/hvac-maintenance-checklist.mdx:54` | `A clogged evaporator coil can reduce cooling capacity by 20–40%.` | No source; likely strip or cite if DOE/ENERGY STAR publishes. |
+| `content/hvac-maintenance/hvac-maintenance-checklist.mdx:54` | `A refrigerant charge that's even 10% low cuts efficiency by 20%.` | Close to Downey/Proctor field-study literature (charge sensitivity is well-documented) but specific "10% low → 20%" pairing needs source verification. |
+| `content/hvac-maintenance/hvac-maintenance-checklist.mdx:57` | `Spending $150–$300/year on maintenance saves $400–$1,500/year in energy costs, repairs, and extended equipment life. That's a 3:1 to 5:1 return on investment.` | Unsourced dollar-figures + arithmetic-derived ROI ratio. Likely strip or reframe qualitatively. |
+| `content/hvac-maintenance/hvac-maintenance-checklist.mdx:45-52` | Comparison table (Maintained vs Neglected) with rows: "18–25 vs 10–15 years / +50-67% longer", "$1,050-$1,350 vs $1,300-$1,750 / $250-$400 savings", "0.3 vs 1.2 calls/year / 75% fewer repairs", "5-12 vs 20-45 µg/m³ / 60-75% cleaner" | Entire comparative table is unsourced. The "75% fewer repairs" cell derives arithmetic from the (unverified) 0.3 vs 1.2 calls/year figures — same fabrication family as the stripped line 37 ACCA-75%. Whole table should be reviewed as a unit: either every row gets a citation or the table becomes qualitative. |
+
 **Rough total (Section 1):** ~15 items enumerated above + ~30-50 additional Tier-2 items across the wider corpus. Realistic effort to sweep exhaustively: 1-2 hours per cluster, ~10-15 clusters total.
 
 ---

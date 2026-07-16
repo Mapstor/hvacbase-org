@@ -1,0 +1,2124 @@
+{
+  "records": [
+    {
+      "file": "content/ac-sizing-selection/5000-btu-air-conditioner-room-size.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/ac-size-for-1000-sq-ft.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/ac-size-for-1500-sq-ft.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/ac-size-for-2000-sq-ft.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/ac-size-for-2500-sq-ft.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/ac-size-for-3000-sq-ft.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/ac-size-for-500-sq-ft.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/ac-tonnage-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/air-conditioner-btu-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/furnace-sizing-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/heat-pump-size-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/how-many-btu-per-square-foot.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/how-many-mini-splits-do-i-need.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/is-it-ok-to-oversize-mini-split.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/mini-split-sizing-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/water-heater-sizing-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/what-size-generator-do-i-need.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/what-size-mini-split-for-garage.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ac-sizing-selection/what-size-tankless-water-heater.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/ac-not-cooling.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-04-06"
+    },
+    {
+      "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-04-06"
+    },
+    {
+      "file": "content/air-conditioners/air-conditioner-types.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/best-10000-btu-air-conditioners.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/best-12000-btu-air-conditioners.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/best-window-air-conditioners.mdx",
+      "datePublished": "2026-01-10",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/biggest-window-acs.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/casement-window-air-conditioners.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/do-window-acs-pull-air-from-outside.mdx",
+      "datePublished": "2026-01-28",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/how-to-tilt-window-ac.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/lightweight-window-acs.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/low-profile-window-acs.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/most-energy-efficient-window-acs.mdx",
+      "datePublished": "2026-01-18",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/portable-vs-window-ac.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-04-06"
+    },
+    {
+      "file": "content/air-conditioners/quietest-window-acs.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/saddle-u-shaped-air-conditioners.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/smallest-acs-for-small-rooms.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/smallest-window-acs.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/through-the-wall-air-conditioners.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/window-ac-installation-guide.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/window-ac-support-brackets.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/window-ac-vs-mini-split.mdx",
+      "datePublished": "2026-01-22",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/window-ac-with-heater.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/window-air-conditioners.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-conditioners/window-too-small-for-ac.mdx",
+      "datePublished": "2026-01-30",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-purifier-reviews/airdog-air-purifier-review.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/alen-breathesmart-air-purifiers.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/blueair-air-purifiers.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/coway-air-purifiers.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/dyson-air-purifiers.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/dyson-vs-levoit-vs-coway.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/germguardian-air-purifiers.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/honeywell-air-purifiers.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/iqair-healthpro-plus-review.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/levoit-air-purifiers.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/medify-air-purifiers.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/molekule-air-purifier-review.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-purifier-reviews/winix-air-purifiers.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/air-quality/air-changes-per-hour-calculator.mdx",
+      "datePublished": "2026-01-10",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/air-purifier-guide.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/air-purifier-placement.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/air-purifier-sizing-guide.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/allergen-control-guide.mdx",
+      "datePublished": null,
+      "dateModified": null,
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-air-curtains.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-air-purifier-humidifier-combo.mdx",
+      "datePublished": "2026-01-30",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-air-purifiers-for-allergies.mdx",
+      "datePublished": "2026-01-30",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-air-purifiers-for-dust.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-air-purifiers-for-mold.mdx",
+      "datePublished": "2026-01-28",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-air-purifiers-for-smoke.mdx",
+      "datePublished": "2026-01-28",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-air-purifiers.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-air-scrubbers.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-bedroom-air-purifiers.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-dehumidifier-air-purifier-combo.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-hepa-air-purifiers.mdx",
+      "datePublished": "2026-01-22",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/best-hvac-air-filters.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-04-06"
+    },
+    {
+      "file": "content/air-quality/best-large-room-air-purifiers.mdx",
+      "datePublished": "2026-01-22",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/do-air-purifiers-really-work.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/hepa-filter-explained.mdx",
+      "datePublished": "2026-01-18",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/quietest-air-purifiers.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/smallest-air-purifiers.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/uv-light-hvac-systems.mdx",
+      "datePublished": null,
+      "dateModified": null,
+      "dateUpdated": null
+    },
+    {
+      "file": "content/air-quality/wall-mounted-air-purifiers.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/battery-backup/battery-watt-hours.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/battery-backup/home-battery-backup-guide.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/battery-backup/how-many-watts-in-12v-battery.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/battery-backup/solar-panel-calculator.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/battery-backup/solar-panel-cost-by-state.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/brand-reviews/trane-vs-carrier.mdx",
+      "datePublished": "2026-04-20",
+      "dateModified": "2026-04-20",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/basement-dehumidifier-setting.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/best-basement-dehumidifiers.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/best-commercial-dehumidifiers.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/best-humidifiers-for-bedroom.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/best-humidifiers-for-large-rooms.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/best-small-dehumidifiers.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/best-whole-house-dehumidifiers.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/dehumidifier-and-ac-same-time.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/dehumidifier-electricity-usage.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/dehumidifier-guide.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/dehumidifier-running-cost.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/dehumidifier-vs-air-purifier.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/does-dehumidifier-cool-a-room.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/how-does-a-dehumidifier-work.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/how-does-humidity-affect-temperature.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/ideal-indoor-humidity-level.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/most-energy-efficient-dehumidifiers.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/quietest-dehumidifiers.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/dehumidifiers/what-size-dehumidifier-do-i-need.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ductwork/btucfm-ductwork-relationship.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ductwork/duct-leakage-testing.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ductwork/ductwork-sizing-calculator.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/ductwork/flexible-vs-rigid-ductwork.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electric-fireplaces/best-electric-fireplaces.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-02-07"
+    },
+    {
+      "file": "content/electric-fireplaces/best-pellet-stoves.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-02-07"
+    },
+    {
+      "file": "content/electric-fireplaces/best-wall-mount-electric-fireplaces.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": null,
+      "dateUpdated": "2026-02-07"
+    },
+    {
+      "file": "content/electric-fireplaces/electric-fireplace-cost-to-run.mdx",
+      "datePublished": "2026-01-28",
+      "dateModified": null,
+      "dateUpdated": "2026-02-07"
+    },
+    {
+      "file": "content/electric-fireplaces/pellet-stove-cost-to-run.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": null,
+      "dateUpdated": "2026-02-07"
+    },
+    {
+      "file": "content/electrical/10-2-or-10-3-wire-for-ac.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/3-phase-power-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/electrical-panel-upgrade-cost.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/electrical-wiring-guide.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/how-many-amps-does-a-house-use.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/power-consumption-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/water-heater-amps.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/water-heater-breaker-size.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/water-heater-wattage.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/water-heater-wire-size.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/what-wire-size-for-30-amp.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/what-wire-size-for-50-amp.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/wire-for-220-volt.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/electrical/wire-gauge-chart.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/average-electric-bill-by-state.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/electric-water-heating-cost-by-state.mdx",
+      "datePublished": "2026-01-14",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/electricity-cost-by-state.mdx",
+      "datePublished": "2026-01-08",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/energy-costs-guide.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/heating-cost-calculator.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-04-06"
+    },
+    {
+      "file": "content/energy-costs/home-energy-audit-diy.mdx",
+      "datePublished": "2026-01-22",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/how-many-kwh-per-day-is-normal.mdx",
+      "datePublished": "2026-01-12",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/how-to-read-electric-meter.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/kwh-cost-calculator.mdx",
+      "datePublished": "2026-01-10",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/specific-heat-capacity-calculator.mdx",
+      "datePublished": "2026-01-30",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-costs/time-of-use-rates-explained.mdx",
+      "datePublished": "2026-01-28",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/14-3-seer2-vs-16-seer.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/14-seer-vs-16-seer-vs-20-seer.mdx",
+      "datePublished": "2026-01-28",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/15-2-seer2-vs-16-seer.mdx",
+      "datePublished": "2026-01-22",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/16-seer-vs-14-seer.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/16-seer-vs-20-seer.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/afue-rating-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/cadr-rating-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/ceer-rating-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/coefficient-of-performance.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/eer-chart-for-ac-units.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/eer-rating-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/eer-vs-seer.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/eer2-rating-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/eseer-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/good-seer-rating-for-ac.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/how-to-calculate-seer.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/hspf-rating-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/hspf2-rating-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/hvac-efficiency-ratings-compared.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/hvac-efficiency-texas.mdx",
+      "datePublished": "2026-04-20",
+      "dateModified": "2026-04-20",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/ieer-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/is-higher-seer-worth-it.mdx",
+      "datePublished": "2026-02-03",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/merv-rating-chart.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/minimum-seer-rating-by-state.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer-rating-tax-credits.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer-vs-seer2.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer2-comparison-calculator.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer2-rating-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer2-savings-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/seer2-to-seer-conversion.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency-ratings/what-is-seer-rating.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": null,
+      "dateUpdated": "2026-02-05"
+    },
+    {
+      "file": "content/energy-efficiency/hvac-energy-saving-tips.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-07-13"
+    },
+    {
+      "file": "content/evaporative-coolers/best-evaporative-coolers.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-01-15",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/evaporative-coolers/best-tower-fans.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-01-15",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/evaporative-coolers/evaporative-cooler-vs-ac.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-01-15",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/best-electric-furnace.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/best-gas-furnace-brands.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/best-oil-furnace.mdx",
+      "datePublished": "2026-02-03",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/boiler-vs-furnace.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-04-06"
+    },
+    {
+      "file": "content/furnaces-heating/cold-air-return-vents.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/cracked-heat-exchanger.mdx",
+      "datePublished": "2026-01-22",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/dirty-furnace-filter-photos.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/do-furnaces-have-pilot-lights.mdx",
+      "datePublished": "2026-02-02",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-blowing-cold-air.mdx",
+      "datePublished": "2026-01-19",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-efficiency-explained.mdx",
+      "datePublished": "2026-02-03",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-filter-direction.mdx",
+      "datePublished": "2026-01-28",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-filter-merv-rating.mdx",
+      "datePublished": "2026-01-30",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-flame-sensor.mdx",
+      "datePublished": "2026-01-31",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-guide.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-installation-cost.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-leaking-water.mdx",
+      "datePublished": "2026-01-18",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/furnace-maintenance.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-04-06"
+    },
+    {
+      "file": "content/furnaces-heating/furnace-vs-heat-pump.mdx",
+      "datePublished": "2026-01-12",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/gas-furnace-wattage.mdx",
+      "datePublished": "2026-02-02",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/gas-vs-electric-heating-cost.mdx",
+      "datePublished": "2026-01-10",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/how-long-do-furnaces-last.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/pilot-light-gas-usage.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/thermostat-heat-on-but-no-heat.mdx",
+      "datePublished": "2026-01-16",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/thermostat-temperature-winter.mdx",
+      "datePublished": "2026-01-29",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/furnaces-heating/upflow-vs-downflow-furnace.mdx",
+      "datePublished": "2026-02-03",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/best-portable-generators.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/best-whole-house-generators.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/generator-cost-per-kwh.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/generator-guide.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/generator-vs-solar-battery-backup.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/how-long-do-generators-last.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/how-long-generator-on-5-gallons.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/how-many-amps-does-generator-produce.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/natural-gas-generator-running-cost.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/portable-generator-safety-tips.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/propane-generator-usage-per-hour.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/generators/what-size-generator-for-fridge.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/air-source-vs-ground-source-heat-pump.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/best-cold-climate-heat-pumps.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/best-mini-split-heat-pumps.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/disadvantages-of-heat-pumps.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-cop-explained.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-cost-to-install.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-electricity-usage.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-guide.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-in-cold-weather.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-running-cost-calculator.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-tax-credits-2026.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-06-26",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-vs-ac.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/heat-pumps/heat-pump-vs-mini-split.mdx",
+      "datePublished": null,
+      "dateModified": null,
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/best-central-ac-brands.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/best-hvac-brands-ranked.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/carrier-hvac-age-serial-number.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/central-ac-cost-to-install.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/central-ac-vs-mini-split-vs-window.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/central-air-conditioner-guide.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/goodman-ac-age-serial-number.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/hvac-serial-number-decoder.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/hvac-system-lifespan.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-brands/what-size-generator-for-5-ton-ac.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-costs-by-state/hvac-cost-by-state.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-costs-by-state/hvac-cost-california.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-costs-by-state/hvac-cost-florida.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-costs-by-state/hvac-cost-illinois.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-costs-by-state/hvac-cost-new-york.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-costs-by-state/hvac-cost-texas.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-maintenance/air-duct-cleaning-worth-it.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-maintenance/how-often-change-hvac-filter.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-maintenance/how-to-clean-ac-coils.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-maintenance/hvac-ductwork-guide.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-maintenance/hvac-maintenance-checklist.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-maintenance/hvac-maintenance-cost.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-noise/how-to-reduce-hvac-noise.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-noise/hvac-noise-levels-explained.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/hvac-noise/quietest-mini-splits.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/indoor-air-quality-testing.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/indoor-air-quality/best-indoor-air-quality-monitors.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/indoor-air-quality/carbon-monoxide-detector-guide.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/indoor-air-quality/how-to-improve-indoor-air-quality.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/indoor-air-quality/indoor-air-quality-guide.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/indoor-air-quality/voc-in-home-sources.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/indoor-air-quality/whole-house-ventilation-systems.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/insulation/insulation-r-value-guide.mdx",
+      "datePublished": null,
+      "dateModified": null,
+      "dateUpdated": null
+    },
+    {
+      "file": "content/mini-split-air-conditioners/ac-dry-mode-vs-dehumidifier.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-2-zone-mini-split.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-3-zone-mini-split.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-4-zone-mini-split.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-5-zone-mini-split.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-diy-mini-splits.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-mini-split-ac-units.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-06-26",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/mini-split-air-conditioners/best-mini-split-for-garage.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/cassette-ceiling-air-conditioners.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/daikin-mini-split-reviews.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/dry-mode-in-ac.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/how-does-a-mini-split-work.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/how-much-does-mini-split-cost-to-run.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-air-conditioners.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-brands-ranked.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-06-26",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-electricity-usage.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-for-bedroom.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-installation-cost.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-line-set-covers.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-maintenance-guide.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mini-split-vs-central-air.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mrcool-3rd-gen-vs-4th-gen.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/mrcool-diy-mini-split-review.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-07-13"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/senville-mini-split-reviews.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/smallest-mini-splits.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mini-split-air-conditioners/what-is-a-mini-split.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-01-15"
+    },
+    {
+      "file": "content/mold-prevention/how-to-identify-mold.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/mold-prevention/moisture-barrier-crawl-space.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/mold-prevention/mold-prevention-guide.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/mold-prevention/mold-remediation-cost.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/best-dual-hose-portable-acs.mdx",
+      "datePublished": "2026-02-02",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/best-portable-ac-for-apartment.mdx",
+      "datePublished": "2026-02-03",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/best-portable-ac-heater-combos.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/best-portable-air-conditioners.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/biggest-portable-acs.mdx",
+      "datePublished": "2026-02-04",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/can-you-use-portable-ac-without-hose.mdx",
+      "datePublished": "2026-01-30",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/cheapest-portable-air-conditioners.mdx",
+      "datePublished": "2026-02-02",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/do-portable-acs-pull-air-from-outside.mdx",
+      "datePublished": "2026-01-28",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/how-do-portable-acs-work.mdx",
+      "datePublished": "2026-01-18",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/how-to-drain-portable-ac.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/how-to-vent-portable-ac-without-window.mdx",
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/portable-ac-electricity-cost.mdx",
+      "datePublished": "2026-02-01",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/portable-ac-vs-window-ac.mdx",
+      "datePublished": "2026-01-24",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/portable-ac-window-seal-kits.mdx",
+      "datePublished": "2026-02-03",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/portable-air-conditioners.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/quietest-portable-air-conditioners.mdx",
+      "datePublished": "2026-02-02",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/single-hose-vs-dual-hose-portable-ac.mdx",
+      "datePublished": "2026-01-22",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/portable-air-conditioners/smallest-portable-acs.mdx",
+      "datePublished": "2026-02-02",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/refrigerants/hvac-refrigerant-phase-out.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/refrigerants/r410a-vs-r32-refrigerant.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/refrigerants/refrigerant-types-explained.mdx",
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/smart-thermostats/best-smart-thermostats.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-02-07"
+    },
+    {
+      "file": "content/smart-thermostats/best-thermostat-for-heat-pump.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-02-07"
+    },
+    {
+      "file": "content/smart-thermostats/nest-vs-ecobee-vs-honeywell.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-02-07"
+    },
+    {
+      "file": "content/smart-thermostats/programmable-vs-smart-thermostat.mdx",
+      "datePublished": "2026-01-20",
+      "dateModified": null,
+      "dateUpdated": "2026-07-13"
+    },
+    {
+      "file": "content/smart-thermostats/smart-thermostat-savings.mdx",
+      "datePublished": "2026-01-15",
+      "dateModified": null,
+      "dateUpdated": "2026-07-13"
+    },
+    {
+      "file": "content/space-heaters/battery-operated-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/best-baseboard-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/best-energy-efficient-space-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/best-garage-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/best-infrared-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/best-small-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/best-space-heaters-for-large-rooms.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/best-ventless-propane-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/electric-heater-running-cost.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/radiant-floor-heating-pros-cons.mdx",
+      "datePublished": "2026-04-06",
+      "dateModified": null,
+      "dateUpdated": "2026-04-06"
+    },
+    {
+      "file": "content/space-heaters/safest-heater-for-bedroom.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/safest-space-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/space-heater-guide.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/space-heaters/space-heater-vs-central-heat.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/best-electric-tankless-water-heaters.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/best-tankless-gas-water-heaters.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/best-tankless-water-heaters.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/electric-vs-gas-tankless.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/hot-water-recirculating-pump.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/is-tankless-water-heater-worth-it.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/outdoor-portable-tankless-heaters.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/smallest-tankless-water-heaters.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/tankless-vs-tank-water-heater.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/tankless-water-heater-breaker-size.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/tankless-water-heater-cost.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/tankless-water-heater-electricity.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/tankless-water-heater-guide.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/tankless-water-heater-propane-usage.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tankless-water-heaters/tankless-water-heater-wire-size.mdx",
+      "datePublished": "2026-02-05",
+      "dateModified": "2026-02-05",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tax-credits-rebates/25c-tax-credit-explained.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tax-credits-rebates/energy-star-tax-credits.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tax-credits-rebates/hvac-rebates-by-state.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/tax-credits-rebates/hvac-tax-credits-2026.mdx",
+      "datePublished": "2026-02-07",
+      "dateModified": "2026-02-07",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/water-heaters/best-water-heaters.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/water-heaters/electric-water-heating-cost.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/water-heaters/heat-pump-water-heater-guide.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-07-13",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/water-heaters/how-long-does-water-heater-last.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/water-heaters/water-heater-cost-to-install.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    },
+    {
+      "file": "content/water-heaters/water-heater-guide.mdx",
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "dateUpdated": null
+    }
+  ],
+  "batch_count": 184,
+  "identical": 157
+}
