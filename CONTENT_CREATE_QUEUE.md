@@ -109,6 +109,7 @@ Same-intent duplicates that shouldn't both be enumerated into the hub until the 
 | Candidate | Words | Competes with | Note |
 |---|---|---|---|
 | ac-troubleshooting-guide (Complete AC Troubleshooting Guide: Fix 12 Common Problems) | 3,802 | `ac-not-cooling` (already in troubleshooting Cooling Problems panel) | Both target the AC-won't-work symptom-fix intent. `ac-troubleshooting-guide` is broader canonical (12 problems); `ac-not-cooling` is a single-symptom fix. Ruling needed: which becomes the canonical linked from the hub, and does the other get consolidated / redirected / re-scoped? |
+| mini-split-in-cold-climates (MDX exists at content/mini-split-air-conditioners/mini-split-in-cold-climates.mdx but has NO frontmatter — currently unbuilt) | ~2,000 (body content substantial) | `heat-pump-in-cold-weather` (already exists as full article) | Mini splits ARE heat pumps — the intent overlap is significant. Surfaced during Batch 3 C2 when the sister file `mini-split-amps` got its frontmatter added. Held for distinct-page-vs-redirect ruling: (a) add distinct frontmatter and build as a mini-split-specific angle on cold-weather operation, (b) redirect `/mini-split-in-cold-climates` → `/heat-pump-in-cold-weather` and merge unique content, or (c) delete the orphaned MDX entirely. |
 
 ### Panel-seed backlogs — deferred until 3+ sibling articles exist
 
