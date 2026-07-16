@@ -12,8 +12,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Energy Efficiency Guides & Resources',
     description: 'Expert energy efficiency guides, calculators, and money-saving tips.',
+    url: 'https://www.hvacbase.org/energy-efficiency',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Energy Efficiency' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Energy Efficiency Guides & Resources',
+    description: 'Expert energy efficiency guides, calculators, and money-saving tips.',
+    images: ['/opengraph-image'],
+  },
 };
 
 // Energy efficiency related clusters

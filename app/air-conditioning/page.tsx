@@ -12,8 +12,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Air Conditioning Guides & Resources',
     description: 'Expert AC guides, sizing calculators, and efficiency comparisons.',
+    url: 'https://www.hvacbase.org/air-conditioning',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Air Conditioning' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Air Conditioning Guides & Resources',
+    description: 'Expert AC guides, sizing calculators, and efficiency comparisons.',
+    images: ['/opengraph-image'],
+  },
 };
 
 // Air conditioning related clusters

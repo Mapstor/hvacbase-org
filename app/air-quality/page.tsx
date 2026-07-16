@@ -12,8 +12,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Indoor Air Quality Guides & Resources',
     description: 'Expert air quality guides, purifier reviews, and healthy home solutions.',
+    url: 'https://www.hvacbase.org/air-quality',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Indoor Air Quality' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Indoor Air Quality Guides & Resources',
+    description: 'Expert air quality guides, purifier reviews, and healthy home solutions.',
+    images: ['/opengraph-image'],
+  },
 };
 
 // Air quality related clusters

@@ -12,8 +12,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Heat Pump Guides & Resources',
     description: 'Expert heat pump guides, sizing calculators, and efficiency analysis.',
+    url: 'https://www.hvacbase.org/heat-pumps',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Heat Pumps' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Heat Pump Guides & Resources',
+    description: 'Expert heat pump guides, sizing calculators, and efficiency analysis.',
+    images: ['/opengraph-image'],
+  },
 };
 
 // Heat pump related clusters

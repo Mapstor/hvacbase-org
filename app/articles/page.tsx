@@ -12,8 +12,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'HVAC Articles Library',
     description: 'Complete collection of HVAC guides, articles, and resources.',
+    url: 'https://www.hvacbase.org/articles',
     type: 'website',
-  }
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Articles Library' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HVAC Articles Library',
+    description: 'Complete collection of HVAC guides, articles, and resources.',
+    images: ['/opengraph-image'],
+  },
 };
 
 // Organize articles by cluster/category
