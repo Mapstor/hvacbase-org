@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Energy Efficiency Guides & Resources',
-    description: 'Expert energy efficiency guides, calculators, and money-saving tips.',
+    description: 'In-depth energy efficiency guides, calculators, and primary-source-based savings analysis.',
     url: 'https://www.hvacbase.org/energy-efficiency',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Energy Efficiency' }],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Energy Efficiency Guides & Resources',
-    description: 'Expert energy efficiency guides, calculators, and money-saving tips.',
+    description: 'In-depth energy efficiency guides, calculators, and primary-source-based savings analysis.',
     images: ['/opengraph-image'],
   },
 };
@@ -93,7 +93,7 @@ export default async function EnergyEfficiencyHub() {
               Energy Efficiency Guides & Calculators
             </h1>
             <p className="text-lg text-yellow-100 mb-4">
-              {totalArticles} expert guides covering SEER2, AFUE, HSPF2 ratings, tax credits, energy costs, and savings calculators
+              {totalArticles} in-depth guides covering SEER2, AFUE, HSPF2 ratings, tax credits, energy costs, and savings calculators
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">

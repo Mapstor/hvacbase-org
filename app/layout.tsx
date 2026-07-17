@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     template: '%s | HVAC Base',
   },
   description:
-    'Expert HVAC guides with interactive calculators, specs-driven comparisons, and data-backed recommendations for air conditioners, heat pumps, furnaces, and home energy efficiency.',
+    'In-depth HVAC guides with interactive calculators, specs-driven comparisons, and data-backed recommendations for air conditioners, heat pumps, furnaces, and home energy efficiency.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.hvacbase.org',
     siteName: 'HVAC Base',
     title: 'HVAC Base — Your Comprehensive HVAC Knowledge Resource',
-    description: 'Expert HVAC guides with 355 articles, 9 interactive calculators, and unbiased recommendations for all your heating and cooling needs.',
+    description: 'In-depth HVAC guides with 355 articles, 9 interactive calculators, and unbiased recommendations for all your heating and cooling needs.',
     images: [
       {
         url: '/opengraph-image',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HVAC Base — Data-Driven HVAC Guides & Calculators',
-    description: 'Expert HVAC guides with interactive calculators and unbiased recommendations.',
+    description: 'In-depth HVAC guides with interactive calculators and unbiased recommendations.',
     images: ['/opengraph-image'],
   },
   icons: {

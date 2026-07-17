@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Heating Systems Guides & Resources',
-    description: 'Expert heating guides, sizing calculators, and efficiency comparisons.',
+    description: 'In-depth heating guides, sizing calculators, and manufacturer-spec efficiency comparisons.',
     url: 'https://www.hvacbase.org/heating',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Heating Systems' }],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Heating Systems Guides & Resources',
-    description: 'Expert heating guides, sizing calculators, and efficiency comparisons.',
+    description: 'In-depth heating guides, sizing calculators, and manufacturer-spec efficiency comparisons.',
     images: ['/opengraph-image'],
   },
 };
@@ -99,7 +99,7 @@ export default async function HeatingHub() {
               Heating Systems Guides & Calculators
             </h1>
             <p className="text-lg text-orange-100 mb-4">
-              {totalArticles} expert guides covering furnaces, space heaters, water heaters, sizing calculators, and more
+              {totalArticles} in-depth guides covering furnaces, space heaters, water heaters, sizing calculators, and more
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">

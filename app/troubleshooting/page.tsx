@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.hvacbase.org/troubleshooting' },
   openGraph: {
     title: 'HVAC Troubleshooting Guide | Fix Common Problems',
-    description: 'Expert troubleshooting guides for all HVAC problems. Step-by-step diagnosis and repair instructions.',
+    description: 'In-depth troubleshooting guides for common HVAC problems, with step-by-step diagnosis and the physics behind each symptom.',
     url: 'https://www.hvacbase.org/troubleshooting',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Troubleshooting Guide' }],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HVAC Troubleshooting Guide | Fix Common Problems',
-    description: 'Expert troubleshooting guides for all HVAC problems.',
+    description: 'In-depth troubleshooting guides for common HVAC problems.',
     images: ['/opengraph-image'],
   },
 }

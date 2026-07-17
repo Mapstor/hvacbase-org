@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Indoor Air Quality Guides & Resources',
-    description: 'Expert air quality guides, purifier reviews, and healthy home solutions.',
+    description: 'In-depth indoor air quality guides and spec-based purifier comparisons using CADR and ENERGY STAR data.',
     url: 'https://www.hvacbase.org/air-quality',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Indoor Air Quality' }],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Indoor Air Quality Guides & Resources',
-    description: 'Expert air quality guides, purifier reviews, and healthy home solutions.',
+    description: 'In-depth indoor air quality guides and spec-based purifier comparisons using CADR and ENERGY STAR data.',
     images: ['/opengraph-image'],
   },
 };
@@ -99,7 +99,7 @@ export default async function AirQualityHub() {
               Indoor Air Quality Guides & Reviews
             </h1>
             <p className="text-lg text-purple-100 mb-4">
-              {totalArticles} expert guides covering air purifiers, dehumidifiers, air quality testing, mold prevention, and IAQ solutions
+              {totalArticles} in-depth guides covering air purifiers, dehumidifiers, air quality testing, mold prevention, and IAQ solutions
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">

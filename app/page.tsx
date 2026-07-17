@@ -84,7 +84,7 @@ export default async function HomePage() {
               </h2>
               
               <p className="text-lg text-brand-100 mb-6">
-                Make informed HVAC decisions with our {totalArticles}+ expert guides, ACCA Manual J calculators, 
+                Make informed HVAC decisions with our {totalArticles}+ in-depth guides, ACCA Manual J calculators,
                 and real-world efficiency data. No affiliate links or paid product placements.
               </p>
               
@@ -102,7 +102,7 @@ export default async function HomePage() {
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
                   <div className="text-3xl font-bold text-white">{totalArticles}+</div>
-                  <div className="text-sm text-brand-200">Expert Guides</div>
+                  <div className="text-sm text-brand-200">In-Depth Guides</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-white">9</div>

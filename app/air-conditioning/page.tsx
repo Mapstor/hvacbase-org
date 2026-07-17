@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Air Conditioning Guides & Resources',
-    description: 'Expert AC guides, sizing calculators, and efficiency comparisons.',
+    description: 'In-depth AC guides, sizing calculators, and efficiency comparisons grounded in AHRI-certified data.',
     url: 'https://www.hvacbase.org/air-conditioning',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Air Conditioning' }],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Air Conditioning Guides & Resources',
-    description: 'Expert AC guides, sizing calculators, and efficiency comparisons.',
+    description: 'In-depth AC guides, sizing calculators, and efficiency comparisons grounded in AHRI-certified data.',
     images: ['/opengraph-image'],
   },
 };
@@ -99,7 +99,7 @@ export default async function AirConditioningHub() {
               Air Conditioning Guides & Calculators
             </h1>
             <p className="text-lg text-blue-100 mb-4">
-              {totalArticles} expert guides covering central AC, mini splits, portable units, sizing calculators, and more
+              {totalArticles} in-depth guides covering central AC, mini splits, portable units, sizing calculators, and more
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">

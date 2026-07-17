@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Heat Pump Guides & Resources',
-    description: 'Expert heat pump guides, sizing calculators, and efficiency analysis.',
+    description: 'In-depth heat pump guides, sizing calculators, and AHRI-based efficiency analysis.',
     url: 'https://www.hvacbase.org/heat-pumps',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Heat Pumps' }],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Heat Pump Guides & Resources',
-    description: 'Expert heat pump guides, sizing calculators, and efficiency analysis.',
+    description: 'In-depth heat pump guides, sizing calculators, and AHRI-based efficiency analysis.',
     images: ['/opengraph-image'],
   },
 };
@@ -124,7 +124,7 @@ export default async function HeatPumpsHub() {
               Heat Pump Guides & Calculators
             </h1>
             <p className="text-lg text-green-100 mb-4">
-              {totalArticles} expert guides covering air-source, ground-source, sizing, efficiency, costs, and tax credits
+              {totalArticles} in-depth guides covering air-source, ground-source, sizing, efficiency, costs, and tax credits
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">
