@@ -4,12 +4,12 @@ import { Card } from '@/components/ui/card'
 import { ChevronRight, Star, TrendingUp, DollarSign, Shield, Clock, Award } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'HVAC Buying Guides: Expert Equipment Selection & Recommendations',
+  title: 'HVAC Buying Guides: Equipment Selection & Recommendations',
   description: 'Complete HVAC buying guides for air conditioners, furnaces, heat pumps, and more. Professional recommendations, pricing analysis, and brand comparisons to help you choose the right system.',
   alternates: { canonical: 'https://www.hvacbase.org/buying-guides' },
   openGraph: {
     title: 'HVAC Buying Guides | Equipment Selection & Brand Reviews',
-    description: 'Expert HVAC buying guides with detailed reviews, pricing, and recommendations for all heating and cooling equipment.',
+    description: 'In-depth HVAC buying guides with spec-based comparisons, pricing, and recommendations for heating and cooling equipment.',
     url: 'https://www.hvacbase.org/buying-guides',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Buying Guides' }],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HVAC Buying Guides | Equipment Selection & Brand Reviews',
-    description: 'Expert HVAC buying guides with reviews, pricing, and recommendations.',
+    description: 'In-depth HVAC buying guides with spec-based comparisons, pricing, and recommendations.',
     images: ['/opengraph-image'],
   },
 }
@@ -167,7 +167,7 @@ export default function BuyingGuidesPage() {
               HVAC Buying Guides
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Expert equipment reviews, brand comparisons, and professional recommendations to help you make the right choice
+              Researched equipment reviews, brand comparisons, and spec-based recommendations to help you make the right choice
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               {quickLinks.map((link) => (
