@@ -42,3 +42,5 @@ public/.next/
 
 # per-URL curl status (transient, not source)
 LINK_STATUS.txt
+BATCH_5_PREVIEW.md
+BATCH_6_PREVIEW.md
