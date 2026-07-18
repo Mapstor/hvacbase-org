@@ -62,82 +62,56 @@ export default async function HomePage() {
   
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Enhanced Hero Section with Branding */}
+      {/* Hero — problem-first entry points */}
       <section className="bg-gradient-to-br from-brand-800 via-brand-700 to-brand-900 text-white py-12 md:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
-                  <Thermometer className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-3xl md:text-4xl font-bold">
-                    HVAC<span className="text-brand-300">Base</span>
-                  </h1>
-                </div>
-              </div>
-              
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
-                Professional HVAC Calculators, Sizing Guides & Unbiased Equipment Reviews
-              </h2>
-              
-              <p className="text-lg text-brand-100 mb-6">
-                Make informed HVAC decisions with our {totalArticles}+ in-depth guides, ACCA Manual J calculators,
-                and real-world efficiency data. No affiliate links or paid product placements.
-              </p>
-              
-              <div className="flex flex-wrap gap-4 mb-6">
-                <Link href="/air-conditioner-btu-calculator" className="bg-white text-brand-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-colors inline-flex items-center gap-2">
-                  <Calculator className="w-5 h-5" />
-                  BTU Calculator
-                </Link>
-                <Link href="/seer2-savings-calculator" className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition-colors inline-flex items-center gap-2">
-                  <DollarSign className="w-5 h-5" />
-                  Savings Calculator
-                </Link>
-              </div>
-              
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-white">{totalArticles}+</div>
-                  <div className="text-sm text-brand-200">In-Depth Guides</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-white">9</div>
-                  <div className="text-sm text-brand-200">Calculators</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-white">2026</div>
-                  <div className="text-sm text-brand-200">Updated</div>
-                </div>
-              </div>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+              <Thermometer className="w-8 h-8 text-white" />
             </div>
-            
-            <div className="hidden md:block">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <h3 className="font-semibold text-xl mb-4">Quick Access Tools</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <Link href="/ac-tonnage-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
-                    <Gauge className="w-6 h-6 mb-2" />
-                    <div className="text-sm font-medium">Tonnage Calculator</div>
-                  </Link>
-                  <Link href="/heat-pump-size-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
-                    <Activity className="w-6 h-6 mb-2" />
-                    <div className="text-sm font-medium">Heat Pump Sizing</div>
-                  </Link>
-                  <Link href="/furnace-sizing-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
-                    <Flame className="w-6 h-6 mb-2" />
-                    <div className="text-sm font-medium">Furnace Sizing</div>
-                  </Link>
-                  <Link href="/mini-split-sizing-calculator" className="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
-                    <Zap className="w-6 h-6 mb-2" />
-                    <div className="text-sm font-medium">Mini Split Size</div>
-                  </Link>
-                </div>
-              </div>
+            <div className="text-2xl md:text-3xl font-bold">
+              HVAC<span className="text-brand-300">Base</span>
             </div>
+          </div>
+
+          <h1 className="text-2xl md:text-4xl font-semibold mb-4 leading-tight max-w-4xl">
+            What size AC do I need? Why won&apos;t my furnace start? Is a heat pump worth it?
+          </h1>
+
+          <p className="text-lg text-brand-100 mb-8 max-w-3xl">
+            Free HVAC calculators, sizing guides, and troubleshooting help — with the reasoning shown, not just a recommendation.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl">
+            <Link href="/air-conditioner-btu-calculator" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 rounded-lg px-4 py-3 flex items-center gap-3 transition-colors">
+              <Calculator className="w-5 h-5 flex-shrink-0" />
+              <div>
+                <div className="text-xs text-brand-200">What size AC?</div>
+                <div className="font-semibold">BTU Calculator</div>
+              </div>
+            </Link>
+            <Link href="/ac-not-cooling" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 rounded-lg px-4 py-3 flex items-center gap-3 transition-colors">
+              <AlertCircle className="w-5 h-5 flex-shrink-0" />
+              <div>
+                <div className="text-xs text-brand-200">AC not cooling?</div>
+                <div className="font-semibold">12 Causes &amp; Fixes</div>
+              </div>
+            </Link>
+            <Link href="/heat-pump-guide" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 rounded-lg px-4 py-3 flex items-center gap-3 transition-colors">
+              <Activity className="w-5 h-5 flex-shrink-0" />
+              <div>
+                <div className="text-xs text-brand-200">Heat pump worth it?</div>
+                <div className="font-semibold">Heat Pump Guide</div>
+              </div>
+            </Link>
+            <Link href="/central-ac-cost-to-install" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 rounded-lg px-4 py-3 flex items-center gap-3 transition-colors">
+              <DollarSign className="w-5 h-5 flex-shrink-0" />
+              <div>
+                <div className="text-xs text-brand-200">Install costs?</div>
+                <div className="font-semibold">Central AC Install</div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
