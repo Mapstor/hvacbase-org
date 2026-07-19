@@ -78,12 +78,16 @@ export default function ArticlePage({ params }: PageProps) {
       </head>
       <ArticleLayout meta={article.meta}>
         <div className="prose prose-lg max-w-none">
-          <MDXRemote 
-            source={article.content} 
+          <MDXRemote
+            source={article.content}
             options={{
               mdxOptions: {
                 remarkPlugins: [remarkGfm],
               },
+              // Allow JS expressions in JSX props (e.g. headers={[...]}, rows={[[...]]}
+              // for <ComparisonTable>). The site's MDX is trusted first-party content;
+              // dangerous call blocking stays on via blockDangerousJS default = true.
+              blockJS: false,
             }}
             components={{...mdxComponents, RelatedArticles: () => <RelatedArticles articles={related} />}}
           />
