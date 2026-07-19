@@ -20,32 +20,6 @@ externalLinks:
 
 import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
 
-export const faqData = [
-  {
-    question: "Why is my air conditioner running but not cooling?",
-    answer: "The most common cause is a dirty or clogged air filter. Other causes include dirty outdoor coils, thermostat issues, refrigerant leaks, or electrical problems. Start with checking and replacing your air filter first."
-  },
-  {
-    question: "How do I know if my AC is working properly?",
-    answer: "Perform a temperature differential test: measure the air temperature at your supply and return vents. A properly working system should have an 18-25°F temperature difference. Less than 10°F indicates a significant problem."
-  },
-  {
-    question: "Can I fix my AC not cooling myself?",
-    answer: "Yes, most AC cooling problems can be resolved by homeowners. Simple fixes like replacing air filters, cleaning outdoor coils, checking thermostat settings, and opening vents solve most issues. However, refrigerant and electrical problems require professional service."
-  },
-  {
-    question: "When should I call a professional for AC cooling problems?",
-    answer: "Call a professional if you suspect refrigerant leaks, have electrical issues, hear unusual noises, smell gas, or if simple fixes don't resolve the problem. Also call immediately if you see electrical sparking or grinding sounds."
-  },
-  {
-    question: "How often should I replace my AC filter?",
-    answer: "Fiberglass filters every 30 days, pleated standard filters every 60-90 days, and high-efficiency filters every 90 days. Check monthly and replace when you can't see light through the filter clearly."
-  },
-  {
-    question: "Why does my AC work sometimes but not others?",
-    answer: "Intermittent cooling problems often indicate electrical issues like faulty contactors, capacitors, or thermostat problems. These issues typically require professional diagnosis and repair."
-  }
-]
 
 # AC Not Cooling: 12 Fixes That Actually Work
 
@@ -753,7 +727,32 @@ Yes — dirty filters are a leading cause of AC cooling problems. A completely b
 </div>
 </FAQ>
 
-<FAQ items={faqData} />
+<FAQ items={[
+  {
+    question: "Why is my air conditioner running but not cooling?",
+    answer: "The most common cause is a dirty or clogged air filter. Other causes include dirty outdoor coils, thermostat issues, refrigerant leaks, or electrical problems. Start with checking and replacing your air filter first."
+  },
+  {
+    question: "How do I know if my AC is working properly?",
+    answer: "Perform a temperature differential test: measure the air temperature at your supply and return vents. A properly working system should have an 18-25°F temperature difference. Less than 10°F indicates a significant problem."
+  },
+  {
+    question: "Can I fix my AC not cooling myself?",
+    answer: "Yes, most AC cooling problems can be resolved by homeowners. Simple fixes like replacing air filters, cleaning outdoor coils, checking thermostat settings, and opening vents solve most issues. However, refrigerant and electrical problems require professional service."
+  },
+  {
+    question: "When should I call a professional for AC cooling problems?",
+    answer: "Call a professional if you suspect refrigerant leaks, have electrical issues, hear unusual noises, smell gas, or if simple fixes don't resolve the problem. Also call immediately if you see electrical sparking or grinding sounds."
+  },
+  {
+    question: "How often should I replace my AC filter?",
+    answer: "Fiberglass filters every 30 days, pleated standard filters every 60-90 days, and high-efficiency filters every 90 days. Check monthly and replace when you can't see light through the filter clearly."
+  },
+  {
+    question: "Why does my AC work sometimes but not others?",
+    answer: "Intermittent cooling problems often indicate electrical issues like faulty contactors, capacitors, or thermostat problems. These issues typically require professional diagnosis and repair."
+  }
+]} />
 
 ## Emergency Cooling Solutions
 
