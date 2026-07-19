@@ -36,14 +36,15 @@ function extractText(node: any): string {
   return '';
 }
 
-// FAQ wrapper to handle both items / questions props AND <FAQ.Item> children
-// syntax. The FAQ.Item children form silently failed in MDX-RSC because the
-// prior detection (`child.type.name === 'FAQ.Item'`) didn't match — the actual
-// type name is just "Item". The marker now is the `question` prop, which is
-// only present on FAQ.Item children.
-const FAQWrapper = ({ questions, items, children, ...props }: any) => {
+// FAQ wrapper handling three source patterns:
+//   1) <FAQ items={[...]}> or <FAQ questions={[...]}> — modern prop form
+//   2) <FAQ><FAQ.Item question="...">answer</FAQ.Item>...</FAQ> — marker children
+//   3) <FAQ><div itemScope itemType="…/FAQPage">…</div></FAQ> — legacy microdata
+//      children, used by ~8 files. Passed through inside a section + heading so
+//      schema.org microdata reaches the DOM and users see the FAQ heading.
+const FAQWrapper = ({ questions, items, children, title, ...props }: any) => {
   if (items || questions) {
-    return <FAQ items={items || questions || []} {...props} />;
+    return <FAQ items={items || questions || []} title={title} {...props} />;
   }
 
   if (children) {
@@ -54,10 +55,20 @@ const FAQWrapper = ({ questions, items, children, ...props }: any) => {
         question: child.props.question,
         answer: extractText(child.props.children),
       }));
-    return <FAQ items={extractedItems} {...props} />;
+    if (extractedItems.length > 0) {
+      return <FAQ items={extractedItems} title={title} {...props} />;
+    }
+    return (
+      <section className="my-10">
+        <h2 id="faq" className="text-2xl font-bold text-gray-900 mb-6">
+          {title || 'Frequently Asked Questions'}
+        </h2>
+        {children}
+      </section>
+    );
   }
 
-  return <FAQ items={[]} {...props} />;
+  return <FAQ items={[]} title={title} {...props} />;
 };
 
 // FAQ.Item marker — never renders on its own; FAQWrapper extracts its
