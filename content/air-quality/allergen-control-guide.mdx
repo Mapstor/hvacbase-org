@@ -3,7 +3,7 @@ slug: "allergen-control-guide"
 title: "Complete HVAC Allergen Control Guide: Reduce Indoor Allergens by 95%"
 description: "In-depth guide to controlling allergens through HVAC systems. Filtration, humidity control, UV treatment, and ventilation strategies for healthier indoor air."
 datePublished: "2026-04-06"
-dateModified: "2026-07-17"
+dateModified: "2026-07-19"
 readTimeMinutes: 16
 tags: ["allergens", "air-quality", "hvac-filtration", "indoor-health"]
 cluster: "air-quality"
@@ -161,31 +161,12 @@ Understanding specific allergens and their sources enables targeted control stra
 
 <ComparisonTable
   title="Indoor Allergen Control Effectiveness by Method"
-  items={[
-    {
-      feature: "Dust Mites",
-      filtration: "MERV 11+ captures debris",
-      humidityControl: "Most effective - less than 50% RH kills mites",
-      airPurification: "Moderate effectiveness"
-    },
-    {
-      feature: "Pet Dander",
-      filtration: "HEPA most effective",
-      humidityControl: "Minimal impact",
-      airPurification: "Very effective with proper sizing"
-    },
-    {
-      feature: "Pollen",
-      filtration: "MERV 8+ captures most pollen",
-      humidityControl: "No direct effect",
-      airPurification: "Effective for indoor control"
-    },
-    {
-      feature: "Mold Spores", 
-      filtration: "MERV 11+ captures spores",
-      humidityControl: "Critical - prevents growth",
-      airPurification: "UV light most effective"
-    }
+  headers={["Allergen", "Filtration", "Humidity Control", "Air Purification"]}
+  rows={[
+    ["Dust Mites", "MERV 11+ captures debris", "Most effective - less than 50% RH kills mites", "Moderate effectiveness"],
+    ["Pet Dander", "HEPA most effective", "Minimal impact", "Very effective with proper sizing"],
+    ["Pollen", "MERV 8+ captures most pollen", "No direct effect", "Effective for indoor control"],
+    ["Mold Spores", "MERV 11+ captures spores", "Critical - prevents growth", "UV light most effective"],
   ]}
 />
 

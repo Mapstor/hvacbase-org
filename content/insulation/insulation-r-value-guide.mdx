@@ -3,7 +3,7 @@ slug: "insulation-r-value-guide"
 title: "Complete Insulation R-Value Guide: Choose the Right Insulation for Maximum Energy Savings"
 description: "In-depth guide to insulation R-values by climate zone. Compare materials, calculate savings, and understand building codes for optimal home insulation performance."
 datePublished: "2026-04-06"
-dateModified: "2026-07-17"
+dateModified: "2026-07-19"
 readTimeMinutes: 14
 tags: ["insulation", "r-value", "energy-efficiency", "building-codes"]
 cluster: "insulation"
@@ -126,31 +126,12 @@ The International Energy Conservation Code (IECC) establishes minimum R-value re
 
 <ComparisonTable
   title="R-Value Requirements by Climate Zone"
-  items={[
-    {
-      feature: "Climate Zone 1-2 (Hot)",
-      attic: "R-30 to R-49",
-      walls: "R-13 to R-15",
-      floor: "R-13 to R-19"
-    },
-    {
-      feature: "Climate Zone 3-4 (Mixed)",
-      attic: "R-38 to R-60",
-      walls: "R-13 to R-20", 
-      floor: "R-19 to R-25"
-    },
-    {
-      feature: "Climate Zone 5-6 (Cold)",
-      attic: "R-49 to R-60",
-      walls: "R-20 to R-21",
-      floor: "R-25 to R-30"
-    },
-    {
-      feature: "Climate Zone 7-8 (Very Cold)",
-      attic: "R-49 to R-60",
-      walls: "R-21",
-      floor: "R-25 to R-30"
-    }
+  headers={["Climate Zone", "Attic", "Walls", "Floor"]}
+  rows={[
+    ["Climate Zone 1-2 (Hot)", "R-30 to R-49", "R-13 to R-15", "R-13 to R-19"],
+    ["Climate Zone 3-4 (Mixed)", "R-38 to R-60", "R-13 to R-20", "R-19 to R-25"],
+    ["Climate Zone 5-6 (Cold)", "R-49 to R-60", "R-20 to R-21", "R-25 to R-30"],
+    ["Climate Zone 7-8 (Very Cold)", "R-49 to R-60", "R-21", "R-25 to R-30"],
   ]}
 />
 
