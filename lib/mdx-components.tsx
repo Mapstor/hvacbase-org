@@ -6,6 +6,11 @@ import SourceLink from '@/components/ui/SourceLink';
 import TableOfContents from '@/components/ui/TableOfContents';
 import CalcWrapper from '@/components/calculators/CalcWrapper';
 import SEERCalculator from '@/components/tools/SEERCalculator';
+import EfficiencyCurve from '@/components/diagrams/EfficiencyCurve';
+import ComparisonChart from '@/components/diagrams/ComparisonChart';
+import ScaleDiagram from '@/components/diagrams/ScaleDiagram';
+import DataChart from '@/components/diagrams/DataChart';
+import RefrigerationCycle from '@/components/diagrams/RefrigerationCycle';
 
 // Define SourcesBox component
 const SourcesBox = ({ sources }: { sources: Array<{ text?: string; label?: string; url: string }> }) => {
@@ -181,6 +186,11 @@ export const mdxComponents = {
   SourceLink,
   SourcesBox,
   TableOfContents,
+  EfficiencyCurve,
+  ComparisonChart,
+  ScaleDiagram,
+  DataChart,
+  RefrigerationCycle,
   // Add default HTML elements with Tailwind classes and IDs
   h1: (props: any) => {
     const id = props.children?.toString()?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

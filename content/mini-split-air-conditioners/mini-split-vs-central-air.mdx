@@ -26,6 +26,20 @@ Here's the quick answer: if your home already has ductwork in good condition, ce
 
 <TableOfContents />
 
+<ComparisonChart
+  optionA={{ name: "Mini-split (mid-tier premium)" }}
+  optionB={{ name: "Central air (high-efficiency)" }}
+  metrics={[
+    { label: "SEER2 rating", a: 22, b: 20, format: "number", aNote: "17-40 typical", bNote: "14-24 typical" },
+    { label: "Annual cooling cost", a: 325, b: 550, format: "currency", aNote: "range $250-400", bNote: "range $450-650" },
+    { label: "Annual heating cost", a: 390, b: 675, format: "currency", aNote: "range $300-500", bNote: "range $550-800" },
+    { label: "Independent zones", a: 5, b: 1, format: "number", aNote: "1-8 typical", bNote: "single thermostat" }
+  ]}
+  title="Mini-split vs Central air: efficiency, cost, zoning"
+  desc="Mini-splits achieve higher SEER2 (22 vs 20 typical for mid-premium/high-eff tiers), lower annual cooling cost ($325 vs $550), lower annual heating cost when operated as a heat pump ($390 vs $675), and native multi-zone control (5 vs 1 thermostat). All figures are midpoints for a 2,000 sq ft home in a moderate US climate; the parenthetical ranges match the article's cited ranges. Cost differences narrow when comparing to central air with existing ductwork."
+  caption="Midpoint estimates for a 2,000 sq ft home in a moderate climate; ranges shown in parentheses. Central-air numbers here assume high-efficiency equipment and typical 20-30% duct loss."
+/>
+
 ## Head-to-Head Comparison: All 8 Differences
 
 | Category | Mini Split | Central Air | Winner |

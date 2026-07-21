@@ -30,6 +30,20 @@ Choose your MERV rating based on your health needs, system compatibility, and bu
 
 <TableOfContents />
 
+<ScaleDiagram
+  tiers={[
+    { range: "MERV 1-4", label: "Basic", description: "Above 10 μm — pollen, dust mites, carpet fibers, sanding dust" },
+    { range: "MERV 5-8", label: "Standard", description: "3-10 μm — mold spores, hair spray, cement dust, pet dander" },
+    { range: "MERV 9-12", label: "Better", description: "1-3 μm — Legionella, lead dust, auto emissions, humidifier dust" },
+    { range: "MERV 13-16", label: "Best residential", description: "0.3-1 μm — bacteria, tobacco smoke, sneeze droplets, some viruses on droplets" },
+    { range: "MERV 17-20", label: "HEPA / not for home HVAC", description: "Below 0.3 μm — virus carriers, combustion smoke; cleanroom & medical only" }
+  ]}
+  title="MERV Filter Rating Scale — particle-size capture"
+  desc="ASHRAE Standard 52.2 rates filters from MERV 1 to 20. MERV 1-4 captures only particles larger than 10 microns (pollen, dust). MERV 5-8 catches 3-10 micron particles (mold spores, pet dander) — the standard residential range. MERV 9-12 captures 1-3 microns (Legionella, fine dust). MERV 13-16 reaches 0.3-1 microns (bacteria, smoke, some virus-carrying droplets). MERV 17-20 (HEPA-range) captures below 0.3 microns and is generally incompatible with residential HVAC due to airflow restriction. Most homes are best served by MERV 8-13 depending on health needs and system compatibility."
+  axisLabel="Higher MERV → smaller particles captured → higher airflow resistance"
+  caption="MERV ranges and particle sizes per ASHRAE 52.2. Most residential HVAC systems perform best with MERV 8-13; going above requires verifying your unit's static-pressure tolerance."
+/>
+
 ## Complete MERV Rating Chart
 
 <ComparisonTable

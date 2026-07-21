@@ -32,6 +32,24 @@ While SEER averages efficiency over a whole season, EER gives you a snapshot of 
 
 <TableOfContents />
 
+<EfficiencyCurve
+  data={[
+    { x: 8, y: 1080 },
+    { x: 9, y: 960 },
+    { x: 10, y: 864 },
+    { x: 11, y: 785 },
+    { x: 12, y: 720 },
+    { x: 13, y: 665 },
+    { x: 14, y: 617 }
+  ]}
+  xLabel="EER Rating"
+  yLabel="Annual Cooling Cost"
+  yUnit="$"
+  title="EER Rating vs Annual Cooling Cost"
+  desc="Modeled annual cooling electricity cost for a typical 3-ton (36,000 BTU/hr) central AC in a moderate US climate. At EER 8, annual cooling runs about $1,080; at EER 14, about $617 — a 43% reduction. Costs assume 1,500 cooling hours per year and $0.16/kWh residential electricity (EIA 2024 US average)."
+  caption="Modeled cost: 3-ton unit × 1,500 cooling hours/year × $0.16/kWh, cost = capacity × hours × rate ÷ (EER × 1000). Your savings scale with your local electricity rate and cooling hours."
+/>
+
 ## The EER Formula
 
 **EER = Cooling Capacity (BTU/h) / Power Input (W)**
