@@ -53,12 +53,12 @@ export default function ComparisonChart({
   const colorB = optionB.color || DARK;
 
   const W = 800;
-  const rowH = 78;
-  const headH = 74;
+  const rowH = 92;
+  const headH = 82;
   const footH = 44;
   const H = headH + metrics.length * rowH + footH;
-  const PAD_L = 200;
-  const PAD_R = 120;
+  const PAD_L = 220;
+  const PAD_R = 130;
   const barTrack = W - PAD_L - PAD_R;
 
   return (
@@ -75,8 +75,8 @@ export default function ComparisonChart({
 
         <text
           x={16}
-          y={24}
-          fontSize={17}
+          y={28}
+          fontSize={21}
           fontWeight={700}
           fill={DARK}
           fontFamily="Inter, system-ui, sans-serif"
@@ -84,22 +84,22 @@ export default function ComparisonChart({
           {title}
         </text>
 
-        <g transform={`translate(0, 44)`}>
-          <rect x={PAD_L} y={0} width={12} height={12} fill={colorA} />
+        <g transform={`translate(0, 52)`}>
+          <rect x={PAD_L} y={0} width={14} height={14} fill={colorA} />
           <text
-            x={PAD_L + 18}
-            y={11}
-            fontSize={13}
+            x={PAD_L + 20}
+            y={13}
+            fontSize={16}
             fill={AXIS}
             fontFamily="Inter, system-ui, sans-serif"
           >
             {optionA.name}
           </text>
-          <rect x={PAD_L + 160} y={0} width={12} height={12} fill={colorB} />
+          <rect x={PAD_L + 200} y={0} width={14} height={14} fill={colorB} />
           <text
-            x={PAD_L + 178}
-            y={11}
-            fontSize={13}
+            x={PAD_L + 220}
+            y={13}
+            fontSize={16}
             fill={AXIS}
             fontFamily="Inter, system-ui, sans-serif"
           >
@@ -112,15 +112,15 @@ export default function ComparisonChart({
           const rowMax = Math.max(m.a, m.b);
           const aFrac = rowMax > 0 ? m.a / rowMax : 0;
           const bFrac = rowMax > 0 ? m.b / rowMax : 0;
-          const barH = 20;
+          const barH = 24;
 
           return (
             <g key={`m-${i}`}>
               <text
                 x={PAD_L - 12}
-                y={rowY + 34}
+                y={rowY + 46}
                 textAnchor="end"
-                fontSize={14}
+                fontSize={17}
                 fontWeight={600}
                 fill={DARK}
                 fontFamily="Inter, system-ui, sans-serif"
@@ -131,15 +131,15 @@ export default function ComparisonChart({
               <line
                 x1={PAD_L}
                 x2={PAD_L + barTrack}
-                y1={rowY + 66}
-                y2={rowY + 66}
+                y1={rowY + 84}
+                y2={rowY + 84}
                 stroke={GRID}
                 strokeWidth={1}
               />
 
               <rect
                 x={PAD_L}
-                y={rowY + 14}
+                y={rowY + 18}
                 width={aFrac * barTrack}
                 height={barH}
                 fill={colorA}
@@ -147,8 +147,8 @@ export default function ComparisonChart({
               />
               <text
                 x={PAD_L + aFrac * barTrack + 8}
-                y={rowY + 28}
-                fontSize={13}
+                y={rowY + 35}
+                fontSize={15}
                 fontWeight={600}
                 fill={DARK}
                 fontFamily="Inter, system-ui, sans-serif"
@@ -160,7 +160,7 @@ export default function ComparisonChart({
 
               <rect
                 x={PAD_L}
-                y={rowY + 40}
+                y={rowY + 50}
                 width={bFrac * barTrack}
                 height={barH}
                 fill={colorB}
@@ -168,8 +168,8 @@ export default function ComparisonChart({
               />
               <text
                 x={PAD_L + bFrac * barTrack + 8}
-                y={rowY + 54}
-                fontSize={13}
+                y={rowY + 67}
+                fontSize={15}
                 fontWeight={600}
                 fill={DARK}
                 fontFamily="Inter, system-ui, sans-serif"

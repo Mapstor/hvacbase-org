@@ -39,6 +39,20 @@ However, the full picture is more nuanced. Upfront costs, maintenance, equipment
 
 <TableOfContents />
 
+<ComparisonChart
+  optionA={{ name: "Natural gas (96% AFUE)" }}
+  optionB={{ name: "Electric resistance" }}
+  metrics={[
+    { label: "Upfront (equipment + install)", a: 5500, b: 3500, format: "currency" },
+    { label: "Annual operating cost (2,000 sq ft)", a: 875, b: 3750, format: "currency" },
+    { label: "Cost per MMBtu delivered heat", a: 10.94, b: 46.88, format: "currency" },
+    { label: "15-year total cost of ownership", a: 25375, b: 65050, format: "currency" }
+  ]}
+  title="Gas vs Electric Resistance Heating — 4-way cost comparison"
+  desc="Natural-gas heating and electric-resistance heating compared on the article's own cited national-average figures for a 2,000 sq ft home. Upfront installed cost favors electric ($3,500 vs $5,500), but every ongoing metric strongly favors gas: annual operating cost is 4.3x lower ($875 vs $3,750), cost per delivered MMBtu is 4.3x lower ($10.94 vs $46.88), and 15-year total cost of ownership is 2.6x lower ($25,375 vs $65,050). Lifespan is not explicitly quantified in the article's prose (only 15-year TCO horizon is), so lifespan is represented here via the 15-year total cost."
+  caption="All values midpoints from the article's own tables. Assumes national-average $1.05/therm gas and $0.16/kWh electricity."
+/>
+
 ## The Cost-Per-BTU Calculation
 
 Heating fuel costs are most accurately compared by calculating the cost to produce one million BTUs (MMBtu) of useful heat — the heat that actually warms your home after accounting for furnace efficiency.

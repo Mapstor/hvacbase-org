@@ -32,6 +32,20 @@ The discussion below covers total cost of ownership, energy efficiency, comfort 
 **Furnaces win for**: Lower cost, faster installation, cooling integration, easier maintenance. **Boilers win for**: Superior comfort, quiet operation, longer lifespan, radiant heating compatibility. **Best choice depends on**: Budget, comfort priorities, and existing infrastructure.
 </Callout>
 
+<ComparisonChart
+  optionA={{ name: "Furnace" }}
+  optionB={{ name: "Boiler" }}
+  metrics={[
+    { label: "AFUE (high-efficiency mid)", a: 92.5, b: 91.5, format: "number", aNote: "range 90-95%", bNote: "range 88-95%" },
+    { label: "Install cost (high-eff mid)", a: 6500, b: 7500, format: "currency", aNote: "$4.5k-8.5k", bNote: "$5.5k-9.5k" },
+    { label: "Annual heating cost (nat gas)", a: 1400, b: 1200, format: "currency", aNote: "$1.2-1.6k", bNote: "$1.0-1.4k" },
+    { label: "Lifespan high-eff (yrs)", a: 21.5, b: 25, format: "number", aNote: "range 18-25", bNote: "range 20-30" }
+  ]}
+  title="Boiler vs Furnace — efficiency, cost, lifespan"
+  desc="Furnace vs boiler compared on the article's own published figures. AFUE at the high-efficiency tier is nearly tied (furnace 92.5%, boiler 91.5%); install cost midpoints at $6,500 vs $7,500 (furnace cheaper); annual natural-gas heating cost for a 2,000 sq ft home is $1,400 vs $1,200 (boiler cheaper due to lower distribution losses); lifespan at the high-efficiency tier is 21.5 vs 25 years (boiler longer). The article's own qualitative best-use — furnaces for cooling-integrated homes and budgets, boilers for comfort and radiant heat — is not chartable numerically and is left to the caption."
+  caption="All midpoints from the article's own tables. Best-use is qualitative — furnaces win integrated cooling + lower cost, boilers win comfort + longer lifespan."
+/>
+
 ## System Overview and Fundamental Differences
 
 ### How Each System Works

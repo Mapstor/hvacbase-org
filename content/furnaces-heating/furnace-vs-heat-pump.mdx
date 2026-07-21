@@ -34,6 +34,20 @@ Here's the bottom line: in Climate Zones 1–4 (roughly the southern two-thirds 
 
 <TableOfContents />
 
+<ComparisonChart
+  optionA={{ name: "Gas furnace (96% AFUE)" }}
+  optionB={{ name: "Heat pump (COP 3.0)" }}
+  metrics={[
+    { label: "Peak heating efficiency (%)", a: 96, b: 300, format: "number", aNote: "AFUE", bNote: "COP 3.0 equivalent AFUE" },
+    { label: "Op cost — mild (Zone 1-2)", a: 300, b: 250, format: "currency", aNote: "$200-400", bNote: "$150-350" },
+    { label: "Op cost — cold (Zone 6)", a: 1350, b: 1750, format: "currency", aNote: "$1.1-1.6k", bNote: "$1.3-2.2k" },
+    { label: "Lifespan (avg yrs)", a: 19, b: 13.5, format: "number", aNote: "range 15-25", bNote: "range 10-20" }
+  ]}
+  title="Furnace vs Heat Pump — efficiency, climate, lifespan"
+  desc="Gas furnace vs heat pump compared on the article's own cited figures. Heat pump peak efficiency (COP 3.0 = 300% equivalent AFUE) is over 3x a 96% gas furnace — but only when it's mild enough. Mild-climate (Zone 1-2, Miami/Houston) annual heating cost midpoints show heat pump wins by $50 ($300 vs $250). Cold-climate (Zone 6, Minneapolis/Boston) midpoints show furnace wins by $400 ($1,350 vs $1,750). Gas furnace lifespan averages 19 years vs 13.5 for heat pump. Climate suitability is directly visualized by the mild vs cold operating-cost bars — furnace favored in Zones 5-7 (cold), heat pump favored in Zones 1-4 (mild-to-moderate)."
+  caption="All midpoints from the article's own tables. Furnace favored in Zones 5-7 (cold); heat pump favored in Zones 1-4 (mild-to-moderate)."
+/>
+
 ## Heat Pump vs Furnace Decision Tool
 
 Get a personalized recommendation in seconds — enter your climate, current fuel, and rates to see annual cost, payback, and 15-year ROI for each option:
