@@ -32,6 +32,22 @@ Undersizing is the most common dehumidifier mistake homeowners make — and the 
 
 <TableOfContents />
 
+<DataChart
+  data={[
+    { label: "500 sq ft", value: 25 },
+    { label: "1,000 sq ft", value: 30 },
+    { label: "1,500 sq ft", value: 35 },
+    { label: "2,000 sq ft", value: 45 },
+    { label: "2,500 sq ft", value: 50 },
+    { label: "3,000 sq ft", value: 55 }
+  ]}
+  title="AHAM Dehumidifier Pint Capacity — Very Damp (60–70% RH) Room"
+  desc="Recommended dehumidifier capacity in pints per day by room size, at the Very Damp (60–70% RH) moisture level, straight from the article's AHAM sizing chart. 500 sq ft needs 25 pints. 1,000 sq ft needs 30 pints. 1,500 sq ft needs 35 pints. 2,000 sq ft needs 45 pints. 2,500 sq ft needs 50 pints. 3,000 sq ft needs 55 pints. Values shift up for wetter conditions (Wet 70–80% RH, or Extremely Wet 80%+) and down for merely Moderately Damp (50–60%). This chart shows one column of the full four-column AHAM chart in the article below; use the full chart to pick the right column for your actual dampness level."
+  yLabel="Recommended capacity (pints/day)"
+  unit=" pt"
+  caption="AHAM sizing at the Very Damp (60–70% RH) column of the article's full 4-column chart. Wetter conditions bump these values up; ceiling height above 8 ft adds another 13–100%."
+/>
+
 ## Dehumidifier Sizing Calculator
 
 <CalcWrapper type="dehumidifier-sizing" />

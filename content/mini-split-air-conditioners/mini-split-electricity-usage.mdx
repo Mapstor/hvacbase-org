@@ -30,6 +30,22 @@ The exact electricity consumption depends on five factors: the unit's BTU capaci
 
 <TableOfContents />
 
+<DataChart
+  data={[
+    { label: "6,000 BTU", value: 275, note: "range 200-350 W" },
+    { label: "9,000 BTU", value: 375, note: "range 250-500 W" },
+    { label: "12,000 BTU", value: 525, note: "range 350-700 W" },
+    { label: "18,000 BTU", value: 850, note: "range 600-1,100 W" },
+    { label: "24,000 BTU", value: 1200, note: "range 900-1,500 W" },
+    { label: "36,000 BTU", value: 1850, note: "range 1,400-2,300 W" }
+  ]}
+  title="Mini Split Typical Wattage (Cooling Mode, Inverter Average)"
+  desc="Typical average watts drawn in cooling mode by each mini-split BTU size, from the article's own wattage table. Inverter mini splits rarely run at full rated wattage — they typically operate at 30-70% capacity once the room reaches setpoint. Midpoints shown: 6K = 275W, 9K = 375W, 12K = 525W, 18K = 850W, 24K = 1,200W, 36K = 1,850W. Full ranges (per bar) in the notes. Rated (max) watts are roughly 2x these averages. Heating mode adds 10-30% at mild outdoor temps and dramatically more in extreme cold (see the article's heating wattage table)."
+  yLabel="Typical (average) watts"
+  unit=" W"
+  caption="Midpoints of the article's Typical Watts (Avg) column for cooling mode. Full ranges in each bar's note. Rated (max) watts are roughly double these averages; heating mode consumes 10-30% more at mild temps, much more in cold."
+/>
+
 ## Mini Split Wattage by Size
 
 Every mini split has a rated wattage that represents maximum power draw at full compressor speed. But inverter mini splits rarely run at maximum — they typically operate at 30–70% capacity once a room reaches the set temperature. The table below shows both rated (maximum) and typical (average) wattage.

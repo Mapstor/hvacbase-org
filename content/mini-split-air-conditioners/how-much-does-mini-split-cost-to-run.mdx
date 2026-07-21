@@ -28,6 +28,21 @@ Your actual cost depends on four variables: the unit's BTU size, its efficiency 
 
 <TableOfContents />
 
+<DataChart
+  data={[
+    { label: "Mini split 12K (SEER2 20)", value: 330, note: "cooling $144 + heating $186", color: "#0891B2" },
+    { label: "Central AC + gas furnace", value: 456, note: "cooling $216 + heating $240" },
+    { label: "Central AC + electric furnace", value: 756, note: "cooling $216 + heating $540" },
+    { label: "Window AC + baseboard heat", value: 936, note: "cooling $288 + heating $648" },
+    { label: "Portable AC + space heaters", value: 1008, note: "cooling $360 + heating $648" }
+  ]}
+  title="Annual Running Cost — Mini Split vs Alternatives (400 sq ft room)"
+  desc="Annual heating + cooling operating cost comparison for a 400 sq ft room, straight from the article's own comparison table. Mini split 12K at SEER2 20 costs $330/year total ($144 cooling + $186 heating). Central AC + gas furnace: $456/year ($216 + $240). Central AC + electric furnace: $756/year ($216 + $540). Window AC + baseboard heat: $936/year ($288 + $648). Portable AC + space heaters: $1,008/year ($360 + $648). Mini split saves $126-$678/year vs alternatives per the article's stated savings. Assumes national-average electricity at $0.17/kWh, gas at $1.50/therm, moderate climate (5 months cooling, 5 months heating), 8 hrs/day cooling, 10 hrs/day heating."
+  format="currency"
+  yLabel="Annual running cost ($)"
+  caption="Total annual cooling + heating cost for a 400 sq ft room from the article's own comparison table. National-average electricity $0.17/kWh, moderate climate assumptions."
+/>
+
 ## Monthly Running Cost by Mini Split Size
 
 ### Cooling Season Costs (8 Hours/Day Average)
