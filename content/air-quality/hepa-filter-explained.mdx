@@ -30,6 +30,21 @@ HEPA stands for High Efficiency Particulate Air. The term was coined during the 
 
 <TableOfContents />
 
+<DataChart
+  data={[
+    { label: "E10", value: 85, note: "penetration 15%" },
+    { label: "E11", value: 95, note: "penetration 5%" },
+    { label: "E12", value: 99.5, note: "penetration 0.5%" },
+    { label: "H13 (True HEPA)", value: 99.97, note: "penetration 0.03%" },
+    { label: "H14 (Medical)", value: 99.995, note: "penetration 0.005%" }
+  ]}
+  title="EN 1822 Filter Class Efficiency at MPPS (0.3 μm)"
+  desc="Minimum particle-capture efficiency at the Most Penetrating Particle Size (~0.3 microns) per EN 1822-1, from the article's own HEPA Filter Classes table. E10 captures ≥85% (15% passes). E11 (often marketed as 'HEPA-type') captures ≥95% (5% passes). E12 (near-HEPA) captures ≥99.5% (0.5% passes). H13 — the True HEPA threshold — captures ≥99.97% (only 0.03% passes). H14 (medical-grade) captures ≥99.995% (only 0.005% passes). The bars look nearly identical near 100% but the penetration column reveals the real story: H13 lets through 167× fewer particles than H11 at MPPS. ULPA U15-U17 (>99.9995%) are excluded — industrial/lab only, not residential HVAC."
+  format="percent"
+  yLabel="Capture efficiency at MPPS (%)"
+  caption="EN 1822 minimum efficiency at the 0.3 μm MPPS. The near-flat bars near 100% hide the real story — see the penetration % note on each bar."
+/>
+
 ## HEPA Filter Classification: The Complete Breakdown
 
 HEPA filters are classified under the European standard EN 1822-1 (adopted globally). Each class has a minimum efficiency at the Most Penetrating Particle Size (MPPS), which is approximately 0.3 microns for most HEPA media.

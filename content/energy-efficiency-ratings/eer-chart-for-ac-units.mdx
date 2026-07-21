@@ -32,6 +32,19 @@ Use the charts below to see where any unit falls on the efficiency spectrum.
 
 <TableOfContents />
 
+<DataChart
+  data={[
+    { label: "Mini-split (single-zone)", value: 13, note: "good ≥13, top 15-17" },
+    { label: "Central AC", value: 11.5, note: "good ≥11.5, excellent 13+" },
+    { label: "Window AC", value: 11, note: "good ≥11 CEER, ENERGY STAR 12.1+" },
+    { label: "Portable AC", value: 8.5, note: "typical 7-10 range" }
+  ]}
+  title="'Good' EER threshold by AC equipment type"
+  desc="The 'good' EER threshold as stated by this article for each AC unit type. Mini-splits (single-zone) start at EER 13 for good, reaching 15-17 for top hyper-efficient models (Mitsubishi/Fujitsu). Central AC good starts at EER 11.5, excellent at 13+. Window AC good is CEER 11+ (uses CEER — Combined EER — which factors in standby power), ENERGY STAR 12.1+. Portable AC is the least efficient category with a typical 7-10 range. Do NOT compare EER across categories directly — mini-split EER is not comparable to portable AC EER because they measure different real-world efficiency; compare within equipment type."
+  yLabel="'Good' EER / CEER threshold"
+  caption="'Good' threshold from the article's own key takeaways. Window AC uses CEER; portable AC value is midpoint of the 7-10 range. Compare within equipment type, not across."
+/>
+
 ## Central Air Conditioner EER/EER2 Chart
 
 <ComparisonTable
