@@ -5,6 +5,7 @@ interface Datum {
   value: number;
   note?: string;
   color?: string;
+  valueSuffix?: string;
 }
 
 interface DataChartProps {
@@ -139,6 +140,7 @@ export default function DataChart({
               >
                 {fmt(d.value, format)}
                 {unit}
+                {d.valueSuffix ? ` ${d.valueSuffix}` : ''}
               </text>
 
               <foreignObject
