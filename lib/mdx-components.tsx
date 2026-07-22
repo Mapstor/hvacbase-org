@@ -11,6 +11,9 @@ import ComparisonChart from '@/components/diagrams/ComparisonChart';
 import ScaleDiagram from '@/components/diagrams/ScaleDiagram';
 import DataChart from '@/components/diagrams/DataChart';
 import RefrigerationCycle from '@/components/diagrams/RefrigerationCycle';
+import CarbonMonoxideDetectorPlacement from '@/components/diagrams/CarbonMonoxideDetectorPlacement';
+import DryModeVsCoolMode from '@/components/diagrams/DryModeVsCoolMode';
+import BatteryRuntimeByLoad from '@/components/diagrams/BatteryRuntimeByLoad';
 
 // Define SourcesBox component
 const SourcesBox = ({ sources }: { sources: Array<{ text?: string; label?: string; url: string }> }) => {
@@ -191,6 +194,9 @@ export const mdxComponents = {
   ScaleDiagram,
   DataChart,
   RefrigerationCycle,
+  CarbonMonoxideDetectorPlacement,
+  DryModeVsCoolMode,
+  BatteryRuntimeByLoad,
   // Add default HTML elements with Tailwind classes and IDs
   h1: (props: any) => {
     const id = props.children?.toString()?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
