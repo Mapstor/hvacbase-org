@@ -189,11 +189,11 @@ export default function BatteryRuntimeByLoad({ caption }: BatteryRuntimeByLoadPr
       <svg
         viewBox="0 0 800 640"
         role="img"
+        aria-label={title}
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid meet"
         style={{ width: '100%', height: 'auto', maxWidth: '100%' }}
       >
-        <title>{title}</title>
         <desc>{desc}</desc>
 
         <text

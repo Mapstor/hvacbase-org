@@ -71,11 +71,11 @@ export default function EfficiencyCurve({
       <svg
         viewBox={`0 0 ${W} ${H}`}
         role="img"
+        aria-label={title}
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid meet"
         style={{ width: '100%', height: 'auto', maxWidth: '100%' }}
       >
-        <title>{title}</title>
         <desc>{desc}</desc>
 
         <rect x={PAD_L} y={PAD_T} width={plotW} height={plotH} fill={BG} />
