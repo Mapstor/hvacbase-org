@@ -187,7 +187,7 @@ export default function BatteryRuntimeByLoad({ caption }: BatteryRuntimeByLoadPr
   return (
     <figure className="my-8 not-prose">
       <svg
-        viewBox="0 0 800 640"
+        viewBox="0 0 800 680"
         role="img"
         aria-label={title}
         xmlns="http://www.w3.org/2000/svg"
@@ -297,9 +297,9 @@ export default function BatteryRuntimeByLoad({ caption }: BatteryRuntimeByLoadPr
           }}
         />
 
-        <g transform="translate(40, 550)">
-          <rect x={0} y={0} width={720} height={76} fill={WARN_BG} stroke={WARN} strokeWidth={1.5} rx={6} />
-          <foreignObject x={12} y={6} width={696} height={64}>
+        <g transform="translate(40, 570)">
+          <rect x={0} y={0} width={720} height={100} fill={WARN_BG} stroke={WARN} strokeWidth={1.5} rx={6} />
+          <foreignObject x={12} y={6} width={696} height={90}>
             <div
               {...({ xmlns: 'http://www.w3.org/1999/xhtml' } as any)}
               style={{

@@ -151,7 +151,7 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
   return (
     <figure className="my-8 not-prose">
       <svg
-        viewBox="0 0 800 560"
+        viewBox="0 0 800 600"
         role="img"
         aria-label={title}
         xmlns="http://www.w3.org/2000/svg"
@@ -351,8 +351,8 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
         </g>
 
         <g transform="translate(40, 396)">
-          <rect x={0} y={0} width={720} height={72} fill="#F0FDFA" stroke={PRIMARY} strokeWidth={1.5} rx={6} />
-          <foreignObject x={12} y={6} width={696} height={64}>
+          <rect x={0} y={0} width={720} height={92} fill="#F0FDFA" stroke={PRIMARY} strokeWidth={1.5} rx={6} />
+          <foreignObject x={12} y={6} width={696} height={82}>
             <div
               {...({ xmlns: 'http://www.w3.org/1999/xhtml' } as any)}
               style={{
@@ -370,9 +370,9 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
           </foreignObject>
         </g>
 
-        <g transform="translate(40, 486)">
-          <rect x={0} y={0} width={720} height={54} fill="#FEF9C3" stroke="#CA8A04" strokeWidth={1} rx={6} />
-          <foreignObject x={12} y={6} width={696} height={44}>
+        <g transform="translate(40, 508)">
+          <rect x={0} y={0} width={720} height={72} fill="#FEF9C3" stroke="#CA8A04" strokeWidth={1} rx={6} />
+          <foreignObject x={12} y={6} width={696} height={62}>
             <div
               {...({ xmlns: 'http://www.w3.org/1999/xhtml' } as any)}
               style={{

@@ -123,17 +123,29 @@ export default function ComparisonChart({
 
           return (
             <g key={`m-${i}`}>
-              <text
-                x={PAD_L - 12}
-                y={rowY + 54}
-                textAnchor="end"
-                fontSize={17}
-                fontWeight={600}
-                fill={DARK}
-                fontFamily="Inter, system-ui, sans-serif"
-              >
-                {m.label}
-              </text>
+              <foreignObject x={8} y={rowY + 18} width={PAD_L - 16} height={rowH - 24}>
+                <div
+                  {...({ xmlns: 'http://www.w3.org/1999/xhtml' } as any)}
+                  style={{
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontSize: 16,
+                    fontWeight: 600,
+                    color: DARK,
+                    lineHeight: 1.25,
+                    textAlign: 'right',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    paddingRight: 4,
+                    boxSizing: 'border-box',
+                    wordBreak: 'normal',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  {m.label}
+                </div>
+              </foreignObject>
 
               <line
                 x1={PAD_L}

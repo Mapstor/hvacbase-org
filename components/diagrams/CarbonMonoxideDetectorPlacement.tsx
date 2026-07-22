@@ -342,9 +342,9 @@ export default function CarbonMonoxideDetectorPlacement({
           not at floor level (slower response)
         </text>
 
-        <g transform="translate(40, 640)">
-          <rect x={0} y={0} width={720} height={64} fill="#EFF6FF" stroke={PRIMARY} strokeWidth={1.5} rx={6} />
-          <foreignObject x={12} y={6} width={696} height={54}>
+        <g transform="translate(40, 630)">
+          <rect x={0} y={0} width={720} height={100} fill="#EFF6FF" stroke={PRIMARY} strokeWidth={1.5} rx={6} />
+          <foreignObject x={12} y={6} width={696} height={90}>
             <div
               {...({ xmlns: 'http://www.w3.org/1999/xhtml' } as any)}
               style={{
@@ -364,7 +364,7 @@ export default function CarbonMonoxideDetectorPlacement({
           </foreignObject>
         </g>
 
-        <g transform="translate(40, 720)">
+        <g transform="translate(40, 740)">
           <rect x={0} y={0} width={720} height={78} fill="#F0FDFA" stroke={PRIMARY} strokeWidth={1} rx={6} />
           <foreignObject x={12} y={6} width={696} height={68}>
             <div
