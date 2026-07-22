@@ -127,12 +127,12 @@ export default function CarbonMonoxideDetectorPlacement({
         >
           (humidity)
         </text>
-        <text x={400} y={262} textAnchor="middle" fontSize={11} fill={AXIS} fontFamily={FONT}>
+        <text x={140} y={262} textAnchor="middle" fontSize={11} fill={AXIS} fontStyle="italic" fontFamily={FONT}>
           Hallway
         </text>
 
-        <CoIcon cx={400} cy={258} />
-        <foreignObject x={430} y={244} width={280} height={40}>
+        <CoIcon cx={260} cy={258} />
+        <foreignObject x={290} y={244} width={420} height={40}>
           <div
             {...({ xmlns: 'http://www.w3.org/1999/xhtml' } as any)}
             style={{
@@ -193,13 +193,13 @@ export default function CarbonMonoxideDetectorPlacement({
           entry
         </text>
 
-        <text x={180} y={370} textAnchor="middle" fontSize={13} fill={AXIS} fontFamily={FONT}>
+        <text x={180} y={335} textAnchor="middle" fontSize={13} fill={AXIS} fontStyle="italic" fontFamily={FONT}>
           Living
         </text>
-        <text x={360} y={370} textAnchor="middle" fontSize={13} fill={AXIS} fontFamily={FONT}>
+        <text x={360} y={335} textAnchor="middle" fontSize={13} fill={AXIS} fontStyle="italic" fontFamily={FONT}>
           Kitchen
         </text>
-        <text x={520} y={370} textAnchor="middle" fontSize={12} fill={AXIS} fontFamily={FONT}>
+        <text x={520} y={442} textAnchor="middle" fontSize={12} fill={AXIS} fontStyle="italic" fontFamily={FONT}>
           Utility
         </text>
         <rect x={340} y={385} width={40} height={20} fill="#E5E7EB" stroke={WALL} strokeWidth={1} />
@@ -207,8 +207,8 @@ export default function CarbonMonoxideDetectorPlacement({
           gas stove
         </text>
 
-        <CoIcon cx={555} cy={330} />
-        <foreignObject x={470} y={288} width={130} height={38}>
+        <CoIcon cx={540} cy={325} />
+        <foreignObject x={452} y={340} width={144} height={40}>
           <div
             {...({ xmlns: 'http://www.w3.org/1999/xhtml' } as any)}
             style={{
@@ -217,10 +217,12 @@ export default function CarbonMonoxideDetectorPlacement({
               color: REQUIRED,
               fontWeight: 700,
               lineHeight: 1.25,
-              textAlign: 'right',
+              textAlign: 'center',
             }}
           >
-            HIGH — within 10 ft of garage entry
+            HIGH — within 10 ft
+            <br />
+            of garage entry
           </div>
         </foreignObject>
 

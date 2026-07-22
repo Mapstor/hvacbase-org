@@ -73,9 +73,10 @@ export default function DataChart({
         <desc>{desc}</desc>
 
         <text
-          x={PAD_L}
-          y={26}
-          fontSize={17}
+          x={W / 2}
+          y={28}
+          textAnchor="middle"
+          fontSize={18}
           fontWeight={700}
           fill={DARK}
           fontFamily="Inter, system-ui, sans-serif"

@@ -54,12 +54,13 @@ export default function ComparisonChart({
 
   const W = 800;
   const rowH = 92;
-  const headH = 82;
+  const headH = 108;
   const footH = 44;
   const H = headH + metrics.length * rowH + footH;
   const PAD_L = 220;
-  const PAD_R = 130;
+  const PAD_R = 40;
   const barTrack = W - PAD_L - PAD_R;
+  const BAR_SCALE = 0.6;
 
   return (
     <figure className="my-8 not-prose">
@@ -74,9 +75,10 @@ export default function ComparisonChart({
         <desc>{desc}</desc>
 
         <text
-          x={16}
+          x={W / 2}
           y={28}
-          fontSize={21}
+          textAnchor="middle"
+          fontSize={20}
           fontWeight={700}
           fill={DARK}
           fontFamily="Inter, system-ui, sans-serif"
@@ -84,22 +86,25 @@ export default function ComparisonChart({
           {title}
         </text>
 
-        <g transform={`translate(0, 52)`}>
+        <g transform={`translate(0, 50)`}>
           <rect x={PAD_L} y={0} width={14} height={14} fill={colorA} />
           <text
             x={PAD_L + 20}
-            y={13}
-            fontSize={16}
+            y={12}
+            fontSize={15}
+            fontWeight={600}
             fill={AXIS}
             fontFamily="Inter, system-ui, sans-serif"
           >
             {optionA.name}
           </text>
-          <rect x={PAD_L + 200} y={0} width={14} height={14} fill={colorB} />
+
+          <rect x={PAD_L} y={22} width={14} height={14} fill={colorB} />
           <text
-            x={PAD_L + 220}
-            y={13}
-            fontSize={16}
+            x={PAD_L + 20}
+            y={34}
+            fontSize={15}
+            fontWeight={600}
             fill={AXIS}
             fontFamily="Inter, system-ui, sans-serif"
           >
@@ -110,8 +115,8 @@ export default function ComparisonChart({
         {metrics.map((m, i) => {
           const rowY = headH + i * rowH;
           const rowMax = Math.max(m.a, m.b);
-          const aFrac = rowMax > 0 ? m.a / rowMax : 0;
-          const bFrac = rowMax > 0 ? m.b / rowMax : 0;
+          const aFrac = rowMax > 0 ? (m.a / rowMax) * BAR_SCALE : 0;
+          const bFrac = rowMax > 0 ? (m.b / rowMax) * BAR_SCALE : 0;
           const barH = 24;
 
           return (
