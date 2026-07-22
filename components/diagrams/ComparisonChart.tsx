@@ -53,7 +53,7 @@ export default function ComparisonChart({
   const colorB = optionB.color || DARK;
 
   const W = 800;
-  const rowH = 92;
+  const rowH = 108;
   const headH = 108;
   const footH = 44;
   const H = headH + metrics.length * rowH + footH;
@@ -117,13 +117,15 @@ export default function ComparisonChart({
           const rowMax = Math.max(m.a, m.b);
           const aFrac = rowMax > 0 ? (m.a / rowMax) * BAR_SCALE : 0;
           const bFrac = rowMax > 0 ? (m.b / rowMax) * BAR_SCALE : 0;
-          const barH = 24;
+          const barH = 22;
+          const aEnd = PAD_L + aFrac * barTrack;
+          const bEnd = PAD_L + bFrac * barTrack;
 
           return (
             <g key={`m-${i}`}>
               <text
                 x={PAD_L - 12}
-                y={rowY + 46}
+                y={rowY + 54}
                 textAnchor="end"
                 fontSize={17}
                 fontWeight={600}
@@ -136,53 +138,75 @@ export default function ComparisonChart({
               <line
                 x1={PAD_L}
                 x2={PAD_L + barTrack}
-                y1={rowY + 84}
-                y2={rowY + 84}
+                y1={rowY + 100}
+                y2={rowY + 100}
                 stroke={GRID}
                 strokeWidth={1}
               />
 
               <rect
                 x={PAD_L}
-                y={rowY + 18}
+                y={rowY + 20}
                 width={aFrac * barTrack}
                 height={barH}
                 fill={colorA}
                 rx={2}
               />
               <text
-                x={PAD_L + aFrac * barTrack + 8}
-                y={rowY + 35}
+                x={aEnd + 8}
+                y={rowY + 34}
                 fontSize={15}
-                fontWeight={600}
+                fontWeight={700}
                 fill={DARK}
                 fontFamily="Inter, system-ui, sans-serif"
               >
                 {fmtVal(m.a, m.format)}
                 {m.unit || ''}
-                {m.aNote ? ` (${m.aNote})` : ''}
               </text>
+              {m.aNote && (
+                <text
+                  x={aEnd + 8}
+                  y={rowY + 49}
+                  fontSize={11}
+                  fontStyle="italic"
+                  fill={AXIS}
+                  fontFamily="Inter, system-ui, sans-serif"
+                >
+                  ({m.aNote})
+                </text>
+              )}
 
               <rect
                 x={PAD_L}
-                y={rowY + 50}
+                y={rowY + 60}
                 width={bFrac * barTrack}
                 height={barH}
                 fill={colorB}
                 rx={2}
               />
               <text
-                x={PAD_L + bFrac * barTrack + 8}
-                y={rowY + 67}
+                x={bEnd + 8}
+                y={rowY + 74}
                 fontSize={15}
-                fontWeight={600}
+                fontWeight={700}
                 fill={DARK}
                 fontFamily="Inter, system-ui, sans-serif"
               >
                 {fmtVal(m.b, m.format)}
                 {m.unit || ''}
-                {m.bNote ? ` (${m.bNote})` : ''}
               </text>
+              {m.bNote && (
+                <text
+                  x={bEnd + 8}
+                  y={rowY + 89}
+                  fontSize={11}
+                  fontStyle="italic"
+                  fill={AXIS}
+                  fontFamily="Inter, system-ui, sans-serif"
+                >
+                  ({m.bNote})
+                </text>
+              )}
             </g>
           );
         })}
