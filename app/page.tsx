@@ -145,11 +145,11 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
-              Professional HVAC Calculators & Sizing Tools
+              HVAC Calculators & Sizing Tools
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Size your HVAC equipment correctly with our ACCA Manual J based calculators. Avoid oversizing, 
-              reduce energy costs, and ensure optimal comfort with professional-grade sizing tools.
+              Size your HVAC equipment correctly with our ACCA Manual J based calculators. Avoid oversizing,
+              reduce energy costs, and ensure optimal comfort with ACCA Manual J based sizing tools.
             </p>
           </div>
           
