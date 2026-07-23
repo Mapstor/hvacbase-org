@@ -153,9 +153,21 @@ export default function PrivacyPolicy() {
                   <li>❌ Sell your personal information</li>
                   <li>❌ Share data with HVAC contractors without consent</li>
                   <li>❌ Use your data for unrelated marketing</li>
-                  <li>❌ Create user profiles for advertising</li>
                   <li>❌ Store calculator inputs beyond session</li>
                 </ul>
+                <p className="text-xs text-gray-500 mt-3 italic">
+                  If we display advertising, ads served through Google or other third-party
+                  ad networks use their own cookies to personalize what you see —
+                  see the Cookies &amp; Tracking section below and Google&apos;s{' '}
+                  <a
+                    href="https://policies.google.com/technologies/partner-sites"
+                    target="_blank"
+                    rel="noopener"
+                    className="text-brand-600 hover:underline"
+                  >
+                    partner-sites policy
+                  </a>.
+                </p>
               </div>
             </div>
           </div>
@@ -229,8 +241,67 @@ export default function PrivacyPolicy() {
               
               <div className="bg-blue-50 rounded-lg p-4">
                 <p className="text-sm text-gray-700">
-                  <strong>Managing Cookies:</strong> You can control cookies through browser settings. 
+                  <strong>Managing Cookies:</strong> You can control cookies through browser settings.
                   Disabling cookies may limit calculator functionality. We honor "Do Not Track" signals.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-brand-100 rounded-lg p-5">
+                <h3 className="font-semibold text-gray-900 mb-3">
+                  Third-Party Advertising Cookies
+                </h3>
+                <p className="text-sm text-gray-700 mb-3">
+                  HVACBase may serve advertisements through Google and other third-party ad
+                  networks. Under Google&apos;s partner-sites policy, these vendors — including
+                  Google — use cookies to serve ads based on your prior visits to this website
+                  and other sites on the internet. This may include personalized advertising.
+                </p>
+                <p className="text-sm text-gray-700 mb-3 font-semibold">
+                  You can opt out of personalized advertising:
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700 mb-3">
+                  <li>
+                    ●{' '}
+                    <a
+                      href="https://www.google.com/settings/ads"
+                      target="_blank"
+                      rel="noopener"
+                      className="text-brand-600 hover:underline"
+                    >
+                      Google Ads Settings
+                    </a>{' '}
+                    — opt out of Google&apos;s personalized ads across all sites that use Google
+                    ad services.
+                  </li>
+                  <li>
+                    ●{' '}
+                    <a
+                      href="https://www.aboutads.info"
+                      target="_blank"
+                      rel="noopener"
+                      className="text-brand-600 hover:underline"
+                    >
+                      aboutads.info
+                    </a>{' '}
+                    — opt out of the Digital Advertising Alliance participating vendors.
+                  </li>
+                  <li>
+                    ●{' '}
+                    <a
+                      href="https://policies.google.com/technologies/partner-sites"
+                      target="_blank"
+                      rel="noopener"
+                      className="text-brand-600 hover:underline"
+                    >
+                      Google&apos;s partner-sites policy
+                    </a>{' '}
+                    — how Google uses information from sites and apps that use its services.
+                  </li>
+                </ul>
+                <p className="text-xs text-gray-500 italic">
+                  Opting out does not remove advertising — it removes personalization, so you
+                  will see less-targeted ads. We do not currently operate a consent-management
+                  platform (CMP); this policy will be updated if that changes.
                 </p>
               </div>
             </div>
