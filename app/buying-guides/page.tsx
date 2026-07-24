@@ -144,7 +144,7 @@ const featuredGuides = [
     title: 'Furnace vs Heat Pump: Which Is Better?',
     description: 'Comprehensive comparison across 14 factors — cost, efficiency, climate suitability, lifespan, and comfort.',
     href: '/furnace-vs-heat-pump',
-    badge: 'Editor\'s Choice',
+    badge: 'Most-read comparison',
     stats: { readTime: '15 min', updated: 'February 2026' }
   }
 ]
@@ -193,8 +193,8 @@ export default function BuyingGuidesPage() {
               <div className="flex justify-center mb-2">
                 <Shield className="w-6 h-6 text-green-600" />
               </div>
-              <div className="text-2xl font-bold text-gray-900">100%</div>
-              <div className="text-sm text-gray-600">Unbiased Reviews</div>
+              <div className="text-lg font-bold text-gray-900">Editorially Independent</div>
+              <div className="text-sm text-gray-600">No affiliate links · No paid placements</div>
             </div>
             <div>
               <div className="flex justify-center mb-2">
