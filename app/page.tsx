@@ -813,8 +813,8 @@ export default async function HomePage() {
                 <Link href="/how-many-mini-splits-do-i-need" className="block text-brand-600 hover:text-brand-700 font-medium">
                   Multi-Zone Planning Guide →
                 </Link>
-                <Link href="/best-2-zone-mini-split" className="block text-gray-600 hover:text-brand-600">
-                  Best 2-Zone Systems
+                <Link href="/best-multi-zone-mini-splits" className="block text-gray-600 hover:text-brand-600">
+                  Best Multi-Zone Systems
                 </Link>
                 <Link href="/best-mini-split-ac-units" className="block text-gray-600 hover:text-brand-600">
                   Top Mini Split Systems

@@ -28,6 +28,26 @@ const nextConfig = {
         destination: '/heat-pump-in-cold-weather',
         permanent: true,
       },
+      {
+        source: '/best-2-zone-mini-split',
+        destination: '/best-multi-zone-mini-splits',
+        permanent: true,
+      },
+      {
+        source: '/best-3-zone-mini-split',
+        destination: '/best-multi-zone-mini-splits',
+        permanent: true,
+      },
+      {
+        source: '/best-4-zone-mini-split',
+        destination: '/best-multi-zone-mini-splits',
+        permanent: true,
+      },
+      {
+        source: '/best-5-zone-mini-split',
+        destination: '/best-multi-zone-mini-splits',
+        permanent: true,
+      },
     ];
   },
 };
