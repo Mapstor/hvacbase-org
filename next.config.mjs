@@ -21,6 +21,15 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/mini-split-in-cold-climates',
+        destination: '/heat-pump-in-cold-weather',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({
