@@ -276,36 +276,16 @@ Solar panel charging time assumes 5 peak sun hours and 8-10A effective charging 
 
 <FAQ questions={[
   {
-    question: "How many watts does a 12V 100Ah battery have?",
-    answer: "A 12V 100Ah battery stores 1,200 watt-hours (Wh) of total energy (12V x 100Ah = 1,200Wh). The watts it can deliver at any moment depends on the connected load and inverter. It could power a 100W device for 12 hours, a 600W device for 2 hours, or a 1,200W device for about 1 hour. In practice, usable capacity is 600 Wh for lead-acid (50% DoD) or 1,024-1,280 Wh for LiFePO4 (80-100% DoD)."
-  },
-  {
     question: "How many watts is a 12V car battery?",
     answer: "A standard car battery (12V, 45-65Ah) stores 540-780 watt-hours. However, car batteries are designed for short high-current bursts (starting the engine), not sustained power delivery. Drawing more than 20-30% of their capacity damages them. For sustained power needs, use a deep-cycle battery instead."
-  },
-  {
-    question: "Can a 12V battery run a 1,500 watt heater?",
-    answer: "Technically yes, but only briefly. A 12V 100Ah LiFePO4 battery stores about 1,024 usable Wh, running a 1,500W heater for roughly 37 minutes (accounting for inverter losses). You would also need a 2,000W+ pure sine wave inverter. A 200Ah battery would double that to about 75 minutes. Space heaters are extremely power-hungry and impractical on 12V battery systems."
-  },
-  {
-    question: "How many watts does a 12V 200Ah battery store?",
-    answer: "A 12V 200Ah battery stores 2,400 watt-hours total (12 x 200 = 2,400). For a LiFePO4 battery at 80% usable DoD, that is about 2,048 usable Wh. This is enough to run a 12V fridge (45W average) for about 45 hours, or power a small RV setup (lights, fridge, charging) for about 1.5 days."
   },
   {
     question: "What is the difference between watts and watt-hours?",
     answer: "Watts (W) measure power, which is the rate of energy use at any instant. Watt-hours (Wh) measure energy, which is the total amount used over time. Think of watts as the speed of a car and watt-hours as the distance traveled. A 100W light bulb uses 100 watts of power. Running it for 10 hours consumes 1,000 watt-hours (1 kWh) of energy."
   },
   {
-    question: "How long will a 12V battery run a refrigerator?",
-    answer: "A standard mini fridge draws about 50-80W on average (including compressor cycling). A 12V 100Ah LiFePO4 battery (1,024 usable Wh) with a 90% efficient inverter runs a mini fridge for 11-18 hours. A full-size refrigerator draws 100-200W average and would last 5-9 hours. Doubling to 200Ah doubles these runtimes."
-  },
-  {
     question: "Is a 12V 100Ah lithium battery better than lead-acid?",
     answer: "For most applications, yes. A 100Ah LiFePO4 provides 1,024-1,280 usable Wh versus 600 Wh for lead-acid (due to 50% DoD limit). LiFePO4 also weighs half as much (28 vs 63 lbs), lasts 5-10x longer (3,000-5,000+ cycles vs 300-500), charges 3-4x faster, and maintains consistent voltage under load. The upfront cost is higher, but the cost per cycle is actually lower."
-  },
-  {
-    question: "How do I calculate how long a 12V battery will last?",
-    answer: "Use this formula: Runtime (hours) = Usable Wh / Device Watts x 0.9. For a 12V 100Ah LiFePO4 battery running a 200W load: 1,024 Wh / 200W x 0.9 = 4.6 hours. For lead-acid, use 600 Wh instead: 600 / 200 x 0.9 = 2.7 hours. The 0.9 factor accounts for inverter efficiency losses."
   },
   {
     question: "Can I use a car battery for solar storage?",
