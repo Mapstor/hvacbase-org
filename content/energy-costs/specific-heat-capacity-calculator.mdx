@@ -263,48 +263,8 @@ This is relevant to HVAC because refrigerants work by changing phase. When R-410
 
 <FAQ items={[
   {
-    question: "What is specific heat capacity in simple terms?",
-    answer: "Specific heat capacity is a measure of how much energy it takes to raise the temperature of a material by one degree. Materials with high specific heat (like water at 4.186 J/g/C) absorb a lot of energy before getting hot. Materials with low specific heat (like aluminum at 0.897 J/g/C) heat up quickly with less energy. Think of it as a material's thermal stubbornness — how much it resists changing temperature."
-  },
-  {
-    question: "What is the specific heat of water?",
-    answer: "Water has a specific heat capacity of 4.186 J/(g·°C) or equivalently 1.000 BTU/(lb·°F) or 4,186 J/(kg·°C). This is among the highest of any common substance, which is why water is used extensively in heating and cooling systems. It takes 1 BTU to raise 1 pound of water by 1°F, making water-based HVAC calculations straightforward in imperial units."
-  },
-  {
-    question: "How do I calculate the energy to heat water?",
-    answer: "Use Q = mcΔT. Multiply the mass of water (in pounds) by the specific heat (1.0 BTU/lb/°F) by the temperature rise (°F). For example, heating 40 gallons (333.6 lbs) from 55°F to 120°F: Q = 333.6 × 1.0 × 65 = 21,684 BTU = 6.35 kWh. At $0.168/kWh, that costs $1.07. For a water heater at 92% efficiency, divide by 0.92: actual energy consumed is 6.9 kWh costing $1.16."
-  },
-  {
-    question: "What is the specific heat of air?",
-    answer: "Dry air at sea level has a specific heat of approximately 1.006 J/(g·°C) or 0.240 BTU/(lb·°F). However, because air is so light (about 0.075 lb/ft³ at standard conditions), its volumetric heat capacity is extremely low — roughly 1/3,500th that of water. This is why forced-air HVAC systems need large ductwork and high airflow rates to move the same amount of heat that a small water pipe can carry."
-  },
-  {
-    question: "Why does specific heat matter for HVAC?",
-    answer: "Specific heat determines three critical HVAC design factors: (1) How much energy your water heater needs to reach set temperature, (2) How large pipes and pumps need to be in hydronic systems (higher specific heat = smaller pipes needed), and (3) How quickly your home heats up or cools down (thermal mass from building materials). Understanding specific heat helps you calculate operating costs, size equipment properly, and optimize thermal storage strategies."
-  },
-  {
-    question: "What does Q = mcΔT stand for?",
-    answer: "Q = mcΔT is the heat transfer equation where Q is heat energy (in Joules or BTU), m is mass of the substance (in grams, kilograms, or pounds), c is the specific heat capacity of the material, and ΔT (delta T) is the change in temperature (final minus initial, in °C or °F). It calculates how much energy is absorbed or released when a substance changes temperature without changing phase."
-  },
-  {
-    question: "How does thermal mass affect my energy bills?",
-    answer: "Homes with high thermal mass (concrete slab floors, brick or stone walls, tile surfaces) change temperature more slowly because these materials absorb and store large amounts of heat. In practice, this means your HVAC system cycles less frequently, temperature swings between thermostat cycles are smaller, and strategies like pre-cooling before TOU peak hours work better because the stored cool persists longer. Thermal mass doesn't reduce total energy use, but it smooths demand and improves comfort."
-  },
-  {
-    question: "How much energy does a hot shower use?",
-    answer: "A standard 10-minute shower at 2.0 GPM using 105°F water (with 55°F inlet water) uses approximately 8,340 BTU or 2.44 kWh of heat energy. At the national average electricity rate with a standard electric water heater, that's about $0.45 per shower. A low-flow 1.5 GPM showerhead reduces this to $0.33. For a family of four, showers alone cost $500-$660/year — switching to low-flow showerheads saves $125-$175/year."
-  },
-  {
     question: "What is the difference between specific heat and thermal conductivity?",
     answer: "Specific heat measures how much energy a material can STORE per degree of temperature change — it's about capacity. Thermal conductivity measures how quickly heat moves THROUGH a material — it's about transfer speed. Insulation has low thermal conductivity (heat moves slowly through it) regardless of specific heat. Water has high specific heat (stores lots of energy) AND moderate thermal conductivity. These are independent properties used for different calculations in HVAC design."
-  },
-  {
-    question: "How does antifreeze affect a hydronic heating system?",
-    answer: "Adding antifreeze (propylene glycol or ethylene glycol) to a hydronic system lowers the specific heat capacity compared to pure water. A 50/50 propylene glycol mix has a specific heat of about 0.812 BTU/(lb·°F) versus 1.0 for water — a 19% reduction. This means the glycol mixture carries less heat per gallon, requiring either higher flow rates (larger pump) or larger temperature differentials to deliver the same heating capacity. System designers account for this by increasing pipe sizes or pump speeds."
-  },
-  {
-    question: "Can I use specific heat to calculate my heating costs?",
-    answer: "Yes. For water heating: calculate Q = mcΔT in BTU, convert to kWh (divide by 3,412), divide by your heater's efficiency, then multiply by your electricity rate. For home heating: estimate the BTU heat loss of your home (from Manual J calculations or simplified methods), then determine how many BTU your heating system must deliver per hour. Multiply by operating hours and convert to your fuel's cost units to estimate seasonal heating costs."
   }
 ]} />
 
