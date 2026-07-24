@@ -330,44 +330,12 @@ To correct 100 kW load from PF 0.75 to PF 0.95:
 
 <FAQ items={[
   {
-    question: "How do I convert kW to amps in 3-phase?",
-    answer: "Use the formula: Amps = (kW × 1000) ÷ (Volts × 1.732 × Power Factor). For example, 20 kW at 480V with PF 0.85: Amps = 20,000 ÷ (480 × 1.732 × 0.85) = 28.3 amps. The 1.732 (√3) factor accounts for the 3-phase power relationship."
-  },
-  {
-    question: "What is the difference between kW and kVA?",
-    answer: "kW is real power (what actually does useful work). kVA is apparent power (volts × amps without considering power factor). The relationship: kW = kVA × Power Factor. For a motor with PF 0.85, a 100 kVA load consumes only 85 kW of real power — the rest is reactive power that oscillates between source and load."
-  },
-  {
-    question: "How do I calculate amps for a 3-phase motor?",
-    answer: "Use NEC Table 430.250 for motor full-load amps (FLA) rather than calculating from HP. For example, a 25 HP motor at 460V is 34A per the NEC table. To calculate: Amps ≈ (HP × 746) ÷ (V × 1.732 × Efficiency × PF), but tables are more accurate because they account for typical motor characteristics."
-  },
-  {
-    question: "Why is 3-phase more efficient than single-phase?",
-    answer: "3-phase delivers approximately 1.73× more power than single-phase with only 1.5× the conductors. It also provides constant power (no pulsating like single-phase), which means smoother motor operation and smaller motors/generators for the same output. This reduces wire costs, motor sizes, and energy losses."
-  },
-  {
     question: "What is the √3 (1.732) factor in 3-phase calculations?",
     answer: "The √3 factor accounts for the phase relationship in 3-phase systems. The three phases are 120° apart, and when you calculate the combined power or current relationship, the geometry results in √3 multiplying the single-phase equivalent. This is a fundamental property of 3-phase systems."
   },
   {
-    question: "How do I size wire for a 3-phase motor?",
-    answer: "Per NEC Article 430, motor branch circuit conductors must be sized at 125% of the motor's full-load current (FLA). Look up FLA in NEC Tables 430.248–430.250, multiply by 1.25, and select wire from NEC Table 310.16. For example, a 10 HP motor at 460V has 14A FLA; 14 × 1.25 = 17.5A → 14 AWG minimum (20A ampacity)."
-  },
-  {
-    question: "What power factor should I use for calculations?",
-    answer: "Use 0.85 as a default for motor loads if actual PF is unknown. Resistive loads (heaters) have PF = 1.0. VFD-driven motors have PF 0.95–0.99. Motors at partial load have lower PF (0.50–0.80). For accurate calculations, check the equipment nameplate or spec sheet for actual power factor."
-  },
-  {
-    question: "Is 208V 3-phase the same as 240V?",
-    answer: "No. 208V 3-phase comes from a wye transformer (120V line-to-neutral × √3 = 208V line-to-line). It's 13% lower than 240V, which can affect equipment performance. Motors rated for 240V may run slightly slower and cooler on 208V. Heaters produce only 75% of rated output (power ∝ V²). Always verify equipment is rated for your actual voltage."
-  },
-  {
     question: "How do I calculate 3-phase power consumption?",
     answer: "Real power: kW = (V × I × √3 × PF) ÷ 1000. Apparent power: kVA = (V × I × √3) ÷ 1000. For energy consumption: kWh = kW × hours of operation. Example: A 20 kW load running 8 hours consumes 160 kWh. At $0.10/kWh, that's $16/day."
-  },
-  {
-    question: "What size breaker for a 3-phase motor?",
-    answer: "NEC Article 430 allows motor branch circuit breakers up to 250% of FLA for standard motors (to handle starting current). Example: 10 HP motor at 460V = 14A FLA. Maximum breaker = 14 × 2.5 = 35A. Standard sizes are 30A or 40A. Use the next standard size up if the calculated value falls between sizes."
   }
 ]} />
 

@@ -317,14 +317,6 @@ The system goes from 40 AWG (0.003 inches, used in electronics) to 0 AWG (0.325 
 
 <FAQ items={[
   {
-    question: "What is the ampacity of 12 AWG copper wire?",
-    answer: "12 AWG copper wire has an ampacity of 20A with 60°C insulation (NM-B/Romex), 25A with 75°C insulation (THWN), and 30A with 90°C insulation (THHN). However, NEC 240.4(D) limits 12 AWG branch circuits to a maximum 20A overcurrent protection regardless of insulation type."
-  },
-  {
-    question: "What size wire do I need for 50 amps?",
-    answer: "For a 50-amp circuit, you need 6 AWG copper wire (55A at 60°C, 65A at 75°C) or 4 AWG aluminum wire (55A at 60°C). For runs over 80 feet, consider upsizing to 4 AWG copper to keep voltage drop under 3%."
-  },
-  {
     question: "Can I use aluminum wire for branch circuits?",
     answer: "The NEC permits aluminum wire for branch circuits, but it's uncommon and not recommended for residential 15A and 20A circuits due to the need for special CO/ALR-rated devices and anti-oxidant compound. Aluminum is standard and fully safe for service entrance conductors and feeder circuits of 6 AWG and larger."
   },
@@ -337,24 +329,8 @@ The system goes from 40 AWG (0.003 inches, used in electronics) to 0 AWG (0.325 
     answer: "Solid wire (one thick conductor) is standard in 14 AWG through 10 AWG NM-B cable. Stranded wire (multiple thin conductors twisted together) is used in 8 AWG and larger sizes for flexibility. Both have identical ampacity ratings per NEC Table 310.16. Stranded wire is easier to pull through conduit and bend at connections."
   },
   {
-    question: "Why does the NEC have three temperature columns?",
-    answer: "The three columns (60°C, 75°C, 90°C) correspond to the insulation temperature rating of the wire. Higher-rated insulation allows more current because the wire can safely operate at higher temperatures. However, the weakest link in the circuit determines the usable rating — if your terminations (breaker, outlet) are rated for 75°C, you use the 75°C column even if the wire is rated for 90°C."
-  },
-  {
-    question: "What does 'kcmil' mean in wire sizing?",
-    answer: "Kcmil stands for 'thousands of circular mils' — a circular mil being the area of a circle with a 1-mil (0.001 inch) diameter. Wire sizes above 4/0 AWG are expressed in kcmil: 250 kcmil, 300 kcmil, etc. For context, 4/0 AWG equals 211.6 kcmil. This measurement system is standard for large conductors used in commercial and industrial applications."
-  },
-  {
     question: "How do I know what temperature rating my wire has?",
     answer: "The insulation type is printed on the wire jacket every few feet. Common residential types: NM-B (60°C assembly rating), THHN (90°C dry), THWN (75°C wet), THWN-2 (90°C wet/dry), XHHW-2 (90°C). Check the printed markings — they'll show something like '12 AWG THHN 90°C 600V'."
-  },
-  {
-    question: "Do I need to derate wire in a hot attic?",
-    answer: "Yes. NEC 310.15(B)(1) requires ampacity correction when ambient temperature exceeds 30°C (86°F). Attics in hot climates can reach 60°C (140°F) or higher. At 60°C ambient, a 60°C-rated wire loses 42% of its ampacity — 12 AWG NM-B drops from 20A to just 11.6A. For HVAC wiring in hot attics, either upsize the wire or use conduit with higher-rated conductors."
-  },
-  {
-    question: "What gauge wire is used for 200-amp service?",
-    answer: "A 200-amp residential service typically uses 2/0 AWG copper (145A at 60°C, but rated for 200A service per NEC 310.12) or 4/0 AWG aluminum (150A at 60°C, but accepted for 200A service). Most homes use aluminum SE cable because it costs roughly half as much as copper at these sizes."
   }
 ]} />
 
