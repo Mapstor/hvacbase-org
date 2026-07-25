@@ -153,6 +153,32 @@ The 1.047 factor is an average. The actual SEER-to-SEER2 ratio varies by equipme
 
 PSC (permanent split capacitor) blower motors are the most affected because they can't adjust their speed when resistance increases. ECM (electronically commutated motor) blowers ramp up to maintain airflow, consuming more electricity but with less efficiency degradation.
 
+## The Physics Behind the 1.047 Factor
+
+The 1.047 SEER-to-SEER2 approximation exists because the DOE test procedure changed on January 1, 2023 — the physical unit did not. What changed is the external static pressure the equipment must overcome during the efficiency test.
+
+Under the old SEER test, the indoor blower was tested at 0.1 in. w.c. of external static pressure — a very low resistance that no realistic residential duct system produces. Under the new SEER2 test (DOE 10 CFR Part 430 Subpart B Appendix M1), external static pressure was raised to 0.5 in. w.c. — much closer to the resistance typical ducted systems actually present.
+
+At higher static pressure, the blower motor draws more power to move the same air volume. The extra motor draw is real; the equipment's cooling capacity isn't reduced, but the ratio of BTU-per-watt-hour drops. That drop shows up as a lower SEER2 number for the same unit.
+
+The 4.7% average reduction is DOE's estimate for typical residential central AC and heat pumps across the equipment class. Individual units may shift more or less depending on their blower motor characteristics — a variable-speed ECM blower handles the higher static pressure more gracefully than a fixed-speed PSC motor, so a variable-speed unit's SEER-to-SEER2 ratio may be closer to 1:1, while a fixed-speed PSC unit's may exceed the 1.047 average.
+
+## When to Use Each Conversion Direction
+
+**SEER → SEER2** (existing unit rated in old scale, need current-code equivalent):
+- Repair-vs-replace decisions on 2015–2022 equipment where the nameplate shows SEER but the local code minimum is now written in SEER2
+- Rebate-program eligibility checks where the program threshold is written in SEER2 but you have old paperwork
+- Comparing your existing system to what current-code new equipment would deliver
+
+**SEER2 → SEER** (new-equipment quote in SEER2, need to compare against older stored data):
+- Comparing 2026 new-install pricing against 2020s repair-cost records where the reference SEER was in the old scale
+- Historical energy-savings estimation where your baseline utility data uses SEER
+- Interpreting older technical documents that list target efficiencies in SEER
+
+### The AHRI-Certified Rating Is Authoritative
+
+The 1.047 factor is a rule-of-thumb approximation, not an exact conversion. For any specific model that matters (a warranty claim, a code-compliance letter, a rebate application), look up the actual AHRI-certified rating in both scales on the AHRI Directory (ahridirectory.org). Many manufacturers publish both SEER and SEER2 for units certified during the 2023 transition period; for units certified before the transition, only SEER is available and the 1.047 approximation is the best you can do.
+
 ## Practical Guidance for Comparisons
 
 When comparing equipment across standards, always convert to the same scale. If you're shopping for new equipment, everything will be in SEER2. If you're comparing a new purchase to your existing system, convert your old SEER to SEER2 first.
@@ -184,6 +210,8 @@ Don't mix metrics in the same comparison. A 15 SEER2 unit is actually slightly m
 
 <SourcesBox sources={[
   { label: "AHRI - SEER2 Transition Resources", url: "https://www.ahrinet.org" },
+  { label: "DOE 10 CFR Part 430 Subpart B Appendix M1 (SEER2/HSPF2 test procedure, 0.5 in. w.c. static-pressure basis)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B/appendix-Appendix%20M1%20to%20Subpart%20B%20of%20Part%20430" },
+  { label: "AHRI Directory (authoritative certified ratings — SEER and SEER2 for units certified during 2023 transition)", url: "https://www.ahridirectory.org" },
   { label: "ASHRAE - Standard 37 & 116 Test Methods", url: "https://www.ashrae.org" }
 ]} />
 

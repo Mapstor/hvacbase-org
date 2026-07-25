@@ -107,6 +107,27 @@ IEER is referenced in several important standards and codes. ASHRAE 90.1 sets th
 
 Many utility rebate programs for commercial buildings use IEER thresholds to qualify equipment for incentives. Rebates of $50-$200 per ton of cooling are common for units exceeding minimum IEER by 10-20%.
 
+## Understanding the Four-Point Test Structure
+
+The four-point structure — 100%, 75%, 50%, 25% capacity, each paired with a correspondingly reduced outdoor test temperature — is designed to reflect how commercial cooling load tracks with outdoor conditions across an entire cooling season. Chiller demand is highest on the hottest days, so the milder-load bins test at cooler outdoor temperatures than the design day.
+
+The heavy weighting on part-load points (98% of the weight sits outside the 100%-load condition) is the mechanical explanation for why variable-speed and multi-stage compressors dominate at the top of the IEER scale. A fixed-speed compressor is either fully on or off; at 25% or 50% load, it cycles on and off, wasting energy on start-up transients. A variable-speed compressor slows to match the load and stays at a steady, efficient operating point.
+
+The specific weighting fractions and outdoor test temperatures come from AHRI 340/360 (paywalled from ahrinet.org). That standard is the authoritative source; any IEER rating on a manufacturer spec sheet traces back to test data compiled per those points.
+
+The 2019 and 2022 editions of ASHRAE 90.1 raised IEER minimums for many equipment classes, so a rooftop unit meeting the older code's IEER minimum does not automatically meet current-year requirements. Verify the specific equipment class against Table 6.8.1 of the code year applicable to your project.
+
+## Choosing Between EER and IEER for Design Decisions
+
+EER is a single-point rating at design conditions (typically 95 °F outdoor). IEER is the seasonal weighted number. Both matter, but for different reasons:
+
+- **Use EER** when comparing chillers for peak-day performance — utility peak-demand analysis, extreme-climate design-day sizing, or when the building operates almost exclusively at design conditions (rare in commercial cooling).
+- **Use IEER** when comparing chillers for seasonal energy use — building energy modeling, utility annual-consumption estimation, LEED / ENERGY STAR eligibility checks, and any comparison meant to reflect real operating cost across a full year.
+
+For residential heat pumps and single-package equipment, SEER2 and HSPF2 are the analogous seasonal metrics — IEER applies to commercial packaged / split systems and chillers, not residential.
+
+A pitfall to watch: a high-IEER chiller paired with an oversized cooling tower or short-cycling reheat coil can undo the efficiency gain, because the chiller may not spend enough time at its efficient part-load points. IEER is a rated efficiency; realized efficiency depends on the whole plant, not just the chiller nameplate.
+
 <Callout type="takeaway">
 ## Key Takeaways
 

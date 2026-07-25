@@ -114,6 +114,32 @@ HSPF has the same limitations as any seasonal metric. It's tested in DOE Region 
 
 For a more nuanced picture of cold-weather performance, look for the manufacturer's published COP at 17 degrees F and 5 degrees F, or check if the unit meets the NEEP Cold Climate specification.
 
+## Understanding the Region IV Test Basis
+
+The HSPF test is anchored to DOE "Region IV" heating-hour data — a nationally-representative moderate-climate distribution meant to approximate typical residential heat pump operation across the U.S. The unit is tested at multiple outdoor temperatures spanning approximately 62 °F down to 17 °F (with some cold-climate certifications testing lower), and the heating capacity and electrical input at each temperature are weighted by the fraction of Region IV heating hours occurring at that temperature bin.
+
+The full-heating-season weighted average produces the HSPF number in BTU per watt-hour — the same units as SEER, since both are seasonal cooling/heating efficiency ratios.
+
+Two consequences follow from Region IV being the test basis:
+
+- **Real-world efficiency in colder regions is lower than rated.** A heat pump installed in Minneapolis (design temperature well below 17 °F) spends more of its heating hours in the coldest, lowest-COP part of its performance curve than the Region IV weighting captures. The AHRI-rated HSPF overstates realized seasonal efficiency in cold regions.
+- **Real-world efficiency in mild regions is often higher than rated.** A heat pump installed in Atlanta or Nashville spends more of its heating hours in the moderate temperature bins where COP is highest, so the AHRI-rated HSPF is a conservative estimate.
+
+The rated-condition test points (17 °F, 47 °F, 62 °F) are documented in the DOE test procedure (10 CFR Part 430 Subpart B Appendix M for HSPF and Appendix M1 for HSPF2). Manufacturer capacity and COP data at each test point is available in the AHRI Directory for certified units.
+
+## HSPF and Repair-vs-Replace Decisions
+
+An HSPF number on a nameplate from 2015–2022 predates HSPF2. If you're evaluating whether to repair an old heat pump versus replace it, the scale change complicates the comparison:
+
+- **Old unit's rated efficiency** — HSPF (old scale), for example HSPF 8.5.
+- **New unit's rated efficiency** — HSPF2 (new scale), for example HSPF2 8.0.
+
+The new unit's HSPF2 8.0 is roughly equivalent to HSPF 8.4 in the old scale (HSPF ≈ HSPF2 ÷ 0.85), so the new unit is comparably efficient — not less, despite the smaller-looking number. Without the conversion, a homeowner comparing "8.5 vs 8.0" would incorrectly conclude the new unit is a downgrade.
+
+Rebate programs and utility incentives are written in whichever scale is currently applicable (HSPF for pre-2023, HSPF2 for 2023 and later). If your utility offers rebates keyed to HSPF2 minimums (e.g. HSPF2 8.5+ for a heat pump rebate), verify against the AHRI-certified HSPF2 rating of the specific model you're buying, not against the HSPF number that may still appear on older brochures or resale listings.
+
+For repair decisions specifically: a heat pump rated HSPF 9.5 or higher 10+ years ago is competitively efficient with current-code minimum units. Replacement is a savings-per-year calculation, not an efficiency-jump calculation — the incremental HSPF gain from replacement is often small enough that the compressor's remaining lifetime and current repair cost matter more than the efficiency delta. If your existing unit needs a new compressor (a $2,000–$3,500 repair on an aging unit), replacement almost always wins on lifecycle cost.
+
 <Callout type="takeaway">
 ## Key Takeaways
 
@@ -138,7 +164,8 @@ For a more nuanced picture of cold-weather performance, look for the manufacture
 ]} />
 
 <SourcesBox sources={[
-  { label: "AHRI - Certification Directory", url: "https://www.ahrinet.org" },
+  { label: "AHRI Directory (certified HSPF and HSPF2 ratings)", url: "https://www.ahridirectory.org" },
+  { label: "DOE 10 CFR Part 430 Subpart B Appendix M / M1 (HSPF and HSPF2 test procedures, Region IV basis)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
   { label: "NEEP - Cold Climate Heat Pump Specification", url: "https://neep.org" }
 ]} />
 
