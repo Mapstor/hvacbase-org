@@ -117,6 +117,27 @@ In Europe, ESEER feeds into the EU Ecodesign regulations and Energy Labeling sys
 
 ESEER appears in several contexts. If you're specifying European-manufactured commercial equipment (Daikin Europe, Mitsubishi Electric Europe, Carrier EMEA, etc.), product datasheets will show ESEER alongside Eurovent certification data. International building projects with European energy codes reference ESEER for compliance. Green building certifications like BREEAM (UK/Europe) use ESEER-based thresholds. And comparison shopping across global manufacturers may require ESEER-to-IEER cross-referencing.
 
+## The ESEER Methodology (Deeper Detail)
+
+ESEER (European Seasonal Energy Efficiency Ratio) is defined by the Eurovent certification program for chillers. Unlike US SEER — which weights outdoor temperature bins from residential cooling-hour data — ESEER weights four specific operating points along the commercial part-load curve, at correspondingly reduced outdoor test temperatures:
+
+- **100% load** at the design outdoor temperature (typically 35 °C / 95 °F)
+- **75% load** at reduced outdoor temperature
+- **50% load** at further-reduced outdoor temperature
+- **25% load** at mild outdoor conditions
+
+The COP at each of these four points is measured, then combined into a single weighted-average number. The four weightings are heavily skewed toward the mid-load points (50% and 75%) because that is where a European commercial chiller spends most of its cooling season — well below the design day. The exact weighting fractions are defined in Eurovent's ESEER methodology documentation, which is the authoritative source (search Eurovent-certification for the current version).
+
+The practical implication: a chiller's ESEER is typically substantially higher than its rated 100%-load COP, because the seasonal average sits mostly at part-load conditions where inverter or two-stage compressors run at their most efficient operating point.
+
+## ESEER vs IEER (US Equivalent) and When It Matters
+
+The US equivalent is IEER (Integrated Energy Efficiency Ratio), published in AHRI Standard 340/360. IEER uses the same four-load-point weighted-average concept but with US-representative building-hour data and slightly different reduced-load outdoor temperatures. Both metrics answer the same design question: how efficient is this chiller across a real season, not just at nameplate?
+
+ESEER appears on commercial-chiller data sheets sold in Europe and on multinational manufacturer catalogs (Carrier, Trane, Daikin, York) intended for the EU market. Same physical unit rated on both ESEER and IEER will produce similar-order-of-magnitude numbers but the two are not directly comparable — use ESEER for European Eurovent-certified specs, use IEER for US AHRI-certified specs.
+
+ESEER matters when specifying a chiller for a European project or an ISO-tracked project (LEED, BREEAM, Eurovent-certified applications). It is not a residential rating — for residential heat pumps and mini-splits, SEER2 (US) or SCOP (Europe) apply.
+
 <Callout type="takeaway">
 ## Key Takeaways
 

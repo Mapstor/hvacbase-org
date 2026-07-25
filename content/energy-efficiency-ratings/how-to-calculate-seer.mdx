@@ -197,6 +197,46 @@ Use this interactive calculator for instant comparisons:
   <SEERCalculator />
 </CalcWrapper>
 
+## Where the SEER Number Actually Comes From (AHRI 210/240)
+
+SEER is not measured at a single operating point. AHRI Standard 210/240 defines outdoor temperature bins at 5 °F intervals from about 65 °F up to 104 °F+. Each bin is weighted by the fraction of cooling-load hours a nationally-representative U.S. residence would experience in that bin, based on DOE-referenced typical-meteorological-year data.
+
+The distribution is heavily skewed toward the milder bins: cooling hours in the 65–77 °F range dominate the annual total, while hours above 95 °F contribute only a small fraction. That skew is why a variable-speed inverter unit (which throttles down to run continuously at low power during the mild bins) rates higher SEER than a single-speed unit of the same nameplate capacity — the variable-speed spends more time near its efficient operating point where most residential cooling hours actually happen.
+
+For the exact bin weightings, consult AHRI Standard 210/240 (paywalled, purchasable from ahrinet.org) or the DOE test procedure at 10 CFR Part 430 Subpart B Appendix M (SEER) and Appendix M1 (SEER2). Those documents are the authoritative source; the ratings on any manufacturer spec sheet trace back to test data compiled per those bin weightings.
+
+### Single-Stage vs Two-Stage vs Variable-Speed Testing
+
+For single-stage compressors, testing is simpler — one capacity point, one power point. The unit cycles on and off at part-load hours, which is captured in the seasonal weighting via a Part-Load Factor (PLF) accounting for cycling losses.
+
+Two-stage compressors are tested at both stages. Variable-speed inverter compressors are tested at multiple operating points and the seasonal weighting picks the most-efficient stage the unit would actually use at each outdoor temperature.
+
+### Hypothetical Worked Example
+
+For a representative 3-ton (36,000 BTU) single-stage central AC with these test-condition results:
+
+| Point | Outdoor °F | Capacity (BTU/hr) | Power (W) | EER |
+| :---: | :---: | :---: | :---: | :---: |
+| A (rated) | 95 °F | 36,000 | 3,200 | 11.25 |
+| B (mid bin) | 82 °F | 37,500 | 2,900 | 12.93 |
+
+Applying the AHRI 210/240 seasonal weighting to this single-stage unit produces SEER in the mid-14 range. The 82 °F point matters more than the 95 °F point because 82 °F represents a much larger fraction of typical cooling hours than 95 °F does. Even a unit rated for extreme heat is efficient mostly in mild conditions — a couple of hot afternoons each year contribute far less to the seasonal average than the many mild days.
+
+*(Numbers above are representative for illustration; actual manufacturer-tested SEER values are on the AHRI Directory for specific model matches.)*
+
+### The SEER-to-SEER2 Change
+
+In 2023, the DOE replaced SEER with SEER2. Same formula, same bins, but a different test condition: external static pressure increased from 0.1 in. w.c. to 0.5 in. w.c. The change reflects real-world duct pressure drop that the 0.1 test underrepresented. The same physical unit will rate about 4.7% lower on SEER2 than on SEER — approximately, **SEER2 ≈ SEER ÷ 1.047**. This is a rule-of-thumb approximation, not an exact conversion; the AHRI-certified rating is the authoritative figure for any specific unit.
+
+### Climate Adjustment (Why the Number Underpredicts in Some Places)
+
+SEER's weighting is a national average. In climates skewed away from that average, the actual seasonal ratio differs:
+
+- **Phoenix** — much more time above 95 °F than the national-average AHRI weighting assumes. Real-world seasonal EER is closer to the rated 95 °F EER than to the SEER number.
+- **Portland** — much more time in the 65–77 °F range than the average. Real-world seasonal EER is closer to the low-temperature bin performance, often exceeding the SEER rating.
+
+For rough site-specific estimates, use EER for hot climates (Zone 1–2) and SEER for mild climates (Zone 4–6). For a precise calculation, look up the AHRI-certified capacity + power at your local design temperature and compute your own weighted average from local cooling-degree-hour data (available from NOAA climate normals).
+
 <Callout type="takeaway">
 ## Key Takeaways
 
