@@ -112,23 +112,6 @@ The MSZ-FS12NA carries an AHRI Certificate of Product Ratings (Ref# 209832204) w
 
 Mitsubishi markets higher-efficiency current-generation models (such as the FX line). **We don't yet have the AHRI certificate to publish verified figures for those units**, so we don't rank them here until we can cite certified ratings. Distributor listings and marketing pages are not a sufficient source for this site — only AHRI Certificate of Product Ratings PDFs or the manufacturer's published spec sheet meet the bar.
 
-## Other Brands — Pending Verification
-
-The following brands carry units with prior site claims that have not been verified against primary sources in this batch. They've been removed from the rankings until each model's AHRI cert is pulled. Marko's research queue is in `pending-ahri.md`.
-
-| Brand | Status | Note |
-|-------|--------|------|
-| **Fujitsu** (XLTH — 9/12/15RLS3H, KZAH1) | **Verified** | Up to **33.1 SEER2 / 13.3 HSPF2**, **−15 °F** min heat, **R-32** refrigerant. Prior "14.2 HSPF2" claim was incorrect. Source: [Fujitsu General manufacturer spec](https://www.fujitsugeneral.com/). Warranty: 7yr comp / 5yr parts out-of-box; 10/10 registered; 12/12 via Fujitsu Elite contractor. |
-| **LG Art Cool Premier 12K** (LA120HYV3 / LAU120HYV3) | **Verified — legacy** | **25.5 SEER2 / 13.8 EER2 / 11.2 HSPF2**, **R-410A**, 100% heat at 5°F / continuous to -13°F. **Production Stopped** per AIM Act (Jan 1, 2025 manufacturing cutoff). Prior "27.5 SEER2" claim was the 9K variant (27.0), not the 12K. Source: LG installation manual (media.us.lg.com). |
-| **Carrier** (Infinity 38MPRAQ / 40MPHAQ) | `PENDING-AHRI` | Real Carrier ductless line; AHRI cert not yet pulled. Manufacturer-published efficiency tops the low-20s SEER2 on the Infinity line. (The previously-listed "Carrier 40HQV" was a phantom model and has been removed.) |
-| **Mitsubishi** (MSZ-FH cold-climate variant) | `PENDING-AHRI` | Referenced across the site; cert pull pending. |
-| **Bosch** (Climate 5000) | — | Prior 27 SEER2 claim needs verification. |
-| **MrCool DIY 5th Gen (current)** | **Verified — mfr-pub** | **23.5 SEER2**, **R-454B** refrigerant (low-GWP, A2L), cold-climate certified. The older **4th Gen** runs **R-410A** (legacy; mfr cutoff Jan 1, 2025). For new 2026 installs, evaluate the 5th Gen — don't conflate 4th-Gen R-410A specs with current. Source: MrCool manufacturer pages (mrcool.com). |
-| **Cooper & Hunter Sophia** (CH-12SPH) | **Verified — legacy** | **21.5 SEER2**, **R-410A**, heating to **~-13°F**. The -22°F figure incorrectly attached to Sophia in prior copy actually belongs to the separate **C&H Hyper Heat / HPR line** (24 SEER2 / R-410A / -22°F, manufacturer-rated, not AHRI-tested). Source: cooperandhunter.us. |
-| **Pioneer** (WYS series) | — | Prior SEER2 claims need AHRI cert pull. |
-
-Any of these brands can move into the shortlist when their values are confirmed.
-
 ## Indoor Noise Comparison (Manufacturer-Published Specs)
 
 | Brand | Model | dB (Low) | dB (High) | Sound Equivalent |
@@ -164,9 +147,28 @@ For the three shortlisted units: Daikin Aurora is **R-32**; Senville LETO is **R
 - **The federal Section 25C credit expired** for installs after Dec 31, 2025. For 2026 installs, state/utility rebates and IRA HOMES/HEAR are the active federal pathways.
 </Callout>
 
-<FAQ
-  items={[]}
-/>
+<FAQ items={[
+  {
+    question: "Is paying more for a factory-certified installer (Mitsubishi Diamond, Daikin Comfort Pro, Fujitsu Elite) actually worth it?",
+    answer: "In most cases yes, because the extended warranty is contingent on it. Mitsubishi's Diamond Contractor program is what unlocks the 12-year compressor coverage on its residential lineup — without a Diamond install, the standard warranty drops to 5 years parts and 7 years compressor per Mitsubishi's published terms. Daikin's Comfort Pro network unlocks the 12-year registered parts warranty on units like the Aurora, and Fujitsu's Elite program works similarly. The price premium usually reflects two things. The installer has completed brand-specific training on line-set sizing, refrigerant charging, and control wiring for that manufacturer's platform. And the manufacturer will actually stand behind the extended warranty because the install was documented through their contractor portal at commissioning. A generalist HVAC contractor can legally install any of these units, but if the compressor fails in year 8, you'll be paying full parts and labor. If you plan to keep the system 10+ years, the certified-installer premium is generally the cheaper path over the equipment's life. If the unit will be sold with the home in 3–5 years, a competent non-certified installer at a lower rate can make sense — but confirm the shorter warranty terms in writing before signing."
+  },
+  {
+    question: "Does the Japanese parent-company warranty on Daikin or Mitsubishi actually apply to US buyers?",
+    answer: "No — US warranties are separate and are administered by the US subsidiary. Daikin Comfort Technologies North America (headquartered in Waller, TX) publishes and honors US warranty terms, and Mitsubishi Electric Trane HVAC US (METUS) does the same for Mitsubishi's US residential line. Coverage lengths, registration requirements, and claim procedures differ from what Daikin Industries or Mitsubishi Electric publishes in Japan or Europe. There are two practical consequences. First, a unit imported through gray-market channels — bought abroad and shipped to the US — generally carries no US warranty at all, because METUS and Daikin NA will only honor claims on serial numbers they distributed through authorized channels. Second, model names don't cross over cleanly. The MSZ-FH sold in Japan is not the same submittal as the MSZ-FS sold in the US, and spec sheets published on the parent company's Japanese site do not apply to the US unit's rated performance or coverage. Always cross-check the model number on the outdoor unit's nameplate against the AHRI Certificate of Product Ratings issued to the US subsidiary. That's the only warranty document that binds the manufacturer inside the US market."
+  },
+  {
+    question: "Are DIY brands like MrCool and Senville reliable enough for a 15-year install?",
+    answer: "The mechanical guts — inverter compressor, electronic expansion valve, BLDC fan motors — are sourced from the same tier of Chinese suppliers (GMCC, Highly, Landa) that also supply many mid-tier ducted brands, so the core mechanical reliability is generally acceptable at this price point. What varies is build refinement: coil coating quality for coastal or industrial air exposure, refrigerant-charge tolerance from the factory, and the polish of the control firmware. The bigger 15-year risk is parts availability. A MrCool or Senville unit installed today may physically still run in 2041, but sourcing a specific control board or EEV in year 12 depends on whether the brand is still importing that generation. Mitsubishi, Daikin, and Fujitsu maintain residential parts pipelines for a decade or more after a model is discontinued; smaller import brands do not consistently do this, and forum reports of stranded units from delisted DIY brands are common. For primary-heat use in a cold climate, the tier-1 Japanese brands are the safer long-horizon bet. For a supplementary bedroom head or a garage/workshop install where a full swap in year 10–12 is acceptable, a DIY brand is a defensible choice — just don't plan for the same 20-year ceiling."
+  },
+  {
+    question: "R-32 vs R-454B — which one should I insist on for a 2026 install?",
+    answer: "Both are A2L (mildly flammable), both fall under the EPA's 700-GWP AIM Act threshold, and both are legal for new US residential installs in 2026. Neither is meaningfully more efficient in real-world SEER2 numbers — heat-transfer performance depends far more on coil geometry and compressor control than on refrigerant choice within this class. The practical differences come down to service. R-32 is a single-component refrigerant, so a technician can top off a small leak without recovering the full charge — that simplifies service calls over the unit's life. R-454B is a zeotropic blend (R-32 plus R-1234yf), and blends can fractionate if they leak as vapor, so best practice per ASHRAE guidance is to recover and recharge rather than top off. R-32 has slightly higher GWP (675 vs 466), but both are comfortably below regulatory thresholds, so the practical decision usually comes down to your local service network. Ask your installer which refrigerant they are already licensed and equipped to handle, and match the unit to that. Both require EPA Section 608 certification plus A2L-specific training, which not every contractor has completed yet."
+  },
+  {
+    question: "If a model isn't in the AHRI directory but the manufacturer spec sheet claims a SEER2 rating, does that matter for rebates or tax credits?",
+    answer: "It matters a lot. Most utility rebate programs, ENERGY STAR listings, and the (now-expired) federal Section 25C credit required the model to appear on the AHRI Directory of Certified Product Performance with a matching AHRI Reference Number — not just a claim on a manufacturer spec sheet. Rebate administrators verify the AHRI ref# against the model number on your invoice before cutting the check. A manufacturer spec sheet is generally sufficient for engineering — you can size the system, calculate load coverage, and confirm cold-climate capacity from it. It is usually not sufficient for financial-incentive paperwork. If you're planning to claim a state, utility, or IRA-linked rebate, pull the AHRI Certificate of Product Ratings PDF for the exact indoor+outdoor combination you're installing before signing the contract, and confirm the model appears on your program's qualified-products list. Two edge cases. Some smaller import brands publish a \"SEER2\" number on their site that reflects an internal lab test but was never submitted to AHRI — those numbers cannot be used for rebates. And an AHRI cert with status \"Production Stopped\" may still qualify for a rebate if the unit is installed from existing inventory during the program's window — verify with your specific administrator."
+  }
+]} />
 
 <SourcesBox
   sources={[

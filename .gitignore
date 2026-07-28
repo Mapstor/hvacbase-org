@@ -44,3 +44,6 @@ public/.next/
 LINK_STATUS.txt
 BATCH_5_PREVIEW.md
 BATCH_6_PREVIEW.md
+
+# internal editorial working notes — must never ship in a public deploy
+/pending-ahri.md

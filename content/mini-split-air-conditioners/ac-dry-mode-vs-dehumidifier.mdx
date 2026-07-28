@@ -101,14 +101,29 @@ Dehumidifiers running continuously in a basement need more frequent filter check
 ## Key Takeaways
 
 <Callout type="takeaway">
-- **Head-to-head comparison of mini split dry mode vs standalone dehumidifier — moisture removal rates, energy use, cost, and when to use each**
+- **Where the waste heat goes decides the winner.** AC dry mode rejects heat outdoors so the room cools 1–3 °F while drying; a dehumidifier dumps that heat back into the same room (a 400 W unit adds roughly 1,300 BTU/hr) — right for basements and crawlspaces, counter-productive in a hot afternoon living space.
 - Always verify specifications against the AHRI directory for independently certified performance data
 - The federal 25C/25D tax credits expired Dec 31, 2025 (OBBBA). For 2026 installs, factor in state and utility rebates instead.
 </Callout>
 
-<FAQ
-  items={[]}
-/>
+<FAQ items={[
+  {
+    question: "What indoor humidity level should I target for a basement versus a living space?",
+    answer: "EPA guidance for indoor spaces is 30–50% relative humidity to inhibit mold growth and dust mites, and most people find 45–50% the sweet spot for comfort. Above roughly 55% RH the air starts feeling sticky; ASHRAE 55 comfort criteria treat higher humidity ratios as unacceptable at typical room temperatures. For basements, aim for the lower end — 45–50% RH — for two reasons: basement surfaces are cooler, so the same absolute moisture load produces a higher local RH near foundation walls where condensation actually happens, and organic materials stored down there (cardboard, fabric, wood) mold faster at elevated humidity. Below about 30% RH, wood floors and cabinetry can crack, static electricity builds up, and respiratory tissues dry out, so undershooting isn't harmless either. A dedicated dehumidifier's built-in humidistat is the practical way to hold a specific setpoint. Most AC dry modes don't accept an RH target — they run at a fixed offset below room temperature — so if you need to hit a number, verify with a cheap standalone hygrometer placed away from the supply vent."
+  },
+  {
+    question: "Can I run my mini split's dry mode and a portable dehumidifier in the same room at once?",
+    answer: "Technically yes, but in the same room it usually wastes electricity. The portable dehumidifier rejects all of its compressor's waste heat back into the room — for typical 30- to 50-pint units, that's roughly 1,000–2,000 BTU/hr of added sensible heat. Your mini split then has to remove that heat as well as everything else, so you're paying twice: once for the dehumidifier's compressor watts, and again for the AC compressor watts needed to reject the same heat outdoors. The efficient pairing strategy is spatial separation — dehumidifier in the basement or crawlspace to attack the moisture source at its origin, mini split in dry mode upstairs where people are. If one occupied room has more moisture than the AC alone can handle, a properly sized mini split (or a ducted whole-house dehumidifier feeding that zone) is more efficient than stacking two portable units in the same space. Same-room stacking is only defensible during short-term water-damage remediation, where drying speed matters more than kWh."
+  },
+  {
+    question: "Will my mini split's dry mode still work when the outdoor temperature drops below 60°F?",
+    answer: "Not always. Cooling and dry modes both rely on the outdoor coil rejecting heat, and when outdoor air is too cold the refrigerant's low-side pressure can drop enough to freeze the indoor evaporator or damage the compressor. Standard mini splits typically list a minimum cooling ambient somewhere in the 50–60°F range on the spec sheet, and dry mode inherits that same limit because it uses the same refrigeration loop. Cold-climate models — those on the NEEP ccASHP product list, for example — often extend low-ambient cooling operation lower, and some hyper-heat units can dehumidify well into the 40s outdoors. Below the manufacturer's rated minimum, dry mode will either refuse to engage or short-cycle and eventually error out. For humid cool weather like a rainy 55°F spring day, a standalone dehumidifier is the right tool because its refrigeration loop operates entirely inside the room's air and doesn't depend on outdoor temperature at all. Check the installation manual for your exact model — look for \"cooling operating range\" or \"minimum outdoor temperature, cooling.\""
+  },
+  {
+    question: "Is a ducted whole-house dehumidifier a substitute for using AC dry mode?",
+    answer: "They solve overlapping but not identical problems. A whole-house dehumidifier ties into your ductwork (or runs its own dedicated ducts) and can dehumidify with the AC completely off, which matters during shoulder seasons when it's humid but not hot enough to justify running the compressor for cooling. AC dry mode only works while the AC is running and only in the zone that unit serves — a bedroom mini split in dry mode does nothing for humidity in the kitchen. Whole-house units also typically offer higher pint-per-day capacity than a portable and accept a specific RH setpoint (like 50%) that they hold across the whole envelope. The trade-off is upfront cost: installation involves duct connections, condensate plumbing, and a dedicated circuit, and prices vary widely by home layout — get quotes from a local HVAC contractor rather than relying on published averages. For homes in the humid Southeast or Gulf Coast with long shoulder seasons and central ductwork, they're often worth it; for a two-month humid summer served by one or two mini splits, AC dry mode alone usually suffices."
+  }
+]} />
 
 <SourcesBox
   sources={[

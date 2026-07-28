@@ -73,14 +73,29 @@ Garages have unique sizing challenges: they're often poorly insulated, have larg
 ## Key Takeaways
 
 <Callout type="takeaway">
-- **How to size and choose a mini split for your garage — BTU requirements by garage size, insulation factors, top picks, and installation tips**
+- **Insulation moves BTU needs more than floor area does.** A 2-car garage jumps from 12,000–18,000 BTU insulated to 18,000–24,000 BTU uninsulated — stack +30% for no insulation, +25% for high ceilings, and +15% for hot climates before picking a unit.
 - Always verify specifications against the AHRI directory for independently certified performance data
 - The federal 25C/25D tax credits expired Dec 31, 2025 (OBBBA). For 2026 installs, factor in state and utility rebates instead.
 </Callout>
 
-<FAQ
-  items={[]}
-/>
+<FAQ items={[
+  {
+    question: "Does poor garage insulation kill mini split efficiency, or does a bigger unit fix it?",
+    answer: "Both — and insulation is worth fixing first. The BTU up-sizing in the table above compensates for heat gain and loss through uninsulated walls and doors, but a larger unit still runs longer to hold setpoint. Published efficiency ratings (SEER2, HSPF2) come from fixed AHRI test conditions with a controlled load, so real-world efficiency in a leaky garage drops noticeably: the inverter compressor spends more hours at higher speeds where variable-speed systems are less efficient than at part-load. Before buying a bigger mini split, weatherstrip the overhead door (bottom seal, side jambs, top seal), add R-13 batts or 2 inch rigid foam to exposed walls, insulate the door itself with a foam-panel kit, and seal ceiling penetrations to the attic. Per Department of Energy retrofit guidance, insulating the garage door alone cuts heat loss through that face substantially. In many cases those upgrades let you drop from a 24K to an 18K unit and meaningfully cut annual kWh — a better return than paying for more capacity to fight an uninsulated envelope."
+  },
+  {
+    question: "Can I run a 240V mini split on the same 15A circuit as my shop tools?",
+    answer: "No. The National Electrical Code (NEC 210.23 and 440) requires fixed HVAC equipment on a dedicated circuit — its own breaker, no shared outlets or loads. Most 18K–24K single-zone mini splits need a dedicated 208/240V circuit sized to the unit's Maximum Overcurrent Protection (MOCP), commonly 15A, 20A, or 30A at 240V depending on model. Check the nameplate: it lists Minimum Circuit Ampacity (MCA) for wire sizing and MOCP for the breaker — do not substitute values from a similar model. A shared 15A branch will trip on compressor inrush, and even if it holds it violates code and voids most manufacturer warranties. Smaller 9K–12K units are sometimes available in 120V versions that run on a dedicated 15A or 20A branch, which is often the simplest option for a 1-car garage with limited panel space. If your panel is full or lacks a 240V slot, a licensed electrician can add a subpanel or the required dedicated 240V circuit; budget that work before you order equipment."
+  },
+  {
+    question: "Will the manufacturer warranty cover a mini split installed in an unconditioned garage?",
+    answer: "Usually yes for the location itself, but the install method matters more than the space. Most major brands (Mitsubishi, Daikin, Fujitsu, LG) require a licensed HVAC contractor to install, commission, and register the system for the full parts-and-compressor warranty to apply — a homeowner DIY install voids or shortens coverage. MrCool's DIY line is the notable exception: it explicitly warranties homeowner installs on pre-charged line sets, provided you register the unit within the required window. Ambient operating limits also matter. Check the spec sheet's stated cooling and heating temperature ranges (cold-climate heat pumps listed by NEEP typically maintain rated capacity well below zero Fahrenheit, but non-cold-climate models cut out much sooner). Running outside the stated envelope won't necessarily damage the unit, but a warranty claim linked to that operation can be denied. Coastal garages face a separate risk: standard outdoor coils are not warranted against salt-air corrosion unless you order a corrosion-resistant model or a factory-applied coil coating."
+  },
+  {
+    question: "Do workshop fumes, sawdust, or car exhaust damage the indoor or outdoor unit?",
+    answer: "Airborne dust is the bigger day-to-day problem, not exhaust. The indoor head pulls garage air across its evaporator coil and filter, so heavy sawdust, drywall dust, or grinding particulate clogs the washable filter in weeks instead of months and eventually fouls the coil — which cuts capacity and raises energy use. Practical steps: run a dust collector or shop vac at the source, add a MERV 8–11 pre-filter over the indoor intake, and rinse the factory filter monthly during heavy use. Car exhaust (CO, NOx, unburned hydrocarbons) is mildly corrosive over years but usually vents out the overhead door faster than it accumulates on coils, especially with a working exhaust fan. The outdoor condenser is more exposed to weather and coastal salt than to garage interior air. Solvent vapors (gasoline, acetone, brake cleaner, spray paint) are the real hazard — they are flammable and can ignite near any electrical arc, so store flammables in a sealed cabinet and never spray solvents or paint while the mini split is running in the same space."
+  }
+]} />
 
 <SourcesBox
   sources={[
