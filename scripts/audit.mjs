@@ -18,6 +18,10 @@
  *   5. Wrong year in title     (2023/2024/2025 label on a 2026-published page)
  *   6. Compile check           (npm run build must be exit 0, 0 MDX errors)
  *   7. Missing imports         (component used but not imported and not globally provided)
+ *   8. Heading in Callout      (H2/H3 nested inside <Callout>...</Callout> — the amber-box-
+ *                               wraps-h2 anti-pattern; e.g. "## Key Takeaways" inside
+ *                               <Callout type="takeaway">. Renders as a heading stuck inside
+ *                               the decorative box instead of as its own standalone section.)
  */
 
 import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
@@ -375,6 +379,54 @@ function checkCompile() {
   return { findings, pageInfo, exitCode: result.status };
 }
 
+/** Check 8: H2/H3 heading nested inside <Callout>...</Callout>.
+ *
+ * The Callout component renders as a bordered decorative box with its own built-in title
+ * (e.g. takeaway → "Key Takeaway"). Putting a Markdown H2/H3 heading inside the Callout
+ * body creates a nested-heading defect: the h2 renders stuck inside the amber box instead
+ * of as a standalone section heading above it.
+ *
+ * Deterministic parse: walk lines, track balanced <Callout>/</Callout> depth, flag any
+ * heading (^## or ^###) encountered while depth > 0. Assumes no self-closing <Callout />
+ * and no single-line inline Callouts — both verified absent from the corpus at check-add time.
+ */
+function checkHeadingInCallout(files) {
+  const findings = [];
+  for (const f of files) {
+    const src = readFileSync(f, 'utf8');
+    const lines = src.split('\n');
+    let depth = 0;
+    let openLine = 0;
+    for (let i = 0; i < lines.length; i++) {
+      const l = lines[i];
+      // Check first (depth reflects state ENTERING this line, before this line's tag changes)
+      if (depth > 0 && /^(##|###)\s+/.test(l)) {
+        findings.push({
+          check: 'heading-in-callout',
+          file: relative(REPO_ROOT, f),
+          line: i + 1,
+          severity: 'high',
+          detail: `H2/H3 nested inside <Callout> opened at line ${openLine}: ${l.trim().slice(0, 100)}`,
+        });
+      }
+      const opens = (l.match(/<Callout\b/g) || []).length;
+      const closes = (l.match(/<\/Callout>/g) || []).length;
+      if (opens > 0 && depth === 0) openLine = i + 1;
+      depth = Math.max(0, depth + opens - closes);
+    }
+    if (depth !== 0) {
+      findings.push({
+        check: 'unbalanced-callout',
+        file: relative(REPO_ROOT, f),
+        line: 0,
+        severity: 'medium',
+        detail: `Unbalanced <Callout> tags (net depth ${depth} at EOF)`,
+      });
+    }
+  }
+  return findings;
+}
+
 /** Check 7: Missing imports (component used but neither imported nor globally provided). */
 function checkMissingImports(files) {
   const findings = [];
@@ -419,6 +471,7 @@ function main() {
   findings.push(...checkDuplicates(files));
   findings.push(...checkWrongYear(files));
   findings.push(...checkMissingImports(files));
+  findings.push(...checkHeadingInCallout(files));
   let buildInfo = { pageInfo: '(skipped)', exitCode: null };
   if (!skipBuild) {
     const b = checkCompile();
