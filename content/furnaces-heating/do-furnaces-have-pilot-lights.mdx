@@ -123,6 +123,66 @@ If your furnace still uses a standing pilot light, it's almost certainly 20+ yea
 
 The payback period for replacing a standing-pilot furnace with a modern 96% unit is typically 4–8 years in cold climates.
 
+## What a Normal Ignition Sequence Looks and Sounds Like
+
+A modern electronic-ignition furnace runs the same seven-step sequence every time the thermostat calls for heat, and knowing that sequence makes it far easier to identify where a misfire is happening. The full cycle from thermostat contact-close to warm air at the register typically runs 60 to 120 seconds, most of which is deliberate timing built into the control board. Each step has a signature sound, and each has a specific failure mode when it does not happen.
+
+**Step 1 — Thermostat call (0 seconds).** The thermostat closes the R–W circuit and sends 24 V AC to the furnace control board. On most boards a small LED lights, and a soft click is audible from the low-voltage relay energizing the ignition sequence.
+
+**Step 2 — Inducer motor starts (roughly 1–3 seconds later).** The draft inducer — a small fan in the flue path — spins up and produces a steady electric-motor hum. Its job is to pull combustion air through the heat exchanger and prove the flue is clear before any gas flows.
+
+**Step 3 — Pressure switch closes (a couple of seconds after the inducer stabilizes).** As the inducer builds negative pressure, a diaphragm-operated switch in a small rubber hose snaps closed with an audible click. If the flue is blocked, the condensate drain is plugged, or the inducer is weak, the switch never closes and the board aborts the sequence before gas ever flows.
+
+**Step 4 — Hot surface igniter warm-up (15–45 seconds).** The board sends 120 V AC to the igniter, which glows through a range of orange to bright yellow-white depending on element type. Silicon carbide elements typically warm for 30–45 seconds; silicon nitride elements are faster, often 15–20 seconds.
+
+**Step 5 — Gas valve opens (a distinct click).** With the igniter at temperature, the board energizes the main gas valve solenoid. A sharp click is audible from the valve body, followed within a second by the whoosh of the burners lighting off the glowing element.
+
+**Step 6 — Flame sensor confirmation (within 2–4 seconds of ignition).** A thin metal rod bathed in the burner flame conducts a small microamp DC current back to the board, proving flame is present. If the board does not see this current within its trial-for-ignition window — commonly on the order of 4–7 seconds — it closes the gas valve and starts a lockout retry.
+
+**Step 7 — Blower delay, then warm air (typically 30–60 seconds after burners light).** The board waits for the heat exchanger to warm before starting the main blower. When the blower kicks on, warm air arrives at the registers and the cycle is complete.
+
+Deviations map cleanly to failure points. No inducer hum after the thermostat clicks usually means a bad inducer motor, a failed run capacitor, or a dead board relay. Inducer runs but nothing else happens is almost always a stuck-open pressure switch, blocked flue, or clogged condensate trap. Igniter never glows points at an open igniter element, a blown 3 A control-transformer fuse, or a bad igniter output on the board. Igniter glows but no gas whoosh points at a stuck-closed gas valve, low inlet gas pressure, or a wiring fault on the valve harness. Burners light briefly and then shut off within a few seconds is the classic weak flame-sensor signature — the flame lights, the board fails to see enough microamps of rectified current, and it drops the gas back out and locks out.
+
+## Hot Surface Igniter Faults and How to Diagnose Them
+
+Hot surface igniters are the single most-replaced part in modern residential furnaces, and they fail in two dominant ways: the ceramic element cracks open, or it degrades in place and no longer reaches ignition temperature. Both failures can be diagnosed with an inexpensive multimeter in under a minute, but the two element types behave very differently and must be interpreted against different resistance ranges.
+
+Silicon carbide (SiC) igniters — the traditional gray-black element used from the 1980s onward — read a cold resistance typically in the range of 40–90 ohms across the two terminals. A reading of OL (open, infinite resistance) means the element has cracked all the way through and needs replacement. Readings well above the manufacturer's spec indicate advanced degradation and impending failure, even if the element still glows visibly.
+
+Silicon nitride (SiN) igniters — the newer, more durable off-white or gray element used on many post-2010 furnaces — read much lower, typically in the range of 11–20 ohms cold. A SiN igniter reading OL is dead. Because the two element types have very different resistance ranges, always confirm which one is installed before interpreting a reading — a 45-ohm reading is failing on a SiN element but perfectly healthy on a SiC element.
+
+The degradation failure is the more insidious of the two. Silicon carbide erodes slightly on each heating cycle, and after enough cycles the element becomes thinner, its resistance climbs, and its current draw drops. The igniter can still glow orange but no longer reaches the roughly 1,800–2,500°F needed to reliably ignite natural gas — leaving a homeowner with a furnace that sequences correctly, glows visibly, but never actually lights the burners.
+
+Silicon nitride resists that thermal erosion far better, which is the main reason manufacturers moved to it. However, SiN elements are more brittle and more sensitive to mechanical shock during installation. Dropping the igniter, over-tightening the mounting screw, or bumping the ceramic while replacing an adjacent part can chip the element and cut its useful life dramatically.
+
+Skin-oil contamination is the failure mode most DIY installers cause themselves. Bare-hand contact deposits a thin film of body oil on the ceramic surface. When the element next heats to full temperature, that oil carbonizes into a hot spot that stresses the ceramic and shortens element life — commonly by years, sometimes to a single cycle. Every reputable manufacturer install sheet carries the same instruction: handle the igniter by its ceramic base or wiring harness, never by the working element.
+
+**Bench diagnostic in three steps:**
+
+1. **Kill power at the furnace service switch** and remove the igniter from its bracket. Two screws and a two-pin plug are typical.
+2. **Meter across the two terminals** on the ohms setting. Compare the reading against the ranges above and against the manufacturer's spec sticker if present.
+3. **Visually inspect the element** for cracks, chipped corners, white powdery residue (contamination or flux), or heavy surface erosion. Any visible damage means replace, even if the ohm reading looks acceptable.
+
+A weak-but-glowing igniter also shows up on the burner side, not just on the meter. If the element visibly glows for the full warm-up period, the gas valve clicks open, but the burners either fail to light or light with a delayed pop or roll-out, the igniter is not reaching temperature and should be replaced regardless of what the ohms reading says. Delayed ignition drives sudden pressure spikes into the heat exchanger and can crack it over time, so a marginal igniter is a combustion-safety issue, not just a comfort one.
+
+## How Direct Spark Ignition Actually Works
+
+Direct spark ignition (DSI) skips the glowing element entirely and lights gas the same way a spark plug lights gasoline — a high-voltage arc jumps a small air gap positioned directly in front of the burner ports. The mechanism is a stepped-up transformer built into the ignition control module, which converts 120 V AC line voltage to a spark voltage commonly in the range of 10,000–15,000 volts.
+
+That high voltage is applied across a ceramic-insulated electrode positioned roughly 1/8" from a grounded surface — either the burner itself or a dedicated ground rod adjacent to the electrode. The gap has to be small because dry air breaks down at roughly 30 kV per centimeter, so a 1/8" gap will arc reliably in the 10 kV range without needing a larger, bulkier transformer. The result is a rapid series of sparks, typically tens of arcs per second, that continues until flame is proven or the trial-for-ignition period times out.
+
+Flame proving on a DSI system uses the same underlying physics as the flame sensor on a hot-surface-ignition furnace, but often through the same electrode that produced the spark. Once the burners light, the ignition module switches the electrode from spark output to a low-voltage sensing circuit. The trick that makes this work is called flame rectification.
+
+A gas flame is a partially ionized plasma. It contains free electrons and positive ions and can therefore conduct electricity — but asymmetrically. The grounded burner surface is physically much larger than the small sensing electrode, and because of that surface-area imbalance, the flame passes current far more easily in one direction than the other, effectively acting as a diode.
+
+The ignition module applies a low AC voltage across the flame gap and looks for the resulting rectified DC current, which on most residential systems runs on the order of 1–10 microamps. If the module sees that DC current, flame is proven and the spark output stops. If not, the module closes the gas valve, tries again after a purge, and after a set number of failed attempts — commonly three — locks out until reset.
+
+DSI has real advantages that explain why it dominates in certain applications. LP/propane burns hotter than natural gas and cycles the burner area through wider temperature swings, which shortens the life of ceramic hot-surface elements. A metal spark electrode tolerates that thermal stress far better than silicon carbide or silicon nitride ceramic, so most residential propane furnaces, LP-fired water heaters, and outdoor patio heaters use direct spark rather than HSI.
+
+Boilers see the same durability advantage. A residential gas boiler tends to cycle differently from a forced-air furnace — often shorter, more frequent bursts driven by circulator zones — and those extra thermal cycles wear out HSI elements faster than they would in a furnace of the same input rating. Many high-efficiency modulating condensing boilers therefore use DSI with a dedicated flame rod for the same reason.
+
+The trade-offs are audibility and radio interference. The rapid spark train is noticeably louder at startup than an HSI light-off — an audible ticking or snapping from the burner area — and the high-voltage transformer can throw broadband RF noise if the ignition cable is old, cracked, or routed against sheet-metal edges. A DSI system that suddenly starts locking out on ignition failure is usually diagnosed by inspecting the electrode gap (should be roughly 1/8"), checking the ceramic insulator for cracks or soot tracking, and confirming the ground path from burner tray to chassis is clean, tight, and unbroken. A poor ground reduces the rectified microamp signal below the module's flame-proving threshold and reads as no flame even when the burner is visibly lit.
+
 ## Key Takeaways
 
 <Callout type="takeaway">

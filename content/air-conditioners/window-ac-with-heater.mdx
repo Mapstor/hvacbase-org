@@ -82,6 +82,63 @@ Monthly heating costs for a 300 sq ft room in a 40°F winter (8 hours/day):
 | Single room with no HVAC | Yes | All-in-one convenience |
 | Replacing space heater + window AC | Maybe | Saves space, similar cost |
 
+## COP vs Outdoor Temperature: How Fast Heat-Pump Efficiency Falls
+
+The 200-300% efficiency figure quoted for reverse-cycle window units is not a constant. It is a snapshot at one operating point, typically the AHRI-style 47°F outdoor / 70°F indoor rating condition, and the number falls, sometimes steeply, as the outdoor temperature drops. Understanding why and by how much is the difference between a heat-pump combo that actually saves money and one that quietly turns into an expensive resistive element every January.
+
+The upper bound on any heat pump is set by Carnot. The theoretical maximum heating COP equals T_hot divided by (T_hot minus T_cold), with both temperatures expressed in kelvin. At 70°F indoor (about 294 K) and 47°F outdoor (about 281 K) the Carnot ceiling is roughly 22; at 17°F outdoor (about 265 K) it collapses to about 10. Real vapor-compression systems achieve on the order of 20-30% of that Carnot ceiling, which is why field COPs are in the low single digits, not the tens.
+
+Two additional losses compound the Carnot squeeze. As outdoor air cools, the refrigerant's saturation pressure on the outdoor coil drops, the compressor's pressure ratio widens, and volumetric efficiency falls. Simultaneously, the outdoor coil begins to frost below roughly 40°F ambient, forcing periodic defrost cycles that reverse the valve, dump indoor heat into the outdoor coil to melt ice, and interrupt useful output for several minutes at a time.
+
+For split-system heat pumps rated under AHRI 210/240, detailed capacity-versus-temperature curves are published; comparable curves are rarely published for reverse-cycle window units, but the underlying physics is identical. Typical qualitative behavior tracks like this:
+
+- Around 47°F outdoor: COP commonly cited in the 2.5-3.0 range for basic fixed-speed reverse-cycle window units, closer to 3.5-4.0 for premium inverter-driven mini splits.
+- Around 35°F: COP typically drops into the 2.0-2.5 band as defrost cycles begin to bite and capacity starts to fade.
+- Around 25°F: COP for a fixed-speed window heat pump commonly falls into the 1.5-2.0 range, with delivered heating capacity often only 60-70% of the 47°F nameplate rating.
+- At or below 17°F: most non-cold-climate reverse-cycle units either cut out entirely on a low-ambient lockout or fall back to resistive strip heat, at which point the effective COP is 1.0.
+
+The practical implication is that a marketing spec of "up to COP 3.0" describes the best hour of the shoulder season, not the average winter hour. A homeowner should mentally weight the published number by the fraction of heating hours that actually occur above 40°F in their climate, and treat hours below that threshold as resistive-equivalent unless the manufacturer's datasheet publishes a specific low-temperature capacity curve. This is how the 200-300% claim stays technically accurate on the nameplate and still delivers an annual seasonal efficiency closer to 1.5-2.0 in a zone-4 winter.
+
+## Climate-Zone Break-Even: Heat Pump vs Resistive Combo
+
+The $100-$150 premium that a reverse-cycle window unit carries over an otherwise-identical resistive combo pays back only through kilowatt-hours saved during hours when the heat pump is actually running in efficient mode. That makes climate zone, not the sticker price, the deciding variable in the purchase.
+
+The IECC groups the United States into eight climate zones based primarily on heating degree days (HDD65). Zones 1-3, covering the Gulf Coast, most of Texas, the Southeast, and coastal California, generally average roughly 3,600 HDD65 or fewer per year, with the large majority of heating hours occurring at outdoor temperatures well above 40°F. Zones 4-5 across the Mid-Atlantic, Ohio Valley, and mountain West sit in the roughly 3,600 to 7,200 HDD65 band with a mixed distribution, while zones 6-8 across northern New England, the upper Midwest, and the Rockies run higher still, with substantial time below the reverse-cycle cutoff.
+
+A rough break-even model works like this. Assume the heat pump delivers a seasonal COP of about 2.5 during its efficient hours and reverts to COP 1.0 (resistive-equivalent) below its cutoff. Assume the room load is on the order of 3-5 kWh of delivered heat per active-use day. The premium then repays through savings roughly equal to (efficient heating hours) × (load per hour) × (rate) × (1 − 1/COP).
+
+Plugging in a residential electricity rate on the order of $0.16-$0.17 per kWh, per the recent EIA national average, each 1,000 kWh of heat delivered by the heat pump instead of by a resistive element saves roughly $95-$100 at COP 2.5. A $125 premium therefore repays after the unit delivers on the order of 1,300 kWh of heat during efficient-mode hours, which is the actual threshold that matters.
+
+- Zones 1-3: efficient-mode heating hours are typically abundant relative to total heating demand, but total demand itself is modest. Payback is generally achieved inside three heating seasons for a room used daily, and stretches to five or more for a lightly used bedroom.
+- Zones 4-5: this is the interesting middle. Efficient-mode hours are still a majority of the heating season in many locations, and total demand is meaningful, so payback typically lands in two to three seasons for a primary-use room.
+- Zones 6-7: total heating demand is high, but the fraction of hours the reverse-cycle mode actually captures is low. The heat-pump premium can still repay, but only if the unit runs primarily in shoulder seasons (October-November, March-April) rather than the January core.
+
+A useful rule of thumb: if the room's annual heating-mode runtime above 40°F outdoor is expected to exceed roughly 800-1,000 hours, the heat-pump combo generally wins on lifetime cost. Below that threshold, the resistive combo's lower sticker price is not recovered before the unit's typical 8-10 year service life ends. Cold-climate homeowners who genuinely need winter heat should look past the window-unit category entirely toward a cold-climate mini split, where published low-temperature COP curves and inverter-driven capacity make the economics defensible well into zone 6.
+
+## 5-Year Total Cost: Combo Unit vs Window AC + Space Heater
+
+Sticker price is the smallest line in the ownership ledger. A five-year total-cost-of-ownership view that includes equipment, install, annual heating energy, and expected lifespan reorders the shopping decision in ways the shelf tag does not.
+
+The model below assumes a single 250-350 sq ft room, moderate use of roughly 4 hours per day of active heating over a 5-month shoulder-and-winter season (about 600 heating hours per year), a room load near 3.5 kWh of delivered heat per active hour, a residential electricity rate close to the recent EIA national average of $0.16-$0.17 per kWh, and DIY window installation with no line-item labor. Cooling costs and cooling equipment life are assumed equivalent across the three options and are excluded from the table so the comparison isolates the heating decision.
+
+| Line item | Heat-pump combo | Resistive combo | Cooling-only AC + ceramic heater |
+|---|---|---|---|
+| Equipment purchase | $500-$580 | $400-$480 | $350-$430 (AC) + $30-$45 (heater) |
+| Installation | DIY / $0 | DIY / $0 | DIY / $0 |
+| Annual heating kWh (delivered load ~2,100 kWh/yr) | ~840 (seasonal COP ~2.5) | ~2,100 (COP 1.0) | ~2,100 (COP 1.0) |
+| Annual heating cost | ~$135-$145 | ~$335-$355 | ~$335-$355 |
+| 5-year heating energy | ~$680-$725 | ~$1,675-$1,775 | ~$1,675-$1,775 |
+| Space-heater replacement across 5 yr | n/a | n/a | ~$35 (typical 3-5 yr life on budget ceramic) |
+| 5-year total | ~$1,180-$1,305 | ~$2,075-$2,255 | ~$2,065-$2,240 |
+
+Three observations fall out of the arithmetic. First, the resistive combo and the cooling-only-plus-heater path arrive at nearly identical five-year totals, because the heating element inside a resistive window unit and the coil inside a budget ceramic tower are both simple nichrome resistance heat operating at COP 1.0. The convenience premium of the combo unit (one appliance, one plug, one remote, no floor space consumed by a separate heater) is real, but its cost advantage over a well-chosen space heater is not.
+
+Second, the heat-pump combo separates from both resistive paths by roughly $800-$1,000 over the five-year window, and the gap grows further in years six through eight if the unit's service life holds. Window AC lifespans are commonly cited in the 8-10 year range in manufacturer and industry service literature, which means a heat-pump combo bought today has a realistic chance of returning its premium two to three times over before end-of-life.
+
+Third, the totals swing meaningfully with usage. Double the daily runtime for a home-office scenario and the heat-pump combo's five-year advantage roughly doubles as well. Halve it for a guest room used a few evenings a week and all three options converge, because heating energy is no longer the dominant line in the ledger. This is why the same product can be an obvious winner in one household's numbers and a wash in another's.
+
+A final honest caveat: none of these three room-level paths is competitive with a properly sized cold-climate mini split for a household that heats a whole floor or a whole home. The window-combo decision is a room-level decision, and its correct comparison set is other room-level options rather than whole-home HVAC.
+
 ## Key Takeaways
 
 <Callout type="takeaway">

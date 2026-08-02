@@ -107,6 +107,46 @@ The most reliable way to run a quiet air purifier is to buy more CADR than you n
 **The golden rule for quiet purification:** Buy a unit with a max CADR that's 2x your target. Run it on low or medium-low. You'll hit your ACH target at noise levels 15-25 dB lower than running a right-sized unit on high. The Coway Airmega 400 on low in a 250 sq ft room is quieter than a Levoit Core 300S on medium in the same room, while delivering similar ACH.
 </Callout>
 
+## How Air Purifier Noise Is Actually Measured
+
+The specification on the side of a purifier's box — "20 dB on sleep mode" — is not a raw physical constant. It is the output of a controlled acoustic test, and the details of that test explain why the number on the label often feels optimistic once the unit is running in a real bedroom. Understanding the protocol is the only reliable way to compare specs across brands that use different measurement conditions.
+
+The reference standard shared across the industry for portable room air cleaners is ANSI/AHAM AC-1, which defines how Clean Air Delivery Rate (CADR) is measured against a defined chamber and challenge aerosol. Sound levels are typically reported using A-weighted decibels, written as dB(A) or dBA, which weight the frequency spectrum to approximate how the human ear perceives loudness. A-weighting deemphasizes very low and very high frequencies where hearing is less sensitive, so a 25 dBA reading can still contain substantial low-frequency rumble that an unweighted meter would rate higher.
+
+Most manufacturers measure at a fixed distance from the unit — commonly one meter — inside an anechoic or hemi-anechoic chamber. An anechoic chamber has wedge-shaped absorbers on every surface, so essentially no reflections add to the sound field. A real bedroom, with parallel drywall surfaces and a hard floor, produces reverberant buildup that can add several dB to the perceived level even when the source itself is unchanged.
+
+Two different quantities appear on datasheets and they are not interchangeable. Sound pressure level (Lp) is what a microphone at a given distance measures and it falls off with distance from the source. Sound power level (Lw) is a property of the source itself, independent of room and distance, and is typically derived from multiple pressure measurements per ISO 3744 or ISO 3745 methodology.
+
+Because Lp depends on distance, a brand that publishes a one-meter reading and a brand that publishes a three-meter reading are not describing the same physical claim. Roughly, doubling the distance from a compact source in a free field reduces sound pressure by about 6 dB. A "24 dB at 3 m" spec and a "30 dB at 1 m" spec can describe the same fan.
+
+Speed setting is the other frequently omitted variable. A purifier rated at "22 dBA" almost always means the lowest of several speeds — the same unit at its top CADR setting is usually 20 to 30 dB louder. This is one reason the pairing of noise and CFM discussed in the CADR-to-noise ratio section above is more meaningful than either number in isolation.
+
+Two practical takeaways follow. First, prefer dBA figures with an explicit distance and speed callout — a bare "20 dB" number without either is difficult to compare. Second, expect the in-room experience to run a few dB above the anechoic-chamber spec, because your bedroom is not anechoic and household ambient noise typically falls off after midnight, making the fan more audible against a quieter background.
+
+One more nuance is worth naming: A-weighting is convenient but imperfect for very low frequencies. A purifier whose noise is dominated by low-frequency motor rumble can measure lower on the dBA scale than a purifier with more mid-band hiss, even when many listeners find the rumble more intrusive at night. When possible, listen to a unit in-store or check reviews that describe the character of the sound rather than only its number.
+
+## The Engineering Behind a Quiet Purifier
+
+Fan noise in an air purifier has two dominant sources: aerodynamic noise from the airflow itself and mechanical noise from the motor and its bearings. Every genuinely quiet purifier on the market attacks both, and the engineering choices are visible in the housing shape, the motor type, and the fan geometry inside.
+
+The motor is the first design lever. Cheaper units often use AC induction motors — shaded-pole or permanent split capacitor designs — which run at line-frequency-locked speeds and produce tonal harmonic content tied to the mains. DC brushless motors, sometimes called EC (electronically commutated) motors, use electronic switching rather than mechanical brushes and can be smoothly speed-controlled through a wide range.
+
+That variable-speed capability is what makes a true low-speed sleep mode possible, because the motor can hold a stable low RPM instead of cycling on and off. Bearings matter for the same reason. Sleeve bearings run quieter than most ball bearings at low RPM but wear faster; premium purifiers often use hydrodynamic or fluid-dynamic bearings that combine low-noise operation with longer service life.
+
+Motor mounts with elastomer isolators prevent vibration from coupling into the plastic housing, where a resonant panel can radiate structure-borne noise several decibels above the airborne motor sound. Even a well-designed motor can sound loud if it is bolted rigidly to a large flat panel that acts as a soundboard.
+
+Fan geometry is the second big lever. Axial fans — the propeller-in-a-tube style — are efficient at moving large volumes at low pressure but generate tonal noise from tip vortices and blade-pass frequency, and they struggle against the pressure drop of a dense HEPA filter. Backward-curved centrifugal impellers, where the blades sweep away from the direction of rotation, keep airflow attached to the blade surface longer and produce a broader, less tonal spectrum that the ear reads as smoother.
+
+Most premium quiet purifiers use backward-curved or backward-inclined impellers for this reason. The housing itself is an acoustic component. For a given target CFM, a larger cross-sectional intake and filter face allow the same air volume to pass at a lower velocity, and aerodynamic noise scales strongly with velocity — commonly cited as a fifth-to-sixth-power relationship for broadband turbulent flow noise.
+
+A tower purifier with a large annular intake can move the same air as a smaller cube-shaped unit while running the impeller slower and producing noticeably less flow noise at the grille. Filter selection interacts with all of this. A HEPA filter with a larger pleated media area presents less pressure drop for the same airflow, so the fan does less work and runs quieter.
+
+As a filter loads with particulate, its pressure drop rises, forcing the fan to spin faster to maintain the same CFM — which is why an aging filter is one of the most common reasons a purifier appears to have gotten louder over time. The remedy is replacement on the manufacturer's schedule, not a higher speed setting.
+
+Purpose-built acoustic elements are the finishing touch. The Helmholtz resonator referenced in the Dyson section is a cavity with a narrow neck that resonates at a specific frequency; when that frequency matches an offending tonal component from the motor or impeller, the resonator absorbs energy at that tone and effectively cancels it. Lined ducts, foam-backed inlet grilles, and offset intake paths accomplish similar goals for broadband noise by forcing sound waves through absorptive material before they reach the room.
+
+The result is that "quiet" is rarely a single feature. It is the cumulative effect of a variable-speed DC motor, a well-behaved impeller, a housing sized to hold face velocity down, a lightly loaded filter, and targeted acoustic treatment where a tonal component would otherwise leak through.
+
 ## Key Takeaways
 
 <Callout type="takeaway">

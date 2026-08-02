@@ -112,6 +112,36 @@ Lighter units tend to be smaller (lower BTU) and use less complex components (fi
 | Light + quiet | 6K BTU U-Shaped | Midea MAW06V1QWT, 48 lbs |
 | Maximum cooling, still manageable | 10K BTU | Frigidaire GHWQ103WC1, 56 lbs |
 
+## NIOSH Lifting Index — Worked Example for a 3rd-Floor Install
+
+The NIOSH Revised Lifting Equation, published by the National Institute for Occupational Safety and Health in 1994, produces a Recommended Weight Limit (RWL) tailored to a specific lift geometry. The formula is RWL = LC × HM × VM × DM × AM × FM × CM. LC is the load constant of 51 lb — the ceiling weight NIOSH assigns to an "ideal" lift (close to the body, at waist height, no twist, infrequent, with good handles).
+
+Each of the six multipliers scales that 51 lb ceiling downward as the lift departs from ideal. HM = 10/H penalizes horizontal distance from your ankles to the load. VM = 1 − (0.0075 × |V − 30|) penalizes lifts that start above or below knuckle height (30 in). DM = 0.82 + (1.8/D) penalizes long vertical travel. AM = 1 − (0.0032 × A) penalizes body-twist angle in degrees. FM comes from a table keyed to lifts per minute and shift duration; a single install lift is effectively 1.0. CM comes from a coupling table — good, fair, or poor — reflecting how well the object can be gripped.
+
+The Lifting Index (LI) is the actual load divided by the RWL. NIOSH treats an LI of 1.0 as the ceiling for the reference population of healthy workers, with risk of low-back injury rising as LI climbs above that threshold and becoming substantial as it approaches or exceeds 3.0.
+
+Now walk a 55 lb window unit from a floor pickup up to a 40-inch sill, with a 90-degree body twist to align with the window opening. A bulky AC chassis cannot be hugged tight to the ankles at pickup, so the horizontal distance H is on the order of 15 inches; that gives HM ≈ 10/15 = 0.67. The origin is at floor level, so V = 0 and VM = 1 − (0.0075 × 30) = 0.775. Vertical travel D is 40 inches, so DM = 0.82 + (1.8/40) ≈ 0.865. The 90-degree twist yields AM = 1 − (0.0032 × 90) = 0.712. FM is 1.0 for the single lift. Coupling on a residential AC — molded base recesses, no proper handles — is fair at best, so CM ≈ 0.95.
+
+Multiplied through: 51 × 0.67 × 0.775 × 0.865 × 0.712 × 1.0 × 0.95 ≈ 15.5 lb. That is the NIOSH RWL for this specific lift. Divide the actual 55 lb load by 15.5 lb and the Lifting Index comes out near 3.5 — well into the range NIOSH describes as high risk of injury.
+
+Contrast that with a ground-level slide-in staged from a waist-high table into a low sill: load starts at V ≈ 30 in (VM = 1.0), horizontal distance H ≈ 10 in (HM = 1.0), travel D ≈ 10 in (DM = 1.0), asymmetry angle 0 (AM = 1.0), and good coupling assumed. All multipliers approach 1.0, so RWL stays near the 51 lb load constant. The same 55 lb unit produces an LI just above 1.0 — barely at the ceiling rather than 3.5 times over it.
+
+The unit didn't get heavier between floors. The geometry got worse. Every inch the sill sits above knuckle height drives VM down, every degree of twist to face the opening drives AM down, and the absence of true handles on a residential AC chassis keeps CM below 1.0 no matter how carefully the installer lifts. This is the quantitative case for the 55 lb ceiling that shows up repeatedly in manual-handling guidance: it is not a claim that adults cannot lift more, but that the RWL for realistic install geometry is far below the object's nameplate weight.
+
+## Stair-Carry vs Elevator-Carry — Logistics That Change the Weight Ceiling
+
+The 60 lb unit that a hand truck rolls into an elevator is not the same lift as the 60 lb unit that gets carried up three flights of stairs. Standard manual-handling ergonomics treats these as different problems even though the object weight is identical.
+
+Stair carry loads three variables the elevator route does not. First, cumulative work: each flight adds vertical travel that the installer's legs and low back must supply, and the RWL formula in the previous section assumed a single lift, not a stacked sequence of them. Second, static grip time: forearm flexors fatigue on a roughly minute-scale hold long before quadriceps or glutes give out, so the failure mode on stairs is often "grip released" rather than "legs collapsed." Third, footing geometry: a stair riser is typically around 7 inches under IBC residential limits, and the installer's stride must clear that riser without being able to see the tread past the load being carried.
+
+Rest landings are the mitigation. Building codes require a landing at least as deep as the stair width at the top and bottom of every flight, and code-compliant multi-story residential stairs interpose landings between flights when the vertical rise exceeds the allowed maximum. Each landing is a chance to set the unit down, shake out forearms, re-grip, and re-plan the next flight. Skipping landings — carrying continuously from ground to third floor — is what pushes grip fatigue past the point where a slip becomes likely.
+
+An appliance dolly or two-wheel hand truck eliminates the sustained-grip problem on flat runs but introduces its own geometry. The nose plate is the horizontal foot at the bottom of the dolly that slides under the load; a deeper nose plate gives the AC more support surface and moves the load's center of gravity closer to the wheel axle, which reduces the force the operator must apply at the handles to keep the dolly tilted. On a stair, though, that same deep nose plate can foul the tread edge as the dolly pivots down each step. Purpose-built stair-climbing dollies address this with a rotating tri-star wheel cluster that walks over risers one at a time — but they cost more and require practice to control safely with a top-heavy AC strapped on.
+
+Elevator carry removes the vertical lift entirely once the unit is on the dolly. The remaining constraints are dimensional and time-based. Cab dimensions determine whether the dolly plus AC plus operator fit at all — full-size passenger cabs in multi-family buildings usually accommodate an appliance dolly, but small hydraulic cabs in older walk-up conversions may not. Door timing matters more than it seems: ADA-compliant elevators must hold the door open at least 3 seconds after the call is answered per the 2010 ADA Standards, which is not enough time to wrestle a loaded dolly through a narrow opening without the door starting to close. Using the door-hold button (or wedging a foot at the sensor) buys the extra seconds needed to clear the threshold plate cleanly.
+
+The practical planning rule that falls out of all this: pick the route before the unit comes out of the box. If the destination is an elevator building, stage the AC on a dolly at the truck and roll it all the way to the apartment door, treating the elevator hold-open as a two-person task if the cab is tight. If the destination is a walk-up, plan for a rest landing between flights, split the trip if the unit is above the 50-lb comfortable-solo threshold, and accept that the RWL math for stair carry is worse than the same math for a single sill lift because the fatigue accumulates.
+
 ## Key Takeaways
 
 <Callout type="takeaway">
