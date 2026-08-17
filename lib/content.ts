@@ -38,6 +38,10 @@ function getAllMdxFiles(dir: string): string[] {
   if (!fs.existsSync(dir)) return files;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
+    // Skip directories/files whose name starts with underscore.
+    // Convention: _archived-product-pages/ holds MDX kept in-repo for history
+    // but excluded from routes, sitemap, and audit.
+    if (entry.name.startsWith('_')) continue;
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       files.push(...getAllMdxFiles(fullPath));

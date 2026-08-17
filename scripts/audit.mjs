@@ -78,6 +78,9 @@ const STOPWORDS = new Set([
 function listMDX(dir) {
   const results = [];
   for (const entry of readdirSync(dir)) {
+    // Skip _-prefixed dirs/files (e.g., _archived-product-pages/) so archived
+    // content is not audited or counted toward the live corpus.
+    if (entry.startsWith('_')) continue;
     const path = join(dir, entry);
     const st = statSync(path);
     if (st.isDirectory()) results.push(...listMDX(path));
