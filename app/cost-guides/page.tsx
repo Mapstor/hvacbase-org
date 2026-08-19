@@ -472,10 +472,10 @@ export default function CostGuidesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/best-hvac-brands-ranked"
+              href="/heating-cost-calculator"
               className="bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors"
             >
-              Compare HVAC Brands
+              Estimate Your Heating Cost
             </Link>
             <span className="text-gray-600">
               Contact contractors for financing options

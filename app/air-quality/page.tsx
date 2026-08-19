@@ -124,10 +124,10 @@ export default async function AirQualityHub() {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-xl font-semibold mb-4">Popular Guides & Tools</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/best-air-purifiers" className="p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors group">
+            <Link href="/air-purifier-sizing-guide" className="p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors group">
               <Wind className="w-6 h-6 text-purple-600 mb-2" />
-              <h3 className="font-medium text-gray-900 group-hover:text-purple-600">Best Air Purifiers</h3>
-              <p className="text-sm text-gray-600">Top-rated models</p>
+              <h3 className="font-medium text-gray-900 group-hover:text-purple-600">Air Purifier Sizing</h3>
+              <p className="text-sm text-gray-600">Find the right CADR for your room</p>
             </Link>
             <Link href="/what-size-dehumidifier-do-i-need" className="p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors group">
               <Calculator className="w-6 h-6 text-purple-600 mb-2" />
