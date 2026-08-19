@@ -332,7 +332,7 @@ export default async function ArticlesPage() {
               { label: 'Mini Splits', href: '/mini-split-air-conditioners', color: 'cyan' },
               { label: 'Furnace Sizing', href: '/furnace-sizing-calculator', color: 'orange' },
               { label: 'Tax Credits', href: '/hvac-tax-credits-2026', color: 'red' },
-              { label: 'Air Purifiers', href: '/best-air-purifiers', color: 'indigo' },
+              { label: 'Air Purifiers', href: '/air-purifier-sizing-guide', color: 'indigo' },
               { label: 'Energy Costs', href: '/electricity-cost-by-state', color: 'yellow' },
               { label: 'Maintenance', href: '/hvac-maintenance-checklist', color: 'gray' },
               { label: 'Troubleshooting', href: '/ac-troubleshooting-guide', color: 'pink' }

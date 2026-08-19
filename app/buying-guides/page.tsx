@@ -25,37 +25,37 @@ export const metadata: Metadata = {
 const buyingGuides = {
   'Air Conditioning': {
     icon: '❄️',
-    description: 'Complete guides for selecting central AC, mini splits, and portable units',
+    description: 'Sizing calculators and selection guides for central AC, mini splits, and portable units',
     guides: [
       {
-        title: 'Best Central Air Conditioners 2026',
-        href: '/best-central-ac-brands',
-        readTime: '12 min',
-        highlights: ['Top 10 brands reviewed', 'SEER2 ratings explained', 'Cost analysis']
+        title: 'Central AC Sizing Calculator',
+        href: '/ac-tonnage-calculator',
+        readTime: '5 min',
+        highlights: ['Manual J-based tonnage', 'SEER2 factored in', 'Ductwork notes']
       },
       {
-        title: 'Window AC Selection Guide',
-        href: '/best-window-air-conditioners',
-        readTime: '10 min',
-        highlights: ['Room size calculator', 'Energy efficiency', 'Quiet models']
+        title: 'Window AC Sizing Guide',
+        href: '/air-conditioner-btu-calculator',
+        readTime: '5 min',
+        highlights: ['Room size calculator', 'Climate zone adjustment', 'Insulation factors']
       },
       {
-        title: 'Portable AC Buyer\'s Guide',
-        href: '/best-portable-air-conditioners',
-        readTime: '11 min',
-        highlights: ['Single vs dual hose', 'BTU requirements', 'Top picks']
+        title: 'Portable AC Sizing Guide',
+        href: '/air-conditioner-btu-calculator',
+        readTime: '5 min',
+        highlights: ['Single vs dual hose considerations', 'BTU requirements', 'Venting options']
       }
     ]
   },
   'Heating Systems': {
     icon: '🔥',
-    description: 'Comprehensive guides for furnaces, boilers, heat pumps, and space heaters',
+    description: 'Guides for furnaces, boilers, heat pumps, and space heaters',
     guides: [
       {
-        title: 'Best Gas Furnaces 2026',
-        href: '/best-gas-furnace-brands',
+        title: 'Gas Furnace Guide',
+        href: '/furnace-guide',
         readTime: '14 min',
-        highlights: ['AFUE ratings', 'Single vs two-stage', 'Brand comparison']
+        highlights: ['AFUE ratings explained', 'Single vs two-stage vs modulating', 'Sizing basics']
       },
       {
         title: 'Heat Pump Buying Guide',
@@ -64,8 +64,8 @@ const buyingGuides = {
         highlights: ['Cold climate models', 'Dual fuel systems', 'Efficiency ratings']
       },
       {
-        title: 'Space Heater Buyer\'s Guide',
-        href: '/best-space-heaters-for-large-rooms',
+        title: 'Space Heater Guide',
+        href: '/space-heater-guide',
         readTime: '9 min',
         highlights: ['Safety features', 'Energy efficiency', 'Room coverage']
       }
@@ -73,11 +73,11 @@ const buyingGuides = {
   },
   'Air Quality Equipment': {
     icon: '💨',
-    description: 'Selection guides for air purifiers, humidifiers, and filtration systems',
+    description: 'Selection guides for air purifiers, dehumidifiers, and filtration systems',
     guides: [
       {
-        title: 'Dehumidifier Buying Guide',
-        href: '/best-whole-house-dehumidifiers',
+        title: 'Dehumidifier Guide',
+        href: '/dehumidifier-guide',
         readTime: '11 min',
         highlights: ['Capacity sizing', 'Energy efficiency', 'Drainage options']
       },
@@ -91,38 +91,20 @@ const buyingGuides = {
   },
   'Smart Thermostats': {
     icon: '📱',
-    description: 'Reviews and comparisons of smart and programmable thermostats',
+    description: 'Explainers on smart and programmable thermostats — when they save, when they do not',
     guides: [
       {
-        title: 'Best Smart Thermostats 2026',
-        href: '/best-smart-thermostats',
+        title: 'Programmable vs Smart Thermostat',
+        href: '/programmable-vs-smart-thermostat',
         readTime: '13 min',
-        highlights: ['Feature comparison', 'Compatibility guide', 'Energy savings']
+        highlights: ['Feature comparison', 'When each wins', 'Payback math']
       },
       {
-        title: 'Nest vs Ecobee Comparison',
-        href: '/nest-vs-ecobee-vs-honeywell',
+        title: 'Do Smart Thermostats Actually Save?',
+        href: '/smart-thermostat-savings',
         readTime: '10 min',
-        highlights: ['Feature breakdown', 'Installation process', 'Smart home integration']
+        highlights: ['Real-world savings data', 'Break-even analysis', 'Behavior effects']
       },
-    ]
-  },
-  'Brand Comparisons': {
-    icon: '⚖️',
-    description: 'Head-to-head brand comparisons and reliability ratings',
-    guides: [
-      {
-        title: 'Carrier vs Trane: Complete Comparison',
-        href: '/trane-vs-carrier',
-        readTime: '14 min',
-        highlights: ['Product lines', 'Warranty comparison', 'Dealer networks']
-      },
-      {
-        title: 'HVAC Brand Reliability Rankings',
-        href: '/best-hvac-brands-ranked',
-        readTime: '15 min',
-        highlights: ['Consumer Reports data', 'Repair frequency', 'Customer satisfaction']
-      }
     ]
   },
   'Installation & Costs': {

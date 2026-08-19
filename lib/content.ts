@@ -130,8 +130,8 @@ export function getAllArticles(): Article[] {
     })
     // Guard: skip MDX files without a slug in frontmatter. Prevents /undefined
     // links, sitemap poisoning, and RSC serialization failures downstream. Any
-    // MDX without a slug is either a WIP orphan (like mini-split-in-cold-climates)
-    // or a broken frontmatter block that needs manual repair.
+    // MDX without a slug is either a WIP orphan or a broken frontmatter block
+    // that needs manual repair.
     .filter((a) => typeof a.meta.slug === 'string' && a.meta.slug.length > 0);
 }
 

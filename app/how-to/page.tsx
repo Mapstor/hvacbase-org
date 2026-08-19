@@ -129,12 +129,12 @@ const howToCategories = {
     difficulty: 'Advanced',
     guides: [
       {
-        title: 'How to Install a Mini Split',
-        href: '/best-diy-mini-splits',
+        title: 'Mini Split Installation Cost & Planning',
+        href: '/mini-split-installation-cost',
         time: '6-8 hours',
         difficulty: 'Advanced',
         savings: 'Substantial labor savings for DIY-eligible installs',
-        preview: 'Complete mini split installation guide (where legal)'
+        preview: 'What a mini split install actually costs, what a DIY-eligible unit changes, and when a licensed installer is required'
       },
       {
         title: 'How to Install a Window AC Unit',

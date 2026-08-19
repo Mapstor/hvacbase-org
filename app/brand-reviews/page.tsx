@@ -37,7 +37,7 @@ const brandCategories = {
     brands: [
       {
         name: 'American Standard',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Reliability', 'Value', 'Wide availability'],
         weaknesses: ['Limited features', 'Average efficiency'],
         warranty: '10 years parts',
@@ -45,7 +45,7 @@ const brandCategories = {
       },
       {
         name: 'Carrier',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Reliability', 'Innovation', 'Dealer network'],
         weaknesses: ['Premium pricing', 'Complex controls'],
         warranty: '10 years parts',
@@ -53,7 +53,7 @@ const brandCategories = {
       },
       {
         name: 'Lennox',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Efficiency', 'Quiet operation', 'Innovation'],
         weaknesses: ['Expensive parts', 'Dealer dependence'],
         warranty: '10 years',
@@ -61,7 +61,7 @@ const brandCategories = {
       },
       {
         name: 'Trane',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Durability', 'Commercial grade', 'Service network'],
         weaknesses: ['Higher cost', 'Loud operation'],
         warranty: '10-12 years',
@@ -75,7 +75,7 @@ const brandCategories = {
     brands: [
       {
         name: 'Amana',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Budget friendly', 'Reliability', 'Lifetime warranty'],
         weaknesses: ['Limited efficiency', 'Fewer features'],
         warranty: 'Lifetime heat exchanger',
@@ -83,7 +83,7 @@ const brandCategories = {
       },
       {
         name: 'Goodman',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Affordability', 'Parts availability', 'Simple design'],
         weaknesses: ['Shorter lifespan', 'Basic features'],
         warranty: '10 years parts',
@@ -91,7 +91,7 @@ const brandCategories = {
       },
       {
         name: 'Rheem',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Reliability', 'Good warranty', 'Wide range'],
         weaknesses: ['Inconsistent quality', 'Service issues'],
         warranty: '10 years parts',
@@ -99,7 +99,7 @@ const brandCategories = {
       },
       {
         name: 'Ruud',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Value pricing', 'Solid performance', 'Easy service'],
         weaknesses: ['Average efficiency', 'Limited dealers'],
         warranty: '10 years',
@@ -167,7 +167,7 @@ const brandCategories = {
       },
       {
         name: 'York',
-        href: '/best-central-ac-brands',
+        href: null,
         strengths: ['Commercial focus', 'Durability', 'Service'],
         weaknesses: ['Residential limited', 'Higher cost'],
         warranty: '5-10 years',
@@ -178,14 +178,6 @@ const brandCategories = {
 }
 
 const brandComparisons = [
-  {
-    title: 'Carrier vs Trane: Ultimate Comparison',
-    description: 'Head-to-head comparison of the top two premium HVAC brands',
-    href: '/trane-vs-carrier',
-    brands: ['Carrier', 'Trane'],
-    winner: 'Tie - depends on priorities',
-    readTime: '12 min'
-  },
   {
     title: 'Mini Split Brand Comparison',
     description: 'Mitsubishi vs Daikin vs Fujitsu ductless systems',
