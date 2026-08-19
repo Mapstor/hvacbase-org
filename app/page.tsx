@@ -9,6 +9,9 @@ import {
 } from 'lucide-react';
 import { getAllArticles } from '@/lib/content';
 import { Metadata } from 'next';
+import ScaleDiagram from '@/components/diagrams/ScaleDiagram';
+import RefrigerationCycle from '@/components/diagrams/RefrigerationCycle';
+import EfficiencyCurve from '@/components/diagrams/EfficiencyCurve';
 
 export const metadata: Metadata = {
   alternates: {
@@ -261,6 +264,33 @@ export default async function HomePage() {
               </Link>
             </div>
           </div>
+
+          {/* SVG 1 — Sizing scale */}
+          <div className="mt-14 max-w-5xl mx-auto">
+            <div className="text-center mb-2">
+              <h3 className="text-xl font-semibold text-gray-900">How much AC do you actually need?</h3>
+              <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
+                Room size drives the BTU/hr your AC needs, at roughly 20 BTU per square foot as a starting point. Oversizing feels safe but causes short-cycling — the unit cools the air fast, shuts off, and never runs long enough to strip humidity, leaving a cold clammy room.
+              </p>
+            </div>
+            <ScaleDiagram
+              title="Room size → AC capacity (starting-point BTU/hr)"
+              desc="Four room-size bands mapped to typical AC capacity in BTU per hour: 100-300 sq ft needs about 5,000 to 8,000 BTU/hr, 300-550 sq ft needs 9,000 to 12,000 BTU/hr, 550-1,000 sq ft needs 14,000 to 18,000 BTU/hr, and 1,000-2,000 sq ft needs 24,000 to 36,000 BTU/hr (equivalent to 2 to 3 tons of central AC). These are starting-point figures based on the roughly 20 BTU per square foot rule; final sizing should use a Manual J load calculation that accounts for insulation, windows, and climate."
+              tiers={[
+                { range: '100–300 sq ft', label: '5,000–8,000 BTU/hr', description: 'Bedroom, small office, den' },
+                { range: '300–550 sq ft', label: '9,000–12,000 BTU/hr', description: 'Living room, primary bedroom' },
+                { range: '550–1,000 sq ft', label: '14,000–18,000 BTU/hr', description: 'Open floor plan, studio, small home' },
+                { range: '1,000–2,000 sq ft', label: '24,000–36,000 BTU/hr', description: '2–3 tons central AC, multi-room whole floor' },
+              ]}
+              axisLabel="~20 BTU per sq ft baseline · Manual J refines by climate, insulation, windows, and heat sources"
+              caption="Rule-of-thumb sizing bands. Use the BTU Calculator above for a Manual J-based figure that reflects your climate zone and home."
+            />
+            <div className="text-center mt-4">
+              <Link href="/air-conditioner-btu-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+                Run the BTU Calculator with your actual numbers →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -313,8 +343,8 @@ export default async function HomePage() {
                 <Link href="/what-is-a-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
                   Complete Mini Split Guide
                 </Link>
-                <Link href="/best-mini-split-ac-units" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Best Mini Splits 2026
+                <Link href="/mini-split-sizing-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Mini Split Sizing Calculator
                 </Link>
                 <Link href="/mini-split-installation-cost" className="block text-gray-600 hover:text-brand-600 py-1">
                   Installation Pricing
@@ -326,11 +356,11 @@ export default async function HomePage() {
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Window Units</h4>
-                <Link href="/best-window-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Best Window ACs 2026
+                <Link href="/air-conditioner-btu-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Window AC BTU Sizing
                 </Link>
                 <Link href="/quietest-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Quietest Models (42 dB)
+                  Quietest Window ACs
                 </Link>
                 <Link href="/low-profile-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
                   Low Profile Options
@@ -339,14 +369,14 @@ export default async function HomePage() {
                   Compact 5000 BTU Units
                 </Link>
               </div>
-              
+
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Portable AC</h4>
-                <Link href="/best-portable-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Best Portable ACs
+                <Link href="/air-conditioner-btu-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Portable AC Sizing
                 </Link>
                 <Link href="/quietest-portable-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Quiet Models (48 dB)
+                  Quiet Portable Models
                 </Link>
                 <Link href="/portable-ac-electricity-cost" className="block text-gray-600 hover:text-brand-600 py-1">
                   Energy Usage Guide
@@ -394,8 +424,8 @@ export default async function HomePage() {
                 <Link href="/heat-pump-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump Explained
                 </Link>
-                <Link href="/best-cold-climate-heat-pumps" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Cold Climate Models
+                <Link href="/heat-pump-in-cold-weather" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Heat Pumps in Cold Weather
                 </Link>
                 <Link href="/furnace-vs-heat-pump" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump vs Furnace
@@ -410,14 +440,14 @@ export default async function HomePage() {
                 <Link href="/space-heater-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Best Space Heaters
                 </Link>
-                <Link href="/best-baseboard-heaters" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Baseboard Heating
+                <Link href="/heating-cost-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Baseboard Heating Cost
                 </Link>
                 <Link href="/radiant-floor-heating-pros-cons" className="block text-gray-600 hover:text-brand-600 py-1">
                   Radiant Floor Heating Guide
                 </Link>
-                <Link href="/best-infrared-heaters" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Infrared Heaters
+                <Link href="/gas-vs-electric-heating-cost" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Electric vs Gas Heating
                 </Link>
               </div>
               
@@ -429,13 +459,29 @@ export default async function HomePage() {
                 <Link href="/boiler-vs-furnace" className="block text-gray-600 hover:text-brand-600 py-1">
                   Boiler vs Furnace Guide
                 </Link>
-                <Link href="/heat-pump-vs-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Heat Pump vs Mini Split
+                <Link href="/mini-split-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Mini Split Systems Guide
                 </Link>
                 <Link href="/heating-cost-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heating Cost Calculator
                 </Link>
               </div>
+            </div>
+          </div>
+
+          {/* SVG 2 — How a heat pump moves heat */}
+          <div className="mb-12 max-w-5xl mx-auto">
+            <div className="text-center mb-2">
+              <h3 className="text-xl font-semibold text-gray-900">How a heat pump moves heat</h3>
+              <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
+                A heat pump doesn&apos;t generate heat — it moves it. The same closed refrigerant loop pulls heat from outdoor air (even cold air still has usable heat) and releases it indoors. Run the loop backwards in summer, and it moves indoor heat out. That&apos;s why a heat pump can deliver 2–4 kWh of heat for every 1 kWh of electricity it consumes.
+              </p>
+            </div>
+            <RefrigerationCycle caption="The same cycle drives central AC, mini splits, and heat pumps — reversing the flow direction switches between cooling and heating." />
+            <div className="text-center mt-2">
+              <Link href="/heat-pump-guide" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+                Read the full heat pump guide →
+              </Link>
             </div>
           </div>
 
@@ -465,8 +511,8 @@ export default async function HomePage() {
                 <Link href="/ceer-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   CEER for Window ACs
                 </Link>
-                <Link href="/14-3-seer2-vs-16-seer" className="block text-gray-600 hover:text-brand-600 py-1">
-                  14 vs 16 SEER2
+                <Link href="/seer2-comparison-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Compare SEER2 Ratings
                 </Link>
               </div>
               
@@ -501,8 +547,8 @@ export default async function HomePage() {
                 <Link href="/hvac-energy-saving-tips" className="block text-gray-600 hover:text-brand-600 py-1">
                   25 Energy Saving Tips
                 </Link>
-                <Link href="/best-smart-thermostats" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Optimal Settings
+                <Link href="/thermostat-temperature-winter" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Winter Thermostat Setpoints
                 </Link>
                 <Link href="/insulation-r-value-guide" className="block text-gray-600 hover:text-brand-600 py-1">
                   Insulation R-Value Guide
@@ -511,6 +557,37 @@ export default async function HomePage() {
                   Duct Sealing DIY
                 </Link>
               </div>
+            </div>
+          </div>
+
+          {/* SVG 3 — SEER2 vs annual cooling cost with diminishing returns */}
+          <div className="mb-12 max-w-5xl mx-auto">
+            <div className="text-center mb-2">
+              <h3 className="text-xl font-semibold text-gray-900">What efficiency actually saves</h3>
+              <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
+                Higher SEER2 lowers annual cooling cost — but with diminishing returns. Going from the 13.4 SEER2 minimum to 16 saves more per point than going from 18 to 22. The chart uses a 3-ton AC with about 1,500 cooling hours a year at $0.17/kWh; run the SEER2 calculator to plug in your rates.
+              </p>
+            </div>
+            <EfficiencyCurve
+              title="SEER2 rating vs annual cooling cost (3-ton AC, ~1,500 cooling hrs, $0.17/kWh)"
+              desc="Line plot showing that annual cooling cost falls sharply as SEER2 increases from 13.4 to 16, then flattens as SEER2 rises further to 22. At SEER2 13.4 (2026 US minimum), the modeled annual cost is about $685; at 15 it's $612; at 16 it's $574; at 18 it's $510; at 20 it's $459; at 22 it's $417. The largest per-point savings come at the low end — the 13.4 to 16 jump saves about $111/year, while the 18 to 22 jump saves about $93/year despite covering twice as many SEER2 points. Model assumptions: 3-ton (36,000 BTU/hr) central AC, 1,500 equivalent full-load cooling hours per year (mid-Atlantic climate), electricity at $0.17 per kWh."
+              xLabel="SEER2 Rating"
+              yLabel="Annual Cooling Cost"
+              yUnit="$"
+              data={[
+                { x: 13.4, y: 685 },
+                { x: 15, y: 612 },
+                { x: 16, y: 574 },
+                { x: 18, y: 510 },
+                { x: 20, y: 459 },
+                { x: 22, y: 417 },
+              ]}
+              caption="Diminishing returns are real: the 13.4→16 jump saves ~$111/yr, but 18→22 only saves ~$93/yr despite covering twice as many SEER2 points."
+            />
+            <div className="text-center mt-2">
+              <Link href="/seer2-savings-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+                Model your own rates and hours in the SEER2 savings calculator →
+              </Link>
             </div>
           </div>
 
@@ -531,8 +608,8 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Air Purification</h4>
-                <Link href="/best-air-purifiers" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Best Air Purifiers
+                <Link href="/air-purifier-sizing-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Air Purifier Sizing
                 </Link>
                 <Link href="/hepa-filter-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   HEPA Filter Guide
@@ -540,28 +617,28 @@ export default async function HomePage() {
                 <Link href="/uv-light-hvac-systems" className="block text-gray-600 hover:text-brand-600 py-1">
                   UV Light HVAC Systems
                 </Link>
-                <Link href="/best-hvac-air-filters" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Carbon Filters
+                <Link href="/air-purifier-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                  How Air Purifiers Work
                 </Link>
               </div>
-              
+
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Humidity Control</h4>
                 <Link href="/dehumidifier-guide" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Best Dehumidifiers
+                  Dehumidifier Guide
                 </Link>
-                <Link href="/best-humidifiers-for-large-rooms" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Whole House Units
+                <Link href="/what-size-dehumidifier-do-i-need" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Dehumidifier Sizing
+                </Link>
+                <Link href="/ideal-indoor-humidity-level" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Ideal Indoor Humidity
                 </Link>
               </div>
-              
+
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Air Filters</h4>
                 <Link href="/merv-rating-chart" className="block text-gray-600 hover:text-brand-600 py-1">
                   MERV Rating Chart
-                </Link>
-                <Link href="/best-hvac-air-filters" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Best HVAC Air Filters
                 </Link>
                 <Link href="/furnace-filter-direction" className="block text-gray-600 hover:text-brand-600 py-1">
                   Filter Direction Guide
@@ -742,28 +819,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Brand Comparison Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-gradient-to-r from-brand-50 to-blue-50 rounded-xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Compare HVAC Brands & Reviews
-            </h2>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Explore detailed comparisons of top HVAC brands including Carrier, Trane, Lennox, Goodman, and more.
-              Compare manufacturer warranty terms, AHRI-certified efficiency ratings, and price tiers.
-            </p>
-            <Link href="/best-hvac-brands-ranked" className="inline-flex items-center gap-2 bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors font-semibold">
-              View All Brand Comparisons
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <div className="mt-4 text-sm text-gray-500">
-              Includes: Central AC • Heat Pumps • Mini Splits • Furnaces
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Smart Home & Technology */}
       <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4">
@@ -783,43 +838,40 @@ export default async function HomePage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Smart Thermostats</h3>
               <p className="text-gray-600 mb-4">
-                Wi-Fi enabled thermostats with learning algorithms, remote control, and energy reports.
+                What smart thermostats actually save, and when a $30 programmable does the same job — with the payback math shown.
               </p>
               <div className="space-y-2">
-                <Link href="/best-smart-thermostats" className="block text-brand-600 hover:text-brand-700 font-medium">
-                  Best Smart Thermostats 2026 →
-                </Link>
-                <Link href="/nest-vs-ecobee-vs-honeywell" className="block text-gray-600 hover:text-brand-600">
-                  Nest vs Ecobee vs Honeywell
+                <Link href="/programmable-vs-smart-thermostat" className="block text-brand-600 hover:text-brand-700 font-medium">
+                  Programmable vs Smart Thermostat →
                 </Link>
                 <Link href="/smart-thermostat-savings" className="block text-gray-600 hover:text-brand-600">
-                  Actual Savings Analysis
+                  Do Smart Thermostats Actually Save?
                 </Link>
-                <Link href="/best-thermostat-for-heat-pump" className="block text-gray-600 hover:text-brand-600">
-                  Heat Pump Compatible Models
+                <Link href="/thermostat-temperature-winter" className="block text-gray-600 hover:text-brand-600">
+                  Winter Thermostat Setpoints
                 </Link>
               </div>
             </div>
-            
+
             <div className="bg-white rounded-lg p-6 border border-gray-200">
               <div className="bg-purple-100 p-3 rounded-lg w-fit mb-4">
                 <Home className="w-6 h-6 text-purple-700" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Zoning Systems</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Zoning &amp; Multi-Zone Systems</h3>
               <p className="text-gray-600 mb-4">
-                Control temperature independently in different areas for maximum comfort and efficiency.
+                Whether zoning is worth the added cost for your home, how many zones make sense, and how to size a multi-zone mini split.
               </p>
               <div className="space-y-2">
                 <Link href="/how-many-mini-splits-do-i-need" className="block text-brand-600 hover:text-brand-700 font-medium">
                   Multi-Zone Planning Guide →
                 </Link>
-                <Link href="/best-multi-zone-mini-splits" className="block text-gray-600 hover:text-brand-600">
-                  Best Multi-Zone Systems
+                <Link href="/mini-split-sizing-calculator" className="block text-gray-600 hover:text-brand-600">
+                  Multi-Zone Sizing Calculator
                 </Link>
-                <Link href="/best-mini-split-ac-units" className="block text-gray-600 hover:text-brand-600">
-                  Top Mini Split Systems
+                <Link href="/mini-split-air-conditioners" className="block text-gray-600 hover:text-brand-600">
+                  Mini Split Systems Explained
                 </Link>
-                <Link href="/central-ac-cost-to-install" className="block text-gray-600 hover:text-brand-600">
+                <Link href="/mini-split-installation-cost" className="block text-gray-600 hover:text-brand-600">
                   Installation Costs
                 </Link>
               </div>
@@ -848,8 +900,8 @@ export default async function HomePage() {
                 <Link href="/how-to-clean-ac-coils" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Clean AC Coils Yourself
                 </Link>
-                <Link href="/best-smart-thermostats" className="block text-gray-600 hover:text-brand-600 text-sm">
-                  Thermostat Wiring
+                <Link href="/programmable-vs-smart-thermostat" className="block text-gray-600 hover:text-brand-600 text-sm">
+                  Thermostat Basics
                 </Link>
                 <Link href="/duct-leakage-testing" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Seal Ducts DIY
