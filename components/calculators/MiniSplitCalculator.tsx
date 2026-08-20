@@ -39,14 +39,24 @@ import {
 const ACCENT = 'purple' as const;
 const a = accentMap[ACCENT];
 
+// baseBTU is BTU-per-square-foot, matching the ENERGY STAR Room Air Conditioner
+// sizing table (~20 BTU/sqft baseline) with per-room-type adjustments folded in.
+// Kitchen carries an additional flat surcharge in the compute below (see
+// KITCHEN_SURCHARGE_BTU) for the cooking-appliance internal heat gain that
+// ENERGY STAR/DOE guidance calls out at +4,000 BTU. All zone results are also
+// floored at MIN_MINI_SPLIT_HEAD_BTU because the smallest mini-split head
+// manufactured is 6,000 BTU — no zone can recommend less than one head.
 const zoneTypes = [
-  { value: 'bedroom', name: 'Bedroom', baseBTU: 100, Icon: Bed },
-  { value: 'living', name: 'Living', baseBTU: 120, Icon: Sofa },
-  { value: 'kitchen', name: 'Kitchen', baseBTU: 150, Icon: Utensils },
-  { value: 'office', name: 'Office', baseBTU: 110, Icon: Briefcase },
-  { value: 'basement', name: 'Basement', baseBTU: 90, Icon: Home },
-  { value: 'sunroom', name: 'Sunroom', baseBTU: 140, Icon: Sun },
+  { value: 'bedroom',  name: 'Bedroom',  baseBTU: 20, Icon: Bed },
+  { value: 'living',   name: 'Living',   baseBTU: 25, Icon: Sofa },
+  { value: 'kitchen',  name: 'Kitchen',  baseBTU: 25, Icon: Utensils },
+  { value: 'office',   name: 'Office',   baseBTU: 20, Icon: Briefcase },
+  { value: 'basement', name: 'Basement', baseBTU: 18, Icon: Home },
+  { value: 'sunroom',  name: 'Sunroom',  baseBTU: 30, Icon: Sun },
 ];
+
+const KITCHEN_SURCHARGE_BTU = 4000;
+const MIN_MINI_SPLIT_HEAD_BTU = 6000;
 
 const climateOptions = [
   { value: 'hot', name: 'Hot climate', sub: 'South / Southwest', factor: 1.2 },
@@ -111,8 +121,14 @@ export default function MiniSplitCalculator() {
       const zType = zoneTypes.find((t) => t.value === zone.type);
       const sun = zoneSunOptions.find((s) => s.value === zone.sunExposure);
       const sqFt = Math.max(parseFloat(zone.squareFeet) || 0, 0);
-      const baseBTU = (zType?.baseBTU ?? 100) * sqFt;
-      const btu = baseBTU * selectedClimate.factor * selectedInsulation.factor * (sun?.factor ?? 1);
+      // Envelope load: per-sqft baseline × climate × insulation × sun.
+      const envelope = (zType?.baseBTU ?? 20) * sqFt *
+        selectedClimate.factor * selectedInsulation.factor * (sun?.factor ?? 1);
+      // Internal heat gain from cooking appliances is not affected by climate
+      // or insulation, so it is added AFTER the envelope multipliers.
+      const kitchenSurcharge = zone.type === 'kitchen' ? KITCHEN_SURCHARGE_BTU : 0;
+      // Floor at the smallest mini-split head size available.
+      const btu = Math.max(envelope + kitchenSurcharge, MIN_MINI_SPLIT_HEAD_BTU);
       const recommended = Math.ceil(btu / 3000) * 3;
       return {
         ...zone,
@@ -127,6 +143,7 @@ export default function MiniSplitCalculator() {
   }, [zones, selectedClimate, selectedInsulation]);
 
   // Committed snapshot (freezes at Calculate) — powers the results section.
+  // Formula MUST match the zoneBTUs useMemo above exactly.
   const srcZoneBTUs = useMemo(() => {
     const srcZones: Zone[] = JSON.parse(src.zonesJson) as Zone[];
     const srcClimate = climateOptions.find((c) => c.value === src.climate)!;
@@ -135,8 +152,10 @@ export default function MiniSplitCalculator() {
       const zType = zoneTypes.find((t) => t.value === zone.type);
       const sun = zoneSunOptions.find((s) => s.value === zone.sunExposure);
       const sqFt = Math.max(parseFloat(zone.squareFeet) || 0, 0);
-      const baseBTU = (zType?.baseBTU ?? 100) * sqFt;
-      const btu = baseBTU * srcClimate.factor * srcInsulation.factor * (sun?.factor ?? 1);
+      const envelope = (zType?.baseBTU ?? 20) * sqFt *
+        srcClimate.factor * srcInsulation.factor * (sun?.factor ?? 1);
+      const kitchenSurcharge = zone.type === 'kitchen' ? KITCHEN_SURCHARGE_BTU : 0;
+      const btu = Math.max(envelope + kitchenSurcharge, MIN_MINI_SPLIT_HEAD_BTU);
       const recommended = Math.ceil(btu / 3000) * 3;
       return {
         ...zone,
