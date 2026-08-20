@@ -30,6 +30,20 @@ function fmt(n: number): string {
   return n.toFixed(1);
 }
 
+// Round `value` up to a "nice" ceiling — 1/2/5 × 10ⁿ — so axis ticks land on
+// clean numbers and the data doesn't crowd the top of the plot.
+function niceCeil(value: number): number {
+  if (value <= 0) return 1;
+  const magnitude = Math.pow(10, Math.floor(Math.log10(value)));
+  const normalized = value / magnitude;
+  let niceStep: number;
+  if (normalized <= 1) niceStep = 1;
+  else if (normalized <= 2) niceStep = 2;
+  else if (normalized <= 5) niceStep = 5;
+  else niceStep = 10;
+  return niceStep * magnitude;
+}
+
 export default function EfficiencyCurve({
   data,
   xLabel,
@@ -56,7 +70,10 @@ export default function EfficiencyCurve({
   const xMin = Math.min(...xs);
   const xMax = Math.max(...xs);
   const yMin = 0;
-  const yMax = Math.max(...ys) * 1.08;
+  // Give the highest data point ≥15% headroom, then round to a nice ceiling
+  // so the top point sits well below the top tick and its label can't collide
+  // with the axis label.
+  const yMax = niceCeil(Math.max(...ys) * 1.15);
 
   const sx = (x: number) => PAD_L + ((x - xMin) / (xMax - xMin || 1)) * plotW;
   const sy = (y: number) => PAD_T + plotH - ((y - yMin) / (yMax - yMin || 1)) * plotH;
@@ -102,6 +119,11 @@ export default function EfficiencyCurve({
 
         {data.map((p, i) => {
           const x = sx(p.x);
+          // Edge x-tick labels use "start"/"end" so they don't overlap the
+          // y-tick gutter (leftmost) or extend past the plot's right margin
+          // (rightmost). Middle ticks stay centered.
+          const anchor =
+            i === 0 ? 'start' : i === data.length - 1 ? 'end' : 'middle';
           return (
             <g key={`xg-${i}`}>
               <line
@@ -115,7 +137,7 @@ export default function EfficiencyCurve({
               <text
                 x={x}
                 y={PAD_T + plotH + 24}
-                textAnchor="middle"
+                textAnchor={anchor}
                 fontSize={14}
                 fill={AXIS}
                 fontFamily="Inter, system-ui, sans-serif"
@@ -146,22 +168,30 @@ export default function EfficiencyCurve({
 
         <path d={path} fill="none" stroke={PRIMARY} strokeWidth={3} strokeLinejoin="round" />
 
-        {data.map((p, i) => (
-          <g key={`pt-${i}`}>
-            <circle cx={sx(p.x)} cy={sy(p.y)} r={6} fill={DARK} stroke="#fff" strokeWidth={2} />
-            <text
-              x={sx(p.x)}
-              y={sy(p.y) - 14}
-              textAnchor="middle"
-              fontSize={13}
-              fontWeight={600}
-              fill={DARK}
-              fontFamily="Inter, system-ui, sans-serif"
-            >
-              {yUnit === '$' ? `$${fmt(p.y)}` : `${fmt(p.y)}${yUnit}`}
-            </text>
-          </g>
-        ))}
+        {data.map((p, i) => {
+          // Edge data-point labels use "start"/"end" to avoid the leftmost
+          // label extending into the y-tick gutter (where it would visually
+          // overlap y-tick labels) and the rightmost label sliding past the
+          // plot's right margin.
+          const anchor =
+            i === 0 ? 'start' : i === data.length - 1 ? 'end' : 'middle';
+          return (
+            <g key={`pt-${i}`}>
+              <circle cx={sx(p.x)} cy={sy(p.y)} r={6} fill={DARK} stroke="#fff" strokeWidth={2} />
+              <text
+                x={sx(p.x)}
+                y={sy(p.y) - 14}
+                textAnchor={anchor}
+                fontSize={13}
+                fontWeight={600}
+                fill={DARK}
+                fontFamily="Inter, system-ui, sans-serif"
+              >
+                {yUnit === '$' ? `$${fmt(p.y)}` : `${fmt(p.y)}${yUnit}`}
+              </text>
+            </g>
+          );
+        })}
 
         <text
           x={PAD_L + plotW / 2}

@@ -290,6 +290,10 @@ export default function RefrigerationCycle({ caption }: RefrigerationCycleProps)
         </text>
 
         {/* 3 → 4 : top, going LEFT (Condenser → Expansion Valve), HOT (still warm high-P side) */}
+        {/* Label split into 2 lines to keep it inside the 160px gap between the two
+            top boxes (Expansion Valve right edge x=320, Condenser left edge x=480).
+            The single-line "high-pressure warm liquid" at fontSize 13 is ~175px
+            wide and would overlap both box borders. */}
         <line
           x1={476}
           y1={155}
@@ -301,14 +305,25 @@ export default function RefrigerationCycle({ caption }: RefrigerationCycleProps)
         />
         <text
           x={400}
-          y={140}
+          y={125}
           textAnchor="middle"
           fontSize={13}
           fontWeight={700}
           fill={HOT}
           fontFamily={FONT}
         >
-          high-pressure warm liquid
+          high-pressure
+        </text>
+        <text
+          x={400}
+          y={141}
+          textAnchor="middle"
+          fontSize={13}
+          fontWeight={700}
+          fill={HOT}
+          fontFamily={FONT}
+        >
+          warm liquid
         </text>
 
         {/* 4 → 1 : left side, going DOWN (Expansion Valve → Evaporator), COLD */}

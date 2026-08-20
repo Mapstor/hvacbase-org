@@ -569,7 +569,7 @@ export default async function HomePage() {
               </p>
             </div>
             <EfficiencyCurve
-              title="SEER2 rating vs annual cooling cost (3-ton AC, ~1,500 cooling hrs, $0.17/kWh)"
+              title="SEER2 rating vs annual cooling cost"
               desc="Line plot showing that annual cooling cost falls sharply as SEER2 increases from 13.4 to 16, then flattens as SEER2 rises further to 22. At SEER2 13.4 (2026 US minimum), the modeled annual cost is about $685; at 15 it's $612; at 16 it's $574; at 18 it's $510; at 20 it's $459; at 22 it's $417. The largest per-point savings come at the low end — the 13.4 to 16 jump saves about $111/year, while the 18 to 22 jump saves about $93/year despite covering twice as many SEER2 points. Model assumptions: 3-ton (36,000 BTU/hr) central AC, 1,500 equivalent full-load cooling hours per year (mid-Atlantic climate), electricity at $0.17 per kWh."
               xLabel="SEER2 Rating"
               yLabel="Annual Cooling Cost"
