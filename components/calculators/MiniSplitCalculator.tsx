@@ -31,6 +31,8 @@ import {
   ResultHero,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
   accentMap,
 } from './_shared';
 
@@ -66,12 +68,22 @@ const zoneSunOptions = [
 
 type Zone = { id: number; type: string; squareFeet: string; sunExposure: string };
 
+const DEFAULT_ZONES: Zone[] = [
+  { id: 1, type: 'living', squareFeet: '400', sunExposure: 'moderate' },
+];
+const DEFAULTS = {
+  climate: 'moderate',
+  insulation: 'average',
+};
+
 export default function MiniSplitCalculator() {
-  const [zones, setZones] = useState<Zone[]>([
-    { id: 1, type: 'living', squareFeet: '400', sunExposure: 'moderate' },
-  ]);
-  const [climate, setClimate] = useState('moderate');
-  const [insulation, setInsulation] = useState('average');
+  const [zones, setZones] = useState<Zone[]>(DEFAULT_ZONES);
+  const [climate, setClimate] = useState(DEFAULTS.climate);
+  const [insulation, setInsulation] = useState(DEFAULTS.insulation);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    climate, insulation, zonesJson: JSON.stringify(zones),
+  });
 
   const selectedClimate = climateOptions.find((c) => c.value === climate)!;
   const selectedInsulation = insulationOptions.find((i) => i.value === insulation)!;
@@ -85,6 +97,13 @@ export default function MiniSplitCalculator() {
   };
   const updateZone = (id: number, field: keyof Zone, value: string) => {
     setZones(zones.map((z) => (z.id === id ? { ...z, [field]: value } : z)));
+  };
+
+  const handleReset = () => {
+    setZones(DEFAULT_ZONES);
+    setClimate(DEFAULTS.climate);
+    setInsulation(DEFAULTS.insulation);
+    clear();
   };
 
   const zoneBTUs = useMemo(() => {
@@ -107,15 +126,39 @@ export default function MiniSplitCalculator() {
     });
   }, [zones, selectedClimate, selectedInsulation]);
 
+  // Committed snapshot (freezes at Calculate) — powers the results section.
+  const srcZoneBTUs = useMemo(() => {
+    const srcZones: Zone[] = JSON.parse(src.zonesJson) as Zone[];
+    const srcClimate = climateOptions.find((c) => c.value === src.climate)!;
+    const srcInsulation = insulationOptions.find((i) => i.value === src.insulation)!;
+    return srcZones.map((zone) => {
+      const zType = zoneTypes.find((t) => t.value === zone.type);
+      const sun = zoneSunOptions.find((s) => s.value === zone.sunExposure);
+      const sqFt = Math.max(parseFloat(zone.squareFeet) || 0, 0);
+      const baseBTU = (zType?.baseBTU ?? 100) * sqFt;
+      const btu = baseBTU * srcClimate.factor * srcInsulation.factor * (sun?.factor ?? 1);
+      const recommended = Math.ceil(btu / 3000) * 3;
+      return {
+        ...zone,
+        sqFt,
+        btu: Math.round(btu),
+        tons: btu / 12000,
+        recommendedSize: recommended,
+        zoneType: zType,
+        sun,
+      };
+    });
+  }, [src.zonesJson, src.climate, src.insulation]);
+
   const calc = useMemo(() => {
-    const totalBTU = zoneBTUs.reduce((sum, z) => sum + z.btu, 0);
+    const totalBTU = srcZoneBTUs.reduce((sum, z) => sum + z.btu, 0);
     const totalTons = totalBTU / 12000;
-    const totalArea = zoneBTUs.reduce((sum, z) => sum + z.sqFt, 0);
+    const totalArea = srcZoneBTUs.reduce((sum, z) => sum + z.sqFt, 0);
     const outdoorSizes = [18000, 24000, 30000, 36000, 42000, 48000, 60000];
     const recommendedOutdoor = outdoorSizes.find((s) => s >= totalBTU * 1.1) || 60000;
     const oversized = totalBTU > 0 ? ((recommendedOutdoor / 1.1 / totalBTU) - 1) * 100 + 10 : 0;
-    const equipmentCost = 800 + zones.length * 600 + (totalBTU / 1000) * 15;
-    const installCost = 500 + zones.length * 400;
+    const equipmentCost = 800 + srcZoneBTUs.length * 600 + (totalBTU / 1000) * 15;
+    const installCost = 500 + srcZoneBTUs.length * 400;
     const totalCost = equipmentCost + installCost;
     return {
       totalBTU: Math.round(totalBTU),
@@ -127,21 +170,22 @@ export default function MiniSplitCalculator() {
       installCost,
       totalCost,
     };
-  }, [zoneBTUs, zones.length]);
+  }, [srcZoneBTUs]);
 
   const fit =
     calc.totalBTU === 0 ? { tone: 'warn' as const, text: 'Add zones to start' } :
-    zones.length === 1 ? { tone: 'good' as const, text: 'Single-zone system' } :
-    zones.length <= 3   ? { tone: 'good' as const, text: `${zones.length}-zone system — ideal multi-zone size` } :
-                          { tone: 'ok' as const, text: `${zones.length}-zone system — consider two condensers if branches are far apart` };
+    srcZoneBTUs.length === 1 ? { tone: 'good' as const, text: 'Single-zone system' } :
+    srcZoneBTUs.length <= 3   ? { tone: 'good' as const, text: `${srcZoneBTUs.length}-zone system — ideal multi-zone size` } :
+                                { tone: 'ok' as const, text: `${srcZoneBTUs.length}-zone system — consider two condensers if branches are far apart` };
 
   return (
     <CalcShell
       Icon={Zap}
       title="Mini Split Sizing Calculator"
-      subtitle="Size multi-zone ductless systems. Updates as you add or change zones."
+      subtitle="Size multi-zone ductless systems."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Global settings */}
       <section>
         <SectionHeader step={1} title="Whole-home context" subtitle="Affects every zone's load" Icon={Home} accent={ACCENT} />
@@ -276,9 +320,18 @@ export default function MiniSplitCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -287,7 +340,7 @@ export default function MiniSplitCalculator() {
           unit="BTU"
           secondaryText={
             <>
-              Sized for <strong>{fmt(calc.totalBTU)} BTU/hr</strong> across {zones.length} zone{zones.length === 1 ? '' : 's'}
+              Sized for <strong>{fmt(calc.totalBTU)} BTU/hr</strong> across {srcZoneBTUs.length} zone{srcZoneBTUs.length === 1 ? '' : 's'}
               ({calc.totalTons.toFixed(2)} tons total).
               Includes ~10% safety margin for line losses and peak demand.
             </>
@@ -308,7 +361,7 @@ export default function MiniSplitCalculator() {
               Indoor head sizing per zone
             </h4>
             <div className="space-y-2">
-              {zoneBTUs.map((zone, i) => (
+              {srcZoneBTUs.map((zone, i) => (
                 <div key={zone.id} className="flex items-center justify-between p-2.5 rounded-lg bg-gray-50 text-xs">
                   <div>
                     <div className="font-semibold text-gray-900">
@@ -326,12 +379,12 @@ export default function MiniSplitCalculator() {
               <div className="pt-2 mt-2 border-t border-gray-300 flex justify-between items-baseline">
                 <span className="font-semibold text-gray-900">Sum of head capacity</span>
                 <span className={`font-bold ${a.bigNumber} tabular-nums`}>
-                  {fmt(zoneBTUs.reduce((s, z) => s + z.recommendedSize * 1000, 0))} BTU
+                  {fmt(srcZoneBTUs.reduce((s, z) => s + z.recommendedSize * 1000, 0))} BTU
                 </span>
               </div>
               <p className="text-[11px] text-gray-500 leading-snug pt-1">
                 Multi-zone systems allow indoor heads to total <strong>up to 130%</strong> of outdoor capacity since not all
-                zones run at max simultaneously. Your system is at {((zoneBTUs.reduce((s, z) => s + z.recommendedSize * 1000, 0) / calc.recommendedOutdoor) * 100).toFixed(0)}%.
+                zones run at max simultaneously. Your system is at {((srcZoneBTUs.reduce((s, z) => s + z.recommendedSize * 1000, 0) / calc.recommendedOutdoor) * 100).toFixed(0)}%.
               </p>
             </div>
           </div>
@@ -357,7 +410,7 @@ export default function MiniSplitCalculator() {
             </div>
             <ul className="mt-3 space-y-1 text-[11px] text-gray-600">
               <li>• Varies ±30% by region and house complexity</li>
-              <li>• ENERGY STAR systems qualify for federal tax credits up to $2,000</li>
+              <li>• Federal §25C/§25D credits ended for property placed in service after Dec 31, 2025 (OBBBA) — 2026 installs are not eligible; check state/utility rebates or IRA-funded HEAR/HOMES</li>
               <li>• Typical equipment warranty: 10–12 years parts, 7 years compressor</li>
             </ul>
           </div>
@@ -399,6 +452,8 @@ export default function MiniSplitCalculator() {
           </p>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

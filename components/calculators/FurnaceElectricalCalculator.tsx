@@ -23,6 +23,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'orange' as const;
@@ -55,18 +57,39 @@ const electricRateOptions = [
   { value: '0.30', name: 'Very high', sub: '$0.30/kWh' },
 ];
 
-export default function FurnaceElectricalCalculator() {
-  const [furnaceSize, setFurnaceSize] = useState('80000');
-  const [blowerType, setBlowerType] = useState('psc');
-  const [runHours, setRunHours] = useState('1200');
-  const [electricRate, setElectricRate] = useState('0.14');
-  const [fanOnlyHours, setFanOnlyHours] = useState('500');
+const DEFAULTS = {
+  furnaceSize: '80000',
+  blowerType: 'psc',
+  runHours: '1200',
+  electricRate: '0.14',
+  fanOnlyHours: '500',
+};
 
-  const specs = furnaceSizes.find((f) => f.value === furnaceSize)!;
-  const blower = blowerTypes.find((b) => b.value === blowerType)!;
-  const rate = parseFloat(electricRate);
-  const heatHrs = Math.max(parseFloat(runHours) || 0, 0);
-  const fanHrs = Math.max(parseFloat(fanOnlyHours) || 0, 0);
+export default function FurnaceElectricalCalculator() {
+  const [furnaceSize, setFurnaceSize] = useState(DEFAULTS.furnaceSize);
+  const [blowerType, setBlowerType] = useState(DEFAULTS.blowerType);
+  const [runHours, setRunHours] = useState(DEFAULTS.runHours);
+  const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
+  const [fanOnlyHours, setFanOnlyHours] = useState(DEFAULTS.fanOnlyHours);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    furnaceSize, blowerType, runHours, electricRate, fanOnlyHours,
+  });
+
+  const specs = furnaceSizes.find((f) => f.value === src.furnaceSize)!;
+  const blower = blowerTypes.find((b) => b.value === src.blowerType)!;
+  const rate = parseFloat(src.electricRate);
+  const heatHrs = Math.max(parseFloat(src.runHours) || 0, 0);
+  const fanHrs = Math.max(parseFloat(src.fanOnlyHours) || 0, 0);
+
+  const handleReset = () => {
+    setFurnaceSize(DEFAULTS.furnaceSize);
+    setBlowerType(DEFAULTS.blowerType);
+    setRunHours(DEFAULTS.runHours);
+    setElectricRate(DEFAULTS.electricRate);
+    setFanOnlyHours(DEFAULTS.fanOnlyHours);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const actualBlowerWatts = specs.blowerWatts * blower.multiplier;
@@ -83,7 +106,7 @@ export default function FurnaceElectricalCalculator() {
     const dailyHoursHeating = heatHrs / 180;
     const dailyKwhHeating = (heatingWatts * dailyHoursHeating) / 1000;
     const dailyCostHeating = dailyKwhHeating * rate;
-    const ecmSavings = blowerType === 'psc'
+    const ecmSavings = src.blowerType === 'psc'
       ? ((specs.blowerWatts - specs.blowerWatts * 0.5) * (heatHrs + fanHrs) / 1000) * rate
       : 0;
     const maxAmps = startupWatts / 120;
@@ -96,7 +119,7 @@ export default function FurnaceElectricalCalculator() {
       monthlyKwhHeating, monthlyCostHeating, dailyKwhHeating, dailyCostHeating,
       ecmSavings, maxAmps, recommendedBreaker, wireGauge,
     };
-  }, [specs, blower, blowerType, heatHrs, fanHrs, rate]);
+  }, [specs, blower, src.blowerType, heatHrs, fanHrs, rate]);
 
   const fit =
     calc.totalKwh === 0 ? { tone: 'warn' as const, text: 'Enter runtime hours' } :
@@ -108,9 +131,10 @@ export default function FurnaceElectricalCalculator() {
     <CalcShell
       Icon={Flame}
       title="Gas Furnace Electrical Usage Calculator"
-      subtitle="Blower + inducer + igniter electric draw, costs, and circuit needs. Updates live."
+      subtitle="Blower + inducer + igniter electric draw, costs, and circuit needs."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Your furnace" subtitle="Size and blower motor type" Icon={Flame} accent={ACCENT} />
         <div className="space-y-5">
@@ -151,8 +175,17 @@ export default function FurnaceElectricalCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -163,7 +196,7 @@ export default function FurnaceElectricalCalculator() {
             <>
               Your gas furnace pulls <strong>{specs.btu.toLocaleString('en-US')} BTU</strong> from gas but runs electrics on
               the side: blower {fmt(calc.actualBlowerWatts)}W, inducer {specs.inducerWatts}W, controls {specs.controlWatts}W.
-              {blowerType === 'psc' && <> Switching to ECM would save <strong>${fmtMoney(calc.ecmSavings)}/yr</strong>.</>}
+              {src.blowerType === 'psc' && <> Switching to ECM would save <strong>${fmtMoney(calc.ecmSavings)}/yr</strong>.</>}
             </>
           }
           fitTone={fit.tone}
@@ -234,7 +267,7 @@ export default function FurnaceElectricalCalculator() {
             />
           </div>
 
-          {blowerType === 'psc' && (
+          {src.blowerType === 'psc' && (
             <div className="bg-amber-50 rounded-xl border border-amber-200 p-4">
               <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
                 <AlertCircle className="w-4 h-4 text-amber-700" />
@@ -244,7 +277,7 @@ export default function FurnaceElectricalCalculator() {
                 Your PSC blower pulls <strong>{specs.blowerWatts}W</strong>. An ECM swap drops that to roughly{' '}
                 <strong>{Math.round(specs.blowerWatts * 0.5)}W</strong>, saving <strong>${fmtMoney(calc.ecmSavings)}/yr</strong>.
                 ECM motors also run variable-speed for better comfort and 50% quieter operation. Upgrade typically costs $800–$1,200 — payback in {calc.ecmSavings > 0 ? `${(1000 / calc.ecmSavings).toFixed(1)} years` : '—'}.
-                Many utility rebate programs cover $100–$300 of an ECM swap.
+                Some state/utility programs (check DSIRE for your area) offset part of the swap cost.
               </p>
             </div>
           )}
@@ -272,6 +305,8 @@ export default function FurnaceElectricalCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

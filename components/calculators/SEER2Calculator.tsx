@@ -8,8 +8,6 @@ import {
   CheckCircle,
   AlertCircle,
   Leaf,
-  Search,
-  ExternalLink,
   Zap,
 } from 'lucide-react';
 import EmbedCode from '../EmbedCode';
@@ -26,44 +24,11 @@ import {
   ResultHero,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'emerald' as const;
-
-const utilityRebates = [
-  { utility: 'Austin Energy', state: 'TX', city: 'Austin', rebate: '$1200', amount: 1200, minSeer: 16, website: 'austinenergy.com/rebates' },
-  { utility: 'CenterPoint Energy', state: 'TX', city: 'Houston', rebate: '$500', amount: 500, minSeer: 15, website: 'centerpointenergy.com/rebates' },
-  { utility: 'Oncor Electric', state: 'TX', city: 'Dallas', rebate: '$400', amount: 400, minSeer: 16, website: 'oncor.com/rebates' },
-  { utility: 'CPS Energy', state: 'TX', city: 'San Antonio', rebate: '$800', amount: 800, minSeer: 15, website: 'cpsenergy.com/rebates' },
-  { utility: 'PG&E', state: 'CA', city: 'San Francisco', rebate: '$600', amount: 600, minSeer: 16, website: 'pge.com/rebates' },
-  { utility: 'SCE', state: 'CA', city: 'Los Angeles', rebate: '$500', amount: 500, minSeer: 15, website: 'sce.com/rebates' },
-  { utility: 'SDG&E', state: 'CA', city: 'San Diego', rebate: '$400', amount: 400, minSeer: 16, website: 'sdge.com/rebates' },
-  { utility: 'SMUD', state: 'CA', city: 'Sacramento', rebate: '$1500', amount: 1500, minSeer: 18, website: 'smud.org/rebates' },
-  { utility: 'FPL', state: 'FL', city: 'Miami', rebate: '$300', amount: 300, minSeer: 16, website: 'fpl.com/save' },
-  { utility: 'Duke Energy Florida', state: 'FL', city: 'Tampa', rebate: '$250', amount: 250, minSeer: 15, website: 'duke-energy.com/fl-rebates' },
-  { utility: 'TECO', state: 'FL', city: 'Tampa', rebate: '$300', amount: 300, minSeer: 16, website: 'tecoenergy.com/rebates' },
-  { utility: 'APS', state: 'AZ', city: 'Phoenix', rebate: '$400', amount: 400, minSeer: 16, website: 'aps.com/rebates' },
-  { utility: 'Salt River Project', state: 'AZ', city: 'Phoenix', rebate: '$500', amount: 500, minSeer: 15, website: 'srpnet.com/rebates' },
-  { utility: 'TEP', state: 'AZ', city: 'Tucson', rebate: '$350', amount: 350, minSeer: 16, website: 'tep.com/rebates' },
-  { utility: 'Con Edison', state: 'NY', city: 'New York', rebate: '$1000', amount: 1000, minSeer: 16, website: 'coned.com/coolny' },
-  { utility: 'PSEG Long Island', state: 'NY', city: 'Long Island', rebate: '$500', amount: 500, minSeer: 15, website: 'psegliny.com/rebates' },
-  { utility: 'NYSEG', state: 'NY', city: 'Albany', rebate: '$400', amount: 400, minSeer: 16, website: 'nyseg.com/rebates' },
-  { utility: 'Georgia Power', state: 'GA', city: 'Atlanta', rebate: '$600', amount: 600, minSeer: 16, website: 'georgiapower.com/rebates' },
-  { utility: 'Walton EMC', state: 'GA', city: 'Monroe', rebate: '$500', amount: 500, minSeer: 15, website: 'waltonemc.com/rebates' },
-  { utility: 'Xcel Energy Colorado', state: 'CO', city: 'Denver', rebate: '$800', amount: 800, minSeer: 16, website: 'xcelenergy.com/co-rebates' },
-  { utility: 'Colorado Springs Utilities', state: 'CO', city: 'Colorado Springs', rebate: '$600', amount: 600, minSeer: 15, website: 'csu.org/rebates' },
-  { utility: 'ComEd', state: 'IL', city: 'Chicago', rebate: '$500', amount: 500, minSeer: 16, website: 'comed.com/rebates' },
-  { utility: 'Ameren Illinois', state: 'IL', city: 'Springfield', rebate: '$400', amount: 400, minSeer: 15, website: 'ameren.com/il-rebates' },
-  { utility: 'NV Energy', state: 'NV', city: 'Las Vegas', rebate: '$300', amount: 300, minSeer: 15, website: 'nvenergy.com/rebates' },
-  { utility: 'Duke Energy Carolinas', state: 'NC', city: 'Charlotte', rebate: '$350', amount: 350, minSeer: 16, website: 'duke-energy.com/nc-rebates' },
-  { utility: 'Progress Energy', state: 'NC', city: 'Raleigh', rebate: '$300', amount: 300, minSeer: 15, website: 'progress-energy.com/rebates' },
-];
-
-const stateNames: Record<string, string> = {
-  AZ: 'Arizona', CA: 'California', CO: 'Colorado', FL: 'Florida',
-  GA: 'Georgia', IL: 'Illinois', NC: 'North Carolina', NV: 'Nevada',
-  NY: 'New York', TX: 'Texas',
-};
 
 const acSizes = [
   { value: '1.5', name: '1.5 ton', sub: '18k BTU' },
@@ -83,22 +48,43 @@ const coolingHourPresets = [
   { value: '2800', name: '2800 hr', sub: 'Very hot (Miami, Tucson)' },
 ];
 
-export default function SEER2Calculator() {
-  const [currentSeer, setCurrentSeer] = useState('10');
-  const [newSeer, setNewSeer] = useState('16');
-  const [acSize, setAcSize] = useState('3');
-  const [electricRate, setElectricRate] = useState('0.16');
-  const [coolingHours, setCoolingHours] = useState('1500');
-  const [systemAge, setSystemAge] = useState('15');
-  const [selectedState, setSelectedState] = useState('');
-  const [rebateSearch, setRebateSearch] = useState('');
+const DEFAULTS = {
+  currentSeer: '10',
+  newSeer: '16',
+  acSize: '3',
+  electricRate: '0.16',
+  coolingHours: '1500',
+  systemAge: '15',
+};
 
-  const tons = parseFloat(acSize) || 0;
-  const cur = parseFloat(currentSeer) || 0;
-  const next = parseFloat(newSeer) || 0;
-  const rate = parseFloat(electricRate) || 0;
-  const hours = parseFloat(coolingHours) || 0;
-  const age = parseFloat(systemAge) || 0;
+export default function SEER2Calculator() {
+  const [currentSeer, setCurrentSeer] = useState(DEFAULTS.currentSeer);
+  const [newSeer, setNewSeer] = useState(DEFAULTS.newSeer);
+  const [acSize, setAcSize] = useState(DEFAULTS.acSize);
+  const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
+  const [coolingHours, setCoolingHours] = useState(DEFAULTS.coolingHours);
+  const [systemAge, setSystemAge] = useState(DEFAULTS.systemAge);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    currentSeer, newSeer, acSize, electricRate, coolingHours, systemAge,
+  });
+
+  const tons = parseFloat(src.acSize) || 0;
+  const cur = parseFloat(src.currentSeer) || 0;
+  const next = parseFloat(src.newSeer) || 0;
+  const rate = parseFloat(src.electricRate) || 0;
+  const hours = parseFloat(src.coolingHours) || 0;
+  const age = parseFloat(src.systemAge) || 0;
+
+  const handleReset = () => {
+    setCurrentSeer(DEFAULTS.currentSeer);
+    setNewSeer(DEFAULTS.newSeer);
+    setAcSize(DEFAULTS.acSize);
+    setElectricRate(DEFAULTS.electricRate);
+    setCoolingHours(DEFAULTS.coolingHours);
+    setSystemAge(DEFAULTS.systemAge);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const btuPerHour = tons * 12000;
@@ -138,15 +124,6 @@ export default function SEER2Calculator() {
     };
   }, [tons, cur, next, rate, hours]);
 
-  const filteredRebates = utilityRebates.filter((rebate) => {
-    const term = rebateSearch.toLowerCase();
-    const matchesSearch = term === '' || rebate.utility.toLowerCase().includes(term);
-    const matchesState = selectedState === '' || rebate.state === selectedState;
-    const qualifies = next >= rebate.minSeer;
-    return matchesSearch && matchesState && qualifies;
-  });
-  const uniqueStates = Array.from(new Set(utilityRebates.map((r) => r.state))).sort();
-
   const fit =
     calc.annualSavings <= 0 ? { tone: 'warn' as const, text: 'New SEER must be higher than current' } :
     calc.percentSavings >= 40 ? { tone: 'good' as const, text: 'Huge savings — strong payback' } :
@@ -158,9 +135,10 @@ export default function SEER2Calculator() {
     <CalcShell
       Icon={Calculator}
       title="SEER2 Energy Savings Calculator"
-      subtitle="Exact savings from upgrading your AC. Live ROI, rebates, and environmental impact."
+      subtitle="Annual $ and kWh saved from upgrading your AC — plus payback and CO₂ math."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Current vs new */}
       <section>
         <SectionHeader step={1} title="Current vs new system" subtitle="What you have, what you're upgrading to" Icon={TrendingUp} accent={ACCENT} />
@@ -225,72 +203,18 @@ export default function SEER2Calculator() {
         </div>
       </section>
 
-      {/* Section 3 — Rebate finder */}
-      <section>
-        <SectionHeader step={3} title="Find utility rebates" subtitle="Local rebate programs that match your new SEER2" Icon={Search} accent={ACCENT} />
-
-        <div className="grid sm:grid-cols-2 gap-3 mb-3">
-          <div>
-            <label className="text-xs font-medium text-gray-700 mb-1 block">State</label>
-            <select
-              value={selectedState}
-              onChange={(e) => setSelectedState(e.target.value)}
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-            >
-              <option value="">All states</option>
-              {uniqueStates.map((s) => (
-                <option key={s} value={s}>{stateNames[s] || s}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className="text-xs font-medium text-gray-700 mb-1 block">Utility name (optional)</label>
-            <input
-              type="text"
-              placeholder="e.g. PG&E, Austin Energy"
-              value={rebateSearch}
-              onChange={(e) => setRebateSearch(e.target.value)}
-              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-            />
-          </div>
-        </div>
-
-        {(selectedState || rebateSearch) && (
-          <div className="mt-3">
-            <p className="text-xs text-gray-600 mb-2">
-              {filteredRebates.length > 0 ? (
-                <>Found <span className="font-semibold text-emerald-700">{filteredRebates.length} program{filteredRebates.length === 1 ? '' : 's'}</span>{selectedState && <> in {stateNames[selectedState]}</>} for {next}+ SEER2 systems</>
-              ) : (
-                <>No matching rebates{selectedState && <> in {stateNames[selectedState]}</>} for {next} SEER2. Try a lower SEER2 or a different state.</>
-              )}
-            </p>
-            {filteredRebates.length > 0 && (
-              <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
-                {filteredRebates.map((r, i) => (
-                  <div key={i} className="bg-white rounded-lg p-2.5 border border-gray-200">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <p className="font-semibold text-gray-900 text-sm">{r.utility}</p>
-                        <p className="text-xs text-gray-500">{r.city}, {r.state} · Min SEER2: {r.minSeer}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="font-bold text-emerald-700">{r.rebate}</p>
-                        <a href={`https://${r.website}`} target="_blank" rel="noopener noreferrer" className="text-[11px] text-emerald-700 hover:text-emerald-900 inline-flex items-center gap-0.5">
-                          Details <ExternalLink className="w-3 h-3" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </section>
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
 
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -358,7 +282,6 @@ export default function SEER2Calculator() {
             </ul>
             <div className="mt-3 bg-emerald-50 rounded-lg p-2.5 text-[11px] text-emerald-800">
               Estimated system cost: <strong>${fmtMoney(calc.systemCost)}</strong>. Payback: <strong>{calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : '—'}</strong>.
-              {next >= 16 && <span> May qualify for federal tax credit (up to 30%) and the rebates listed above.</span>}
             </div>
           </div>
         </div>
@@ -381,7 +304,7 @@ export default function SEER2Calculator() {
 
         {next >= 18 && (
           <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-3 text-xs text-emerald-800 flex items-center gap-2">
-            <CheckCircle className="w-4 h-4" /> {next} SEER2 qualifies for ENERGY STAR Most Efficient — best tier for tax credits and rebates.
+            <CheckCircle className="w-4 h-4" /> {next} SEER2 qualifies for ENERGY STAR Most Efficient — the tier that best qualifies for state and utility rebate stacking where available.
           </div>
         )}
 
@@ -389,15 +312,18 @@ export default function SEER2Calculator() {
           <p>
             Based on {tons}-ton system × {hours} cooling hours × ${rate}/kWh. SEER2 ratings reflect 2023+ M1 testing
             (~4.5% stricter than old SEER). Actual savings depend on home insulation, ductwork tightness, thermostat
-            habits, and maintenance. Federal residential energy credits and utility rebates are not auto-applied —
-            check each program's specific equipment list.
+            habits, and maintenance. Federal §25C and §25D tax credits terminated for property placed in service
+            after Dec 31, 2025 (OBBBA, PL 119-21) — check state and utility rebates or IRA-funded HOMES/HEAR programs
+            for current incentives, verifying each program's specific equipment list.
           </p>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
 
       <SocialShare
         title="SEER2 Energy Savings Calculator"
-        description="Calculate exact energy savings when upgrading your AC system. Includes utility rebates, environmental impact, and ROI analysis."
+        description="Calculate exact energy savings when upgrading your AC system with payback and CO₂ math."
       />
 
       <EmbedCode calculatorType="seer2-savings-calculator" title="SEER2 Energy Savings Calculator" />

@@ -21,6 +21,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'red' as const;
@@ -68,21 +70,40 @@ const usageOptions = [
   { value: 'high', name: 'High', sub: 'Long showers + lots of laundry' },
 ];
 
-export default function WaterHeatingCostCalculator() {
-  const [state, setState] = useState('CA');
-  const [heaterType, setHeaterType] = useState('tank-50');
-  const [householdSize, setHouseholdSize] = useState('3');
-  const [usage, setUsage] = useState('average');
+const DEFAULTS = {
+  state: 'CA',
+  heaterType: 'tank-50',
+  householdSize: '3',
+  usage: 'average',
+};
 
-  const stateData = stateRates[state];
-  const heater = heaterTypes.find((h) => h.value === heaterType)!;
-  const people = parseInt(householdSize);
+export default function WaterHeatingCostCalculator() {
+  const [state, setState] = useState(DEFAULTS.state);
+  const [heaterType, setHeaterType] = useState(DEFAULTS.heaterType);
+  const [householdSize, setHouseholdSize] = useState(DEFAULTS.householdSize);
+  const [usage, setUsage] = useState(DEFAULTS.usage);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    state, heaterType, householdSize, usage,
+  });
+
+  const stateData = stateRates[src.state];
+  const heater = heaterTypes.find((h) => h.value === src.heaterType)!;
+  const people = parseInt(src.householdSize);
+
+  const handleReset = () => {
+    setState(DEFAULTS.state);
+    setHeaterType(DEFAULTS.heaterType);
+    setHouseholdSize(DEFAULTS.householdSize);
+    setUsage(DEFAULTS.usage);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const rate = stateData.rate / 100;
     let gallonsPerDay = people * 20;
-    if (usage === 'low') gallonsPerDay *= 0.75;
-    else if (usage === 'high') gallonsPerDay *= 1.5;
+    if (src.usage === 'low') gallonsPerDay *= 0.75;
+    else if (src.usage === 'high') gallonsPerDay *= 1.5;
     const tempRise = 70;
     const btuPerDay = gallonsPerDay * 8.34 * tempRise;
     const kwhPerDay = btuPerDay / 3412;
@@ -91,7 +112,7 @@ export default function WaterHeatingCostCalculator() {
     const monthlyCost = dailyCost * 30.4;
     const annualCost = dailyCost * 365;
     const annualKwh = actualKwhPerDay * 365;
-    const tankCost = heaterType === 'heat-pump' ? (kwhPerDay / 0.90 + 1.4) * rate * 365 : annualCost;
+    const tankCost = src.heaterType === 'heat-pump' ? (kwhPerDay / 0.90 + 1.4) * rate * 365 : annualCost;
     const heatPumpCost = (kwhPerDay / 3.5 + 0.5) * rate * 365;
     const heatPumpSavings = tankCost - heatPumpCost;
     const heatPumpPayback = heatPumpSavings > 0 ? 1500 / heatPumpSavings : 0;
@@ -102,7 +123,7 @@ export default function WaterHeatingCostCalculator() {
     const cheapestSavings = annualCost - (actualKwhPerDay * 365 * cheapestEntry[1].rate / 100);
     const mostExpensiveExtra = (actualKwhPerDay * 365 * mostExpensiveEntry[1].rate / 100) - annualCost;
     return { rate, gallonsPerDay, kwhPerDay, actualKwhPerDay, dailyCost, monthlyCost, annualCost, annualKwh, tankCost, heatPumpCost, heatPumpSavings, heatPumpPayback, nationalAvg, cheapestEntry, mostExpensiveEntry, cheapestSavings, mostExpensiveExtra };
-  }, [stateData, heater, people, usage, heaterType]);
+  }, [stateData, heater, people, src.usage, src.heaterType]);
 
   const fit =
     calc.annualCost < 200 ? { tone: 'good' as const, text: 'Low cost — efficient setup or low usage' } :
@@ -116,9 +137,10 @@ export default function WaterHeatingCostCalculator() {
     <CalcShell
       Icon={Droplets}
       title="State Water Heating Cost Calculator"
-      subtitle="Annual electric water-heating cost using your state's actual rate. Updates live."
+      subtitle="Annual electric water-heating cost using your state's actual rate."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Your state" subtitle="Determines your electric rate" Icon={MapPin} accent={ACCENT} />
 
@@ -161,8 +183,18 @@ export default function WaterHeatingCostCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -250,7 +282,7 @@ export default function WaterHeatingCostCalculator() {
               <p className="text-xs text-gray-700 leading-relaxed">
                 Switching to a heat pump water heater would save roughly <strong>${fmtMoney(calc.heatPumpSavings)}/yr</strong> ({((calc.heatPumpSavings / calc.annualCost) * 100).toFixed(0)}% reduction).
                 In {stateData.name} at {stateData.rate}¢/kWh, a $1,500 HPWH pays back in <strong>{calc.heatPumpPayback.toFixed(1)} years</strong>.
-                Federal tax credit (25C) covers up to $2,000 for ENERGY STAR HPWHs.
+                Federal §25C and §25D credits terminated for property placed in service after Dec 31, 2025 (OBBBA, PL 119-21). 2026 installs are not eligible for those credits; state/utility rebates and IRA-funded HEAR/HOMES programs (where the state offers them) remain the active paths.
               </p>
             </div>
           )}
@@ -267,6 +299,8 @@ export default function WaterHeatingCostCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

@@ -23,6 +23,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
   accentMap,
 } from './_shared';
 
@@ -54,19 +56,40 @@ const efficiencyOptions = [
 
 const repairPresets = [500, 1000, 1500, 2500, 4000];
 
+const DEFAULTS = {
+  systemType: 'central-ac',
+  systemAge: '12',
+  repairCost: '1500',
+  maintenanceFreq: 'regular',
+  efficiency: 'normal',
+};
+
 export default function HVACLifespanCalculator() {
-  const [systemType, setSystemType] = useState('central-ac');
-  const [systemAge, setSystemAge] = useState('12');
-  const [repairCost, setRepairCost] = useState('1500');
-  const [maintenanceFreq, setMaintenanceFreq] = useState('regular');
-  const [efficiency, setEfficiency] = useState('normal');
+  const [systemType, setSystemType] = useState(DEFAULTS.systemType);
+  const [systemAge, setSystemAge] = useState(DEFAULTS.systemAge);
+  const [repairCost, setRepairCost] = useState(DEFAULTS.repairCost);
+  const [maintenanceFreq, setMaintenanceFreq] = useState(DEFAULTS.maintenanceFreq);
+  const [efficiency, setEfficiency] = useState(DEFAULTS.efficiency);
 
-  const system = systemTypes.find((s) => s.value === systemType)!;
-  const maint = maintenanceOptions.find((m) => m.value === maintenanceFreq)!;
-  const eff = efficiencyOptions.find((e) => e.value === efficiency)!;
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    systemType, systemAge, repairCost, maintenanceFreq, efficiency,
+  });
 
-  const age = Math.max(parseFloat(systemAge) || 0, 0);
-  const repair = Math.max(parseFloat(repairCost) || 0, 0);
+  const system = systemTypes.find((s) => s.value === src.systemType)!;
+  const maint = maintenanceOptions.find((m) => m.value === src.maintenanceFreq)!;
+  const eff = efficiencyOptions.find((e) => e.value === src.efficiency)!;
+
+  const age = Math.max(parseFloat(src.systemAge) || 0, 0);
+  const repair = Math.max(parseFloat(src.repairCost) || 0, 0);
+
+  const handleReset = () => {
+    setSystemType(DEFAULTS.systemType);
+    setSystemAge(DEFAULTS.systemAge);
+    setRepairCost(DEFAULTS.repairCost);
+    setMaintenanceFreq(DEFAULTS.maintenanceFreq);
+    setEfficiency(DEFAULTS.efficiency);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const adjustedLifespan = Math.max(system.avgLifespan + maint.lifespanDelta, 1);
@@ -98,9 +121,10 @@ export default function HVACLifespanCalculator() {
     <CalcShell
       Icon={Clock}
       title="HVAC Lifespan & Repair-vs-Replace Calculator"
-      subtitle="Use the 50% rule + age + efficiency penalty to decide. Updates live."
+      subtitle="Use the 50% rule + age + efficiency penalty to decide."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — System */}
       <section>
         <SectionHeader step={1} title="Your system" subtitle="What you have and how old it is" Icon={Settings} accent={ACCENT} />
@@ -152,9 +176,18 @@ export default function HVACLifespanCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -268,11 +301,13 @@ export default function HVACLifespanCalculator() {
             <li>Refrigerant-related repairs on R-22 systems (made before 2010) — refrigerant alone can run $80+/lb, often making "small" leak fixes uneconomic</li>
             <li>Aging heat exchangers (cracked = carbon monoxide risk) — replace immediately regardless of cost ratio</li>
             <li>Compressor or coil replacement above 50% but the rest of the system is healthy — sometimes worth doing if you'll stay 2–3+ more years</li>
-            <li>Tax credits and rebates available NOW that won't be there next year if you delay replacement</li>
+            <li>State and utility rebates and IRA-funded HEAR/HOMES programs (federal §25C/§25D credits terminated for 2026 installs under OBBBA) — timing can shift what's available in your area</li>
             <li>Comfort issues that won't be fixed by a repair (oversized system, bad ductwork) — replacement is a chance to fix the underlying design</li>
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

@@ -24,6 +24,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'emerald' as const;
@@ -46,38 +48,81 @@ const climateZones = [
 
 const homeSizePresets = [1000, 1500, 2000, 2500, 3000, 4000];
 
+const DEFAULTS = {
+  currentType: 'central-ac',
+  currentEfficiency: '14',
+  currentAge: '12',
+  newType: 'central-ac',
+  newEfficiency: '18',
+  systemCost: '8500',
+  homeSize: '2000',
+  climate: 'mixed',
+  electricityRate: '0.16',
+  gasRate: '1.25',
+  federalCredit: '0',
+  utilityRebate: '300',
+};
+
 export default function HVACROICalculator() {
-  const [currentType, setCurrentType] = useState('central-ac');
-  const [currentEfficiency, setCurrentEfficiency] = useState('14');
-  const [currentAge, setCurrentAge] = useState('12');
+  const [currentType, setCurrentType] = useState(DEFAULTS.currentType);
+  const [currentEfficiency, setCurrentEfficiency] = useState(DEFAULTS.currentEfficiency);
+  const [currentAge, setCurrentAge] = useState(DEFAULTS.currentAge);
 
-  const [newType, setNewType] = useState('central-ac');
-  const [newEfficiency, setNewEfficiency] = useState('18');
-  const [systemCost, setSystemCost] = useState('8500');
+  const [newType, setNewType] = useState(DEFAULTS.newType);
+  const [newEfficiency, setNewEfficiency] = useState(DEFAULTS.newEfficiency);
+  const [systemCost, setSystemCost] = useState(DEFAULTS.systemCost);
 
-  const [homeSize, setHomeSize] = useState('2000');
-  const [climate, setClimate] = useState('mixed');
-  const [electricityRate, setElectricityRate] = useState('0.16');
-  const [gasRate, setGasRate] = useState('1.25');
+  const [homeSize, setHomeSize] = useState(DEFAULTS.homeSize);
+  const [climate, setClimate] = useState(DEFAULTS.climate);
+  const [electricityRate, setElectricityRate] = useState(DEFAULTS.electricityRate);
+  const [gasRate, setGasRate] = useState(DEFAULTS.gasRate);
 
-  const [federalCredit, setFederalCredit] = useState('0');
-  const [utilityRebate, setUtilityRebate] = useState('300');
+  const [federalCredit, setFederalCredit] = useState(DEFAULTS.federalCredit);
+  const [utilityRebate, setUtilityRebate] = useState(DEFAULTS.utilityRebate);
 
-  const selectedClimate = climateZones.find((z) => z.value === climate)!;
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    currentType, currentEfficiency, currentAge,
+    newType, newEfficiency, systemCost,
+    homeSize, climate, electricityRate, gasRate,
+    federalCredit, utilityRebate,
+  });
+
+  // Live lookups for input JSX (labels, min/max, suffix must react as user picks a type)
   const currentSystem = systemTypes.find((s) => s.value === currentType)!;
   const newSystem = systemTypes.find((s) => s.value === newType)!;
 
+  // Submitted lookups for calc + results (reflect Calculate-time snapshot)
+  const srcCurrentSystem = systemTypes.find((s) => s.value === src.currentType)!;
+  const srcNewSystem = systemTypes.find((s) => s.value === src.newType)!;
+  const srcSelectedClimate = climateZones.find((z) => z.value === src.climate)!;
+
+  const handleReset = () => {
+    setCurrentType(DEFAULTS.currentType);
+    setCurrentEfficiency(DEFAULTS.currentEfficiency);
+    setCurrentAge(DEFAULTS.currentAge);
+    setNewType(DEFAULTS.newType);
+    setNewEfficiency(DEFAULTS.newEfficiency);
+    setSystemCost(DEFAULTS.systemCost);
+    setHomeSize(DEFAULTS.homeSize);
+    setClimate(DEFAULTS.climate);
+    setElectricityRate(DEFAULTS.electricityRate);
+    setGasRate(DEFAULTS.gasRate);
+    setFederalCredit(DEFAULTS.federalCredit);
+    setUtilityRebate(DEFAULTS.utilityRebate);
+    clear();
+  };
+
   const calc = useMemo(() => {
-    const sqft = Math.max(parseFloat(homeSize) || 0, 0);
+    const sqft = Math.max(parseFloat(src.homeSize) || 0, 0);
     const size = sqft / 600;
-    const cEff = Math.max(parseFloat(currentEfficiency) || 1, 1);
-    const nEff = Math.max(parseFloat(newEfficiency) || 1, 1);
-    const eRate = Math.max(parseFloat(electricityRate) || 0, 0);
-    const gRate = Math.max(parseFloat(gasRate) || 0, 0);
-    const cost = Math.max(parseFloat(systemCost) || 0, 0);
-    const credit = Math.max(parseFloat(federalCredit) || 0, 0);
-    const rebate = Math.max(parseFloat(utilityRebate) || 0, 0);
-    const age = parseFloat(currentAge) || 0;
+    const cEff = Math.max(parseFloat(src.currentEfficiency) || 1, 1);
+    const nEff = Math.max(parseFloat(src.newEfficiency) || 1, 1);
+    const eRate = Math.max(parseFloat(src.electricityRate) || 0, 0);
+    const gRate = Math.max(parseFloat(src.gasRate) || 0, 0);
+    const cost = Math.max(parseFloat(src.systemCost) || 0, 0);
+    const credit = Math.max(parseFloat(src.federalCredit) || 0, 0);
+    const rebate = Math.max(parseFloat(src.utilityRebate) || 0, 0);
+    const age = parseFloat(src.currentAge) || 0;
 
     const energy = (sys: typeof systemTypes[0], eff: number) => {
       if (sys.isGas) {
@@ -85,16 +130,16 @@ export default function HVACROICalculator() {
         const therms = (btuNeeded / eff * 100) / 100000;
         return therms * gRate;
       } else {
-        const cooling = size * 12000 * selectedClimate.coolingHours;
-        const heating = sys.value === 'heat-pump' ? size * 10000 * selectedClimate.heatingHours : 0;
+        const cooling = size * 12000 * srcSelectedClimate.coolingHours;
+        const heating = sys.value === 'heat-pump' ? size * 10000 * srcSelectedClimate.heatingHours : 0;
         const total = cooling + heating;
         const kwh = total / (eff * 1000);
         return kwh * eRate;
       }
     };
 
-    const currentEnergy = energy(currentSystem, cEff);
-    const newEnergy = energy(newSystem, nEff);
+    const currentEnergy = energy(srcCurrentSystem, cEff);
+    const newEnergy = energy(srcNewSystem, nEff);
     const currentMaint = age > 10 ? 450 : 250;
     const newMaint = 200;
     const currentTotal = currentEnergy + currentMaint;
@@ -113,9 +158,9 @@ export default function HVACROICalculator() {
       annualSavings, netCost, payback, totalSavings15, netROI15, roiPct, annualReturn,
     };
   }, [
-    homeSize, currentEfficiency, newEfficiency, electricityRate, gasRate,
-    systemCost, federalCredit, utilityRebate, currentAge,
-    currentSystem, newSystem, selectedClimate,
+    src.homeSize, src.currentEfficiency, src.newEfficiency, src.electricityRate, src.gasRate,
+    src.systemCost, src.federalCredit, src.utilityRebate, src.currentAge,
+    srcCurrentSystem, srcNewSystem, srcSelectedClimate,
   ]);
 
   const fit =
@@ -131,9 +176,10 @@ export default function HVACROICalculator() {
     <CalcShell
       Icon={TrendingUp}
       title="HVAC ROI Calculator"
-      subtitle="Energy savings, payback, and 15-year ROI for an HVAC upgrade. Updates live."
+      subtitle="Energy savings, payback, and 15-year ROI for an HVAC upgrade."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Current system */}
       <section>
         <SectionHeader step={1} title="Current system" subtitle="What you have today" Icon={Home} accent={ACCENT} />
@@ -237,14 +283,23 @@ export default function HVACROICalculator() {
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Utility rebate</label>
             <NumberInput value={utilityRebate} onChange={setUtilityRebate} min={0} max={3000} suffix="$" ariaLabel="Utility rebate" accent={ACCENT} />
-            <p className="text-xs text-gray-500 mt-1.5">Use the SEER2 calculator's rebate finder to check local programs.</p>
+            <p className="text-xs text-gray-500 mt-1.5">Check your state/utility program or the DSIRE database (dsireusa.org) for current rebates in your area.</p>
           </div>
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -275,8 +330,8 @@ export default function HVACROICalculator() {
             <div className="space-y-2">
               <div className="flex items-center justify-between p-3 rounded-lg bg-red-50 ring-1 ring-red-200">
                 <div>
-                  <div className="font-semibold text-red-900 text-sm">Current — {currentSystem.name}</div>
-                  <div className="text-[11px] text-red-700">{calc.cEff} {currentSystem.isGas ? 'AFUE' : 'SEER'} · {calc.age}-yr-old</div>
+                  <div className="font-semibold text-red-900 text-sm">Current — {srcCurrentSystem.name}</div>
+                  <div className="text-[11px] text-red-700">{calc.cEff} {srcCurrentSystem.isGas ? 'AFUE' : 'SEER'} · {calc.age}-yr-old</div>
                 </div>
                 <div className="text-right">
                   <div className="font-bold text-red-700 tabular-nums">${fmtMoney(calc.currentTotal)}/yr</div>
@@ -285,8 +340,8 @@ export default function HVACROICalculator() {
               </div>
               <div className="flex items-center justify-between p-3 rounded-lg bg-emerald-50 ring-1 ring-emerald-200">
                 <div>
-                  <div className="font-semibold text-emerald-900 text-sm">New — {newSystem.name}</div>
-                  <div className="text-[11px] text-emerald-700">{calc.nEff} {newSystem.isGas ? 'AFUE' : 'SEER'} · new install</div>
+                  <div className="font-semibold text-emerald-900 text-sm">New — {srcNewSystem.name}</div>
+                  <div className="text-[11px] text-emerald-700">{calc.nEff} {srcNewSystem.isGas ? 'AFUE' : 'SEER'} · new install</div>
                 </div>
                 <div className="text-right">
                   <div className="font-bold text-emerald-700 tabular-nums">${fmtMoney(calc.newTotal)}/yr</div>
@@ -349,6 +404,8 @@ export default function HVACROICalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
 
       <EmbedCode calculatorType="hvac-roi-calculator" title="HVAC ROI Calculator" />
     </CalcShell>
