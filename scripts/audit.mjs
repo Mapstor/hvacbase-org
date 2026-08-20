@@ -46,7 +46,8 @@ const ECHO_THRESHOLD = 0.55;
 // If this list changes, update it here.
 const GLOBAL_COMPONENTS = new Set([
   'TableOfContents', 'FAQ', 'ComparisonTable', 'Callout', 'SourcesBox', 'RelatedArticles',
-  'CalcWrapper', 'SEERCalculator', 'DataChart', 'EfficiencyCurve', 'ComparisonChart',
+  'CalcWrapper', 'SEERCalculator', 'BTUCalculator',
+  'DataChart', 'EfficiencyCurve', 'ComparisonChart',
   'ScaleDiagram', 'RefrigerationCycle', 'CarbonMonoxideDetectorPlacement',
   'DryModeVsCoolMode', 'BatteryRuntimeByLoad',
 ]);

@@ -23,6 +23,8 @@ import {
   ResultHero,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
   accentMap,
 } from './_shared';
 
@@ -107,8 +109,18 @@ const generatorSizes = [
   { watts: 10000, label: '10,000W', price: 3000 },
 ];
 
+const DEFAULTS = {
+  selected: (): Set<string> => new Set<string>(),
+};
+
 export default function GeneratorSizingCalculator() {
-  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [selected, setSelected] = useState<Set<string>>(DEFAULTS.selected());
+
+  const selectedKey = [...selected].sort().join('|');
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    selectedKey,
+  });
 
   const toggle = (id: string) => {
     setSelected((prev) => {
@@ -119,9 +131,15 @@ export default function GeneratorSizingCalculator() {
     });
   };
 
+  const handleReset = () => {
+    setSelected(DEFAULTS.selected());
+    clear();
+  };
+
   const calc = useMemo(() => {
+    const activeIds = new Set(src.selectedKey ? src.selectedKey.split('|') : []);
     const items: Appliance[] = [];
-    applianceCategories.forEach((cat) => cat.items.forEach((it) => { if (selected.has(it.id)) items.push(it); }));
+    applianceCategories.forEach((cat) => cat.items.forEach((it) => { if (activeIds.has(it.id)) items.push(it); }));
     const totalRunning = items.reduce((s, x) => s + x.running, 0);
     const largestStartingDelta = items.length === 0 ? 0 : Math.max(...items.map((x) => x.starting - x.running));
     const peakWatts = totalRunning + largestStartingDelta;
@@ -132,7 +150,7 @@ export default function GeneratorSizingCalculator() {
     const runtime5Gal = fuelGalPerHr > 0 ? 5 / fuelGalPerHr : 0;
     const dailyCost = fuelGalPerHr * 8 * 4.5;
     return { items, totalRunning, largestStartingDelta, peakWatts, recommendedWatts, recommendedGenerator, minimumGenerator, fuelGalPerHr, runtime5Gal, dailyCost };
-  }, [selected]);
+  }, [src.selectedKey]);
 
   const fit =
     calc.items.length === 0 ? { tone: 'warn' as const, text: 'Pick at least one appliance' } :
@@ -148,6 +166,7 @@ export default function GeneratorSizingCalculator() {
       subtitle="Pick the appliances you need during an outage — we compute starting + running watts and the right generator."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Appliance picker */}
       <section>
         <SectionHeader step={1} title="Pick what you need to power" subtitle={`${calc.items.length} selected · ${fmt(calc.totalRunning)}W running`} Icon={Plug} accent={ACCENT} />
@@ -200,9 +219,18 @@ export default function GeneratorSizingCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -302,6 +330,8 @@ export default function GeneratorSizingCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

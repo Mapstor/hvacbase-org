@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useId, ReactNode } from 'react';
-import { HelpCircle, CheckCircle, AlertTriangle } from 'lucide-react';
+import { HelpCircle, CheckCircle, AlertTriangle, RotateCcw, Play, RefreshCw } from 'lucide-react';
 
 // ---------- Number formatting (locale-explicit to avoid SSR/CSR hydration mismatch) ----------
 
@@ -654,12 +654,14 @@ export function DisclaimerBox({ title, children }: { title: string; children: Re
   );
 }
 
-// ---------- Live-updates note + results header ----------
+// ---------- Results header ----------
 
 export function ResultsHeader({
   title = 'Your result',
+  dirty = false,
 }: {
   title?: string;
+  dirty?: boolean;
 }) {
   return (
     <div className="flex items-center gap-2 pt-4 border-t border-gray-200">
@@ -667,9 +669,114 @@ export function ResultsHeader({
         <CheckCircle className="w-4 h-4 text-emerald-700" />
       </div>
       <h3 className="text-base font-semibold text-gray-900">{title}</h3>
-      <span className="ml-auto text-[11px] text-gray-500 hidden sm:inline">
-        Updates live as you change inputs
-      </span>
+      {dirty && (
+        <span className="ml-auto inline-flex items-center gap-1 text-[11px] text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
+          <RefreshCw className="w-3 h-3" />
+          Inputs changed — recalculate for updated result
+        </span>
+      )}
     </div>
   );
+}
+
+// ---------- Calculate + Reset action bar ----------
+//
+// Sits between the input sections and the results section. When the user has
+// not clicked Calculate yet, only the Calculate button is emphasized. After a
+// result exists, editing any input flips `dirty` true and the Calculate button
+// re-emphasizes with an "inputs changed" cue, while the existing result stays
+// visible per the UX spec (do NOT hide results on edit; require an explicit
+// Reset to clear). Reset clears inputs AND hides results.
+//
+// Enter-to-calculate works when the calculator wraps its inputs + this bar in
+// a <form onSubmit>. The Calculate button here defaults to type="submit".
+
+export function CalculateResetBar({
+  onCalculate,
+  onReset,
+  dirty,
+  hasResult,
+  accent,
+  calculateLabel = 'Calculate',
+  resetLabel = 'Reset',
+}: {
+  onCalculate: () => void;
+  onReset: () => void;
+  dirty: boolean;
+  hasResult: boolean;
+  accent: Accent;
+  calculateLabel?: string;
+  resetLabel?: string;
+}) {
+  const a = accentMap[accent];
+  const emphasize = !hasResult || dirty;
+  const calcClasses = emphasize
+    ? `${a.iconBg} text-white shadow-sm hover:opacity-90 focus:ring-2 ${a.focus.split(' ').filter((c) => c.startsWith('focus:ring')).join(' ')}`
+    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200';
+  return (
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-2">
+      <button
+        type="submit"
+        onClick={(e) => {
+          e.preventDefault();
+          onCalculate();
+        }}
+        className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${calcClasses}`}
+        aria-label={dirty ? 'Recalculate — inputs have changed' : calculateLabel}
+      >
+        <Play className="w-4 h-4" />
+        {dirty ? 'Recalculate' : calculateLabel}
+      </button>
+      <button
+        type="button"
+        onClick={onReset}
+        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+        aria-label={resetLabel}
+      >
+        <RotateCcw className="w-4 h-4" />
+        {resetLabel}
+      </button>
+      {!hasResult && (
+        <span className="text-xs text-gray-500 sm:ml-2">
+          Enter your values and click Calculate — press Enter in any field.
+        </span>
+      )}
+    </div>
+  );
+}
+
+// ---------- Submit-then-render state hook ----------
+//
+// Manages the "results appear only after Calculate" UX. Pass the current input
+// object; the hook exposes:
+//   - src: the input snapshot to feed all parsing/derivation. Before Calculate
+//     it returns the current inputs (so live compute still runs harmlessly —
+//     the render is what's gated). After Calculate it returns the frozen
+//     committed snapshot until Reset.
+//   - hasResult: has Calculate been clicked (and Reset not clicked since)?
+//   - dirty: are current inputs different from the committed snapshot?
+//   - calculate: snapshot current inputs → results become visible.
+//   - clear: forget the snapshot → results hidden.
+//
+// Callers pair this hook with their own setState-defaults reset function to
+// clear inputs, then call `clear()` to hide results.
+
+export function useCalculatorSubmit<T extends Record<string, string>>(
+  inputs: T
+): {
+  src: T;
+  hasResult: boolean;
+  dirty: boolean;
+  calculate: () => void;
+  clear: () => void;
+} {
+  const [committed, setCommitted] = useState<T | null>(null);
+  const hasResult = committed !== null;
+  const dirty =
+    hasResult &&
+    Object.keys(inputs).some((k) => inputs[k] !== (committed as T)[k]);
+  const calculate = () => setCommitted({ ...inputs });
+  const clear = () => setCommitted(null);
+  const src: T = committed ?? inputs;
+  return { src, hasResult, dirty, calculate, clear };
 }

@@ -22,6 +22,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'red' as const;
@@ -52,40 +54,80 @@ const unitModeOptions = [
   { value: 'volume', name: 'Volume (m³)' },
 ];
 
-export default function SpecificHeatCalculator() {
-  const [material, setMaterial] = useState('water');
-  const [calculationType, setCalculationType] = useState('energy');
-  const [unitMode, setUnitMode] = useState('mass');
-  const [mass, setMass] = useState('10');
-  const [volume, setVolume] = useState('0.01');
-  const [initialTemp, setInitialTemp] = useState('20');
-  const [finalTemp, setFinalTemp] = useState('80');
-  const [energyInput, setEnergyInput] = useState('2500000');
-  const [customSpecificHeat, setCustomSpecificHeat] = useState('1000');
-  const [customDensity, setCustomDensity] = useState('1000');
+const DEFAULTS = {
+  material: 'water',
+  calculationType: 'energy',
+  unitMode: 'mass',
+  mass: '10',
+  volume: '0.01',
+  initialTemp: '20',
+  finalTemp: '80',
+  energyInput: '2500000',
+  customSpecificHeat: '1000',
+  customDensity: '1000',
+};
 
-  const selected = materials.find((m) => m.value === material)!;
-  const specificHeat = material === 'custom' ? parseFloat(customSpecificHeat) || 1 : selected.specificHeat;
-  const density = material === 'custom' ? parseFloat(customDensity) || 1 : selected.density;
-  const actualMass = unitMode === 'volume' ? (parseFloat(volume) || 0) * density : parseFloat(mass) || 0;
-  const Ti = parseFloat(initialTemp) || 0;
-  const Tf = parseFloat(finalTemp) || 0;
-  const E = parseFloat(energyInput) || 0;
+export default function SpecificHeatCalculator() {
+  const [material, setMaterial] = useState(DEFAULTS.material);
+  const [calculationType, setCalculationType] = useState(DEFAULTS.calculationType);
+  const [unitMode, setUnitMode] = useState(DEFAULTS.unitMode);
+  const [mass, setMass] = useState(DEFAULTS.mass);
+  const [volume, setVolume] = useState(DEFAULTS.volume);
+  const [initialTemp, setInitialTemp] = useState(DEFAULTS.initialTemp);
+  const [finalTemp, setFinalTemp] = useState(DEFAULTS.finalTemp);
+  const [energyInput, setEnergyInput] = useState(DEFAULTS.energyInput);
+  const [customSpecificHeat, setCustomSpecificHeat] = useState(DEFAULTS.customSpecificHeat);
+  const [customDensity, setCustomDensity] = useState(DEFAULTS.customDensity);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    material,
+    calculationType,
+    unitMode,
+    mass,
+    volume,
+    initialTemp,
+    finalTemp,
+    energyInput,
+    customSpecificHeat,
+    customDensity,
+  });
+
+  const selected = materials.find((m) => m.value === src.material)!;
+  const specificHeat = src.material === 'custom' ? parseFloat(src.customSpecificHeat) || 1 : selected.specificHeat;
+  const density = src.material === 'custom' ? parseFloat(src.customDensity) || 1 : selected.density;
+  const actualMass = src.unitMode === 'volume' ? (parseFloat(src.volume) || 0) * density : parseFloat(src.mass) || 0;
+  const Ti = parseFloat(src.initialTemp) || 0;
+  const Tf = parseFloat(src.finalTemp) || 0;
+  const E = parseFloat(src.energyInput) || 0;
+
+  const handleReset = () => {
+    setMaterial(DEFAULTS.material);
+    setCalculationType(DEFAULTS.calculationType);
+    setUnitMode(DEFAULTS.unitMode);
+    setMass(DEFAULTS.mass);
+    setVolume(DEFAULTS.volume);
+    setInitialTemp(DEFAULTS.initialTemp);
+    setFinalTemp(DEFAULTS.finalTemp);
+    setEnergyInput(DEFAULTS.energyInput);
+    setCustomSpecificHeat(DEFAULTS.customSpecificHeat);
+    setCustomDensity(DEFAULTS.customDensity);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const deltaT = Tf - Ti;
     let energyRequired = 0;
     let finalTemperature = 0;
     let requiredMass = 0;
-    if (calculationType === 'energy') {
+    if (src.calculationType === 'energy') {
       energyRequired = actualMass * specificHeat * deltaT;
-    } else if (calculationType === 'temperature') {
+    } else if (src.calculationType === 'temperature') {
       const tempChange = actualMass > 0 ? E / (actualMass * specificHeat) : 0;
       finalTemperature = Ti + tempChange;
-    } else if (calculationType === 'mass') {
+    } else if (src.calculationType === 'mass') {
       requiredMass = deltaT !== 0 ? E / (specificHeat * deltaT) : 0;
     }
-    const energy = calculationType === 'energy' ? energyRequired : E;
+    const energy = src.calculationType === 'energy' ? energyRequired : E;
     const energyKJ = energy / 1000;
     const energyKWh = energy / 3600000;
     const energyBTU = energy / 1055;
@@ -104,20 +146,20 @@ export default function SpecificHeatCalculator() {
       powerWatts, thermalMass, electricityCost, gasCost,
       TiF, TfF, TiK, TfK,
     };
-  }, [calculationType, actualMass, specificHeat, density, Ti, Tf, E]);
+  }, [src.calculationType, actualMass, specificHeat, density, Ti, Tf, E]);
 
   const heroValue =
-    calculationType === 'energy' ? `${fmt(Math.round(Math.abs(calc.energyRequired)))} J` :
-    calculationType === 'temperature' ? `${calc.finalTemperature.toFixed(1)}°C` :
+    src.calculationType === 'energy' ? `${fmt(Math.round(Math.abs(calc.energyRequired)))} J` :
+    src.calculationType === 'temperature' ? `${calc.finalTemperature.toFixed(1)}°C` :
     `${calc.requiredMass.toFixed(2)} kg`;
 
   const heroEyebrow =
-    calculationType === 'energy' ? 'Energy required' :
-    calculationType === 'temperature' ? 'Final temperature' :
+    src.calculationType === 'energy' ? 'Energy required' :
+    src.calculationType === 'temperature' ? 'Final temperature' :
     'Required mass';
 
   const fit =
-    calculationType === 'energy'
+    src.calculationType === 'energy'
       ? (calc.deltaT === 0 ? { tone: 'warn' as const, text: 'Same start + final temp = no energy' } :
          calc.deltaT > 0 ? { tone: 'good' as const, text: '🔥 Heating process' } :
                           { tone: 'good' as const, text: '❄ Cooling process' })
@@ -129,9 +171,10 @@ export default function SpecificHeatCalculator() {
     <CalcShell
       Icon={Thermometer}
       title="Specific Heat Calculator"
-      subtitle="Q = mcΔT for heating, cooling, and energy storage. Updates live."
+      subtitle="Q = mcΔT for heating, cooling, and energy storage."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="What to calculate" subtitle="Pick the unknown" Icon={Calculator} accent={ACCENT} />
         <Segmented value={calculationType} onChange={setCalculationType} options={calculationTypes} ariaLabel="Calculation type" accent={ACCENT} />
@@ -210,8 +253,17 @@ export default function SpecificHeatCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -219,12 +271,12 @@ export default function SpecificHeatCalculator() {
           value={heroValue}
           unit=""
           secondaryText={
-            calculationType === 'energy' ? (
+            src.calculationType === 'energy' ? (
               <>
                 {calc.deltaT > 0 ? 'Heat' : 'Remove'} <strong>{fmt(Math.round(Math.abs(calc.energyRequired)))} J</strong>{' '}
                 ({calc.energyKWh.toFixed(3)} kWh · {fmt(Math.round(calc.energyBTU))} BTU) to {calc.deltaT > 0 ? 'raise' : 'lower'} {actualMass.toFixed(2)} kg of {selected.name.toLowerCase()} by {Math.abs(calc.deltaT).toFixed(1)}°C.
               </>
-            ) : calculationType === 'temperature' ? (
+            ) : src.calculationType === 'temperature' ? (
               <>
                 Adding <strong>{fmt(Math.round(E))} J</strong> to {actualMass.toFixed(2)} kg of {selected.name.toLowerCase()} raises temperature from {Ti.toFixed(1)}°C to <strong>{calc.finalTemperature.toFixed(1)}°C</strong> (ΔT = +{(calc.finalTemperature - Ti).toFixed(1)}°C).
               </>
@@ -255,7 +307,7 @@ export default function SpecificHeatCalculator() {
                 { label: 'Material', detail: selected.name, factor: '' },
                 { label: 'Specific heat (c)', detail: 'Energy per kg per °C', factor: `${fmt(specificHeat)} J/kg·°C` },
                 { label: 'Density (ρ)', detail: 'kg per m³', factor: `${fmt(density)} kg/m³` },
-                { label: 'Mass (m)', detail: unitMode === 'volume' ? `From ${volume} m³ × ρ` : 'Direct input', factor: `${actualMass.toFixed(3)} kg` },
+                { label: 'Mass (m)', detail: src.unitMode === 'volume' ? `From ${src.volume} m³ × ρ` : 'Direct input', factor: `${actualMass.toFixed(3)} kg` },
                 { label: 'ΔT', detail: `${Ti.toFixed(1)}°C → ${Tf.toFixed(1)}°C`, factor: `${calc.deltaT.toFixed(1)}°C` },
               ]}
               totals={[
@@ -282,7 +334,7 @@ export default function SpecificHeatCalculator() {
             />
           </div>
 
-          {calculationType === 'energy' && Math.abs(calc.energyRequired) > 0 && (
+          {src.calculationType === 'energy' && Math.abs(calc.energyRequired) > 0 && (
             <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4 lg:col-span-2">
               <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
                 {calc.deltaT > 0 ? <Flame className="w-4 h-4 text-emerald-700" /> : <Snowflake className="w-4 h-4 text-emerald-700" />}
@@ -322,6 +374,8 @@ export default function SpecificHeatCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

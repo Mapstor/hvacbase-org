@@ -32,6 +32,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'orange' as const;
@@ -125,29 +127,61 @@ const ductOptions = [
 
 const squareFootPresets = [1000, 1500, 2000, 2500, 3000, 4000];
 
+const DEFAULTS = {
+  squareFeet: '2000',
+  stories: '1' as StoriesValue,
+  climateZone: 'zone4',
+  insulation: 'average',
+  ceilingHeight: '8',
+  efficiency: '95',
+  windowPercentage: '15',
+  sunExposure: 'average',
+  basement: 'unheated',
+  ducts: 'insulated_attic',
+};
+
 export default function FurnaceSizingCalculator() {
-  const [squareFeet, setSquareFeet] = useState('2000');
-  const [stories, setStories] = useState<StoriesValue>('1');
-  const [climateZone, setClimateZone] = useState('zone4');
-  const [insulation, setInsulation] = useState('average');
-  const [ceilingHeight, setCeilingHeight] = useState('8');
-  const [efficiency, setEfficiency] = useState('95');
-  const [windowPercentage, setWindowPercentage] = useState('15');
-  const [sunExposure, setSunExposure] = useState('average');
-  const [basement, setBasement] = useState('unheated');
-  const [ducts, setDucts] = useState('insulated_attic');
+  const [squareFeet, setSquareFeet] = useState(DEFAULTS.squareFeet);
+  const [stories, setStories] = useState<StoriesValue>(DEFAULTS.stories);
+  const [climateZone, setClimateZone] = useState(DEFAULTS.climateZone);
+  const [insulation, setInsulation] = useState(DEFAULTS.insulation);
+  const [ceilingHeight, setCeilingHeight] = useState(DEFAULTS.ceilingHeight);
+  const [efficiency, setEfficiency] = useState(DEFAULTS.efficiency);
+  const [windowPercentage, setWindowPercentage] = useState(DEFAULTS.windowPercentage);
+  const [sunExposure, setSunExposure] = useState(DEFAULTS.sunExposure);
+  const [basement, setBasement] = useState(DEFAULTS.basement);
+  const [ducts, setDucts] = useState(DEFAULTS.ducts);
 
-  const selectedZone = climateZones.find((z) => z.value === climateZone)!;
-  const selectedInsulation = insulationOptions.find((i) => i.value === insulation)!;
-  const selectedCeiling = ceilingHeights.find((c) => c.value === ceilingHeight)!;
-  const selectedEfficiency = furnaceEfficiency.find((e) => e.value === efficiency)!;
-  const selectedSun = sunExposureOptions.find((s) => s.value === sunExposure)!;
-  const selectedStories = storiesOptions.find((s) => s.value === stories)!;
-  const selectedBasement = basementOptions.find((b) => b.value === basement)!;
-  const selectedDucts = ductOptions.find((d) => d.value === ducts)!;
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    squareFeet, stories, climateZone, insulation, ceilingHeight,
+    efficiency, windowPercentage, sunExposure, basement, ducts,
+  });
 
-  const sqFt = Math.max(parseFloat(squareFeet) || 0, 0);
-  const winPct = Math.min(Math.max(parseFloat(windowPercentage) || 15, 5), 50);
+  const selectedZone = climateZones.find((z) => z.value === src.climateZone)!;
+  const selectedInsulation = insulationOptions.find((i) => i.value === src.insulation)!;
+  const selectedCeiling = ceilingHeights.find((c) => c.value === src.ceilingHeight)!;
+  const selectedEfficiency = furnaceEfficiency.find((e) => e.value === src.efficiency)!;
+  const selectedSun = sunExposureOptions.find((s) => s.value === src.sunExposure)!;
+  const selectedStories = storiesOptions.find((s) => s.value === src.stories)!;
+  const selectedBasement = basementOptions.find((b) => b.value === src.basement)!;
+  const selectedDucts = ductOptions.find((d) => d.value === src.ducts)!;
+
+  const sqFt = Math.max(parseFloat(src.squareFeet) || 0, 0);
+  const winPct = Math.min(Math.max(parseFloat(src.windowPercentage) || 15, 5), 50);
+
+  const handleReset = () => {
+    setSquareFeet(DEFAULTS.squareFeet);
+    setStories(DEFAULTS.stories);
+    setClimateZone(DEFAULTS.climateZone);
+    setInsulation(DEFAULTS.insulation);
+    setCeilingHeight(DEFAULTS.ceilingHeight);
+    setEfficiency(DEFAULTS.efficiency);
+    setWindowPercentage(DEFAULTS.windowPercentage);
+    setSunExposure(DEFAULTS.sunExposure);
+    setBasement(DEFAULTS.basement);
+    setDucts(DEFAULTS.ducts);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const baseBTU = sqFt * selectedZone.btuPerSqFt;
@@ -207,9 +241,10 @@ export default function FurnaceSizingCalculator() {
     <CalcShell
       Icon={Flame}
       title="Furnace Sizing Calculator"
-      subtitle="Manual J–style heat-load estimate. Updates as you change inputs."
+      subtitle="Manual J–style heat-load estimate."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Your Home */}
       <section>
         <SectionHeader step={1} title="Your home" subtitle="Size, layout, and how it's built" Icon={Home} accent={ACCENT} />
@@ -448,9 +483,18 @@ export default function FurnaceSizingCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -515,7 +559,7 @@ export default function FurnaceSizingCalculator() {
               {furnaceEfficiency.map((eff) => {
                 const altCost = (calc.annualGasUsage * selectedEfficiency.efficiency / eff.efficiency) * 1.2;
                 const delta = altCost - calc.annualCost;
-                const isCurrent = eff.value === efficiency;
+                const isCurrent = eff.value === src.efficiency;
                 return (
                   <div
                     key={eff.value}
@@ -582,7 +626,7 @@ export default function FurnaceSizingCalculator() {
             </h4>
             <ul className="space-y-1 text-xs text-gray-700">
               <li><strong>CO₂ emissions:</strong> ~{fmt(Math.round(calc.annualGasUsage * 11.7))} lbs/year at this efficiency.</li>
-              <li><strong>Waste heat:</strong> {(100 - parseInt(efficiency))}% of fuel goes up the flue (vs. {100 - 95}% at 95% AFUE).</li>
+              <li><strong>Waste heat:</strong> {(100 - parseInt(src.efficiency))}% of fuel goes up the flue (vs. {100 - 95}% at 95% AFUE).</li>
               <li><strong>Cold-climate alternative:</strong> A modern heat pump can cover most of this load with {selectedZone.btuPerSqFt >= 50 ? 'electric backup' : 'no backup heat'} and cut emissions 30–60% on a typical grid mix.</li>
               <li><strong>Comfort:</strong> {selectedEfficiency.note}</li>
             </ul>
@@ -598,6 +642,8 @@ export default function FurnaceSizingCalculator() {
           </p>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

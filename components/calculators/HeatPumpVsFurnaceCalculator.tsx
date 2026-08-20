@@ -23,6 +23,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'purple' as const;
@@ -44,46 +46,85 @@ const fuelTypes = [
 
 const homeSizePresets = [1500, 2000, 2500, 3000, 4000];
 
+const DEFAULTS = {
+  homeSize: '2000',
+  climate: 'mixed',
+  currentFuel: 'natural-gas',
+  currentEfficiency: '80',
+  electricRate: '0.16',
+  gasRate: '1.25',
+  systemAge: '12',
+  heatPumpCost: '12000',
+  furnaceCost: '6500',
+  heatPumpCredit: '2000',
+  furnaceCredit: '600',
+  utilityRebate: '500',
+};
+
 export default function HeatPumpVsFurnaceCalculator() {
-  const [homeSize, setHomeSize] = useState('2000');
-  const [climate, setClimate] = useState('mixed');
-  const [currentFuel, setCurrentFuel] = useState('natural-gas');
-  const [currentEfficiency, setCurrentEfficiency] = useState('80');
-  const [electricRate, setElectricRate] = useState('0.16');
-  const [gasRate, setGasRate] = useState('1.25');
-  const [systemAge, setSystemAge] = useState('12');
-  const [heatPumpCost, setHeatPumpCost] = useState('12000');
-  const [furnaceCost, setFurnaceCost] = useState('6500');
-  const [heatPumpCredit, setHeatPumpCredit] = useState('2000');
-  const [furnaceCredit, setFurnaceCredit] = useState('600');
-  const [utilityRebate, setUtilityRebate] = useState('500');
+  const [homeSize, setHomeSize] = useState(DEFAULTS.homeSize);
+  const [climate, setClimate] = useState(DEFAULTS.climate);
+  const [currentFuel, setCurrentFuel] = useState(DEFAULTS.currentFuel);
+  const [currentEfficiency, setCurrentEfficiency] = useState(DEFAULTS.currentEfficiency);
+  const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
+  const [gasRate, setGasRate] = useState(DEFAULTS.gasRate);
+  const [systemAge, setSystemAge] = useState(DEFAULTS.systemAge);
+  const [heatPumpCost, setHeatPumpCost] = useState(DEFAULTS.heatPumpCost);
+  const [furnaceCost, setFurnaceCost] = useState(DEFAULTS.furnaceCost);
+  const [heatPumpCredit, setHeatPumpCredit] = useState(DEFAULTS.heatPumpCredit);
+  const [furnaceCredit, setFurnaceCredit] = useState(DEFAULTS.furnaceCredit);
+  const [utilityRebate, setUtilityRebate] = useState(DEFAULTS.utilityRebate);
 
-  const selectedClimate = climateZones.find((z) => z.value === climate)!;
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    homeSize, climate, currentFuel, currentEfficiency, electricRate, gasRate,
+    systemAge, heatPumpCost, furnaceCost, heatPumpCredit, furnaceCredit, utilityRebate,
+  });
+
+  // Raw-state derived lookups used only for input JSX labels (must update as user edits).
   const selectedFuel = fuelTypes.find((f) => f.value === currentFuel)!;
+  // Committed-state derived lookups used in calc + results (must reflect the snapshot).
+  const selectedClimate = climateZones.find((z) => z.value === src.climate)!;
+  const selectedFuelSrc = fuelTypes.find((f) => f.value === src.currentFuel)!;
 
-  const sqft = Math.max(parseFloat(homeSize) || 0, 0);
-  const cEff = Math.max(parseFloat(currentEfficiency) || 1, 1);
-  const eR = Math.max(parseFloat(electricRate) || 0, 0);
-  const gR = Math.max(parseFloat(gasRate) || 0, 0);
-  const age = parseFloat(systemAge) || 0;
-  const hpCost = Math.max(parseFloat(heatPumpCost) || 0, 0);
-  const furCost = Math.max(parseFloat(furnaceCost) || 0, 0);
-  const hpCredit = Math.max(parseFloat(heatPumpCredit) || 0, 0);
-  const furCredit = Math.max(parseFloat(furnaceCredit) || 0, 0);
-  const rebate = Math.max(parseFloat(utilityRebate) || 0, 0);
+  const sqft = Math.max(parseFloat(src.homeSize) || 0, 0);
+  const cEff = Math.max(parseFloat(src.currentEfficiency) || 1, 1);
+  const eR = Math.max(parseFloat(src.electricRate) || 0, 0);
+  const gR = Math.max(parseFloat(src.gasRate) || 0, 0);
+  const age = parseFloat(src.systemAge) || 0;
+  const hpCost = Math.max(parseFloat(src.heatPumpCost) || 0, 0);
+  const furCost = Math.max(parseFloat(src.furnaceCost) || 0, 0);
+  const hpCredit = Math.max(parseFloat(src.heatPumpCredit) || 0, 0);
+  const furCredit = Math.max(parseFloat(src.furnaceCredit) || 0, 0);
+  const rebate = Math.max(parseFloat(src.utilityRebate) || 0, 0);
+
+  const handleReset = () => {
+    setHomeSize(DEFAULTS.homeSize);
+    setClimate(DEFAULTS.climate);
+    setCurrentFuel(DEFAULTS.currentFuel);
+    setCurrentEfficiency(DEFAULTS.currentEfficiency);
+    setElectricRate(DEFAULTS.electricRate);
+    setGasRate(DEFAULTS.gasRate);
+    setSystemAge(DEFAULTS.systemAge);
+    setHeatPumpCost(DEFAULTS.heatPumpCost);
+    setFurnaceCost(DEFAULTS.furnaceCost);
+    setHeatPumpCredit(DEFAULTS.heatPumpCredit);
+    setFurnaceCredit(DEFAULTS.furnaceCredit);
+    setUtilityRebate(DEFAULTS.utilityRebate);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const heatingLoad = sqft * 40;
     const coolingLoad = sqft * 25;
 
     const currentCost = (() => {
-      if (currentFuel === 'electric-resistance') {
+      if (src.currentFuel === 'electric-resistance') {
         const totalLoad = heatingLoad * selectedClimate.heatingHours + coolingLoad * selectedClimate.coolingHours;
         const kwh = totalLoad / 3412;
         return kwh * eR;
       }
       const heatBtu = heatingLoad * selectedClimate.heatingHours;
-      const heatCost = (heatBtu / selectedFuel.btuContent / (cEff / 100)) * gR;
+      const heatCost = (heatBtu / selectedFuelSrc.btuContent / (cEff / 100)) * gR;
       const coolBtu = coolingLoad * selectedClimate.coolingHours;
       const coolKwh = coolBtu / (14 * 1000);
       const coolCost = coolKwh * eR;
@@ -99,7 +140,7 @@ export default function HeatPumpVsFurnaceCalculator() {
     })();
 
     const furnaceEnergy = (() => {
-      if (currentFuel === 'electric-resistance') {
+      if (src.currentFuel === 'electric-resistance') {
         const heatBtu = heatingLoad * selectedClimate.heatingHours;
         const coolBtu = coolingLoad * selectedClimate.coolingHours;
         const heatKwh = heatBtu / 3412;
@@ -107,7 +148,7 @@ export default function HeatPumpVsFurnaceCalculator() {
         return (heatKwh + coolKwh) * eR;
       }
       const heatBtu = heatingLoad * selectedClimate.heatingHours;
-      const heatCost = (heatBtu / selectedFuel.btuContent / 0.95) * gR;
+      const heatCost = (heatBtu / selectedFuelSrc.btuContent / 0.95) * gR;
       const coolBtu = coolingLoad * selectedClimate.coolingHours;
       const coolKwh = coolBtu / (16 * 1000);
       const coolCost = coolKwh * eR;
@@ -138,7 +179,7 @@ export default function HeatPumpVsFurnaceCalculator() {
       heatPumpPayback, furnacePayback,
       heatPump15, furnace15,
     };
-  }, [sqft, cEff, eR, gR, age, hpCost, furCost, hpCredit, furCredit, rebate, currentFuel, selectedClimate, selectedFuel]);
+  }, [sqft, cEff, eR, gR, age, hpCost, furCost, hpCredit, furCredit, rebate, src.currentFuel, selectedClimate, selectedFuelSrc]);
 
   const recommendation = useMemo(() => {
     const climateScore = selectedClimate.heatPumpViable;
@@ -158,9 +199,10 @@ export default function HeatPumpVsFurnaceCalculator() {
     <CalcShell
       Icon={Thermometer}
       title="Heat Pump vs Furnace Decision Tool"
-      subtitle="Compare costs, climate fit, and 15-year ROI side by side. Updates live."
+      subtitle="Compare costs, climate fit, and 15-year ROI side by side."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Home & climate */}
       <section>
         <SectionHeader step={1} title="Home & climate" subtitle="Size and DOE climate zone" Icon={Home} accent={ACCENT} />
@@ -240,9 +282,18 @@ export default function HeatPumpVsFurnaceCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         {/* Recommendation hero */}
         <div className={`rounded-2xl p-5 sm:p-6 ring-2 ${recColor === 'purple' ? 'ring-purple-300 bg-gradient-to-br from-purple-50 to-fuchsia-50' : 'ring-orange-300 bg-gradient-to-br from-orange-50 to-amber-50'}`}>
@@ -346,7 +397,7 @@ export default function HeatPumpVsFurnaceCalculator() {
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'Fuel', detail: selectedFuel.name, factor: `${cEff}% eff.` },
+                { label: 'Fuel', detail: selectedFuelSrc.name, factor: `${cEff}% eff.` },
                 { label: 'Heating cost', detail: `${fmt(selectedClimate.heatingHours)} hrs × ${fmt(calc.heatingLoad)} BTU`, factor: `—` },
                 { label: 'Cooling cost', detail: `${fmt(selectedClimate.coolingHours)} hrs × ${fmt(calc.coolingLoad)} BTU`, factor: `—` },
                 { label: 'Maintenance', detail: age > 10 ? 'Aging system (>10 yr)' : 'Normal upkeep', factor: `$${fmtMoney(calc.currentMaint)}/yr` },
@@ -367,6 +418,8 @@ export default function HeatPumpVsFurnaceCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
 
       <EmbedCode calculatorType="heat-pump-vs-furnace-calculator" title="Heat Pump vs Furnace Calculator" />
     </CalcShell>

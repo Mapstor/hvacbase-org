@@ -27,6 +27,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'purple' as const;
@@ -82,25 +84,52 @@ const backupHeatOptions = [
 
 const squareFootPresets = [1000, 1500, 2000, 2500, 3000, 4000];
 
+const DEFAULTS = {
+  squareFeet: '2000',
+  climate: 'mixed-humid',
+  homeAge: 'standard',
+  heatPumpType: 'high',
+  stories: '2',
+  occupants: '4',
+  windowArea: 'average',
+  backupHeat: 'strips-10kw',
+};
+
 export default function HeatPumpSizeCalculator() {
-  const [squareFeet, setSquareFeet] = useState('2000');
-  const [climate, setClimate] = useState('mixed-humid');
-  const [homeAge, setHomeAge] = useState('standard');
-  const [heatPumpType, setHeatPumpType] = useState('high');
-  const [stories, setStories] = useState('2');
-  const [occupants, setOccupants] = useState('4');
-  const [windowArea, setWindowArea] = useState('average');
-  const [backupHeat, setBackupHeat] = useState('strips-10kw');
+  const [squareFeet, setSquareFeet] = useState(DEFAULTS.squareFeet);
+  const [climate, setClimate] = useState(DEFAULTS.climate);
+  const [homeAge, setHomeAge] = useState(DEFAULTS.homeAge);
+  const [heatPumpType, setHeatPumpType] = useState(DEFAULTS.heatPumpType);
+  const [stories, setStories] = useState(DEFAULTS.stories);
+  const [occupants, setOccupants] = useState(DEFAULTS.occupants);
+  const [windowArea, setWindowArea] = useState(DEFAULTS.windowArea);
+  const [backupHeat, setBackupHeat] = useState(DEFAULTS.backupHeat);
 
-  const selectedClimate = climateRegions.find((c) => c.value === climate)!;
-  const selectedAge = homeAgeOptions.find((a) => a.value === homeAge)!;
-  const selectedType = heatPumpTypes.find((t) => t.value === heatPumpType)!;
-  const selectedStories = storiesOptions.find((s) => s.value === stories)!;
-  const selectedWindow = windowAreaOptions.find((w) => w.value === windowArea)!;
-  const selectedBackup = backupHeatOptions.find((b) => b.value === backupHeat)!;
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    squareFeet, climate, homeAge, heatPumpType, stories, occupants, windowArea, backupHeat,
+  });
 
-  const sqFt = Math.max(parseFloat(squareFeet) || 0, 0);
-  const occN = Math.max(parseFloat(occupants) || 0, 0);
+  const selectedClimate = climateRegions.find((c) => c.value === src.climate)!;
+  const selectedAge = homeAgeOptions.find((a) => a.value === src.homeAge)!;
+  const selectedType = heatPumpTypes.find((t) => t.value === src.heatPumpType)!;
+  const selectedStories = storiesOptions.find((s) => s.value === src.stories)!;
+  const selectedWindow = windowAreaOptions.find((w) => w.value === src.windowArea)!;
+  const selectedBackup = backupHeatOptions.find((b) => b.value === src.backupHeat)!;
+
+  const sqFt = Math.max(parseFloat(src.squareFeet) || 0, 0);
+  const occN = Math.max(parseFloat(src.occupants) || 0, 0);
+
+  const handleReset = () => {
+    setSquareFeet(DEFAULTS.squareFeet);
+    setClimate(DEFAULTS.climate);
+    setHomeAge(DEFAULTS.homeAge);
+    setHeatPumpType(DEFAULTS.heatPumpType);
+    setStories(DEFAULTS.stories);
+    setOccupants(DEFAULTS.occupants);
+    setWindowArea(DEFAULTS.windowArea);
+    setBackupHeat(DEFAULTS.backupHeat);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const baseCool = sqFt * selectedClimate.coolingBTU;
@@ -116,8 +145,8 @@ export default function HeatPumpSizeCalculator() {
 
     const capacity47 = recommendedSize * 12000;
     const capacity17 = capacity47 * 0.6;
-    const capacity5 = heatPumpType === 'cold-climate' ? capacity47 * 0.75 : capacity47 * 0.4;
-    const balancePoint = heatPumpType === 'cold-climate' ? 5 : 25;
+    const capacity5 = src.heatPumpType === 'cold-climate' ? capacity47 * 0.75 : capacity47 * 0.4;
+    const balancePoint = src.heatPumpType === 'cold-climate' ? 5 : 25;
 
     const coolingHours = selectedClimate.value.includes('hot') ? 2000 : 1000;
     const heatingHours = selectedClimate.value.includes('cold') ? 3000 : 1500;
@@ -147,7 +176,7 @@ export default function HeatPumpSizeCalculator() {
       annualCost,
       backupNeeded,
     };
-  }, [sqFt, occN, heatPumpType, selectedClimate, selectedAge, selectedType, selectedStories, selectedWindow]);
+  }, [sqFt, occN, src.heatPumpType, selectedClimate, selectedAge, selectedType, selectedStories, selectedWindow]);
 
   const fit =
     calc.requiredTons === 0 ? { tone: 'warn' as const, text: 'Enter square footage' } :
@@ -162,9 +191,10 @@ export default function HeatPumpSizeCalculator() {
     <CalcShell
       Icon={Snowflake}
       title="Heat Pump Size Calculator"
-      subtitle="Right capacity for heating AND cooling. Updates live."
+      subtitle="Right capacity for heating AND cooling."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Your home */}
       <section>
         <SectionHeader step={1} title="Your home" subtitle="Size, age, layout" Icon={Home} accent={ACCENT} />
@@ -251,9 +281,18 @@ export default function HeatPumpSizeCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -269,7 +308,7 @@ export default function HeatPumpSizeCalculator() {
           }
           fitTone={fit.tone}
           fitText={fit.text}
-          warning={calc.backupNeeded && backupHeat === 'none' ? (
+          warning={calc.backupNeeded && src.backupHeat === 'none' ? (
             <>
               Your climate hits {selectedClimate.coldestTemp}°F — below this heat pump's {calc.balancePoint}°F balance point.
               <strong> You need backup heat</strong> (electric strips or a gas furnace) for the coldest hours, or your home won't stay warm.
@@ -292,7 +331,7 @@ export default function HeatPumpSizeCalculator() {
               {[
                 { label: 'At 47°F', value: calc.capacity47, sub: 'Mild day' },
                 { label: 'At 17°F', value: calc.capacity17, sub: 'Cold day' },
-                { label: 'At 5°F', value: calc.capacity5, sub: heatPumpType === 'cold-climate' ? 'Cold-climate model holds 75%' : 'Standard models drop to ~40%' },
+                { label: 'At 5°F', value: calc.capacity5, sub: src.heatPumpType === 'cold-climate' ? 'Cold-climate model holds 75%' : 'Standard models drop to ~40%' },
               ].map((row) => (
                 <div key={row.label} className="grid grid-cols-[auto_1fr_auto] gap-2 py-1.5 border-b border-gray-100 last:border-0 items-baseline">
                   <span className="font-medium text-gray-700">{row.label}</span>
@@ -375,6 +414,8 @@ export default function HeatPumpSizeCalculator() {
           </p>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

@@ -20,6 +20,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'purple' as const;
@@ -36,18 +38,38 @@ const voltagePresets = {
 
 const pfPresets = [0.6, 0.8, 0.85, 0.95, 1.0];
 
-export default function PowerConsumptionCalculator() {
-  const [phases, setPhases] = useState('single');
-  const [voltage, setVoltage] = useState('120');
-  const [current, setCurrent] = useState('12.5');
-  const [powerFactor, setPowerFactor] = useState('1.0');
+const DEFAULTS = {
+  phases: 'single',
+  voltage: '120',
+  current: '12.5',
+  powerFactor: '1.0',
+};
 
-  const volts = Math.max(parseFloat(voltage) || 0, 0);
-  const amps = Math.max(parseFloat(current) || 0, 0);
-  const pf = Math.min(Math.max(parseFloat(powerFactor) || 1, 0.1), 1);
+export default function PowerConsumptionCalculator() {
+  const [phases, setPhases] = useState(DEFAULTS.phases);
+  const [voltage, setVoltage] = useState(DEFAULTS.voltage);
+  const [current, setCurrent] = useState(DEFAULTS.current);
+  const [powerFactor, setPowerFactor] = useState(DEFAULTS.powerFactor);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    phases, voltage, current, powerFactor,
+  });
+
+  const phasesSrc = src.phases;
+  const volts = Math.max(parseFloat(src.voltage) || 0, 0);
+  const amps = Math.max(parseFloat(src.current) || 0, 0);
+  const pf = Math.min(Math.max(parseFloat(src.powerFactor) || 1, 0.1), 1);
+
+  const handleReset = () => {
+    setPhases(DEFAULTS.phases);
+    setVoltage(DEFAULTS.voltage);
+    setCurrent(DEFAULTS.current);
+    setPowerFactor(DEFAULTS.powerFactor);
+    clear();
+  };
 
   const calc = useMemo(() => {
-    const apparentPower = phases === 'three' ? Math.sqrt(3) * volts * amps : volts * amps;
+    const apparentPower = phasesSrc === 'three' ? Math.sqrt(3) * volts * amps : volts * amps;
     const realPower = apparentPower * pf;
     const reactivePower = Math.sqrt(Math.max(Math.pow(apparentPower, 2) - Math.pow(realPower, 2), 0));
     const powerKW = realPower / 1000;
@@ -57,7 +79,7 @@ export default function PowerConsumptionCalculator() {
     const yearlyKWh = monthlyKWh * 12;
     const yearlyMWh = yearlyKWh / 1000;
     return { apparentPower, realPower, reactivePower, powerKW, powerHP, dailyKWh, monthlyKWh, yearlyKWh, yearlyMWh };
-  }, [phases, volts, amps, pf]);
+  }, [phasesSrc, volts, amps, pf]);
 
   const fit =
     calc.realPower === 0 ? { tone: 'warn' as const, text: 'Enter voltage + current' } :
@@ -75,9 +97,10 @@ export default function PowerConsumptionCalculator() {
     <CalcShell
       Icon={Zap}
       title="Power Consumption Calculator"
-      subtitle="Real power, apparent power, and energy from voltage + current. Updates live."
+      subtitle="Real power, apparent power, and energy from voltage + current."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="System type" subtitle="Single phase (residential) or three phase (commercial)" Icon={Settings} accent={ACCENT} />
 
@@ -164,8 +187,17 @@ export default function PowerConsumptionCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -174,8 +206,8 @@ export default function PowerConsumptionCalculator() {
           unit={`W (${calc.powerKW.toFixed(2)} kW)`}
           secondaryText={
             <>
-              At {volts}V / {amps}A {phases === 'three' && '× √3'} × PF {pf.toFixed(2)} = <strong>{fmt(Math.round(calc.realPower))}W</strong> real power.
-              {phases === 'three' && ' Three-phase math: P = √3 × V × I × PF.'}
+              At {volts}V / {amps}A {phasesSrc === 'three' && '× √3'} × PF {pf.toFixed(2)} = <strong>{fmt(Math.round(calc.realPower))}W</strong> real power.
+              {phasesSrc === 'three' && ' Three-phase math: P = √3 × V × I × PF.'}
               {' '}Apparent power: <strong>{fmt(Math.round(calc.apparentPower))} VA</strong>; reactive: <strong>{fmt(Math.round(calc.reactivePower))} VAR</strong>.
             </>
           }
@@ -278,6 +310,8 @@ export default function PowerConsumptionCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

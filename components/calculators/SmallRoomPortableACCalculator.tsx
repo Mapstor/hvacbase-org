@@ -25,6 +25,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'blue' as const;
@@ -66,36 +68,61 @@ const powerLimitOptions = [
 
 const roomTypeMultiplier: Record<string, number> = { bedroom: 1.0, office: 1.15, dorm: 1.0, studio: 1.0, kitchen: 1.25, sunroom: 1.3 };
 
-export default function SmallRoomPortableACCalculator() {
-  const [roomSize, setRoomSize] = useState('150');
-  const [roomType, setRoomType] = useState('bedroom');
-  const [priority, setPriority] = useState('size');
-  const [noiseImportance, setNoiseImportance] = useState('important');
-  const [budget, setBudget] = useState('400');
-  const [powerLimit, setPowerLimit] = useState('standard');
+const DEFAULTS = {
+  roomSize: '150',
+  roomType: 'bedroom',
+  priority: 'size',
+  noiseImportance: 'important',
+  budget: '400',
+  powerLimit: 'standard',
+};
 
-  const sqft = Math.max(parseFloat(roomSize) || 0, 1);
-  const maxBudget = Math.max(parseFloat(budget) || 0, 1);
-  const noiseCap = noiseOptions.find((n) => n.value === noiseImportance)?.cap || 99;
-  const powerCap = powerLimit === 'low' ? 600 : Infinity;
+export default function SmallRoomPortableACCalculator() {
+  const [roomSize, setRoomSize] = useState(DEFAULTS.roomSize);
+  const [roomType, setRoomType] = useState(DEFAULTS.roomType);
+  const [priority, setPriority] = useState(DEFAULTS.priority);
+  const [noiseImportance, setNoiseImportance] = useState(DEFAULTS.noiseImportance);
+  const [budget, setBudget] = useState(DEFAULTS.budget);
+  const [powerLimit, setPowerLimit] = useState(DEFAULTS.powerLimit);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    roomSize, roomType, priority, noiseImportance, budget, powerLimit,
+  });
+
+  const sqft = Math.max(parseFloat(src.roomSize) || 0, 1);
+  const rType = src.roomType;
+  const pri = src.priority;
+  const maxBudget = Math.max(parseFloat(src.budget) || 0, 1);
+  const noiseCap = noiseOptions.find((n) => n.value === src.noiseImportance)?.cap || 99;
+  const powerCap = src.powerLimit === 'low' ? 600 : Infinity;
+
+  const handleReset = () => {
+    setRoomSize(DEFAULTS.roomSize);
+    setRoomType(DEFAULTS.roomType);
+    setPriority(DEFAULTS.priority);
+    setNoiseImportance(DEFAULTS.noiseImportance);
+    setBudget(DEFAULTS.budget);
+    setPowerLimit(DEFAULTS.powerLimit);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const baseBTU = sqft * 20;
-    const requiredBTU = baseBTU * (roomTypeMultiplier[roomType] || 1) * 1.2;
+    const requiredBTU = baseBTU * (roomTypeMultiplier[rType] || 1) * 1.2;
     const suitable = Object.entries(compactUnits).filter(([, u]) =>
       u.btu >= requiredBTU * 0.85 && u.price.min <= maxBudget && u.power <= powerCap && u.noise <= noiseCap
     );
     const scored = suitable.map(([key, unit]) => {
       let score = 100;
-      if (priority === 'size') score -= (unit.dimensions.w * unit.dimensions.d * unit.dimensions.h) / 100;
-      else if (priority === 'quiet') score -= unit.noise * 2;
-      else if (priority === 'efficiency') score -= (unit.power / unit.btu) * 1000;
-      else if (priority === 'price') score -= unit.price.min / 10;
+      if (pri === 'size') score -= (unit.dimensions.w * unit.dimensions.d * unit.dimensions.h) / 100;
+      else if (pri === 'quiet') score -= unit.noise * 2;
+      else if (pri === 'efficiency') score -= (unit.power / unit.btu) * 1000;
+      else if (pri === 'price') score -= unit.price.min / 10;
       return { key, unit, score };
     });
     scored.sort((a, b) => b.score - a.score);
     const recommended = scored[0] || { key: '6000', unit: compactUnits['6000'], score: 0 };
-    const dailyHours = roomType === 'bedroom' ? 8 : 6;
+    const dailyHours = rType === 'bedroom' ? 8 : 6;
     const kwhPerDay = (recommended.unit.power / 1000) * dailyHours;
     const dailyCost = kwhPerDay * 0.14;
     const monthlyCost = dailyCost * 30;
@@ -103,7 +130,7 @@ export default function SmallRoomPortableACCalculator() {
     const isUltraCompact = volumeCubicInches < 6000;
     const fitsDormRoom = recommended.unit.dimensions.w <= 18 && recommended.unit.weight <= 60;
     return { baseBTU, requiredBTU, suitable, recommended, dailyHours, kwhPerDay, dailyCost, monthlyCost, isUltraCompact, fitsDormRoom };
-  }, [sqft, roomType, priority, maxBudget, powerCap, noiseCap]);
+  }, [sqft, rType, pri, maxBudget, powerCap, noiseCap]);
 
   const fit =
     calc.suitable.length === 0 ? { tone: 'bad' as const, text: 'No unit matches all constraints — relax budget/noise/power' } :
@@ -117,9 +144,10 @@ export default function SmallRoomPortableACCalculator() {
     <CalcShell
       Icon={Package}
       title="Small Room Portable AC Calculator"
-      subtitle="Compact AC for spaces under 300 sq ft. Updates live."
+      subtitle="Compact AC for spaces under 300 sq ft."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Room" subtitle="Size + type" Icon={Home} accent={ACCENT} />
         <div className="space-y-5">
@@ -164,8 +192,17 @@ export default function SmallRoomPortableACCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -177,7 +214,7 @@ export default function SmallRoomPortableACCalculator() {
               <>No suitable unit fits your constraints. Try raising budget above ${fmtMoney(maxBudget)} or relaxing noise/power limits.</>
             ) : (
               <>
-                Sized for your {fmt(sqft)} sq ft {roomType} requiring <strong>{fmt(Math.round(calc.requiredBTU))} BTU</strong>{' '}
+                Sized for your {fmt(sqft)} sq ft {rType} requiring <strong>{fmt(Math.round(calc.requiredBTU))} BTU</strong>{' '}
                 (after +20% portable penalty).
                 {calc.isUltraCompact && <> <strong>Ultra-compact</strong> design fits tight spaces.</>}
                 {calc.fitsDormRoom && <> Dorm-friendly size + weight ({r.weight} lbs).</>}
@@ -217,10 +254,10 @@ export default function SmallRoomPortableACCalculator() {
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
               <Zap className="w-4 h-4 text-blue-600" />
-              Operating cost ({roomType})
+              Operating cost ({rType})
             </h4>
             <div className="space-y-1.5 text-xs text-gray-700">
-              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily runtime ({roomType})</span><strong>{calc.dailyHours} hr</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily runtime ({rType})</span><strong>{calc.dailyHours} hr</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily energy</span><strong>{calc.kwhPerDay.toFixed(2)} kWh</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily cost @ $0.14/kWh</span><strong>${calc.dailyCost.toFixed(2)}</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Monthly cost</span><strong>${fmtMoney(calc.monthlyCost)}</strong></div>
@@ -269,6 +306,8 @@ export default function SmallRoomPortableACCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

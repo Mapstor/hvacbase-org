@@ -23,6 +23,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
   accentMap,
 } from './_shared';
 
@@ -50,19 +52,36 @@ const extras = [
   { id: 'pets', label: 'Pets in home', factor: 1.2, Icon: Cat },
 ];
 
+const DEFAULTS = {
+  roomLength: '12',
+  roomWidth: '10',
+  ceilingHeight: '8',
+  roomType: 'bedroom',
+  pollutionLevel: 'moderate',
+};
+
 export default function AirPurifierSizingCalculator() {
-  const [roomLength, setRoomLength] = useState('12');
-  const [roomWidth, setRoomWidth] = useState('10');
-  const [ceilingHeight, setCeilingHeight] = useState('8');
-  const [roomType, setRoomType] = useState('bedroom');
-  const [pollutionLevel, setPollutionLevel] = useState('moderate');
+  const [roomLength, setRoomLength] = useState(DEFAULTS.roomLength);
+  const [roomWidth, setRoomWidth] = useState(DEFAULTS.roomWidth);
+  const [ceilingHeight, setCeilingHeight] = useState(DEFAULTS.ceilingHeight);
+  const [roomType, setRoomType] = useState(DEFAULTS.roomType);
+  const [pollutionLevel, setPollutionLevel] = useState(DEFAULTS.pollutionLevel);
   const [extraFactors, setExtraFactors] = useState<Set<string>>(new Set());
 
-  const room = roomTypes.find((r) => r.value === roomType)!;
-  const pollution = pollutionLevels.find((p) => p.value === pollutionLevel)!;
-  const L = Math.max(parseFloat(roomLength) || 0, 0);
-  const W = Math.max(parseFloat(roomWidth) || 0, 0);
-  const H = Math.max(parseFloat(ceilingHeight) || 0, 0);
+  const extraFactorsKey = Array.from(extraFactors).sort().join(',');
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    roomLength, roomWidth, ceilingHeight, roomType, pollutionLevel, extraFactorsKey,
+  });
+
+  const room = roomTypes.find((r) => r.value === src.roomType)!;
+  const pollution = pollutionLevels.find((p) => p.value === src.pollutionLevel)!;
+  const L = Math.max(parseFloat(src.roomLength) || 0, 0);
+  const W = Math.max(parseFloat(src.roomWidth) || 0, 0);
+  const H = Math.max(parseFloat(src.ceilingHeight) || 0, 0);
+  const committedExtraFactors = new Set(
+    src.extraFactorsKey ? src.extraFactorsKey.split(',').filter(Boolean) : []
+  );
 
   const toggle = (id: string) => {
     setExtraFactors((prev) => {
@@ -72,12 +91,22 @@ export default function AirPurifierSizingCalculator() {
     });
   };
 
+  const handleReset = () => {
+    setRoomLength(DEFAULTS.roomLength);
+    setRoomWidth(DEFAULTS.roomWidth);
+    setCeilingHeight(DEFAULTS.ceilingHeight);
+    setRoomType(DEFAULTS.roomType);
+    setPollutionLevel(DEFAULTS.pollutionLevel);
+    setExtraFactors(new Set());
+    clear();
+  };
+
   const calc = useMemo(() => {
     const area = L * W;
     const volume = area * H;
     let requiredCadr = (volume * room.acph) / 60;
     requiredCadr *= pollution.multiplier;
-    for (const id of extraFactors) {
+    for (const id of committedExtraFactors) {
       const e = extras.find((x) => x.id === id);
       if (e) requiredCadr *= e.factor;
     }
@@ -94,7 +123,7 @@ export default function AirPurifierSizingCalculator() {
     const dailyEnergyUse = (powerConsumption * 16) / 1000;
     const monthlyEnergyUse = dailyEnergyUse * 30;
     return { area, volume, requiredCadr, recommended, actualAch, powerConsumption, dailyEnergyUse, monthlyEnergyUse };
-  }, [L, W, H, room, pollution, extraFactors]);
+  }, [L, W, H, room, pollution, committedExtraFactors]);
 
   const fit =
     calc.requiredCadr === 0 ? { tone: 'warn' as const, text: 'Enter room dimensions' } :
@@ -106,9 +135,10 @@ export default function AirPurifierSizingCalculator() {
     <CalcShell
       Icon={Wind}
       title="Air Purifier Sizing Calculator"
-      subtitle="Right CADR + coverage area for your space. Updates live."
+      subtitle="Right CADR + coverage area for your space."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Room dimensions" subtitle="Length × width × ceiling" Icon={Home} accent={ACCENT} />
         <div className="grid sm:grid-cols-3 gap-5">
@@ -178,8 +208,17 @@ export default function AirPurifierSizingCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -188,7 +227,7 @@ export default function AirPurifierSizingCalculator() {
           unit={`CFM · ${calc.recommended.name}`}
           secondaryText={
             <>
-              For your {fmt(Math.round(calc.area))} sq ft {room.name.toLowerCase()} with {pollution.name.toLowerCase()} pollution{extraFactors.size > 0 && ' + extras'},
+              For your {fmt(Math.round(calc.area))} sq ft {room.name.toLowerCase()} with {pollution.name.toLowerCase()} pollution{committedExtraFactors.size > 0 && ' + extras'},
               you need at least <strong>{Math.round(calc.requiredCadr)} CFM</strong> CADR.
               The closest standard tier is <strong>{calc.recommended.name}</strong> at {calc.recommended.cadr} CFM (covers up to {calc.recommended.area} sq ft).
             </>
@@ -214,7 +253,7 @@ export default function AirPurifierSizingCalculator() {
                 { label: 'Target ACH', detail: room.name, factor: `${room.acph} ACH` },
                 { label: 'Base CADR', detail: `Volume × ACH ÷ 60`, factor: `${fmt(Math.round((calc.volume * room.acph) / 60))} CFM` },
                 { label: 'Pollution factor', detail: pollution.name, factor: `× ${pollution.multiplier.toFixed(1)}` },
-                ...Array.from(extraFactors).map((id) => {
+                ...Array.from(committedExtraFactors).map((id) => {
                   const e = extras.find((x) => x.id === id)!;
                   return { label: e.label, detail: '', factor: `× ${e.factor.toFixed(1)}` };
                 }),
@@ -259,6 +298,8 @@ export default function AirPurifierSizingCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

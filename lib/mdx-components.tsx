@@ -5,6 +5,7 @@ import RelatedArticles from '@/components/ui/RelatedArticles';
 import SourceLink from '@/components/ui/SourceLink';
 import TableOfContents from '@/components/ui/TableOfContents';
 import CalcWrapper from '@/components/calculators/CalcWrapper';
+import BTUCalculator from '@/components/calculators/BTUCalculator';
 import SEERCalculator from '@/components/tools/SEERCalculator';
 import EfficiencyCurve from '@/components/diagrams/EfficiencyCurve';
 import ComparisonChart from '@/components/diagrams/ComparisonChart';
@@ -85,63 +86,6 @@ FAQWrapper.Item = ({ question, children }: { question: string; children: any }) 
   return null;
 };
 
-
-// BTU Calculator component
-const BTUCalculator = () => {
-  return (
-    <div className="bg-white rounded-lg p-6 shadow-sm">
-      <h3 className="text-lg font-semibold mb-4">BTU Calculator</h3>
-      <form className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Room Square Footage
-          </label>
-          <input
-            type="number"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
-            placeholder="Enter square feet"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Climate Zone
-          </label>
-          <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500">
-            <option>Zone 1 - Hot & Humid</option>
-            <option>Zone 2 - Hot & Dry</option>
-            <option>Zone 3 - Warm</option>
-            <option>Zone 4 - Mixed</option>
-            <option>Zone 5 - Cool</option>
-            <option>Zone 6 - Cold</option>
-            <option>Zone 7 - Very Cold</option>
-          </select>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Ceiling Height
-          </label>
-          <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500">
-            <option>8 feet (standard)</option>
-            <option>9 feet</option>
-            <option>10 feet</option>
-            <option>11+ feet (vaulted)</option>
-          </select>
-        </div>
-        <button
-          type="button"
-          className="w-full py-3 px-4 bg-brand-600 text-white font-semibold rounded-md hover:bg-brand-700 transition-colors"
-        >
-          Calculate BTU Requirements
-        </button>
-      </form>
-      <div className="mt-6 p-4 bg-gray-50 rounded-md">
-        <p className="text-sm text-gray-600">
-          <strong>Recommended BTU:</strong> Enter your details above to calculate
-        </p>
-      </div>
-    </div>
-  );
-};
 
 // Key Takeaway component
 const KeyTakeaway = ({ children, ...props }: any) => {

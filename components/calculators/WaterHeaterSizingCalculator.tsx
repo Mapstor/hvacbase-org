@@ -28,6 +28,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'red' as const;
@@ -76,25 +78,55 @@ const simultaneousOptions = [
   { value: '4', name: '4+ fixtures', sub: 'Multiple bathrooms at once' },
 ];
 
+const DEFAULTS = {
+  residents: '4',
+  bathrooms: '2.5',
+  heaterType: 'tank-gas',
+  usagePattern: 'average',
+  showersPerDay: '4',
+  bathsPerWeek: '2',
+  dishwasherLoads: '7',
+  laundryLoads: '5',
+  simultaneousUse: '2',
+};
+
 export default function WaterHeaterSizingCalculator() {
-  const [residents, setResidents] = useState('4');
-  const [bathrooms, setBathrooms] = useState('2.5');
-  const [heaterType, setHeaterType] = useState('tank-gas');
-  const [usagePattern, setUsagePattern] = useState('average');
-  const [showersPerDay, setShowersPerDay] = useState('4');
-  const [bathsPerWeek, setBathsPerWeek] = useState('2');
-  const [dishwasherLoads, setDishwasherLoads] = useState('7');
-  const [laundryLoads, setLaundryLoads] = useState('5');
-  const [simultaneousUse, setSimultaneousUse] = useState('2');
+  const [residents, setResidents] = useState(DEFAULTS.residents);
+  const [bathrooms, setBathrooms] = useState(DEFAULTS.bathrooms);
+  const [heaterType, setHeaterType] = useState(DEFAULTS.heaterType);
+  const [usagePattern, setUsagePattern] = useState(DEFAULTS.usagePattern);
+  const [showersPerDay, setShowersPerDay] = useState(DEFAULTS.showersPerDay);
+  const [bathsPerWeek, setBathsPerWeek] = useState(DEFAULTS.bathsPerWeek);
+  const [dishwasherLoads, setDishwasherLoads] = useState(DEFAULTS.dishwasherLoads);
+  const [laundryLoads, setLaundryLoads] = useState(DEFAULTS.laundryLoads);
+  const [simultaneousUse, setSimultaneousUse] = useState(DEFAULTS.simultaneousUse);
 
-  const selectedType = heaterTypes.find((t) => t.value === heaterType)!;
-  const selectedUsage = usagePatterns.find((u) => u.value === usagePattern)!;
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    residents, bathrooms, heaterType, usagePattern, showersPerDay, bathsPerWeek, dishwasherLoads, laundryLoads, simultaneousUse,
+  });
 
-  const rN = Math.max(parseFloat(residents) || 0, 0);
-  const sN = Math.max(parseFloat(showersPerDay) || 0, 0);
-  const bN = Math.max(parseFloat(bathsPerWeek) || 0, 0);
-  const dN = Math.max(parseFloat(dishwasherLoads) || 0, 0);
-  const lN = Math.max(parseFloat(laundryLoads) || 0, 0);
+  const handleReset = () => {
+    setResidents(DEFAULTS.residents);
+    setBathrooms(DEFAULTS.bathrooms);
+    setHeaterType(DEFAULTS.heaterType);
+    setUsagePattern(DEFAULTS.usagePattern);
+    setShowersPerDay(DEFAULTS.showersPerDay);
+    setBathsPerWeek(DEFAULTS.bathsPerWeek);
+    setDishwasherLoads(DEFAULTS.dishwasherLoads);
+    setLaundryLoads(DEFAULTS.laundryLoads);
+    setSimultaneousUse(DEFAULTS.simultaneousUse);
+    clear();
+  };
+
+  const selectedType = heaterTypes.find((t) => t.value === src.heaterType)!;
+  const selectedTypeLive = heaterTypes.find((t) => t.value === heaterType)!;
+  const selectedUsage = usagePatterns.find((u) => u.value === src.usagePattern)!;
+
+  const rN = Math.max(parseFloat(src.residents) || 0, 0);
+  const sN = Math.max(parseFloat(src.showersPerDay) || 0, 0);
+  const bN = Math.max(parseFloat(src.bathsPerWeek) || 0, 0);
+  const dN = Math.max(parseFloat(src.dishwasherLoads) || 0, 0);
+  const lN = Math.max(parseFloat(src.laundryLoads) || 0, 0);
 
   const calc = useMemo(() => {
     const showerGallons = sN * 25;
@@ -114,10 +146,10 @@ export default function WaterHeaterSizingCalculator() {
       const requiredFHR = peakHourDemand + selectedType.recoveryRate;
       recommendedTankSize = tankSizes.find((s) => s >= requiredFHR) || 120;
     } else {
-      const simultaneousGPM = parseFloat(simultaneousUse) * 2.5;
-      const adjustedGPM = heaterType === 'tankless-electric' ? simultaneousGPM * 1.2 : simultaneousGPM;
+      const simultaneousGPM = parseFloat(src.simultaneousUse) * 2.5;
+      const adjustedGPM = src.heaterType === 'tankless-electric' ? simultaneousGPM * 1.2 : simultaneousGPM;
       recommendedTanklessGPM = Math.ceil(adjustedGPM);
-      maxTemperatureRise = heaterType === 'tankless-gas' ? 70 : 50;
+      maxTemperatureRise = src.heaterType === 'tankless-gas' ? 70 : 50;
     }
 
     const energyPerGallon = 8.33 * 60 / (selectedType.efficiency === 3.0 ? 3.0 : selectedType.efficiency);
@@ -125,10 +157,10 @@ export default function WaterHeaterSizingCalculator() {
     const yearlyEnergyBTU = dailyEnergyBTU * 365;
 
     let yearlyCost = 0;
-    if (heaterType.includes('electric') || heaterType === 'heat-pump') {
-      const kWhPerYear = yearlyEnergyBTU / 3412 / (heaterType === 'heat-pump' ? 3.0 : selectedType.efficiency);
+    if (src.heaterType.includes('electric') || src.heaterType === 'heat-pump') {
+      const kWhPerYear = yearlyEnergyBTU / 3412 / (src.heaterType === 'heat-pump' ? 3.0 : selectedType.efficiency);
       yearlyCost = kWhPerYear * 0.16;
-    } else if (heaterType.includes('gas')) {
+    } else if (src.heaterType.includes('gas')) {
       const thermsPerYear = yearlyEnergyBTU / 100000 / selectedType.efficiency;
       yearlyCost = thermsPerYear * 1.2;
     } else {
@@ -137,8 +169,8 @@ export default function WaterHeaterSizingCalculator() {
 
     const recoveryTime = selectedType.isTank && selectedType.recoveryRate > 0
       ? recommendedTankSize / selectedType.recoveryRate : 0;
-    const needsVenting = heaterType.includes('gas');
-    const needsElectricalUpgrade = heaterType === 'tankless-electric' && recommendedTanklessGPM > 5;
+    const needsVenting = src.heaterType.includes('gas');
+    const needsElectricalUpgrade = src.heaterType === 'tankless-electric' && recommendedTanklessGPM > 5;
 
     const standardTankCost = 500;
     const annualSavings = standardTankCost - yearlyCost;
@@ -151,7 +183,7 @@ export default function WaterHeaterSizingCalculator() {
       yearlyCost, recoveryTime, needsVenting, needsElectricalUpgrade,
       annualSavings, paybackYears,
     };
-  }, [rN, sN, bN, dN, lN, selectedUsage, selectedType, heaterType, simultaneousUse]);
+  }, [rN, sN, bN, dN, lN, selectedUsage, selectedType, src.heaterType, src.simultaneousUse]);
 
   const fit =
     calc.dailyGallons === 0 ? { tone: 'warn' as const, text: 'Add residents to start' } :
@@ -165,9 +197,10 @@ export default function WaterHeaterSizingCalculator() {
     <CalcShell
       Icon={Droplets}
       title="Water Heater Sizing Calculator"
-      subtitle="Match capacity to your household's hot-water demand. Updates live."
+      subtitle="Match capacity to your household's hot-water demand."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Household */}
       <section>
         <SectionHeader step={1} title="Your household" subtitle="People and bathrooms drive base demand" Icon={Users} accent={ACCENT} />
@@ -236,7 +269,7 @@ export default function WaterHeaterSizingCalculator() {
 
         <CardChoice value={heaterType} onChange={setHeaterType} options={heaterTypes} ariaLabel="Heater type" accent={ACCENT} />
 
-        {!selectedType.isTank && (
+        {!selectedTypeLive.isTank && (
           <div className="mt-4">
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Peak simultaneous fixtures
@@ -247,9 +280,18 @@ export default function WaterHeaterSizingCalculator() {
         )}
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -264,7 +306,7 @@ export default function WaterHeaterSizingCalculator() {
               </>
             ) : (
               <>
-                Sized for {simultaneousUse} simultaneous fixture{simultaneousUse === '1' ? '' : 's'}.
+                Sized for {src.simultaneousUse} simultaneous fixture{src.simultaneousUse === '1' ? '' : 's'}.
                 Max temperature rise: <strong>{calc.maxTemperatureRise}°F</strong>. Unlimited hot water as long as flow stays within capacity.
               </>
             )
@@ -334,7 +376,7 @@ export default function WaterHeaterSizingCalculator() {
             </ul>
           </div>
 
-          {heaterType === 'heat-pump' && (
+          {src.heaterType === 'heat-pump' && (
             <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4 lg:col-span-2">
               <h4 className="font-semibold text-gray-900 mb-2 text-sm flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-emerald-700" /> Why a heat pump water heater (HPWH)
@@ -368,6 +410,8 @@ export default function WaterHeaterSizingCalculator() {
           </p>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

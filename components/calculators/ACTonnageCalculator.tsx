@@ -26,6 +26,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'blue' as const;
@@ -63,23 +65,48 @@ const sunExposureOptions = [
 
 const squareFootPresets = [1000, 1500, 2000, 2500, 3000, 4000];
 
+const DEFAULTS = {
+  squareFeet: '2000',
+  zone: '4',
+  insulation: 'average',
+  ceiling: '8',
+  exposure: 'average',
+  windows: '15',
+  occupants: '4',
+};
+
 export default function ACTonnageCalculator() {
-  const [squareFeet, setSquareFeet] = useState('2000');
-  const [zone, setZone] = useState('4');
-  const [insulation, setInsulation] = useState('average');
-  const [ceiling, setCeiling] = useState('8');
-  const [exposure, setExposure] = useState('average');
-  const [windows, setWindows] = useState('15');
-  const [occupants, setOccupants] = useState('4');
+  const [squareFeet, setSquareFeet] = useState(DEFAULTS.squareFeet);
+  const [zone, setZone] = useState(DEFAULTS.zone);
+  const [insulation, setInsulation] = useState(DEFAULTS.insulation);
+  const [ceiling, setCeiling] = useState(DEFAULTS.ceiling);
+  const [exposure, setExposure] = useState(DEFAULTS.exposure);
+  const [windows, setWindows] = useState(DEFAULTS.windows);
+  const [occupants, setOccupants] = useState(DEFAULTS.occupants);
 
-  const selectedZone = climateZones.find((z) => z.value === zone)!;
-  const selectedIns = insulationOptions.find((i) => i.value === insulation)!;
-  const selectedCeiling = ceilingHeights.find((c) => c.value === ceiling)!;
-  const selectedSun = sunExposureOptions.find((s) => s.value === exposure)!;
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    squareFeet, zone, insulation, ceiling, exposure, windows, occupants,
+  });
 
-  const sqFt = Math.max(parseFloat(squareFeet) || 0, 0);
-  const winN = Math.max(parseInt(windows) || 15, 0);
-  const occN = Math.max(parseInt(occupants) || 0, 0);
+  const selectedZone = climateZones.find((z) => z.value === src.zone)!;
+  const selectedIns = insulationOptions.find((i) => i.value === src.insulation)!;
+  const selectedCeiling = ceilingHeights.find((c) => c.value === src.ceiling)!;
+  const selectedSun = sunExposureOptions.find((s) => s.value === src.exposure)!;
+
+  const sqFt = Math.max(parseFloat(src.squareFeet) || 0, 0);
+  const winN = Math.max(parseInt(src.windows) || 15, 0);
+  const occN = Math.max(parseInt(src.occupants) || 0, 0);
+
+  const handleReset = () => {
+    setSquareFeet(DEFAULTS.squareFeet);
+    setZone(DEFAULTS.zone);
+    setInsulation(DEFAULTS.insulation);
+    setCeiling(DEFAULTS.ceiling);
+    setExposure(DEFAULTS.exposure);
+    setWindows(DEFAULTS.windows);
+    setOccupants(DEFAULTS.occupants);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const baseBTU = sqFt * 20;
@@ -117,9 +144,10 @@ export default function ACTonnageCalculator() {
     <CalcShell
       Icon={Gauge}
       title="AC Tonnage Calculator"
-      subtitle="The right central AC size for your home. Updates live."
+      subtitle="The right central AC size for your home."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Home basics */}
       <section>
         <SectionHeader step={1} title="Your home" subtitle="Floor area, ceiling, occupants" Icon={Home} accent={ACCENT} />
@@ -283,9 +311,18 @@ export default function ACTonnageCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -377,6 +414,8 @@ export default function ACTonnageCalculator() {
           </p>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

@@ -22,6 +22,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'orange' as const;
@@ -57,21 +59,44 @@ const climateOptions = [
 
 const homeSizePresets = [1000, 1500, 2000, 2500, 3000, 4000];
 
+const DEFAULTS = {
+  currentAfue: 'old-70',
+  newAfue: 'high-95',
+  homeSize: '2000',
+  gasPrice: 'average',
+  heatingDays: '180',
+  currentAge: '15',
+};
+
 export default function AFUECalculator() {
-  const [currentAfue, setCurrentAfue] = useState('old-70');
-  const [newAfue, setNewAfue] = useState('high-95');
-  const [homeSize, setHomeSize] = useState('2000');
-  const [gasPrice, setGasPrice] = useState('average');
-  const [heatingDays, setHeatingDays] = useState('180');
-  const [currentAge, setCurrentAge] = useState('15');
+  const [currentAfue, setCurrentAfue] = useState(DEFAULTS.currentAfue);
+  const [newAfue, setNewAfue] = useState(DEFAULTS.newAfue);
+  const [homeSize, setHomeSize] = useState(DEFAULTS.homeSize);
+  const [gasPrice, setGasPrice] = useState(DEFAULTS.gasPrice);
+  const [heatingDays, setHeatingDays] = useState(DEFAULTS.heatingDays);
+  const [currentAge, setCurrentAge] = useState(DEFAULTS.currentAge);
 
-  const cur = furnaceTiers.find((t) => t.value === currentAfue)!;
-  const nxt = furnaceTiers.find((t) => t.value === newAfue)!;
-  const climate = climateOptions.find((c) => c.value === heatingDays)!;
-  const price = gasPrices[gasPrice];
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    currentAfue, newAfue, homeSize, gasPrice, heatingDays, currentAge,
+  });
 
-  const sqft = Math.max(parseFloat(homeSize) || 0, 0);
-  const age = Math.max(parseFloat(currentAge) || 0, 0);
+  const cur = furnaceTiers.find((t) => t.value === src.currentAfue)!;
+  const nxt = furnaceTiers.find((t) => t.value === src.newAfue)!;
+  const climate = climateOptions.find((c) => c.value === src.heatingDays)!;
+  const price = gasPrices[src.gasPrice];
+
+  const sqft = Math.max(parseFloat(src.homeSize) || 0, 0);
+  const age = Math.max(parseFloat(src.currentAge) || 0, 0);
+
+  const handleReset = () => {
+    setCurrentAfue(DEFAULTS.currentAfue);
+    setNewAfue(DEFAULTS.newAfue);
+    setHomeSize(DEFAULTS.homeSize);
+    setGasPrice(DEFAULTS.gasPrice);
+    setHeatingDays(DEFAULTS.heatingDays);
+    setCurrentAge(DEFAULTS.currentAge);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const btusPerSqFt = climate.btuPerSqFt;
@@ -131,9 +156,10 @@ export default function AFUECalculator() {
     <CalcShell
       Icon={Flame}
       title="AFUE Efficiency Savings Calculator"
-      subtitle="What you save by upgrading from one AFUE tier to another. Updates live."
+      subtitle="What you save by upgrading from one AFUE tier to another."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Current vs new */}
       <section>
         <SectionHeader step={1} title="Current vs new furnace" subtitle="Pick efficiency tiers" Icon={Flame} accent={ACCENT} />
@@ -192,9 +218,18 @@ export default function AFUECalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -306,6 +341,8 @@ export default function AFUECalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

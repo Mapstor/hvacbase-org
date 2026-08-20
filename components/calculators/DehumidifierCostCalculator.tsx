@@ -21,6 +21,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'emerald' as const;
@@ -46,25 +48,52 @@ const usagePatterns = [
   { value: 'year-round', name: 'Year-round', sub: '12 months', monthsPerYear: 12 },
 ];
 
+const DEFAULTS = {
+  dehumidifierSize: '50',
+  spaceSize: '1200',
+  climateZone: 'moderate',
+  currentHumidity: '65',
+  targetHumidity: '45',
+  electricRate: '0.16',
+  usagePattern: 'seasonal',
+  hoursPerDay: '12',
+};
+
 export default function DehumidifierCostCalculator() {
-  const [dehumidifierSize, setDehumidifierSize] = useState('50');
-  const [spaceSize, setSpaceSize] = useState('1200');
-  const [climateZone, setClimateZone] = useState('moderate');
-  const [currentHumidity, setCurrentHumidity] = useState('65');
-  const [targetHumidity, setTargetHumidity] = useState('45');
-  const [electricRate, setElectricRate] = useState('0.16');
-  const [usagePattern, setUsagePattern] = useState('seasonal');
-  const [hoursPerDay, setHoursPerDay] = useState('12');
+  const [dehumidifierSize, setDehumidifierSize] = useState(DEFAULTS.dehumidifierSize);
+  const [spaceSize, setSpaceSize] = useState(DEFAULTS.spaceSize);
+  const [climateZone, setClimateZone] = useState(DEFAULTS.climateZone);
+  const [currentHumidity, setCurrentHumidity] = useState(DEFAULTS.currentHumidity);
+  const [targetHumidity, setTargetHumidity] = useState(DEFAULTS.targetHumidity);
+  const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
+  const [usagePattern, setUsagePattern] = useState(DEFAULTS.usagePattern);
+  const [hoursPerDay, setHoursPerDay] = useState(DEFAULTS.hoursPerDay);
 
-  const selected = dehumidifierSizes.find((d) => d.value === dehumidifierSize)!;
-  const climate = climateZones.find((c) => c.value === climateZone)!;
-  const usage = usagePatterns.find((u) => u.value === usagePattern)!;
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    dehumidifierSize, spaceSize, climateZone, currentHumidity, targetHumidity, electricRate, usagePattern, hoursPerDay,
+  });
 
-  const sqft = Math.max(parseFloat(spaceSize) || 0, 0);
-  const cur = Math.max(parseFloat(currentHumidity) || 0, 0);
-  const tgt = Math.max(parseFloat(targetHumidity) || 0, 0);
-  const rate = Math.max(parseFloat(electricRate) || 0, 0);
-  const maxHr = Math.max(parseFloat(hoursPerDay) || 0, 0);
+  const selected = dehumidifierSizes.find((d) => d.value === src.dehumidifierSize)!;
+  const climate = climateZones.find((c) => c.value === src.climateZone)!;
+  const usage = usagePatterns.find((u) => u.value === src.usagePattern)!;
+
+  const sqft = Math.max(parseFloat(src.spaceSize) || 0, 0);
+  const cur = Math.max(parseFloat(src.currentHumidity) || 0, 0);
+  const tgt = Math.max(parseFloat(src.targetHumidity) || 0, 0);
+  const rate = Math.max(parseFloat(src.electricRate) || 0, 0);
+  const maxHr = Math.max(parseFloat(src.hoursPerDay) || 0, 0);
+
+  const handleReset = () => {
+    setDehumidifierSize(DEFAULTS.dehumidifierSize);
+    setSpaceSize(DEFAULTS.spaceSize);
+    setClimateZone(DEFAULTS.climateZone);
+    setCurrentHumidity(DEFAULTS.currentHumidity);
+    setTargetHumidity(DEFAULTS.targetHumidity);
+    setElectricRate(DEFAULTS.electricRate);
+    setUsagePattern(DEFAULTS.usagePattern);
+    setHoursPerDay(DEFAULTS.hoursPerDay);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const watts = selected.watts;
@@ -109,9 +138,10 @@ export default function DehumidifierCostCalculator() {
     <CalcShell
       Icon={Droplets}
       title="Dehumidifier Cost Calculator"
-      subtitle="Operating cost + 5-year cost of ownership. Updates live."
+      subtitle="Operating cost + 5-year cost of ownership."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Unit & space" subtitle="Dehumidifier size and area" Icon={Droplets} accent={ACCENT} />
         <div className="space-y-5">
@@ -166,8 +196,17 @@ export default function DehumidifierCostCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -266,6 +305,8 @@ export default function DehumidifierCostCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

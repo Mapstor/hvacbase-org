@@ -21,6 +21,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'emerald' as const;
@@ -44,18 +46,39 @@ const moistureConditions = [
 
 const sqftPresets = [500, 1000, 1500, 2000, 3000];
 
-export default function DehumidifierSizingCalculator() {
-  const [squareFeet, setSquareFeet] = useState('1000');
-  const [spaceType, setSpaceType] = useState('basement');
-  const [moistureLevel, setMoistureLevel] = useState('moderate');
-  const [currentHumidity, setCurrentHumidity] = useState('65');
-  const [targetHumidity, setTargetHumidity] = useState('45');
+const DEFAULTS = {
+  squareFeet: '1000',
+  spaceType: 'basement',
+  moistureLevel: 'moderate',
+  currentHumidity: '65',
+  targetHumidity: '45',
+};
 
-  const space = spaceTypes.find((s) => s.value === spaceType)!;
-  const moisture = moistureConditions.find((m) => m.value === moistureLevel)!;
-  const sqft = Math.max(parseFloat(squareFeet) || 0, 0);
-  const cur = Math.max(parseFloat(currentHumidity) || 0, 0);
-  const tgt = Math.max(parseFloat(targetHumidity) || 0, 0);
+export default function DehumidifierSizingCalculator() {
+  const [squareFeet, setSquareFeet] = useState(DEFAULTS.squareFeet);
+  const [spaceType, setSpaceType] = useState(DEFAULTS.spaceType);
+  const [moistureLevel, setMoistureLevel] = useState(DEFAULTS.moistureLevel);
+  const [currentHumidity, setCurrentHumidity] = useState(DEFAULTS.currentHumidity);
+  const [targetHumidity, setTargetHumidity] = useState(DEFAULTS.targetHumidity);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    squareFeet, spaceType, moistureLevel, currentHumidity, targetHumidity,
+  });
+
+  const space = spaceTypes.find((s) => s.value === src.spaceType)!;
+  const moisture = moistureConditions.find((m) => m.value === src.moistureLevel)!;
+  const sqft = Math.max(parseFloat(src.squareFeet) || 0, 0);
+  const cur = Math.max(parseFloat(src.currentHumidity) || 0, 0);
+  const tgt = Math.max(parseFloat(src.targetHumidity) || 0, 0);
+
+  const handleReset = () => {
+    setSquareFeet(DEFAULTS.squareFeet);
+    setSpaceType(DEFAULTS.spaceType);
+    setMoistureLevel(DEFAULTS.moistureLevel);
+    setCurrentHumidity(DEFAULTS.currentHumidity);
+    setTargetHumidity(DEFAULTS.targetHumidity);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const baseCapacity = sqft / 150;
@@ -83,9 +106,10 @@ export default function DehumidifierSizingCalculator() {
     <CalcShell
       Icon={Droplets}
       title="Dehumidifier Sizing Calculator"
-      subtitle="Right pint-per-day capacity for your space + moisture level. Updates live."
+      subtitle="Right pint-per-day capacity for your space + moisture level."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Space" subtitle="Size and what kind of room" Icon={Home} accent={ACCENT} />
         <div className="space-y-5">
@@ -128,8 +152,17 @@ export default function DehumidifierSizingCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -208,6 +241,8 @@ export default function DehumidifierSizingCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

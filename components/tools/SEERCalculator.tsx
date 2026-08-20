@@ -2,16 +2,35 @@
 
 import { useState } from 'react';
 import CalcWrapper from './CalcWrapper';
-import { DollarSign, TrendingDown, Clock } from 'lucide-react';
+import { DollarSign, TrendingDown, Clock, RotateCcw } from 'lucide-react';
+
+const DEFAULTS = {
+  seer1: '14',
+  seer2: '20',
+  btu: '36000',
+  hours: '1500',
+  rate: '0.15',
+  priceDiff: '2000',
+};
 
 export default function SEERCalculator() {
-  const [seer1, setSeer1] = useState('14');
-  const [seer2, setSeer2] = useState('20');
-  const [btu, setBtu] = useState('36000');
-  const [hours, setHours] = useState('1500');
-  const [rate, setRate] = useState('0.15');
-  const [priceDiff, setPriceDiff] = useState('2000');
+  const [seer1, setSeer1] = useState(DEFAULTS.seer1);
+  const [seer2, setSeer2] = useState(DEFAULTS.seer2);
+  const [btu, setBtu] = useState(DEFAULTS.btu);
+  const [hours, setHours] = useState(DEFAULTS.hours);
+  const [rate, setRate] = useState(DEFAULTS.rate);
+  const [priceDiff, setPriceDiff] = useState(DEFAULTS.priceDiff);
   const [result, setResult] = useState<any>(null);
+
+  const reset = () => {
+    setSeer1(DEFAULTS.seer1);
+    setSeer2(DEFAULTS.seer2);
+    setBtu(DEFAULTS.btu);
+    setHours(DEFAULTS.hours);
+    setRate(DEFAULTS.rate);
+    setPriceDiff(DEFAULTS.priceDiff);
+    setResult(null);
+  };
 
   const calculate = () => {
     const s1 = parseFloat(seer1);
@@ -86,9 +105,22 @@ export default function SEERCalculator() {
         </div>
       </div>
 
-      <button onClick={calculate} className="calc-button w-full mt-4">
-        Compare SEER Ratings
-      </button>
+      <div className="flex flex-col sm:flex-row gap-2 mt-4">
+        <button
+          onClick={calculate}
+          className="calc-button flex-1"
+        >
+          Compare SEER Ratings
+        </button>
+        <button
+          type="button"
+          onClick={reset}
+          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+        >
+          <RotateCcw className="w-4 h-4" />
+          Reset
+        </button>
+      </div>
 
       {result && (
         <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">

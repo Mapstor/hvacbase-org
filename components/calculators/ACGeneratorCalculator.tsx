@@ -21,6 +21,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
   accentMap,
 } from './_shared';
 
@@ -67,13 +69,32 @@ const hardStartOptions = [
   { value: 'yes', name: 'Yes', sub: '−35% surge' },
 ];
 
-export default function ACGeneratorCalculator() {
-  const [acSize, setAcSize] = useState('3.0');
-  const [hasHardStart, setHasHardStart] = useState('no');
-  const [selectedLoads, setSelectedLoads] = useState<Set<string>>(new Set(['fridge', 'freezer', 'lights', 'internet']));
+const DEFAULT_LOAD_IDS = ['fridge', 'freezer', 'lights', 'internet'];
+const loadsToKey = (s: Set<string>) => Array.from(s).sort().join('|');
 
-  const selectedAC = acUnits.find((unit) => unit.value === acSize)!;
-  const useHardStart = hasHardStart === 'yes';
+const DEFAULTS = {
+  acSize: '3.0',
+  hasHardStart: 'no',
+  selectedLoads: loadsToKey(new Set(DEFAULT_LOAD_IDS)),
+};
+
+export default function ACGeneratorCalculator() {
+  const [acSize, setAcSize] = useState(DEFAULTS.acSize);
+  const [hasHardStart, setHasHardStart] = useState(DEFAULTS.hasHardStart);
+  const [selectedLoads, setSelectedLoads] = useState<Set<string>>(new Set(DEFAULT_LOAD_IDS));
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    acSize,
+    hasHardStart,
+    selectedLoads: loadsToKey(selectedLoads),
+  });
+
+  const selectedAC = acUnits.find((unit) => unit.value === src.acSize) ?? acUnits.find((unit) => unit.value === DEFAULTS.acSize)!;
+  const useHardStart = src.hasHardStart === 'yes';
+  const srcLoadsSet = useMemo(
+    () => new Set(src.selectedLoads ? src.selectedLoads.split('|').filter(Boolean) : []),
+    [src.selectedLoads]
+  );
 
   const toggleLoad = (id: string) => {
     setSelectedLoads((prev) => {
@@ -83,10 +104,17 @@ export default function ACGeneratorCalculator() {
     });
   };
 
+  const handleReset = () => {
+    setAcSize(DEFAULTS.acSize);
+    setHasHardStart(DEFAULTS.hasHardStart);
+    setSelectedLoads(new Set(DEFAULT_LOAD_IDS));
+    clear();
+  };
+
   const calc = useMemo(() => {
     const acSurge = useHardStart ? selectedAC.surge * 0.65 : selectedAC.surge;
     const acRunning = selectedAC.running;
-    const selectedItems = householdLoads.filter((l) => selectedLoads.has(l.id));
+    const selectedItems = householdLoads.filter((l) => srcLoadsSet.has(l.id));
     const householdRunning = selectedItems.reduce((s, l) => s + l.running, 0);
     const totalRunning = acRunning + householdRunning;
     const totalSurge = totalRunning + (acSurge - acRunning);
@@ -96,7 +124,7 @@ export default function ACGeneratorCalculator() {
     const ngConsumption = recommendedGenerator.kw * 2.5;
     const propaneConsumption = recommendedGenerator.kw * 0.11;
     return { acSurge, acRunning, selectedItems, householdRunning, totalRunning, totalSurge, recommendedSize, minimumGenerator, recommendedGenerator, ngConsumption, propaneConsumption };
-  }, [selectedAC, useHardStart, selectedLoads]);
+  }, [selectedAC, useHardStart, srcLoadsSet]);
 
   const fit =
     calc.totalSurge === 0 ? { tone: 'warn' as const, text: 'Select your AC + loads' } :
@@ -108,9 +136,10 @@ export default function ACGeneratorCalculator() {
     <CalcShell
       Icon={Wind}
       title="AC Generator Sizing Calculator"
-      subtitle="Generator size for central AC + critical loads. Updates live."
+      subtitle="Generator size for central AC + critical loads."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Your AC unit" subtitle="Size + optional hard-start kit" Icon={Snowflake} accent={ACCENT} />
         <div className="space-y-5">
@@ -162,8 +191,17 @@ export default function ACGeneratorCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -252,6 +290,8 @@ export default function ACGeneratorCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

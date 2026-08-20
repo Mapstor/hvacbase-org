@@ -22,6 +22,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'emerald' as const;
@@ -37,16 +39,35 @@ const appliancePresets = [
 
 const wattPresets = [100, 500, 1000, 1500, 3000, 5000];
 
-export default function KWhCostCalculator() {
-  const [powerWatts, setPowerWatts] = useState('1500');
-  const [hoursPerDay, setHoursPerDay] = useState('8');
-  const [daysPerMonth, setDaysPerMonth] = useState('30');
-  const [electricRate, setElectricRate] = useState('0.16');
+const DEFAULTS = {
+  powerWatts: '1500',
+  hoursPerDay: '8',
+  daysPerMonth: '30',
+  electricRate: '0.16',
+};
 
-  const w = Math.max(parseFloat(powerWatts) || 0, 0);
-  const h = Math.max(parseFloat(hoursPerDay) || 0, 0);
-  const d = Math.max(parseFloat(daysPerMonth) || 0, 0);
-  const r = Math.max(parseFloat(electricRate) || 0, 0);
+export default function KWhCostCalculator() {
+  const [powerWatts, setPowerWatts] = useState(DEFAULTS.powerWatts);
+  const [hoursPerDay, setHoursPerDay] = useState(DEFAULTS.hoursPerDay);
+  const [daysPerMonth, setDaysPerMonth] = useState(DEFAULTS.daysPerMonth);
+  const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    powerWatts, hoursPerDay, daysPerMonth, electricRate,
+  });
+
+  const w = Math.max(parseFloat(src.powerWatts) || 0, 0);
+  const h = Math.max(parseFloat(src.hoursPerDay) || 0, 0);
+  const d = Math.max(parseFloat(src.daysPerMonth) || 0, 0);
+  const r = Math.max(parseFloat(src.electricRate) || 0, 0);
+
+  const handleReset = () => {
+    setPowerWatts(DEFAULTS.powerWatts);
+    setHoursPerDay(DEFAULTS.hoursPerDay);
+    setDaysPerMonth(DEFAULTS.daysPerMonth);
+    setElectricRate(DEFAULTS.electricRate);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const hourlyKwh = w / 1000;
@@ -73,9 +94,10 @@ export default function KWhCostCalculator() {
     <CalcShell
       Icon={Zap}
       title="kWh Cost Calculator"
-      subtitle="Exact electricity cost for any appliance. Updates live."
+      subtitle="Exact electricity cost for any appliance."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Appliance */}
       <section>
         <SectionHeader step={1} title="Appliance power" subtitle="Pick a preset or enter exact wattage" Icon={Plug} accent={ACCENT} />
@@ -142,9 +164,18 @@ export default function KWhCostCalculator() {
         <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.16/kWh · CA averages $0.30+ · South averages $0.10–$0.13</p>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -250,6 +281,8 @@ export default function KWhCostCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

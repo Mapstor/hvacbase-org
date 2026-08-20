@@ -20,7 +20,7 @@ externalLinks:
     url: "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_6_a"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, HeatingCostCalculator } from '@/components'
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 # Heating Cost Calculator: Compare Gas vs Electric vs Heat Pump Costs
 
@@ -32,6 +32,7 @@ Our calculator uses real-time energy pricing data from the Energy Information Ad
 
 ## Professional Heating Cost Calculator
 
+<CalcWrapper type="gas-vs-electric" />
 
 <Callout type="tip" title="Accuracy Tip">
 **Use actual energy bills** for the most accurate results. Check recent utility bills for your exact electric and gas rates, including delivery charges and fees. This calculator provides estimates — actual costs vary by usage patterns and weather conditions.

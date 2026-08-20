@@ -21,6 +21,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'purple' as const;
@@ -38,27 +40,50 @@ const inputTypeOptions = [
 const voltagePresets = [208, 240, 480, 600];
 const pfPresets = [0.7, 0.8, 0.85, 0.9, 0.95, 1.0];
 
-export default function ThreePhasePowerCalculator() {
-  const [voltage, setVoltage] = useState('480');
-  const [current, setCurrent] = useState('20');
-  const [powerFactor, setPowerFactor] = useState('0.85');
-  const [connectionType, setConnectionType] = useState('wye');
-  const [inputType, setInputType] = useState('line');
+const DEFAULTS = {
+  voltage: '480',
+  current: '20',
+  powerFactor: '0.85',
+  connectionType: 'wye',
+  inputType: 'line',
+};
 
-  const volts = Math.max(parseFloat(voltage) || 0, 0);
-  const amps = Math.max(parseFloat(current) || 0, 0);
-  const pf = Math.min(Math.max(parseFloat(powerFactor) || 1, 0.1), 1);
+export default function ThreePhasePowerCalculator() {
+  const [voltage, setVoltage] = useState(DEFAULTS.voltage);
+  const [current, setCurrent] = useState(DEFAULTS.current);
+  const [powerFactor, setPowerFactor] = useState(DEFAULTS.powerFactor);
+  const [connectionType, setConnectionType] = useState(DEFAULTS.connectionType);
+  const [inputType, setInputType] = useState(DEFAULTS.inputType);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    voltage, current, powerFactor, connectionType, inputType,
+  });
+
+  const volts = Math.max(parseFloat(src.voltage) || 0, 0);
+  const amps = Math.max(parseFloat(src.current) || 0, 0);
+  const pf = Math.min(Math.max(parseFloat(src.powerFactor) || 1, 0.1), 1);
+  const conn = src.connectionType;
+  const mode = src.inputType;
+
+  const handleReset = () => {
+    setVoltage(DEFAULTS.voltage);
+    setCurrent(DEFAULTS.current);
+    setPowerFactor(DEFAULTS.powerFactor);
+    setConnectionType(DEFAULTS.connectionType);
+    setInputType(DEFAULTS.inputType);
+    clear();
+  };
 
   const calc = useMemo(() => {
-    const apparentPower = inputType === 'line' ? Math.sqrt(3) * volts * amps : 3 * volts * amps;
+    const apparentPower = mode === 'line' ? Math.sqrt(3) * volts * amps : 3 * volts * amps;
     const realPower = apparentPower * pf;
     const reactivePower = Math.sqrt(Math.max(Math.pow(apparentPower, 2) - Math.pow(realPower, 2), 0));
     let lineVoltage = volts, phaseVoltage = volts, lineCurrent = amps, phaseCurrent = amps;
-    if (connectionType === 'wye') {
-      if (inputType === 'line') { phaseVoltage = volts / Math.sqrt(3); }
+    if (conn === 'wye') {
+      if (mode === 'line') { phaseVoltage = volts / Math.sqrt(3); }
       else { lineVoltage = volts * Math.sqrt(3); }
     } else {
-      if (inputType === 'line') { phaseCurrent = amps / Math.sqrt(3); }
+      if (mode === 'line') { phaseCurrent = amps / Math.sqrt(3); }
       else { lineCurrent = amps * Math.sqrt(3); }
     }
     const powerPerPhase = realPower / 3;
@@ -73,7 +98,7 @@ export default function ThreePhasePowerCalculator() {
       : lineCurrent <= 55 ? '6 AWG' : lineCurrent <= 75 ? '4 AWG' : lineCurrent <= 100 ? '2 AWG'
       : lineCurrent <= 130 ? '1 AWG' : lineCurrent <= 170 ? '2/0 AWG' : lineCurrent <= 200 ? '3/0 AWG' : '4/0+ AWG';
     return { apparentPower, realPower, reactivePower, lineVoltage, phaseVoltage, lineCurrent, phaseCurrent, powerPerPhase, powerKW, powerHP, apparentPowerKVA, dailyKWh, monthlyKWh, yearlyKWh, hourlyCost, wireSize };
-  }, [volts, amps, pf, connectionType, inputType]);
+  }, [volts, amps, pf, conn, mode]);
 
   const fit =
     calc.realPower === 0 ? { tone: 'warn' as const, text: 'Enter voltage + current' } :
@@ -86,9 +111,10 @@ export default function ThreePhasePowerCalculator() {
     <CalcShell
       Icon={Zap}
       title="Three-Phase Power Calculator"
-      subtitle="P = √3 × V × I × PF — full electrical analysis for industrial systems. Updates live."
+      subtitle="P = √3 × V × I × PF — full electrical analysis for industrial systems."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Configuration" subtitle="Wye vs delta + input convention" Icon={Settings} accent={ACCENT} />
         <div className="space-y-5">
@@ -153,8 +179,17 @@ export default function ThreePhasePowerCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -163,7 +198,7 @@ export default function ThreePhasePowerCalculator() {
           unit={`W (${calc.powerKW.toFixed(2)} kW · ${calc.powerHP.toFixed(2)} HP)`}
           secondaryText={
             <>
-              {inputType === 'line' ? `√3 × ${volts}V × ${amps}A` : `3 × ${volts}V × ${amps}A`} × PF {pf.toFixed(2)} = <strong>{fmt(Math.round(calc.realPower))}W</strong> real power.
+              {mode === 'line' ? `√3 × ${volts}V × ${amps}A` : `3 × ${volts}V × ${amps}A`} × PF {pf.toFixed(2)} = <strong>{fmt(Math.round(calc.realPower))}W</strong> real power.
               Apparent: <strong>{calc.apparentPowerKVA.toFixed(1)} kVA</strong> · Reactive: <strong>{(calc.reactivePower / 1000).toFixed(1)} kVAR</strong>.
             </>
           }
@@ -207,7 +242,7 @@ export default function ThreePhasePowerCalculator() {
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
               <TrendingUp className="w-4 h-4 text-purple-600" />
-              Line vs phase values · {connectionType === 'wye' ? 'Wye (Y)' : 'Delta (Δ)'}
+              Line vs phase values · {conn === 'wye' ? 'Wye (Y)' : 'Delta (Δ)'}
             </h4>
             <BreakdownTable
               rows={[
@@ -262,6 +297,8 @@ export default function ThreePhasePowerCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

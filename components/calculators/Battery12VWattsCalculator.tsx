@@ -23,6 +23,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'blue' as const;
@@ -47,23 +49,48 @@ const commonLoads = [
   { value: 'winch', name: '12V winch (peak)', summary: '12V — 1200W surge', watts: 1200, Icon: Wind },
 ];
 
-export default function Battery12VWattsCalculator() {
-  const [batteryCapacity, setBatteryCapacity] = useState('100');
-  const [loadType, setLoadType] = useState('led-lights');
-  const [customWatts, setCustomWatts] = useState('100');
-  const [operatingHours, setOperatingHours] = useState('4');
-  const [depthOfDischarge, setDepthOfDischarge] = useState('50');
-  const [batteryEfficiency, setBatteryEfficiency] = useState('85');
-  const [temperature, setTemperature] = useState('68');
+const DEFAULTS = {
+  batteryCapacity: '100',
+  loadType: 'led-lights',
+  customWatts: '100',
+  operatingHours: '4',
+  depthOfDischarge: '50',
+  batteryEfficiency: '85',
+  temperature: '68',
+};
 
-  const load = commonLoads.find((l) => l.value === loadType);
-  const isCustom = loadType === 'custom';
-  const loadWatts = isCustom ? Math.max(parseFloat(customWatts) || 0, 1) : load?.watts || 0;
-  const totalCapacity = Math.max(parseFloat(batteryCapacity) || 0, 1);
-  const requestedHours = Math.max(parseFloat(operatingHours) || 0, 0.1);
-  const dod = Math.min(Math.max(parseFloat(depthOfDischarge) || 50, 20), 100);
-  const battEff = Math.min(Math.max(parseFloat(batteryEfficiency) || 85, 50), 100);
-  const tempF = parseFloat(temperature) || 68;
+export default function Battery12VWattsCalculator() {
+  const [batteryCapacity, setBatteryCapacity] = useState(DEFAULTS.batteryCapacity);
+  const [loadType, setLoadType] = useState(DEFAULTS.loadType);
+  const [customWatts, setCustomWatts] = useState(DEFAULTS.customWatts);
+  const [operatingHours, setOperatingHours] = useState(DEFAULTS.operatingHours);
+  const [depthOfDischarge, setDepthOfDischarge] = useState(DEFAULTS.depthOfDischarge);
+  const [batteryEfficiency, setBatteryEfficiency] = useState(DEFAULTS.batteryEfficiency);
+  const [temperature, setTemperature] = useState(DEFAULTS.temperature);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    batteryCapacity, loadType, customWatts, operatingHours, depthOfDischarge, batteryEfficiency, temperature,
+  });
+
+  const load = commonLoads.find((l) => l.value === src.loadType);
+  const isCustom = src.loadType === 'custom';
+  const loadWatts = isCustom ? Math.max(parseFloat(src.customWatts) || 0, 1) : load?.watts || 0;
+  const totalCapacity = Math.max(parseFloat(src.batteryCapacity) || 0, 1);
+  const requestedHours = Math.max(parseFloat(src.operatingHours) || 0, 0.1);
+  const dod = Math.min(Math.max(parseFloat(src.depthOfDischarge) || 50, 20), 100);
+  const battEff = Math.min(Math.max(parseFloat(src.batteryEfficiency) || 85, 50), 100);
+  const tempF = parseFloat(src.temperature) || 68;
+
+  const handleReset = () => {
+    setBatteryCapacity(DEFAULTS.batteryCapacity);
+    setLoadType(DEFAULTS.loadType);
+    setCustomWatts(DEFAULTS.customWatts);
+    setOperatingHours(DEFAULTS.operatingHours);
+    setDepthOfDischarge(DEFAULTS.depthOfDischarge);
+    setBatteryEfficiency(DEFAULTS.batteryEfficiency);
+    setTemperature(DEFAULTS.temperature);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const currentAmps = loadWatts / 12;
@@ -95,9 +122,10 @@ export default function Battery12VWattsCalculator() {
     <CalcShell
       Icon={Battery}
       title="12V Battery Watts Calculator"
-      subtitle="Runtime + circuit sizing for 12V DC systems. Updates live."
+      subtitle="Runtime + circuit sizing for 12V DC systems."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Battery & load" subtitle="What you've got + what you're running" Icon={Battery} accent={ACCENT} />
         <div className="space-y-5">
@@ -162,8 +190,17 @@ export default function Battery12VWattsCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -249,6 +286,8 @@ export default function Battery12VWattsCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

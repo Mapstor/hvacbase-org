@@ -19,6 +19,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'purple' as const;
@@ -85,36 +87,59 @@ const outletFor = (volts: number, amps: number) => {
   return 'Hardwired';
 };
 
-export default function GeneratorAmpsCalculator() {
-  const [mode, setMode] = useState('watts-to-amps');
-  const [watts, setWatts] = useState('7500');
-  const [voltage, setVoltage] = useState('120');
-  const [amps, setAmps] = useState('30');
-  const [powerFactor, setPowerFactor] = useState('1.0');
-  const [phases, setPhases] = useState('single');
+const DEFAULTS = {
+  mode: 'watts-to-amps',
+  watts: '7500',
+  voltage: '120',
+  amps: '30',
+  powerFactor: '1.0',
+  phases: 'single',
+};
 
-  const v = Math.max(parseFloat(voltage) || 0, 1);
-  const w = Math.max(parseFloat(watts) || 0, 0);
-  const aIn = Math.max(parseFloat(amps) || 0, 0);
-  const pf = Math.min(Math.max(parseFloat(powerFactor) || 1, 0.1), 1);
+export default function GeneratorAmpsCalculator() {
+  const [mode, setMode] = useState(DEFAULTS.mode);
+  const [watts, setWatts] = useState(DEFAULTS.watts);
+  const [voltage, setVoltage] = useState(DEFAULTS.voltage);
+  const [amps, setAmps] = useState(DEFAULTS.amps);
+  const [powerFactor, setPowerFactor] = useState(DEFAULTS.powerFactor);
+  const [phases, setPhases] = useState(DEFAULTS.phases);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    mode, watts, voltage, amps, powerFactor, phases,
+  });
+
+  const v = Math.max(parseFloat(src.voltage) || 0, 1);
+  const w = Math.max(parseFloat(src.watts) || 0, 0);
+  const aIn = Math.max(parseFloat(src.amps) || 0, 0);
+  const pf = Math.min(Math.max(parseFloat(src.powerFactor) || 1, 0.1), 1);
+
+  const handleReset = () => {
+    setMode(DEFAULTS.mode);
+    setWatts(DEFAULTS.watts);
+    setVoltage(DEFAULTS.voltage);
+    setAmps(DEFAULTS.amps);
+    setPowerFactor(DEFAULTS.powerFactor);
+    setPhases(DEFAULTS.phases);
+    clear();
+  };
 
   const calc = useMemo(() => {
     let calculatedAmps = 0;
     let calculatedWatts = 0;
-    if (mode === 'watts-to-amps') {
-      calculatedAmps = phases === 'single' ? w / (v * pf) : w / (Math.sqrt(3) * v * pf);
-    } else if (mode === 'amps-to-watts') {
-      calculatedWatts = phases === 'single' ? aIn * v * pf : Math.sqrt(3) * aIn * v * pf;
+    if (src.mode === 'watts-to-amps') {
+      calculatedAmps = src.phases === 'single' ? w / (v * pf) : w / (Math.sqrt(3) * v * pf);
+    } else if (src.mode === 'amps-to-watts') {
+      calculatedWatts = src.phases === 'single' ? aIn * v * pf : Math.sqrt(3) * aIn * v * pf;
     }
-    const resultAmps = mode === 'watts-to-amps' ? calculatedAmps : aIn;
-    const resultWatts = mode === 'watts-to-amps' ? w : calculatedWatts;
+    const resultAmps = src.mode === 'watts-to-amps' ? calculatedAmps : aIn;
+    const resultWatts = src.mode === 'watts-to-amps' ? w : calculatedWatts;
     const resultKW = resultWatts / 1000;
     const resultKVA = resultKW / pf;
     return { calculatedAmps, calculatedWatts, resultAmps, resultWatts, resultKW, resultKVA };
-  }, [mode, phases, v, w, aIn, pf]);
+  }, [src.mode, src.phases, v, w, aIn, pf]);
 
   const fit =
-    mode === 'generator-size' ? { tone: 'good' as const, text: 'Reference table mode' } :
+    src.mode === 'generator-size' ? { tone: 'good' as const, text: 'Reference table mode' } :
     calc.resultAmps === 0 ? { tone: 'warn' as const, text: 'Enter values to compute' } :
     calc.resultAmps > 100 ? { tone: 'warn' as const, text: 'High current — need heavy gauge wire' } :
     { tone: 'good' as const, text: 'Calculation complete' };
@@ -123,9 +148,10 @@ export default function GeneratorAmpsCalculator() {
     <CalcShell
       Icon={Activity}
       title="Generator Amps Calculator"
-      subtitle="Convert watts ↔ amps for generators + wire and breaker sizing. Updates live."
+      subtitle="Convert watts ↔ amps for generators + wire and breaker sizing."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Calculator mode" subtitle="Pick what you're solving for" Icon={Settings} accent={ACCENT} />
         <Segmented value={mode} onChange={setMode} options={modeOptions} ariaLabel="Calculator mode" accent={ACCENT} />
@@ -200,20 +226,30 @@ export default function GeneratorAmpsCalculator() {
       )}
 
       {mode !== 'generator-size' && (
+        <CalculateResetBar
+          onCalculate={calculate}
+          onReset={handleReset}
+          dirty={dirty}
+          hasResult={hasResult}
+          accent={ACCENT}
+        />
+      )}
+
+      {mode !== 'generator-size' && hasResult && (
         <section aria-live="polite" className="space-y-5">
-          <ResultsHeader />
+          <ResultsHeader dirty={dirty} />
 
           <ResultHero
             accent={ACCENT}
-            eyebrow={mode === 'watts-to-amps' ? 'Amperage' : 'Power output'}
-            value={mode === 'watts-to-amps' ? `${calc.calculatedAmps.toFixed(1)}` : `${fmt(Math.round(calc.calculatedWatts))}`}
-            unit={mode === 'watts-to-amps' ? `A @ ${v}V` : `W (${calc.resultKW.toFixed(2)} kW)`}
+            eyebrow={src.mode === 'watts-to-amps' ? 'Amperage' : 'Power output'}
+            value={src.mode === 'watts-to-amps' ? `${calc.calculatedAmps.toFixed(1)}` : `${fmt(Math.round(calc.calculatedWatts))}`}
+            unit={src.mode === 'watts-to-amps' ? `A @ ${v}V` : `W (${calc.resultKW.toFixed(2)} kW)`}
             secondaryText={
               <>
-                Formula ({phases === 'single' ? 'single phase' : 'three phase'}):{' '}
-                {mode === 'watts-to-amps'
-                  ? phases === 'single' ? <code>A = W ÷ (V × PF)</code> : <code>A = W ÷ (√3 × V × PF)</code>
-                  : phases === 'single' ? <code>W = A × V × PF</code> : <code>W = √3 × A × V × PF</code>}
+                Formula ({src.phases === 'single' ? 'single phase' : 'three phase'}):{' '}
+                {src.mode === 'watts-to-amps'
+                  ? src.phases === 'single' ? <code>A = W ÷ (V × PF)</code> : <code>A = W ÷ (√3 × V × PF)</code>
+                  : src.phases === 'single' ? <code>W = A × V × PF</code> : <code>W = √3 × A × V × PF</code>}
                 {' · '}{calc.resultKVA.toFixed(2)} kVA apparent
               </>
             }
@@ -233,9 +269,9 @@ export default function GeneratorAmpsCalculator() {
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'Voltage', detail: `${voltageOptions.find(o => o.value === voltage)?.sub}`, factor: `${v}V` },
+                { label: 'Voltage', detail: `${voltageOptions.find(o => o.value === src.voltage)?.sub}`, factor: `${v}V` },
                 { label: 'Current', detail: '', factor: `${calc.resultAmps.toFixed(1)}A` },
-                { label: 'Real power', detail: `${phases} phase × PF ${pf.toFixed(2)}`, factor: `${fmt(Math.round(calc.resultWatts))}W` },
+                { label: 'Real power', detail: `${src.phases} phase × PF ${pf.toFixed(2)}`, factor: `${fmt(Math.round(calc.resultWatts))}W` },
                 { label: 'Apparent power', detail: '÷ PF', factor: `${calc.resultKVA.toFixed(2)} kVA` },
                 { label: 'Wire size', detail: '75°C copper, ≤100ft run', factor: wireSizeFor(calc.resultAmps) },
                 { label: 'Breaker', detail: '125% × continuous load (NEC)', factor: `${breakerFor(calc.resultAmps)}A` },
@@ -256,6 +292,7 @@ export default function GeneratorAmpsCalculator() {
           <li>Backfeeding a generator through a wall outlet (no transfer switch) is illegal and deadly to line workers — use an interlock kit or transfer switch</li>
         </ul>
       </DisclaimerBox>
+      </form>
     </CalcShell>
   );
 }

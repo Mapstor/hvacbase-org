@@ -23,6 +23,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'blue' as const;
@@ -66,24 +68,51 @@ const climateOptions = [
   { value: 'hot', name: 'Hot', sub: '90°F+ summers', factor: 1.2, hours: 10, days: 180 },
 ];
 
-export default function LargeRoomPortableACCalculator() {
-  const [roomSize, setRoomSize] = useState('600');
-  const [ceilingHeight, setCeilingHeight] = useState('8');
-  const [sunExposure, setSunExposure] = useState('moderate');
-  const [insulation, setInsulation] = useState('average');
-  const [windows, setWindows] = useState('standard');
-  const [occupants, setOccupants] = useState('2');
-  const [appliances, setAppliances] = useState('1');
-  const [climate, setClimate] = useState('moderate');
+const DEFAULTS = {
+  roomSize: '600',
+  ceilingHeight: '8',
+  sunExposure: 'moderate',
+  insulation: 'average',
+  windows: 'standard',
+  occupants: '2',
+  appliances: '1',
+  climate: 'moderate',
+};
 
-  const sqft = Math.max(parseFloat(roomSize) || 0, 0);
-  const ceiling = Math.max(parseFloat(ceilingHeight) || 8, 8);
-  const people = Math.max(parseInt(occupants) || 0, 0);
-  const heatSources = Math.max(parseInt(appliances) || 0, 0);
-  const sun = sunOptions.find((s) => s.value === sunExposure)!;
-  const ins = insulationOptions.find((i) => i.value === insulation)!;
-  const win = windowOptions.find((w) => w.value === windows)!;
-  const clm = climateOptions.find((c) => c.value === climate)!;
+export default function LargeRoomPortableACCalculator() {
+  const [roomSize, setRoomSize] = useState(DEFAULTS.roomSize);
+  const [ceilingHeight, setCeilingHeight] = useState(DEFAULTS.ceilingHeight);
+  const [sunExposure, setSunExposure] = useState(DEFAULTS.sunExposure);
+  const [insulation, setInsulation] = useState(DEFAULTS.insulation);
+  const [windows, setWindows] = useState(DEFAULTS.windows);
+  const [occupants, setOccupants] = useState(DEFAULTS.occupants);
+  const [appliances, setAppliances] = useState(DEFAULTS.appliances);
+  const [climate, setClimate] = useState(DEFAULTS.climate);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    roomSize, ceilingHeight, sunExposure, insulation, windows, occupants, appliances, climate,
+  });
+
+  const sqft = Math.max(parseFloat(src.roomSize) || 0, 0);
+  const ceiling = Math.max(parseFloat(src.ceilingHeight) || 8, 8);
+  const people = Math.max(parseInt(src.occupants) || 0, 0);
+  const heatSources = Math.max(parseInt(src.appliances) || 0, 0);
+  const sun = sunOptions.find((s) => s.value === src.sunExposure)!;
+  const ins = insulationOptions.find((i) => i.value === src.insulation)!;
+  const win = windowOptions.find((w) => w.value === src.windows)!;
+  const clm = climateOptions.find((c) => c.value === src.climate)!;
+
+  const handleReset = () => {
+    setRoomSize(DEFAULTS.roomSize);
+    setCeilingHeight(DEFAULTS.ceilingHeight);
+    setSunExposure(DEFAULTS.sunExposure);
+    setInsulation(DEFAULTS.insulation);
+    setWindows(DEFAULTS.windows);
+    setOccupants(DEFAULTS.occupants);
+    setAppliances(DEFAULTS.appliances);
+    setClimate(DEFAULTS.climate);
+    clear();
+  };
 
   const calc = useMemo(() => {
     let baseBTU = sqft * 20;
@@ -118,9 +147,10 @@ export default function LargeRoomPortableACCalculator() {
     <CalcShell
       Icon={Wind}
       title="Large Room Portable AC Calculator"
-      subtitle="Right BTU for 500+ sq ft spaces. Updates live."
+      subtitle="Right BTU for 500+ sq ft spaces."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Room" subtitle="Size + ceiling" Icon={Home} accent={ACCENT} />
         <div className="grid sm:grid-cols-2 gap-5">
@@ -175,8 +205,17 @@ export default function LargeRoomPortableACCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -264,6 +303,8 @@ export default function LargeRoomPortableACCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

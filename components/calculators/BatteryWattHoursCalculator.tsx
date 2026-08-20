@@ -26,6 +26,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'emerald' as const;
@@ -51,25 +53,53 @@ const commonDevices = [
 
 const voltagePresets = [12, 24, 48];
 
-export default function BatteryWattHoursCalculator() {
-  const [batteryVoltage, setBatteryVoltage] = useState('12');
-  const [batteryCapacityAh, setBatteryCapacityAh] = useState('100');
-  const [batteryChemistry, setBatteryChemistry] = useState('lithium-ion');
-  const [depthOfDischarge, setDepthOfDischarge] = useState('80');
-  const [deviceType, setDeviceType] = useState('laptop');
-  const [customWatts, setCustomWatts] = useState('100');
-  const [customHours, setCustomHours] = useState('8');
-  const [inverterEfficiency, setInverterEfficiency] = useState('90');
+const DEFAULTS = {
+  batteryVoltage: '12',
+  batteryCapacityAh: '100',
+  batteryChemistry: 'lithium-ion',
+  depthOfDischarge: '80',
+  deviceType: 'laptop',
+  customWatts: '100',
+  customHours: '8',
+  inverterEfficiency: '90',
+};
 
-  const chemistry = batteryChemistries.find((c) => c.value === batteryChemistry)!;
-  const device = commonDevices.find((d) => d.value === deviceType);
+export default function BatteryWattHoursCalculator() {
+  const [batteryVoltage, setBatteryVoltage] = useState(DEFAULTS.batteryVoltage);
+  const [batteryCapacityAh, setBatteryCapacityAh] = useState(DEFAULTS.batteryCapacityAh);
+  const [batteryChemistry, setBatteryChemistry] = useState(DEFAULTS.batteryChemistry);
+  const [depthOfDischarge, setDepthOfDischarge] = useState(DEFAULTS.depthOfDischarge);
+  const [deviceType, setDeviceType] = useState(DEFAULTS.deviceType);
+  const [customWatts, setCustomWatts] = useState(DEFAULTS.customWatts);
+  const [customHours, setCustomHours] = useState(DEFAULTS.customHours);
+  const [inverterEfficiency, setInverterEfficiency] = useState(DEFAULTS.inverterEfficiency);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    batteryVoltage, batteryCapacityAh, batteryChemistry, depthOfDischarge,
+    deviceType, customWatts, customHours, inverterEfficiency,
+  });
+
   const isCustom = deviceType === 'custom';
-  const deviceWatts = isCustom ? Math.max(parseFloat(customWatts) || 0, 1) : device?.watts || 0;
-  const deviceHours = isCustom ? Math.max(parseFloat(customHours) || 0, 0.1) : device?.hours || 0;
-  const volts = Math.max(parseFloat(batteryVoltage) || 1, 1);
-  const ah = Math.max(parseFloat(batteryCapacityAh) || 1, 1);
-  const dod = Math.min(Math.max(parseFloat(depthOfDischarge) || 80, 20), 100);
-  const invEff = Math.min(Math.max(parseFloat(inverterEfficiency) || 90, 70), 100);
+  const chemistry = batteryChemistries.find((c) => c.value === src.batteryChemistry)!;
+  const device = commonDevices.find((d) => d.value === src.deviceType);
+  const deviceWatts = src.deviceType === 'custom' ? Math.max(parseFloat(src.customWatts) || 0, 1) : device?.watts || 0;
+  const deviceHours = src.deviceType === 'custom' ? Math.max(parseFloat(src.customHours) || 0, 0.1) : device?.hours || 0;
+  const volts = Math.max(parseFloat(src.batteryVoltage) || 1, 1);
+  const ah = Math.max(parseFloat(src.batteryCapacityAh) || 1, 1);
+  const dod = Math.min(Math.max(parseFloat(src.depthOfDischarge) || 80, 20), 100);
+  const invEff = Math.min(Math.max(parseFloat(src.inverterEfficiency) || 90, 70), 100);
+
+  const handleReset = () => {
+    setBatteryVoltage(DEFAULTS.batteryVoltage);
+    setBatteryCapacityAh(DEFAULTS.batteryCapacityAh);
+    setBatteryChemistry(DEFAULTS.batteryChemistry);
+    setDepthOfDischarge(DEFAULTS.depthOfDischarge);
+    setDeviceType(DEFAULTS.deviceType);
+    setCustomWatts(DEFAULTS.customWatts);
+    setCustomHours(DEFAULTS.customHours);
+    setInverterEfficiency(DEFAULTS.inverterEfficiency);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const batteryWattHours = volts * ah;
@@ -100,9 +130,10 @@ export default function BatteryWattHoursCalculator() {
     <CalcShell
       Icon={Battery}
       title="Battery Watt-Hours Calculator"
-      subtitle="Capacity, runtime, cycle life. Updates live."
+      subtitle="Capacity, runtime, cycle life."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Battery specs" subtitle="Voltage, capacity, chemistry" Icon={Battery} accent={ACCENT} />
         <div className="space-y-5">
@@ -174,8 +205,17 @@ export default function BatteryWattHoursCalculator() {
         )}
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -254,6 +294,8 @@ export default function BatteryWattHoursCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

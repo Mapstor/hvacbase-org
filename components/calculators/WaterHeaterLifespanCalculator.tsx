@@ -22,6 +22,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
   accentMap,
 } from './_shared';
 
@@ -65,19 +67,35 @@ const warningSignsList = [
 
 const repairPresets = [200, 500, 1000, 2000];
 
-export default function WaterHeaterLifespanCalculator() {
-  const [heaterType, setHeaterType] = useState('gas-tank');
-  const [heaterAge, setHeaterAge] = useState('8');
-  const [waterHardness, setWaterHardness] = useState('moderate');
-  const [maintenanceFreq, setMaintenanceFreq] = useState('annual');
-  const [warningSigns, setWarningSigns] = useState<Set<string>>(new Set());
-  const [repairCost, setRepairCost] = useState('500');
+const DEFAULTS = {
+  heaterType: 'gas-tank',
+  heaterAge: '8',
+  waterHardness: 'moderate',
+  maintenanceFreq: 'annual',
+  repairCost: '500',
+};
 
-  const heater = waterHeaters.find((h) => h.value === heaterType)!;
-  const hardness = waterHardnessOptions.find((w) => w.value === waterHardness)!;
-  const maint = maintenanceOptions.find((m) => m.value === maintenanceFreq)!;
-  const age = Math.max(parseFloat(heaterAge) || 0, 0);
-  const repair = Math.max(parseFloat(repairCost) || 0, 0);
+export default function WaterHeaterLifespanCalculator() {
+  const [heaterType, setHeaterType] = useState(DEFAULTS.heaterType);
+  const [heaterAge, setHeaterAge] = useState(DEFAULTS.heaterAge);
+  const [waterHardness, setWaterHardness] = useState(DEFAULTS.waterHardness);
+  const [maintenanceFreq, setMaintenanceFreq] = useState(DEFAULTS.maintenanceFreq);
+  const [warningSigns, setWarningSigns] = useState<Set<string>>(new Set());
+  const [repairCost, setRepairCost] = useState(DEFAULTS.repairCost);
+
+  // Serialize the Set for the submit hook (which tracks string inputs).
+  const warningSignsSerialized = Array.from(warningSigns).sort().join(',');
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    heaterType, heaterAge, waterHardness, maintenanceFreq, warningSignsSerialized, repairCost,
+  });
+
+  const heater = waterHeaters.find((h) => h.value === src.heaterType)!;
+  const hardness = waterHardnessOptions.find((w) => w.value === src.waterHardness)!;
+  const maint = maintenanceOptions.find((m) => m.value === src.maintenanceFreq)!;
+  const age = Math.max(parseFloat(src.heaterAge) || 0, 0);
+  const repair = Math.max(parseFloat(src.repairCost) || 0, 0);
+  const srcWarningSigns = new Set<string>(src.warningSignsSerialized ? src.warningSignsSerialized.split(',') : []);
 
   const toggleSign = (id: string) => {
     setWarningSigns((prev) => {
@@ -88,25 +106,35 @@ export default function WaterHeaterLifespanCalculator() {
     });
   };
 
+  const handleReset = () => {
+    setHeaterType(DEFAULTS.heaterType);
+    setHeaterAge(DEFAULTS.heaterAge);
+    setWaterHardness(DEFAULTS.waterHardness);
+    setMaintenanceFreq(DEFAULTS.maintenanceFreq);
+    setWarningSigns(new Set());
+    setRepairCost(DEFAULTS.repairCost);
+    clear();
+  };
+
   const calc = useMemo(() => {
     const adjustedLifespan = Math.max(heater.avgLifespan + hardness.delta + maint.delta, 1);
     const remainingYears = Math.max(adjustedLifespan - age, 0);
     const percentLifeUsed = (age / adjustedLifespan) * 100;
-    const totalScore = Array.from(warningSigns).reduce((sum, id) => {
+    const totalScore = Array.from(srcWarningSigns).reduce((sum, id) => {
       const sign = warningSignsList.find((s) => s.id === id);
       return sum + (sign?.score || 0);
     }, 0);
-    const hasCritical = Array.from(warningSigns).some((id) => warningSignsList.find((s) => s.id === id)?.critical);
+    const hasCritical = Array.from(srcWarningSigns).some((id) => warningSignsList.find((s) => s.id === id)?.critical);
     const avgReplacementCost = (heater.replacementMin + heater.replacementMax) / 2;
     const repairThreshold = avgReplacementCost * 0.5;
     const shouldReplace = hasCritical || repair > repairThreshold || age > adjustedLifespan * 0.8 || totalScore >= 8;
     const efficiencyLoss = age > 8 ? Math.min((age - 8) * 5, 30) : 0;
-    const baseOperatingCost = heaterType.includes('gas') ? 350 : 500;
+    const baseOperatingCost = src.heaterType.includes('gas') ? 350 : 500;
     const currentOperatingCost = baseOperatingCost * (1 + efficiencyLoss / 100);
     const annualExtraCost = currentOperatingCost - baseOperatingCost;
     const severity = totalScore >= 10 ? 'critical' : totalScore >= 6 ? 'high' : totalScore > 0 ? 'moderate' : 'none';
     return { adjustedLifespan, remainingYears, percentLifeUsed, totalScore, hasCritical, avgReplacementCost, repairThreshold, shouldReplace, efficiencyLoss, annualExtraCost, severity };
-  }, [heater, hardness, maint, age, repair, warningSigns, heaterType]);
+  }, [heater, hardness, maint, age, repair, src.warningSignsSerialized, src.heaterType]);
 
   const fit =
     age === 0 ? { tone: 'warn' as const, text: 'Enter heater age' } :
@@ -123,9 +151,10 @@ export default function WaterHeaterLifespanCalculator() {
     <CalcShell
       Icon={Droplets}
       title="Water Heater Lifespan Calculator"
-      subtitle="Repair vs replace — 50% rule + age + warning signs. Updates live."
+      subtitle="Repair vs replace — 50% rule + age + warning signs."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Your water heater" subtitle="Type, age, and water conditions" Icon={Droplets} accent={ACCENT} />
         <div className="space-y-5">
@@ -203,8 +232,17 @@ export default function WaterHeaterLifespanCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -323,7 +361,7 @@ export default function WaterHeaterLifespanCalculator() {
           ) : heater.value.includes('tankless') ? (
             <p>
               Tankless units last longer but need annual descaling — especially in hard water areas. The heat exchanger is the failure point.
-              {(waterHardness === 'hard' || waterHardness === 'very-hard') && ' Your hard water materially shortens lifespan — a water softener pays for itself.'}
+              {(src.waterHardness === 'hard' || src.waterHardness === 'very-hard') && ' Your hard water materially shortens lifespan — a water softener pays for itself.'}
             </p>
           ) : heater.value === 'heat-pump' ? (
             <p>HPWH compressors are the failure mode (similar to refrigerators). Lifespan is shorter than gas tankless but operating cost is 60–70% lower.</p>
@@ -337,6 +375,8 @@ export default function WaterHeaterLifespanCalculator() {
           )}
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

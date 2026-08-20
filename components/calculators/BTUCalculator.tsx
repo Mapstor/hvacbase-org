@@ -38,6 +38,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
   accentMap,
 } from './_shared';
 
@@ -90,20 +92,54 @@ const sunExposureOptions = [
 const lengthPresets = [10, 12, 15, 20, 25];
 const heightPresets = [8, 9, 10, 12];
 
+const DEFAULTS = {
+  length: '15',
+  width: '12',
+  height: '8',
+  climate: 'mixed-humid',
+  roomType: 'living',
+  windowType: 'double',
+  windowArea: '30',
+  insulation: 'average',
+  sunExposure: 'moderate',
+  occupants: '2',
+  appliances: '2',
+};
+
 export default function BTUCalculator() {
-  const [length, setLength] = useState('15');
-  const [width, setWidth] = useState('12');
-  const [height, setHeight] = useState('8');
-  const [climate, setClimate] = useState('mixed-humid');
-  const [roomType, setRoomType] = useState('living');
-  const [windowType, setWindowType] = useState('double');
-  const [windowArea, setWindowArea] = useState('30');
-  const [insulation, setInsulation] = useState('average');
-  const [sunExposure, setSunExposure] = useState('moderate');
-  const [occupants, setOccupants] = useState('2');
-  const [appliances, setAppliances] = useState('2');
+  const [length, setLength] = useState(DEFAULTS.length);
+  const [width, setWidth] = useState(DEFAULTS.width);
+  const [height, setHeight] = useState(DEFAULTS.height);
+  const [climate, setClimate] = useState(DEFAULTS.climate);
+  const [roomType, setRoomType] = useState(DEFAULTS.roomType);
+  const [windowType, setWindowType] = useState(DEFAULTS.windowType);
+  const [windowArea, setWindowArea] = useState(DEFAULTS.windowArea);
+  const [insulation, setInsulation] = useState(DEFAULTS.insulation);
+  const [sunExposure, setSunExposure] = useState(DEFAULTS.sunExposure);
+  const [occupants, setOccupants] = useState(DEFAULTS.occupants);
+  const [appliances, setAppliances] = useState(DEFAULTS.appliances);
   const [locationDetected, setLocationDetected] = useState(false);
   const [detectingLocation, setDetectingLocation] = useState(false);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    length, width, height, climate, roomType, windowType, windowArea,
+    insulation, sunExposure, occupants, appliances,
+  });
+
+  const handleReset = () => {
+    setLength(DEFAULTS.length);
+    setWidth(DEFAULTS.width);
+    setHeight(DEFAULTS.height);
+    setClimate(DEFAULTS.climate);
+    setRoomType(DEFAULTS.roomType);
+    setWindowType(DEFAULTS.windowType);
+    setWindowArea(DEFAULTS.windowArea);
+    setInsulation(DEFAULTS.insulation);
+    setSunExposure(DEFAULTS.sunExposure);
+    setOccupants(DEFAULTS.occupants);
+    setAppliances(DEFAULTS.appliances);
+    clear();
+  };
 
   const detectClimateZone = () => {
     if (typeof navigator === 'undefined' || !navigator.geolocation) return;
@@ -128,18 +164,18 @@ export default function BTUCalculator() {
     );
   };
 
-  const selectedZone = climateZones.find((z) => z.value === climate)!;
-  const selectedRoom = roomTypes.find((r) => r.value === roomType)!;
-  const selectedWindow = windowTypes.find((w) => w.value === windowType)!;
-  const selectedInsulation = insulationOptions.find((i) => i.value === insulation)!;
-  const selectedSun = sunExposureOptions.find((s) => s.value === sunExposure)!;
+  const selectedZone = climateZones.find((z) => z.value === src.climate)!;
+  const selectedRoom = roomTypes.find((r) => r.value === src.roomType)!;
+  const selectedWindow = windowTypes.find((w) => w.value === src.windowType)!;
+  const selectedInsulation = insulationOptions.find((i) => i.value === src.insulation)!;
+  const selectedSun = sunExposureOptions.find((s) => s.value === src.sunExposure)!;
 
-  const lenN = Math.max(parseFloat(length) || 0, 0);
-  const wdtN = Math.max(parseFloat(width) || 0, 0);
-  const htN = Math.max(parseFloat(height) || 0, 0);
-  const winAreaN = Math.max(parseFloat(windowArea) || 0, 0);
-  const occN = Math.max(parseInt(occupants) || 0, 0);
-  const appN = Math.max(parseInt(appliances) || 0, 0);
+  const lenN = Math.max(parseFloat(src.length) || 0, 0);
+  const wdtN = Math.max(parseFloat(src.width) || 0, 0);
+  const htN = Math.max(parseFloat(src.height) || 0, 0);
+  const winAreaN = Math.max(parseFloat(src.windowArea) || 0, 0);
+  const occN = Math.max(parseInt(src.occupants) || 0, 0);
+  const appN = Math.max(parseInt(src.appliances) || 0, 0);
 
   const calc = useMemo(() => {
     const roomArea = lenN * wdtN;
@@ -206,9 +242,10 @@ export default function BTUCalculator() {
     <CalcShell
       Icon={Calculator}
       title="BTU Calculator"
-      subtitle="Exact cooling capacity for any room. Updates as you change inputs."
+      subtitle="Exact cooling capacity for any room."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Room dimensions */}
       <section>
         <SectionHeader step={1} title="Room dimensions" subtitle="Length × width × ceiling height" Icon={Home} accent={ACCENT} />
@@ -435,9 +472,18 @@ export default function BTUCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -518,6 +564,8 @@ export default function BTUCalculator() {
           </p>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
 
       <SocialShare
         title="BTU Calculator"

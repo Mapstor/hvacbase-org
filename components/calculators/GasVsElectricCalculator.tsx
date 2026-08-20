@@ -24,6 +24,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'orange' as const;
@@ -41,20 +43,44 @@ const applianceTypes = [
     gasEfficiency: 0.75, electricEfficiency: 1.0, gasSize: 40000, electricSize: 1500, usageHours: 4 },
 ];
 
-export default function GasVsElectricCalculator() {
-  const [applianceType, setApplianceType] = useState('water-heater');
-  const [gasPrice, setGasPrice] = useState('1.20');
-  const [electricRate, setElectricRate] = useState('0.16');
-  const [customGasSize, setCustomGasSize] = useState('');
-  const [customElectricSize, setCustomElectricSize] = useState('');
-  const [customHours, setCustomHours] = useState('');
+const DEFAULTS = {
+  applianceType: 'water-heater',
+  gasPrice: '1.20',
+  electricRate: '0.16',
+  customGasSize: '',
+  customElectricSize: '',
+  customHours: '',
+};
 
-  const selected = applianceTypes.find((t) => t.value === applianceType)!;
-  const gP = Math.max(parseFloat(gasPrice) || 0, 0);
-  const eR = Math.max(parseFloat(electricRate) || 0, 0);
-  const gasBtuPerHr = customGasSize ? parseFloat(customGasSize) || 0 : selected.gasSize;
-  const electricWatts = customElectricSize ? parseFloat(customElectricSize) || 0 : selected.electricSize;
-  const hours = customHours ? parseFloat(customHours) || 0 : selected.usageHours;
+export default function GasVsElectricCalculator() {
+  const [applianceType, setApplianceType] = useState(DEFAULTS.applianceType);
+  const [gasPrice, setGasPrice] = useState(DEFAULTS.gasPrice);
+  const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
+  const [customGasSize, setCustomGasSize] = useState(DEFAULTS.customGasSize);
+  const [customElectricSize, setCustomElectricSize] = useState(DEFAULTS.customElectricSize);
+  const [customHours, setCustomHours] = useState(DEFAULTS.customHours);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    applianceType, gasPrice, electricRate, customGasSize, customElectricSize, customHours,
+  });
+
+  const uiSelected = applianceTypes.find((t) => t.value === applianceType)!;
+  const selected = applianceTypes.find((t) => t.value === src.applianceType)!;
+  const gP = Math.max(parseFloat(src.gasPrice) || 0, 0);
+  const eR = Math.max(parseFloat(src.electricRate) || 0, 0);
+  const gasBtuPerHr = src.customGasSize ? parseFloat(src.customGasSize) || 0 : selected.gasSize;
+  const electricWatts = src.customElectricSize ? parseFloat(src.customElectricSize) || 0 : selected.electricSize;
+  const hours = src.customHours ? parseFloat(src.customHours) || 0 : selected.usageHours;
+
+  const handleReset = () => {
+    setApplianceType(DEFAULTS.applianceType);
+    setGasPrice(DEFAULTS.gasPrice);
+    setElectricRate(DEFAULTS.electricRate);
+    setCustomGasSize(DEFAULTS.customGasSize);
+    setCustomElectricSize(DEFAULTS.customElectricSize);
+    setCustomHours(DEFAULTS.customHours);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const dailyGasBtu = gasBtuPerHr * hours;
@@ -103,9 +129,10 @@ export default function GasVsElectricCalculator() {
     <CalcShell
       Icon={Flame}
       title="Gas vs Electric Cost Calculator"
-      subtitle="Operating cost + CO₂ + efficiency side-by-side for any appliance. Updates live."
+      subtitle="Operating cost + CO₂ + efficiency side-by-side for any appliance."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Appliance */}
       <section>
         <SectionHeader step={1} title="Pick an appliance" subtitle="Common defaults ship with each — override below if you have specs" Icon={Flame} accent={ACCENT} />
@@ -136,27 +163,36 @@ export default function GasVsElectricCalculator() {
 
       {/* Section 3 — Custom overrides */}
       <section>
-        <SectionHeader step={3} title="Specs (optional override)" subtitle={`Defaults for ${selected.name.toLowerCase()}: ${fmt(selected.gasSize)} BTU gas, ${fmt(selected.electricSize)}W electric, ${selected.usageHours} hr/day`} Icon={TrendingUp} accent={ACCENT} />
+        <SectionHeader step={3} title="Specs (optional override)" subtitle={`Defaults for ${uiSelected.name.toLowerCase()}: ${fmt(uiSelected.gasSize)} BTU gas, ${fmt(uiSelected.electricSize)}W electric, ${uiSelected.usageHours} hr/day`} Icon={TrendingUp} accent={ACCENT} />
 
         <div className="grid sm:grid-cols-3 gap-5">
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Gas size override</label>
-            <NumberInput value={customGasSize} onChange={setCustomGasSize} min={0} max={200000} suffix="BTU/hr" placeholder={`Default: ${fmt(selected.gasSize)}`} ariaLabel="Custom gas size" accent={ACCENT} className="max-w-none" />
+            <NumberInput value={customGasSize} onChange={setCustomGasSize} min={0} max={200000} suffix="BTU/hr" placeholder={`Default: ${fmt(uiSelected.gasSize)}`} ariaLabel="Custom gas size" accent={ACCENT} className="max-w-none" />
           </div>
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Electric size override</label>
-            <NumberInput value={customElectricSize} onChange={setCustomElectricSize} min={0} max={50000} suffix="W" placeholder={`Default: ${fmt(selected.electricSize)}`} ariaLabel="Custom electric size" accent={ACCENT} className="max-w-none" />
+            <NumberInput value={customElectricSize} onChange={setCustomElectricSize} min={0} max={50000} suffix="W" placeholder={`Default: ${fmt(uiSelected.electricSize)}`} ariaLabel="Custom electric size" accent={ACCENT} className="max-w-none" />
           </div>
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Hours/day override</label>
-            <NumberInput value={customHours} onChange={setCustomHours} min={0} max={24} suffix="hr/day" placeholder={`Default: ${selected.usageHours}`} ariaLabel="Custom hours" accent={ACCENT} className="max-w-none" />
+            <NumberInput value={customHours} onChange={setCustomHours} min={0} max={24} suffix="hr/day" placeholder={`Default: ${uiSelected.usageHours}`} ariaLabel="Custom hours" accent={ACCENT} className="max-w-none" />
           </div>
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
       {/* Results */}
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -288,6 +324,8 @@ export default function GasVsElectricCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

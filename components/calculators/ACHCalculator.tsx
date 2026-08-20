@@ -22,6 +22,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'emerald' as const;
@@ -44,18 +46,39 @@ const dimensionPresets = [
   { value: '12', name: '12 ft+', sub: 'Vaulted' },
 ];
 
-export default function ACHCalculator() {
-  const [roomLength, setRoomLength] = useState('12');
-  const [roomWidth, setRoomWidth] = useState('10');
-  const [ceilingHeight, setCeilingHeight] = useState('8');
-  const [airflow, setAirflow] = useState('240');
-  const [spaceType, setSpaceType] = useState('living');
+const DEFAULTS = {
+  roomLength: '12',
+  roomWidth: '10',
+  ceilingHeight: '8',
+  airflow: '240',
+  spaceType: 'living',
+};
 
-  const space = spaceTypes.find((s) => s.value === spaceType)!;
-  const L = Math.max(parseFloat(roomLength) || 0, 0);
-  const W = Math.max(parseFloat(roomWidth) || 0, 0);
-  const H = Math.max(parseFloat(ceilingHeight) || 0, 0);
-  const cfm = Math.max(parseFloat(airflow) || 0, 0);
+export default function ACHCalculator() {
+  const [roomLength, setRoomLength] = useState(DEFAULTS.roomLength);
+  const [roomWidth, setRoomWidth] = useState(DEFAULTS.roomWidth);
+  const [ceilingHeight, setCeilingHeight] = useState(DEFAULTS.ceilingHeight);
+  const [airflow, setAirflow] = useState(DEFAULTS.airflow);
+  const [spaceType, setSpaceType] = useState(DEFAULTS.spaceType);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    roomLength, roomWidth, ceilingHeight, airflow, spaceType,
+  });
+
+  const handleReset = () => {
+    setRoomLength(DEFAULTS.roomLength);
+    setRoomWidth(DEFAULTS.roomWidth);
+    setCeilingHeight(DEFAULTS.ceilingHeight);
+    setAirflow(DEFAULTS.airflow);
+    setSpaceType(DEFAULTS.spaceType);
+    clear();
+  };
+
+  const space = spaceTypes.find((s) => s.value === src.spaceType)!;
+  const L = Math.max(parseFloat(src.roomLength) || 0, 0);
+  const W = Math.max(parseFloat(src.roomWidth) || 0, 0);
+  const H = Math.max(parseFloat(src.ceilingHeight) || 0, 0);
+  const cfm = Math.max(parseFloat(src.airflow) || 0, 0);
 
   const calc = useMemo(() => {
     const area = L * W;
@@ -82,9 +105,10 @@ export default function ACHCalculator() {
     <CalcShell
       Icon={Wind}
       title="Air Changes Per Hour (ACH) Calculator"
-      subtitle="Ventilation rate + ASHRAE compliance check. Updates live."
+      subtitle="Ventilation rate + ASHRAE compliance check."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Room dimensions" subtitle="Length × width × ceiling = volume" Icon={Home} accent={ACCENT} />
 
@@ -153,8 +177,17 @@ export default function ACHCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -264,6 +297,8 @@ export default function ACHCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }

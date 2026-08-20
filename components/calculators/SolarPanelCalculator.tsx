@@ -21,6 +21,8 @@ import {
   BreakdownTable,
   DisclaimerBox,
   ResultsHeader,
+  CalculateResetBar,
+  useCalculatorSubmit,
 } from './_shared';
 
 const ACCENT = 'emerald' as const;
@@ -44,22 +46,47 @@ const panelTypes = [
   { value: 'thin-film', name: 'Thin film', summary: '12% efficient — flexible/cheap', tier: 'Low', efficiency: 0.12, costPerWatt: 2.00 },
 ];
 
-export default function SolarPanelCalculator() {
-  const [monthlyBill, setMonthlyBill] = useState('150');
-  const [electricRate, setElectricRate] = useState('0.16');
-  const [location, setLocation] = useState('average');
-  const [panelType, setPanelType] = useState('monocrystalline');
-  const [roofSpace, setRoofSpace] = useState('800');
-  const [shadingFactor, setShadingFactor] = useState('100');
-  const [systemEfficiency, setSystemEfficiency] = useState('85');
+const DEFAULTS = {
+  monthlyBill: '150',
+  electricRate: '0.16',
+  location: 'average',
+  panelType: 'monocrystalline',
+  roofSpace: '800',
+  shadingFactor: '100',
+  systemEfficiency: '85',
+};
 
-  const loc = locations.find((l) => l.value === location)!;
-  const panel = panelTypes.find((p) => p.value === panelType)!;
-  const bill = Math.max(parseFloat(monthlyBill) || 0, 0);
-  const rate = Math.max(parseFloat(electricRate) || 0, 0.01);
-  const roof = Math.max(parseFloat(roofSpace) || 0, 0);
-  const shading = Math.min(Math.max(parseFloat(shadingFactor) || 100, 50), 100);
-  const sysEff = Math.min(Math.max(parseFloat(systemEfficiency) || 85, 70), 95);
+export default function SolarPanelCalculator() {
+  const [monthlyBill, setMonthlyBill] = useState(DEFAULTS.monthlyBill);
+  const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
+  const [location, setLocation] = useState(DEFAULTS.location);
+  const [panelType, setPanelType] = useState(DEFAULTS.panelType);
+  const [roofSpace, setRoofSpace] = useState(DEFAULTS.roofSpace);
+  const [shadingFactor, setShadingFactor] = useState(DEFAULTS.shadingFactor);
+  const [systemEfficiency, setSystemEfficiency] = useState(DEFAULTS.systemEfficiency);
+
+  const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
+    monthlyBill, electricRate, location, panelType, roofSpace, shadingFactor, systemEfficiency,
+  });
+
+  const loc = locations.find((l) => l.value === src.location)!;
+  const panel = panelTypes.find((p) => p.value === src.panelType)!;
+  const bill = Math.max(parseFloat(src.monthlyBill) || 0, 0);
+  const rate = Math.max(parseFloat(src.electricRate) || 0, 0.01);
+  const roof = Math.max(parseFloat(src.roofSpace) || 0, 0);
+  const shading = Math.min(Math.max(parseFloat(src.shadingFactor) || 100, 50), 100);
+  const sysEff = Math.min(Math.max(parseFloat(src.systemEfficiency) || 85, 70), 95);
+
+  const handleReset = () => {
+    setMonthlyBill(DEFAULTS.monthlyBill);
+    setElectricRate(DEFAULTS.electricRate);
+    setLocation(DEFAULTS.location);
+    setPanelType(DEFAULTS.panelType);
+    setRoofSpace(DEFAULTS.roofSpace);
+    setShadingFactor(DEFAULTS.shadingFactor);
+    setSystemEfficiency(DEFAULTS.systemEfficiency);
+    clear();
+  };
 
   const calc = useMemo(() => {
     const monthlyKwh = bill / rate;
@@ -104,9 +131,10 @@ export default function SolarPanelCalculator() {
     <CalcShell
       Icon={Sun}
       title="Solar Panel Calculator"
-      subtitle="System size + 20-year ROI from your bill. Updates live."
+      subtitle="System size + 20-year ROI from your bill."
       accent={ACCENT}
     >
+      <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
         <SectionHeader step={1} title="Your electric usage" subtitle="From your last bill" Icon={Zap} accent={ACCENT} />
         <div className="grid sm:grid-cols-2 gap-5">
@@ -164,8 +192,17 @@ export default function SolarPanelCalculator() {
         </div>
       </section>
 
+      <CalculateResetBar
+        onCalculate={calculate}
+        onReset={handleReset}
+        dirty={dirty}
+        hasResult={hasResult}
+        accent={ACCENT}
+      />
+
+      {hasResult && (
       <section aria-live="polite" className="space-y-5">
-        <ResultsHeader />
+        <ResultsHeader dirty={dirty} />
 
         <ResultHero
           accent={ACCENT}
@@ -270,6 +307,8 @@ export default function SolarPanelCalculator() {
           </ul>
         </DisclaimerBox>
       </section>
+      )}
+      </form>
     </CalcShell>
   );
 }
