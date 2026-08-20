@@ -95,7 +95,13 @@ export default function FurnaceElectricalCalculator() {
     const actualBlowerWatts = specs.blowerWatts * blower.multiplier;
     const heatingWatts = actualBlowerWatts + specs.inducerWatts + specs.controlWatts;
     const startupWatts = heatingWatts + specs.igniterWatts;
-    const startupCycles = (heatHrs / 120) * 10;
+    // Igniter fires at the start of each heating cycle. Real residential
+    // thermostats cycle roughly 3–8 times per hour of active heating; we use
+    // 3 cycles/hr (bottom of the range) as a conservative estimate. Prior
+    // formula (heatHrs / 120 × 10 = 1 cycle per 12 hours of runtime) was ~30×
+    // low; total kWh impact is trivial either way (~0.5% of annual furnace
+    // electric), but the row-level number the user sees is now realistic.
+    const startupCycles = heatHrs * 3;
     const startupKwh = (specs.igniterWatts * 0.5 / 60) * startupCycles / 1000;
     const runningKwh = (heatingWatts * heatHrs) / 1000;
     const fanOnlyKwh = (actualBlowerWatts * fanHrs) / 1000;
@@ -230,22 +236,40 @@ export default function FurnaceElectricalCalculator() {
             />
           </div>
 
+          {/* CIRCUIT / WIRING PANEL — reframed as CONFIRMING that the furnace
+              fits within the standard residential dedicated circuit that NEC
+              422 + the manufacturer's install manual already require, NOT
+              sizing a custom circuit for the user. This calc is the ONE
+              exception to the "no wire-gauge output" pattern we applied to
+              Battery12V (#1), ThreePhase (#3), and GeneratorAmps (#4). The
+              rationale: those siblings had wire-gauge outputs that (a) needed
+              to handle a wide range of currents, (b) mixed ampacity standards,
+              and (c) targeted install contexts (RV/marine, industrial 480V,
+              generator transfer switches) where a wrong number is genuinely
+              hazardous. Gas furnace circuits are bounded: <10 A draw at 120V,
+              15A breaker + 14 AWG dedicated circuit is what the furnace
+              install manual + NEC 422 require. The output here confirms fit,
+              matches mandatory code, and can't send a homeowner to a wrong
+              install because the "right" answer is the same standard circuit
+              their electrician was already going to run. */}
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
               <Zap className="w-4 h-4 text-orange-600" />
-              Circuit & wiring needs
+              Circuit confirmation
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'Voltage', detail: 'Standard 120V circuit', factor: '120V' },
+                { label: 'Voltage', detail: 'Standard 120V residential', factor: '120V' },
                 { label: 'Max amps', detail: 'At startup surge', factor: `${calc.maxAmps.toFixed(1)}A` },
-                { label: 'Recommended breaker', detail: 'NEC sizing rule', factor: `${calc.recommendedBreaker}A` },
-                { label: 'Wire gauge', detail: 'Copper, 75°C insulation', factor: calc.wireGauge },
+                { label: 'Confirmed breaker', detail: 'Per NEC 210.20 (125% continuous)', factor: `${calc.recommendedBreaker}A` },
+                { label: 'Confirmed wire gauge', detail: 'Per NEC 240.4(D) + 310.16', factor: calc.wireGauge },
               ]}
               totals={[]}
             />
             <p className="text-[11px] text-gray-600 mt-3 leading-snug">
-              Most gas furnaces need a <strong>dedicated circuit</strong>. Sharing with other appliances can trip the breaker on startup surge. The breaker size shown gives 25% headroom above the running load.
+              Gas furnaces install on a <strong>dedicated 120V circuit</strong> (typically 15A / 14 AWG) per the
+              manufacturer's install manual and NEC 422. This confirms your furnace's draw fits within that standard
+              circuit — always follow your unit's install manual and have a licensed electrician verify the circuit.
             </p>
           </div>
 
@@ -258,7 +282,7 @@ export default function FurnaceElectricalCalculator() {
               rows={[
                 { label: 'Heating runtime', detail: `${fmt(heatHrs)} hrs × ${fmt(calc.heatingWatts)}W`, factor: `${fmt(Math.round(calc.runningKwh))} kWh` },
                 { label: 'Fan-only mode', detail: `${fmt(fanHrs)} hrs × ${fmt(calc.actualBlowerWatts)}W`, factor: `${fmt(Math.round(calc.fanOnlyKwh))} kWh` },
-                { label: 'Igniter cycles', detail: '~30s per cycle', factor: `${calc.startupKwh.toFixed(1)} kWh` },
+                { label: 'Igniter energy', detail: `~3 cycles/hr × ~30s each`, factor: `${calc.startupKwh.toFixed(1)} kWh` },
               ]}
               totals={[
                 { label: 'Total', value: `${fmt(Math.round(calc.totalKwh))} kWh`, valueClass: 'text-orange-700' },
@@ -298,10 +322,11 @@ export default function FurnaceElectricalCalculator() {
 
         <DisclaimerBox title="Real-world notes">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Igniter wattage shown is the peak draw — it runs only 20–60 seconds per cycle, so total kWh impact is tiny</li>
+            <li>Igniter wattage shown is the peak draw — it runs only 20–60 seconds per cycle, so total kWh impact is tiny (~0.5% of annual furnace electricity)</li>
             <li>ECM motors save more in homes with longer heating seasons or extensive fan-only runtime</li>
             <li>Two-stage and modulating furnaces with ECM can pull as little as 100W on low fire — half what's shown here</li>
             <li>If your furnace shares a circuit with the AC condensate pump, sump pump, or AC blower (rare but possible), wire amperage may need to be sized for the larger load</li>
+            <li><strong>Monthly/daily "heat season" figures assume a 6-month (~180-day) heating season</strong> — scale roughly to your climate (~2 months in Florida, ~9 months in Alaska). Total annual kWh and cost are driven by the runtime hours you selected above, not by this assumption.</li>
           </ul>
         </DisclaimerBox>
       </section>
