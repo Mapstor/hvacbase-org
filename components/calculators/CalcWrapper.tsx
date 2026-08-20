@@ -3,6 +3,57 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { Calculator } from 'lucide-react';
+import UnverifiedCalcNotice from './UnverifiedCalcNotice';
+
+// Calculators whose formulas have not yet been re-verified against primary
+// sources. Any <CalcWrapper type=""> whose key is in this Set renders
+// <UnverifiedCalcNotice /> instead of the underlying calculator component,
+// so no unverified math is served in production. As each calculator finishes
+// its verification pass (Tier 1 electrical done; Tier 2 SIZING next), remove
+// its type key from this Set and it goes live on the next deploy.
+//
+// Verified live (NOT in this Set — render normally):
+//   mini-split, battery-12v-watts, battery-watt-hours, three-phase-power,
+//   generator-amps, furnace-electrical
+const UNVERIFIED_TYPES = new Set<string>([
+  'ac-tonnage',
+  'btu',
+  'seer2',
+  'kwh-cost',
+  'power-consumption',
+  'dehumidifier-sizing',
+  'air-purifier-sizing',
+  'ach',
+  'gas-vs-electric',
+  'solar-panel',
+  'specific-heat',
+  'dehumidifier-cost',
+  'furnace-sizing',
+  'heat-pump-size',
+  'water-heater-sizing',
+  'generator-sizing',
+  'ac-generator',
+  'hvac-lifespan',
+  'water-heater-lifespan',
+  'afue',
+  'water-heating-cost',
+  'large-room-portable-ac',
+  'small-room-portable-ac',
+  'hvac-roi',
+  'heat-pump-vs-furnace',
+]);
+
+// Per-unverified-calc pointer to a topically-adjacent VERIFIED sibling calc,
+// shown as an inline "Try our X Calculator →" link inside the notice. Only
+// mapped where the sibling covers meaningfully similar ground; unmapped
+// types just show the base notice.
+const SIBLING_HINT: Record<string, { slug: string; label: string }> = {
+  btu:              { slug: '/mini-split-sizing-calculator',        label: 'Mini-Split Sizing Calculator' },
+  'ac-tonnage':     { slug: '/mini-split-sizing-calculator',        label: 'Mini-Split Sizing Calculator' },
+  'heat-pump-size': { slug: '/mini-split-sizing-calculator',        label: 'Mini-Split Sizing Calculator' },
+  'generator-sizing': { slug: '/how-many-amps-does-generator-produce', label: 'Generator Amps Calculator' },
+  'ac-generator':     { slug: '/how-many-amps-does-generator-produce', label: 'Generator Amps Calculator' },
+};
 
 // Dynamically import calculators with SSR enabled for better SEO
 const calculators = {
@@ -130,8 +181,22 @@ interface CalcWrapperProps {
 export default function CalcWrapper({ type, calculator }: CalcWrapperProps) {
   // Support both 'type' and 'calculator' props for flexibility
   const calcType = type || calculator || 'btu';
+
+  // Gate — replace unverified calcs with the notice. This check runs BEFORE
+  // the not-found fallback so any type in UNVERIFIED_TYPES that doesn't have
+  // a matching component entry still shows the notice, not the fallback.
+  if (UNVERIFIED_TYPES.has(calcType)) {
+    const sibling = SIBLING_HINT[calcType];
+    return (
+      <UnverifiedCalcNotice
+        siblingSlug={sibling?.slug}
+        siblingLabel={sibling?.label}
+      />
+    );
+  }
+
   const CalculatorComponent = calculators[calcType as keyof typeof calculators];
-  
+
   if (!CalculatorComponent) {
     return (
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 my-8">
@@ -141,7 +206,7 @@ export default function CalcWrapper({ type, calculator }: CalcWrapperProps) {
       </div>
     );
   }
-  
+
   return (
     <Suspense fallback={<LoadingCalculator />}>
       <CalculatorComponent />

@@ -5,8 +5,11 @@ import RelatedArticles from '@/components/ui/RelatedArticles';
 import SourceLink from '@/components/ui/SourceLink';
 import TableOfContents from '@/components/ui/TableOfContents';
 import CalcWrapper from '@/components/calculators/CalcWrapper';
-import BTUCalculator from '@/components/calculators/BTUCalculator';
-import SEERCalculator from '@/components/tools/SEERCalculator';
+// BTUCalculator and SEERCalculator are the two legacy globally-mapped
+// calculators — see the gated wrappers below. Both are currently in the
+// primary-source-verification queue; when they clear the audit, swap the map
+// entries back to the real components.
+import UnverifiedCalcNotice from '@/components/calculators/UnverifiedCalcNotice';
 import EfficiencyCurve from '@/components/diagrams/EfficiencyCurve';
 import ComparisonChart from '@/components/diagrams/ComparisonChart';
 import ScaleDiagram from '@/components/diagrams/ScaleDiagram';
@@ -121,15 +124,28 @@ const ComparisonTableWrapper = ({ headers, rows, ...props }: any) => {
   return <ComparisonTable headers={headers} rows={processedRows} {...props} />;
 };
 
+// Gated wrappers for the two legacy globally-mapped calcs. When
+// <BTUCalculator /> or <SEERCalculator /> appears in any MDX file, the
+// notice renders in its place instead of the real (unverified) component.
+// See components/calculators/UnverifiedCalcNotice.tsx and the sibling gate
+// in components/calculators/CalcWrapper.tsx.
+const BTUCalculatorGated = () => (
+  <UnverifiedCalcNotice
+    siblingSlug="/mini-split-sizing-calculator"
+    siblingLabel="Mini-Split Sizing Calculator"
+  />
+);
+const SEERCalculatorGated = () => <UnverifiedCalcNotice />;
+
 export const mdxComponents = {
-  BTUCalculator,
+  BTUCalculator: BTUCalculatorGated,
   Callout,
   CalcWrapper,
   ComparisonTable: ComparisonTableWrapper,
   FAQ: FAQWrapper,
   KeyTakeaway,
   RelatedArticles,
-  SEERCalculator,
+  SEERCalculator: SEERCalculatorGated,
   SourceLink,
   SourcesBox,
   TableOfContents,
