@@ -5,7 +5,6 @@ import {
   Battery,
   Clock,
   Zap,
-  TrendingUp,
   Smartphone,
   Laptop,
   Lightbulb,
@@ -13,7 +12,8 @@ import {
   Tv,
   Refrigerator,
   Microwave,
-  Settings,
+  Snowflake,
+  AlertTriangle,
 } from 'lucide-react';
 import {
   fmt,
@@ -32,26 +32,64 @@ import {
 
 const ACCENT = 'emerald' as const;
 
+// Chemistry table — verified round-trip efficiency ranges (Battery University +
+// mainstream manufacturer datasheets), temperature-derating family, chemistry
+// cycle-life-safe default DoD. Round-trip efficiency is a CHARGE-side loss
+// (energy in vs energy out over a full cycle) — it is NOT applied to runtime
+// (that would double-count). It is surfaced in the "Round-trip efficiency"
+// display so users planning solar/off-grid can size their charge source.
+type TempFamily = 'lithium' | 'lead-acid';
+
 const batteryChemistries = [
-  { value: 'lithium-ion', name: 'Lithium-ion', summary: '95% eff · 3000 cycles', efficiency: 0.95, cycles: 3000 },
-  { value: 'lifepo4', name: 'LiFePO4', summary: '98% eff · 6000 cycles · safest', efficiency: 0.98, cycles: 6000 },
-  { value: 'lead-acid', name: 'Lead acid', summary: '85% eff · 500 cycles · cheap', efficiency: 0.85, cycles: 500 },
-  { value: 'agm', name: 'AGM', summary: '88% eff · 800 cycles · sealed', efficiency: 0.88, cycles: 800 },
-  { value: 'gel', name: 'Gel', summary: '87% eff · 1000 cycles · deep cycle', efficiency: 0.87, cycles: 1000 },
+  { value: 'lifepo4',     name: 'LiFePO4',     summary: '~94% round-trip · ~6,000 cycles · safest', roundTripEff: 0.94, cycles: 6000, tempFamily: 'lithium'   as TempFamily, defaultDod: 90 },
+  { value: 'lithium-ion', name: 'Lithium-ion', summary: '~93% round-trip · ~3,000 cycles',          roundTripEff: 0.93, cycles: 3000, tempFamily: 'lithium'   as TempFamily, defaultDod: 80 },
+  { value: 'lead-acid',   name: 'Lead acid',   summary: '~80% round-trip · ~500 cycles · cheap',    roundTripEff: 0.80, cycles: 500,  tempFamily: 'lead-acid' as TempFamily, defaultDod: 50 },
+  { value: 'agm',         name: 'AGM',         summary: '~82% round-trip · ~800 cycles · sealed',   roundTripEff: 0.82, cycles: 800,  tempFamily: 'lead-acid' as TempFamily, defaultDod: 50 },
+  { value: 'gel',         name: 'Gel',         summary: '~82% round-trip · ~1,000 cycles · deep cycle', roundTripEff: 0.82, cycles: 1000, tempFamily: 'lead-acid' as TempFamily, defaultDod: 50 },
 ];
 
+// Device presets. Watts × hours reflect REAL daily energy consumption.
+// - Refrigerator: 150W nameplate compressor duty-cycles at ~35%, so effective
+//   24hr average draw is ~52W → 52 × 24 = 1,248 Wh/day. (Nameplate × 24hr =
+//   3,600 Wh/day is a common off-grid sizing error.)
+// - Microwave: 1,000W is the cooking output rating (magnetron); the wall draw
+//   is ~1,500W. Battery has to supply the input draw, not the output.
 const commonDevices = [
-  { value: 'phone', name: 'Smartphone', summary: '5W × 2 hr', watts: 5, hours: 2, Icon: Smartphone },
-  { value: 'laptop', name: 'Laptop', summary: '65W × 8 hr', watts: 65, hours: 8, Icon: Laptop },
-  { value: 'led-light', name: 'LED bulb', summary: '10W × 6 hr', watts: 10, hours: 6, Icon: Lightbulb },
-  { value: 'fan', name: 'Ceiling fan', summary: '75W × 8 hr', watts: 75, hours: 8, Icon: Wind },
-  { value: 'tv', name: 'TV (55″)', summary: '120W × 5 hr', watts: 120, hours: 5, Icon: Tv },
-  { value: 'refrigerator', name: 'Refrigerator', summary: '150W × 24 hr', watts: 150, hours: 24, Icon: Refrigerator },
-  { value: 'microwave', name: 'Microwave', summary: '1000W × 0.5 hr', watts: 1000, hours: 0.5, Icon: Microwave },
-  { value: 'space-heater', name: 'Space heater', summary: '1500W × 4 hr', watts: 1500, hours: 4, Icon: Wind },
+  { value: 'phone',        name: 'Smartphone',   summary: '5W × 2 hr = 10 Wh/day',                                                       watts: 5,    hours: 2,   Icon: Smartphone },
+  { value: 'laptop',       name: 'Laptop',       summary: '65W × 8 hr = 520 Wh/day',                                                     watts: 65,   hours: 8,   Icon: Laptop },
+  { value: 'led-light',    name: 'LED bulb',     summary: '10W × 6 hr = 60 Wh/day',                                                      watts: 10,   hours: 6,   Icon: Lightbulb },
+  { value: 'fan',          name: 'Ceiling fan',  summary: '75W × 8 hr = 600 Wh/day',                                                     watts: 75,   hours: 8,   Icon: Wind },
+  { value: 'tv',           name: 'TV (55″)',     summary: '120W × 5 hr = 600 Wh/day',                                                    watts: 120,  hours: 5,   Icon: Tv },
+  { value: 'refrigerator', name: 'Refrigerator', summary: '~52W avg × 24 hr = 1,248 Wh/day (150W nameplate at 35% duty cycle)',          watts: 52,   hours: 24,  Icon: Refrigerator },
+  { value: 'microwave',    name: 'Microwave',    summary: '1,500W input × 0.5 hr = 750 Wh/day (1,000W cooking = 1,500W wall draw)',      watts: 1500, hours: 0.5, Icon: Microwave },
+  { value: 'space-heater', name: 'Space heater', summary: '1,500W × 4 hr = 6,000 Wh/day',                                                watts: 1500, hours: 4,   Icon: Wind },
 ];
 
 const voltagePresets = [12, 24, 48];
+
+// Charging constants — matched to sibling Battery12V calc for consistency.
+const CHARGE_TAPER_FACTOR = 1.15;   // CC-CV taper + round-trip charging losses
+const RECOMMENDED_C_RATE  = 0.1;    // C/10 universal — safe for all chemistries
+
+// Chemistry-conditional temperature derating (Battery University BU-410 anchors).
+// Above 25°C (77°F) → baseline 1.0. Below 25°C → linear falloff. Cold reduces
+// capacity; warm at rest does not. High-temp cycle-life degradation is out of
+// scope for a runtime estimator.
+function tempDerating(tempF: number, fam: TempFamily): number {
+  const roomAnchor = 77, freezeAnchor = 32, deepColdAnchor = -4;
+  const [freezeDerate, deepColdDerate] =
+    fam === 'lithium' ? [0.80, 0.60] : [0.65, 0.40];
+  if (tempF >= roomAnchor) return 1.0;
+  if (tempF >= freezeAnchor) {
+    const drop = 1.0 - freezeDerate;
+    return 1.0 - drop * (roomAnchor - tempF) / (roomAnchor - freezeAnchor);
+  }
+  if (tempF >= deepColdAnchor) {
+    const drop = freezeDerate - deepColdDerate;
+    return freezeDerate - drop * (freezeAnchor - tempF) / (freezeAnchor - deepColdAnchor);
+  }
+  return deepColdDerate;
+}
 
 const DEFAULTS = {
   batteryVoltage: '12',
@@ -62,21 +100,30 @@ const DEFAULTS = {
   customWatts: '100',
   customHours: '8',
   inverterEfficiency: '90',
+  temperature: '68',
 };
 
 export default function BatteryWattHoursCalculator() {
-  const [batteryVoltage, setBatteryVoltage] = useState(DEFAULTS.batteryVoltage);
-  const [batteryCapacityAh, setBatteryCapacityAh] = useState(DEFAULTS.batteryCapacityAh);
-  const [batteryChemistry, setBatteryChemistry] = useState(DEFAULTS.batteryChemistry);
-  const [depthOfDischarge, setDepthOfDischarge] = useState(DEFAULTS.depthOfDischarge);
-  const [deviceType, setDeviceType] = useState(DEFAULTS.deviceType);
-  const [customWatts, setCustomWatts] = useState(DEFAULTS.customWatts);
-  const [customHours, setCustomHours] = useState(DEFAULTS.customHours);
+  const [batteryVoltage,     setBatteryVoltage]     = useState(DEFAULTS.batteryVoltage);
+  const [batteryCapacityAh,  setBatteryCapacityAh]  = useState(DEFAULTS.batteryCapacityAh);
+  const [batteryChemistry,   setBatteryChemistry]   = useState(DEFAULTS.batteryChemistry);
+  const [depthOfDischarge,   setDepthOfDischarge]   = useState(DEFAULTS.depthOfDischarge);
+  const [deviceType,         setDeviceType]         = useState(DEFAULTS.deviceType);
+  const [customWatts,        setCustomWatts]        = useState(DEFAULTS.customWatts);
+  const [customHours,        setCustomHours]        = useState(DEFAULTS.customHours);
   const [inverterEfficiency, setInverterEfficiency] = useState(DEFAULTS.inverterEfficiency);
+  const [temperature,        setTemperature]        = useState(DEFAULTS.temperature);
+
+  // Chemistry drives DoD default per chemistry's cycle-life-safe zone.
+  const handleChemistryChange = (v: string) => {
+    setBatteryChemistry(v);
+    const chem = batteryChemistries.find((c) => c.value === v);
+    if (chem) setDepthOfDischarge(String(chem.defaultDod));
+  };
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
     batteryVoltage, batteryCapacityAh, batteryChemistry, depthOfDischarge,
-    deviceType, customWatts, customHours, inverterEfficiency,
+    deviceType, customWatts, customHours, inverterEfficiency, temperature,
   });
 
   const isCustom = deviceType === 'custom';
@@ -88,6 +135,7 @@ export default function BatteryWattHoursCalculator() {
   const ah = Math.max(parseFloat(src.batteryCapacityAh) || 1, 1);
   const dod = Math.min(Math.max(parseFloat(src.depthOfDischarge) || 80, 20), 100);
   const invEff = Math.min(Math.max(parseFloat(src.inverterEfficiency) || 90, 70), 100);
+  const tempF = parseFloat(src.temperature) || 68;
 
   const handleReset = () => {
     setBatteryVoltage(DEFAULTS.batteryVoltage);
@@ -98,39 +146,91 @@ export default function BatteryWattHoursCalculator() {
     setCustomWatts(DEFAULTS.customWatts);
     setCustomHours(DEFAULTS.customHours);
     setInverterEfficiency(DEFAULTS.inverterEfficiency);
+    setTemperature(DEFAULTS.temperature);
     clear();
   };
 
   const calc = useMemo(() => {
-    const batteryWattHours = volts * ah;
-    const usableWattHours = batteryWattHours * (dod / 100);
+    // === Verified runtime formula ===
+    // batteryWh = V × Ah
+    // usableWh  = batteryWh × DoD × tempDerating       (temperature reduces
+    //                                                    available capacity)
+    // effectiveWh = usableWh × invEff                  (inverter loss ONLY —
+    //                                                    round-trip / chemistry
+    //                                                    efficiency is a CHARGE-
+    //                                                    side loss and would
+    //                                                    double-count if applied
+    //                                                    here)
+    // continuousRuntimeHr = effectiveWh / deviceWatts  (device drawing
+    //                                                    continuously until DoD)
+    // daysBetweenCharges  = effectiveWh / dailyWh      (at user's daily use
+    //                                                    pattern — the actionable
+    //                                                    battery-sizing number)
+    const derating = tempDerating(tempF, chemistry.tempFamily);
+    const batteryWattHours   = volts * ah;
+    const usableWattHours    = batteryWattHours * (dod / 100) * derating;
     const effectiveWattHours = usableWattHours * (invEff / 100);
-    const deviceWattHours = deviceWatts * deviceHours;
-    const runtimeHours = deviceWatts > 0 ? effectiveWattHours / deviceWatts : 0;
-    const runtimeDays = runtimeHours / 24;
-    const cyclesPerDay = usableWattHours > 0 ? deviceWattHours / usableWattHours : 0;
-    const daysPerCycle = cyclesPerDay > 0 ? 1 / cyclesPerDay : 0;
-    const estimatedLifeDays = cyclesPerDay > 0 ? chemistry.cycles / cyclesPerDay : 0;
-    const estimatedLifeYears = estimatedLifeDays / 365;
-    const systemEfficiency = chemistry.efficiency * (invEff / 100);
-    const energyLoss = batteryWattHours - effectiveWattHours;
-    const simultaneousDevices = deviceWattHours > 0 ? Math.floor(effectiveWattHours / deviceWattHours) : 0;
-    const chargerAmps = 10 * (volts / 12);
-    const rechargeTimeHours = ah / chargerAmps;
-    return { batteryWattHours, usableWattHours, effectiveWattHours, deviceWattHours, runtimeHours, runtimeDays, cyclesPerDay, daysPerCycle, estimatedLifeDays, estimatedLifeYears, systemEfficiency, energyLoss, simultaneousDevices, rechargeTimeHours };
-  }, [volts, ah, dod, invEff, deviceWatts, deviceHours, chemistry]);
+    const deviceWattHoursPerDay = deviceWatts * deviceHours;
+    const continuousRuntimeHr =
+      deviceWatts > 0 ? effectiveWattHours / deviceWatts : 0;
+    const daysBetweenCharges =
+      deviceWattHoursPerDay > 0 ? effectiveWattHours / deviceWattHoursPerDay : 0;
+    const cyclesPerDay =
+      effectiveWattHours > 0 ? deviceWattHoursPerDay / effectiveWattHours : 0;
+    const estimatedLifeYears =
+      cyclesPerDay > 0 ? chemistry.cycles / cyclesPerDay / 365 : 0;
+
+    // Round-trip efficiency for DISPLAY ONLY — sum of chemistry (charge-side)
+    // and inverter (discharge-side) losses that a solar/off-grid designer
+    // needs when sizing the charge source. Never used in runtime math.
+    const roundTripEfficiency = chemistry.roundTripEff * (invEff / 100);
+
+    // === Verified charge-time formulas (match Battery12V calc) ===
+    // (Ah × DoD) / charge_current × 1.15  — used portion (matches the DoD input)
+    //  Ah        / charge_current × 1.15  — full charge from 0% → 100%
+    // recommendedChargeRate is C/10 UNIVERSAL — safe for both chemistries.
+    // Prior implementation scaled by voltage (10 × V/12), which had no basis;
+    // a 48V bank should not get a 40A charger recommendation just for being 48V.
+    const recommendedChargeRateA = ah * RECOMMENDED_C_RATE;
+    const rechargeUsedPortionHours =
+      recommendedChargeRateA > 0
+        ? (ah * (dod / 100)) / recommendedChargeRateA * CHARGE_TAPER_FACTOR
+        : 0;
+    const fullChargeFromEmptyHours =
+      recommendedChargeRateA > 0
+        ? ah / recommendedChargeRateA * CHARGE_TAPER_FACTOR
+        : 0;
+
+    return {
+      derating,
+      batteryWattHours,
+      usableWattHours,
+      effectiveWattHours,
+      deviceWattHoursPerDay,
+      continuousRuntimeHr,
+      daysBetweenCharges,
+      cyclesPerDay,
+      estimatedLifeYears,
+      roundTripEfficiency,
+      recommendedChargeRateA,
+      rechargeUsedPortionHours,
+      fullChargeFromEmptyHours,
+    };
+  }, [volts, ah, dod, invEff, tempF, deviceWatts, deviceHours, chemistry]);
+
+  const isLeadAcidGroup = chemistry.tempFamily === 'lead-acid';
 
   const fit =
-    calc.runtimeHours >= 24 ? { tone: 'good' as const, text: `${calc.runtimeDays.toFixed(1)} days runtime — excellent` } :
-    calc.runtimeHours >= deviceHours ? { tone: 'good' as const, text: 'Comfortable runtime' } :
-    calc.cyclesPerDay > 1 ? { tone: 'bad' as const, text: '> 1 cycle/day — battery dies fast' } :
-    { tone: 'ok' as const, text: 'Adequate for daily use' };
+    calc.daysBetweenCharges >= 3 ? { tone: 'good' as const, text: `${calc.daysBetweenCharges.toFixed(1)} days between charges — strong reserve` } :
+    calc.daysBetweenCharges >= 1 ? { tone: 'good' as const, text: `${calc.daysBetweenCharges.toFixed(1)} days between charges` } :
+    calc.cyclesPerDay > 1        ? { tone: 'bad'  as const, text: `${calc.cyclesPerDay.toFixed(1)} cycles/day — battery dies fast, add capacity` } :
+                                   { tone: 'ok'   as const, text: 'Adequate for daily use' };
 
   return (
     <CalcShell
       Icon={Battery}
       title="Battery Watt-Hours Calculator"
-      subtitle="Capacity, runtime, cycle life."
+      subtitle="Runtime, days-per-charge, cycle life — planning estimate for battery banks."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -150,18 +250,24 @@ export default function BatteryWattHoursCalculator() {
             <div>
               <label className="text-sm font-medium text-gray-700 mb-2 block">Capacity</label>
               <NumberInput value={batteryCapacityAh} onChange={setBatteryCapacityAh} min={1} max={1000} suffix="Ah" ariaLabel="Battery capacity" accent={ACCENT} />
-              <p className="text-xs text-gray-500 mt-1.5">{calc.batteryWattHours.toFixed(0)} Wh nominal</p>
+              <p className="text-xs text-gray-500 mt-1.5">{calc.batteryWattHours.toFixed(0)} Wh nominal (once you Calculate)</p>
             </div>
           </div>
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Chemistry</label>
-            <CardChoice value={batteryChemistry} onChange={setBatteryChemistry} options={batteryChemistries} ariaLabel="Chemistry" accent={ACCENT} columns={5} />
+            <CardChoice value={batteryChemistry} onChange={handleChemistryChange} options={batteryChemistries} ariaLabel="Chemistry" accent={ACCENT} columns={5} />
+            <p className="text-xs text-gray-500 mt-1.5">
+              Chemistry snaps the DoD slider below to its cycle-life-safe default and drives temperature derating.
+            </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 Depth of discharge
-                <InfoTip label="DOD">Lithium can safely discharge to 80–100%. Lead acid should stay above 50% to preserve cycle life.</InfoTip>
+                <InfoTip label="DOD">
+                  LiFePO4: 80–90% safe. Lithium-ion: 80% for cycle life.
+                  Lead-acid / AGM / Gel: 50% preserves cycle life — deeper cycling drops cycle count dramatically.
+                </InfoTip>
                 <span className="ml-auto text-sm font-semibold text-emerald-700">{dod}%</span>
               </label>
               <input type="range" min={20} max={100} step={5} value={depthOfDischarge} onChange={(e) => setDepthOfDischarge(e.target.value)} className="w-full accent-emerald-600" aria-label="Depth of discharge" />
@@ -169,10 +275,26 @@ export default function BatteryWattHoursCalculator() {
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 Inverter efficiency
-                <InfoTip label="inverter">For AC devices, the DC-to-AC inverter loses 8–15% of energy. Set to 100% if you're powering DC-only loads.</InfoTip>
+                <InfoTip label="inverter">
+                  DC-to-AC inverter loss. Pure sinewave 88–92% typical; modified sinewave 80–85%.
+                  For pure DC loads (12V LED, 12V fridge), set close to 100%.
+                </InfoTip>
                 <span className="ml-auto text-sm font-semibold text-emerald-700">{invEff}%</span>
               </label>
               <input type="range" min={70} max={100} step={1} value={inverterEfficiency} onChange={(e) => setInverterEfficiency(e.target.value)} className="w-full accent-emerald-600" aria-label="Inverter efficiency" />
+            </div>
+            <div>
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Operating temperature
+                <InfoTip label="temperature">
+                  Cold reduces battery capacity — cold is a loss, never a gain. Lithium tolerates cold better than lead-acid.
+                  Approximate anchor points (per Battery University BU-410):
+                  at 32 °F, lithium delivers ~80% of rated capacity, lead-acid ~65%.
+                  At −4 °F, lithium ~60%, lead-acid ~40%.
+                </InfoTip>
+                <span className="ml-auto text-sm font-semibold text-emerald-700">{tempF}°F</span>
+              </label>
+              <input type="range" min={-20} max={120} step={1} value={temperature} onChange={(e) => setTemperature(e.target.value)} className="w-full accent-emerald-600" aria-label="Temperature" />
             </div>
           </div>
         </div>
@@ -185,7 +307,7 @@ export default function BatteryWattHoursCalculator() {
           onChange={setDeviceType}
           options={[
             ...commonDevices.map(({ value, name, summary, Icon }) => ({ value, name, summary, Icon })),
-            { value: 'custom', name: 'Custom', summary: 'Enter watts + hours' },
+            { value: 'custom', name: 'Custom', summary: 'Enter watts + daily hours' },
           ]}
           ariaLabel="Device"
           accent={ACCENT}
@@ -196,6 +318,9 @@ export default function BatteryWattHoursCalculator() {
             <div>
               <label className="text-sm font-medium text-gray-700 mb-2 block">Custom watts</label>
               <NumberInput value={customWatts} onChange={setCustomWatts} min={1} max={5000} suffix="W" ariaLabel="Custom watts" accent={ACCENT} />
+              <p className="text-xs text-gray-500 mt-1.5">
+                For appliances that duty-cycle (fridges, freezers, well pumps), enter your average draw × 24, not the nameplate.
+              </p>
             </div>
             <div>
               <label className="text-sm font-medium text-gray-700 mb-2 block">Daily hours</label>
@@ -219,22 +344,24 @@ export default function BatteryWattHoursCalculator() {
 
         <ResultHero
           accent={ACCENT}
-          eyebrow="Device runtime"
-          value={calc.runtimeHours.toFixed(1)}
-          unit={`hr (${calc.runtimeDays.toFixed(1)} days)`}
+          eyebrow="Days between charges (at your daily use)"
+          value={calc.daysBetweenCharges.toFixed(2)}
+          unit="days"
           secondaryText={
             <>
               A {volts}V × {ah}Ah {chemistry.name} battery has <strong>{fmt(Math.round(calc.batteryWattHours))} Wh</strong>{' '}
-              nominal, <strong>{fmt(Math.round(calc.usableWattHours))} Wh</strong> usable at {dod}% DOD.
-              After inverter losses, that's <strong>{fmt(Math.round(calc.effectiveWattHours))} Wh</strong> delivered to your {isCustom ? 'device' : device?.name.toLowerCase()}.
+              nominal, <strong>{fmt(Math.round(calc.usableWattHours))} Wh</strong> usable at {dod}% DoD and {tempF}°F.
+              After inverter losses, that's <strong>{fmt(Math.round(calc.effectiveWattHours))} Wh</strong> delivered to your{' '}
+              {isCustom ? 'device' : device?.name.toLowerCase()} — enough for <strong>{calc.daysBetweenCharges.toFixed(2)} days</strong>{' '}
+              at {deviceWatts}W × {deviceHours} hr/day, or <strong>{calc.continuousRuntimeHr.toFixed(1)} hours</strong> if you ran it nonstop.
             </>
           }
           fitTone={fit.tone}
           fitText={fit.text}
           sidePanel={[
+            { label: 'Continuous runtime', value: `${calc.continuousRuntimeHr.toFixed(1)} hr` },
             { label: 'Usable energy', value: `${fmt(Math.round(calc.usableWattHours))} Wh` },
-            { label: 'Effective (after inverter)', value: `${fmt(Math.round(calc.effectiveWattHours))} Wh` },
-            { label: 'Recharge time', value: `${calc.rechargeTimeHours.toFixed(1)} hr` },
+            { label: 'After inverter', value: `${fmt(Math.round(calc.effectiveWattHours))} Wh` },
           ]}
         />
 
@@ -246,37 +373,75 @@ export default function BatteryWattHoursCalculator() {
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'Nominal capacity', detail: `${volts}V × ${ah}Ah`, factor: `${fmt(Math.round(calc.batteryWattHours))} Wh` },
-                { label: 'DOD limit', detail: `${dod}% × nominal`, factor: `${fmt(Math.round(calc.usableWattHours))} Wh` },
-                { label: 'Inverter eff.', detail: `${invEff}% × usable`, factor: `${fmt(Math.round(calc.effectiveWattHours))} Wh` },
-                { label: 'Device draw', detail: `${deviceWatts}W × ${deviceHours} hr`, factor: `${fmt(Math.round(calc.deviceWattHours))} Wh/day` },
-                { label: 'Cycles per day', detail: 'Device Wh ÷ usable Wh', factor: `${calc.cyclesPerDay.toFixed(2)}` },
-                { label: 'Energy lost', detail: 'Nominal − effective', factor: `${fmt(Math.round(calc.energyLoss))} Wh` },
+                { label: 'Nominal capacity',      detail: `${volts}V × ${ah}Ah`,                                                          factor: `${fmt(Math.round(calc.batteryWattHours))} Wh` },
+                { label: 'DoD limit',             detail: `× ${dod}%`,                                                                    factor: `${fmt(Math.round(calc.batteryWattHours * dod / 100))} Wh` },
+                { label: 'Temperature derating',  detail: `${tempF}°F, ${chemistry.tempFamily} → ${(calc.derating * 100).toFixed(0)}%`,   factor: `${fmt(Math.round(calc.usableWattHours))} Wh usable` },
+                { label: 'Inverter efficiency',   detail: `× ${invEff}% (AC loads only)`,                                                 factor: `${fmt(Math.round(calc.effectiveWattHours))} Wh effective` },
+                { label: 'Daily device draw',     detail: `${deviceWatts}W × ${deviceHours} hr`,                                          factor: `${fmt(Math.round(calc.deviceWattHoursPerDay))} Wh/day` },
               ]}
               totals={[
-                { label: 'System efficiency', value: `${(calc.systemEfficiency * 100).toFixed(0)}%`, valueClass: 'text-emerald-700' },
+                { label: 'Days between charges', value: `${calc.daysBetweenCharges.toFixed(2)} days`, valueClass: fit.tone === 'bad' ? 'text-red-700' : 'text-emerald-700' },
+                { label: 'Continuous runtime',   value: `${calc.continuousRuntimeHr.toFixed(1)} hours` },
               ]}
             />
+            {isLeadAcidGroup && (
+              <div className="mt-3 p-3 bg-amber-50 rounded text-xs text-amber-900 flex gap-2">
+                <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <div>
+                  <strong>Lead-acid Peukert effect:</strong> lead-acid delivers less than its rated capacity at high discharge
+                  rates. For heavy or fast loads (draining in &lt;5 hours), derate an additional 20–30% beyond the number above.
+                  Lithium (LiFePO4, lithium-ion) is barely affected.
+                </div>
+              </div>
+            )}
+            {tempF < 50 && (
+              <div className="mt-3 p-3 bg-blue-50 rounded text-xs text-blue-900 flex gap-2">
+                <Snowflake className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <div>
+                  <strong>Cold-weather derating:</strong> at {tempF}°F, {chemistry.tempFamily} capacity is reduced by{' '}
+                  {((1 - calc.derating) * 100).toFixed(0)}%. Insulate the battery enclosure or move to lithium with a self-heat
+                  option for reliable cold-weather performance.
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
               <Clock className="w-4 h-4 text-emerald-600" />
-              Cycle life + runtime
+              Cycle life + charging
             </h4>
             <div className="space-y-1.5 text-xs text-gray-700">
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Rated cycles ({chemistry.name})</span><strong>{fmt(chemistry.cycles)}</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Cycles/day at this load</span><strong>{calc.cyclesPerDay.toFixed(2)}</strong></div>
-              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Days per cycle</span><strong>{calc.daysPerCycle.toFixed(1)} days</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Estimated lifespan</span><strong>{calc.estimatedLifeYears.toFixed(1)} years</strong></div>
-              <div className="flex justify-between py-1.5"><span>Devices simultaneously</span><strong>{calc.simultaneousDevices}</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Round-trip efficiency (charging losses)</span><strong>{(calc.roundTripEfficiency * 100).toFixed(0)}%</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Recommended charger (C/10 universal)</span><strong>{calc.recommendedChargeRateA.toFixed(1)}A</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Recharge time (used portion — {dod}% DoD)</span><strong>{calc.rechargeUsedPortionHours.toFixed(1)} hr</strong></div>
+              <div className="flex justify-between py-1.5"><span>Full charge (0% → 100%)</span><strong>{calc.fullChargeFromEmptyHours.toFixed(1)} hr</strong></div>
+            </div>
+            <div className="mt-3 p-3 bg-blue-50 rounded text-xs text-blue-900">
+              <div><strong>Round-trip efficiency</strong> is a CHARGE-side loss — energy you have to put IN vs energy that
+              comes OUT over a full cycle. It sizes your solar array or grid charger, NOT the runtime above (which counts only
+              the inverter loss on discharge — round-tripping it would double-count).</div>
+              <div className="mt-1.5">
+                Formula: <code className="bg-blue-100 px-1 rounded">time = (Ah × DoD) / charge amps × 1.15</code> — the 1.15
+                covers CC-CV taper plus round-trip charging losses.
+                {(chemistry.value === 'lifepo4' || chemistry.value === 'lithium-ion') && (
+                  <> Lithium can safely accept up to C/2 (50A on 100Ah) with a matched charger — cut these times ~5×.</>
+                )}
+              </div>
             </div>
             {calc.cyclesPerDay > 1 && (
-              <div className="mt-3 p-3 bg-amber-50 rounded text-xs text-amber-900">
-                ⚠ <strong>{calc.cyclesPerDay.toFixed(1)} cycles/day</strong> exhausts cycle life in {calc.estimatedLifeYears.toFixed(1)} years. Bigger battery or different chemistry recommended.
+              <div className="mt-3 p-3 bg-amber-50 rounded text-xs text-amber-900 flex gap-2">
+                <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <div>
+                  <strong>{calc.cyclesPerDay.toFixed(1)} cycles/day</strong> exhausts rated cycles in{' '}
+                  {calc.estimatedLifeYears.toFixed(1)} years. Add capacity or move to a higher-cycle chemistry.
+                </div>
               </div>
             )}
-            {calc.estimatedLifeYears >= 10 && (
+            {calc.estimatedLifeYears >= 10 && calc.cyclesPerDay <= 1 && (
               <div className="mt-3 p-3 bg-emerald-50 rounded text-xs text-emerald-900">
                 ✓ <strong>{calc.estimatedLifeYears.toFixed(1)}-year</strong> expected lifespan — battery is well-sized for this load.
               </div>
@@ -284,13 +449,17 @@ export default function BatteryWattHoursCalculator() {
           </div>
         </div>
 
-        <DisclaimerBox title="Battery sizing tips">
+        <DisclaimerBox title="Honest framing — what this calculator is and isn't">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>For off-grid: size for 2–3 days of autonomy + 50% DOD safety buffer</li>
-            <li>For RV/marine: lithium pays back in 2–3 years vs lead-acid through weight and cycle life</li>
-            <li>Inverter sizing should match peak load, not average — motors need 3–5× their running watts at startup</li>
-            <li>Temperature halves lead-acid capacity at 0°F; lithium degrades much less</li>
-            <li>Recharge time scales linearly with charger size — bigger chargers cost more but recover faster</li>
+            <li><strong>This is a planning estimate, not a design.</strong> Real values vary with battery age (down 20–30% at 3–5 years), discharge rate (Peukert for lead-acid), and repeated deep-cycling.</li>
+            <li><strong>Cycle ratings assume standard discharge depth</strong>; deeper cycling (especially lead-acid) reduces cycle life significantly — a lead-acid battery cycled to 80% DoD delivers roughly one-third of its rated cycles vs 50% DoD.</li>
+            <li><strong>Round-trip efficiency values are approximate ranges</strong> from Battery University / manufacturer datasheets; individual cells vary. LiFePO4 92–96%, lithium-ion 90–95%, lead-acid 75–85%, AGM 80–85%.</li>
+            <li><strong>Duty-cycled appliances</strong> (fridges, freezers, well pumps): the number that matters is your 24-hour AVERAGE draw, not the nameplate. The Refrigerator preset uses 52W average (150W nameplate × 35% duty cycle) as a real-world approximation; your fridge could be more or less.</li>
+            <li><strong>Microwaves and kettles</strong>: the wattage on the door is COOKING output; wall draw is 40–60% higher. The Microwave preset uses 1,500W input, not the 1,000W plate rating.</li>
+            <li><strong>Cold weather:</strong> capacity anchors here are approximate — get manufacturer capacity-vs-temperature curves for your exact cell for a real answer.</li>
+            <li><strong>For off-grid:</strong> size for 2–3 days of autonomy on top of the daily draw, and match your solar/charge source to the round-trip efficiency (charging losses) figure above.</li>
+            <li><strong>Motors and pumps need 3–5× their running watts at startup</strong> — the inverter must handle the surge, not just the average.</li>
+            <li><strong>Parallel batteries should be identical age + chemistry</strong> — mismatched cells kill cycle life.</li>
           </ul>
         </DisclaimerBox>
       </section>
