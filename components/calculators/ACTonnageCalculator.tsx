@@ -39,7 +39,7 @@ const ACCENT = 'blue' as const;
 // 2000 sqft home in Minneapolis to size at 5 tons while Phoenix sized at 3.5,
 // the opposite of physics. Base is 20 BTU/sqft (ENERGY STAR baseline) × factor.
 const climateZones = [
-  { value: '1', short: 'Z1', label: 'Very Hot', factor: 1.30, description: 'Miami, Houston' },
+  { value: '1', short: 'Z1', label: 'Very Hot', factor: 1.40, description: 'Miami, Houston' },
   { value: '2', short: 'Z2', label: 'Hot', factor: 1.20, description: 'Phoenix, Las Vegas' },
   { value: '3', short: 'Z3', label: 'Warm', factor: 1.10, description: 'Atlanta, Los Angeles' },
   { value: '4', short: 'Z4', label: 'Mixed', factor: 1.00, description: 'Washington DC, Kansas City' },
