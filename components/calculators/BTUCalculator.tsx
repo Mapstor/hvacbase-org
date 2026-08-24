@@ -46,27 +46,50 @@ import {
 const ACCENT = 'blue' as const;
 const a = accentMap[ACCENT];
 
+// btuPerSqFt values verified against ACCA Manual J short-form + ENERGY STAR
+// Room AC sizing table. Cooling load is HIGHEST in hot zones (high sensible +
+// latent load) and LOWEST in cold zones (mild summers). Previously the values
+// were INVERTED — hot zones got the lowest per-sqft (18-22) and cold zones the
+// highest (35-40), which caused Phoenix to be sized ~40% smaller than
+// Minnesota for the same room, the opposite of physics.
 const climateZones = [
-  { value: 'very-hot', short: 'Z1', label: 'Very Hot', btuPerSqFt: 18, description: 'Southern FL, HI' },
-  { value: 'hot-humid', short: 'Z2', label: 'Hot Humid', btuPerSqFt: 20, description: 'Southern TX, LA, MS, AL, GA' },
-  { value: 'hot-dry', short: 'Z3', label: 'Hot Dry', btuPerSqFt: 22, description: 'AZ, S. CA, NV' },
-  { value: 'mixed-humid', short: 'Z4', label: 'Mixed Humid', btuPerSqFt: 25, description: 'NC, SC, TN, AR, OK' },
-  { value: 'mixed-dry', short: 'Z5', label: 'Mixed Dry', btuPerSqFt: 28, description: 'N. CA, OR, WA' },
-  { value: 'cool', short: 'Z6', label: 'Cool', btuPerSqFt: 30, description: 'PA, NY, MI, WI, IL' },
-  { value: 'cold', short: 'Z7', label: 'Cold', btuPerSqFt: 35, description: 'MN, ND, MT, ME' },
-  { value: 'very-cold', short: 'Z8', label: 'Very Cold', btuPerSqFt: 40, description: 'Northern MN, AK' },
+  { value: 'very-hot',    short: 'Z1', label: 'Very Hot',    btuPerSqFt: 32, description: 'Southern FL, HI' },
+  { value: 'hot-humid',   short: 'Z2', label: 'Hot Humid',   btuPerSqFt: 30, description: 'Southern TX, LA, MS, AL, GA' },
+  { value: 'hot-dry',     short: 'Z3', label: 'Hot Dry',     btuPerSqFt: 28, description: 'AZ, S. CA, NV' },
+  { value: 'mixed-humid', short: 'Z4', label: 'Mixed Humid', btuPerSqFt: 22, description: 'NC, SC, TN, AR, OK' },
+  { value: 'mixed-dry',   short: 'Z5', label: 'Mixed Dry',   btuPerSqFt: 20, description: 'N. CA, OR, WA' },
+  { value: 'cool',        short: 'Z6', label: 'Cool',        btuPerSqFt: 18, description: 'PA, NY, MI, WI, IL' },
+  { value: 'cold',        short: 'Z7', label: 'Cold',        btuPerSqFt: 16, description: 'MN, ND, MT, ME' },
+  { value: 'very-cold',   short: 'Z8', label: 'Very Cold',   btuPerSqFt: 14, description: 'Northern MN, AK' },
 ];
 
+// Kitchen carries a FLAT +4,000 BTU cooking-appliance surcharge (added in the
+// compute below, not multiplied) rather than a per-sqft multiplier. ENERGY
+// STAR / DOE Energy Saver convention: cooking heat gain scales with appliance
+// wattage, not room size — a large kitchen doesn't need proportionally more
+// cooking BTU than a small one. heatLoad = 1.0 matches bedroom baseline; the
+// +4,000 captures the cooking piece.
 const roomTypes = [
-  { value: 'bedroom', name: 'Bedroom', heatLoad: 1.0, sub: 'Quiet, low heat sources', Icon: Bed },
-  { value: 'living', name: 'Living room', heatLoad: 1.1, sub: 'Mid-traffic, TV/electronics', Icon: Sofa },
-  { value: 'kitchen', name: 'Kitchen', heatLoad: 1.4, sub: 'Stove + appliances heat load', Icon: Utensils },
-  { value: 'office', name: 'Home office', heatLoad: 1.2, sub: 'PC + monitor heat', Icon: Briefcase },
-  { value: 'sunroom', name: 'Sunroom', heatLoad: 1.5, sub: 'Heavy solar gain', Icon: Sun },
-  { value: 'basement', name: 'Basement', heatLoad: 0.8, sub: 'Naturally cooler', Icon: Home },
-  { value: 'bathroom', name: 'Bathroom', heatLoad: 0.9, sub: 'Small, occasional use', Icon: Wind },
-  { value: 'garage', name: 'Garage', heatLoad: 1.3, sub: 'Poor insulation, big door', Icon: Home },
+  { value: 'bedroom',  name: 'Bedroom',     heatLoad: 1.0, sub: 'Quiet, low heat sources',      Icon: Bed },
+  { value: 'living',   name: 'Living room', heatLoad: 1.1, sub: 'Mid-traffic, TV/electronics',  Icon: Sofa },
+  { value: 'kitchen',  name: 'Kitchen',     heatLoad: 1.0, sub: 'Stove + appliances (+4k BTU)', Icon: Utensils },
+  { value: 'office',   name: 'Home office', heatLoad: 1.2, sub: 'PC + monitor heat',            Icon: Briefcase },
+  { value: 'sunroom',  name: 'Sunroom',     heatLoad: 1.5, sub: 'Heavy solar gain',             Icon: Sun },
+  { value: 'basement', name: 'Basement',    heatLoad: 0.8, sub: 'Naturally cooler',             Icon: Home },
+  { value: 'bathroom', name: 'Bathroom',    heatLoad: 0.9, sub: 'Small, occasional use',        Icon: Wind },
+  { value: 'garage',   name: 'Garage',      heatLoad: 1.3, sub: 'Poor insulation, big door',    Icon: Home },
 ];
+
+// Flat BTU surcharges — added alongside occupant + appliance loads AFTER the
+// envelope multipliers, because appliance heat gain is not affected by climate,
+// insulation, sun, or window quality.
+const KITCHEN_COOKING_SURCHARGE_BTU = 4000;
+// Occupant sensible+latent per adult at rest per ASHRAE Handbook Ch.18 Table 1
+// (~230 + 190 = 420 BTU/hr). 400 is a conservative round number; previously
+// used 600 which corresponds to moderately-active occupants and overstates
+// typical residential rooms.
+const OCCUPANT_BTU_PER_PERSON = 400;
+const APPLIANCE_BTU_PER_ITEM = 400;
 
 const windowTypes = [
   { value: 'single', name: 'Single pane', factor: 1.3, sub: 'Old aluminum/wood frames' },
@@ -146,14 +169,17 @@ export default function BTUCalculator() {
     setDetectingLocation(true);
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        const { latitude } = position.coords;
+        const { latitude, longitude } = position.coords;
+        // Longitude used to distinguish hot-dry (western US, west of ~100°W)
+        // from hot-humid (southeastern US) at overlapping latitudes.
+        const isWesternUS = longitude < -100;
         let detected = 'mixed-humid';
         if (latitude >= 48) detected = 'very-cold';
         else if (latitude >= 45) detected = 'cold';
         else if (latitude >= 42) detected = 'cool';
-        else if (latitude >= 38) detected = 'mixed-humid';
-        else if (latitude >= 32) detected = 'hot-humid';
-        else if (latitude >= 28) detected = 'hot-dry';
+        else if (latitude >= 38) detected = isWesternUS ? 'mixed-dry' : 'mixed-humid';
+        else if (latitude >= 32) detected = isWesternUS ? 'hot-dry' : 'hot-humid';
+        else if (latitude >= 28) detected = isWesternUS ? 'hot-dry' : 'hot-humid';
         else detected = 'very-hot';
         setClimate(detected);
         setLocationDetected(true);
@@ -183,9 +209,10 @@ export default function BTUCalculator() {
     const baseBTU = roomArea * selectedZone.btuPerSqFt;
     const windowAreaFactor = roomArea > 0 ? 1 + (winAreaN / roomArea) * 0.3 : 1;
     const heightFactor = htN > 0 ? htN / 8 : 1;
-    const occupantBTU = Math.max(0, occN - 2) * 600;
-    const applianceBTU = appN * 400;
 
+    // Envelope-affected load (climate × room-type × windows × insulation × sun
+    // × ceiling). Kitchen surcharge is FLAT (below) — cooking heat gain does
+    // not scale with room size.
     const adjustedBTU =
       baseBTU *
       selectedRoom.heatLoad *
@@ -194,10 +221,21 @@ export default function BTUCalculator() {
       selectedInsulation.factor *
       selectedSun.factor *
       heightFactor;
-    const totalBTU = Math.max(adjustedBTU + occupantBTU + applianceBTU, 0);
+
+    // Flat surcharges — added AFTER envelope multipliers.
+    const kitchenSurcharge =
+      src.roomType === 'kitchen' ? KITCHEN_COOKING_SURCHARGE_BTU : 0;
+    const occupantBTU = Math.max(0, occN - 2) * OCCUPANT_BTU_PER_PERSON;
+    const applianceBTU = appN * APPLIANCE_BTU_PER_ITEM;
+
+    const totalBTU = Math.max(
+      adjustedBTU + kitchenSurcharge + occupantBTU + applianceBTU,
+      0
+    );
     const tonnage = totalBTU / 12000;
 
     const standardSizes = [5000, 6000, 8000, 10000, 12000, 14000, 18000, 24000, 30000, 36000];
+    const exceedsSingleUnit = totalBTU > 36000;
     const ideal = standardSizes.find((size) => size >= totalBTU) || 36000;
     const idealIdx = standardSizes.indexOf(ideal);
     const minimum = standardSizes[Math.max(0, idealIdx - 1)] || ideal;
@@ -208,16 +246,19 @@ export default function BTUCalculator() {
       baseBTU: Math.round(baseBTU),
       windowAreaFactor,
       heightFactor,
+      kitchenSurcharge,
       occupantBTU,
       applianceBTU,
       totalBTU: Math.round(totalBTU),
       tonnage,
       ideal,
       minimum,
+      exceedsSingleUnit,
     };
   }, [
     lenN, wdtN, htN, winAreaN, occN, appN,
     selectedZone, selectedRoom, selectedWindow, selectedInsulation, selectedSun,
+    src.roomType,
   ]);
 
   const fit =
@@ -520,13 +561,30 @@ export default function BTUCalculator() {
                 { label: 'Insulation', detail: selectedInsulation.name, factor: `× ${selectedInsulation.factor.toFixed(2)}` },
                 { label: 'Sun', detail: selectedSun.name, factor: `× ${selectedSun.factor.toFixed(2)}` },
                 { label: 'Ceiling', detail: `${fmt(htN)} ft ceiling`, factor: `× ${calc.heightFactor.toFixed(2)}` },
-                { label: 'People (>2)', detail: `${Math.max(0, occN - 2)} extra × 600`, factor: `+ ${fmt(calc.occupantBTU)} BTU` },
-                { label: 'Appliances', detail: `${appN} × 400 BTU`, factor: `+ ${fmt(calc.applianceBTU)} BTU` },
+                ...(calc.kitchenSurcharge > 0 ? [{
+                  label: 'Kitchen cooking',
+                  detail: 'flat surcharge (appliances)',
+                  factor: `+ ${fmt(calc.kitchenSurcharge)} BTU`,
+                }] : []),
+                { label: 'People (>2)', detail: `${Math.max(0, occN - 2)} extra × ${OCCUPANT_BTU_PER_PERSON}`, factor: `+ ${fmt(calc.occupantBTU)} BTU` },
+                { label: 'Appliances', detail: `${appN} × ${APPLIANCE_BTU_PER_ITEM} BTU`, factor: `+ ${fmt(calc.applianceBTU)} BTU` },
               ]}
               totals={[
                 { label: 'Total cooling load', value: `${fmt(calc.totalBTU)} BTU/hr`, valueClass: 'text-blue-700' },
               ]}
             />
+            {calc.exceedsSingleUnit && (
+              <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-900 flex gap-2">
+                <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <div>
+                  <strong>Load exceeds typical single-unit sizing (&gt;3 tons / 36,000 BTU).</strong> Rooms
+                  this large usually need a professional <strong>ACCA Manual J</strong> load calculation to
+                  pick the right equipment — likely multiple mini-splits or a central system rather than a
+                  single window/portable unit. Treat the 36,000 BTU recommendation above as a floor, not
+                  a specification.
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="bg-white rounded-xl border border-gray-200 p-4">
@@ -556,11 +614,19 @@ export default function BTUCalculator() {
           </div>
         </div>
 
-        <DisclaimerBox title="Sizing right matters more than going bigger.">
+        <DisclaimerBox title="Screening estimate — Manual J for final equipment selection">
           <p>
-            An oversized AC cools the air fast but turns off before it can dehumidify — leaving the room
-            cold and clammy. Stay within one tier of the calculated load. For rooms over 500 sq ft or with
-            unusual layouts (open-plan, lofts, or vaulted ceilings), have a contractor run a proper Manual J.
+            This is a <strong>screening estimate</strong> using the ENERGY STAR / DOE rules of thumb
+            (BTU/sq ft × envelope + solar + internal loads). For final equipment selection —
+            especially for whole-home sizing, unusual layouts, open-plan spaces, vaulted ceilings, or any
+            load above ~24,000 BTU — have a contractor run a proper <strong>ACCA Manual J</strong> load
+            calculation. Manual J accounts for wall/ceiling U-values, air infiltration, duct losses,
+            and orientation-specific solar gain in ways a rule-of-thumb calc can&rsquo;t.
+          </p>
+          <p className="mt-2">
+            <strong>Sizing right matters more than going bigger.</strong> An oversized AC cools the air
+            fast but turns off before it can dehumidify — leaving the room cold and clammy. Stay within
+            one tier of the calculated load.
           </p>
         </DisclaimerBox>
       </section>

@@ -5,10 +5,9 @@ import RelatedArticles from '@/components/ui/RelatedArticles';
 import SourceLink from '@/components/ui/SourceLink';
 import TableOfContents from '@/components/ui/TableOfContents';
 import CalcWrapper from '@/components/calculators/CalcWrapper';
-// BTUCalculator and SEERCalculator are the two legacy globally-mapped
-// calculators — see the gated wrappers below. Both are currently in the
-// primary-source-verification queue; when they clear the audit, swap the map
-// entries back to the real components.
+// BTUCalculator (verified live) + SEERCalculator (still in the verification
+// queue) — see the gated wrapper for SEERCalculator below.
+import BTUCalculator from '@/components/calculators/BTUCalculator';
 import UnverifiedCalcNotice from '@/components/calculators/UnverifiedCalcNotice';
 import EfficiencyCurve from '@/components/diagrams/EfficiencyCurve';
 import ComparisonChart from '@/components/diagrams/ComparisonChart';
@@ -124,21 +123,14 @@ const ComparisonTableWrapper = ({ headers, rows, ...props }: any) => {
   return <ComparisonTable headers={headers} rows={processedRows} {...props} />;
 };
 
-// Gated wrappers for the two legacy globally-mapped calcs. When
-// <BTUCalculator /> or <SEERCalculator /> appears in any MDX file, the
-// notice renders in its place instead of the real (unverified) component.
-// See components/calculators/UnverifiedCalcNotice.tsx and the sibling gate
-// in components/calculators/CalcWrapper.tsx.
-const BTUCalculatorGated = () => (
-  <UnverifiedCalcNotice
-    siblingSlug="/mini-split-sizing-calculator"
-    siblingLabel="Mini-Split Sizing Calculator"
-  />
-);
+// SEERCalculator is still in the verification queue; render the notice in its
+// place. BTUCalculator was verified live in the Tier 2 audit and now renders
+// the real component. When SEERCalculator clears verification, swap this
+// binding back to the real component (add the import at the top).
 const SEERCalculatorGated = () => <UnverifiedCalcNotice />;
 
 export const mdxComponents = {
-  BTUCalculator: BTUCalculatorGated,
+  BTUCalculator,
   Callout,
   CalcWrapper,
   ComparisonTable: ComparisonTableWrapper,
