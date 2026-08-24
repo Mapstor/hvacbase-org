@@ -14,7 +14,8 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //
 // Verified live (NOT in this Set — render normally):
 //   mini-split, battery-12v-watts, battery-watt-hours, three-phase-power,
-//   generator-amps, furnace-electrical, btu, ac-tonnage, furnace-sizing
+//   generator-amps, furnace-electrical, btu, ac-tonnage, furnace-sizing,
+//   heat-pump-size
 const UNVERIFIED_TYPES = new Set<string>([
   'seer2',
   'kwh-cost',
@@ -26,7 +27,6 @@ const UNVERIFIED_TYPES = new Set<string>([
   'solar-panel',
   'specific-heat',
   'dehumidifier-cost',
-  'heat-pump-size',
   'water-heater-sizing',
   'generator-sizing',
   'ac-generator',
@@ -45,7 +45,6 @@ const UNVERIFIED_TYPES = new Set<string>([
 // mapped where the sibling covers meaningfully similar ground; unmapped
 // types just show the base notice.
 const SIBLING_HINT: Record<string, { slug: string; label: string }> = {
-  'heat-pump-size': { slug: '/air-conditioner-btu-calculator',      label: 'BTU Calculator' },
   'generator-sizing': { slug: '/how-many-amps-does-generator-produce', label: 'Generator Amps Calculator' },
   'ac-generator':     { slug: '/how-many-amps-does-generator-produce', label: 'Generator Amps Calculator' },
 };
