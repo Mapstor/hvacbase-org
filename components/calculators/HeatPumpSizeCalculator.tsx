@@ -267,10 +267,17 @@ export default function HeatPumpSizeCalculator() {
     );
 
     // === SUPPLEMENTAL HEAT AT DESIGN TEMP ===
+    // Cover the load-minus-capacity gap at design temp × 1.10 for real-
+    // world cold-snap margin. Below the canonical Manual S 1.25 (which
+    // gold-plates expensive-to-run strip heat), above the raw delta
+    // (which under-sizes when design temp gets exceeded on the worst
+    // winter night).
+    const SUPPLEMENTAL_SAFETY = 1.10;
     const hpCapAtDesign = capacityAtTemp(
       selectedClimate.coldestTemp, cap47, cap17, cap5,
     );
-    const supplementalBTU = Math.max(0, heatingLoad - hpCapAtDesign);
+    const supplementalDeltaBTU = Math.max(0, heatingLoad - hpCapAtDesign);
+    const supplementalBTU = Math.round(supplementalDeltaBTU * SUPPLEMENTAL_SAFETY);
     const supplementalKW = supplementalBTU / 3412;
 
     // === ANNUAL ENERGY (use LOAD × EFLH, not nameplate × EFLH) ===
@@ -314,7 +321,7 @@ export default function HeatPumpSizeCalculator() {
       cap5: Math.round(cap5),
       balancePoint,
       hpCapAtDesign: Math.round(hpCapAtDesign),
-      supplementalBTU: Math.round(supplementalBTU),
+      supplementalBTU,
       supplementalKW,
       backupCapacityKW,
       insufficientBackup,
@@ -549,7 +556,7 @@ export default function HeatPumpSizeCalculator() {
               </p>
               {calc.supplementalBTU > 0 && (
                 <p className="text-[11px] text-amber-700 bg-amber-50 px-2 py-1 rounded mt-2">
-                  Supplemental heat at design temp: <strong>{fmt(calc.supplementalBTU)} BTU/hr</strong> (~{calc.supplementalKW.toFixed(1)} kW electric strips).
+                  Supplemental heat at design temp: <strong>{fmt(calc.supplementalBTU)} BTU/hr</strong> (~{calc.supplementalKW.toFixed(1)} kW electric strips) — includes a 10% cold-snap margin over the raw load-vs-capacity gap.
                 </p>
               )}
             </div>
