@@ -14,7 +14,7 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //
 // Verified live (NOT in this Set — render normally):
 //   mini-split, battery-12v-watts, battery-watt-hours, three-phase-power,
-//   generator-amps, furnace-electrical, btu, ac-tonnage
+//   generator-amps, furnace-electrical, btu, ac-tonnage, furnace-sizing
 const UNVERIFIED_TYPES = new Set<string>([
   'seer2',
   'kwh-cost',
@@ -26,7 +26,6 @@ const UNVERIFIED_TYPES = new Set<string>([
   'solar-panel',
   'specific-heat',
   'dehumidifier-cost',
-  'furnace-sizing',
   'heat-pump-size',
   'water-heater-sizing',
   'generator-sizing',

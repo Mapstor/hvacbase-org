@@ -48,7 +48,7 @@ const climateZones = [
     btuPerSqFt: 35, hdd: 2000, designTemp: '30°F', months: '3–4',
     description: 'Southern Texas, Southern California' },
   { value: 'zone3', short: 'Z3', name: 'Zone 3', label: 'Moderate',
-    btuPerSqFt: 40, hdd: 3500, designTemp: '20°F', months: '4–5',
+    btuPerSqFt: 40, hdd: 2700, designTemp: '20°F', months: '4–5',
     description: 'Virginia, Tennessee, Arkansas' },
   { value: 'zone4', short: 'Z4', name: 'Zone 4', label: 'Cool',
     btuPerSqFt: 45, hdd: 5000, designTemp: '10°F', months: '5–6',
@@ -97,13 +97,21 @@ const furnaceEfficiency = [
     note: 'Modulating/variable-speed. Top comfort, lowest bills.' },
 ];
 
+// Heating-load sun-exposure adjustment. Direction is OPPOSITE of cooling:
+// south-facing / sunny homes get a passive-solar credit and need LESS heating;
+// heavily shaded homes lose that credit and need a bit more. Verified vs DOE
+// Passive Solar Home Design + ACCA Manual J guidance (Manual J itself ignores
+// solar for the 99% design load; these factors are framed as an average-day
+// adjustment, ~±8%). Previously the factors were inverted (shaded 0.9, sun 1.1
+// — treating sunny as more heating), the same physics-sign bug as the cooling
+// climate tables had.
 const sunExposureOptions = [
   { value: 'low', name: 'Mostly shaded', sub: 'Heavy tree cover, north-facing',
-    factor: 0.9, Icon: Cloud },
+    factor: 1.08, Icon: Cloud },
   { value: 'average', name: 'Average', sub: 'Mixed sun and shade',
     factor: 1.0, Icon: CloudSun },
   { value: 'high', name: 'Full sun', sub: 'Open exposure, south-facing',
-    factor: 1.1, Icon: Sun },
+    factor: 0.92, Icon: Sun },
 ];
 
 const storiesOptions = [
@@ -118,11 +126,16 @@ const basementOptions = [
   { value: 'slab', name: 'Slab / none', sub: 'Slab on grade or no basement', factor: 1.05 },
 ];
 
+// Duct-loss factors rebased around conditioned-space = 1.00 (no loss). EPA
+// ENERGY STAR + DOE Building America put uninsulated-attic ductwork at 25-35%
+// total penalty (previously stated as 15% here, roughly half the physics-
+// correct value); crawlspace losses commonly run 15-30%. Values sit at the
+// midpoint of each cited range.
 const ductOptions = [
-  { value: 'conditioned', name: 'Conditioned space', sub: 'Inside heated envelope', factor: 0.95 },
-  { value: 'insulated_attic', name: 'Insulated attic', sub: 'Sealed, insulated ducts', factor: 1.0 },
-  { value: 'uninsulated_attic', name: 'Uninsulated attic', sub: 'Lossy ducts in attic', factor: 1.15 },
-  { value: 'crawlspace', name: 'Crawlspace', sub: 'Below floor, vented', factor: 1.10 },
+  { value: 'conditioned', name: 'Conditioned space', sub: 'Inside heated envelope', factor: 1.00 },
+  { value: 'insulated_attic', name: 'Insulated attic', sub: 'Sealed, insulated ducts', factor: 1.10 },
+  { value: 'uninsulated_attic', name: 'Uninsulated attic', sub: 'Lossy ducts in attic', factor: 1.28 },
+  { value: 'crawlspace', name: 'Crawlspace', sub: 'Below floor, vented', factor: 1.18 },
 ];
 
 const squareFootPresets = [1000, 1500, 2000, 2500, 3000, 4000];
@@ -209,7 +222,10 @@ export default function FurnaceSizingCalculator() {
     const annualGasUsage =
       (outputBTUNeeded * selectedZone.hdd * 24) /
       (selectedEfficiency.efficiency * 100000 * 65);
-    const annualCost = annualGasUsage * 1.2;
+    // $1.35/therm — EIA 2026 US heating-season national midpoint for
+    // residential natural gas. Regional spread: Northeast ~$1.60,
+    // West ~$1.35, Midwest ~$1.15, South ~$1.05.
+    const annualCost = annualGasUsage * 1.35;
 
     return {
       baseBTU: Math.round(baseBTU),
@@ -557,7 +573,7 @@ export default function FurnaceSizingCalculator() {
             </h4>
             <div className="space-y-1.5">
               {furnaceEfficiency.map((eff) => {
-                const altCost = (calc.annualGasUsage * selectedEfficiency.efficiency / eff.efficiency) * 1.2;
+                const altCost = (calc.annualGasUsage * selectedEfficiency.efficiency / eff.efficiency) * 1.35;
                 const delta = altCost - calc.annualCost;
                 const isCurrent = eff.value === src.efficiency;
                 return (
@@ -590,13 +606,14 @@ export default function FurnaceSizingCalculator() {
               })}
             </div>
             <p className="text-[11px] text-gray-500 mt-2 leading-snug">
-              Costs based on {fmt(selectedZone.hdd)} HDD and $1.20/therm. 10-yr fuel difference
+              Costs based on {fmt(selectedZone.hdd)} HDD and $1.35/therm (EIA 2026 national
+              heating-season midpoint; Northeast ~$1.60, South ~$1.05). 10-yr fuel difference
               between 80% and 98% AFUE on this load: roughly{' '}
               <strong>
                 ${fmtMoney(
                   Math.abs(
                     ((calc.annualGasUsage * selectedEfficiency.efficiency / 0.8) -
-                     (calc.annualGasUsage * selectedEfficiency.efficiency / 0.98)) * 1.2 * 10
+                     (calc.annualGasUsage * selectedEfficiency.efficiency / 0.98)) * 1.35 * 10
                   )
                 )}
               </strong>.
@@ -635,10 +652,18 @@ export default function FurnaceSizingCalculator() {
 
         <DisclaimerBox title="This is an estimate, not a Manual J.">
           <p>
+            This calc uses industry rule-of-thumb BTU-per-square-foot sizing that reflects a
+            typical <strong>existing-home replacement</strong>. New or recently-built tight homes
+            (IRC-2018 or later, blower-door-tested, spray-foam or Low-E triple-pane envelope) often
+            need <strong>40–60% less</strong> heating capacity than this estimate suggests — real
+            Manual J on a tight new build in a cold climate can land at 12–20 BTU/sqft, not 45–60.
+          </p>
+          <p>
             Real residential load calculations measure each room, every window's orientation,
             the home's air leakage rate (ACH50), and local 99% design temperatures. Have a
-            licensed HVAC contractor run a proper Manual J before purchasing equipment —
-            especially if your result is near a size boundary or above 120,000 BTU.
+            licensed HVAC contractor run a proper <strong>ACCA Manual J</strong> before purchasing
+            equipment — especially for new construction, for a result near a size boundary, or
+            above 120,000 BTU.
           </p>
         </DisclaimerBox>
       </section>
