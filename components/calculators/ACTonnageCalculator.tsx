@@ -32,14 +32,20 @@ import {
 
 const ACCENT = 'blue' as const;
 
+// Climate multipliers verified against ACCA Manual J short-form + ENERGY STAR
+// central AC sizing tables. Cooling load is HIGHEST in hot zones (high sensible
+// + latent load) and LOWEST in cold zones (mild summers). Previously the
+// factors were INVERTED — hot zones got 0.9 and cold zones 1.5, causing a
+// 2000 sqft home in Minneapolis to size at 5 tons while Phoenix sized at 3.5,
+// the opposite of physics. Base is 20 BTU/sqft (ENERGY STAR baseline) × factor.
 const climateZones = [
-  { value: '1', short: 'Z1', label: 'Very Hot', factor: 0.9, description: 'Miami, Houston' },
-  { value: '2', short: 'Z2', label: 'Hot', factor: 1.0, description: 'Phoenix, Las Vegas' },
-  { value: '3', short: 'Z3', label: 'Warm', factor: 1.1, description: 'Atlanta, Los Angeles' },
-  { value: '4', short: 'Z4', label: 'Mixed', factor: 1.2, description: 'Washington DC, Kansas City' },
-  { value: '5', short: 'Z5', label: 'Cool', factor: 1.3, description: 'Chicago, Boston' },
-  { value: '6', short: 'Z6', label: 'Cold', factor: 1.4, description: 'Minneapolis, Denver' },
-  { value: '7', short: 'Z7', label: 'Very Cold', factor: 1.5, description: 'Fargo, Anchorage' },
+  { value: '1', short: 'Z1', label: 'Very Hot', factor: 1.30, description: 'Miami, Houston' },
+  { value: '2', short: 'Z2', label: 'Hot', factor: 1.20, description: 'Phoenix, Las Vegas' },
+  { value: '3', short: 'Z3', label: 'Warm', factor: 1.10, description: 'Atlanta, Los Angeles' },
+  { value: '4', short: 'Z4', label: 'Mixed', factor: 1.00, description: 'Washington DC, Kansas City' },
+  { value: '5', short: 'Z5', label: 'Cool', factor: 0.90, description: 'Chicago, Boston' },
+  { value: '6', short: 'Z6', label: 'Cold', factor: 0.85, description: 'Minneapolis, Denver' },
+  { value: '7', short: 'Z7', label: 'Very Cold', factor: 0.80, description: 'Fargo, Anchorage' },
 ];
 
 const insulationOptions = [
@@ -118,8 +124,14 @@ export default function ACTonnageCalculator() {
       0
     );
     const tons = totalBTU / 12000;
-    const sizes = [1.5, 2, 2.5, 3, 3.5, 4, 5];
-    const ideal = sizes.find((s) => s >= tons) || 5;
+    // Standard nominal AC sizes (Trane/Carrier/Goodman): 4.5-ton is a real SKU,
+    // previously skipped so 4.1-4.5 ton loads jumped to a 5-ton unit.
+    const sizes = [1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+    const rawIdeal = sizes.find((s) => s >= tons);
+    // Loads above 5 tons exceed single central-AC capacity — no silent clamp;
+    // the results block renders an explicit warning below.
+    const exceedsSingleUnit = rawIdeal === undefined;
+    const ideal = rawIdeal ?? 5;
     const min = Math.max(1.5, ideal - 0.5);
     const max = Math.min(5, ideal + 0.5);
     return {
@@ -131,11 +143,13 @@ export default function ACTonnageCalculator() {
       ideal,
       min,
       max,
+      exceedsSingleUnit,
     };
   }, [sqFt, winN, occN, selectedZone, selectedIns, selectedCeiling, selectedSun]);
 
   const fit =
     calc.tons === 0 ? { tone: 'warn' as const, text: 'Enter square footage' } :
+    calc.exceedsSingleUnit ? { tone: 'warn' as const, text: 'Exceeds single-unit capacity' } :
     calc.ideal - calc.tons < 0.25 ? { tone: 'good' as const, text: 'Exact size match' } :
     calc.ideal - calc.tons < 0.5  ? { tone: 'ok' as const, text: 'Good fit' } :
                                     { tone: 'warn' as const, text: 'Rounding up by half-ton' };
@@ -219,7 +233,7 @@ export default function ACTonnageCalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Climate zone
               <InfoTip label="climate zone">
-                US DOE climate zones 1 (Miami) to 7 (Alaska). Heating-dominated zones (5–7) actually need more total HVAC tonnage because the dual cooling+heating swing is larger.
+                US DOE climate zones 1 (Miami) to 7 (Alaska). Cooling load is highest in hot zones (Z1–Z3) because peak sensible + latent load is larger; cold zones (Z5–Z7) run mild summers and need less tonnage. This is a central-AC (cooling) calc — heating tonnage is sized separately.
               </InfoTip>
             </label>
             <div role="radiogroup" aria-label="Climate zone" className="grid grid-cols-4 sm:grid-cols-7 gap-1.5">
@@ -397,13 +411,27 @@ export default function ACTonnageCalculator() {
                 );
               })}
             </div>
-            {calc.tons > 4.5 && (
+            {calc.tons > 4.5 && !calc.exceedsSingleUnit && (
               <p className="text-[11px] text-gray-600 mt-3 leading-snug">
                 For loads above 4.5 tons, a <strong>zoned or multi-stage system</strong> often delivers better comfort and humidity control than a single large unit.
               </p>
             )}
           </div>
         </div>
+
+        {calc.exceedsSingleUnit && (
+          <div className="rounded-xl border border-amber-300 bg-amber-50 p-4">
+            <h4 className="font-semibold text-amber-900 text-sm mb-1">
+              Load exceeds typical single central AC unit
+            </h4>
+            <p className="text-[13px] text-amber-900 leading-relaxed">
+              Your calculated load is <strong>{calc.tons.toFixed(2)} tons</strong> ({fmt(calc.totalBTU)} BTU/hr) —
+              above the ~5 ton / 60,000 BTU/hr ceiling of most residential central AC. You'll need a
+              professional <strong>ACCA Manual J</strong> load calc, and likely a{' '}
+              <strong>dual-system or multi-stage / zoned setup</strong> rather than one oversized unit.
+            </p>
+          </div>
+        )}
 
         <DisclaimerBox title="Use this for budgeting, not contract specs.">
           <p>

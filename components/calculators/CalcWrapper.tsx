@@ -14,9 +14,8 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //
 // Verified live (NOT in this Set — render normally):
 //   mini-split, battery-12v-watts, battery-watt-hours, three-phase-power,
-//   generator-amps, furnace-electrical, btu
+//   generator-amps, furnace-electrical, btu, ac-tonnage
 const UNVERIFIED_TYPES = new Set<string>([
-  'ac-tonnage',
   'seer2',
   'kwh-cost',
   'power-consumption',
@@ -47,7 +46,6 @@ const UNVERIFIED_TYPES = new Set<string>([
 // mapped where the sibling covers meaningfully similar ground; unmapped
 // types just show the base notice.
 const SIBLING_HINT: Record<string, { slug: string; label: string }> = {
-  'ac-tonnage':     { slug: '/air-conditioner-btu-calculator',      label: 'BTU Calculator' },
   'heat-pump-size': { slug: '/air-conditioner-btu-calculator',      label: 'BTU Calculator' },
   'generator-sizing': { slug: '/how-many-amps-does-generator-produce', label: 'Generator Amps Calculator' },
   'ac-generator':     { slug: '/how-many-amps-does-generator-produce', label: 'Generator Amps Calculator' },
