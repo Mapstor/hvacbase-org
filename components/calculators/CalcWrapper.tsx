@@ -15,7 +15,8 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 // Verified live (NOT in this Set — render normally):
 //   mini-split, battery-12v-watts, battery-watt-hours, three-phase-power,
 //   generator-amps, furnace-electrical, btu, ac-tonnage, furnace-sizing,
-//   heat-pump-size, afue, dehumidifier-sizing, water-heater-sizing
+//   heat-pump-size, afue, dehumidifier-sizing, water-heater-sizing,
+//   heat-pump-vs-furnace
 const UNVERIFIED_TYPES = new Set<string>([
   'seer2',
   'kwh-cost',
@@ -34,7 +35,6 @@ const UNVERIFIED_TYPES = new Set<string>([
   'large-room-portable-ac',
   'small-room-portable-ac',
   'hvac-roi',
-  'heat-pump-vs-furnace',
 ]);
 
 // Per-unverified-calc pointer to a topically-adjacent VERIFIED sibling calc,

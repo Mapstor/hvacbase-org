@@ -29,6 +29,47 @@ import {
 
 const ACCENT = 'purple' as const;
 
+// === Efficiency constants (verified against DOE 10 CFR 430 Appendix M) ===
+// HSPF2 (Heating Seasonal Performance Factor, post-2023 test procedure) has
+// units of BTU per watt-hour, so the correct BTU → kWh divisor is
+// HSPF2 × 1000 (giving BTU per kWh). Previously the calc used
+// HSPF × 3412, which treated HSPF as if it were dimensionless COP AND
+// applied the 3412 BTU/kWh converter — double-conversion, divisor
+// 3.412× too large, heat-pump heating kWh understated by exactly 3.412×
+// and annual cost fabricated ~$1,700/yr low on the default case, which
+// flipped the recommendation from "keep furnace" to "buy heat pump" for
+// mid-country cheap-gas users.
+//
+// SEER2 (Seasonal Energy Efficiency Ratio, post-2023) has the same
+// BTU/Wh units, so BTU → kWh divisor is SEER2 × 1000.
+//
+// Current 2026 typical values (post-2023 M1 test procedure):
+//   Federal min HSPF2 = 7.5; ENERGY STAR = 7.8; mid-range 8.0-8.5;
+//   cold-climate 9.0-10.5.
+//   Federal min SEER2 = 13.4 (north) / 14.3 (south); ENERGY STAR = 15.2;
+//   premium inverter 17-20; cold-climate 16.
+const BTU_PER_KWH = 3412;              // physical constant (unrelated to efficiency metrics)
+const HP_HSPF2       = 8.2;            // ENERGY STAR mid-range default (was legacy HSPF 9.5)
+// Per-zone effective HSPF2 for a STANDARD (non-cold-climate) heat pump.
+// A standard HP rated 8.2 HSPF2 in DOE Region IV loses effective seasonal
+// performance in colder zones as more heating hours cross below the
+// balance point and supplemental resistance strips run at COP 1. Derating
+// values approximate the strip-kWh weighted seasonal average per DOE
+// Building America + NEEP field data. To model a NEEP-listed cold-climate
+// unit (HSPF2 9.5-10.5, capacity retention 85%+ at 5°F), a user would
+// enter the model's rated HSPF2 directly — see sister HeatPumpSizeCalculator.
+const HP_HSPF2_BY_ZONE: Record<string, number> = {
+  'very-hot':  8.2,   // no derating (barely uses heating)
+  'hot':       8.2,
+  'mixed':     8.2,
+  'cold':      6.5,   // ~20% degradation from balance-point strip runs
+  'very-cold': 5.0,   // ~40% degradation — standard HP shouldn't be here
+};
+const HP_SEER2       = 17.1;           // premium inverter (was legacy SEER 18)
+const NEW_FURNACE_AC_SEER2 = 15.2;     // ENERGY STAR baseline (was legacy SEER 16)
+const CURRENT_AC_SEER2     = 13.3;     // typical existing AC (was legacy SEER 14)
+const NEW_FURNACE_AFUE     = 0.95;     // hardcoded high-efficiency default
+
 const climateZones = [
   { value: 'very-cold', name: 'Very cold', summary: 'MN, AK, N. Maine', designTemp: -10, heatingHours: 3500, coolingHours: 800, heatPumpViable: 'cold-climate-only' },
   { value: 'cold', name: 'Cold', summary: 'Chicago, Boston, Denver', designTemp: 5, heatingHours: 2800, coolingHours: 1200, heatPumpViable: 'yes-with-backup' },
@@ -51,14 +92,18 @@ const DEFAULTS = {
   climate: 'mixed',
   currentFuel: 'natural-gas',
   currentEfficiency: '80',
-  electricRate: '0.16',
-  gasRate: '1.25',
+  electricRate: '0.18',   // EIA 2026 US national average
+  gasRate: '1.35',        // EIA 2026 heating-season national midpoint
   systemAge: '12',
   heatPumpCost: '12000',
   furnaceCost: '6500',
-  heatPumpCredit: '2000',
-  furnaceCredit: '600',
-  utilityRebate: '500',
+  // 25C federal tax credit expired 31 Dec 2025 under OBBBA (placed-in-
+  // service rule, no grandfather clause for 2025-signed contracts).
+  // Both defaults are $0 for 2026 installs. The rebate field below stays
+  // user-editable for state / utility / DOE HEAR programs (variable).
+  heatPumpCredit: '0',
+  furnaceCredit: '0',
+  utilityRebate: '0',
 };
 
 export default function HeatPumpVsFurnaceCalculator() {
@@ -117,43 +162,57 @@ export default function HeatPumpVsFurnaceCalculator() {
     const heatingLoad = sqft * 40;
     const coolingLoad = sqft * 25;
 
-    const currentCost = (() => {
-      if (src.currentFuel === 'electric-resistance') {
-        const totalLoad = heatingLoad * selectedClimate.heatingHours + coolingLoad * selectedClimate.coolingHours;
-        const kwh = totalLoad / 3412;
-        return kwh * eR;
-      }
-      const heatBtu = heatingLoad * selectedClimate.heatingHours;
-      const heatCost = (heatBtu / selectedFuelSrc.btuContent / (cEff / 100)) * gR;
-      const coolBtu = coolingLoad * selectedClimate.coolingHours;
-      const coolKwh = coolBtu / (14 * 1000);
-      const coolCost = coolKwh * eR;
-      return heatCost + coolCost;
-    })();
+    // Annual BTU totals (same for all three system paths — building
+    // load doesn't change with the equipment inside it).
+    const heatBtu = heatingLoad * selectedClimate.heatingHours;
+    const coolBtu = coolingLoad * selectedClimate.coolingHours;
 
-    const heatPumpEnergy = (() => {
-      const coolBtu = coolingLoad * selectedClimate.coolingHours;
-      const heatBtu = heatingLoad * selectedClimate.heatingHours;
-      const coolKwh = coolBtu / (18 * 1000);
-      const heatKwh = heatBtu / (9.5 * 3412);
-      return (coolKwh + heatKwh) * eR;
-    })();
-
-    const furnaceEnergy = (() => {
+    // === CURRENT SYSTEM COST ===
+    // Heating: fuel-specific (electric-resistance has BTU_PER_KWH divisor
+    // = COP 1; gas/oil/propane use fuel BTU content ÷ AFUE).
+    // Cooling: ALL current systems (including electric-resistance
+    // homes!) use a normal AC rated by SEER2, NOT the heating efficiency.
+    // Previously the electric-resistance branch dumped heat+cool BTU
+    // together and divided both by 3412, implying SEER 1 cooling — 4×
+    // overstatement of cooling cost.
+    const currentCoolKwh = coolBtu / (CURRENT_AC_SEER2 * 1000);
+    const currentCoolCost = currentCoolKwh * eR;
+    const currentHeatCost = (() => {
       if (src.currentFuel === 'electric-resistance') {
-        const heatBtu = heatingLoad * selectedClimate.heatingHours;
-        const coolBtu = coolingLoad * selectedClimate.coolingHours;
-        const heatKwh = heatBtu / 3412;
-        const coolKwh = coolBtu / (16 * 1000);
-        return (heatKwh + coolKwh) * eR;
+        // Resistance heating: 1 kWh = 3412 BTU (COP 1).
+        return (heatBtu / BTU_PER_KWH) * eR;
       }
-      const heatBtu = heatingLoad * selectedClimate.heatingHours;
-      const heatCost = (heatBtu / selectedFuelSrc.btuContent / 0.95) * gR;
-      const coolBtu = coolingLoad * selectedClimate.coolingHours;
-      const coolKwh = coolBtu / (16 * 1000);
-      const coolCost = coolKwh * eR;
-      return heatCost + coolCost;
+      return (heatBtu / selectedFuelSrc.btuContent / (cEff / 100)) * gR;
     })();
+    const currentCost = currentHeatCost + currentCoolCost;
+
+    // === HEAT PUMP COST ===
+    // BOTH sides divide by (rating × 1000) because SEER2 and HSPF2 are
+    // both BTU/Wh. Previously the heating side divided by (HSPF × 3412)
+    // — a 3.412× understatement that fabricated ~$1,700/yr in phantom
+    // savings on the default case and flipped the recommendation.
+    // Heating uses a per-zone effective HSPF2 (cold/very-cold zones
+    // derate to account for supplemental strip kWh below balance point).
+    const effectiveHSPF2 = HP_HSPF2_BY_ZONE[selectedClimate.value] ?? HP_HSPF2;
+    const heatPumpCoolKwh = coolBtu / (HP_SEER2 * 1000);
+    const heatPumpHeatKwh = heatBtu / (effectiveHSPF2 * 1000);
+    const heatPumpEnergy = (heatPumpCoolKwh + heatPumpHeatKwh) * eR;
+
+    // === NEW FURNACE + AC COST ===
+    // Heating: same fuel-specific logic as current, but at 95% AFUE.
+    // Cooling: new SEER2 15.2 AC (ENERGY STAR baseline).
+    // Note: electric-resistance-current users choosing "new furnace + AC"
+    // are effectively upgrading to a new resistance strip + new AC — same
+    // heating physics, better cooling.
+    const furnaceCoolKwh = coolBtu / (NEW_FURNACE_AC_SEER2 * 1000);
+    const furnaceCoolCost = furnaceCoolKwh * eR;
+    const furnaceHeatCost = (() => {
+      if (src.currentFuel === 'electric-resistance') {
+        return (heatBtu / BTU_PER_KWH) * eR;
+      }
+      return (heatBtu / selectedFuelSrc.btuContent / NEW_FURNACE_AFUE) * gR;
+    })();
+    const furnaceEnergy = furnaceHeatCost + furnaceCoolCost;
 
     const currentMaint = age > 10 ? 500 : 300;
     const heatPumpMaint = 250;
@@ -172,6 +231,8 @@ export default function HeatPumpVsFurnaceCalculator() {
 
     return {
       heatingLoad, coolingLoad, currentCost, heatPumpEnergy, furnaceEnergy,
+      currentHeatCost, currentCoolCost,           // exposed for breakdown display
+      effectiveHSPF2,                             // for the per-zone derating callout
       currentMaint, heatPumpMaint, furnaceMaint,
       currentTotal, heatPumpTotal, furnaceTotal,
       heatPumpSavings, furnaceSavings,
@@ -184,16 +245,31 @@ export default function HeatPumpVsFurnaceCalculator() {
   const recommendation = useMemo(() => {
     const climateScore = selectedClimate.heatPumpViable;
     const savingsDiff = calc.heatPumpSavings - calc.furnaceSavings;
-    if (climateScore === 'excellent' && calc.heatPumpPayback < 12) return { choice: 'heat-pump' as const, confidence: 'high', reason: 'Excellent climate match with strong financial returns.' };
+    const neitherPencils = calc.heatPumpSavings <= 0 && calc.furnaceSavings <= 0;
+    if (neitherPencils) {
+      // Both options lose money vs the current system — recommend keeping
+      // it and revisiting when it fails. Previously, the "environmental
+      // benefits" tie-breaker would still push HP here.
+      return { choice: 'furnace' as const, confidence: 'medium', reason: 'Both new systems cost more than your current setup at these energy prices — keep the current system and reconsider when it needs replacement anyway.' };
+    }
+    if (climateScore === 'excellent' && calc.heatPumpPayback < 12 && calc.heatPump15 >= calc.furnace15) return { choice: 'heat-pump' as const, confidence: 'high', reason: 'Excellent climate match with strong financial returns.' };
     if (climateScore === 'ideal' && calc.heatPump15 > calc.furnace15) return { choice: 'heat-pump' as const, confidence: 'high', reason: 'Ideal climate zone with better long-term economics.' };
-    if (climateScore === 'cold-climate-only') return { choice: 'furnace' as const, confidence: 'medium', reason: 'Very cold climate needs a cold-climate heat pump or backup heating.' };
-    if (calc.heatPumpPayback - calc.furnacePayback > 5 && calc.furnacePayback < 10) return { choice: 'furnace' as const, confidence: 'medium', reason: 'Significantly faster payback with furnace system.' };
-    if (Math.abs(savingsDiff) < 100) return { choice: 'heat-pump' as const, confidence: 'medium', reason: 'Similar economics — heat pump wins on environmental benefits.' };
+    if (climateScore === 'cold-climate-only') return { choice: 'furnace' as const, confidence: 'medium', reason: 'Very cold climate — a standard HP loses too much capacity below the balance point. Use a NEEP-listed cold-climate model (HSPF2 10+, enter its HSPF2 for a real comparison) or keep gas backup.' };
+    if (calc.heatPumpPayback - calc.furnacePayback > 5 && calc.furnacePayback < 10) return { choice: 'furnace' as const, confidence: 'medium', reason: 'Significantly faster payback with furnace system at these fuel prices.' };
+    if (Math.abs(savingsDiff) < 100 && (calc.heatPumpSavings > 0 || calc.furnaceSavings > 0)) return { choice: 'heat-pump' as const, confidence: 'medium', reason: 'Similar economics — heat pump wins on environmental benefits and future-proofing.' };
     if (calc.heatPump15 > calc.furnace15) return { choice: 'heat-pump' as const, confidence: 'medium', reason: 'Better long-term financial performance.' };
-    return { choice: 'furnace' as const, confidence: 'medium', reason: 'Better short-term financial performance.' };
+    return { choice: 'furnace' as const, confidence: 'medium', reason: 'Better short-term financial performance at these fuel prices.' };
   }, [selectedClimate, calc]);
 
   const recColor = recommendation.choice === 'heat-pump' ? 'purple' : 'orange';
+
+  // Label the second option based on the fuel path — a resistance-current
+  // user's "furnace + AC" is really "new resistance strip + AC" (no gas
+  // hookup implied). Everything else uses "Furnace + AC".
+  const furnaceLabel = src.currentFuel === 'electric-resistance'
+    ? 'New Electric + AC'
+    : 'Furnace + AC';
+  const FurnaceIcon = src.currentFuel === 'electric-resistance' ? Zap : Flame;
 
   return (
     <CalcShell
@@ -246,17 +322,26 @@ export default function HeatPumpVsFurnaceCalculator() {
               <label className="text-sm font-medium text-gray-700 mb-2 block">Electric rate</label>
               <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
             </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mb-2 block">{selectedFuel.name} rate ({selectedFuel.sub})</label>
-              <NumberInput value={gasRate} onChange={setGasRate} min={0.5} max={5} suffix={`$/${selectedFuel.sub.replace('per ', '')}`} ariaLabel="Fuel rate" accent={ACCENT} />
-            </div>
+            {selectedFuel.value === 'electric-resistance' ? (
+              <div>
+                <label className="text-sm font-medium text-gray-700 mb-2 block">Fuel rate</label>
+                <div className="px-3 py-2.5 border border-gray-200 rounded-lg bg-gray-50 text-xs text-gray-500">
+                  n/a — electric resistance is priced from the electric rate above.
+                </div>
+              </div>
+            ) : (
+              <div>
+                <label className="text-sm font-medium text-gray-700 mb-2 block">{selectedFuel.name} rate ({selectedFuel.sub})</label>
+                <NumberInput value={gasRate} onChange={setGasRate} min={0.5} max={5} suffix={`$/${selectedFuel.sub.replace('per ', '')}`} ariaLabel="Fuel rate" accent={ACCENT} />
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* Section 3 — System costs & incentives */}
       <section>
-        <SectionHeader step={3} title="New system costs & incentives" subtitle="Get 3 contractor quotes; prices vary 20–40%" Icon={DollarSign} accent={ACCENT} />
+        <SectionHeader step={3} title="New system costs & rebates" subtitle="Federal 25C tax credit expired 31 Dec 2025 — enter state/utility/HEAR amounts below" Icon={DollarSign} accent={ACCENT} />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
           <div>
@@ -268,15 +353,15 @@ export default function HeatPumpVsFurnaceCalculator() {
             <NumberInput value={furnaceCost} onChange={setFurnaceCost} min={3000} max={20000} suffix="$" ariaLabel="Furnace cost" accent={ACCENT} className="max-w-none" />
           </div>
           <div>
-            <label className="text-xs font-medium text-gray-700 mb-1 block">Heat pump credit</label>
-            <NumberInput value={heatPumpCredit} onChange={setHeatPumpCredit} min={0} max={2000} suffix="$" ariaLabel="Heat pump credit" accent={ACCENT} className="max-w-none" />
+            <label className="text-xs font-medium text-gray-700 mb-1 block">HP rebate (federal HEAR / state)</label>
+            <NumberInput value={heatPumpCredit} onChange={setHeatPumpCredit} min={0} max={8000} suffix="$" ariaLabel="Heat pump rebate" accent={ACCENT} className="max-w-none" />
           </div>
           <div>
-            <label className="text-xs font-medium text-gray-700 mb-1 block">Furnace credit</label>
-            <NumberInput value={furnaceCredit} onChange={setFurnaceCredit} min={0} max={600} suffix="$" ariaLabel="Furnace credit" accent={ACCENT} className="max-w-none" />
+            <label className="text-xs font-medium text-gray-700 mb-1 block">Furnace rebate</label>
+            <NumberInput value={furnaceCredit} onChange={setFurnaceCredit} min={0} max={2000} suffix="$" ariaLabel="Furnace rebate" accent={ACCENT} className="max-w-none" />
           </div>
           <div>
-            <label className="text-xs font-medium text-gray-700 mb-1 block">Utility rebate (HP)</label>
+            <label className="text-xs font-medium text-gray-700 mb-1 block">HP utility rebate</label>
             <NumberInput value={utilityRebate} onChange={setUtilityRebate} min={0} max={3000} suffix="$" ariaLabel="Utility rebate" accent={ACCENT} className="max-w-none" />
           </div>
         </div>
@@ -308,7 +393,7 @@ export default function HeatPumpVsFurnaceCalculator() {
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                {recommendation.choice === 'heat-pump' ? 'Heat Pump' : 'Furnace + AC'}
+                {recommendation.choice === 'heat-pump' ? 'Heat Pump' : furnaceLabel}
               </h3>
               <p className="text-sm text-gray-700">{recommendation.reason}</p>
             </div>
@@ -319,7 +404,7 @@ export default function HeatPumpVsFurnaceCalculator() {
         <div className="grid lg:grid-cols-2 gap-4">
           {[
             { label: 'Heat pump', tone: 'purple', Icon: Zap, total: calc.heatPumpTotal, energy: calc.heatPumpEnergy, maint: calc.heatPumpMaint, cost: hpCost, credit: hpCredit + rebate, net: calc.heatPumpNetCost, payback: calc.heatPumpPayback, savings: calc.heatPumpSavings, year15: calc.heatPump15, isChoice: recommendation.choice === 'heat-pump' },
-            { label: 'Furnace + AC', tone: 'orange', Icon: Flame, total: calc.furnaceTotal, energy: calc.furnaceEnergy, maint: calc.furnaceMaint, cost: furCost, credit: furCredit, net: calc.furnaceNetCost, payback: calc.furnacePayback, savings: calc.furnaceSavings, year15: calc.furnace15, isChoice: recommendation.choice === 'furnace' },
+            { label: furnaceLabel, tone: 'orange', Icon: FurnaceIcon, total: calc.furnaceTotal, energy: calc.furnaceEnergy, maint: calc.furnaceMaint, cost: furCost, credit: furCredit, net: calc.furnaceNetCost, payback: calc.furnacePayback, savings: calc.furnaceSavings, year15: calc.furnace15, isChoice: recommendation.choice === 'furnace' },
           ].map((sys) => {
             const Icon = sys.Icon;
             const isPurple = sys.tone === 'purple';
@@ -350,8 +435,12 @@ export default function HeatPumpVsFurnaceCalculator() {
                     </div>
                     <div className="bg-gray-50 p-2 rounded">
                       <div className="text-[10px] text-gray-500 uppercase tracking-wider">Payback</div>
-                      <div className="font-bold text-gray-900 tabular-nums">{sys.payback < 50 ? `${sys.payback.toFixed(1)} yr` : '50+ yr'}</div>
-                      <div className="text-[10px] text-gray-500">${fmtMoney(sys.savings)}/yr saved</div>
+                      <div className="font-bold text-gray-900 tabular-nums">{sys.payback < 50 ? `${sys.payback.toFixed(1)} yr` : sys.savings < 0 ? 'Loses $$' : '50+ yr'}</div>
+                      <div className={`text-[10px] ${sys.savings >= 0 ? 'text-gray-500' : 'text-red-600 font-semibold'}`}>
+                        {sys.savings >= 0
+                          ? `$${fmtMoney(sys.savings)}/yr saved`
+                          : `$${fmtMoney(Math.abs(sys.savings))}/yr more than current`}
+                      </div>
                     </div>
                   </div>
                   <div className={`p-2 rounded text-center ${sys.year15 > 0 ? 'bg-emerald-50' : 'bg-red-50'}`}>
@@ -398,8 +487,8 @@ export default function HeatPumpVsFurnaceCalculator() {
             <BreakdownTable
               rows={[
                 { label: 'Fuel', detail: selectedFuelSrc.name, factor: `${cEff}% eff.` },
-                { label: 'Heating cost', detail: `${fmt(selectedClimate.heatingHours)} hrs × ${fmt(calc.heatingLoad)} BTU`, factor: `—` },
-                { label: 'Cooling cost', detail: `${fmt(selectedClimate.coolingHours)} hrs × ${fmt(calc.coolingLoad)} BTU`, factor: `—` },
+                { label: 'Heating cost', detail: `${fmt(selectedClimate.heatingHours)} hrs × ${fmt(calc.heatingLoad)} BTU`, factor: `$${fmtMoney(calc.currentHeatCost)}/yr` },
+                { label: 'Cooling cost', detail: `${fmt(selectedClimate.coolingHours)} hrs × ${fmt(calc.coolingLoad)} BTU`, factor: `$${fmtMoney(calc.currentCoolCost)}/yr` },
                 { label: 'Maintenance', detail: age > 10 ? 'Aging system (>10 yr)' : 'Normal upkeep', factor: `$${fmtMoney(calc.currentMaint)}/yr` },
               ]}
               totals={[
@@ -409,12 +498,15 @@ export default function HeatPumpVsFurnaceCalculator() {
           </div>
         </div>
 
-        <DisclaimerBox title="What this comparison can't tell you">
+        <DisclaimerBox title="The answer depends on your local price ratio, not the technology.">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Whether your existing ductwork can handle the lower delivery temperature heat pumps produce (gas furnaces deliver 130°F air; heat pumps deliver 95–105°F)</li>
-            <li>Your home's actual load — this assumes 40 BTU/sq ft heating and 25 BTU/sq ft cooling, which varies ±30% with construction</li>
-            <li>Whether utility electrification programs in your area subsidize heat pumps further</li>
-            <li>The price trajectory of your fuel — gas has averaged 3%/yr inflation for 20 years</li>
+            <li><strong>Electric-to-gas price ratio drives the answer.</strong> At the calc&rsquo;s default HSPF2 8.2 / 95% AFUE, heat-pump heating is cheaper than a new gas furnace only when (elec $/kWh) ÷ (gas $/therm) drops below <strong>~0.09</strong> (heating alone) or <strong>~0.10</strong> when the HP&rsquo;s cooling advantage is included. At the defaults (0.18/1.35 = <strong>0.133</strong>) the furnace wins; a cold-climate model rated HSPF2 10+ shifts the crossover to ~0.11, and cooling-dominated hot climates push it to ~0.15-0.20. Enter your local rates to see where you land.</li>
+            <li><strong>Heat pumps lose capacity in extreme cold</strong> — a standard HSPF2 8 unit at 5°F outdoor delivers ~40% of nameplate; needs backup heat (electric strips or dual-fuel furnace) below the balance point. This calc <strong>derates HSPF2 for cold zones</strong> (6.5 for cold, 5.0 for very-cold) to approximate the supplemental-strip kWh burden. See our <a href="/heat-pump-size-calculator" className="text-purple-600 underline">Heat Pump Size Calculator</a> for the balance-point math.</li>
+            <li><strong>Cold-climate NEEP-listed models</strong> (HSPF2 9.5-10.5) hold 85%+ capacity at 5°F and change the arithmetic dramatically — this calc doesn&rsquo;t currently take a per-model HSPF2 input, so if you&rsquo;re comparing a specific ccASHP, run its published HSPF2 through the sister calc.</li>
+            <li><strong>Federal 25C tax credit expired 31 Dec 2025</strong> under OBBBA (placed-in-service rule, no grandfather clause). Enter state/utility/HEAR rebate amounts in the fields above — DOE HEAR is up to <strong>$8,000</strong> for a heat pump but requires household income ≤80% AMI ($4,000 up to 150% AMI, $0 above); check <a href="https://www.dsireusa.org" className="text-purple-600 underline">DSIRE</a> for state programs.</li>
+            <li><strong>Ductwork sizing</strong>: gas furnaces deliver 130°F air; heat pumps deliver 95-105°F. Existing furnace ducts may need upsizing for a heat pump.</li>
+            <li><strong>Load assumption</strong>: this calc uses 40 BTU/sqft heating and 25 BTU/sqft cooling with per-zone equivalent-full-load hours — a screening estimate that varies ±30% with construction. The recommendation is a RATIO — absolute annual costs are directional, not to-the-dollar.</li>
+            <li><strong>Fuel-price trajectory</strong>: gas has averaged ~3%/yr inflation for 20 years; electricity ~2-3%/yr. If your area is electrifying, expect the electric-to-gas ratio to shift over your 15-year comparison window.</li>
           </ul>
         </DisclaimerBox>
       </section>
