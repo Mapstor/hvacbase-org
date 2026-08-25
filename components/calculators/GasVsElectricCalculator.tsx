@@ -45,12 +45,21 @@ const applianceTypes = [
 
 const DEFAULTS = {
   applianceType: 'water-heater',
-  gasPrice: '1.20',
-  electricRate: '0.16',
+  gasPrice: '1.35',        // EIA 2026 US heating-season national midpoint
+  electricRate: '0.17',    // EIA 2026 national residential average (~$0.17-0.18)
   customGasSize: '',
   customElectricSize: '',
   customHours: '',
 };
+
+// EPA eGRID 2022 US average grid emissions factor. Previous 1,222 lb/MWh
+// was from the 2007-2010 vintage — the grid has decarbonized ~30% since
+// then as coal retired and gas/renewables built out. Using the stale
+// value systematically over-stated electric CO2 by ~43% and could flip
+// the winner (e.g., electric cooking range shown as dirtier than gas
+// when reality is the opposite).
+const GRID_LB_CO2_PER_MWH = 855;
+const NG_LB_CO2_PER_MMBTU = 117;   // EPA (unchanged)
 
 export default function GasVsElectricCalculator() {
   const [applianceType, setApplianceType] = useState(DEFAULTS.applianceType);
@@ -101,8 +110,8 @@ export default function GasVsElectricCalculator() {
     const yearlySavings = monthlySavings * 12;
     const gasCheaper = yearlySavings > 0;
 
-    const yearlyGasCO2 = (yearlyGasBtu / 1000000) * 117;
-    const yearlyElectricCO2 = (yearlyElectricKwh / 1000) * 1222;
+    const yearlyGasCO2 = (yearlyGasBtu / 1000000) * NG_LB_CO2_PER_MMBTU;
+    const yearlyElectricCO2 = (yearlyElectricKwh / 1000) * GRID_LB_CO2_PER_MWH;
     const co2Difference = yearlyElectricCO2 - yearlyGasCO2;
     const gasGreener = co2Difference > 0;
 
@@ -148,15 +157,15 @@ export default function GasVsElectricCalculator() {
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Natural gas price
-              <InfoTip label="gas price">Check your bill: the per-therm rate (not the total). US 2026 average ~$1.20/therm. Propane averages $2.75/gal.</InfoTip>
+              <InfoTip label="gas price">Check your bill: the per-therm rate (not the total). EIA 2026 US heating-season average ~$1.35/therm. Propane averages $2.75/gal.</InfoTip>
             </label>
             <NumberInput value={gasPrice} onChange={setGasPrice} min={0.5} max={5} suffix="$/therm" ariaLabel="Gas price" accent={ACCENT} />
-            <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $1.20/therm</p>
+            <p className="text-xs text-gray-500 mt-1.5">EIA 2026 heating-season avg: $1.35/therm</p>
           </div>
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Electric rate</label>
             <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
-            <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.16/kWh</p>
+            <p className="text-xs text-gray-500 mt-1.5">EIA 2026 US avg: $0.17-0.18/kWh</p>
           </div>
         </div>
       </section>
@@ -281,7 +290,7 @@ export default function GasVsElectricCalculator() {
               </div>
             </div>
             <p className="text-[11px] text-gray-600 mt-2 leading-snug">
-              Based on US grid average (1,222 lbs CO₂/MWh). Renewable-heavy grids (CA, WA) tip the balance toward electric; coal grids (WV, KY) tip toward gas.
+              Based on EPA eGRID 2022 US average ({GRID_LB_CO2_PER_MWH} lbs CO₂/MWh — down ~30% from the 2010 vintage as coal retired and gas/renewables built out). Renewable-heavy grids (CA, WA) tip the balance further toward electric; remaining coal grids (WV, KY) tip toward gas.
             </p>
           </div>
 

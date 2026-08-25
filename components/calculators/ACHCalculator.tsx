@@ -289,11 +289,12 @@ export default function ACHCalculator() {
 
         <DisclaimerBox title="What ACH does and doesn't tell you">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>ACH measures bulk air movement — doesn't measure filtration efficiency or pollutant removal</li>
-            <li>For viruses + fine particulates, MERV-13+ filtration matters more than ACH alone</li>
-            <li>ACH50 (blower-door test) measures envelope leakage, not mechanical ventilation — different number</li>
-            <li>In heated/cooled spaces, very high ACH wastes conditioning energy — use ERVs to capture 70%+ of that energy</li>
-            <li>For kitchens + bathrooms, ACH applies only during peak use — these are intermittent-exhaust spaces</li>
+            <li>This is a <strong>bulk-average estimate</strong> — the actual air change your room sees depends on register placement, return air path, door-undercut sizes, and whether supply CFM matches return. A well-mixed room with 240 CFM in / 240 CFM out reaches the calculated ACH; a room with sealed doors and one register does not.</li>
+            <li>ACH measures bulk air movement — doesn&rsquo;t measure filtration efficiency or pollutant removal. For viruses + fine particulates, MERV-13+ filtration matters more than ACH alone.</li>
+            <li><strong>ACH50 (blower-door test)</strong> measures envelope leakage under 50 Pa pressure — not the same as this mechanical-ventilation ACH. A tight home may be ACH50 &lt; 3 while its supply ventilation ACH is 0.35+.</li>
+            <li>Kitchen and bathroom targets (5-15 ACH) apply only <strong>during peak use</strong> — these are intermittent-exhaust spaces sized to clear cooking smoke / shower moisture in ~5-10 minutes, not run continuously.</li>
+            <li>Recommended targets pulled from ASHRAE 62.2 (residential) and 62.1 (commercial office). Local code (IMC, IRC) may set different minimums — check your AHJ.</li>
+            <li>In heated/cooled spaces, very high ACH wastes conditioning energy — use ERVs (energy recovery ventilators) to capture 70%+ of that energy.</li>
           </ul>
         </DisclaimerBox>
       </section>
