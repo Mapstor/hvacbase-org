@@ -25,6 +25,7 @@ import {
   ResultsHeader,
   CalculateResetBar,
   useCalculatorSubmit,
+  annualHeatingOutputBtu,
 } from './_shared';
 
 const ACCENT = 'purple' as const;
@@ -71,11 +72,11 @@ const CURRENT_AC_SEER2     = 13.3;     // typical existing AC (was legacy SEER 1
 const NEW_FURNACE_AFUE     = 0.95;     // hardcoded high-efficiency default
 
 const climateZones = [
-  { value: 'very-cold', name: 'Very cold', summary: 'MN, AK, N. Maine', designTemp: -10, heatingHours: 3500, coolingHours: 800, heatPumpViable: 'cold-climate-only' },
-  { value: 'cold', name: 'Cold', summary: 'Chicago, Boston, Denver', designTemp: 5, heatingHours: 2800, coolingHours: 1200, heatPumpViable: 'yes-with-backup' },
-  { value: 'mixed', name: 'Mixed', summary: 'DC, St. Louis, Portland', designTemp: 15, heatingHours: 1800, coolingHours: 1800, heatPumpViable: 'ideal' },
-  { value: 'hot', name: 'Hot', summary: 'Atlanta, Dallas, Phoenix', designTemp: 25, heatingHours: 1000, coolingHours: 2500, heatPumpViable: 'excellent' },
-  { value: 'very-hot', name: 'Very hot', summary: 'Miami, S. Texas, HI', designTemp: 35, heatingHours: 200, coolingHours: 3200, heatPumpViable: 'excellent' },
+  { value: 'very-cold', name: 'Very cold', summary: 'MN, AK, N. Maine', designTemp: -10, hdd: 8000, heatingHours: 3500, coolingHours: 800, heatPumpViable: 'cold-climate-only' },
+  { value: 'cold', name: 'Cold', summary: 'Chicago, Boston, Denver', designTemp: 5, hdd: 6500, heatingHours: 2800, coolingHours: 1200, heatPumpViable: 'yes-with-backup' },
+  { value: 'mixed', name: 'Mixed', summary: 'DC, St. Louis, Portland', designTemp: 15, hdd: 4500, heatingHours: 1800, coolingHours: 1800, heatPumpViable: 'ideal' },
+  { value: 'hot', name: 'Hot', summary: 'Atlanta, Dallas, Phoenix', designTemp: 25, hdd: 2500, heatingHours: 1000, coolingHours: 2500, heatPumpViable: 'excellent' },
+  { value: 'very-hot', name: 'Very hot', summary: 'Miami, S. Texas, HI', designTemp: 35, hdd: 400, heatingHours: 200, coolingHours: 3200, heatPumpViable: 'excellent' },
 ];
 
 const fuelTypes = [
@@ -162,9 +163,13 @@ export default function HeatPumpVsFurnaceCalculator() {
     const heatingLoad = sqft * 40;
     const coolingLoad = sqft * 25;
 
-    // Annual BTU totals (same for all three system paths — building
-    // load doesn't change with the equipment inside it).
-    const heatBtu = heatingLoad * selectedClimate.heatingHours;
+    // Annual BTU totals (same for all three system paths — building load
+    // doesn't change with the equipment inside it). Heating uses the DOE
+    // degree-day method (UA × HDD × 24) shared with the AFUE/FurnaceSizing/
+    // HVAC-ROI calcs. Previously heatingLoad (a design PEAK) × heatingHours
+    // (EFLH) double-counted peak-as-seasonal and ran ~2.5× too high; the
+    // sqft×40 peak survives only as the design-load display below.
+    const heatBtu = annualHeatingOutputBtu(sqft, selectedClimate.hdd);
     const coolBtu = coolingLoad * selectedClimate.coolingHours;
 
     // === CURRENT SYSTEM COST ===

@@ -23,6 +23,8 @@ import {
   ResultsHeader,
   CalculateResetBar,
   useCalculatorSubmit,
+  UA_PER_SQFT,
+  annualHeatingOutputBtu,
 } from './_shared';
 
 const ACCENT = 'orange' as const;
@@ -52,11 +54,10 @@ const climateOptions = [
 ];
 
 // Home heat-loss coefficient — UA (BTU/hr·°F) = UA_PER_SQFT × floorArea.
-// 0.25 is the "average insulation" rule of thumb per DOE Building America
-// (tight new build ~0.20, code-min ~0.25, leaky older ~0.30). Kept as a
-// single constant because the calc doesn't expose an insulation input;
-// the disclaimer notes that ±20% envelope variance flows straight to bills.
-const UA_PER_SQFT = 0.25;
+// UA_PER_SQFT (0.25, average envelope) is imported from _shared so every
+// heating calc cites the same value; the calc doesn't expose an insulation
+// input, and the disclaimer notes that ±20% envelope variance flows straight
+// to bills.
 const BTU_PER_THERM = 100000;   // NIST — natural gas 1 therm = 100,000 BTU
 // Incremental install cost is computed vs 80% AFUE code-min baseline — the
 // question the calc answers is "is the extra premium for a higher tier
@@ -113,7 +114,7 @@ export default function AFUECalculator() {
     // time, so annual "therms" were really therms-per-peak-hour, and every
     // downstream number (cost, savings, CO₂, payback) was ~10-20× off.
     const ua = UA_PER_SQFT * sqft;
-    const annualHeatLoadBTU = ua * selectedClimate.hdd * 24;
+    const annualHeatLoadBTU = annualHeatingOutputBtu(sqft, selectedClimate.hdd);
     const annualThermsOutput = annualHeatLoadBTU / BTU_PER_THERM;
 
     // Fuel input at each AFUE tier. AFUE = seasonal fraction of input BTU

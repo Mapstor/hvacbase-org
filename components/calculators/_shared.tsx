@@ -15,6 +15,24 @@ export function fmtMoney(n: number): string {
   return new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(Math.round(n));
 }
 
+// ---------- Heating-load physics (shared across heating/HVAC calculators) ----------
+
+// Average existing-home envelope heat-loss coefficient (BTU/hr·°F per sqft).
+// Annual heating energy via the DOE degree-day method (ASHRAE Fundamentals
+// Ch.19): annualOutputBTU = UA_PER_SQFT × sqft × HDD65 × 24. Tight new homes
+// run ~0.15, leaky old homes ~0.35 — keep per-calc envelope caveats. Verified
+// against real consumption (~540-600 therms for a 2000 sqft mixed-climate home)
+// and the degree-day AFUECalculator (fc4cd00). Single source of truth so the
+// AFUE, HVAC-ROI, HeatPumpVsFurnace, and FurnaceSizing calcs agree on the same
+// building physics rather than diverging 2.5×.
+export const UA_PER_SQFT = 0.25;
+
+// Annual heat the system must DELIVER (output BTU), before applying equipment
+// efficiency. Multiply an envelope factor in first if the calc models one.
+export function annualHeatingOutputBtu(sqft: number, hdd: number): number {
+  return UA_PER_SQFT * sqft * hdd * 24;
+}
+
 // ---------- Accent system ----------
 
 export type Accent = 'orange' | 'blue' | 'purple' | 'emerald' | 'red';

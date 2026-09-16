@@ -34,6 +34,7 @@ import {
   ResultsHeader,
   CalculateResetBar,
   useCalculatorSubmit,
+  UA_PER_SQFT,
 } from './_shared';
 
 const ACCENT = 'orange' as const;
@@ -219,9 +220,18 @@ export default function FurnaceSizingCalculator() {
       ? ((actualOutput - outputBTUNeeded) / outputBTUNeeded) * 100
       : 0;
 
+    // Annual gas use via the DOE degree-day method (UA × HDD × 24), shared
+    // with the AFUE/HeatPumpVsFurnace/HVAC-ROI calcs. The recommended furnace
+    // SIZE above is a design-PEAK figure and is untouched; deriving annual from
+    // that peak (÷65) overstated it ~2.5× because a design load bakes in
+    // oversizing and zero internal gains. envelopeFactor carries this home's
+    // insulation/ceiling/duct/etc. adjustments so a leaky home still shows a
+    // higher annual than a tight one, anchored to UA_PER_SQFT at average.
+    const envelopeFactor = baseBTU > 0 ? adjustedBTU / baseBTU : 1;
+    const annualHeatOutputBTU =
+      UA_PER_SQFT * sqFt * envelopeFactor * selectedZone.hdd * 24;
     const annualGasUsage =
-      (outputBTUNeeded * selectedZone.hdd * 24) /
-      (selectedEfficiency.efficiency * 100000 * 65);
+      annualHeatOutputBTU / (selectedEfficiency.efficiency * 100000);
     // $1.35/therm — EIA 2026 US heating-season national midpoint for
     // residential natural gas. Regional spread: Northeast ~$1.60,
     // West ~$1.35, Midwest ~$1.15, South ~$1.05.
