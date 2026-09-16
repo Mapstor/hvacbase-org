@@ -54,7 +54,7 @@ const DEFAULTS = {
   climateZone: 'moderate',
   currentHumidity: '65',
   targetHumidity: '45',
-  electricRate: '0.16',
+  electricRate: '0.18',
   usagePattern: 'seasonal',
   hoursPerDay: '12',
 };
@@ -119,9 +119,12 @@ export default function DehumidifierCostCalculator() {
     const totalCostOfOwnership = price + fiveYearEnergyCost + maintenanceCost;
     const efficientWatts = watts * 0.75;
     const efficientPrice = price * 1.3;
-    const energySavingsPerYear = ((watts - efficientWatts) * actualRuntime * 365 / 1000) * rate;
+    // Savings accrue only during actual usage months, not 365 days — a
+    // seasonal (4-month) user's benefit was overstated ~3× on a 365-day basis.
+    const usageDaysPerYear = usage.monthsPerYear * 30;
+    const energySavingsPerYear = ((watts - efficientWatts) * actualRuntime * usageDaysPerYear / 1000) * rate;
     const paybackYears = energySavingsPerYear > 0 ? (efficientPrice - price) / energySavingsPerYear : 999;
-    const annualCO2 = yearlyKwh * 0.92;
+    const annualCO2 = yearlyKwh * 0.855; // EPA eGRID2022 US avg lb CO₂/kWh
     const fiveYearCO2 = annualCO2 * 5;
     const recommendedCapacity = (sqft / 150) * climate.humidityFactor;
     const adequateSize = selected.pints >= recommendedCapacity;
@@ -274,7 +277,7 @@ export default function DehumidifierCostCalculator() {
               <div className="flex justify-between"><span>Annual CO₂</span><strong>{fmt(Math.round(calc.annualCO2))} lbs ({(calc.annualCO2 / 2000).toFixed(2)} tons)</strong></div>
               <div className="flex justify-between"><span>5-year CO₂</span><strong>{fmt(Math.round(calc.fiveYearCO2 / 1000))}k lbs</strong></div>
             </div>
-            <p className="text-[11px] text-gray-600 mt-2 leading-snug">Based on US grid average (0.92 lbs CO₂/kWh). Renewable-heavy grids cut this 30–60%.</p>
+            <p className="text-[11px] text-gray-600 mt-2 leading-snug">Based on US grid average (0.855 lbs CO₂/kWh, EPA eGRID2022). Renewable-heavy grids cut this 30–60%.</p>
           </div>
 
           <div className="bg-amber-50 rounded-xl border border-amber-200 p-4">

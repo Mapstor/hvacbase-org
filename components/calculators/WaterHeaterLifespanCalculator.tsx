@@ -345,7 +345,7 @@ export default function WaterHeaterLifespanCalculator() {
               <p className="text-xs text-gray-700 leading-relaxed">
                 Your {fmt(age)}-year-old unit has lost roughly <strong>{calc.efficiencyLoss}%</strong> of original efficiency due to sediment buildup, anode rod depletion, and component wear.
                 That adds about <strong>${fmtMoney(calc.annualExtraCost)}/yr</strong> to your energy bill.
-                A new high-efficiency model would save roughly <strong>${fmtMoney(calc.annualExtraCost * 1.5)}–${fmtMoney(calc.annualExtraCost * 2)}</strong> per year vs your current unit.
+                A new unit eliminates this <strong>${fmtMoney(calc.annualExtraCost)}/yr</strong> degradation penalty; a higher-efficiency tier can save more on top of that, depending on the model you choose.
               </p>
             </div>
           )}

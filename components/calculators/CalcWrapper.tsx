@@ -18,11 +18,9 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //   heat-pump-size, afue, dehumidifier-sizing, water-heater-sizing,
 //   heat-pump-vs-furnace, gas-vs-electric, ach, seer2, kwh-cost, hvac-roi,
 //   power-consumption, specific-heat, solar-panel, air-purifier-sizing,
-//   generator-sizing, ac-generator
+//   generator-sizing, ac-generator, dehumidifier-cost, hvac-lifespan,
+//   water-heater-lifespan
 const UNVERIFIED_TYPES = new Set<string>([
-  'dehumidifier-cost',
-  'hvac-lifespan',
-  'water-heater-lifespan',
   'water-heating-cost',
   'large-room-portable-ac',
   'small-room-portable-ac',
