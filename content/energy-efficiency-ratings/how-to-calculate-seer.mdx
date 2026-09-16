@@ -22,7 +22,7 @@ externalLinks:
     label: "AHRI"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, SEERCalculator, CalcWrapper } from '@/components'
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 # How To Calculate SEER Rating (Formula + Examples)
 
@@ -193,9 +193,7 @@ First convert old SEER to SEER2 for apples-to-apples: 10 / 1.047 = 9.6 SEER2 equ
 
 Use this interactive calculator for instant comparisons:
 
-<CalcWrapper>
-  <SEERCalculator />
-</CalcWrapper>
+<CalcWrapper calculator="seer2" />
 
 ## Where the SEER Number Actually Comes From (AHRI 210/240)
 

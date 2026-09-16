@@ -28,7 +28,7 @@ externalLinks:
     label: "DOE – Appliance Certification Data"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, SEERCalculator, CalcWrapper } from '@/components'
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 # Understanding SEER2: Complete Guide to the New AC Efficiency Rating
 
@@ -234,9 +234,7 @@ Only if the system is properly sized. An oversized high-SEER2 unit will short-cy
 
 Use this calculator to estimate your annual cooling costs and compare units at different SEER2 ratings:
 
-<CalcWrapper>
-  <SEERCalculator />
-</CalcWrapper>
+<CalcWrapper calculator="seer2" />
 
 Enter your system size (tons), local electricity rate ($/kWh), estimated annual cooling hours, and the SEER2 ratings you're comparing. The calculator shows annual operating costs and lifetime savings for each option.
 

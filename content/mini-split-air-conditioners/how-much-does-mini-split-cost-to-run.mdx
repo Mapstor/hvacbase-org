@@ -18,7 +18,7 @@ externalLinks:
     url: "https://www.eia.gov/electricity/monthly/"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, SEERCalculator, CalcWrapper } from '@/components'
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 # How Much Does It Cost to Run a Mini Split? (Monthly Calculator)
 
@@ -151,9 +151,7 @@ Where BTU is your unit's capacity, SEER2/HSPF2 is the efficiency rating, Hours/D
 - 5 months = **$407 annual heating**
 - **Total annual: ~$488** (part-time garage use only)
 
-<CalcWrapper>
-  <SEERCalculator />
-</CalcWrapper>
+<CalcWrapper calculator="kwh-cost" />
 
 ## Running Cost by State: 12K BTU Mini Split (SEER2 20)
 

@@ -1,16 +1,11 @@
 // Rendered in place of any calculator whose formulas have not yet been
 // re-verified against primary sources (ENERGY STAR / DOE / ACCA Manual J / NEC).
 //
-// Gate lives in two places:
-// 1. components/calculators/CalcWrapper.tsx — `UNVERIFIED_TYPES` set covers
-//    every calc invoked via <CalcWrapper type="..." />.
-// 2. lib/mdx-components.tsx — the legacy global-map bindings for
-//    <BTUCalculator /> and <SEERCalculator /> are wired to a small closure
-//    that renders this notice instead of the real component.
-//
-// As each calculator finishes its primary-source verification pass, remove
-// its type key from `UNVERIFIED_TYPES` (or unmap the legacy binding) and
-// the real calc renders live again.
+// The gate is driven by the `UNVERIFIED_TYPES` set in
+// components/calculators/CalcWrapper.tsx, covering every calc invoked via
+// <CalcWrapper type/calculator="..." />. As of the audit completion that set
+// is empty (all calcs verified) and the legacy SEERCalculator binding was
+// retired — this notice is kept for reuse if a calc is ever re-gated.
 
 interface UnverifiedCalcNoticeProps {
   siblingSlug?: string;

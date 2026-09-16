@@ -22,10 +22,9 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //   water-heater-lifespan, water-heating-cost, large-room-portable-ac,
 //   small-room-portable-ac
 //
-// GATE EMPTY: every <CalcWrapper type/calculator=""> calc has passed
-// primary-source verification. The only remaining gated component is the
-// legacy <SEERCalculator> tag (bound to the notice in lib/mdx-components.tsx),
-// a separate still-unverified calc.
+// GATE EMPTY: every calc has passed primary-source verification. The legacy
+// <SEERCalculator> component was retired (its content now uses
+// <CalcWrapper calculator="seer2" />), so both gate mechanisms are cleared.
 const UNVERIFIED_TYPES = new Set<string>([]);
 
 // Per-unverified-calc pointer to a topically-adjacent VERIFIED sibling calc,

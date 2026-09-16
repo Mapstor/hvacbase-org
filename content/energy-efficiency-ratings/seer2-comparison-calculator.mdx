@@ -19,7 +19,7 @@ externalLinks:
     url: "https://www.eia.gov/electricity/"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, SEERCalculator, CalcWrapper } from '@/components'
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 # SEER2 Comparison Calculator: Compare Any Two Ratings
 
@@ -33,19 +33,7 @@ Whether you're comparing a 14.3 SEER2 baseline unit against a 15.2 SEER2 ENERGY 
 
 Enter your two SEER2 ratings (or legacy SEER ratings — see conversion table below) and your local conditions:
 
-<CalcWrapper>
-  <SEERCalculator
-    defaultSeer1={14.3}
-    defaultSeer2={15.2}
-    defaultCapacity={36000}
-    defaultElectricityRate={0.16}
-    defaultCoolingHours={1400}
-    defaultPriceDifference={1000}
-    showPayback={true}
-    seer2Mode={true}
-    allowCustomInput={true}
-  />
-</CalcWrapper>
+<CalcWrapper calculator="seer2" />
 
 ## How the Calculator Works
 

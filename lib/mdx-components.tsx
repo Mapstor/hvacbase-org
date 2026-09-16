@@ -5,10 +5,7 @@ import RelatedArticles from '@/components/ui/RelatedArticles';
 import SourceLink from '@/components/ui/SourceLink';
 import TableOfContents from '@/components/ui/TableOfContents';
 import CalcWrapper from '@/components/calculators/CalcWrapper';
-// BTUCalculator (verified live) + SEERCalculator (still in the verification
-// queue) — see the gated wrapper for SEERCalculator below.
 import BTUCalculator from '@/components/calculators/BTUCalculator';
-import UnverifiedCalcNotice from '@/components/calculators/UnverifiedCalcNotice';
 import EfficiencyCurve from '@/components/diagrams/EfficiencyCurve';
 import ComparisonChart from '@/components/diagrams/ComparisonChart';
 import ScaleDiagram from '@/components/diagrams/ScaleDiagram';
@@ -123,12 +120,6 @@ const ComparisonTableWrapper = ({ headers, rows, ...props }: any) => {
   return <ComparisonTable headers={headers} rows={processedRows} {...props} />;
 };
 
-// SEERCalculator is still in the verification queue; render the notice in its
-// place. BTUCalculator was verified live in the Tier 2 audit and now renders
-// the real component. When SEERCalculator clears verification, swap this
-// binding back to the real component (add the import at the top).
-const SEERCalculatorGated = () => <UnverifiedCalcNotice />;
-
 export const mdxComponents = {
   BTUCalculator,
   Callout,
@@ -137,7 +128,6 @@ export const mdxComponents = {
   FAQ: FAQWrapper,
   KeyTakeaway,
   RelatedArticles,
-  SEERCalculator: SEERCalculatorGated,
   SourceLink,
   SourcesBox,
   TableOfContents,

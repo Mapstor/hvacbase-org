@@ -21,7 +21,7 @@ externalLinks:
     url: "https://www.ahridirectory.org/"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, SEERCalculator, CalcWrapper } from '@/components'
+import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 # Heat Pump COP Explained: What It Means for Your Bills
 
@@ -121,18 +121,6 @@ You can estimate your heating cost for any temperature using this simple formula
 Or equivalently:
 
 **Cost per kWh of heat = Electricity Rate / COP**
-
-<CalcWrapper>
-  <SEERCalculator
-    description="Calculate your heating cost at any temperature using COP."
-    inputs={[
-      { label: "COP at Your Temperature", name: "cop", default: 3.0, min: 1.0, max: 6.0 },
-      { label: "Electricity Rate ($/kWh)", name: "rate", default: 0.14, min: 0.05, max: 0.50 },
-      { label: "Heating Load (kW)", name: "load", default: 5.0, min: 1.0, max: 20.0 },
-      { label: "Hours per Day Running", name: "hours", default: 12, min: 1, max: 24 },
-    ]}
-  />
-</CalcWrapper>
 
 ### Worked Example
 
