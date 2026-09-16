@@ -48,6 +48,13 @@ const climateZones = [
 
 const homeSizePresets = [1000, 1500, 2000, 2500, 3000, 4000];
 
+// Representative HSPF for a given SEER, using standard unit pairings found on
+// real equipment (a heat pump's heating rating is roughly half its SEER).
+// Heat-pump HEATING energy must divide by HSPF, not SEER — consistent with
+// HeatPumpVsFurnaceCalculator. Both HSPF and SEER are BTU/Wh.
+const seerToHspf = (seer: number): number =>
+  seer <= 14 ? 8.2 : seer <= 16 ? 8.7 : seer <= 18 ? 9.5 : seer <= 20 ? 10.5 : 11.0;
+
 const DEFAULTS = {
   currentType: 'central-ac',
   currentEfficiency: '14',
@@ -57,8 +64,8 @@ const DEFAULTS = {
   systemCost: '8500',
   homeSize: '2000',
   climate: 'mixed',
-  electricityRate: '0.16',
-  gasRate: '1.25',
+  electricityRate: '0.18',
+  gasRate: '1.35',
   federalCredit: '0',
   utilityRebate: '300',
 };
@@ -126,15 +133,24 @@ export default function HVACROICalculator() {
 
     const energy = (sys: typeof systemTypes[0], eff: number) => {
       if (sys.isGas) {
-        const btuNeeded = size * 50000;
-        const therms = (btuNeeded / eff * 100) / 100000;
+        // Annual delivered heat = the same building load the heat-pump branch
+        // uses, so furnace vs heat pump compare on identical heating demand.
+        // Was: size * 50000 with NO heating hours → ~$2/yr (missing runtime).
+        const heatingBtu = size * 10000 * srcSelectedClimate.heatingHours;
+        const therms = heatingBtu / (eff / 100) / 100000; // eff is AFUE %; fuel input in therms
         return therms * gRate;
       } else {
-        const cooling = size * 12000 * srcSelectedClimate.coolingHours;
-        const heating = sys.value === 'heat-pump' ? size * 10000 * srcSelectedClimate.heatingHours : 0;
-        const total = cooling + heating;
-        const kwh = total / (eff * 1000);
-        return kwh * eRate;
+        // Cooling is rated by SEER. Heat-pump HEATING is rated by HSPF (≈ half
+        // of SEER), NOT SEER — so heating is ~1.9× costlier than the old code
+        // implied. Both metrics are BTU/Wh, so kWh = BTU / (rating × 1000).
+        const coolingBtu = size * 12000 * srcSelectedClimate.coolingHours;
+        const coolingKwh = coolingBtu / (eff * 1000);
+        let heatingKwh = 0;
+        if (sys.value === 'heat-pump') {
+          const heatingBtu = size * 10000 * srcSelectedClimate.heatingHours;
+          heatingKwh = heatingBtu / (seerToHspf(eff) * 1000);
+        }
+        return (coolingKwh + heatingKwh) * eRate;
       }
     };
 
