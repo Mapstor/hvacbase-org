@@ -65,7 +65,7 @@ const windowOptions = [
 const climateOptions = [
   { value: 'mild', name: 'Mild', sub: '70–80°F summers', factor: 0.85, hours: 4, days: 90 },
   { value: 'moderate', name: 'Moderate', sub: '80–90°F summers', factor: 1.0, hours: 6, days: 120 },
-  { value: 'hot', name: 'Hot', sub: '90°F+ summers', factor: 1.2, hours: 10, days: 180 },
+  { value: 'hot', name: 'Hot', sub: '90°F+ summers', factor: 1.4, hours: 10, days: 180 },
 ];
 
 const DEFAULTS = {
@@ -119,7 +119,7 @@ export default function LargeRoomPortableACCalculator() {
     if (ceiling > 8) baseBTU *= ceiling / 8;
     const ceilingFactor = ceiling > 8 ? ceiling / 8 : 1;
     let adjustedBTU = baseBTU * sun.factor * ins.factor * win.factor * clm.factor;
-    const occupantBTU = Math.max(0, people - 2) * 600;
+    const occupantBTU = Math.max(0, people - 2) * 400;
     const applianceBTU = heatSources * 400;
     adjustedBTU += occupantBTU + applianceBTU;
     const portableAdjusted = adjustedBTU * 1.3;
@@ -130,9 +130,9 @@ export default function LargeRoomPortableACCalculator() {
     const needsMultiple = portableAdjusted > 15000;
     const kwhPerDay = (idealUnit.power / 1000) * clm.hours;
     const seasonalKwh = kwhPerDay * clm.days;
-    const dailyCost = kwhPerDay * 0.14;
+    const dailyCost = kwhPerDay * 0.18;
     const monthlyCost = dailyCost * 30;
-    const seasonalCost = seasonalKwh * 0.14;
+    const seasonalCost = seasonalKwh * 0.18;
     const requiresDedicated = idealUnit.amps > 12;
     return { baseBTU, ceilingFactor, adjustedBTU, occupantBTU, applianceBTU, portableAdjusted, idealKey, idealUnit, tooLarge, needsMultiple, kwhPerDay, seasonalKwh, dailyCost, monthlyCost, seasonalCost, requiresDedicated };
   }, [sqft, ceiling, sun, ins, win, clm, people, heatSources]);
@@ -259,7 +259,7 @@ export default function LargeRoomPortableACCalculator() {
                 { label: 'Insulation', detail: ins.name, factor: `× ${ins.factor.toFixed(2)}` },
                 { label: 'Windows', detail: win.name, factor: `× ${win.factor.toFixed(2)}` },
                 { label: 'Climate', detail: clm.name, factor: `× ${clm.factor.toFixed(2)}` },
-                { label: 'Occupants (>2)', detail: `${Math.max(0, people - 2)} × 600 BTU`, factor: `+ ${fmt(calc.occupantBTU)} BTU` },
+                { label: 'Occupants (>2)', detail: `${Math.max(0, people - 2)} × 400 BTU`, factor: `+ ${fmt(calc.occupantBTU)} BTU` },
                 { label: 'Appliances', detail: `${heatSources} × 400 BTU`, factor: `+ ${fmt(calc.applianceBTU)} BTU` },
                 { label: 'Portable penalty', detail: '+30% for hose losses', factor: `× 1.30` },
               ]}

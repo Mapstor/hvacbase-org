@@ -161,6 +161,7 @@ export default function WaterHeatingCostCalculator() {
             {stateData.rate < calc.nationalAvg - 3 && ' — below national average'}
             {' '}(national avg: {calc.nationalAvg.toFixed(1)}¢/kWh)
           </p>
+          <p className="text-[11px] text-gray-400 mt-1">Recent EIA state residential averages (2024 basis); 2026 rates run a few percent higher — check your bill for your exact rate.</p>
         </div>
       </section>
 

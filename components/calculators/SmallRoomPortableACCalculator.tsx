@@ -68,9 +68,19 @@ const powerLimitOptions = [
 
 const roomTypeMultiplier: Record<string, number> = { bedroom: 1.0, office: 1.15, dorm: 1.0, studio: 1.0, kitchen: 1.25, sunroom: 1.3 };
 
+// Climate factor mirrors LargeRoomPortableAC / BTUCalculator: 20 BTU/sqft base
+// scales to ~17 (mild) / 20 (moderate) / 28 (hot) BTU/sqft, so a Phoenix room
+// sizes higher than a Seattle one. Previously absent — climate was ignored.
+const climateOptions = [
+  { value: 'mild', name: 'Mild', sub: '70–80°F summers', factor: 0.85 },
+  { value: 'moderate', name: 'Moderate', sub: '80–90°F summers', factor: 1.0 },
+  { value: 'hot', name: 'Hot', sub: '90°F+ summers', factor: 1.4 },
+];
+
 const DEFAULTS = {
   roomSize: '150',
   roomType: 'bedroom',
+  climate: 'moderate',
   priority: 'size',
   noiseImportance: 'important',
   budget: '400',
@@ -80,17 +90,19 @@ const DEFAULTS = {
 export default function SmallRoomPortableACCalculator() {
   const [roomSize, setRoomSize] = useState(DEFAULTS.roomSize);
   const [roomType, setRoomType] = useState(DEFAULTS.roomType);
+  const [climate, setClimate] = useState(DEFAULTS.climate);
   const [priority, setPriority] = useState(DEFAULTS.priority);
   const [noiseImportance, setNoiseImportance] = useState(DEFAULTS.noiseImportance);
   const [budget, setBudget] = useState(DEFAULTS.budget);
   const [powerLimit, setPowerLimit] = useState(DEFAULTS.powerLimit);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
-    roomSize, roomType, priority, noiseImportance, budget, powerLimit,
+    roomSize, roomType, climate, priority, noiseImportance, budget, powerLimit,
   });
 
   const sqft = Math.max(parseFloat(src.roomSize) || 0, 1);
   const rType = src.roomType;
+  const clm = climateOptions.find((c) => c.value === src.climate)!;
   const pri = src.priority;
   const maxBudget = Math.max(parseFloat(src.budget) || 0, 1);
   const noiseCap = noiseOptions.find((n) => n.value === src.noiseImportance)?.cap || 99;
@@ -99,6 +111,7 @@ export default function SmallRoomPortableACCalculator() {
   const handleReset = () => {
     setRoomSize(DEFAULTS.roomSize);
     setRoomType(DEFAULTS.roomType);
+    setClimate(DEFAULTS.climate);
     setPriority(DEFAULTS.priority);
     setNoiseImportance(DEFAULTS.noiseImportance);
     setBudget(DEFAULTS.budget);
@@ -108,7 +121,7 @@ export default function SmallRoomPortableACCalculator() {
 
   const calc = useMemo(() => {
     const baseBTU = sqft * 20;
-    const requiredBTU = baseBTU * (roomTypeMultiplier[rType] || 1) * 1.2;
+    const requiredBTU = baseBTU * (roomTypeMultiplier[rType] || 1) * clm.factor * 1.3;
     const suitable = Object.entries(compactUnits).filter(([, u]) =>
       u.btu >= requiredBTU * 0.85 && u.price.min <= maxBudget && u.power <= powerCap && u.noise <= noiseCap
     );
@@ -124,13 +137,13 @@ export default function SmallRoomPortableACCalculator() {
     const recommended = scored[0] || { key: '6000', unit: compactUnits['6000'], score: 0 };
     const dailyHours = rType === 'bedroom' ? 8 : 6;
     const kwhPerDay = (recommended.unit.power / 1000) * dailyHours;
-    const dailyCost = kwhPerDay * 0.14;
+    const dailyCost = kwhPerDay * 0.18;
     const monthlyCost = dailyCost * 30;
     const volumeCubicInches = recommended.unit.dimensions.w * recommended.unit.dimensions.d * recommended.unit.dimensions.h;
     const isUltraCompact = volumeCubicInches < 6000;
     const fitsDormRoom = recommended.unit.dimensions.w <= 18 && recommended.unit.weight <= 60;
     return { baseBTU, requiredBTU, suitable, recommended, dailyHours, kwhPerDay, dailyCost, monthlyCost, isUltraCompact, fitsDormRoom };
-  }, [sqft, rType, pri, maxBudget, powerCap, noiseCap]);
+  }, [sqft, rType, clm, pri, maxBudget, powerCap, noiseCap]);
 
   const fit =
     calc.suitable.length === 0 ? { tone: 'bad' as const, text: 'No unit matches all constraints — relax budget/noise/power' } :
@@ -158,6 +171,10 @@ export default function SmallRoomPortableACCalculator() {
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Room type</label>
             <CardChoice value={roomType} onChange={setRoomType} options={roomTypeOptions} ariaLabel="Room type" accent={ACCENT} columns={3} />
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Climate zone</label>
+            <CardChoice value={climate} onChange={setClimate} options={climateOptions} ariaLabel="Climate zone" accent={ACCENT} columns={3} />
           </div>
         </div>
       </section>
@@ -215,7 +232,7 @@ export default function SmallRoomPortableACCalculator() {
             ) : (
               <>
                 Sized for your {fmt(sqft)} sq ft {rType} requiring <strong>{fmt(Math.round(calc.requiredBTU))} BTU</strong>{' '}
-                (after +20% portable penalty).
+                (after +30% portable penalty).
                 {calc.isUltraCompact && <> <strong>Ultra-compact</strong> design fits tight spaces.</>}
                 {calc.fitsDormRoom && <> Dorm-friendly size + weight ({r.weight} lbs).</>}
               </>
@@ -259,7 +276,7 @@ export default function SmallRoomPortableACCalculator() {
             <div className="space-y-1.5 text-xs text-gray-700">
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily runtime ({rType})</span><strong>{calc.dailyHours} hr</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily energy</span><strong>{calc.kwhPerDay.toFixed(2)} kWh</strong></div>
-              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily cost @ $0.14/kWh</span><strong>${calc.dailyCost.toFixed(2)}</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily cost @ $0.18/kWh</span><strong>${calc.dailyCost.toFixed(2)}</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Monthly cost</span><strong>${fmtMoney(calc.monthlyCost)}</strong></div>
               <div className="flex justify-between py-1.5"><span>vs window AC</span><strong className="text-amber-700">~30% higher</strong></div>
             </div>

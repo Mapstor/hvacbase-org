@@ -19,12 +19,14 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //   heat-pump-vs-furnace, gas-vs-electric, ach, seer2, kwh-cost, hvac-roi,
 //   power-consumption, specific-heat, solar-panel, air-purifier-sizing,
 //   generator-sizing, ac-generator, dehumidifier-cost, hvac-lifespan,
-//   water-heater-lifespan
-const UNVERIFIED_TYPES = new Set<string>([
-  'water-heating-cost',
-  'large-room-portable-ac',
-  'small-room-portable-ac',
-]);
+//   water-heater-lifespan, water-heating-cost, large-room-portable-ac,
+//   small-room-portable-ac
+//
+// GATE EMPTY: every <CalcWrapper type/calculator=""> calc has passed
+// primary-source verification. The only remaining gated component is the
+// legacy <SEERCalculator> tag (bound to the notice in lib/mdx-components.tsx),
+// a separate still-unverified calc.
+const UNVERIFIED_TYPES = new Set<string>([]);
 
 // Per-unverified-calc pointer to a topically-adjacent VERIFIED sibling calc,
 // shown as an inline "Try our X Calculator →" link inside the notice. Only
