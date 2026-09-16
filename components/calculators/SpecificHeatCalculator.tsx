@@ -134,8 +134,8 @@ export default function SpecificHeatCalculator() {
     const energyCal = energy / 4184;
     const powerWatts = energy / 3600;
     const thermalMass = actualMass * specificHeat;
-    const electricityCost = energyKWh * 0.16;
-    const gasCost = (energyBTU / 100000) * 1.2;
+    const electricityCost = energyKWh * 0.18;
+    const gasCost = (energyBTU / 100000) * 1.35;
     const TiF = Ti * 9 / 5 + 32;
     const TfF = Tf * 9 / 5 + 32;
     const TiK = Ti + 273.15;
@@ -327,7 +327,7 @@ export default function SpecificHeatCalculator() {
                 { label: 'Kilojoules', detail: '÷ 1000', factor: `${calc.energyKJ.toFixed(2)} kJ` },
                 { label: 'kWh (electric)', detail: '÷ 3,600,000', factor: `${calc.energyKWh.toFixed(4)} kWh` },
                 { label: 'BTU (HVAC)', detail: '÷ 1055', factor: `${fmt(Math.round(calc.energyBTU))} BTU` },
-                { label: 'Calories', detail: '÷ 4.184', factor: `${fmt(Math.round(calc.energyCal))} cal` },
+                { label: 'Kilocalories', detail: '÷ 4,184', factor: `${fmt(Math.round(calc.energyCal))} kcal` },
                 { label: 'Power (1hr)', detail: 'J ÷ 3600', factor: `${fmt(Math.round(calc.powerWatts))}W` },
               ]}
               totals={[]}
@@ -344,12 +344,12 @@ export default function SpecificHeatCalculator() {
                 <div className="bg-white rounded-lg p-3 border border-emerald-100">
                   <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700">Electric heat</div>
                   <div className="text-xl font-bold text-emerald-900 tabular-nums">${calc.electricityCost.toFixed(2)}</div>
-                  <div className="text-[11px] text-gray-500">@ $0.16/kWh</div>
+                  <div className="text-[11px] text-gray-500">@ $0.18/kWh</div>
                 </div>
                 <div className="bg-white rounded-lg p-3 border border-emerald-100">
                   <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700">Gas heat</div>
                   <div className="text-xl font-bold text-emerald-900 tabular-nums">${calc.gasCost.toFixed(2)}</div>
-                  <div className="text-[11px] text-gray-500">@ $1.20/therm</div>
+                  <div className="text-[11px] text-gray-500">@ $1.35/therm</div>
                 </div>
                 <div className="bg-white rounded-lg p-3 border border-emerald-100">
                   <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700">Cost per kg</div>

@@ -76,7 +76,7 @@ export default function PowerConsumptionCalculator() {
     const powerHP = realPower / 746;
     const dailyKWh = (realPower * 24) / 1000;
     const monthlyKWh = dailyKWh * 30;
-    const yearlyKWh = monthlyKWh * 12;
+    const yearlyKWh = dailyKWh * 365; // 365-day year to match the "365 days continuous" row (was ×12 = 360)
     const yearlyMWh = yearlyKWh / 1000;
     return { apparentPower, realPower, reactivePower, powerKW, powerHP, dailyKWh, monthlyKWh, yearlyKWh, yearlyMWh };
   }, [phasesSrc, volts, amps, pf]);
