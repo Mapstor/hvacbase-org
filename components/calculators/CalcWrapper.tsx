@@ -16,9 +16,8 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //   mini-split, battery-12v-watts, battery-watt-hours, three-phase-power,
 //   generator-amps, furnace-electrical, btu, ac-tonnage, furnace-sizing,
 //   heat-pump-size, afue, dehumidifier-sizing, water-heater-sizing,
-//   heat-pump-vs-furnace, gas-vs-electric, ach, seer2
+//   heat-pump-vs-furnace, gas-vs-electric, ach, seer2, kwh-cost
 const UNVERIFIED_TYPES = new Set<string>([
-  'kwh-cost',
   'power-consumption',
   'air-purifier-sizing',
   'solar-panel',

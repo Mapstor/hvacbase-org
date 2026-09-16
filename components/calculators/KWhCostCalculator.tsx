@@ -43,7 +43,7 @@ const DEFAULTS = {
   powerWatts: '1500',
   hoursPerDay: '8',
   daysPerMonth: '30',
-  electricRate: '0.16',
+  electricRate: '0.18',
 };
 
 export default function KWhCostCalculator() {
@@ -73,12 +73,14 @@ export default function KWhCostCalculator() {
     const hourlyKwh = w / 1000;
     const dailyKwh = hourlyKwh * h;
     const monthlyKwh = dailyKwh * d;
-    const yearlyKwh = monthlyKwh * 12;
+    // 365-day year so the headline matches the every-day scenario cards below.
+    // days/month is relative to a 30-day month: 30 ⇒ runs daily ⇒ 365 days/yr.
+    const yearlyKwh = dailyKwh * (d / 30) * 365;
     const hourlyCost = hourlyKwh * r;
     const dailyCost = dailyKwh * r;
     const monthlyCost = monthlyKwh * r;
     const yearlyCost = yearlyKwh * r;
-    const co2LbsPerYear = yearlyKwh * 0.92;
+    const co2LbsPerYear = yearlyKwh * 0.855; // EPA eGRID2022 US avg lb CO₂/kWh
     const treesNeeded = Math.round(co2LbsPerYear / 48);
     return { hourlyKwh, dailyKwh, monthlyKwh, yearlyKwh, hourlyCost, dailyCost, monthlyCost, yearlyCost, co2LbsPerYear, treesNeeded };
   }, [w, h, d, r]);
@@ -161,7 +163,7 @@ export default function KWhCostCalculator() {
         <SectionHeader step={3} title="Your electric rate" subtitle="Check a recent bill" Icon={DollarSign} accent={ACCENT} />
 
         <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
-        <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.16/kWh · CA averages $0.30+ · South averages $0.10–$0.13</p>
+        <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.18/kWh · CA averages $0.30+ · South averages $0.10–$0.13</p>
       </section>
 
       <CalculateResetBar
@@ -234,7 +236,7 @@ export default function KWhCostCalculator() {
                 { label: 'Per hour', detail: `${fmt(w)}W = ${calc.hourlyKwh.toFixed(3)} kWh`, factor: `$${calc.hourlyCost.toFixed(3)}` },
                 { label: 'Per day', detail: `${h.toFixed(1)} hrs × ${calc.hourlyKwh.toFixed(3)} kWh`, factor: `${calc.dailyKwh.toFixed(2)} kWh` },
                 { label: 'Per month', detail: `${d.toFixed(0)} days × ${calc.dailyKwh.toFixed(2)} kWh`, factor: `${calc.monthlyKwh.toFixed(1)} kWh` },
-                { label: 'Per year', detail: `12 × monthly`, factor: `${fmt(Math.round(calc.yearlyKwh))} kWh` },
+                { label: 'Per year', detail: `${Math.round((d / 30) * 365)} run-days/yr`, factor: `${fmt(Math.round(calc.yearlyKwh))} kWh` },
                 { label: 'Rate', detail: 'Your utility', factor: `× $${r.toFixed(2)}/kWh` },
               ]}
               totals={[
@@ -248,7 +250,7 @@ export default function KWhCostCalculator() {
               <Leaf className="w-4 h-4 text-emerald-700" />
               Environmental impact (US grid average)
             </h4>
-            <div className="grid sm:grid-cols-3 gap-3 text-center">
+            <div className="grid sm:grid-cols-2 gap-3 text-center">
               <div className="bg-white rounded-lg p-3 border border-emerald-100">
                 <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Annual CO₂</div>
                 <div className="text-xl font-bold text-emerald-900 tabular-nums">{fmt(Math.round(calc.co2LbsPerYear))} lbs</div>
@@ -259,14 +261,9 @@ export default function KWhCostCalculator() {
                 <div className="text-xl font-bold text-emerald-900 tabular-nums">{fmt(calc.treesNeeded)}</div>
                 <div className="text-[11px] text-gray-500">seedlings/yr</div>
               </div>
-              <div className="bg-white rounded-lg p-3 border border-emerald-100">
-                <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">ENERGY STAR could save</div>
-                <div className="text-xl font-bold text-emerald-900 tabular-nums">${fmtMoney(calc.yearlyCost * 0.175)}</div>
-                <div className="text-[11px] text-gray-500">~17.5% lower draw</div>
-              </div>
             </div>
             <p className="text-[11px] text-gray-600 mt-2 leading-snug">
-              Based on US average grid emission factor (0.92 lbs CO₂/kWh). Renewable-heavy grids (CA, WA, OR) are lower; coal-heavy grids (WV, KY, MO) are higher.
+              Based on US average grid emission factor (0.855 lbs CO₂/kWh, EPA eGRID2022). Renewable-heavy grids (CA, WA, OR) are lower; coal-heavy grids (WV, KY, MO) are higher.
             </p>
           </div>
         </div>
