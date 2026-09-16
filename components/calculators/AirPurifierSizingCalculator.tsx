@@ -34,10 +34,10 @@ const a = accentMap[ACCENT];
 const roomTypes = [
   { value: 'bedroom', name: 'Bedroom', summary: 'Sleep — 4.8 ACH (AHAM)', acph: 4.8, Icon: Bed },
   { value: 'living', name: 'Living room', summary: '4.8 ACH — allergen clearing', acph: 4.8, Icon: Sofa },
-  { value: 'kitchen', name: 'Kitchen', summary: 'Cooking fumes — 3 ACH', acph: 3, Icon: ChefHat },
+  { value: 'kitchen', name: 'Kitchen', summary: 'Cooking fumes — 4.8 ACH', acph: 4.8, Icon: ChefHat },
   { value: 'office', name: 'Home office', summary: '4.8 ACH clean air', acph: 4.8, Icon: Briefcase },
-  { value: 'basement', name: 'Basement', summary: 'Lower contam — 1 ACH', acph: 1, Icon: Home },
-  { value: 'bathroom', name: 'Bathroom', summary: 'Moisture + odor — 4 ACH', acph: 4, Icon: Bath },
+  { value: 'basement', name: 'Basement', summary: 'Often unfinished — 2 ACH', acph: 2, Icon: Home },
+  { value: 'bathroom', name: 'Bathroom', summary: 'Moisture + odor — 4.8 ACH', acph: 4.8, Icon: Bath },
 ];
 
 const pollutionLevels = [
