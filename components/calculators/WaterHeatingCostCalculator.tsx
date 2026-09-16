@@ -16,6 +16,7 @@ import {
   SectionHeader,
   CardChoice,
   Segmented,
+  NumberInput,
   InfoTip,
   ResultHero,
   BreakdownTable,
@@ -75,6 +76,9 @@ const DEFAULTS = {
   heaterType: 'tank-50',
   householdSize: '3',
   usage: 'average',
+  // Primary rate input — EIA 2026 US residential average, consistent with every
+  // other calculator in the suite. The state table below is only a quick-fill.
+  electricRate: '0.18',
 };
 
 export default function WaterHeatingCostCalculator() {
@@ -82,25 +86,33 @@ export default function WaterHeatingCostCalculator() {
   const [heaterType, setHeaterType] = useState(DEFAULTS.heaterType);
   const [householdSize, setHouseholdSize] = useState(DEFAULTS.householdSize);
   const [usage, setUsage] = useState(DEFAULTS.usage);
+  const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
-    state, heaterType, householdSize, usage,
+    state, heaterType, householdSize, usage, electricRate,
   });
 
-  const stateData = stateRates[src.state];
   const heater = heaterTypes.find((h) => h.value === src.heaterType)!;
   const people = parseInt(src.householdSize);
+
+  // Picking a state quick-fills the editable rate field (¢ → $), but the user
+  // can still override it — their actual bill rate beats any stale state avg.
+  const applyStateRate = (code: string) => {
+    setState(code);
+    if (stateRates[code]) setElectricRate((stateRates[code].rate / 100).toFixed(2));
+  };
 
   const handleReset = () => {
     setState(DEFAULTS.state);
     setHeaterType(DEFAULTS.heaterType);
     setHouseholdSize(DEFAULTS.householdSize);
     setUsage(DEFAULTS.usage);
+    setElectricRate(DEFAULTS.electricRate);
     clear();
   };
 
   const calc = useMemo(() => {
-    const rate = stateData.rate / 100;
+    const rate = Math.max(parseFloat(src.electricRate) || 0, 0);
     let gallonsPerDay = people * 20;
     if (src.usage === 'low') gallonsPerDay *= 0.75;
     else if (src.usage === 'high') gallonsPerDay *= 1.5;
@@ -123,7 +135,7 @@ export default function WaterHeatingCostCalculator() {
     const cheapestSavings = annualCost - (actualKwhPerDay * 365 * cheapestEntry[1].rate / 100);
     const mostExpensiveExtra = (actualKwhPerDay * 365 * mostExpensiveEntry[1].rate / 100) - annualCost;
     return { rate, gallonsPerDay, kwhPerDay, actualKwhPerDay, dailyCost, monthlyCost, annualCost, annualKwh, tankCost, heatPumpCost, heatPumpSavings, heatPumpPayback, nationalAvg, cheapestEntry, mostExpensiveEntry, cheapestSavings, mostExpensiveExtra };
-  }, [stateData, heater, people, src.usage, src.heaterType]);
+  }, [heater, people, src.usage, src.heaterType, src.electricRate]);
 
   const fit =
     calc.annualCost < 200 ? { tone: 'good' as const, text: 'Low cost — efficient setup or low usage' } :
@@ -136,32 +148,33 @@ export default function WaterHeatingCostCalculator() {
   return (
     <CalcShell
       Icon={Droplets}
-      title="State Water Heating Cost Calculator"
-      subtitle="Annual electric water-heating cost using your state's actual rate."
+      title="Water Heating Cost Calculator"
+      subtitle="Annual electric water-heating cost at your electricity rate."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
-        <SectionHeader step={1} title="Your state" subtitle="Determines your electric rate" Icon={MapPin} accent={ACCENT} />
+        <SectionHeader step={1} title="Your electric rate" subtitle="Off your last bill — or quick-fill a typical state rate" Icon={DollarSign} accent={ACCENT} />
 
-        <div>
-          <label className="text-sm font-medium text-gray-700 mb-2 block">Pick state</label>
-          <select
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-          >
-            {sortedStates.map(([code, data]) => (
-              <option key={code} value={code}>{data.name} — {data.rate}¢/kWh</option>
-            ))}
-          </select>
-          <p className="text-xs text-gray-500 mt-1.5">
-            <span className="font-semibold text-gray-800">{stateData.name}:</span> {stateData.rate}¢/kWh
-            {stateData.rate > calc.nationalAvg + 3 && ' — above national average'}
-            {stateData.rate < calc.nationalAvg - 3 && ' — below national average'}
-            {' '}(national avg: {calc.nationalAvg.toFixed(1)}¢/kWh)
-          </p>
-          <p className="text-[11px] text-gray-400 mt-1">Recent EIA state residential averages (2024 basis); 2026 rates run a few percent higher — check your bill for your exact rate.</p>
+        <div className="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Electric rate</label>
+            <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
+            <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.18/kWh (EIA). Enter your actual rate for accuracy.</p>
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Quick-fill by state (optional)</label>
+            <select
+              value={state}
+              onChange={(e) => applyStateRate(e.target.value)}
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            >
+              {sortedStates.map(([code, data]) => (
+                <option key={code} value={code}>{data.name} — {data.rate}¢/kWh</option>
+              ))}
+            </select>
+            <p className="text-[11px] text-gray-400 mt-1.5">Typical residential rates by state (EIA, ~2024 basis — enter your actual rate above for accuracy). Picking a state fills the rate; you can still edit it.</p>
+          </div>
         </div>
       </section>
 
@@ -204,7 +217,7 @@ export default function WaterHeatingCostCalculator() {
           unit={`/yr (${fmt(Math.round(calc.annualKwh))} kWh)`}
           secondaryText={
             <>
-              In {stateData.name} at {stateData.rate}¢/kWh, your {heater.name.toLowerCase()} heats <strong>{fmt(Math.round(calc.gallonsPerDay))} gallons/day</strong> for {people} {people === 1 ? 'person' : 'people'}.
+              At {(calc.rate * 100).toFixed(1)}¢/kWh, your {heater.name.toLowerCase()} heats <strong>{fmt(Math.round(calc.gallonsPerDay))} gallons/day</strong> for {people} {people === 1 ? 'person' : 'people'}.
               Monthly cost: <strong>${fmtMoney(calc.monthlyCost)}</strong> · Daily: <strong>${calc.dailyCost.toFixed(2)}</strong>.
             </>
           }
@@ -247,8 +260,8 @@ export default function WaterHeatingCostCalculator() {
               <div className="p-3 bg-red-50 rounded-lg">
                 <div className="flex justify-between items-baseline">
                   <div>
-                    <div className="font-semibold text-red-900 text-sm">Your state: {stateData.name}</div>
-                    <div className="text-[11px] text-red-700">{stateData.rate}¢/kWh</div>
+                    <div className="font-semibold text-red-900 text-sm">At your rate</div>
+                    <div className="text-[11px] text-red-700">{(calc.rate * 100).toFixed(1)}¢/kWh</div>
                   </div>
                   <div className="font-bold text-red-700 tabular-nums">${fmtMoney(calc.annualCost)}/yr</div>
                 </div>
@@ -282,7 +295,7 @@ export default function WaterHeatingCostCalculator() {
               </h4>
               <p className="text-xs text-gray-700 leading-relaxed">
                 Switching to a heat pump water heater would save roughly <strong>${fmtMoney(calc.heatPumpSavings)}/yr</strong> ({((calc.heatPumpSavings / calc.annualCost) * 100).toFixed(0)}% reduction).
-                In {stateData.name} at {stateData.rate}¢/kWh, a $1,500 HPWH pays back in <strong>{calc.heatPumpPayback.toFixed(1)} years</strong>.
+                At {(calc.rate * 100).toFixed(1)}¢/kWh, a $1,500 HPWH pays back in <strong>{calc.heatPumpPayback.toFixed(1)} years</strong>.
                 Federal §25C and §25D credits terminated for property placed in service after Dec 31, 2025 (OBBBA, PL 119-21). 2026 installs are not eligible for those credits; state/utility rebates and IRA-funded HEAR/HOMES programs (where the state offers them) remain the active paths.
               </p>
             </div>
