@@ -236,7 +236,7 @@ export default function ACGeneratorCalculator() {
                 { label: 'Running current', detail: `${selectedAC.rla}A @ 240V`, factor: `${selectedAC.running}W` },
                 { label: 'Starting (LRA)', detail: `${selectedAC.lra}A @ 240V`, factor: `${selectedAC.surge}W` },
                 ...(useHardStart ? [{ label: 'With hard-start', detail: '−35% surge', factor: `${Math.round(calc.acSurge)}W` }] : []),
-                { label: 'Annual cooling cost', detail: '8hr/day × 120 days × $0.16', factor: `~$${fmtMoney(selectedAC.running * 0.16 * 8 * 120 / 1000)}` },
+                { label: 'Annual cooling cost', detail: '8hr/day × 120 days × $0.18', factor: `~$${fmtMoney(selectedAC.running * 0.18 * 8 * 120 / 1000)}` },
               ]}
               totals={[]}
             />

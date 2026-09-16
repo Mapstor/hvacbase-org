@@ -32,10 +32,10 @@ const ACCENT = 'blue' as const;
 const a = accentMap[ACCENT];
 
 const roomTypes = [
-  { value: 'bedroom', name: 'Bedroom', summary: 'Sleep — 2 ACH baseline', acph: 2, Icon: Bed },
-  { value: 'living', name: 'Living room', summary: '2 ACH + extra for guests', acph: 2, Icon: Sofa },
+  { value: 'bedroom', name: 'Bedroom', summary: 'Sleep — 4.8 ACH (AHAM)', acph: 4.8, Icon: Bed },
+  { value: 'living', name: 'Living room', summary: '4.8 ACH — allergen clearing', acph: 4.8, Icon: Sofa },
   { value: 'kitchen', name: 'Kitchen', summary: 'Cooking fumes — 3 ACH', acph: 3, Icon: ChefHat },
-  { value: 'office', name: 'Home office', summary: '2 ACH for focus comfort', acph: 2, Icon: Briefcase },
+  { value: 'office', name: 'Home office', summary: '4.8 ACH clean air', acph: 4.8, Icon: Briefcase },
   { value: 'basement', name: 'Basement', summary: 'Lower contam — 1 ACH', acph: 1, Icon: Home },
   { value: 'bathroom', name: 'Bathroom', summary: 'Moisture + odor — 4 ACH', acph: 4, Icon: Bath },
 ];
@@ -273,7 +273,7 @@ export default function AirPurifierSizingCalculator() {
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Power consumption</span><strong>{calc.powerConsumption}W</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily energy (16hr)</span><strong>{calc.dailyEnergyUse.toFixed(1)} kWh</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Monthly energy</span><strong>{fmt(Math.round(calc.monthlyEnergyUse))} kWh</strong></div>
-              <div className="flex justify-between py-1.5"><span>Monthly cost @ $0.16</span><strong>${(calc.monthlyEnergyUse * 0.16).toFixed(2)}</strong></div>
+              <div className="flex justify-between py-1.5"><span>Monthly cost @ $0.18</span><strong>${(calc.monthlyEnergyUse * 0.18).toFixed(2)}</strong></div>
             </div>
             <div className="mt-3 bg-blue-50 rounded-lg p-3 text-xs">
               <div className="font-semibold text-blue-900 mb-1">CADR reference (AHAM tested)</div>

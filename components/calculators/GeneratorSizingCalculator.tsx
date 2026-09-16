@@ -146,9 +146,12 @@ export default function GeneratorSizingCalculator() {
     const recommendedWatts = Math.ceil(peakWatts * 1.2);
     const recommendedGenerator = generatorSizes.find((g) => g.watts >= recommendedWatts) || generatorSizes[generatorSizes.length - 1];
     const minimumGenerator = generatorSizes.find((g) => g.watts >= peakWatts) || generatorSizes[generatorSizes.length - 1];
-    const fuelGalPerHr = recommendedWatts / 5000;
+    // Fuel scales with the LOAD carried (running watts), not nameplate
+    // capacity — a lightly-loaded generator sips fuel. ~1 gal/hr per 5000 W
+    // of actual load. (Was recommendedWatts/5000, which overstated ~2-3×.)
+    const fuelGalPerHr = totalRunning / 5000;
     const runtime5Gal = fuelGalPerHr > 0 ? 5 / fuelGalPerHr : 0;
-    const dailyCost = fuelGalPerHr * 8 * 4.5;
+    const dailyCost = fuelGalPerHr * 8 * 3.20; // $3.20/gal — 2026 US national average
     return { items, totalRunning, largestStartingDelta, peakWatts, recommendedWatts, recommendedGenerator, minimumGenerator, fuelGalPerHr, runtime5Gal, dailyCost };
   }, [src.selectedKey]);
 
@@ -308,9 +311,9 @@ export default function GeneratorSizingCalculator() {
               })}
             </div>
             <div className="mt-3 pt-3 border-t border-gray-200 space-y-1 text-xs text-gray-700">
-              <div className="flex justify-between"><span>Fuel use at recommended load</span><strong>{calc.fuelGalPerHr.toFixed(2)} gal/hr</strong></div>
+              <div className="flex justify-between"><span>Fuel use at running load</span><strong>{calc.fuelGalPerHr.toFixed(2)} gal/hr</strong></div>
               <div className="flex justify-between"><span>Runtime on 5 gal tank</span><strong>{calc.runtime5Gal.toFixed(1)} hours</strong></div>
-              <div className="flex justify-between"><span>Daily fuel cost (8hr × $4.50/gal)</span><strong>${fmtMoney(calc.dailyCost)}</strong></div>
+              <div className="flex justify-between"><span>Daily fuel cost (8hr × $3.20/gal)</span><strong>${fmtMoney(calc.dailyCost)}</strong></div>
             </div>
             {calc.recommendedGenerator.watts < 7500 && calc.items.length > 0 && (
               <div className="mt-3 p-2.5 bg-blue-50 border border-blue-200 rounded text-xs text-blue-900">
