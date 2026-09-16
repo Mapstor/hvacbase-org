@@ -17,10 +17,9 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //   generator-amps, furnace-electrical, btu, ac-tonnage, furnace-sizing,
 //   heat-pump-size, afue, dehumidifier-sizing, water-heater-sizing,
 //   heat-pump-vs-furnace, gas-vs-electric, ach, seer2, kwh-cost, hvac-roi,
-//   power-consumption, specific-heat
+//   power-consumption, specific-heat, solar-panel
 const UNVERIFIED_TYPES = new Set<string>([
   'air-purifier-sizing',
-  'solar-panel',
   'dehumidifier-cost',
   'generator-sizing',
   'ac-generator',

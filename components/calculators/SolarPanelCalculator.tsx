@@ -48,12 +48,16 @@ const panelTypes = [
 
 const DEFAULTS = {
   monthlyBill: '150',
-  electricRate: '0.16',
+  electricRate: '0.18',
   location: 'average',
   panelType: 'monocrystalline',
   roofSpace: '800',
   shadingFactor: '100',
   systemEfficiency: '85',
+  // §25D residential solar credit ended for systems placed in service after
+  // Dec 31, 2025 (OBBBA) — 2026 installs get 0%. User can enter 30% for a
+  // 2024–2025 install.
+  federalCreditPct: '0',
 };
 
 export default function SolarPanelCalculator() {
@@ -64,9 +68,10 @@ export default function SolarPanelCalculator() {
   const [roofSpace, setRoofSpace] = useState(DEFAULTS.roofSpace);
   const [shadingFactor, setShadingFactor] = useState(DEFAULTS.shadingFactor);
   const [systemEfficiency, setSystemEfficiency] = useState(DEFAULTS.systemEfficiency);
+  const [federalCreditPct, setFederalCreditPct] = useState(DEFAULTS.federalCreditPct);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
-    monthlyBill, electricRate, location, panelType, roofSpace, shadingFactor, systemEfficiency,
+    monthlyBill, electricRate, location, panelType, roofSpace, shadingFactor, systemEfficiency, federalCreditPct,
   });
 
   const loc = locations.find((l) => l.value === src.location)!;
@@ -76,6 +81,7 @@ export default function SolarPanelCalculator() {
   const roof = Math.max(parseFloat(src.roofSpace) || 0, 0);
   const shading = Math.min(Math.max(parseFloat(src.shadingFactor) || 100, 50), 100);
   const sysEff = Math.min(Math.max(parseFloat(src.systemEfficiency) || 85, 70), 95);
+  const creditPct = Math.min(Math.max(parseFloat(src.federalCreditPct) || 0, 0), 30);
 
   const handleReset = () => {
     setMonthlyBill(DEFAULTS.monthlyBill);
@@ -85,6 +91,7 @@ export default function SolarPanelCalculator() {
     setRoofSpace(DEFAULTS.roofSpace);
     setShadingFactor(DEFAULTS.shadingFactor);
     setSystemEfficiency(DEFAULTS.systemEfficiency);
+    setFederalCreditPct(DEFAULTS.federalCreditPct);
     clear();
   };
 
@@ -106,19 +113,20 @@ export default function SolarPanelCalculator() {
     const monthlyProduction = dailyProduction * 30;
     const yearlyProduction = dailyProduction * 365;
     const systemCost = actualSystemWatts * panel.costPerWatt;
-    const federalTaxCredit = systemCost * 0.30;
+    // §25D ended after Dec 31, 2025 (OBBBA) — defaults to 0% for 2026 installs.
+    const federalTaxCredit = systemCost * (creditPct / 100);
     const netSystemCost = systemCost - federalTaxCredit;
     const monthlyElectricSavings = monthlyProduction * rate;
     const yearlyElectricSavings = monthlyElectricSavings * 12;
     const paybackYears = yearlyElectricSavings > 0 ? netSystemCost / yearlyElectricSavings : 999;
     const twentyYearSavings = (yearlyElectricSavings * 20) - netSystemCost;
-    const yearlyCO2Offset = yearlyProduction * 0.92;
+    const yearlyCO2Offset = yearlyProduction * 0.855; // EPA eGRID2022 US avg lb CO₂/kWh
     const twentyYearCO2Offset = yearlyCO2Offset * 20;
     const netMetering = monthlyProduction > monthlyKwh;
     const excessProduction = Math.max(0, monthlyProduction - monthlyKwh);
     const remainingUsage = Math.max(0, monthlyKwh - monthlyProduction);
     return { monthlyKwh, dailyKwh, yearlyKwh, effectiveSunHours, actualSystemKW, panelsNeeded, totalPanelArea, spaceUtilization, dailyProduction, monthlyProduction, yearlyProduction, systemCost, federalTaxCredit, netSystemCost, yearlyElectricSavings, paybackYears, twentyYearSavings, yearlyCO2Offset, twentyYearCO2Offset, netMetering, excessProduction, remainingUsage };
-  }, [bill, rate, loc, panel, roof, shading, sysEff]);
+  }, [bill, rate, loc, panel, roof, shading, sysEff, creditPct]);
 
   const fit =
     calc.spaceUtilization > 100 ? { tone: 'bad' as const, text: 'Roof too small — need ground mount' } :
@@ -192,6 +200,19 @@ export default function SolarPanelCalculator() {
         </div>
       </section>
 
+      <section>
+        <SectionHeader step={4} title="Incentives" subtitle="Federal solar tax credit (Section 25D)" Icon={DollarSign} accent={ACCENT} />
+        <div className="max-w-xs">
+          <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+            Federal tax credit
+            <InfoTip label="federal solar credit">The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA) — 2026 installs are not eligible. Enter a credit % only if your system was placed in service in 2025 or earlier.</InfoTip>
+            <span className="ml-auto text-sm font-semibold text-emerald-700">{creditPct}%</span>
+          </label>
+          <input type="range" min={0} max={30} step={1} value={federalCreditPct} onChange={(e) => setFederalCreditPct(e.target.value)} className="w-full accent-emerald-600" aria-label="Federal tax credit percent" />
+          <p className="text-xs text-gray-500 mt-1.5">2026 installs: 0% (§25D expired). Placed in service 2025 or earlier: up to 30%.</p>
+        </div>
+      </section>
+
       <CalculateResetBar
         onCalculate={calculate}
         onReset={handleReset}
@@ -256,7 +277,7 @@ export default function SolarPanelCalculator() {
             <BreakdownTable
               rows={[
                 { label: 'Equipment cost', detail: `${calc.panelsNeeded} × 400W × $${panel.costPerWatt}/W`, factor: `$${fmtMoney(calc.systemCost)}` },
-                { label: 'Federal 25D credit', detail: '30% of system cost', factor: `−$${fmtMoney(calc.federalTaxCredit)}` },
+                { label: 'Federal 25D credit', detail: `${creditPct}% of system cost`, factor: `−$${fmtMoney(calc.federalTaxCredit)}` },
                 { label: 'Net investment', detail: 'After federal credit', factor: `$${fmtMoney(calc.netSystemCost)}` },
                 { label: 'Annual savings', detail: `${fmt(Math.round(calc.monthlyProduction))} kWh × $${rate.toFixed(2)} × 12`, factor: `$${fmtMoney(calc.yearlyElectricSavings)}` },
                 { label: 'Payback', detail: 'Net cost ÷ annual savings', factor: calc.paybackYears < 50 ? `${calc.paybackYears.toFixed(1)} yr` : '50+ yr' },
@@ -299,7 +320,7 @@ export default function SolarPanelCalculator() {
 
         <DisclaimerBox title="Solar economics caveats">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Federal 25D credit (30%) is current as of 2026 — verify before relying on it for your tax year</li>
+            <li>The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA) — 2026 installs are not eligible, so the credit defaults to 0%. Enter a credit % only for a system placed in service in 2025 or earlier.</li>
             <li>Net metering rates vary by utility — California's NEM 3.0 cut export rates by ~75% vs older systems</li>
             <li>Roof age matters — replace shingles BEFORE solar install if roof is &gt; 15 yr old (otherwise pay to remove + reinstall panels)</li>
             <li>Lease vs purchase: purchase + tax credit yields 2–3× more lifetime savings than leasing in most cases</li>
