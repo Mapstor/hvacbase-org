@@ -52,7 +52,7 @@ const DEFAULTS = {
   currentSeer: '10',
   newSeer: '16',
   acSize: '3',
-  electricRate: '0.16',
+  electricRate: '0.18',
   coolingHours: '1500',
   systemAge: '15',
 };
@@ -88,19 +88,21 @@ export default function SEER2Calculator() {
 
   const calc = useMemo(() => {
     const btuPerHour = tons * 12000;
-    const seer2Adj = 0.955;
+    // SEER (pre-2023) and SEER2 (2023+) inputs are compared on the SAME scale —
+    // we do NOT rescale the new unit. SEER2 ≈ SEER × 0.95, so dividing the new
+    // unit by 0.955 understated its savings by 20–40% (the old inversion bug).
     const currentKwh = cur > 0 ? (btuPerHour / cur) * hours / 1000 : 0;
-    const newKwh = next > 0 ? (btuPerHour / (next * seer2Adj)) * hours / 1000 : 0;
+    const newKwh = next > 0 ? (btuPerHour / next) * hours / 1000 : 0;
     const kwhSaved = currentKwh - newKwh;
     const currentCost = currentKwh * rate;
     const newCost = newKwh * rate;
     const annualSavings = currentCost - newCost;
-    const monthlySavings = annualSavings / 5;
+    const monthlySavings = annualSavings / 12;
     const tenYearSavings = annualSavings * 10;
     const lifetimeSavings = annualSavings * 15;
     const systemCost = tons * 1800;
     const paybackYears = annualSavings > 0 ? systemCost / annualSavings : 0;
-    const co2Reduction = kwhSaved * 0.92;
+    const co2Reduction = kwhSaved * 0.855; // EPA eGRID2022 US avg lb CO₂/kWh
     const percentSavings = currentKwh > 0 ? (kwhSaved / currentKwh) * 100 : 0;
     const treesEquivalent = Math.round(co2Reduction / 48);
     const carsOffRoad = co2Reduction / 9600;
@@ -149,6 +151,7 @@ export default function SEER2Calculator() {
               Current SEER rating
               <InfoTip label="current SEER">
                 Look at your existing condenser's nameplate. Systems 10+ years old are typically 8–13 SEER.
+                Enter the rating as printed — SEER for pre-2023 units, SEER2 for 2023+ — this tool compares both figures on the same scale.
               </InfoTip>
             </label>
             <NumberInput value={currentSeer} onChange={setCurrentSeer} min={6} max={25} suffix="SEER" ariaLabel="Current SEER" accent={ACCENT} />
@@ -181,10 +184,10 @@ export default function SEER2Calculator() {
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 Electric rate
-                <InfoTip label="electric rate">Check the kWh rate on a recent power bill. US average is $0.16/kWh in 2026 — California averages $0.30+, the South averages $0.10–$0.13.</InfoTip>
+                <InfoTip label="electric rate">Check the kWh rate on a recent power bill. US average is $0.18/kWh in 2026 — California averages $0.30+, the South averages $0.10–$0.13.</InfoTip>
               </label>
               <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
-              <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.16/kWh</p>
+              <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.18/kWh</p>
             </div>
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
