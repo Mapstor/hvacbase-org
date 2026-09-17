@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Heat Pump Guides, Calculators & Reviews',
-  description: 'Complete heat pump resource center. Sizing calculators, installation guides, efficiency comparisons, troubleshooting, and unbiased heat pump reviews.',
+  description: 'Complete heat pump resource center: sizing calculators, installation guides, efficiency comparisons, and troubleshooting help — educational tools and primary-sourced guidance.',
   alternates: {
     canonical: 'https://www.hvacbase.org/heat-pumps',
   },

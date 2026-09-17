@@ -565,24 +565,24 @@ export default async function HomePage() {
             <div className="text-center mb-2">
               <h3 className="text-xl font-semibold text-gray-900">What efficiency actually saves</h3>
               <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
-                Higher SEER2 lowers annual cooling cost — but with diminishing returns. Going from the 13.4 SEER2 minimum to 16 saves more per point than going from 18 to 22. The chart uses a 3-ton AC with about 1,500 cooling hours a year at $0.17/kWh; run the SEER2 calculator to plug in your rates.
+                Higher SEER2 lowers annual cooling cost — but with diminishing returns. Going from the 13.4 SEER2 minimum to 16 saves more per point than going from 18 to 22. The chart uses a 3-ton AC with about 1,500 cooling hours a year at $0.18/kWh; run the SEER2 calculator to plug in your rates.
               </p>
             </div>
             <EfficiencyCurve
               title="SEER2 rating vs annual cooling cost"
-              desc="Line plot showing that annual cooling cost falls sharply as SEER2 increases from 13.4 to 16, then flattens as SEER2 rises further to 22. At SEER2 13.4 (2026 US minimum), the modeled annual cost is about $685; at 15 it's $612; at 16 it's $574; at 18 it's $510; at 20 it's $459; at 22 it's $417. The largest per-point savings come at the low end — the 13.4 to 16 jump saves about $111/year, while the 18 to 22 jump saves about $93/year despite covering twice as many SEER2 points. Model assumptions: 3-ton (36,000 BTU/hr) central AC, 1,500 equivalent full-load cooling hours per year (mid-Atlantic climate), electricity at $0.17 per kWh."
+              desc="Line plot showing that annual cooling cost falls sharply as SEER2 increases from 13.4 to 16, then flattens as SEER2 rises further to 22. At SEER2 13.4 (2026 US minimum), the modeled annual cost is about $725; at 15 it's $648; at 16 it's $608; at 18 it's $540; at 20 it's $486; at 22 it's $442. The largest per-point savings come at the low end — the 13.4 to 16 jump saves about $118/year, while the 18 to 22 jump saves about $98/year despite covering twice as many SEER2 points. Model assumptions: 3-ton (36,000 BTU/hr) central AC, 1,500 equivalent full-load cooling hours per year (mid-Atlantic climate), electricity at $0.18 per kWh."
               xLabel="SEER2 Rating"
               yLabel="Annual Cooling Cost"
               yUnit="$"
               data={[
-                { x: 13.4, y: 685 },
-                { x: 15, y: 612 },
-                { x: 16, y: 574 },
-                { x: 18, y: 510 },
-                { x: 20, y: 459 },
-                { x: 22, y: 417 },
+                { x: 13.4, y: 725 },
+                { x: 15, y: 648 },
+                { x: 16, y: 608 },
+                { x: 18, y: 540 },
+                { x: 20, y: 486 },
+                { x: 22, y: 442 },
               ]}
-              caption="Diminishing returns are real: the 13.4→16 jump saves ~$111/yr, but 18→22 only saves ~$93/yr despite covering twice as many SEER2 points."
+              caption="Diminishing returns are real: the 13.4→16 jump saves ~$118/yr, but 18→22 only saves ~$98/yr despite covering twice as many SEER2 points."
             />
             <div className="text-center mt-2">
               <Link href="/seer2-savings-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
@@ -1016,10 +1016,6 @@ export default async function HomePage() {
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>No manufacturer sponsorships</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span>Equal coverage of all major brands</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />

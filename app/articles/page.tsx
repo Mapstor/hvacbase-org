@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'All HVAC Articles, Guides & Resources',
-  description: 'Browse the complete library of 355 HVAC articles, guides, calculators, and resources. Find primary-sourced information on air conditioning, heating, heat pumps, and energy efficiency.',
+  description: 'Browse the complete library of 235 HVAC guides, calculators, and resources. Find primary-sourced information on air conditioning, heating, heat pumps, and energy efficiency.',
   alternates: {
     canonical: 'https://www.hvacbase.org/articles',
   },

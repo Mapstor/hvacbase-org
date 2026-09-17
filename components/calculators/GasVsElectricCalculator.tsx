@@ -46,7 +46,7 @@ const applianceTypes = [
 const DEFAULTS = {
   applianceType: 'water-heater',
   gasPrice: '1.35',        // EIA 2026 US heating-season national midpoint
-  electricRate: '0.17',    // EIA 2026 national residential average (~$0.17-0.18)
+  electricRate: '0.18',    // EIA 2026 national residential average (sitewide standard)
   customGasSize: '',
   customElectricSize: '',
   customHours: '',
@@ -165,7 +165,7 @@ export default function GasVsElectricCalculator() {
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Electric rate</label>
             <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
-            <p className="text-xs text-gray-500 mt-1.5">EIA 2026 US avg: $0.17-0.18/kWh</p>
+            <p className="text-xs text-gray-500 mt-1.5">EIA 2026 US avg: ~$0.18/kWh</p>
           </div>
         </div>
       </section>

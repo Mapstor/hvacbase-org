@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Air Conditioning Guides, Calculators & Reviews',
-  description: 'Complete air conditioning resource center. BTU calculators, buying guides, energy efficiency ratings, troubleshooting, and unbiased AC reviews.',
+  description: 'Complete air conditioning resource center: BTU calculators, sizing guides, energy efficiency ratings, and troubleshooting help — educational tools and primary-sourced guidance.',
   alternates: {
     canonical: 'https://www.hvacbase.org/air-conditioning',
   },

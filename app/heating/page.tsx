@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Heating Systems Guides, Calculators & Reviews',
-  description: 'Comprehensive heating resource center. Furnace sizing, space heater guides, energy efficiency ratings, troubleshooting, and unbiased heating system reviews.',
+  description: 'Comprehensive heating resource center: furnace sizing, space heater guides, energy efficiency ratings, and troubleshooting help — educational tools and primary-sourced guidance.',
   alternates: {
     canonical: 'https://www.hvacbase.org/heating',
   },
