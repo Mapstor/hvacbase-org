@@ -1,7 +1,7 @@
 ---
 slug: "kwh-cost-calculator"
 title: "kWh Cost Calculator: Convert kWh to Dollars Instantly (2026 Rates)"
-description: "Calculate your electricity cost per kWh, daily, monthly, and annual. Use real 2026 rates by state. The average US residential rate is 16.8¢/kWh — find yours and see exactly what your appliances cost to run."
+description: "Calculate your electricity cost per kWh, daily, monthly, and annual. Use real 2026 rates by state. The average US residential rate is 18¢/kWh — find yours and see exactly what your appliances cost to run."
 cluster: "energy-costs"
 role: "hub"
 priority: "P1"
@@ -26,7 +26,7 @@ externalLinks:
 
 import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-One kilowatt-hour (kWh) costs an average of **$0.168 in the United States** as of 2026, but your actual cost ranges from $0.105/kWh in Idaho to $0.421/kWh in Hawaii. Use the calculator below to convert kWh to dollars using your exact local rate, or use the national average for quick estimates.
+One kilowatt-hour (kWh) costs an average of **$0.18 in the United States** as of 2026, but your actual cost ranges from $0.105/kWh in Idaho to $0.421/kWh in Hawaii. Use the calculator below to convert kWh to dollars using your exact local rate, or use the national average for quick estimates.
 
 Understanding your cost per kWh is the foundation of every energy-saving decision. It tells you exactly how much each appliance, each degree on your thermostat, and each hour of runtime is costing you in real dollars.
 
@@ -57,11 +57,9 @@ For an appliance with a known wattage:
 
 **Cost = (Watts × Hours Used) ÷ 1,000 × Price per kWh**
 
-For example, a 1,500W space heater running for 8 hours at $0.168/kWh:
+For example, a 1,500W space heater running for 8 hours uses (1,500 × 8) ÷ 1,000 = 12 kWh. At ~$0.18/kWh that's ≈**$2.16** — use the calculator for your exact figure.
 
-(1,500 × 8) ÷ 1,000 × $0.168 = 12 kWh × $0.168 = **$2.02**
-
-Run that heater 8 hours daily for a month (30 days), and you're looking at 360 kWh × $0.168 = **$60.48/month**.
+Run that heater 8 hours daily for a month (30 days) and you'll use about 360 kWh, roughly ≈**$65/month** at ~$0.18/kWh.
 
 ### Converting Watts to kWh
 
@@ -141,11 +139,11 @@ One kWh is an abstract concept until you see it in real-world terms. Here's what
 | A clothes dryer (3,000W) | 20 minutes |
 | An electric vehicle | ~3-4 miles of driving |
 
-At the national average of $0.168/kWh, each of these scenarios costs you about **17 cents**. In Hawaii, that same kWh costs 42 cents. In Idaho, just 10.5 cents.
+At the national average of $0.18/kWh, each of these scenarios costs you about **18 cents**. In Hawaii, that same kWh costs 42 cents. In Idaho, just 10.5 cents.
 
 ## Common Appliance Costs: What You're Really Paying
 
-Here's what typical household appliances actually cost to operate in 2026, calculated at the national average rate of $0.168/kWh.
+Here's what typical household appliances actually cost to operate in 2026, calculated at the national average rate of $0.18/kWh (illustrative — the appliance tables below use this basis; use the calculator for exact costs).
 
 ### Heating & Cooling
 
@@ -246,9 +244,9 @@ You drive 1,000 miles/month in an EV averaging 3.5 miles/kWh, charging at home i
 
 **At off-peak TOU rates:** 286 kWh × $0.14 = **$40.04/month**
 
-**Gasoline equivalent (30 MPG, $4.50/gal):** 33.3 gal × $4.50 = **$149.85/month**
+**Gasoline equivalent (30 MPG, $3.20/gal):** 33.3 gal × $3.20 ≈ **$107/month**
 
-Even at California peak rates, the EV costs roughly half as much as gasoline. At off-peak TOU rates, it's about 73% cheaper. This is why [time-of-use rates](/time-of-use-rates-explained) matter enormously for EV owners.
+Even at California peak rates, the EV costs about 25% less than gasoline. At off-peak TOU rates, it's about 63% cheaper. This is why [time-of-use rates](/time-of-use-rates-explained) matter enormously for EV owners.
 
 ## Understanding Your Electricity Bill Line Items
 
@@ -276,12 +274,14 @@ When evaluating whether to go electric, gas, propane, or solar, you need to comp
 |---|---|---|---|
 | Natural Gas (furnace) | $1.22/therm | 96% AFUE | $12.71 |
 | Natural Gas (furnace, old) | $1.22/therm | 80% AFUE | $15.25 |
-| Electricity (resistance heat) | $0.168/kWh | 100% | $49.24 |
-| Electricity (heat pump, COP 3.0) | $0.168/kWh | 300% | $16.41 |
-| Electricity (heat pump, COP 4.0) | $0.168/kWh | 400% | $12.31 |
+| Electricity (resistance heat) | $0.18/kWh | 100% | $49.24 |
+| Electricity (heat pump, COP 3.0) | $0.18/kWh | 300% | $16.41 |
+| Electricity (heat pump, COP 4.0) | $0.18/kWh | 400% | $12.31 |
 | Propane | $2.85/gallon | 95% AFUE | $32.75 |
 | Heating Oil | $3.95/gallon | 85% AFUE | $33.50 |
 | Wood Pellets | $280/ton | 80% | $21.34 |
+
+*The electricity rows use a ~$0.18/kWh basis (illustrative — use the calculator for exact costs).*
 
 This table reveals why heat pumps are transforming the economics of home heating. At a COP of 4.0 (common for modern cold-climate heat pumps at moderate temperatures), electricity through a heat pump is actually **cheaper per BTU than natural gas** — even at the national average electric rate.
 
@@ -301,7 +301,7 @@ You can't always control your utility's rate, but you can effectively reduce wha
 
 <Callout type="takeaway">
 **Key Takeaways:**
-- 1 kWh costs $0.168 on average nationally, but ranges from $0.105 to $0.421 by state
+- 1 kWh costs $0.18 on average nationally, but ranges from $0.105 to $0.421 by state
 - kWh × rate understates real cost on tiered plans (top-tier kWh run ~$0.25 each) and TOU plans (California peak $0.276 vs off-peak $0.14) — multiply by your marginal or peak rate, not the average
 - Your biggest electricity consumers are HVAC, water heating, and clothes drying
 - Space heaters cost $1.50–$2.50/day — they're only economical for single-room heating
@@ -313,11 +313,11 @@ You can't always control your utility's rate, but you can effectively reduce wha
 <FAQ items={[
   {
     question: "What is a good price per kWh for electricity?",
-    answer: "The national average is about 16.8¢/kWh in 2026. Rates below 12¢/kWh are considered cheap (common in the Pacific Northwest and parts of the Great Plains), 12–17¢ is average, 17–25¢ is above average, and above 25¢ is expensive (common in New England, California, and Hawaii). However, a 'good' rate depends on your location — 15¢ is great in Massachusetts but high for Washington state."
+    answer: "The national average is about 18¢/kWh in 2026. Rates below 12¢/kWh are considered cheap (common in the Pacific Northwest and parts of the Great Plains), 12–17¢ is average, 17–25¢ is above average, and above 25¢ is expensive (common in New England, California, and Hawaii). However, a 'good' rate depends on your location — 15¢ is great in Massachusetts but high for Washington state."
   },
   {
     question: "How much does it cost to run a 1,500 watt space heater for 24 hours?",
-    answer: "At the national average of $0.168/kWh: 1,500W × 24 hours ÷ 1,000 = 36 kWh × $0.168 = $6.05 per day. Over a month, that's $181.44. Space heaters are the most expensive form of electric heating on a whole-home basis, but can be economical for heating a single room while lowering the thermostat for the rest of the house."
+    answer: "A 1,500W heater running 24 hours uses 1,500W × 24 ÷ 1,000 = 36 kWh. At ~$0.18/kWh that's ≈$6.48 per day, or roughly ≈$194 over a month — use the calculator for your exact figure. Space heaters are the most expensive form of electric heating on a whole-home basis, but can be economical for heating a single room while lowering the thermostat for the rest of the house."
   },
   {
     question: "Why is my electricity rate different from the state average?",

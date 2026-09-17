@@ -53,13 +53,13 @@ The average heat pump costs $80–$160 per month to run for combined heating and
       { label: "HSPF2 Rating", name: "hspf2", default: 9, min: 7, max: 14 },
       { label: "Heating Degree Days", name: "hdd", default: 4500, min: 500, max: 10000 },
       { label: "Cooling Degree Days", name: "cdd", default: 1500, min: 200, max: 5000 },
-      { label: "Electricity Rate ($/kWh)", name: "rate", default: 0.14, min: 0.05, max: 0.50 },
+      { label: "Electricity Rate ($/kWh)", name: "rate", default: 0.18, min: 0.05, max: 0.50 },
     ]}
   />
 </CalcWrapper>
 
 <Callout type="tip">
-**Find Your Electricity Rate:** Check your most recent electric bill for the "per kWh" rate. The U.S. average is $0.14/kWh, but rates range from $0.08/kWh (Louisiana, Idaho) to $0.35/kWh (Massachusetts, Connecticut, Hawaii). You can also look up state averages on the EIA website.
+**Find Your Electricity Rate:** Check your most recent electric bill for the "per kWh" rate. The U.S. average is about $0.18/kWh, but rates range from $0.08/kWh (Louisiana, Idaho) to $0.35/kWh (Massachusetts, Connecticut, Hawaii). You can also look up state averages on the EIA website.
 </Callout>
 
 ## Average Running Costs by Climate Zone 
@@ -78,14 +78,14 @@ The average heat pump costs $80–$160 per month to run for combined heating and
   ]}
 />
 
-*All figures assume $0.14/kWh electricity rate. Adjust proportionally for your local rate — multiply by (your rate ÷ 0.14).*
+*All figures assume $0.18/kWh electricity (illustrative). Adjust proportionally for your local rate — multiply by (your rate ÷ 0.18).*
 
 ## Monthly Cost Breakdown by Season 
 
 Heat pump running costs swing dramatically between seasons. Understanding the monthly pattern helps you budget and spot anomalies that might indicate maintenance issues.
 
 <ComparisonTable
-  title="Monthly Running Cost (3-ton, SEER2 16, HSPF2 9.5, Zone 4, $0.14/kWh)"
+  title="Monthly Running Cost (3-ton, SEER2 16, HSPF2 9.5, Zone 4, $0.18/kWh — illustrative)"
   headers={["Month", "Mode", "Est. kWh", "Est. Cost", "vs. Gas Furnace + AC"]}
   rows={[
     ["January", "Heating", "800–950", "$112–$133", "Saves $5–$20"],
@@ -113,18 +113,18 @@ This is the comparison most homeowners need. The answer depends entirely on your
   title="Annual Running Cost: Heat Pump vs Gas Furnace + AC (2,000 sq ft, Zone 4)"
   headers={["Scenario", "Heat Pump Cost", "Gas + AC Cost", "Annual Savings", "HP Wins?"]}
   rows={[
-    ["Avg rates ($0.14/kWh, $1.30/therm)", "$742", "$1,276", "$534", "Yes"],
-    ["Cheap gas ($0.14/kWh, $0.80/therm)", "$742", "$932", "$190", "Yes"],
-    ["Cheap electric ($0.10/kWh, $1.30/therm)", "$530", "$1,236", "$706", "Yes, by a lot"],
+    ["Avg rates ($0.18/kWh, $1.35/therm)", "$954", "$1,276", "$322", "Yes"],
+    ["Cheap gas ($0.18/kWh, $0.80/therm)", "$954", "$932", "−$22", "No"],
+    ["Cheap electric ($0.10/kWh, $1.35/therm)", "$530", "$1,236", "$706", "Yes, by a lot"],
     ["Expensive electric ($0.22/kWh, $1.00/therm)", "$1,165", "$1,100", "−$65", "No (barely)"],
     ["Very expensive electric ($0.30/kWh, $0.80/therm)", "$1,590", "$932", "−$658", "No"],
     ["Moderate rates ($0.16/kWh, $1.50/therm)", "$848", "$1,420", "$572", "Yes"],
-    ["Oil/propane ($0.14/kWh, $3.50/gal oil)", "$742", "$2,310", "$1,568", "Yes, by a lot"],
+    ["Oil/propane ($0.18/kWh, $3.50/gal oil)", "$954", "$2,310", "$1,356", "Yes, by a lot"],
   ]}
 />
 
 <Callout type="important">
-**The Crossover Point:** A heat pump's running costs are lower than gas in about 85% of U.S. markets. The heat pump loses only when electricity exceeds approximately $0.20/kWh AND gas is below $1.00/therm simultaneously. This combination exists in parts of the Northeast and some deregulated Texas markets.
+**The Crossover Point:** Whether a heat pump beats a gas furnace on running cost comes down to your seasonal COP against your local rates. At the ~$0.18/kWh national-average electricity price and ~$1.35/therm gas, the per-BTU heating break-even is roughly COP 3.8 — so on cheap gas a modern 96% furnace is often competitive, and the heat pump wins where electricity is cheap, gas is expensive, or the climate is mild enough to hold a high seasonal COP. Against oil, propane, and electric resistance it wins almost everywhere, so run your own rates through the calculator above rather than trusting one national headline.
 </Callout>
 
 ## Heat Pump vs Oil and Propane Costs 
@@ -157,9 +157,9 @@ Since the heat pump runs entirely on electricity, your local rate has a direct, 
     ["$0.08/kWh", "LA, ID, WY, UT", "$424", "$35"],
     ["$0.10/kWh", "WA, OR, AR, ND", "$530", "$44"],
     ["$0.12/kWh", "TX, NC, TN, VA", "$636", "$53"],
-    ["$0.14/kWh", "U.S. average, FL, GA, OH", "$742", "$62"],
+    ["$0.14/kWh", "FL, GA, OH", "$742", "$62"],
     ["$0.16/kWh", "CO, AZ, MN, WI, IL", "$848", "$71"],
-    ["$0.18/kWh", "MI, PA, NJ, MD", "$954", "$80"],
+    ["$0.18/kWh", "U.S. average, MI, PA, NJ, MD", "$954", "$80"],
     ["$0.22/kWh", "NY, VT, NH, RI", "$1,166", "$97"],
     ["$0.28/kWh", "MA, CT", "$1,484", "$124"],
     ["$0.35/kWh", "HI", "$1,855", "$155"],
@@ -194,7 +194,7 @@ The average heat pump costs **$80–$160/month** or **$960–$1,920/year** to ru
 
 <FAQ id="faq">
   <FAQ.Item question="Is it expensive to run a heat pump all day?">
-    Modern inverter heat pumps are designed to run continuously at low power, which is actually more efficient than cycling on and off. Running all day at 30–50% capacity costs less than running at 100% for half the day. A 3-ton inverter heat pump running continuously in moderate weather (40–55 °F) draws about 1.0–1.5 kW, costing $0.14–$0.21 per hour or $3.36–$5.04 per day.
+    Modern inverter heat pumps are designed to run continuously at low power, which is actually more efficient than cycling on and off. Running all day at 30–50% capacity costs less than running at 100% for half the day. A 3-ton inverter heat pump running continuously in moderate weather (40–55 °F) draws about 1.0–1.5 kW, costing $0.18–$0.27 per hour or $4.32–$6.48 per day.
   </FAQ.Item>
 
   <FAQ.Item question="How much does a heat pump increase your electric bill?">
@@ -206,7 +206,7 @@ The average heat pump costs **$80–$160/month** or **$960–$1,920/year** to ru
   </FAQ.Item>
 
   <FAQ.Item question="How much does emergency heat cost to run?">
-    Emergency heat (electric resistance strips) costs 2.5–4× more than normal heat pump operation. A 10 kW strip running for 8 hours costs $11.20 at $0.14/kWh. The same heating from a heat pump at COP 3.0 costs about $3.73. Never leave emergency heat on unless the heat pump compressor has actually failed — it's the most expensive way to heat your home.
+    Emergency heat (electric resistance strips) costs 2.5–4× more than normal heat pump operation. A 10 kW strip running for 8 hours costs $14.40 at $0.18/kWh. The same heating from a heat pump at COP 3.0 costs about $4.80. Never leave emergency heat on unless the heat pump compressor has actually failed — it's the most expensive way to heat your home.
   </FAQ.Item>
 
   <FAQ.Item question="Can solar panels eliminate heat pump running costs?">

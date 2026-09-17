@@ -51,21 +51,21 @@ This matters because your heating load is highest when it's coldest. So you need
 
 <ComparisonTable
   title="Heat Pump COP Degradation by Temperature"
-  headers={["Outdoor Temperature", "COP (Standard Unit)", "COP (Cold-Climate Unit)", "Effective Cost @ $0.14/kWh", "Natural Gas Equivalent"]}
+  headers={["Outdoor Temperature", "COP (Standard Unit)", "COP (Cold-Climate Unit)", "Effective Cost @ $0.18/kWh", "Natural Gas Equivalent"]}
   rows={[
-    ["47 °F", "3.5–4.5", "4.0–5.0", "$0.031–$0.040/kWh", "Cheaper than gas"],
-    ["32 °F", "2.5–3.5", "3.0–4.0", "$0.040–$0.056/kWh", "Cheaper than gas"],
-    ["17 °F", "2.0–2.8", "2.5–3.5", "$0.050–$0.070/kWh", "Comparable to gas"],
-    ["5 °F", "1.5–2.2", "2.0–3.0", "$0.064–$0.093/kWh", "Comparable to gas"],
-    ["0 °F", "1.2–1.8", "1.8–2.5", "$0.078–$0.117/kWh", "Slightly above gas"],
-    ["−10 °F", "1.0–1.5", "1.5–2.0", "$0.093–$0.140/kWh", "Comparable to gas"],
-    ["−20 °F", "—", "1.2–1.5", "$0.093–$0.117/kWh", "Comparable to gas"],
+    ["47 °F", "3.5–4.5", "4.0–5.0", "$0.040–$0.051/kWh", "≈ gas (cheaper only above COP 3.8)"],
+    ["32 °F", "2.5–3.5", "3.0–4.0", "$0.051–$0.072/kWh", "Above gas"],
+    ["17 °F", "2.0–2.8", "2.5–3.5", "$0.064–$0.090/kWh", "Above gas"],
+    ["5 °F", "1.5–2.2", "2.0–3.0", "$0.082–$0.120/kWh", "Well above gas"],
+    ["0 °F", "1.2–1.8", "1.8–2.5", "$0.100–$0.150/kWh", "Well above gas"],
+    ["−10 °F", "1.0–1.5", "1.5–2.0", "$0.120–$0.180/kWh", "Well above gas"],
+    ["−20 °F", "—", "1.2–1.5", "$0.120–$0.150/kWh", "Well above gas"],
   ]}
 />
 
-*Gas equivalent assumes $1.30/therm and 96% AFUE furnace.*
+*Gas equivalent ≈ $0.048 per kWh of heat at $1.35/therm and a 96% AFUE furnace (illustrative); a heat pump undercuts it only above roughly COP 3.8.*
 
-**How significant is this?** For most of the U.S. (climate zones 1–5), the average COP across an entire heating season remains well above 2.0, meaning the heat pump still costs less to operate than gas. The efficiency drop only becomes a serious financial concern in climate zones 6–7, where temperatures below 0 °F occur frequently and for extended periods.
+**How significant is this?** Across a full heating season most U.S. homes (zones 1–5) hold an average COP of roughly 2.5–3.5, but at $0.18/kWh and $1.35/therm the cost break-even against a 96% gas furnace sits near COP 3.8. That means on cheap natural gas a modern furnace is often the cheaper fuel, and the heat pump wins on running cost mainly where electricity is cheap, gas is expensive, or the climate is mild — while still beating oil, propane, and electric resistance almost everywhere. The cold-weather COP drop bites hardest in zones 6–7, where sustained sub-0 °F spells push the heat pump well above gas on a per-BTU basis.
 
 **The workaround:** Cold-climate heat pumps from Mitsubishi, Fujitsu, and Daikin use enhanced vapor injection (EVI) technology to maintain significantly better COP at low temperatures. A dual-fuel (hybrid) system that switches to gas below a set balance point gives you the best of both worlds. For the full story, see our [cold weather heat pump guide](/heat-pump-in-cold-weather/).
 
