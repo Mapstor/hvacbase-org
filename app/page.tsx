@@ -1050,7 +1050,7 @@ export default async function HomePage() {
               href="/articles" 
               className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition-colors"
             >
-              Browse All {totalArticles} Guides
+              Browse All Guides
             </Link>
           </div>
         </div>

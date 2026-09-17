@@ -99,7 +99,7 @@ export default async function AirQualityHub() {
               Indoor Air Quality Guides & Reviews
             </h1>
             <p className="text-lg text-purple-100 mb-4">
-              {totalArticles} in-depth guides covering air purifiers, dehumidifiers, air quality testing, mold prevention, and IAQ solutions
+              In-depth guides covering air purifiers, dehumidifiers, air quality testing, mold prevention, and IAQ solutions
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">

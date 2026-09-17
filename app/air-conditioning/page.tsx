@@ -99,7 +99,7 @@ export default async function AirConditioningHub() {
               Air Conditioning Guides & Calculators
             </h1>
             <p className="text-lg text-blue-100 mb-4">
-              {totalArticles} in-depth guides covering central AC, mini splits, portable units, sizing calculators, and more
+              In-depth guides covering central AC, mini splits, portable units, sizing calculators, and more
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">

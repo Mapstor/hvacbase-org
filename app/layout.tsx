@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     url: 'https://www.hvacbase.org',
     siteName: 'HVAC Base',
     title: 'HVAC Base — Your Comprehensive HVAC Knowledge Resource',
-    description: 'In-depth HVAC resource with 235 primary-sourced guides, 31 interactive calculators, and editorially independent, tool-driven guidance for all your heating and cooling needs.',
+    description: 'In-depth HVAC guides, interactive sizing and cost calculators, and editorially independent, primary-sourced guidance for all your heating and cooling needs.',
     images: [
       {
         url: '/opengraph-image',

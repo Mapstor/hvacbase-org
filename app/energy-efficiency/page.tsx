@@ -93,7 +93,7 @@ export default async function EnergyEfficiencyHub() {
               Energy Efficiency Guides & Calculators
             </h1>
             <p className="text-lg text-yellow-100 mb-4">
-              {totalArticles} in-depth guides covering SEER2, AFUE, HSPF2 ratings, tax credits, energy costs, and savings calculators
+              In-depth guides covering SEER2, AFUE, HSPF2 ratings, tax credits, energy costs, and savings calculators
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">

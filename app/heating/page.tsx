@@ -99,7 +99,7 @@ export default async function HeatingHub() {
               Heating Systems Guides & Calculators
             </h1>
             <p className="text-lg text-orange-100 mb-4">
-              {totalArticles} in-depth guides covering furnaces, space heaters, water heaters, sizing calculators, and more
+              In-depth guides covering furnaces, space heaters, water heaters, sizing calculators, and more
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">

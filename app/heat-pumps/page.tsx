@@ -124,7 +124,7 @@ export default async function HeatPumpsHub() {
               Heat Pump Guides & Calculators
             </h1>
             <p className="text-lg text-green-100 mb-4">
-              {totalArticles} in-depth guides covering air-source, ground-source, sizing, efficiency, costs, and tax credits
+              In-depth guides covering air-source, ground-source, sizing, efficiency, costs, and tax credits
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-1">
