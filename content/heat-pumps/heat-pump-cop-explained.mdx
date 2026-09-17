@@ -25,7 +25,7 @@ import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArti
 
 # Heat Pump COP Explained: What It Means for Your Bills
 
-COP (Coefficient of Performance) is the ratio of heat energy delivered to electrical energy consumed — a COP of 3.0 means your heat pump produces 3 kWh of heat for every 1 kWh of electricity it uses. At the national average electricity rate of $0.14/kWh and a COP of 3.0, you pay just $0.047 per kWh of heat — roughly 65% cheaper than a gas furnace and 70% cheaper than electric resistance heating.
+COP (Coefficient of Performance) is the ratio of heat energy delivered to electrical energy consumed — a COP of 3.0 means your heat pump produces 3 kWh of heat for every 1 kWh of electricity it uses. At the ~$0.18/kWh national average and a COP of 3.0, you pay about $0.06 per kWh of heat — roughly 65% cheaper than electric resistance heating, and about on par with a 96% gas furnace at $1.35/therm (a heat pump only undercuts gas once its COP clears ~3.8 at these rates).
 
 COP is the single most useful number for comparing heat pump efficiency and estimating your heating costs. Unlike SEER2 and HSPF2 (which are seasonal averages), COP tells you exactly how efficiently your heat pump is operating right now at a specific outdoor temperature. This guide explains what COP means, how to read it, and how to use it to calculate your actual heating bills.
 
@@ -106,7 +106,7 @@ This is the most important data in this article. COP drops as outdoor temperatur
   ]}
 />
 
-*Cost per kWh of heat at $0.14/kWh electricity. Calculate: $0.14 / COP = cost per kWh of heat delivered.*
+*Cost per kWh of heat at ~$0.18/kWh electricity (illustrative — see the calculator). Calculate: $0.18 / COP = cost per kWh of heat delivered.*
 
 <Callout type="example">
 **Real-World Example — How COP Affects Your Wallet:** On a 47 °F day, your heat pump runs at COP 4.0. To produce 10 kWh of heat, it consumes 2.5 kWh of electricity, costing $0.35. On a 5 °F day, COP drops to 2.0. The same 10 kWh of heat now requires 5 kWh of electricity, costing $0.70 — exactly double. And on a −10 °F day at COP 1.5, it costs $0.93. This is why cold-climate models (with higher COP at low temps) save so much money in northern climates.
@@ -124,13 +124,13 @@ Or equivalently:
 
 ### Worked Example
 
-Your 3-ton heat pump has a heating load of 8 kW at design conditions. On a day when the outdoor temp is 20 °F, the COP is 2.8. Your electricity rate is $0.16/kWh.
+Your 3-ton heat pump has a heating load of 8 kW at design conditions. On a day when the outdoor temp is 20 °F, the COP is 2.8. Your electricity rate is $0.18/kWh.
 
-Cost per hour = 8 kW / 2.8 × $0.16 = $0.457 per hour
+Cost per hour ≈ $0.51 at ~$0.18/kWh (illustrative — use the calculator for your exact figure).
 
-If the system runs 14 hours that day: $0.457 × 14 = **$6.40 for the day's heating.**
+If the system runs 14 hours that day, that's ≈ **$7.20 for the day's heating.**
 
-For comparison, a gas furnace at the same heating load: 8 kW = 27,300 BTU/h. At 96% AFUE and $1.30/therm: 27,300 / 96,000 × $1.30 = $0.370/hour, or $5.18 for the day. The heat pump costs $1.22 more on this cold day — but on a 40 °F day (COP 3.5), it would cost $3.66 versus $5.18 for gas.
+For comparison, a gas furnace at the same heating load: 8 kW = 27,300 BTU/h. At 96% AFUE and ~$1.35/therm, that works out to roughly $0.38/hour, or about $5.30 for the day (illustrative — use the calculator). On this cold day the heat pump costs a bit more than gas — but on a milder 40 °F day (COP 3.5), the heat pump comes out clearly cheaper than gas.
 
 ## COP Comparison: Heat Pump vs Other Systems 
 
@@ -149,7 +149,7 @@ For comparison, a gas furnace at the same heating load: 8 kW = 27,300 BTU/h. At 
   ]}
 />
 
-*At $0.14/kWh, $1.30/therm, $3.50/gal oil, $2.50/gal propane.*
+*At ~$0.18/kWh, $1.35/therm, $3.50/gal oil, $2.50/gal propane (illustrative — see the calculator).*
 
 The key insight: a gas furnace's "COP" is fixed regardless of outdoor temperature, while a heat pump's COP varies. At moderate temperatures, the heat pump wins handily. At extreme cold, the gap narrows. A cold-climate heat pump maintains a meaningful advantage over gas down to about −10 °F in most markets.
 
@@ -161,7 +161,7 @@ The key insight: a gas furnace's "COP" is fixed regardless of outdoor temperatur
   rows={[
     ["4.0+", "Excellent", "Heating costs 65–75% less than electric resistance", "Cold-climate HP at 35–60 °F; geothermal year-round"],
     ["3.0–4.0", "Very Good", "Heating costs 55–65% less than electric resistance", "Standard HP at 35–47 °F; cold-climate at 17–35 °F"],
-    ["2.5–3.0", "Good", "Heating costs 50–60% less; competitive with gas", "Standard HP at 17–35 °F; cold-climate at 5–17 °F"],
+    ["2.5–3.0", "Good", "Heating costs 50–60% less than resistance; pricier than gas at average rates", "Standard HP at 17–35 °F; cold-climate at 5–17 °F"],
     ["2.0–2.5", "Acceptable", "Heating costs 40–50% less than resistance", "Standard HP at 5–17 °F; cold-climate at −5–5 °F"],
     ["1.5–2.0", "Marginal", "Still better than resistance; close to gas costs", "Cold-climate HP at −15 to −5 °F"],
     ["1.0–1.5", "Poor", "Near electric resistance efficiency", "Standard HP near shutdown; emergency operation"],
@@ -192,7 +192,7 @@ SCOP is essentially what HSPF2 measures, just expressed as a ratio instead of BT
   ]}
 />
 
-*Seasonal heating cost per kWh of heat delivered at $0.14/kWh electricity.*
+*Seasonal heating cost per kWh of heat delivered at ~$0.18/kWh electricity (illustrative — see the calculator).*
 
 Even in zone 7, the seasonal COP of 2.3 means you're getting 2.3 kWh of heat per kWh of electricity — still 130% more efficient than electric resistance heating.
 
@@ -213,7 +213,7 @@ You can't change the physics, but you can optimize the conditions that affect CO
 ## Key Takeaways
 
 <Callout type="takeaway">
-**COP is the ratio of heat output to electricity input** — a COP of 3.0 means 3 kWh of heat per 1 kWh of electricity. COP drops as outdoor temperature drops, ranging from **4.0–5.0 at 47 °F** to **1.5–2.5 at 0 °F** for cold-climate models. To calculate heating cost: **divide your electricity rate by COP** ($0.14/kWh at COP 3.0 = $0.047 per kWh of heat). A good COP is **3.0+ at moderate temperatures** and **2.0+ at your coldest design temperature**. Convert HSPF2 to seasonal COP: **SCOP = HSPF2 / 3.412**. Even at COP 2.0, a heat pump is twice as efficient as electric resistance heating and competitive with gas in most markets.
+**COP is the ratio of heat output to electricity input** — a COP of 3.0 means 3 kWh of heat per 1 kWh of electricity. COP drops as outdoor temperature drops, ranging from **4.0–5.0 at 47 °F** to **1.5–2.5 at 0 °F** for cold-climate models. To calculate heating cost: **divide your electricity rate by COP** ($0.18/kWh at COP 3.0 ≈ $0.06 per kWh of heat). A good COP is **3.0+ at moderate temperatures** and **2.0+ at your coldest design temperature**. Convert HSPF2 to seasonal COP: **SCOP = HSPF2 / 3.412**. Even at COP 2.0, a heat pump is twice as efficient as electric resistance heating — though at that COP it costs more to run than a 96% gas furnace at $1.35/therm; a heat pump only undercuts gas above ~COP 3.8 at these rates.
 </Callout>
 
 <FAQ id="faq">
@@ -226,7 +226,7 @@ You can't change the physics, but you can optimize the conditions that affect CO
   </FAQ.Item>
 
   <FAQ.Item question="What COP is needed to beat gas heating costs?">
-    The break-even COP depends on your electricity and gas rates. At the U.S. average of $0.14/kWh and $1.30/therm, the break-even COP is approximately 1.6. Any COP above 1.6 means the heat pump costs less per BTU than a 96% AFUE gas furnace. Even at 0 °F, most cold-climate heat pumps exceed COP 1.8, keeping them cheaper than gas.
+    The break-even COP depends on your electricity and gas rates. At the ~$0.18/kWh and $1.35/therm national averages, the break-even is approximately COP 3.8 — a heat pump beats a 96% AFUE gas furnace only when its COP exceeds ~3.8, which is a high bar many units don't clear in cold weather. So on cheap gas a modern furnace is often competitive; heat pumps win most clearly where electricity is cheap, gas is expensive, or the climate is mild enough to hold a high seasonal COP.
   </FAQ.Item>
 
   <FAQ.Item question="Does COP include the fan and other components?">
