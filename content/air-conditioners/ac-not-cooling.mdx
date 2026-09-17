@@ -7,12 +7,12 @@ role: "spoke"
 priority: "P1"
 contentType: "troubleshooting"
 datePublished: "2026-04-06"
-dateUpdated: "2026-07-17"
+dateModified: "2026-07-17"
 relatedArticles:
-  - ac-troubleshooting-guide
-  - air-conditioner-btu-calculator
-  - seer2-rating-explained
-  - hvac-maintenance-checklist
+  - "ac-troubleshooting-guide"
+  - "air-conditioner-btu-calculator"
+  - "seer2-rating-explained"
+  - "hvac-maintenance-checklist"
 externalLinks:
   - label: "ACCA — Manual S Equipment Selection"
     url: "https://www.acca.org/standards/manual-s"
@@ -23,697 +23,221 @@ import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArti
 
 # AC Not Cooling: 12 Fixes That Actually Work
 
-**Why is my air conditioner running but not cooling?** When your air conditioner runs but doesn't cool your home, you're dealing with one of the most common HVAC problems. Most cases can be resolved without a technician. This guide walks through 12 common causes, from simple 5-minute fixes to complex issues that require professional help.
+When an air conditioner runs but blows room-temperature air, the cause is almost always one of four cheap, fixable things: a clogged filter, a dirty outdoor coil, a thermostat set wrong, or blocked vents. Work through those first — they solve the large majority of "not cooling" calls and cost nothing but a little time.
 
-**What should I check first if my AC isn't cooling?** Start with the air filter — it's the most common single cause and takes just 10 minutes to replace. Then check your thermostat settings, outdoor unit for debris, and verify all vents are open.
-
-Each solution includes the **time required**, **difficulty level**, and **safety warnings**. Most homeowners can resolve the issue in under 2 hours using basic tools and following the step-by-step instructions.
+The rest of this guide covers the deeper causes — a frozen coil, low refrigerant, a failing compressor — and, just as important, how to recognize when you're past the point of DIY and should hand it to a licensed tech. Most homeowners can get cooling back in under two hours with basic tools; the trick is working from the simple checks toward the complex ones, not the other way around.
 
 <TableOfContents />
 
 <Callout type="warning" title="Safety First">
-**Turn off power** to your AC system at both the thermostat and electrical panel before performing any maintenance. Never work on electrical components while the system is energized. If you smell gas, see electrical sparking, or hear unusual grinding noises, stop immediately and call a professional.
+**Cut the power** at both the thermostat and the breaker panel before touching any component. Never work on electrical parts while the system is live. If you smell gas, see sparking, or hear grinding, stop and call a professional.
 </Callout>
 
-## Understanding Why AC Systems Stop Cooling
+## How Cooling Actually Fails
 
-Before diving into solutions, it's crucial to understand how air conditioning works. Your AC system removes heat from your home through a refrigeration cycle that requires three critical elements:
+Your AC doesn't "make cold" — it moves heat out of your house through a refrigeration cycle. Three things have to work for that to happen: air has to flow freely over both coils, the refrigerant charge has to be correct, and the electrical components (compressor, fan motors, controls) all have to fire. Break any one of those and the system will hum along looking fine while your house stays warm.
 
-1. **Proper airflow** over the indoor and outdoor coils
-2. **Correct refrigerant charge** and pressure
-3. **Functioning electrical components** including compressor, fan motors, and controls
+That's why the fixes below are ordered by how often they're the culprit, not by how dramatic they sound. Nine times out of ten it's airflow.
 
-When any of these elements fail, your system will run but fail to cool effectively. The solutions below address these issues in order of frequency and likelihood to resolve your problem.
+## The 5-Minute Diagnostic
 
-## Diagnostic Quick Test (5 minutes)
+Before you touch anything, measure what's actually happening:
 
-Before starting repairs, perform this quick diagnostic to understand your problem:
+1. Set the thermostat 5°F below room temperature and let the system run 15 minutes.
+2. Hold a thermometer at a supply vent, then at the return vent.
+3. Subtract: return temperature minus supply temperature.
 
-### Temperature Differential Test
-1. **Set thermostat** 5°F below current room temperature
-2. **Wait 15 minutes** for system to stabilize
-3. **Measure air temperature** at supply vent with thermometer
-4. **Measure air temperature** at return vent
-5. **Calculate difference** (return temp minus supply temp)
+A healthy system pulls the supply air **about 15–20°F colder** than the return — that's the normal "temperature split" technicians look for. Land in the **10–15°F** range and you've got reduced capacity with several possible causes. **Under 10°F** points to a real problem, and the fixes below will help you find it.
 
-**Results:**
-- **18-25°F difference**: System working properly, check other factors
-- **10-17°F difference**: Reduced cooling capacity, multiple possible causes
-- **Less than 10°F difference**: Significant problem, follow troubleshooting steps
+## 1. Start With the Filter (10 minutes, no tools)
 
-## Fix #1: Replace Dirty Air Filter
+This is the first thing every tech checks, because it's the most common cause by a wide margin. A clogged filter starves the evaporator coil of the airflow it needs to absorb heat, and the coil can even freeze. Per the **U.S. Department of Energy, simply replacing a dirty, clogged filter with a clean one can cut an AC's energy use by 5–15%** — and a badly blocked filter can stop cooling outright.
 
-**Time Required:** 10 minutes  
-**Difficulty:** Easy  
-**Tools Needed:** New filter
+Pull yours and hold it up to a light. If you can't see through it clearly, replace it — don't just knock the dust off and reinstall it. Match the exact dimensions and the airflow arrow (it points toward the air handler), and for most homes a MERV 6–11 filter is the right balance of filtration and airflow. One thing not to do: run the system with no filter "just for now." Bare, the evaporator coil coats with dust within a day, and that's a job for a pro to clean.
 
-### Why This Works
-A dirty air filter is the single most common cause of AC cooling problems. When filters become clogged, they restrict airflow over the evaporator coil by up to 50%, preventing proper heat removal. The coil can't absorb heat effectively, resulting in warm air output.
+<ComparisonTable
+  title="Filter Types and Replacement Schedule"
+  headers={["Filter Type", "MERV Rating", "Replace Every", "Trade-off"]}
+  rows={[
+    ["Fiberglass", "1–4", "30 days", "Low airflow resistance, basic filtration"],
+    ["Pleated standard", "5–8", "60–90 days", "Good balance for most homes"],
+    ["High-efficiency", "9–12", "90 days", "Better filtration — check monthly"],
+    ["Premium pleated", "13–16", "90–120 days", "Max filtration, watch airflow closely"],
+  ]}
+/>
 
-### Step-by-Step Filter Replacement
+## 2. Hose Down the Outdoor Coil
 
-**Step 1: Locate your filter**
-- **Central air**: Usually in return air duct or air handler
-- **Window units**: Behind front grille panel
-- **Mini splits**: Inside indoor unit cover
+The outdoor unit's job is to dump the heat your system pulled from inside. When its coils are packed with grass clippings, cottonwood, or dryer lint, that heat has nowhere to go — so the compressor works harder and cooling drops off, sometimes sharply.
 
-**Step 2: Remove and inspect current filter**
-- Turn off system power first
-- Note airflow direction arrow on filter frame
-- Remove filter and hold up to light
-- If you can't see through it clearly, replacement needed
+Kill the power at the disconnect first. Pull the top or side panels (usually two to four screws), lift out the big debris by hand, and gently straighten any bent fins. Then rinse the coils with a garden hose from the **inside out**, so you push dirt back the way it came rather than driving it deeper. A dedicated no-rinse coil cleaner helps with greasy buildup, but plain water clears most of it. Let it dry, reassemble, and give it 15 minutes to prove itself.
 
-**Step 3: Choose the right replacement**
-- Match exact dimensions (length × width × thickness)
-- Use same or slightly higher MERV rating (typically 6-11 for residential)
-- Never exceed manufacturer's maximum MERV rating
+If the fins are crushed flat across a wide area, or the unit's been running hot for a while, that's worth a professional cleaning — heavy contamination usually needs coil chemistry and a pressure rinse you don't want to improvise near live electrical.
 
-**Step 4: Install new filter correctly**
-- Insert with airflow arrows pointing toward air handler
-- Ensure snug fit with no gaps around edges
-- Replace access panel securely
-- Set calendar reminder for next replacement
+## 3. Rule Out the Thermostat
 
-### Filter Types and Replacement Schedule
+It sounds too simple, but a surprising share of "no cooling" calls come down to settings. Confirm the mode is on **Cool** (not Auto, which can call for heat), the fan is on **Auto** (not On, which just circulates room-temp air and fools you into thinking the system runs), and no leftover schedule is overriding you.
 
-| Filter Type | MERV Rating | Replacement Frequency | Cooling Impact |
-|-------------|-------------|---------------------|----------------|
-| Fiberglass | 1-4 | Every 30 days | Low resistance, basic filtration |
-| Pleated Standard | 5-8 | Every 60-90 days | Good balance of filtration/airflow |
-| High-Efficiency | 9-12 | Every 90 days | Better filtration, check monthly |
-| Premium Pleated | 13-16 | Every 90-120 days | Maximum filtration, monitor closely |
+Then check the thermostat's honesty: set a thermometer next to it, wait 15 minutes, and compare. More than a couple degrees off and it's mis-reading the room — recalibrate, replace the batteries, or relocate it if it's sitting in sunlight or above a heat source. For a smart or Wi-Fi model, a dropped network connection or a bad remote sensor can quietly stop a cooling call.
 
-<Callout type="tip" title="Pro Tip">
-**Never run your AC without a filter**, even temporarily. Just 24 hours without filtration can coat your evaporator coil with debris, reducing efficiency by 25% and requiring professional cleaning costing $300-500.
+<ComparisonTable
+  title="Common Thermostat Mistakes"
+  headers={["Problem", "What Happens", "Fix"]}
+  rows={[
+    ["Fan set to 'On'", "Circulates room-temp air, poor humidity control", "Switch to 'Auto'"],
+    ["Auto changeover", "System may call heat instead of cool", "Set specifically to 'Cool'"],
+    ["Schedule override", "Programming beats your manual setting", "Clear or edit the schedule"],
+    ["Dead batteries", "Erratic or no response", "Replace at each time change"],
+    ["Poor location", "False readings from sun/heat", "Relocate away from heat sources"],
+  ]}
+/>
+
+## 4. Open the Vents — But Not Too Many Closed
+
+Closed or furniture-blocked supply vents choke the whole system. Homeowners often close vents in unused rooms to "save energy," but modern systems are engineered to move a fixed volume of air — close too many and you spike static pressure, starve the coil, and can freeze it solid.
+
+Walk the house: open every supply vent's damper fully, clear rugs and furniture off them, and make sure return grilles are unobstructed too. As a working rule, keep at least **80% of your vents fully open** — closing more than a handful does more harm than the pennies it saves.
+
+<Callout type="warning" title="Don't over-close vents">
+Shutting more than about 20% of your vents raises static pressure, hurts efficiency, and can freeze the evaporator coil or damage the blower. When in doubt, leave them open.
 </Callout>
 
-## Fix #2: Clean Outdoor Condenser Coils
+## 5. Check the Refrigerant Lines
 
-**Time Required:** 30-45 minutes  
-**Difficulty:** Moderate  
-**Tools Needed:** Garden hose, soft brush, coil cleaner (optional)
+The two copper lines running between your indoor and outdoor units can get kinked, crushed, or lose their insulation — any of which drags down performance. Follow them end to end and look for obvious damage. The larger **suction line** (it runs cold) should be fully insulated; bare spots there cost you efficiency and can drip condensation.
 
-### Why This Works
-Your outdoor unit (condenser) must reject heat absorbed from inside your home. When condenser coils become dirty or blocked, heat rejection becomes inefficient. A dirty outdoor coil can reduce cooling capacity by 30% and increase energy consumption by 20-30%.
+What you're really hunting for are the tells of a bigger problem: **ice on the lines, oily residue at the connections, or a faint hissing.** Those point to a refrigerant leak — note them and move to the refrigerant section below, because that's not a DIY repair.
 
-### Professional Coil Cleaning Process
+## 6. Reset the Breakers and Check the Disconnect
 
-**Step 1: Power down and prepare**
-- Turn off power at thermostat and electrical disconnect
-- Remove outer access panels (usually 2-4 screws)
-- Clear debris and vegetation within 3 feet of unit
-- Have garden hose ready with spray nozzle
+An AC pulls a heavy startup surge, and a tripped breaker or blown fuse on the outdoor circuit can leave the indoor fan running (so it *sounds* like the system's on) while the compressor sits dead. That combination — air moving, no cooling — is a classic sign to check power.
 
-**Step 2: Initial debris removal**
-- Remove large debris (leaves, grass, etc.) by hand
-- Use soft brush to gently remove surface dirt
-- Check for bent fins and straighten with fin comb if available
-- Clear any obstructions from fan area
+At the panel, look for an AC breaker that's tripped (handle mid-position); flip it fully off, then back on. At the outdoor unit, open the disconnect box and confirm the switch is on and any cartridge fuses are intact. One caution: a breaker that trips *again* the moment you reset it is telling you something is wrong downstream — a shorted component or a failing compressor — and that's where you stop and call a pro.
 
-**Step 3: Coil cleaning technique**
-- **Water cleaning**: Spray coils gently from inside-out direction
-- **Chemical cleaning**: Apply commercial coil cleaner per instructions
-- **Rinse thoroughly**: Remove all cleaning residue
-- **Allow to dry**: Wait 30 minutes before reassembly
+<ComparisonTable
+  title="Electrical Warning Signs — Stop and Call a Pro"
+  headers={["Symptom", "Likely Cause", "Action"]}
+  rows={[
+    ["Breaker trips immediately", "Short or compressor failure", "Call an electrician / HVAC tech"],
+    ["Burning smell", "Overheated wiring or components", "Shut off, call a professional"],
+    ["Sparking", "Loose or damaged connections", "Emergency shutdown, call an electrician"],
+    ["Repeated trips", "Overload or failing component", "Professional diagnosis"],
+  ]}
+/>
 
-**Step 4: Restoration and testing**
-- Replace access panels and secure fasteners
-- Restore power at disconnect and thermostat
-- Monitor operation for 15 minutes
-- Check for proper cooling performance
-
-### When to Use Chemical Coil Cleaner
-
-**Light dirt**: Garden hose cleaning sufficient  
-**Moderate buildup**: Non-acidic coil cleaner recommended  
-**Heavy contamination**: Professional cleaning required  
-**Pet hair/cottonwood**: May need specialized removal techniques
-
-## Fix #3: Check and Adjust Thermostat Settings
-
-**Time Required:** 15 minutes  
-**Difficulty:** Easy  
-**Tools Needed:** None
-
-### Why This Works
-Incorrect thermostat settings are a common cause of "AC not cooling" calls. Many issues result from improper mode selection, incorrect fan settings, or programming errors that prevent the system from operating as intended.
-
-### Complete Thermostat Troubleshooting
-
-**Step 1: Verify basic settings**
-- **Mode**: Must be set to "Cool" (not Heat, Off, or Auto)
-- **Temperature**: Set 5°F below current room temperature
-- **Fan**: Set to "Auto" (not "On" for continuous operation)
-- **Schedule**: Check programmed schedule isn't overriding manual settings
-
-**Step 2: Test thermostat accuracy**
-- Place accurate thermometer next to thermostat
-- Wait 15 minutes for temperature equilibrium
-- Compare readings — should be within 2°F
-- If difference exceeds 2°F, calibration or replacement needed
-
-**Step 3: Check power and display**
-- Replace batteries in battery-powered thermostats
-- Verify display is bright and responsive
-- Test all buttons and menu functions
-- Reset to factory defaults if operating erratically
-
-**Step 4: Advanced troubleshooting**
-- **WiFi thermostats**: Check network connection and app settings
-- **Programmable models**: Clear schedule and set to manual operation
-- **Zoned systems**: Verify zone dampers are open
-- **Smart thermostats**: Check sensor placement and calibration
-
-### Common Thermostat Mistakes
-
-| Problem | Impact | Solution |
-|---------|--------|----------|
-| Fan set to "On" | Continuous fan operation, poor humidity control | Set to "Auto" mode |
-| Auto changeover mode | System may heat instead of cool | Set specifically to "Cool" |
-| Schedule conflicts | Programming overrides manual settings | Clear schedule or adjust programs |
-| Dead batteries | Erratic operation or no response | Replace annually during time change |
-| Poor location | False readings from heat sources | Consider relocation |
-
-## Fix #4: Verify and Open All Vents
-
-**Time Required:** 20 minutes  
-**Difficulty:** Easy  
-**Tools Needed:** Flashlight
-
-### Why This Works
-Closed or blocked supply vents reduce overall system airflow, forcing remaining vents to work harder and potentially causing the evaporator coil to freeze. Even 2-3 closed vents in a typical home can reduce cooling capacity by 15-20%.
-
-### Complete Vent Inspection Process
-
-**Step 1: Supply vent inspection**
-- Locate all supply vents (usually in floor, ceiling, or walls)
-- Open all dampers completely (lever should be parallel to duct)
-- Remove any furniture, rugs, or decorations blocking airflow
-- Check for damaged or disconnected ductwork behind vents
-
-**Step 2: Return air inspection**
-- Find return air vents (usually larger, on walls or ceilings)
-- Ensure no furniture or drapery blocks airflow
-- Check that return air grilles are clean and unobstructed
-- Verify return air filter accessibility and condition
-
-**Step 3: Airflow testing**
-- Turn on AC system and set fan to "On"
-- Check each supply vent for strong, cool airflow
-- Listen for whistling or unusual sounds indicating restrictions
-- Feel for temperature consistency between vents
-
-**Step 4: Optimize airflow distribution**
-- **Close vents** in unused rooms (no more than 20% of total vents)
-- **Partially close** vents in overcooled areas
-- **Ensure** 80% of vents remain fully open for proper system operation
-- **Balance** airflow to achieve even cooling throughout home
-
-<Callout type="warning" title="Vent Closure Warning">
-**Never close more than 20% of your vents.** Excessive vent closure increases static pressure, reduces efficiency, can freeze coils, and may damage your system. Modern HVAC systems are designed for all vents to remain open.
+<Callout type="warning" title="Electrical work is pros-only">
+Diagnosis is fine; repairs are not. HVAC circuits carry high voltage that can injure or kill. If a fix requires opening wiring or replacing electrical components, that's a licensed job.
 </Callout>
 
-## Fix #5: Clear Refrigerant Line Restrictions
+## 7. Inspect the Indoor (Evaporator) Coil
 
-**Time Required:** 25 minutes  
-**Difficulty:** Moderate  
-**Tools Needed:** Insulation, zip ties
+The indoor coil is where heat actually leaves your air. When it's coated in dust — usually because the system ran with a bad or missing filter — it can't absorb heat well, and cooling falls off even though everything's running.
 
-### Why This Works
-The refrigerant lines connecting your indoor and outdoor units can become kinked, crushed, or poorly insulated, affecting refrigerant flow and cooling performance. Line set problems are often overlooked but can significantly impact system efficiency.
+Getting to it means pulling the access panel on the air handler (two to six screws). Look for a gray felt of dust on the fins, or worse, ice (if you find ice, jump to the frozen-coil section). Loose dust comes off with a soft brush and a vacuum; a no-rinse evaporator cleaner handles the rest. While you're in there, clear the condensate drain pan and drain line — standing water and algae there cause their own cooling and water-damage headaches. If the coil's heavily fouled or the fins are damaged, this crosses into professional-cleaning territory.
 
-### Refrigerant Line Inspection
+## 8. Suspect Low Refrigerant? Here's How to Tell — and Why to Call
 
-**Step 1: Visual line inspection**
-- Follow refrigerant lines from outdoor unit to indoor unit
-- Look for obvious kinks, bends, or crushing damage
-- Check for damaged or missing line insulation
-- Verify proper support brackets and hanging
+Low refrigerant is a common cause of weak cooling, but here's the thing homeowners need to know up front: **an AC doesn't "use up" refrigerant.** If you're low, you have a leak, and topping it off without finding the leak just wastes money and vents refrigerant into the atmosphere.
 
-**Step 2: Insulation assessment**
-- **Suction line** (larger, cold line): Must be fully insulated
-- **Liquid line** (smaller, warm line): Insulation optional but recommended
-- Replace torn, compressed, or missing insulation
-- Ensure no gaps where moisture can enter
+You can't diagnose or fix this yourself, and it's not a gray area — **under EPA Section 608, only certified technicians may buy or handle refrigerant.** What you *can* do is spot the signs so you call with the right information:
 
-**Step 3: Connection point inspection**
-- Check connections at both indoor and outdoor units
-- Look for oil stains indicating refrigerant leaks
-- Verify proper line set penetrations through walls
-- Ensure adequate clearance from heat sources
+- **Visual:** ice on the indoor or outdoor coil, oily film around the line connections, cooling that never catches up no matter how long it runs.
+- **Sound:** hissing or bubbling from the lines.
+- **Performance:** supply air that just won't hit the setpoint, or short, frequent cycling.
 
-**Step 4: Professional assessment indicators**
-- **Ice formation** on refrigerant lines
-- **Oil stains** at connection points
-- **Hissing sounds** indicating leaks
-- **Temperature differences** between line sections
+A proper repair means the tech finds and fixes the leak, recovers the old charge, evacuates the system, and recharges to spec — not a quick "recharge" that leaks out again by next summer.
 
-### Line Set Problems Requiring Professional Help
+<ComparisonTable
+  title="Refrigerant Types (for reference)"
+  headers={["Refrigerant", "Typical Systems", "Notes"]}
+  rows={[
+    ["R-410A", "Most residential systems 2006+", "Being phased down under the AIM Act"],
+    ["R-22 (Freon)", "Pre-2010 systems", "Phased out; expensive to service"],
+    ["R-32", "Newer high-efficiency systems", "Lower global-warming potential"],
+    ["R-454B", "2025+ systems", "The current low-GWP replacement for R-410A"],
+  ]}
+/>
 
-- **Refrigerant leaks**: EPA-certified technician required
-- **Line set replacement**: Requires vacuum and refrigerant recovery
-- **Sizing issues**: May need larger diameter lines for proper operation
-- **Routing problems**: Poor installation affecting performance
+## 9. Thaw a Frozen Evaporator Coil
 
-## Fix #6: Test and Reset Circuit Breakers
+A coil encased in ice can't absorb heat, so you get no cooling despite the system running full tilt. Ironically, it usually traces back to the airflow problems above — a dirty filter, closed vents, or a fouled coil — or to low refrigerant.
 
-**Time Required:** 15 minutes  
-**Difficulty:** Easy  
-**Tools Needed:** Flashlight, voltage tester (optional)
+The fix starts with patience: **turn cooling off, switch the fan to On** to move room air across the ice, and wait. Small buildups clear in a couple of hours; a heavy freeze can take most of a day. **Never chip at the ice** — you'll puncture the coil. Once it's fully thawed, put a fresh filter in, open the vents, and check the coil; if it freezes up again quickly, that's your cue to get a tech in to check refrigerant charge.
 
-### Why This Works
-AC systems draw significant electrical current, especially during startup. Tripped breakers or loose electrical connections can prevent the outdoor unit from operating properly while allowing the indoor fan to run, creating the illusion of system operation without cooling.
-
-### Electrical System Inspection
-
-**Step 1: Main electrical panel check**
-- Locate AC circuit breakers (typically 240V, 20-60 amp)
-- Look for tripped breakers (handle in middle position or visibly off)
-- Turn tripped breakers completely off, then back on
-- Check for signs of overheating, burning, or corrosion
-
-**Step 2: Outdoor disconnect inspection**
-- Find electrical disconnect box near outdoor unit
-- Verify disconnect switch is in "ON" position
-- Check for blown fuses in disconnect box
-- Look for loose connections or damaged wires
-
-**Step 3: Indoor unit electrical check**
-- Locate indoor unit disconnect (if present)
-- Verify proper switch position
-- Check for tripped GFCI outlets (if applicable)
-- Ensure all connections are secure
-
-**Step 4: System startup testing**
-- Restore power at all disconnects
-- Set thermostat to call for cooling
-- Monitor both indoor and outdoor units for operation
-- Listen for unusual sounds or immediate breaker trips
-
-### Electrical Warning Signs Requiring Professional Help
-
-| Symptom | Cause | Action |
-|---------|-------|--------|
-| Immediate breaker trip | Electrical short or compressor failure | Call electrician/HVAC tech |
-| Burnt smell | Overheated wiring or components | Shut off immediately, call professional |
-| Sparking | Loose connections or damaged wires | Emergency shutdown, call electrician |
-| Repeated trips | Electrical overload or failing component | Professional diagnosis required |
-
-<Callout type="warning" title="Electrical Safety Warning">
-**Never attempt electrical repairs** unless you're a qualified electrician. Electrical work on HVAC systems involves high voltage that can cause serious injury or death. Diagnosis only — repairs must be done by licensed professionals.
+<Callout type="warning" title="Never run a frozen system">
+Cooling with iced coils can slug liquid back to the compressor and destroy it — a seized compressor is one of the priciest repairs there is, often more than the aging unit is worth. Let it thaw completely first.
 </Callout>
 
-## Fix #7: Inspect and Clean Evaporator Coil
+## 10. Confirm the System Is Sized Right
 
-**Time Required:** 60 minutes  
-**Difficulty:** Moderate to Advanced  
-**Tools Needed:** Flashlight, soft brush, coil cleaner, shop vacuum
+If your AC has *never* really kept up — not just this week — sizing may be the issue, and no amount of maintenance fixes that. An undersized unit runs nonstop and still loses ground on the hottest days; an oversized one short-cycles, cools the air fast but leaves it clammy because it never runs long enough to pull humidity.
 
-### Why This Works
-The indoor evaporator coil absorbs heat from your home's air. When this coil becomes dirty or blocked, it can't absorb heat effectively, resulting in reduced cooling capacity. A dirty evaporator coil can reduce efficiency by 30% or more.
+The only real answer is an **ACCA Manual J load calculation**, which weighs your square footage, insulation, windows, orientation, and local design temperature — a rule of thumb on a spec sheet won't cut it. Our [BTU calculator](/air-conditioner-btu-calculator) gives you a solid first estimate, and for equipment selection the [SEER2 rating guide](/seer2-rating-explained) explains what the efficiency numbers actually buy you. Suspect sizing after a renovation, an addition, or a like-for-like swap of an old system that was itself guessed at.
 
-### Evaporator Coil Access and Cleaning
+## 11. Look for Duct Leaks
 
-**Step 1: Locate and access the coil**
-- **Central air**: Usually in air handler or above furnace
-- **High-efficiency systems**: May be in dedicated coil box
-- **Heat pumps**: Combined with air handler unit
-- Remove access panels carefully (usually 2-6 screws)
+Even a perfect AC can't cool if the cold air never reaches your rooms. Leaky, poorly insulated ducts are a bigger thief than most people realize: **the Department of Energy estimates that about 20–30% of the air moving through a typical duct system is lost to leaks**, loose connections, and gaps.
 
-**Step 2: Initial inspection**
-- Use flashlight to examine coil condition
-- Look for dust, dirt, or debris buildup
-- Check for ice formation (if present, see Fix #9)
-- Note any fin damage or blocked passages
+Check the accessible runs in your basement, attic, or crawlspace for obvious disconnections, tears, and crushed insulation. You can feel for escaping air at the joints with the system running, or hold a stick of incense near seams to watch the smoke pull. For sealing, skip cloth "duct tape" (it fails) in favor of mastic or foil tape — and know that the ducts you *can't* reach, plus any real balancing or sizing problems, are a contractor's job. Ducts in unconditioned space should carry **R-8 insulation** (R-6 is the minimum in conditioned space) per code.
 
-**Step 3: Gentle cleaning process**
-- Use soft brush to remove loose debris
-- Vacuum accessible areas with brush attachment
-- Apply no-rinse coil cleaner if heavily soiled
-- Allow cleaning solution to work per manufacturer instructions
+## 12. Compressor and Control-Board Failures
 
-**Step 4: Drain pan maintenance**
-- Empty and clean condensate drain pan
-- Check for algae, debris, or standing water
-- Clear drain line opening of obstructions
-- Add drain pan tablet to prevent future algae growth
+When you've worked through everything above and still have no cooling, you're into the components that need a technician: the compressor itself, the metering (expansion) valve, or the control board and sensors. These are the least common causes on this list — but they're where the big-ticket repairs live, so it's worth knowing the signs before the service call.
 
-### Professional vs. DIY Coil Cleaning
+Tell-tales include a compressor that won't start despite good power, burning smells or sparking (shut off immediately), refrigerant-leak signs from section 8, or breakers that keep tripping after you've cleared the basics. A tech will run electrical tests on the major components, check refrigerant pressures and temperatures, and measure airflow and static pressure to isolate it.
 
-**DIY Appropriate:**
-- Light dust accumulation
-- Accessible coil surfaces
-- No electrical component interference
-- Basic maintenance cleaning
+<ComparisonTable
+  title="Typical Repair Costs (rough orientation, not quotes)"
+  headers={["Repair", "Ballpark Range", "Notes"]}
+  rows={[
+    ["Diagnostic visit", "$75–$150", "Often credited toward the repair"],
+    ["Minor parts", "$150–$500", "Capacitor, contactor, sensor"],
+    ["Major repair", "$800–$2,500", "Compressor, coil, control board"],
+    ["Full replacement", "$4,000–$8,000+", "When multiple major parts fail at once"],
+  ]}
+/>
 
-**Professional Required:**
-- Heavy contamination requiring pressure washing
-- Coil fins extensively damaged
-- Cleaning requires system disassembly
-- Chemical cleaning in confined spaces
+These figures are **rough ballpark ranges to set expectations, not sourced quotes** — actual pricing swings widely by region, system type, refrigerant, and contractor. Always get an itemized estimate before authorizing major work.
 
-## Fix #8: Check Refrigerant Levels
+## Keeping Cooling Problems From Coming Back
 
-**Time Required:** 30 minutes (diagnosis only)  
-**Difficulty:** Professional Required  
-**Tools Needed:** Manifold gauges, thermometer
+Most of what breaks cooling is preventable with a little rhythm:
 
-### Why This Works
-Low refrigerant charge is a common cause of poor cooling, but it's always the result of a leak. Simply adding refrigerant without fixing the leak wastes money and harms the environment. This section helps you identify refrigerant problems that require professional attention.
+- **Monthly:** check the filter (replace if dirty), clear debris from around the outdoor unit, and confirm vents are open.
+- **Seasonally:** rinse the outdoor coil, and watch for the temperature-split and airflow you established in the diagnostic above.
+- **Yearly:** a professional tune-up — refrigerant check, coil cleaning, electrical inspection, airflow measurement.
 
-### Signs of Low Refrigerant
-
-**Visual indicators:**
-- Ice formation on indoor or outdoor coils
-- Oil stains around refrigerant connections
-- Reduced cooling capacity despite long run times
-- Higher than normal energy bills
-
-**Performance indicators:**
-- Supply air temperature not reaching target levels
-- System runs continuously without reaching set point
-- Warm air from supply vents after extended operation
-- Short cycling or frequent on/off operation
-
-**Sound indicators:**
-- Hissing or bubbling sounds from refrigerant lines
-- Unusual compressor operation sounds
-- Gurgling noises from indoor unit
-
-### Professional Refrigerant Service Required
-
-<Callout type="info" title="EPA Regulation Notice">
-**Refrigerant work requires EPA certification.** Federal law prohibits homeowners from purchasing or handling refrigerants. Only EPA-certified technicians can diagnose refrigerant problems, repair leaks, and recharge systems.
-</Callout>
-
-**Leak detection methods:**
-- Electronic leak detection equipment
-- Soap bubble testing at connections
-- UV dye injection and inspection
-- Pressure testing with nitrogen
-
-**Proper repair process:**
-1. **Leak detection** and location identification
-2. **Refrigerant recovery** using EPA-approved equipment
-3. **Leak repair** through brazing or component replacement
-4. **System evacuation** to remove air and moisture
-5. **Refrigerant charging** to manufacturer specifications
-6. **Performance testing** and documentation
-
-### Refrigerant Types and Considerations
-
-| Refrigerant | Common Applications | Environmental Impact | Cost Factor |
-|-------------|---------------------|---------------------|-------------|
-| R-410A | Most residential systems 2006+ | Low ozone depletion | Moderate |
-| R-22 (Freon) | Older systems pre-2010 | High ozone depletion | Expensive |
-| R-32 | Newer high-efficiency systems | Lower global warming potential | Moderate |
-| R-454B | Latest eco-friendly systems | Minimal environmental impact | Higher |
-
-## Fix #9: Address Frozen Evaporator Coil
-
-**Time Required:** 3-6 hours (mostly waiting)  
-**Difficulty:** Moderate  
-**Tools Needed:** Thermometer, towels, fan
-
-### Why This Works
-A frozen evaporator coil can't absorb heat, resulting in no cooling despite system operation. Ice formation blocks airflow and indicates underlying problems that must be addressed to prevent recurring freeze-ups.
-
-### Ice Removal and Prevention Process
-
-**Step 1: Immediate shutdown**
-- Turn off AC at thermostat immediately
-- Switch fan setting to "On" to circulate air
-- Never attempt to remove ice mechanically
-- Allow natural thawing process to occur
-
-**Step 2: Monitor thaw process**
-- **Small ice buildup**: 2-3 hours thaw time
-- **Moderate ice**: 4-5 hours thaw time  
-- **Heavy ice**: 6+ hours thaw time
-- Place towels to catch melting water
-
-**Step 3: Identify root cause**
-- **Restricted airflow**: Check filter, vents, and coils
-- **Low refrigerant**: Look for leak indicators
-- **Thermostat issues**: Verify proper settings
-- **System overwork**: Check for oversized cooling load
-
-**Step 4: Prevention measures**
-- Replace air filter immediately
-- Ensure all vents are open and unblocked
-- Clean evaporator coil if accessible
-- Schedule professional service if problem persists
-
-### Common Freeze-up Causes
-
-| Cause | Prevention | Professional Required |
-|-------|------------|--------------------|
-| Dirty air filter | Monthly replacement | No |
-| Blocked return vents | Keep vents clear | No |
-| Low refrigerant | Annual maintenance | Yes |
-| Dirty evaporator coil | Professional cleaning | Usually |
-| Thermostat malfunction | Proper operation | Sometimes |
-
-<Callout type="warning" title="Freeze Prevention Warning">
-**Never run AC with ice present.** Operating a system with frozen coils can damage the compressor, resulting in $2,000-4,000 repair costs. Always allow complete thaw before restarting.
-</Callout>
-
-## Fix #10: Verify Proper System Sizing
-
-**Time Required:** 60 minutes (assessment)  
-**Difficulty:** Professional Assessment  
-**Tools Needed:** Manual J load calculation
-
-### Why This Works
-An incorrectly sized AC system will never cool properly. Undersized units can't meet cooling demand, while oversized units short-cycle and fail to remove humidity effectively. System sizing requires professional load calculation following ACCA Manual J guidelines.
-
-### Signs of Sizing Problems
-
-**Undersized system indicators:**
-- System runs continuously but never reaches set point
-- Long cooling cycles (30+ minutes) during moderate weather
-- Unable to cool during peak summer temperatures
-- High energy bills relative to cooling achieved
-
-**Oversized system indicators:**
-- Short cooling cycles (less than 10 minutes)
-- Rapid temperature drops followed by quick warming
-- High humidity despite cooling operation
-- Frequent on/off cycling throughout the day
-
-### Professional Load Calculation Factors
-
-**Building characteristics:**
-- Square footage and room layout (use our [BTU calculator](/air-conditioner-btu-calculator) for accurate sizing)
-- Insulation levels in walls, attic, and floors
-- Window efficiency, size, and orientation
-- Air sealing and infiltration rates
-
-**Environmental factors:**
-- Local climate zone and design temperatures
-- Sun exposure and shading
-- Internal heat sources (appliances, lighting, occupants)
-- Ventilation requirements and ductwork design
-
-**Equipment considerations:**
-- Efficiency ratings ([SEER2](/seer2-rating-explained), EER2, HSPF2)
-- Capacity requirements for peak load conditions
-- Humidity control requirements
-- Integration with existing ductwork
-
-### When Professional Sizing Assessment Required
-
-- **New construction**: Always requires Manual J calculation
-- **Major renovations**: Additions, insulation upgrades, window replacement
-- **System replacement**: Verify existing system was properly sized
-- **Performance problems**: Persistent cooling issues despite maintenance
-- **Energy efficiency concerns**: High bills, poor comfort
-
-## Fix #11: Address Ductwork Problems
-
-**Time Required:** Variable (30 minutes to several hours)  
-**Difficulty:** Moderate to Professional  
-**Tools Needed:** Duct tape, mastic sealant, insulation
-
-### Why This Works
-Ductwork problems can rob your system of 20-30% of its cooling capacity. Air leaks, poor insulation, and sizing issues prevent conditioned air from reaching living spaces effectively, making it seem like your AC isn't cooling properly.
-
-### Ductwork Inspection and Repair
-
-**Step 1: Visual ductwork inspection**
-- Check accessible ducts in basement, attic, or crawl space
-- Look for obvious disconnections, tears, or gaps
-- Inspect duct insulation condition and coverage
-- Note any damaged or compressed insulation
-
-**Step 2: Air leak detection**
-- **Hand test**: Feel for air movement around joints and connections
-- **Visual inspection**: Look for gaps, holes, or loose connections
-- **Smoke test**: Use incense stick near suspected leaks
-- **Professional testing**: Duct blaster testing quantifies leakage
-
-**Step 3: Basic sealing repairs**
-- **Duct tape**: Temporary fix only, not permanent solution
-- **Mastic sealant**: Professional-grade duct sealing compound
-- **Metal tape**: Better than cloth duct tape for permanence
-- **Professional sealing**: Aeroseal or manual sealing by contractor
-
-**Step 4: Insulation assessment**
-- **Minimum R-values**: R-6 in conditioned spaces, R-8+ in unconditioned
-- **Vapor barrier**: Required in humid climates
-- **Compressed insulation**: Reduces R-value significantly
-- **Missing insulation**: Causes condensation and efficiency loss
-
-### Ductwork Problems Requiring Professional Help
-
-**Design issues:**
-- Undersized ducts restricting airflow
-- Poor layout causing pressure imbalances
-- Inadequate return air pathways
-- Incorrectly sized equipment connections
-
-**Complex repairs:**
-- Ductwork in inaccessible locations
-- Asbestos-containing duct materials (older homes)
-- Major modifications for improved performance
-- Integration with zoned system controls
-
-## Fix #12: Compressor and Advanced Electrical Issues
-
-**Time Required:** Professional Service Required  
-**Difficulty:** Professional Only  
-**Tools Needed:** Specialized diagnostic equipment
-
-### Why This Works
-When simple fixes don't resolve cooling problems, the issue likely involves major components like the compressor, expansion valve, or complex electrical controls. These problems require professional diagnosis and repair but account for only 2% of cooling complaints.
-
-### Professional-Only Diagnostics
-
-**Compressor problems:**
-- Internal mechanical failure
-- Electrical winding problems
-- Refrigerant contamination damage
-- Capacitor or starter component failure
-
-**Expansion valve issues:**
-- Stuck valve preventing refrigerant flow
-- Incorrect valve sizing for system
-- Contamination affecting valve operation
-- Sensing bulb placement or damage
-
-**Advanced electrical problems:**
-- Control board malfunction
-- Sensor failures affecting operation
-- Complex wiring issues
-- Variable speed component problems
-
-### When to Call for Professional Service
-
-**Immediate professional help:**
-- No compressor operation despite power
-- Electrical burning smells or sparking
-- Refrigerant leak signs (hissing, oil stains)
-- Repeated breaker trips after basic troubleshooting
-
-**Scheduled professional service:**
-- All DIY fixes attempted without success
-- System cooling capacity significantly reduced
-- Unusual noises from outdoor or indoor units
-- Energy bills increased without usage changes
-
-### Professional Service Expectations
-
-**Diagnostic process:**
-- Electrical testing of all major components
-- Refrigerant pressure and temperature analysis
-- Airflow measurement and static pressure testing
-- Overall system performance evaluation
-
-**Typical service costs:**
-- **Diagnostic fee**: $75-150 (usually applied to repair)
-- **Minor repairs**: $150-500 (capacitors, contactors, sensors)
-- **Major repairs**: $800-2,500 (compressor, coil, control board)
-- **System replacement**: $4,000-8,000 (if multiple major failures)
-
-## Prevention: Maintaining Proper Cooling Performance
-
-### Monthly Homeowner Tasks
-- **Replace air filter** (or check and replace if dirty)
-- **Check thermostat operation** and battery levels
-- **Clear outdoor unit** of debris and vegetation
-- **Verify all vents** are open and unobstructed
-
-### Quarterly Maintenance
-- **Clean outdoor coils** with garden hose
-- **Test system operation** and monitor performance
-- **Inspect ductwork** in accessible areas
-- **Check drain line** for proper operation
-
-### Annual Professional Service
-- **Complete system inspection** and performance testing
-- **Electrical component testing** and calibration
-- **Refrigerant level verification** and leak check
-- **Airflow measurement** and duct system evaluation
-
-### Cost-Benefit Analysis of Maintenance
-
-| Maintenance Level | Annual Cost | Potential Savings | System Lifespan Impact |
-|------------------|-------------|------------------|----------------------|
-| DIY Basic | $50-100 | $200-400 | +2-3 years |
-| Professional Annual | $150-250 | $400-600 | +5-7 years |
-| Comprehensive Program | $300-500 | $600-1,000 | +8-10 years |
-
-<Callout type="tip" title="Maintenance ROI">
-**Professional maintenance pays for itself.** The average cost of emergency AC repair is $800-2,500, while preventive maintenance costs $150-250 annually. Proper maintenance extends system life by 5-10 years and improves efficiency by 15-30%.
-</Callout>
+A tune-up runs roughly $80–$200 in most areas, and a well-maintained system holds close to its rated efficiency and tends to last longer than a neglected one — worth it against the cost and timing of an emergency repair in a July heat wave. (Exact savings depend on your system and climate, so treat that as a reason to keep up maintenance, not a guaranteed number.)
 
 <FAQ items={[
   {
     question: "How can I tell if my AC is low on refrigerant?",
-    answer: "Signs include ice formation on coils, hissing sounds from refrigerant lines, reduced cooling despite long run times, and oil stains near connections. However, refrigerant diagnosis and repair requires EPA-certified technicians — never attempt DIY refrigerant work."
+    answer: "Watch for ice on the coils, a hissing sound near the lines, oily residue at the connections, and cooling that never catches up despite long run times. But diagnosis and repair require an EPA Section 608 certified technician — refrigerant isn't a DIY fix, and low charge always means a leak that needs finding, not just topping off."
   },
   {
-    question: "Why does my AC work sometimes but not others?",
-    answer: "Intermittent cooling problems often indicate electrical issues like faulty contactors, capacitors, or thermostat problems. These issues typically require professional diagnosis and repair."
+    question: "Why does my AC cool sometimes but not others?",
+    answer: "Intermittent cooling usually points to an electrical component on its way out — a weak run capacitor, a pitted contactor, or a flaky thermostat connection — or to a coil that freezes and thaws on a cycle. These typically need a technician to isolate, since the fault often only shows up under load or heat."
+  },
+  {
+    question: "My AC runs constantly but the house won't get cool. What's wrong?",
+    answer: "Start with airflow: a clogged filter, dirty coils, or closed vents force the system to run nonstop without keeping up. If those are clear, it may be low on refrigerant, or simply undersized for the load — especially on the hottest days or after a renovation added square footage the original system wasn't chosen for."
   }
 ]} />
 
-## Emergency Cooling Solutions
+## When You Just Need Relief Right Now
 
-While troubleshooting your AC system, these temporary measures can provide relief:
+While you work the problem, a few things buy comfort: close blinds on sun-facing windows, run ceiling fans (moving air lets you feel comfortable a few degrees warmer), hold off on the oven and dryer during the hottest hours, and shift a window or portable unit into the room that matters most. None of these fix the AC — they just make the wait bearable.
 
-### Immediate Comfort Measures
-- **Close blinds/curtains** during peak sun hours (reduces heat load by 20-30%)
-- **Use ceiling fans** to increase comfort by 3-4°F through air movement
-- **Seal air leaks** around windows and doors with weather stripping
-- **Avoid heat-generating activities** like cooking, laundry during hottest hours
+## The Bottom Line
 
-### Temporary Cooling Alternatives
-- **Window units** for critical rooms (bedrooms, living areas)
-- **Portable ACs** for spot cooling (though less efficient)
-- **Evaporative coolers** in dry climates (not effective in humid areas)
-- **Fans and ventilation** for air circulation and comfort
-
-### Heat Reduction Strategies
-- **LED lighting** generates less heat than incandescent bulbs
-- **Appliance scheduling** — run dishwashers, dryers during cooler hours
-- **Outdoor cooking** to avoid adding heat inside
-- **Strategic ventilation** — exhaust fans to remove hot air
-
-## Conclusion
-
-When your AC runs but doesn't cool, systematic troubleshooting resolves most problems without professional service. Start with the highest-success fixes: replace your air filter, clean outdoor coils, check thermostat settings, and verify all vents are open. These first four steps resolve the majority of cooling complaints.
-
-For complex issues involving refrigerant, electrical components, or major mechanical failure, professional diagnosis ensures safe and effective repair. Remember that proper maintenance prevents most cooling problems and extends system life by years.
-
-The key to successful AC troubleshooting is patience and a methodical approach. Work through solutions from the simplest checks to the most complex, prioritize safety, and don't hesitate to call a licensed professional when DIY efforts don't resolve the problem.
-
-<RelatedArticles articles={['ac-troubleshooting-guide', 'air-conditioner-btu-calculator', 'hvac-maintenance-checklist', 'seer2-rating-explained']} />
+When an AC runs but won't cool, methodical beats frantic. Start with the four cheap airflow checks — filter, outdoor coil, thermostat, vents — because they resolve the majority of cases for free. Move to the deeper causes only once those are ruled out, and hand off anything involving refrigerant, high-voltage wiring, or the compressor to a licensed pro. Keep up the monthly and yearly maintenance and you'll spend far less time troubleshooting in the first place.
 
 <SourcesBox>
-- U.S. Environmental Protection Agency - Residential Air Conditioning Maintenance Guidelines
-- ENERGY STAR - HVAC Troubleshooting and Performance Optimization
-- ASHRAE Handbook - HVAC Systems and Equipment, Residential Applications
-- North American Technician Excellence (NATE) - AC Troubleshooting Certification Standards
-- Consumer Reports - Air Conditioning Repair Cost and Effectiveness Analysis
+- [U.S. Department of Energy — Maintaining Your Air Conditioner](https://www.energy.gov/energysaver/maintaining-your-air-conditioner) — filter energy impact (5–15%), coil cleaning, refrigerant charge, sizing
+- [U.S. Department of Energy — Minimize Energy Losses in Ducts](https://www.energy.gov/energysaver/minimize-energy-losses-ducts) — duct losses (~20–30%)
+- [U.S. EPA — Section 608 Refrigerant Handling Certification](https://www.epa.gov/section608) — why refrigerant work is pros-only
+- [ENERGY STAR — Heating & Cooling](https://www.energystar.gov/products/heating_cooling) — filter replacement and seasonal maintenance
+- [ACCA — Standards (Manual J / Manual S)](https://www.acca.org/standards) — load calculation and equipment sizing
 </SourcesBox>
+
+<RelatedArticles articles={['ac-troubleshooting-guide', 'air-conditioner-btu-calculator', 'hvac-maintenance-checklist', 'seer2-rating-explained']} />
