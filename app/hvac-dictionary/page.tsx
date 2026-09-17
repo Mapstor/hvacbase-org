@@ -570,10 +570,10 @@ export default function HVACDictionaryPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-4">
-            <Link href="/buying-guides" className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow">
-              <div className="text-2xl mb-2">🛒</div>
-              <div className="font-semibold text-gray-900">Buying Guides</div>
-              <div className="text-sm text-gray-600 mt-1">Equipment selection help</div>
+            <Link href="/calculators" className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow">
+              <div className="text-2xl mb-2">🧮</div>
+              <div className="font-semibold text-gray-900">Calculators</div>
+              <div className="text-sm text-gray-600 mt-1">Size & select equipment</div>
             </Link>
             <Link href="/how-to" className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow">
               <div className="text-2xl mb-2">🔧</div>

@@ -15,8 +15,6 @@ const STATIC_ROUTES: Array<{ path: string; priority: number; freq: 'weekly' | 'm
   { path: 'terms', priority: 0.3, freq: 'monthly' },
   // Hub pages
   { path: 'articles', priority: 0.8, freq: 'weekly' },
-  { path: 'brand-reviews', priority: 0.8, freq: 'weekly' },
-  { path: 'buying-guides', priority: 0.8, freq: 'weekly' },
   { path: 'calculators', priority: 0.8, freq: 'weekly' },
   { path: 'cost-guides', priority: 0.8, freq: 'weekly' },
   { path: 'how-to', priority: 0.8, freq: 'weekly' },

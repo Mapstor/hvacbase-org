@@ -51,7 +51,7 @@ export function getClusterRoute(cluster: string): string {
     'hvac-noise': 'troubleshooting',
 
     // Brand / info clusters
-    'hvac-brands': 'brand-reviews',
+    'hvac-brands': 'air-conditioning',
     'tax-credits': 'articles',
     'generators': 'articles',
   };
@@ -66,8 +66,6 @@ export function getClusterRoute(cluster: string): string {
     'energy-efficiency',
     'air-quality',
     'articles',
-    'brand-reviews',
-    'buying-guides',
     'cost-guides',
     'how-to',
     'troubleshooting',
@@ -90,8 +88,6 @@ export const routeDisplayName: Record<string, string> = {
   'heat-pumps': 'Heat Pumps',
   'energy-efficiency': 'Energy Efficiency',
   'air-quality': 'Air Quality',
-  'brand-reviews': 'Brand Reviews',
-  'buying-guides': 'Buying Guides',
   'cost-guides': 'Cost Guides',
   'how-to': 'How-To Guides',
   'troubleshooting': 'Troubleshooting',

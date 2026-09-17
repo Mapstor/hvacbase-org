@@ -73,12 +73,10 @@ const footerLinks = {
   ],
   'Resources': [
     { label: 'All Articles', href: '/articles' },
-    { label: 'Buying Guides', href: '/buying-guides' },
     { label: 'How-To Guides', href: '/how-to' },
     { label: 'Troubleshooting', href: '/troubleshooting' },
     { label: 'HVAC Dictionary', href: '/hvac-dictionary' },
     { label: 'Cost Guides', href: '/cost-guides' },
-    { label: 'Brand Reviews', href: '/brand-reviews' },
     { label: 'Editorial Policy', href: '/editorial-policy' },
     { label: 'About Us', href: '/about' },
     { label: 'Contact', href: '/contact' },

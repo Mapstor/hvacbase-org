@@ -325,10 +325,10 @@ export default function CalculatorsHub() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/buying-guides"
+              href="/cost-guides"
               className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
             >
-              Browse Buying Guides
+              Browse Cost Guides
             </Link>
             <Link
               href="/how-to"

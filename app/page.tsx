@@ -359,14 +359,14 @@ export default async function HomePage() {
                 <Link href="/air-conditioner-btu-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
                   Window AC BTU Sizing
                 </Link>
-                <Link href="/quietest-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Quietest Window ACs
+                <Link href="/window-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Window AC Buyer's Guide
                 </Link>
-                <Link href="/low-profile-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Low Profile Options
+                <Link href="/window-ac-installation-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Installation Guide
                 </Link>
-                <Link href="/smallest-window-acs" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Compact 5000 BTU Units
+                <Link href="/window-ac-vs-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Window vs Mini Split
                 </Link>
               </div>
 
@@ -375,8 +375,8 @@ export default async function HomePage() {
                 <Link href="/air-conditioner-btu-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
                   Portable AC Sizing
                 </Link>
-                <Link href="/quietest-portable-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Quiet Portable Models
+                <Link href="/single-hose-vs-dual-hose-portable-ac" className="block text-gray-600 hover:text-brand-600 py-1">
+                  Single vs Dual Hose
                 </Link>
                 <Link href="/portable-ac-electricity-cost" className="block text-gray-600 hover:text-brand-600 py-1">
                   Energy Usage Guide
