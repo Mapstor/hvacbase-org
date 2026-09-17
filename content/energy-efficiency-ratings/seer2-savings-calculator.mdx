@@ -30,7 +30,7 @@ A contractor just handed you two quotes — one for a 14.3 SEER2 air conditioner
 
 The calculator below runs the standard SEER2 cooling-cost formula against your own inputs — system size, kWh rate, annual cooling hours — and returns a side-by-side comparison of up to three ratings. Underneath it, we walked through pre-computed scenarios using EIA state electricity averages and typical regional cooling-hour ranges, so you can sanity-check your result against a case close to yours before spending anything.
 
-The counterintuitive finding worth flagging up front: in a mild northern climate at 1,000 cooling hours and $0.13/kWh, jumping from the 13.4 minimum to 20 SEER2 saves roughly $80 a year — often a 25-plus year payback on a system that may not live that long. In a hot southern climate at 2,500 cooling hours and $0.16/kWh, an upgrade to 20 SEER2 from the 14.3 minimum returns closer to $287 a year. The specs and prices come from public sources; no affiliate deals steer the numbers.
+The counterintuitive finding worth flagging up front: in a mild northern climate at 1,000 cooling hours and $0.13/kWh, jumping from the 13.4 minimum to 20 SEER2 saves roughly $80 a year — often a 25-plus year payback on a system that may not live that long. In a hot southern climate at 2,500 cooling hours and the ~$0.18/kWh national average, an upgrade to 20 SEER2 from the 14.3 minimum returns roughly $325 a year — use the calculator above for your exact figure. The specs and prices come from public sources; no affiliate deals steer the numbers.
 
 <TableOfContents />
 
@@ -42,7 +42,7 @@ The counterintuitive finding worth flagging up front: in a mild northern climate
 
 **System Size (Tons):** Your AC's cooling capacity. Common residential sizes are 1.5 to 5 tons. If you're unsure, check your current outdoor unit's data plate or use our [BTU calculator](/air-conditioner-btu-calculator) for precise sizing based on your home's square footage, insulation, and climate zone. Most homes use 2.5-3.5 tons.
 
-**Electricity Rate ($/kWh):** Your cost per kilowatt-hour. Find this on your electric bill or use the U.S. average of $0.16/kWh. Rates range from $0.08/kWh in Louisiana to $0.36/kWh in Hawaii.
+**Electricity Rate ($/kWh):** Your cost per kilowatt-hour. Find this on your electric bill or use the U.S. average of $0.18/kWh. Rates range from $0.08/kWh in Louisiana to $0.36/kWh in Hawaii.
 
 **Annual Cooling Hours:** How many hours your AC runs per year. This varies dramatically by climate: 600-1,000 hours in the North, 1,200-2,000 in mixed climates, 2,000-3,000+ in the South and Southwest.
 
@@ -81,7 +81,7 @@ The counterintuitive finding worth flagging up front: in a mild northern climate
 
 If you prefer a quick reference, here are savings for common scenarios:
 
-### Scenario 1: 3-Ton AC, $0.16/kWh, 1,500 Cooling Hours
+### Scenario 1: 3-Ton AC, $0.18/kWh, 1,500 Cooling Hours (illustrative — see the calculator for exact figures)
 
 <ComparisonTable
   headers={["SEER2", "Annual kWh", "Annual Cost", "Savings vs 14.3", "15-Year Savings"]}
@@ -95,7 +95,7 @@ If you prefer a quick reference, here are savings for common scenarios:
   ]}
 />
 
-### Scenario 2: 3-Ton AC, $0.16/kWh, 2,500 Cooling Hours (Hot Climate)
+### Scenario 2: 3-Ton AC, $0.18/kWh, 2,500 Cooling Hours (Hot Climate — illustrative, see the calculator for exact figures)
 
 <ComparisonTable
   headers={["SEER2", "Annual kWh", "Annual Cost", "Savings vs 14.3", "15-Year Savings"]}
@@ -123,7 +123,7 @@ If you prefer a quick reference, here are savings for common scenarios:
 />
 
 <Callout type="tip">
-**Notice the diminishing returns.** In the hot climate scenario, going from 14.3 to 18 SEER2 saves $207/year. Going from 18 to 22 SEER2 (same 4-point jump) saves only $145/year more. The biggest efficiency gains come from moving away from the minimum. Each additional SEER2 point saves less than the one before it.
+**Notice the diminishing returns.** In the hot climate scenario at the ~$0.18/kWh national average, going from 14.3 to 18 SEER2 saves roughly $225/year, while going from 18 to 22 SEER2 (same 4-point jump) saves only about $175/year more (illustrative — use the calculator above for exact figures). The biggest efficiency gains come from moving away from the minimum. Each additional SEER2 point saves less than the one before it.
 </Callout>
 
 ## Payback Period Analysis
@@ -135,7 +135,7 @@ The payback period tells you when energy savings offset the higher upfront cost.
 ### Typical Payback Periods
 
 <ComparisonTable
-  headers={["Upgrade", "Added Cost Range", "Annual Savings (1,500 hrs, $0.16/kWh)", "Payback Range"]}
+  headers={["Upgrade", "Added Cost Range", "Annual Savings (1,500 hrs, $0.18/kWh — illustrative, see the calculator)", "Payback Range"]}
   rows={[
     ["14.3 to 16 SEER2", "$600-$1,200", "$64", "9-19 years"],
     ["14.3 to 18 SEER2", "$1,500-$2,500", "$124", "12-20 years"],
@@ -158,7 +158,7 @@ In Miami at $0.16/kWh, the historical payback for 14.3 to 18 SEER2 was 12-20 yea
 Electricity prices have risen an average of 2-3% per year over the past two decades. This accelerates payback for high-efficiency units because your savings grow each year while the upfront cost is fixed.
 
 <ComparisonTable
-  headers={["Assumption", "15-Year Savings (14.3 vs 18 SEER2, $0.16/kWh start, 1,500 hrs)"]}
+  headers={["Assumption", "15-Year Savings (14.3 vs 18 SEER2, $0.18/kWh start, 1,500 hrs — illustrative, see the calculator)"]}
   rows={[
     ["Flat rates (0% increase)", "$1,860"],
     ["2% annual increase", "$2,130"],
@@ -198,7 +198,7 @@ While this calculator gives you a reliable estimate of direct electricity saving
 <FAQ questions={[
   {
     question: "How much does 1 SEER2 point save per year?",
-    answer: "For a typical 3-ton system running 1,500 hours at $0.16/kWh, each SEER2 point saves approximately $15-$40 per year. The savings per point are larger at lower SEER2 levels due to diminishing returns. Going from 14 to 15 SEER2 saves about $40, while going from 20 to 21 saves about $15."
+    answer: "For a typical 3-ton system running 1,500 hours at the ~$0.18/kWh national average, each SEER2 point saves approximately $17-$45 per year (illustrative — use the calculator above for your exact figure). The savings per point are larger at lower SEER2 levels due to diminishing returns. Going from 14 to 15 SEER2 saves about $45, while going from 20 to 21 saves about $17."
   },
   {
     question: "Does the calculator account for heating costs?",

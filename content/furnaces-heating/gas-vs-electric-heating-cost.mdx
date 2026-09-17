@@ -32,7 +32,7 @@ import CalcWrapper from '@/components/CalcWrapper'
 
 # Gas vs Electric Heating: Which Is Cheaper? (2026 Cost Calculator)
 
-Gas heating costs roughly 50–60% less than electric resistance heating for the average American home in 2026. At current national average fuel prices — $1.05 per therm for natural gas and $0.16 per kWh for electricity — a 2,000 sq ft home in a moderate climate spends about $850/year on gas heat versus $1,800/year on electric heat. The gap narrows only in regions with unusually cheap electricity (under $0.10/kWh) or expensive gas (over $1.60/therm).
+Gas heating costs roughly 50–60% less than electric resistance heating for the average American home in 2026. At current national average fuel prices — $1.35 per therm for natural gas and $0.18 per kWh for electricity — a 2,000 sq ft home in a moderate climate spends about ≈$1,090/year on gas heat versus ≈$2,025/year on electric heat (illustrative — use the calculator). The gap narrows only in regions with unusually cheap electricity (under $0.10/kWh) or expensive gas (over $1.60/therm).
 
 However, the full picture is more nuanced. Upfront costs, maintenance, equipment lifespan, and — increasingly — heat pump technology all affect the real total cost of ownership. Here's the complete data-driven comparison.
 
@@ -49,7 +49,7 @@ However, the full picture is more nuanced. Upfront costs, maintenance, equipment
   ]}
   title="Gas vs Electric Resistance Heating — 4-way cost comparison"
   desc="Natural-gas heating and electric-resistance heating compared on the article's own cited national-average figures for a 2,000 sq ft home. Upfront installed cost favors electric ($3,500 vs $5,500), but every ongoing metric strongly favors gas: annual operating cost is 4.3x lower ($875 vs $3,750), cost per delivered MMBtu is 4.3x lower ($10.94 vs $46.88), and 15-year total cost of ownership is 2.6x lower ($25,375 vs $65,050). Lifespan is not explicitly quantified in the article's prose (only 15-year TCO horizon is), so lifespan is represented here via the 15-year total cost."
-  caption="All values midpoints from the article's own tables. Assumes national-average $1.05/therm gas and $0.16/kWh electricity."
+  caption="All values midpoints from the article's own tables. Assumes national-average $1.35/therm gas and $0.18/kWh electricity (illustrative — see the calculator for exact figures)."
 />
 
 ## The Cost-Per-BTU Calculation
@@ -57,13 +57,13 @@ However, the full picture is more nuanced. Upfront costs, maintenance, equipment
 Heating fuel costs are most accurately compared by calculating the cost to produce one million BTUs (MMBtu) of useful heat — the heat that actually warms your home after accounting for furnace efficiency.
 
 <ComparisonTable
-  title="Cost Per Million BTU of Delivered Heat — 2026 National Averages"
+  title="Cost Per Million BTU of Delivered Heat — 2026 National Averages (illustrative — see the calculator for exact figures)"
   headers={["Fuel", "Unit Price", "BTU per Unit", "Furnace Efficiency", "Cost per MMBtu (Delivered)"]}
   rows={[
-    ["Natural Gas", "$1.05/therm", "100,000 BTU/therm", "96% AFUE", "$10.94"],
-    ["Natural Gas", "$1.05/therm", "100,000 BTU/therm", "80% AFUE", "$13.13"],
-    ["Electricity (resistance)", "$0.16/kWh", "3,412 BTU/kWh", "100% efficient", "$46.88"],
-    ["Electricity (heat pump)", "$0.16/kWh", "3,412 BTU/kWh", "250% COP (HSPF 8.5)", "$18.75"],
+    ["Natural Gas", "$1.35/therm", "100,000 BTU/therm", "96% AFUE", "$10.94"],
+    ["Natural Gas", "$1.35/therm", "100,000 BTU/therm", "80% AFUE", "$13.13"],
+    ["Electricity (resistance)", "$0.18/kWh", "3,412 BTU/kWh", "100% efficient", "$46.88"],
+    ["Electricity (heat pump)", "$0.18/kWh", "3,412 BTU/kWh", "250% COP (HSPF 8.5)", "$18.75"],
     ["Heating Oil (#2)", "$3.80/gallon", "138,500 BTU/gallon", "85% AFUE", "$32.25"],
     ["Propane", "$2.75/gallon", "91,500 BTU/gallon", "92% AFUE", "$32.74"],
   ]}
@@ -125,7 +125,7 @@ Electricity and gas prices vary dramatically by state. Here's how the gas vs. el
 <Callout type="info">
 **Where electric heating can be competitive with gas:**
 - **Washington and Oregon** — cheap hydroelectric power ($0.10–$0.11/kWh) and moderate winter climates narrow the gap significantly.
-- **Anywhere with a heat pump** — at COP 2.5, a heat pump at $0.16/kWh costs only $18.75/MMBtu, much closer to gas at $10.94/MMBtu.
+- **Anywhere with a heat pump** — at COP 2.5, a heat pump at $0.18/kWh costs only ≈$18.75/MMBtu, much closer to gas at ≈$10.94/MMBtu (illustrative — see the calculator).
 - **Areas without gas service** — if running a gas line costs $5,000–$15,000, the economics shift in favor of electric (especially heat pumps).
 </Callout>
 
@@ -170,16 +170,16 @@ Despite gas's clear cost advantage on fuel alone, there are legitimate scenarios
 
 Heat pumps are increasingly disrupting the gas vs. electric debate. Modern cold-climate heat pumps (like the Mitsubishi Hyper-Heat or Bosch IDS 2.0) can operate efficiently down to -15°F, which means they're now viable even in northern climates that previously required gas furnaces.
 
-The key metric is COP (Coefficient of Performance) — a heat pump with COP 3.0 delivers 3 units of heat for every 1 unit of electricity consumed, effectively tripling the efficiency of electric resistance heating. At a COP of 3.0:
+The key metric is COP (Coefficient of Performance) — a heat pump with COP 3.0 delivers 3 units of heat for every 1 unit of electricity consumed, effectively tripling the efficiency of electric resistance heating. At a COP of 3.0 (figures illustrative — see the calculator for exact numbers):
 
-- Electric resistance at $0.16/kWh → **$46.88/MMBtu**
-- Heat pump at $0.16/kWh with COP 3.0 → **$15.63/MMBtu**
-- Gas at $1.05/therm, 96% AFUE → **$10.94/MMBtu**
+- Electric resistance at $0.18/kWh → **≈$46.88/MMBtu**
+- Heat pump at $0.18/kWh with COP 3.0 → **≈$15.63/MMBtu**
+- Gas at $1.35/therm, 96% AFUE → **≈$10.94/MMBtu**
 
-At COP 3.0, a heat pump still costs about 43% more per BTU than gas at national average prices. But in areas with cheap electricity or expensive gas, the heat pump can actually beat gas on operating cost.
+At COP 3.0, a heat pump still costs meaningfully more per BTU than gas at national average prices — see the calculator. But in areas with cheap electricity or expensive gas, the heat pump can actually beat gas on operating cost.
 
 <Callout type="tip">
-**The crossover points:** A heat pump with COP 2.5 breaks even with a 96% gas furnace when gas costs more than $1.60/therm and electricity is at the national average of $0.16/kWh — or when electricity costs less than $0.07/kWh with gas at the national average of $1.05/therm. These crossover points shift with climate severity, making heat pumps increasingly attractive in mild and moderate climates.
+**The crossover points:** A heat pump with COP 2.5 breaks even with a 96% gas furnace when gas costs more than $1.60/therm and electricity is at the national average of $0.18/kWh — or when electricity costs less than $0.07/kWh with gas at the national average of $1.35/therm. These crossover points shift with climate severity, making heat pumps increasingly attractive in mild and moderate climates.
 </Callout>
 
 ## Environmental Comparison
@@ -215,7 +215,7 @@ In states with clean electricity grids (Washington, Oregon, Vermont, California)
 <FAQ questions={[
   {
     question: "How much does it cost to heat a house with electricity per month?",
-    answer: "In a moderate-to-cold climate (like the Midwest or Northeast), electric resistance heating for a 2,000 sq ft home costs $250–$550 per month during winter months at the national average rate of $0.16/kWh. In mild climates (Southeast, Southwest), expect $75–$175 per month. A heat pump reduces these costs by 50–65%."
+    answer: "In a moderate-to-cold climate (like the Midwest or Northeast), electric resistance heating for a 2,000 sq ft home costs ≈$250–$550 per month during winter months at the national average rate of $0.18/kWh (illustrative). In mild climates (Southeast, Southwest), expect ≈$75–$175 per month. A heat pump reduces these costs by 50–65%."
   },
   {
     question: "Is it worth switching from electric to gas heat?",
