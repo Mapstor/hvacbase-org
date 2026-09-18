@@ -16,21 +16,43 @@ import DryModeVsCoolMode from '@/components/diagrams/DryModeVsCoolMode';
 import BatteryRuntimeByLoad from '@/components/diagrams/BatteryRuntimeByLoad';
 
 // Define SourcesBox component
-const SourcesBox = ({ sources }: { sources: Array<{ text?: string; label?: string; url: string }> }) => {
-  if (!sources || sources.length === 0) return null;
-  
-  return (
-    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
-      <h3 className="text-lg font-semibold mb-4">Sources & References</h3>
-      <ul className="space-y-2">
-        {sources.map((source, index) => (
-          <li key={index}>
-            <SourceLink href={source.url} text={source.text || source.label || 'Source'} />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+const SourcesBox = ({
+  sources,
+  children,
+}: {
+  sources?: Array<{ text?: string; label?: string; title?: string; name?: string; url: string }>;
+  children?: any;
+}) => {
+  // Prop form: <SourcesBox sources={[{ text|label|title|name, url }]} />
+  if (sources && sources.length > 0) {
+    return (
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
+        <h3 className="text-lg font-semibold mb-4">Sources & References</h3>
+        <ul className="space-y-2">
+          {sources.map((source, index) => (
+            <li key={index}>
+              <SourceLink
+                href={source.url}
+                text={source.text || source.label || source.title || source.name || 'Source'}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  // Children form: <SourcesBox>- [text](url) ...</SourcesBox> (MDX-rendered markdown list)
+  if (children) {
+    return (
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
+        <h3 className="text-lg font-semibold mb-4">Sources & References</h3>
+        {children}
+      </div>
+    );
+  }
+
+  return null;
 };
 
 // Recursively extract plain text from MDX children (strings, fragments,
