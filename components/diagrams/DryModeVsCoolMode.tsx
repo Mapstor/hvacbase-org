@@ -144,9 +144,9 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
   const desc =
     'Side-by-side comparison of an air conditioner running in cool mode versus dry mode. Both modes cool the evaporator coil below the dew point so water vapor from the room air condenses on the coil — that is what removes moisture. ' +
     'The physical difference between the two modes is airflow rate. ' +
-    'COOL MODE (left panel): compressor operates at variable capacity (10-100% of rated) and the fan runs at a user-selected or high setting, pushing a large volume of air across the cold coil. Temperature drops fast (5-15°F below ambient), and humidity removal is a byproduct — moderate to high per unit time but moderate per cubic foot of air processed. Power draw for a 12,000 BTU unit is 450-700 watts. ' +
-    'DRY MODE (right panel): compressor throttles down to minimum capacity (10-20%) and the fan is locked at the lowest setting, moving as little air across the coil as possible. This maximizes the contact time between each cubic foot of air and the cold coil, wringing out more moisture per unit air processed. Temperature drops only 1-3°F below ambient. Power draw is 180-350 watts — 40-60% less than cool mode. Moisture removal is 1-2 pints per hour. ' +
-    'Analogy from the article: cool mode is a fire hose blasting cold air to knock down heat quickly; dry mode is a squeegee carefully removing moisture with less overall airflow. Both remove water, but dry mode is optimized for dehumidification without the temperature crash. Use cool mode when both temperature and humidity are high; use dry mode when the room is a comfortable 70-78°F but feels sticky (above 60% RH).';
+    'COOL MODE (left panel): the compressor runs at high capacity and the fan pushes a large volume of air across the cold coil. Temperature drops quickly, and humidity removal happens as a byproduct. ' +
+    'DRY MODE (right panel): the compressor cycles at a low speed and the fan is held at its lowest setting, moving as little air across the coil as possible. This gives each bit of air more contact time with the cold coil, condensing out more moisture while the temperature barely changes. Because the compressor runs less than in cool mode, dry mode uses less power. Exact figures vary by unit, since manufacturers do not publish standardized specs for the mode. ' +
+    'Analogy from the article: cool mode is a fire hose blasting cold air to knock down heat quickly; dry mode is a squeegee carefully removing moisture with less overall airflow. Both remove water, but dry mode is optimized for dehumidification without the temperature crash. Use cool mode when the room is genuinely hot; use dry mode when the room is a comfortable temperature but feels sticky.';
 
   return (
     <figure className="my-8 not-prose">
@@ -241,8 +241,8 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
           >
             HIGH airflow (fan variable, high volume)
           </text>
-          <Thermometer cx={230} cy={200} tempIn="78°F" tempOut="63-73°F" delta="ΔT = 5-15°F" />
-          <CompressorGauge cx={300} cy={135} r={22} percent={60} label="10-100% var" />
+          <Thermometer cx={230} cy={200} tempIn="Room" tempOut="Cooler" delta="Big temp drop" />
+          <CompressorGauge cx={300} cy={135} r={22} percent={60} label="High / variable" />
           {Array.from({ length: 5 }, (_, i) => (
             <Droplet key={i} cx={310 + (i % 3) * 8} cy={280 + Math.floor(i / 3) * 12} size={5} />
           ))}
@@ -278,7 +278,7 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
                 fontWeight: 700,
               }}
             >
-              12K BTU: 450-700 W · relative power 100%
+              Compressor runs hard · higher power draw
             </div>
           </foreignObject>
         </g>
@@ -308,8 +308,8 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
           >
             LOW airflow (fan locked at min)
           </text>
-          <Thermometer cx={620} cy={200} tempIn="76°F" tempOut="73-75°F" delta="ΔT = 1-3°F" />
-          <CompressorGauge cx={710} cy={135} r={22} percent={15} label="10-20% min" />
+          <Thermometer cx={620} cy={200} tempIn="Room" tempOut="≈ Same" delta="Barely changes" />
+          <CompressorGauge cx={710} cy={135} r={22} percent={15} label="Low / cycling" />
           {Array.from({ length: 9 }, (_, i) => (
             <Droplet key={i} cx={700 + (i % 3) * 8} cy={270 + Math.floor(i / 3) * 10} size={5} />
           ))}
@@ -345,7 +345,7 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
                 fontWeight: 700,
               }}
             >
-              12K BTU: 180-350 W · 40-60% less power
+              Compressor cycles low · lower power draw
             </div>
           </foreignObject>
         </g>
@@ -382,7 +382,7 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
                 lineHeight: 1.4,
               }}
             >
-              <strong>When to use which:</strong> COOL mode when room is above 78°F (both hot AND humid). DRY mode when room is 70-78°F but feels sticky/humid (above 60% RH). Dry mode removes ~1-2 pints/hour and cannot cool a hot room.
+              <strong>When to use which:</strong> COOL mode when the room is genuinely hot (and humid). DRY mode when the room is a comfortable temperature but feels sticky or muggy. Dry mode takes the edge off humidity but removes moisture slowly and cannot cool a hot room — for a serious moisture problem, use a dehumidifier.
             </div>
           </foreignObject>
         </g>
