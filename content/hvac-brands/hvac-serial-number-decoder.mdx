@@ -1,362 +1,129 @@
 ---
 slug: "hvac-serial-number-decoder"
-title: "HVAC Serial Number Decoder: Find Age of Any Brand"
-description: "Decode your HVAC serial number to find the age of your AC, furnace, or heat pump. Step-by-step guides for Carrier, Trane, Lennox, Goodman, Rheem, York, and 20+ brands."
+title: "How to Decode Your HVAC Serial Number: Find Your System's Age by Brand"
+description: "A brand-by-brand guide to reading your HVAC serial number and finding your system's manufacture date — Carrier, Goodman, Rheem, Lennox, Trane, York — plus how to verify the date with the manufacturer."
+author: "Marko Visic, BSc Physics"
 cluster: "central-air-hvac-systems"
 role: "spoke"
 priority: "P1"
 contentType: "reference"
 datePublished: "2026-02-06"
-dateModified: "2026-07-18"
+dateModified: "2026-09-20"
 relatedArticles:
   - "carrier-hvac-age-serial-number"
   - "goodman-ac-age-serial-number"
   - "central-air-conditioner-guide"
   - "hvac-system-lifespan"
 externalLinks:
-  - url: "https://www.ahridirectory.org/"
-    title: "AHRI Directory"
+  - title: "Carrier — Warranty Lookup (verify coverage by serial number)"
+    url: "https://www.carrier.com/us/en/residential/homeowner-resources/warranty-lookup/"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles } from '@/components'
 
-# HVAC Serial Number Decoder: Find Age of Any Brand
+You're standing at your outdoor unit trying to figure out one thing: **how old is this system, and am I about to be hit with a big replacement bill?** The manufacture date is hiding in your serial number, and once you can read it, you'll know where your system sits in its lifespan and whether you should be budgeting for a new one.
 
-Your HVAC serial number contains the manufacture date, plant location, and production sequence for your unit — you just need to know where to look and how to read it. The serial number is stamped on a metal data plate on the outdoor condenser unit (for AC/heat pumps) or inside the furnace cabinet door.
+Here's the honest version of how to do that, brand by brand. One thing up front, because it matters: HVAC manufacturers don't publish their serial-number formats as official consumer documentation. The decode rules below are compiled and cross-checked from multiple industry references, and they're reliable for reading your system's age, but for anything where the exact date legally matters (a warranty claim, an insurance or legal question), confirm it with the manufacturer's official product-registration lookup. This is a solid reference, not a substitute for the manufacturer's record.
 
-This guide covers serial number decoding for every major HVAC brand sold in the U.S. Find your brand below, match the format, and you'll know your system's exact age in minutes.
+**First, find your serial number.** It's on the metal data plate: on the side or back of the outdoor condenser (for AC and heat pumps), or inside the cabinet door on a furnace. Look for "Serial No." or "S/N" — and don't confuse it with the model number. Then find your brand below.
 
-<TableOfContents />
+## The quick version: what format is my brand?
 
-**For warranty claims or legal purposes, always verify the serial number with the manufacturer's official product-registration lookup** — this consolidated decoder is a general reference across brands, not a substitute for the manufacturer's authoritative record.
-
-## Where to Find Your Serial Number
-
-Before decoding, locate the data plate:
-
-| Equipment Type | Location | What to Look For |
+| Brand family | Date format | Example |
 |---|---|---|
-| Outdoor AC/Heat Pump | Side or back panel of condenser | Metal plate or sticker with model + serial |
-| Furnace | Inside the front cabinet door or side panel | Metal plate visible when front panel removed |
-| Air Handler | Side panel or inside access door | Metal plate or sticker |
-| Package Unit | Side panel of outdoor unit | Metal plate (all components in one) |
-| Mini Split (Indoor) | Bottom edge or behind front panel | Small label |
-| Mini Split (Outdoor) | Side panel | Metal plate |
+| **Carrier / Bryant / Payne** | Week + Year (first 4 digits: WWYY) | 3203... = week 32 of 2003 |
+| **Goodman / Amana / Daikin** | Year + Month (first 4 digits: YYMM) | 1806... = June 2018 |
+| **Rheem / Ruud** | Month-letter + Year | first chars encode month + year |
+| **Lennox** | Week + Year (like Carrier) | 0819... = week 8 of 2019 |
+| **Trane / American Standard** | Read the printed date on the plate (2002+) | see below |
+| **York / Johnson Controls** | Letter + digit code | see below |
 
-<Callout type="tip">
-Take a photo of the entire data plate. You need both the **model number** and **serial number** for accurate decoding. The model number reveals brand, size, and efficiency. The serial number reveals the manufacture date.
-</Callout>
+The two you can trust most are Goodman and Carrier, their formats are simple, consistent, and agree across every reference. Let's go through each.
 
-## Carrier / Bryant / Payne
+## Goodman, Amana, and Daikin (the easiest)
 
-Carrier, Bryant, and Payne are all manufactured by Carrier Global and share serial number formats.
+Goodman has the simplest serial format in the industry, and Amana (Goodman-owned since 1997) and Daikin (which bought Goodman in 2012) use the same one on residential units.
 
-**Modern format (2000s–present):** A serial number like **3216E54321** decodes as:
+**Format: the first four digits are YYMM** — year, then month.
 
-| Position | Characters | Meaning | Example |
-|---|---|---|---|
-| 1st–2nd | Two digits | Week of manufacture | 32 = week 32 (August) |
-| 3rd–4th | Two digits | Year of manufacture | 16 = 2016 |
-| 5th | Letter | Plant code | E = Collierville, TN |
-| 6th–10th | Five digits | Sequence number | 54321 |
+- First two digits = the year.
+- Next two digits = the month (01–12).
 
-**More examples:**
-- **0122**B12345 = Week 01, 2022 (January 2022)
-- **2619**F67890 = Week 26, 2019 (June/July 2019)
-- **4825**A11111 = Week 48, 2026 (November/December 2026)
+**Example:** a serial starting **1806** = **June 2018.** A serial starting **2011** = **November 2020.** No letter codes, no ambiguity, just read the first four digits. This is the one format you can be confident about without a second opinion.
 
-**Legacy format (1980s–1990s):** The 3rd character is a letter representing the year. The code cycles every 20 years:
+## Carrier, Bryant, and Payne
 
-| Letter | Year Options |
-|---|---|
-| A | 1971, 1991, 2011 |
-| B | 1972, 1992, 2012 |
-| E | 1975, 1995, 2015 |
-| J | 1980, 2000, 2020 |
-| K | 1981, 2001, 2021 |
+Carrier (and its sister brands Bryant and Payne) use a week-and-year code, and the key is that **the week comes first.** This trips people up constantly, because Goodman does the opposite.
 
-Cross-reference with the model number and equipment design to identify the correct decade.
+**Format: the first four digits are WWYY** — week, then year.
 
-For a complete guide, see our [Carrier HVAC Age by Serial Number](/carrier-hvac-age-serial-number/) article.
+- First two digits = the production week (01–52).
+- Next two digits = the year.
 
-## Trane / American Standard
+**Example:** a serial starting **3203** = **week 32 of 2003** (early August 2003). A serial starting **0120** = week 1 of 2020.
 
-Trane and American Standard use identical serial number formats (both Johnson Controls brands).
-
-**Post-2002 format:** Serial numbers typically start with a digit or digit pair representing the year, followed by a week indicator.
-
-Common patterns:
-- **Year + Week format:** First character = last digit of year, next two = week number
-- Example: **5**23B456789 = 2015 or 2026, week 23
-
-**Legacy format (pre-2002):** First character is a letter:
-
-| Letter | Year |
-|---|---|
-| S | 2000 |
-| W | 2001 |
-| X | 2002 |
-| Y | 2003 |
-| B | 2004 |
-| C | 2005 |
-| D | 2006 |
-| E | 2007 |
-| F | 2008 |
-| G | 2009 |
-| H | 2010 |
-| J | 2011 |
-| K | 2012 |
-| L | 2013 |
-
-<Callout type="warning">
-Trane has used multiple serial number formats over the decades, making them harder to decode than most brands. If the methods above don't work, contact Trane directly at 1-800-945-5884 with your full model and serial number, or use the AHRI directory lookup.
-</Callout>
+**The common mistake:** reading it as year-first. If you decode a Carrier serial and get a date that seems wrong (like a unit "made" after you bought it), you probably read the digits backward, remember, Carrier is week-first, year-second.
 
 ## Lennox
 
-Lennox serial numbers vary significantly by era. The easiest approach differs from other brands.
+Lennox generally uses the same **WWYY** format as Carrier: first two digits are the week, next two are the year. A serial beginning **0819** points to week 8 of 2019 (late February 2019).
 
-**Best method:** Many Lennox data plates include a clear "MFG DATE" or "DATE" field printed in plain text (e.g., "MFG DATE: 03/2019"). Always look for this first.
+One caveat worth knowing: some Lennox product lines begin with a plant-code letter before the digits, and references aren't perfectly consistent on every Lennox line. So read the first four *digits* as week-then-year, but if the result looks off, that's a brand where double-checking against the manufacturer lookup is worth it.
 
-**Serial number format (when date isn't explicit):**
+## Rheem and Ruud
 
-For units manufactured since ~2005, the serial number may follow patterns like **5821E04567** where:
-- First two digits may indicate a product code, not a year
-- Date information may be embedded in digits 3–4 or elsewhere
+Rheem and its sister brand Ruud use a **month-letter** system, which is different from the digit-based brands.
 
-**Model number method:** Lennox model numbers are often more reliable for dating. The first few characters indicate the product line, and the data plate usually has an explicit manufacture date.
+- **First character = the month**, encoded as a letter: A = January, B = February, and so on through M = December, **skipping the letter I** (to avoid confusing it with the number 1).
+- **The next two digits = the year.**
 
-<Callout type="tip">
-For Lennox units, skip the serial number and look for the manufacture date printed on the data plate. It's almost always there and gives you an exact month and year. This is the most reliable method for Lennox.
-</Callout>
+So the month letters run A(Jan), B(Feb), C(Mar), D(Apr), E(May), F(Jun), G(Jul), H(Aug), J(Sep), K(Oct), L(Nov), M(Dec) — note the jump from H to J. Read the first letter for the month, the following digits for the year.
 
-## Goodman / Amana / Daikin
+## Trane and American Standard (just read the plate)
 
-Goodman, Amana, and Daikin residential units have the simplest serial number format in the HVAC industry.
+Here's the good news for Trane owners, and the thing most decode guides get confused about: **since around 2002, Trane and American Standard have printed the manufacture date in plain language right on the data plate.** You usually don't need to decode anything, look for a "MFG DATE" or a clearly-dated field on the nameplate and read it directly.
 
-**Format:** First four digits = **YYMM** (year and month)
+The letter-code decoding you'll see floating around applies to **older, pre-2002 Trane units**, whose serials used a letter for the year plus a week code. If your Trane is from this century, skip the decoding and just read the printed date. If it's genuinely old (pre-2002) and you need to decode the serial, that's exactly the case to confirm with Trane's lookup, because the older letter schemes are the least consistently documented.
 
-| Serial Number | Year | Month |
-|---|---|---|
-| **1605**123456 | 2016 | May |
-| **2003**456789 | 2020 | March |
-| **2209**111111 | 2022 | September |
-| **2512**654321 | 2026 | December |
-| **2601**345678 | 2026 | January |
+## York (Johnson Controls)
 
-That's it. No letter codes, no cycling, no ambiguity. The first two digits are always the year, the next two are always the month.
+York (and its Coleman and Luxaire lines, under Johnson Controls) uses a letter-and-digit code that encodes the year and month in the early characters of the serial. York's scheme is one of the more complex ones and the community references vary, so for York specifically, we'd point you to the **manufacturer lookup** rather than have you rely on a compiled rule — the risk of misreading is higher than it's worth for a date you can confirm directly.
 
-For more detail, see our [Goodman AC Age by Serial Number](/goodman-ac-age-serial-number/) article.
+## Once you know the age, here's what it means
 
-## Rheem / Ruud
+The whole reason you're decoding this is to answer the replacement question. Here's the honest framing:
 
-Rheem and Ruud (sister brands) encode the date in the first two characters.
+- **0–8 years:** you're in the smooth stretch. Most components are within their warranty period (typically 10 years on parts for registered systems). Just keep up with annual maintenance.
+- **8–12 years:** the "watch it" zone. Parts start aging out of warranty, and it's smart to start budgeting for eventual replacement, without rushing it.
+- **12–15 years:** approaching the typical end of life for central AC and heat pumps. If a major component fails (compressor, coil) in this window, replacement usually beats repair. This is when to start getting quotes proactively rather than reactively.
+- **15+ years:** past the average lifespan. It still may run fine, but you're on borrowed time, and an old system (SEER 8–13) costs far more to run than a modern one (SEER2 15–22+). Plan the replacement on your schedule, ideally in the off-season, rather than in an emergency.
 
-**Format:** First character = month (letter), Second character = year (last digit)
+Knowing your system's age turns "should I repair or replace?" from a guess into a real decision. A $1,500 repair on a 6-year-old system is easy. The same repair on a 16-year-old unit rarely makes sense.
 
-**Month codes:**
+## Frequently asked questions
 
-| Letter | Month |
-|---|---|
-| A | January |
-| B | February |
-| C | March |
-| D | April |
-| E | May |
-| F | June |
-| G | July |
-| H | August |
-| J | September |
-| K | October |
-| L | November |
-| M | December |
+**How do I tell the age of my HVAC system?**
+Find the serial number on the data plate (side/back of the outdoor unit, or inside the furnace cabinet) and decode the manufacture date using your brand's format. Goodman uses YYMM (year then month); Carrier and Lennox use WWYY (week then year); Rheem uses a month-letter code; and Trane (2002+) prints the date in plain text on the plate.
 
-Note: Rheem skips "I" to avoid confusion with "1."
+**Where is the serial number on an HVAC unit?**
+On the metal data plate. For AC and heat pumps, it's on the side or back of the outdoor condenser. For furnaces, it's inside the cabinet, behind the front or blower-compartment door. Look for "Serial No." or "S/N" — not the model number.
 
-**Examples:**
-- **K4**F2345678 = October 2014 (or 2024 — check model era)
-- **A6**B1234567 = January 2016 (or 2026)
-- **F2**C9876543 = June 2012 (or 2022)
+**Why does my decoded date look wrong?**
+The most common cause is reading week-first vs year-first backward. Carrier and Lennox put the week first (WWYY); Goodman puts the year first (YYMM). If your date seems impossible, try reading it the other way. If it still looks off, confirm with the manufacturer's lookup.
 
-The third character is the plant code. Use the model number's design generation to determine the correct decade.
+**Can I trust these decode rules completely?**
+For reading your system's approximate age, yes, they're cross-checked across multiple industry references. But manufacturers don't publish these formats officially, so for a warranty claim, insurance question, or anything legal, verify the date through the manufacturer's official product-registration lookup. Treat this as a reliable reference, not the authoritative record.
 
-## York / Johnson Controls
+**How long do HVAC systems last?**
+Central air conditioners and heat pumps typically last 12–15 years; furnaces often 15–20+. Lifespan depends heavily on maintenance, climate, and install quality. Once your system passes ~15 years, replacement usually makes more financial sense than major repairs.
 
-York serial numbers use a letter + digit code for the year:
+## How we sourced this page
 
-**Year code (recent):**
-
-| Code | Year |
-|---|---|
-| W0 | 2010 |
-| W1–W9 | 2011–2019 |
-| X0 | 2020 |
-| X1 | 2021 |
-| X2 | 2022 |
-| X3 | 2023 |
-| X4 | 2024 |
-| X5 | 2025 |
-| X6 | 2026 |
-
-The month is encoded in the third character using a letter code (A=January through M=December, skipping I).
-
-**Example:** **W7**G1234567 = July 2017.
-
-## Heil / Tempstar / Comfortmaker (ICP Brands)
-
-These International Comfort Products brands (now part of Carrier Global) share a serial number format.
-
-**Format:** First character = year (letter), Characters 2–3 = week number
-
-**Year codes:**
-
-| Letter | Year |
-|---|---|
-| A | 2006 |
-| B | 2007 |
-| C | 2008 |
-| E | 2009 |
-| F | 2010 |
-| G | 2011 |
-| H | 2012 |
-| J | 2013 |
-| K | 2014 |
-| L | 2015 |
-| M | 2016 |
-| N | 2017 |
-| P | 2018 |
-| R | 2019 |
-| S | 2020 |
-| T | 2021 |
-| U | 2022 |
-| V | 2023 |
-| W | 2024 |
-| X | 2025 |
-| Y | 2026 |
-
-**Example:** **N**16**3456789** = Week 16 (April) of 2017.
-
-## Mitsubishi (Mini Splits)
-
-Mitsubishi encodes the date in the second and third characters of the serial number:
-
-| Position | Meaning |
-|---|---|
-| 2nd digit | Last digit of manufacture year |
-| 3rd character | Month (1–9 for Jan–Sep, X=Oct, Y=Nov, Z=Dec) |
-
-**Example:** 8**4X**00001 = October 2014 (or 2024).
-
-## Fujitsu (Mini Splits)
-
-Fujitsu uses letter codes for year and month in the first two characters:
-
-**Year codes:** R=2013, T=2014, U=2015, V=2016, W=2017, X=2018, A=2019, B=2020, C=2021, D=2022, E=2023, F=2024, G=2025, H=2026.
-
-**Example:** **G**3456789 = 2025.
-
-## Bosch
-
-Bosch HVAC serial numbers typically contain the manufacture date in YYWW format (year and week) within the first four digits.
-
-**Example:** **2318**456789 = Week 18 (May) of 2023.
-
-## Daikin (Commercial/Ductless)
-
-Daikin ductless units manufactured in Japan may use a different format than Daikin-owned Goodman/Amana units. Check for a letter-digit combination in the first characters similar to Fujitsu, or look for a plaintext manufacture date on the data plate.
-
-## Quick Reference Table
-
-| Brand | Date Location | Format | Example Decode |
-|---|---|---|---|
-| Carrier/Bryant/Payne | Digits 1–4 | WWYY (week, year) | 3216 = week 32, 2016 |
-| Trane/American Standard | 1st character(s) | Varies by era | Check multiple formats |
-| Lennox | Data plate MFG DATE | Plaintext date | "MFG DATE: 03/2019" |
-| Goodman/Amana | Digits 1–4 | YYMM (year, month) | 2205 = May 2022 |
-| Rheem/Ruud | Characters 1–2 | Letter+digit (month, year) | K4 = October 2024 |
-| York | Characters 1–2 | Letter+digit (year code) | X3 = 2023 |
-| Heil/Tempstar/ICP | Char 1 + digits 2–3 | Letter (year) + WW (week) | N16 = week 16, 2017 |
-| Mitsubishi | Characters 2–3 | Digit+char (year, month) | 4X = October 2024 |
-| Fujitsu | Character 1 | Letter (year code) | G = 2026 |
-| Bosch | Digits 1–4 | YYWW (year, week) | 2318 = week 18, 2023 |
-
-## How to Decode Model Numbers for System Specs
-
-Beyond the serial number, the model number reveals specifications:
-
-### Common Model Number Elements
-
-| Element | What It Tells You | Examples |
-|---|---|---|
-| Tonnage code | System capacity | 024=2 ton, 036=3 ton, 048=4 ton, 060=5 ton |
-| SEER indicator | Efficiency rating | 14, 16, 18, 20 |
-| Fuel/type code | System type | G=gas, E=electric, H=heat pump |
-| Refrigerant | R-410A vs R-454B | 4=R-410A in many brands |
-
-### Model Number Examples
-
-**Carrier 24ACC636A003:** 24A=product line, CC=Comfort series, 6=16 SEER, 36=3 ton, A=revision, 003=config.
-
-**Trane 4TTR4036L1000A:** 4=R-410A, TTR=cooling, 036=3 ton, L=14 SEER.
-
-**Goodman GSXN403610:** GSX=AC condenser, N=series, 4=R-410A, 036=3 ton.
-
-## Why Knowing Your System's Age Matters
-
-For expected lifespans by brand and the $5,000 repair-vs-replace rule, see our [HVAC system lifespan guide](/hvac-system-lifespan).
-
-| Decision | Why Age Matters |
-|---|---|
-| Repair vs. replace | Systems 15+ years old usually aren't worth major repairs |
-| Home purchase | Age reveals remaining useful life and upcoming costs |
-| Insurance claims | Age determines depreciation and replacement value |
-| Warranty claims | Confirms whether equipment is under warranty |
-| Efficiency assessment | Pre-2006 systems run at 10 SEER or less |
-| Refrigerant type | Pre-2010 systems likely use R-22 (phased out) |
-| Maintenance priority | Older systems need more frequent service |
-
-<Callout type="takeaway">
-**Key Takeaways:**
-- Your serial number is on the metal data plate on the outdoor unit or inside the furnace cabinet
-- Goodman/Amana is the easiest: first four digits = YYMM (year, month)
-- Carrier/Bryant/Payne: first four digits = WWYY (week, year)
-- Lennox: look for "MFG DATE" printed on the data plate — it's the most reliable method
-- Always photograph the entire data plate for reference
-- Pre-2010 systems likely use R-22 refrigerant (phased out, expensive to recharge)
-- Systems 15+ years old are approaching end of life regardless of brand
-</Callout>
-
-<FAQ>
-  <FAQ.Item question="Can I look up my HVAC serial number online?">
-    Yes. The AHRI directory (ahridirectory.org) lets you look up certified equipment ratings. Most manufacturers also offer online lookup tools or customer service lines. Third-party tools like Building Intelligence Group's HVAC age calculator can also help. However, the decoding methods in this guide let you determine age yourself instantly.
-  </FAQ.Item>
-
-  <FAQ.Item question="What if my data plate is missing or unreadable?">
-    Check inside the furnace cabinet for a second label, look for the serial number stamped into sheet metal, or check your home inspection report. Your HVAC contractor may also have records from past service visits. As a last resort, a technician can estimate age from the refrigerant type, compressor model, and design generation.
-  </FAQ.Item>
-
-  <FAQ.Item question="Is there a universal HVAC serial number lookup tool?">
-    No single tool covers all brands, but AHRI's directory covers most major brands for post-2000 units. This guide's brand-specific methods provide the fastest decoding. For older or unusual units, contact the manufacturer directly.
-  </FAQ.Item>
-
-  <FAQ.Item question="Can a home inspector determine my HVAC age?">
-    Yes, but verify their findings. Inspectors sometimes make errors with less common brands or format changes. The serial number decode in this guide is more reliable than a visual age estimate.
-  </FAQ.Item>
-
-  <FAQ.Item question="How do I find the age of a boiler or water heater?">
-    Similar encoding patterns. Bradford White uses a letter-based year code. AO Smith uses YYWW (year, week). Rheem water heaters use the same month-letter/year-digit format as Rheem HVAC. Check the data plate — many have a plaintext manufacture date.
-  </FAQ.Item>
-
-  <FAQ.Item question="My Trane serial number doesn't match any format listed. What now?">
-    Trane has changed formats multiple times. Try: (1) check if the first letter matches the legacy year code table, (2) check if the first 1-2 digits match a recent year, (3) call Trane at 1-800-945-5884 with the full serial number, or (4) look up the unit in the AHRI directory.
-  </FAQ.Item>
-</FAQ>
+HVAC manufacturers do not publish their serial-number date formats as official consumer documentation. The decode rules on this page are compiled and cross-referenced from multiple independent HVAC industry and technical references, and are reliable for determining a system's approximate age. The brands with the simplest, most consistently-documented formats (Goodman/Amana YYMM, Carrier/Bryant WWYY, Rheem month-letter) are presented with confidence; brands with more complex or less consistently-documented schemes (York, older Trane) are flagged for manufacturer verification. For any purpose where the exact manufacture date carries warranty, insurance, or legal weight, confirm it through the manufacturer's official product-registration lookup — this page is a general reference, not a substitute for the manufacturer's authoritative record.
 
 <SourcesBox>
-  - [AHRI Directory](https://www.ahridirectory.org/) — Official certified equipment ratings lookup
-  - [Trane Owner Support](https://www.trane.com/residential/en/for-owners/) — Trane product lookup
-  - [Goodman Product Registration](https://www.goodmanmfg.com/resources/product-registration) — Goodman serial number info
-  - [Rheem Product Registration](https://www.rheem.com/product-registration/) — Rheem serial number info
+- **[Carrier — Warranty Lookup](https://www.carrier.com/us/en/residential/homeowner-resources/warranty-lookup/)** — check coverage and confirm a Carrier, Bryant, or Payne unit by its serial number.
+- **Verify any brand's date:** search "[your brand] product registration" or "[your brand] warranty lookup" to reach the manufacturer's official tool, then enter your serial number there. Manufacturers move these lookup pages often, so a fresh search is more reliable than any saved link.
 </SourcesBox>
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
