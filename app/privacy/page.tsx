@@ -3,19 +3,19 @@ import { Shield, Lock, Eye, Database, Mail, Globe, FileText, Users, AlertCircle,
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — HVACBase',
+  title: 'Privacy Policy | HVACBase',
   description: 'How HVACBase collects, uses, and protects your data. Analytics, cookies, GDPR/CCPA rights, and data-retention policy.',
   alternates: { canonical: 'https://www.hvacbase.org/privacy' },
   openGraph: {
-    title: 'Privacy Policy — HVACBase',
+    title: 'Privacy Policy | HVACBase',
     description: 'How HVACBase collects, uses, and protects your data.',
     url: 'https://www.hvacbase.org/privacy',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Privacy Policy' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Privacy Policy' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Privacy Policy — HVACBase',
+    title: 'Privacy Policy | HVACBase',
     description: 'How HVACBase collects, uses, and protects your data.',
     images: ['/opengraph-image'],
   },
@@ -157,7 +157,7 @@ export default function PrivacyPolicy() {
                 </ul>
                 <p className="text-xs text-gray-500 mt-3 italic">
                   If we display advertising, ads served through Google or other third-party
-                  ad networks use their own cookies to personalize what you see —
+                  ad networks use their own cookies to personalize what you see, 
                   see the Cookies &amp; Tracking section below and Google&apos;s{' '}
                   <a
                     href="https://policies.google.com/technologies/partner-sites"
@@ -252,8 +252,8 @@ export default function PrivacyPolicy() {
                 </h3>
                 <p className="text-sm text-gray-700 mb-3">
                   HVACBase may serve advertisements through Google and other third-party ad
-                  networks. Under Google&apos;s partner-sites policy, these vendors — including
-                  Google — use cookies to serve ads based on your prior visits to this website
+                  networks. Under Google&apos;s partner-sites policy, these vendors, including
+                  Google, use cookies to serve ads based on your prior visits to this website
                   and other sites on the internet. This may include personalized advertising.
                 </p>
                 <p className="text-sm text-gray-700 mb-3 font-semibold">
@@ -270,7 +270,7 @@ export default function PrivacyPolicy() {
                     >
                       Google Ads Settings
                     </a>{' '}
-                    — opt out of Google&apos;s personalized ads across all sites that use Google
+, opt out of Google&apos;s personalized ads across all sites that use Google
                     ad services.
                   </li>
                   <li>
@@ -283,7 +283,7 @@ export default function PrivacyPolicy() {
                     >
                       aboutads.info
                     </a>{' '}
-                    — opt out of the Digital Advertising Alliance participating vendors.
+, opt out of the Digital Advertising Alliance participating vendors.
                   </li>
                   <li>
                     ●{' '}
@@ -295,11 +295,11 @@ export default function PrivacyPolicy() {
                     >
                       Google&apos;s partner-sites policy
                     </a>{' '}
-                    — how Google uses information from sites and apps that use its services.
+, how Google uses information from sites and apps that use its services.
                   </li>
                 </ul>
                 <p className="text-xs text-gray-500 italic">
-                  Opting out does not remove advertising — it removes personalization, so you
+                  Opting out does not remove advertising, it removes personalization, so you
                   will see less-targeted ads. We do not currently operate a consent-management
                   platform (CMP); this policy will be updated if that changes.
                 </p>

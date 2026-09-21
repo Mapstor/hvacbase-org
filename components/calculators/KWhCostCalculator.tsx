@@ -89,8 +89,8 @@ export default function KWhCostCalculator() {
     w === 0 || h === 0 ? { tone: 'warn' as const, text: 'Enter wattage + hours' } :
     calc.yearlyCost < 50 ? { tone: 'good' as const, text: 'Trivial annual cost' } :
     calc.yearlyCost < 200 ? { tone: 'good' as const, text: 'Modest annual cost' } :
-    calc.yearlyCost < 1000 ? { tone: 'ok' as const, text: 'Significant — worth optimizing' } :
-                             { tone: 'warn' as const, text: 'Major energy load — high-priority for upgrade' };
+    calc.yearlyCost < 1000 ? { tone: 'ok' as const, text: 'Significant, worth optimizing' } :
+                             { tone: 'warn' as const, text: 'Major energy load, high-priority for upgrade' };
 
   return (
     <CalcShell
@@ -127,7 +127,7 @@ export default function KWhCostCalculator() {
         </div>
       </section>
 
-      {/* Section 2 — Usage */}
+      {/* Section 2, Usage */}
       <section>
         <SectionHeader step={2} title="Usage pattern" subtitle="How often it runs" Icon={Clock} accent={ACCENT} />
 
@@ -158,7 +158,7 @@ export default function KWhCostCalculator() {
         </div>
       </section>
 
-      {/* Section 3 — Electric rate */}
+      {/* Section 3, Electric rate */}
       <section>
         <SectionHeader step={3} title="Your electric rate" subtitle="Check a recent bill" Icon={DollarSign} accent={ACCENT} />
 
@@ -271,10 +271,10 @@ export default function KWhCostCalculator() {
         <DisclaimerBox title="What this calculator misses">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li>Time-of-use rates (some utilities charge 2–4× more during 2–7 PM)</li>
-            <li>Tiered rates — your kWh price may jump after a monthly threshold</li>
+            <li>Tiered rates, your kWh price may jump after a monthly threshold</li>
             <li>Demand charges (rare in residential, common in commercial)</li>
             <li>Delivery / connection / regulatory fees layered on top of the energy charge</li>
-            <li>Nameplate watts vary with cycling — a 1500W heater rarely runs at 1500W continuously</li>
+            <li>Nameplate watts vary with cycling, a 1500W heater rarely runs at 1500W continuously</li>
           </ul>
         </DisclaimerBox>
       </section>

@@ -263,7 +263,7 @@ export default function BTUCalculator() {
 
   const fit =
     calc.totalBTU === 0 ? { tone: 'warn' as const, text: 'Enter room dimensions' } :
-    calc.totalBTU < 5000 ? { tone: 'ok' as const, text: 'Tiny load — smallest unit fits' } :
+    calc.totalBTU < 5000 ? { tone: 'ok' as const, text: 'Tiny load, smallest unit fits' } :
     calc.ideal - calc.totalBTU < calc.ideal * 0.1 ? { tone: 'good' as const, text: 'Exact match' } :
     calc.ideal - calc.totalBTU < calc.ideal * 0.25 ? { tone: 'ok' as const, text: 'Good fit' } :
                                                      { tone: 'warn' as const, text: 'Slightly oversized at this tier' };
@@ -356,7 +356,7 @@ export default function BTUCalculator() {
               <span className="flex items-center">
                 Climate zone
                 <InfoTip label="climate zone">
-                  US DOE climate zones 1 (Miami) through 8 (Northern Alaska). Cooling load drops steadily as you go north — though humidity in southern zones increases the latent load on AC equipment.
+                  US DOE climate zones 1 (Miami) through 8 (Northern Alaska). Cooling load drops steadily as you go north, though humidity in southern zones increases the latent load on AC equipment.
                 </InfoTip>
               </span>
               <button
@@ -479,7 +479,7 @@ export default function BTUCalculator() {
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 <Users className="w-4 h-4 mr-1.5 text-gray-500" />
                 Regular occupants
-                <InfoTip label="occupants">Each person adds ~600 BTU/hr of body heat. The first 2 are baked into the base load — only enter additional people.</InfoTip>
+                <InfoTip label="occupants">Each person adds ~600 BTU/hr of body heat. The first 2 are baked into the base load, only enter additional people.</InfoTip>
               </label>
               <NumberInput
                 value={occupants}
@@ -534,7 +534,7 @@ export default function BTUCalculator() {
           secondaryText={
             <>
               Your room needs <strong>{fmt(calc.totalBTU)} BTU/hr</strong> of cooling
-              ({calc.tonnage.toFixed(2)} tons) — the closest standard unit is <strong>{fmt(calc.ideal)} BTU</strong>.
+              ({calc.tonnage.toFixed(2)} tons), the closest standard unit is <strong>{fmt(calc.ideal)} BTU</strong>.
             </>
           }
           fitTone={fit.tone}
@@ -579,7 +579,7 @@ export default function BTUCalculator() {
                 <div>
                   <strong>Load exceeds typical single-unit sizing (&gt;3 tons / 36,000 BTU).</strong> Rooms
                   this large usually need a professional <strong>ACCA Manual J</strong> load calculation to
-                  pick the right equipment — likely multiple mini-splits or a central system rather than a
+                  pick the right equipment, likely multiple mini-splits or a central system rather than a
                   single window/portable unit. Treat the 36,000 BTU recommendation above as a floor, not
                   a specification.
                 </div>
@@ -614,18 +614,18 @@ export default function BTUCalculator() {
           </div>
         </div>
 
-        <DisclaimerBox title="Screening estimate — Manual J for final equipment selection">
+        <DisclaimerBox title="Screening estimate | Manual J for final equipment selection">
           <p>
             This is a <strong>screening estimate</strong> using the ENERGY STAR / DOE rules of thumb
-            (BTU/sq ft × envelope + solar + internal loads). For final equipment selection —
+            (BTU/sq ft × envelope + solar + internal loads). For final equipment selection, 
             especially for whole-home sizing, unusual layouts, open-plan spaces, vaulted ceilings, or any
-            load above ~24,000 BTU — have a contractor run a proper <strong>ACCA Manual J</strong> load
+            load above ~24,000 BTU, have a contractor run a proper <strong>ACCA Manual J</strong> load
             calculation. Manual J accounts for wall/ceiling U-values, air infiltration, duct losses,
             and orientation-specific solar gain in ways a rule-of-thumb calc can&rsquo;t.
           </p>
           <p className="mt-2">
             <strong>Sizing right matters more than going bigger.</strong> An oversized AC cools the air
-            fast but turns off before it can dehumidify — leaving the room cold and clammy. Stay within
+            fast but turns off before it can dehumidify, leaving the room cold and clammy. Stay within
             one tier of the calculated load.
           </p>
         </DisclaimerBox>

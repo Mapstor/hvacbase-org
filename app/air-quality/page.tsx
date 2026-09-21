@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'In-depth indoor air quality guides and spec-based purifier comparisons using CADR and ENERGY STAR data.',
     url: 'https://www.hvacbase.org/air-quality',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Indoor Air Quality' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Indoor Air Quality' }],
   },
   twitter: {
     card: 'summary_large_image',

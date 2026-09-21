@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Heat Pump Guides, Calculators & Reviews',
-  description: 'Complete heat pump resource center: sizing calculators, installation guides, efficiency comparisons, and troubleshooting help — educational tools and primary-sourced guidance.',
+  description: 'Complete heat pump resource center: sizing calculators, installation guides, efficiency comparisons, and troubleshooting help, educational tools and primary-sourced guidance.',
   alternates: {
     canonical: 'https://www.hvacbase.org/heat-pumps',
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'In-depth heat pump guides, sizing calculators, and AHRI-based efficiency analysis.',
     url: 'https://www.hvacbase.org/heat-pumps',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Heat Pumps' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Heat Pumps' }],
   },
   twitter: {
     card: 'summary_large_image',

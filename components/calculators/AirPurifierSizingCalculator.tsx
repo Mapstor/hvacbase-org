@@ -32,12 +32,12 @@ const ACCENT = 'blue' as const;
 const a = accentMap[ACCENT];
 
 const roomTypes = [
-  { value: 'bedroom', name: 'Bedroom', summary: 'Sleep — 4.8 ACH (AHAM)', acph: 4.8, Icon: Bed },
-  { value: 'living', name: 'Living room', summary: '4.8 ACH — allergen clearing', acph: 4.8, Icon: Sofa },
-  { value: 'kitchen', name: 'Kitchen', summary: 'Cooking fumes — 4.8 ACH', acph: 4.8, Icon: ChefHat },
+  { value: 'bedroom', name: 'Bedroom', summary: 'Sleep, 4.8 ACH (AHAM)', acph: 4.8, Icon: Bed },
+  { value: 'living', name: 'Living room', summary: '4.8 ACH, allergen clearing', acph: 4.8, Icon: Sofa },
+  { value: 'kitchen', name: 'Kitchen', summary: 'Cooking fumes, 4.8 ACH', acph: 4.8, Icon: ChefHat },
   { value: 'office', name: 'Home office', summary: '4.8 ACH clean air', acph: 4.8, Icon: Briefcase },
-  { value: 'basement', name: 'Basement', summary: 'Often unfinished — 2 ACH', acph: 2, Icon: Home },
-  { value: 'bathroom', name: 'Bathroom', summary: 'Moisture + odor — 4.8 ACH', acph: 4.8, Icon: Bath },
+  { value: 'basement', name: 'Basement', summary: 'Often unfinished, 2 ACH', acph: 2, Icon: Home },
+  { value: 'bathroom', name: 'Bathroom', summary: 'Moisture + odor, 4.8 ACH', acph: 4.8, Icon: Bath },
 ];
 
 const pollutionLevels = [
@@ -129,7 +129,7 @@ export default function AirPurifierSizingCalculator() {
     calc.requiredCadr === 0 ? { tone: 'warn' as const, text: 'Enter room dimensions' } :
     calc.actualAch >= room.acph * 1.5 ? { tone: 'good' as const, text: `Comfortably hits ${room.acph} ACH target` } :
     calc.actualAch >= room.acph ? { tone: 'good' as const, text: `Meets ${room.acph} ACH target` } :
-    { tone: 'warn' as const, text: 'Slightly under-spec — consider bigger unit' };
+    { tone: 'warn' as const, text: 'Slightly under-spec, consider bigger unit' };
 
   return (
     <CalcShell
@@ -290,9 +290,9 @@ export default function AirPurifierSizingCalculator() {
 
         <DisclaimerBox title="What CADR doesn't capture">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>CADR is AHAM-certified for smoke, dust, and pollen — VOCs and viruses need different filtration (carbon, UV-C, HEPA-13)</li>
+            <li>CADR is AHAM-certified for smoke, dust, and pollen, VOCs and viruses need different filtration (carbon, UV-C, HEPA-13)</li>
             <li>The "coverage area" sticker assumes 4.8 ACH at lab conditions; for allergy sufferers, target 5 ACH+</li>
-            <li>HEPA filters need replacing every 6–12 months; pre-filters every 3 months — factor into total cost</li>
+            <li>HEPA filters need replacing every 6–12 months; pre-filters every 3 months, factor into total cost</li>
             <li>Whole-house purifiers in the HVAC return are more efficient than individual room units for multiple rooms</li>
             <li>For wildfire smoke season: bump up one tier and run continuously on high</li>
           </ul>

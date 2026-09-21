@@ -140,9 +140,9 @@ function Thermometer({ cx, cy, tempIn, tempOut, delta }: any) {
 }
 
 export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
-  const title = 'AC Cool Mode vs Dry Mode — Same Coil, Different Airflow Strategy';
+  const title = 'AC Cool Mode vs Dry Mode | Same Coil, Different Airflow Strategy';
   const desc =
-    'Side-by-side comparison of an air conditioner running in cool mode versus dry mode. Both modes cool the evaporator coil below the dew point so water vapor from the room air condenses on the coil — that is what removes moisture. ' +
+    'Side-by-side comparison of an air conditioner running in cool mode versus dry mode. Both modes cool the evaporator coil below the dew point so water vapor from the room air condenses on the coil, that is what removes moisture. ' +
     'The physical difference between the two modes is airflow rate. ' +
     'COOL MODE (left panel): the compressor runs at high capacity and the fan pushes a large volume of air across the cold coil. Temperature drops quickly, and humidity removal happens as a byproduct. ' +
     'DRY MODE (right panel): the compressor cycles at a low speed and the fan is held at its lowest setting, moving as little air across the coil as possible. This gives each bit of air more contact time with the cold coil, condensing out more moisture while the temperature barely changes. Because the compressor runs less than in cool mode, dry mode uses less power. Exact figures vary by unit, since manufacturers do not publish standardized specs for the mode. ' +
@@ -169,7 +169,7 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
           fill={DARK}
           fontFamily={FONT}
         >
-          Cool Mode vs Dry Mode — same coil, different airflow
+          Cool Mode vs Dry Mode, same coil, different airflow
         </text>
 
         <text
@@ -362,9 +362,9 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
                 lineHeight: 1.4,
               }}
             >
-              <div style={{ fontWeight: 700, marginBottom: 4 }}>Same coil in both modes — the trick is airflow rate</div>
+              <div style={{ fontWeight: 700, marginBottom: 4 }}>Same coil in both modes, the trick is airflow rate</div>
               <div>
-                Both modes cool the evaporator coil below the dew point; that's what condenses water out of room air. Cool mode = <strong>fire hose</strong> — high fan speed, high air volume, fast temperature drop. Dry mode = <strong>squeegee</strong> — low fan speed maximizes air-coil contact time, wringing out more moisture per cubic foot of air processed. Article physics: line 45.
+                Both modes cool the evaporator coil below the dew point; that's what condenses water out of room air. Cool mode = <strong>fire hose</strong>, high fan speed, high air volume, fast temperature drop. Dry mode = <strong>squeegee</strong>, low fan speed maximizes air-coil contact time, wringing out more moisture per cubic foot of air processed. Article physics: line 45.
               </div>
             </div>
           </foreignObject>
@@ -382,7 +382,7 @@ export default function DryModeVsCoolMode({ caption }: DryModeVsCoolModeProps) {
                 lineHeight: 1.4,
               }}
             >
-              <strong>When to use which:</strong> COOL mode when the room is genuinely hot (and humid). DRY mode when the room is a comfortable temperature but feels sticky or muggy. Dry mode takes the edge off humidity but removes moisture slowly and cannot cool a hot room — for a serious moisture problem, use a dehumidifier.
+              <strong>When to use which:</strong> COOL mode when the room is genuinely hot (and humid). DRY mode when the room is a comfortable temperature but feels sticky or muggy. Dry mode takes the edge off humidity but removes moisture slowly and cannot cool a hot room, for a serious moisture problem, use a dehumidifier.
             </div>
           </foreignObject>
         </g>

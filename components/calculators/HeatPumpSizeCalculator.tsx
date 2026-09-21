@@ -339,11 +339,11 @@ export default function HeatPumpSizeCalculator() {
       : calc.exceedsSingleUnit
       ? { tone: 'warn' as const, text: 'Exceeds single-unit capacity' }
       : calc.undersizesCooling
-      ? { tone: 'warn' as const, text: `Cooling served at only ${(calc.coolingOversize * 100).toFixed(0)}% — latent-load risk in humid climates` }
+      ? { tone: 'warn' as const, text: `Cooling served at only ${(calc.coolingOversize * 100).toFixed(0)}%, latent-load risk in humid climates` }
       : calc.violatesCoolingCap
       ? { tone: 'warn' as const, text: `Cooling oversize ${(calc.coolingOversize * 100).toFixed(0)}% exceeds Manual S ${((calc.isCcASHP ? 1.30 : calc.coolingCap) * 100).toFixed(0)}% cap` }
       : calc.atSizeFloor
-      ? { tone: 'ok' as const, text: 'At smallest residential HP size — may short-cycle on mild days (consider a ductless mini-split)' }
+      ? { tone: 'ok' as const, text: 'At smallest residential HP size, may short-cycle on mild days (consider a ductless mini-split)' }
       : calc.isCcASHP
       ? { tone: 'good' as const, text: `Cold-climate path (heating-focused, ${(calc.coolingOversize * 100).toFixed(0)}% cooling)` }
       : { tone: 'good' as const, text: `Manual S cooling path (${(calc.coolingOversize * 100).toFixed(0)}% of cooling load)` };
@@ -367,7 +367,7 @@ export default function HeatPumpSizeCalculator() {
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Heated &amp; cooled floor area (sq ft)
-              <InfoTip label="floor area">Total space the heat pump conditions — exclude unconditioned spaces.</InfoTip>
+              <InfoTip label="floor area">Total space the heat pump conditions, exclude unconditioned spaces.</InfoTip>
             </label>
             <div className="mb-2">
               <PresetChips value={squareFeet} onChange={setSquareFeet} presets={squareFootPresets} accent={ACCENT} />
@@ -426,7 +426,7 @@ export default function HeatPumpSizeCalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Heat pump tier (SEER2 / HSPF2)
               <InfoTip label="heat pump type">
-                SEER2 is cooling efficiency, HSPF2 is heating efficiency (both are the current 2023+ AHRI/DOE metrics — legacy SEER/HSPF are ~5% and ~15% higher for the same equipment). Cold-climate NEEP-listed units maintain ~90% capacity at 17°F and 85% at 5°F — required in cold/very-cold zones.
+                SEER2 is cooling efficiency, HSPF2 is heating efficiency (both are the current 2023+ AHRI/DOE metrics, legacy SEER/HSPF are ~5% and ~15% higher for the same equipment). Cold-climate NEEP-listed units maintain ~90% capacity at 17°F and 85% at 5°F, required in cold/very-cold zones.
               </InfoTip>
             </label>
             <CardChoice value={heatPumpType} onChange={setHeatPumpType} options={heatPumpTypes} ariaLabel="Heat pump type" accent={ACCENT} />
@@ -512,7 +512,7 @@ export default function HeatPumpSizeCalculator() {
                 <span className="block mt-2">
                   Your <strong>{calc.backupCapacityKW.toFixed(0)} kW strips</strong> cover only{' '}
                   {((calc.backupCapacityKW / calc.supplementalKW) * 100).toFixed(0)}% of the ~{calc.supplementalKW.toFixed(1)} kW
-                  supplemental needed at design temp — consider larger strips or a dual-fuel gas furnace.
+                  supplemental needed at design temp, consider larger strips or a dual-fuel gas furnace.
                 </span>
               )}
             </>
@@ -546,17 +546,17 @@ export default function HeatPumpSizeCalculator() {
               <div className="pt-2 mt-2 border-t border-gray-300 flex justify-between items-baseline">
                 <span className="font-semibold text-gray-900">Estimated balance point (±10°F)</span>
                 <span className="font-bold text-purple-700">
-                  {calc.balancePoint !== null ? `${calc.balancePoint}°F` : '—'}
+                  {calc.balancePoint !== null ? `${calc.balancePoint}°F` : ', '}
                 </span>
               </div>
               <p className="text-[11px] text-gray-500 leading-snug pt-1">
                 {calc.balancePoint === null
-                  ? 'Heat pump capacity meets 100% of load down to design temperature — no balance point above design, no supplemental heat needed on typical winter days.'
-                  : `Below this temperature, the heat pump alone can't meet the whole load. Real balance point varies ±10°F with actual envelope quality and the specific NEEP-listed model — confirm with Manual S.`}
+                  ? 'Heat pump capacity meets 100% of load down to design temperature, no balance point above design, no supplemental heat needed on typical winter days.'
+                  : `Below this temperature, the heat pump alone can't meet the whole load. Real balance point varies ±10°F with actual envelope quality and the specific NEEP-listed model, confirm with Manual S.`}
               </p>
               {calc.supplementalBTU > 0 && (
                 <p className="text-[11px] text-amber-700 bg-amber-50 px-2 py-1 rounded mt-2">
-                  Supplemental heat at design temp: <strong>{fmt(calc.supplementalBTU)} BTU/hr</strong> (~{calc.supplementalKW.toFixed(1)} kW electric strips) — includes a 10% cold-snap margin over the raw load-vs-capacity gap.
+                  Supplemental heat at design temp: <strong>{fmt(calc.supplementalBTU)} BTU/hr</strong> (~{calc.supplementalKW.toFixed(1)} kW electric strips), includes a 10% cold-snap margin over the raw load-vs-capacity gap.
                 </p>
               )}
             </div>
@@ -601,7 +601,7 @@ export default function HeatPumpSizeCalculator() {
               <li><strong>Cooling:</strong> {fmt(calc.coolingKWh)} kWh/yr ({fmt(selectedClimate.coolingEFLH)} EFLH ÷ {selectedType.efficiency} SEER2) ≈ ${fmtMoney(calc.coolingKWh * kwhRate)}</li>
               <li><strong>Heating:</strong> {fmt(calc.heatingKWh)} kWh/yr ({fmt(selectedClimate.heatingEFLH)} EFLH ÷ {selectedType.hspf} HSPF2) ≈ ${fmtMoney(calc.heatingKWh * kwhRate)}</li>
               <li><strong>Total:</strong> {fmt(calc.totalKWh)} kWh/yr × ${kwhRate.toFixed(2)}/kWh = <strong>${fmtMoney(calc.annualCost)}</strong>/yr</li>
-              <li className="text-[11px] text-gray-500 pt-1">Cost excludes supplemental-strip runtime — for cold climates with high balance points, add ~10-30% for strips.</li>
+              <li className="text-[11px] text-gray-500 pt-1">Cost excludes supplemental-strip runtime, for cold climates with high balance points, add ~10-30% for strips.</li>
             </ul>
           </div>
 
@@ -611,7 +611,7 @@ export default function HeatPumpSizeCalculator() {
               Equipment &amp; Manual S notes
             </h4>
             <ul className="space-y-1 text-xs text-gray-700">
-              <li><strong>Tier:</strong> {selectedType.tier} — {selectedType.name}, {selectedType.compressor} compressor.</li>
+              <li><strong>Tier:</strong> {selectedType.tier}, {selectedType.name}, {selectedType.compressor} compressor.</li>
               <li><strong>Sizing basis:</strong> {calc.isCcASHP ? 'cold-climate heating-focused (Manual S 3rd Ed. 2023)' : `cooling load × [0.95, ${calc.coolingCap.toFixed(2)}]`}. Cooling load served at ~{(calc.coolingOversize * 100).toFixed(0)}%.</li>
               <li>
                 <strong>Backup:</strong> {selectedBackup.name}
@@ -626,9 +626,9 @@ export default function HeatPumpSizeCalculator() {
           </div>
         </div>
 
-        <DisclaimerBox title="Manual-S-style estimate — get a real Manual J + S before purchasing.">
+        <DisclaimerBox title="Manual-S-style estimate | get a real Manual J + S before purchasing.">
           <p>
-            This calc applies ACCA <strong>Manual S 3rd Edition (2023)</strong> two-path sizing —
+            This calc applies ACCA <strong>Manual S 3rd Edition (2023)</strong> two-path sizing, 
             cooling-load focus for single/two-stage/premium heat pumps, heating-focused (capped at
             cooling × 1.25) for cold-climate NEEP-listed units. Loads are rule-of-thumb from typical
             per-sqft baselines and will run ±30% off the true Manual J number depending on your
@@ -636,9 +636,9 @@ export default function HeatPumpSizeCalculator() {
           </p>
           <p>
             The balance point shown is <strong>estimated</strong> from the load-vs-capacity intersection using
-            the tier's typical derating curve — the real balance point varies ±10°F with your specific
+            the tier's typical derating curve, the real balance point varies ±10°F with your specific
             envelope and the exact NEEP-listed model you install. Heat pumps in cold climates especially
-            deserve a proper Manual J + Manual S pair from a licensed contractor before purchase —
+            deserve a proper Manual J + Manual S pair from a licensed contractor before purchase, 
             equipment selection depends on the specific unit's low-temperature capacity table (NEEP publishes
             these at neep.org/ccashp-specification-product-list).
           </p>

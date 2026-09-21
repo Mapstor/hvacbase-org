@@ -134,14 +134,14 @@ export default function GeneratorAmpsCalculator() {
   const fit =
     src.mode === 'generator-size' ? { tone: 'good' as const, text: 'Reference table mode' } :
     calc.resultAmps === 0 ? { tone: 'warn' as const, text: 'Enter values to compute' } :
-    calc.resultAmps > 100 ? { tone: 'warn' as const, text: 'High current — see the safety block below' } :
+    calc.resultAmps > 100 ? { tone: 'warn' as const, text: 'High current, see the safety block below' } :
     { tone: 'good' as const, text: 'Calculation complete' };
 
   return (
     <CalcShell
       Icon={Activity}
       title="Generator Amps Calculator"
-      subtitle="Convert watts ↔ amps for generators. Wire and breaker sizing is not a calculator job — see the NEC safety block."
+      subtitle="Convert watts ↔ amps for generators. Wire and breaker sizing is not a calculator job, see the NEC safety block."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -215,7 +215,7 @@ export default function GeneratorAmpsCalculator() {
           </div>
           <p className="text-xs text-gray-500 mt-2 leading-snug">
             Amps = watts ÷ voltage at PF 1.0 (single-phase). See the NEC safety block below for how wire gauge, breaker,
-            and voltage drop have to be sized together — the calculator no longer emits a wire recommendation.
+            and voltage drop have to be sized together, the calculator no longer emits a wire recommendation.
           </p>
         </section>
       )}
@@ -293,10 +293,10 @@ export default function GeneratorAmpsCalculator() {
           <div className="bg-white rounded-xl border border-red-200 p-4">
             <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
               <AlertTriangle className="w-4 h-4 text-red-600" />
-              Wire, breaker, and voltage-drop sizing — follow NEC by a qualified person
+              Wire, breaker, and voltage-drop sizing, follow NEC by a qualified person
             </h4>
             <div className="p-3 bg-red-50 border border-red-200 rounded text-xs text-red-900 mb-3 leading-relaxed">
-              <strong>NEC 702.5 — never backfeed a generator through a household outlet.</strong> Doing so without a
+              <strong>NEC 702.5, never backfeed a generator through a household outlet.</strong> Doing so without a
               transfer switch or generator interlock kit re-energizes the utility drop and has killed line workers.
               Install an approved manual transfer switch or a listed interlock; this is a code requirement, not a
               suggestion.
@@ -304,19 +304,19 @@ export default function GeneratorAmpsCalculator() {
             <p className="text-xs text-gray-700 leading-relaxed">
               The <strong>line current</strong> shown above ({calc.resultAmps.toFixed(1)}A at {v}V) is the correct starting
               input for sizing your conductors and overcurrent protection. Use it against the actual NEC sections for
-              your installation — <strong>this calculator no longer emits a specific wire gauge.</strong>
+              your installation, <strong>this calculator no longer emits a specific wire gauge.</strong>
             </p>
             <ul className="mt-2 space-y-1 text-xs text-gray-700 list-disc list-outside ml-5 leading-relaxed">
-              <li><strong>Minimum breaker (NEC 210.20 continuous-load rule):</strong> {breakerFor(calc.resultAmps)}A ({calc.resultAmps.toFixed(1)}A × 1.25, rounded up to the next standard size per NEC 240.6(A)). A breaker only protects the conductor it's wired to — do <strong>not</strong> install this breaker without wire sized to carry the same current per NEC 310.16.</li>
-              <li><strong>NEC 310.16</strong> — ampacity of insulated conductors (copper vs aluminum, 60/75/90°C insulation)</li>
-              <li><strong>NEC 310.15(B)</strong> — ambient temperature correction (installations above 30°C derate)</li>
-              <li><strong>NEC 310.15(C)</strong> — adjustment for more than 3 current-carrying conductors bundled</li>
-              <li><strong>NEC 240.4(D)</strong> — small-conductor rules override ampacity: 14 AWG max 15A, 12 AWG max 20A, 10 AWG max 30A regardless of insulation temperature rating</li>
-              <li><strong>NEC 430.22</strong> — motor branch circuit conductors must be sized at 125% × motor FLC, not the raw current shown above</li>
-              <li><strong>NEC 210.19 / 215.2</strong> — voltage drop ≤3% branch, ≤5% total feeder + branch. Critical for generator-to-detached-building runs at 150–200 ft where voltage drop, not ampacity, drives wire choice.</li>
+              <li><strong>Minimum breaker (NEC 210.20 continuous-load rule):</strong> {breakerFor(calc.resultAmps)}A ({calc.resultAmps.toFixed(1)}A × 1.25, rounded up to the next standard size per NEC 240.6(A)). A breaker only protects the conductor it's wired to, do <strong>not</strong> install this breaker without wire sized to carry the same current per NEC 310.16.</li>
+              <li><strong>NEC 310.16</strong>, ampacity of insulated conductors (copper vs aluminum, 60/75/90°C insulation)</li>
+              <li><strong>NEC 310.15(B)</strong>, ambient temperature correction (installations above 30°C derate)</li>
+              <li><strong>NEC 310.15(C)</strong>, adjustment for more than 3 current-carrying conductors bundled</li>
+              <li><strong>NEC 240.4(D)</strong>, small-conductor rules override ampacity: 14 AWG max 15A, 12 AWG max 20A, 10 AWG max 30A regardless of insulation temperature rating</li>
+              <li><strong>NEC 430.22</strong>, motor branch circuit conductors must be sized at 125% × motor FLC, not the raw current shown above</li>
+              <li><strong>NEC 210.19 / 215.2</strong>, voltage drop ≤3% branch, ≤5% total feeder + branch. Critical for generator-to-detached-building runs at 150–200 ft where voltage drop, not ampacity, drives wire choice.</li>
             </ul>
             <p className="text-xs text-gray-700 leading-relaxed mt-2">
-              Wire and breaker are one package — a licensed electrician sizes them together for your actual load type,
+              Wire and breaker are one package, a licensed electrician sizes them together for your actual load type,
               run length, and ambient. Do not install just the breaker from the number above without matched wire sizing.
             </p>
           </div>
@@ -327,16 +327,16 @@ export default function GeneratorAmpsCalculator() {
         <ul className="space-y-0.5 list-disc list-outside ml-4">
           <li>
             <strong>Two different rules people conflate:</strong>{' '}
-            <strong>NEC 210.20</strong> — breakers and circuits are sized at <strong>125% of continuous load</strong> (the
+            <strong>NEC 210.20</strong>, breakers and circuits are sized at <strong>125% of continuous load</strong> (the
             code rule).{' '}
-            <strong>Generator continuous output</strong> is roughly <strong>80% of peak/surge rating</strong> — the
+            <strong>Generator continuous output</strong> is roughly <strong>80% of peak/surge rating</strong>, the
             manufacturer's running-vs-starting-watts distinction (a "10,000W surge / 8,000W running" nameplate). Both
             factors matter, but they answer different questions.
           </li>
-          <li>Motors and compressors have startup surge <strong>3–6× running amps</strong> (well pumps up to 8×) — sized conductors AND breakers must handle this per NEC 430.52 motor branch tables</li>
-          <li>Generator receptacles have maximum amp ratings printed on the panel — verify before connecting high-amp loads</li>
+          <li>Motors and compressors have startup surge <strong>3–6× running amps</strong> (well pumps up to 8×), sized conductors AND breakers must handle this per NEC 430.52 motor branch tables</li>
+          <li>Generator receptacles have maximum amp ratings printed on the panel, verify before connecting high-amp loads</li>
           <li><strong>NEC 702.5:</strong> never backfeed a generator through a wall outlet. Use a manual transfer switch or a listed generator interlock kit. Backfeeding has killed utility line workers.</li>
-          <li>Wire and breaker sizing must follow NEC by a qualified person for the actual run — length, ambient, load type, and installation method all change the answer. This calculator sizes power (W/A/VA), not conductors.</li>
+          <li>Wire and breaker sizing must follow NEC by a qualified person for the actual run, length, ambient, load type, and installation method all change the answer. This calculator sizes power (W/A/VA), not conductors.</li>
         </ul>
       </DisclaimerBox>
       </form>

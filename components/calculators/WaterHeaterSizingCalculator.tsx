@@ -37,16 +37,16 @@ const ACCENT = 'red' as const;
 // (heat pump moves ambient heat, doesn't create it). Values verified
 // against ENERGY STAR product listings + DOE 10 CFR 430.32 minimums.
 const heaterTypes = [
-  { value: 'tank-electric', name: 'Tank — Electric', tier: 'Common',
+  { value: 'tank-electric', name: 'Tank, Electric', tier: 'Common',
     uef: 0.92, recoveryRate: 20, price: 1500, isTank: true, isCOP: false,
-    note: 'Cheapest install; slow recovery (~20 gal/hr) — needs a bigger tank than gas for the same household.' },
-  { value: 'tank-gas', name: 'Tank — Gas', tier: 'Common',
+    note: 'Cheapest install; slow recovery (~20 gal/hr), needs a bigger tank than gas for the same household.' },
+  { value: 'tank-gas', name: 'Tank, Gas', tier: 'Common',
     uef: 0.64, recoveryRate: 40, price: 1800, isTank: true, isCOP: false,
     note: 'Fast recovery (~40 gal/hr). Standard in most homes; UEF 0.64 (typical) to 0.68+ (ENERGY STAR).' },
-  { value: 'tankless-electric', name: 'Tankless — Electric', tier: 'High',
+  { value: 'tankless-electric', name: 'Tankless, Electric', tier: 'High',
     uef: 0.98, recoveryRate: 0, price: 2500, isTank: false, isCOP: false,
     note: 'Unlimited hot water. Often needs a 200A panel + multiple 240V circuits for whole-house flow.' },
-  { value: 'tankless-gas', name: 'Tankless — Gas', tier: 'High',
+  { value: 'tankless-gas', name: 'Tankless, Gas', tier: 'High',
     uef: 0.88, recoveryRate: 0, price: 3200, isTank: false, isCOP: false,
     note: 'Unlimited + handles cold inlet better than electric. UEF 0.87-0.90 typical, condensing hits 0.93+.' },
   { value: 'heat-pump', name: 'Heat Pump (HPWH)', tier: 'Ultra',
@@ -282,12 +282,12 @@ export default function WaterHeaterSizingCalculator() {
   // so no dead-code "Add residents" branch here.
   const fit =
     calc.exceedsSingleTank
-      ? { tone: 'warn' as const, text: `Peak-hour load exceeds ${TANK_MAX}-gal max — needs tandem tanks or tankless` }
+      ? { tone: 'warn' as const, text: `Peak-hour load exceeds ${TANK_MAX}-gal max, needs tandem tanks or tankless` }
       : selectedType.isTank
       ? (calc.peakHourDemand < calc.recommendedTankSize * 0.6
           ? { tone: 'good' as const, text: 'Comfortable headroom' }
           : { tone: 'ok' as const, text: 'Sized to demand' })
-      : { tone: 'good' as const, text: 'Tankless — unlimited supply' };
+      : { tone: 'good' as const, text: 'Tankless, unlimited supply' };
 
   return (
     <CalcShell
@@ -309,7 +309,7 @@ export default function WaterHeaterSizingCalculator() {
         </div>
       </section>
 
-      {/* Section 2 — Hot water habits */}
+      {/* Section 2, Hot water habits */}
       <section>
         <SectionHeader step={2} title="Hot-water habits" subtitle="What gets used and how often" Icon={ShowerHead} accent={ACCENT} />
         <div className="space-y-5">
@@ -350,7 +350,7 @@ export default function WaterHeaterSizingCalculator() {
         </div>
       </section>
 
-      {/* Section 3 — Heater type + rates */}
+      {/* Section 3, Heater type + rates */}
       <section>
         <SectionHeader step={3} title="Heater type &amp; rates" subtitle="Equipment + your local energy prices" Icon={Flame} accent={ACCENT} />
         <CardChoice value={heaterType} onChange={setHeaterType} options={heaterTypes} ariaLabel="Heater type" accent={ACCENT} />
@@ -412,7 +412,7 @@ export default function WaterHeaterSizingCalculator() {
             ) : (
               <>
                 Sized for {simultaneousOptions.find((o) => o.value === src.simultaneousUse)?.name ?? `${src.simultaneousUse} fixtures`}.
-                Max temperature rise: <strong>{calc.maxTemperatureRise}°F</strong> — cold-inlet regions (winter groundwater 40°F, delivery 120°F = 80°F rise) can cut delivered GPM by 30-50%.
+                Max temperature rise: <strong>{calc.maxTemperatureRise}°F</strong>, cold-inlet regions (winter groundwater 40°F, delivery 120°F = 80°F rise) can cut delivered GPM by 30-50%.
               </>
             )
           }
@@ -482,7 +482,7 @@ export default function WaterHeaterSizingCalculator() {
                 </>
               )}
               <li><strong>Equipment cost:</strong> ~${fmtMoney(selectedType.price)} (equipment only; install adds 50-100%)</li>
-              <li><strong>Venting required:</strong> {calc.needsVenting ? 'Yes (gas — B-vent or PVC condensing)' : 'No (electric)'}</li>
+              <li><strong>Venting required:</strong> {calc.needsVenting ? 'Yes (gas, B-vent or PVC condensing)' : 'No (electric)'}</li>
               <li className="pt-1.5 border-t border-gray-100">
                 <strong>Annual operating cost:</strong>{' '}
                 <span className="text-emerald-700 font-bold">${fmtMoney(calc.yearlyCost)}</span>
@@ -508,7 +508,7 @@ export default function WaterHeaterSizingCalculator() {
                 <br /><br />
                 <strong>2026 tax-credit status</strong>: The federal 25C Energy Efficient Home Improvement Credit
                 (which previously covered up to $2,000 for ENERGY STAR HPWHs) <strong>expired 31 Dec 2025</strong> under
-                the OBBBA. For 2026 installs, check current DOE/EPA rebate programs and state/utility incentives —
+                the OBBBA. For 2026 installs, check current DOE/EPA rebate programs and state/utility incentives, 
                 the federal tax credit is no longer available.
               </p>
             </div>
@@ -522,7 +522,7 @@ export default function WaterHeaterSizingCalculator() {
               <p className="text-xs text-gray-700 leading-relaxed">
                 At {calc.recommendedTankSize} gal / {fmt(Math.round(calc.dailyGallons))} gal-per-day you&rsquo;re a
                 strong candidate for a <strong>heat-pump water heater</strong> (~3× cheaper to run than electric
-                resistance, ~2× vs gas). Tankless is another option — unlimited hot water and no standby losses,
+                resistance, ~2× vs gas). Tankless is another option, unlimited hot water and no standby losses,
                 but rarely pays back on energy alone (~$50-100/yr savings on this load) and often needs a bigger
                 electrical service or gas line.
               </p>
@@ -530,15 +530,15 @@ export default function WaterHeaterSizingCalculator() {
           )}
         </div>
 
-        <DisclaimerBox title="Sizing right matters — both ways.">
+        <DisclaimerBox title="Sizing right matters | both ways.">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li>This is a <strong>screening estimate</strong>, not UEF-bin-exact. Get manufacturer FHR + UEF specs and your local AHJ (plumbing inspector) sign-off before purchasing.</li>
             <li><strong>Groundwater inlet varies by region</strong> (~42°F Minnesota winter to ~75°F Miami; calc assumes {INLET_TEMP_F}°F → {DELIVERY_TEMP_F}°F, {DELTA_T}°F rise). Cold-inlet regions can add <strong>~25-30%</strong> to annual cost; warm-inlet regions cut it by roughly the same amount. Because BTU/gal scales linearly with ΔT, the real regional swing is ~45/65 → 85/65 = 0.7×–1.3×.</li>
             <li><strong>HPWH install</strong>: needs 700-1,000 cu ft of ambient air (unfinished basement, garage, or louvered closet). A tight utility closet stalls the compressor. Also cools + dehumidifies the room ~10°F.</li>
-            <li><strong>Electric tanks recover ~2× slower than gas</strong> — the calc sizes electric 20-30% larger than the equivalent gas unit for the same household to compensate.</li>
-            <li><strong>Tankless payback</strong>: tankless rarely pays back on energy alone vs a well-sized tank (~$50-100/yr savings) — buy it for unlimited hot water and space savings, not fuel economics. Permitting-grade sizing needs a 2018 UPC/IPC fixture-unit demand calc with diversity factor, not the 2.5 GPM/fixture rule of thumb used here.</li>
-            <li><strong>Solar</strong> cost estimate assumes a 70% solar fraction — realistic for Sunbelt annual, aggressive for Northern US where winter solar fraction can drop to 40-50%, roughly doubling backup-element cost. Get a site-specific SRCC OG-300 rating for your climate before purchasing.</li>
-            <li><strong>Federal manufacture rule</strong>: The DOE&rsquo;s amended 10 CFR 430.32 requires new residential electric water heaters &gt;55 gal <em>manufactured after</em> the phased compliance date (currently targeted 2029, subject to ongoing rulemaking) to meet HPWH-tier efficiency. This affects future product availability, not current installs — standard large electric tanks remain legally installable today.</li>
+            <li><strong>Electric tanks recover ~2× slower than gas</strong>, the calc sizes electric 20-30% larger than the equivalent gas unit for the same household to compensate.</li>
+            <li><strong>Tankless payback</strong>: tankless rarely pays back on energy alone vs a well-sized tank (~$50-100/yr savings), buy it for unlimited hot water and space savings, not fuel economics. Permitting-grade sizing needs a 2018 UPC/IPC fixture-unit demand calc with diversity factor, not the 2.5 GPM/fixture rule of thumb used here.</li>
+            <li><strong>Solar</strong> cost estimate assumes a 70% solar fraction, realistic for Sunbelt annual, aggressive for Northern US where winter solar fraction can drop to 40-50%, roughly doubling backup-element cost. Get a site-specific SRCC OG-300 rating for your climate before purchasing.</li>
+            <li><strong>Federal manufacture rule</strong>: The DOE&rsquo;s amended 10 CFR 430.32 requires new residential electric water heaters &gt;55 gal <em>manufactured after</em> the phased compliance date (currently targeted 2029, subject to ongoing rulemaking) to meet HPWH-tier efficiency. This affects future product availability, not current installs, standard large electric tanks remain legally installable today.</li>
             <li><strong>Peak-hour tip</strong>: for tankless, the biggest sizing mistake is under-estimating the required temperature rise. A unit that delivers 7 GPM in Texas (60°F inlet) will only deliver 4 GPM in Minnesota in February (42°F inlet).</li>
           </ul>
         </DisclaimerBox>

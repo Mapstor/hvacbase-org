@@ -3,19 +3,19 @@ import { AlertTriangle, Shield, XOctagon, Info, Users, Wrench, DollarSign, Heart
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer — HVACBase',
+  title: 'Disclaimer | HVACBase',
   description: 'Important information about the limitations of HVACBase content and services. Editorial disclaimers, safety warnings, and terms of use.',
   alternates: { canonical: 'https://www.hvacbase.org/disclaimer' },
   openGraph: {
-    title: 'Disclaimer — HVACBase',
+    title: 'Disclaimer | HVACBase',
     description: 'Important information about the limitations of HVACBase content and services.',
     url: 'https://www.hvacbase.org/disclaimer',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Disclaimer' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Disclaimer' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Disclaimer — HVACBase',
+    title: 'Disclaimer | HVACBase',
     description: 'Important information about the limitations of HVACBase content and services.',
     images: ['/opengraph-image'],
   },

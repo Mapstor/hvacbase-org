@@ -128,7 +128,7 @@ export default function SEER2Calculator() {
 
   const fit =
     calc.annualSavings <= 0 ? { tone: 'warn' as const, text: 'New SEER must be higher than current' } :
-    calc.percentSavings >= 40 ? { tone: 'good' as const, text: 'Huge savings — strong payback' } :
+    calc.percentSavings >= 40 ? { tone: 'good' as const, text: 'Huge savings, strong payback' } :
     calc.percentSavings >= 25 ? { tone: 'good' as const, text: 'Strong upgrade' } :
     calc.percentSavings >= 10 ? { tone: 'ok' as const, text: 'Meaningful savings' } :
                                 { tone: 'warn' as const, text: 'Modest improvement' };
@@ -137,7 +137,7 @@ export default function SEER2Calculator() {
     <CalcShell
       Icon={Calculator}
       title="SEER2 Energy Savings Calculator"
-      subtitle="Annual $ and kWh saved from upgrading your AC — plus payback and CO₂ math."
+      subtitle="Annual $ and kWh saved from upgrading your AC, plus payback and CO₂ math."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -151,7 +151,7 @@ export default function SEER2Calculator() {
               Current SEER rating
               <InfoTip label="current SEER">
                 Look at your existing condenser's nameplate. Systems 10+ years old are typically 8–13 SEER.
-                Enter the rating as printed — SEER for pre-2023 units, SEER2 for 2023+ — this tool compares both figures on the same scale.
+                Enter the rating as printed, SEER for pre-2023 units, SEER2 for 2023+, this tool compares both figures on the same scale.
               </InfoTip>
             </label>
             <NumberInput value={currentSeer} onChange={setCurrentSeer} min={6} max={25} suffix="SEER" ariaLabel="Current SEER" accent={ACCENT} />
@@ -161,7 +161,7 @@ export default function SEER2Calculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               New SEER2 rating
               <InfoTip label="SEER2">
-                SEER2 is the post-2023 testing standard — about 4.5% stricter than old SEER. Current federal minimums: 14.3 (South), 13.8 (North).
+                SEER2 is the post-2023 testing standard, about 4.5% stricter than old SEER. Current federal minimums: 14.3 (South), 13.8 (North).
               </InfoTip>
             </label>
             <NumberInput value={newSeer} onChange={setNewSeer} min={13} max={30} suffix="SEER2" ariaLabel="New SEER2" accent={ACCENT} />
@@ -175,7 +175,7 @@ export default function SEER2Calculator() {
         </div>
       </section>
 
-      {/* Section 2 — Local context */}
+      {/* Section 2, Local context */}
       <section>
         <SectionHeader step={2} title="Your usage & rates" subtitle="Local electricity cost and how much you run AC" Icon={Zap} accent={ACCENT} />
 
@@ -184,7 +184,7 @@ export default function SEER2Calculator() {
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 Electric rate
-                <InfoTip label="electric rate">Check the kWh rate on a recent power bill. US average is $0.18/kWh in 2026 — California averages $0.30+, the South averages $0.10–$0.13.</InfoTip>
+                <InfoTip label="electric rate">Check the kWh rate on a recent power bill. US average is $0.18/kWh in 2026, California averages $0.30+, the South averages $0.10–$0.13.</InfoTip>
               </label>
               <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.5} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
               <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.18/kWh</p>
@@ -192,7 +192,7 @@ export default function SEER2Calculator() {
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 System age
-                <InfoTip label="system age">Average AC lifespan is 15–20 years. Systems past 12 years typically need replacement soon — and lose efficiency every year.</InfoTip>
+                <InfoTip label="system age">Average AC lifespan is 15–20 years. Systems past 12 years typically need replacement soon, and lose efficiency every year.</InfoTip>
               </label>
               <NumberInput value={systemAge} onChange={setSystemAge} min={1} max={30} suffix="years" ariaLabel="System age" accent={ACCENT} />
               <p className="text-xs text-gray-500 mt-1.5">Average lifespan: 15–20 years</p>
@@ -235,7 +235,7 @@ export default function SEER2Calculator() {
           sidePanel={[
             { label: 'Monthly savings', value: `$${fmtMoney(Math.max(calc.monthlySavings, 0))}`, valueClass: 'text-emerald-700' },
             { label: '10-year savings', value: `$${fmtMoney(Math.max(calc.tenYearSavings, 0))}` },
-            { label: 'Payback period', value: calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} yr` : '—' },
+            { label: 'Payback period', value: calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} yr` : ', ' },
           ]}
         />
 
@@ -248,7 +248,7 @@ export default function SEER2Calculator() {
             <div className="space-y-2">
               <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50">
                 <div>
-                  <div className="font-semibold text-gray-900 text-sm">Current — {cur} SEER</div>
+                  <div className="font-semibold text-gray-900 text-sm">Current, {cur} SEER</div>
                   <div className="text-[11px] text-gray-500">{fmt(Math.round(calc.currentKwh))} kWh/yr • {age} years old</div>
                 </div>
                 <div className="text-right">
@@ -258,7 +258,7 @@ export default function SEER2Calculator() {
               </div>
               <div className="flex items-center justify-between p-3 rounded-lg bg-emerald-50 ring-1 ring-emerald-200">
                 <div>
-                  <div className="font-semibold text-emerald-900 text-sm">New — {next} SEER2</div>
+                  <div className="font-semibold text-emerald-900 text-sm">New, {next} SEER2</div>
                   <div className="text-[11px] text-emerald-700">{fmt(Math.round(calc.newKwh))} kWh/yr • high efficiency</div>
                 </div>
                 <div className="text-right">
@@ -284,7 +284,7 @@ export default function SEER2Calculator() {
               <li className="flex justify-between pt-2 border-t border-gray-200"><span>15-year CO₂ prevented</span><strong>{fmt(Math.round(Math.max(calc.co2Reduction * 15 / 2000, 0)))} tons</strong></li>
             </ul>
             <div className="mt-3 bg-emerald-50 rounded-lg p-2.5 text-[11px] text-emerald-800">
-              Estimated system cost: <strong>${fmtMoney(calc.systemCost)}</strong>. Payback: <strong>{calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : '—'}</strong>.
+              Estimated system cost: <strong>${fmtMoney(calc.systemCost)}</strong>. Payback: <strong>{calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : ', '}</strong>.
             </div>
           </div>
         </div>
@@ -307,7 +307,7 @@ export default function SEER2Calculator() {
 
         {next >= 18 && (
           <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-3 text-xs text-emerald-800 flex items-center gap-2">
-            <CheckCircle className="w-4 h-4" /> {next} SEER2 qualifies for ENERGY STAR Most Efficient — the tier that best qualifies for state and utility rebate stacking where available.
+            <CheckCircle className="w-4 h-4" /> {next} SEER2 qualifies for ENERGY STAR Most Efficient, the tier that best qualifies for state and utility rebate stacking where available.
           </div>
         )}
 
@@ -316,7 +316,7 @@ export default function SEER2Calculator() {
             Based on {tons}-ton system × {hours} cooling hours × ${rate}/kWh. SEER2 ratings reflect 2023+ M1 testing
             (~4.5% stricter than old SEER). Actual savings depend on home insulation, ductwork tightness, thermostat
             habits, and maintenance. Federal §25C and §25D tax credits terminated for property placed in service
-            after Dec 31, 2025 (OBBBA, PL 119-21) — check state and utility rebates or IRA-funded HOMES/HEAR programs
+            after Dec 31, 2025 (OBBBA, PL 119-21), check state and utility rebates or IRA-funded HOMES/HEAR programs
             for current incentives, verifying each program's specific equipment list.
           </p>
         </DisclaimerBox>

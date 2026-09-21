@@ -62,7 +62,7 @@ export default function AboutPage() {
           <p>
             HVACBase is written by <strong>Marko Visic</strong>, a physicist (BSc,
             Faculty of Mathematics and Physics, University of Ljubljana). While studying
-            thermodynamics, he became interested in heat-transfer applications — the
+            thermodynamics, he became interested in heat-transfer applications, the
             equations that explain how heat pumps, air conditioners, insulation, and
             airflow behave in a real home. HVACBase grew out of that interest: a site
             that starts from the physics of heat transfer and connects it to practical
@@ -72,8 +72,8 @@ export default function AboutPage() {
           <h2>Why this site exists</h2>
           <p>
             Most HVAC information online tells you <em>which</em> unit to buy. HVACBase
-            tries to explain <em>why</em> — the thermodynamics underneath the spec
-            sheet — so you can reason about your own home: your climate, your heating
+            tries to explain <em>why</em>, the thermodynamics underneath the spec
+            sheet, so you can reason about your own home: your climate, your heating
             load, your cooling load. The goal is to help any homeowner understand how
             HVAC works and which system actually fits their situation, and to give
             people enough well-sourced grounding to understand the systems they
@@ -85,14 +85,14 @@ export default function AboutPage() {
             Every specification on this site comes from manufacturer documentation,
             the <strong>AHRI Directory</strong>, or <strong>ENERGY STAR</strong>. Where
             a number can&apos;t be verified against a primary source, it isn&apos;t
-            published. We don&apos;t run a testing lab and we don&apos;t claim to —
+            published. We don&apos;t run a testing lab and we don&apos;t claim to,
             our value is clear explanation of verified data, not invented measurements.
           </p>
 
           <h2>What this site is not</h2>
           <p>
             HVACBase is an independent education site. Marko is a physicist,{' '}
-            <strong>not a licensed HVAC contractor</strong> — nothing here is a
+            <strong>not a licensed HVAC contractor</strong>, nothing here is a
             substitute for a licensed professional for installation, sizing sign-off,
             repair, or safety work. Always have equipment installed and verified by a
             qualified contractor.

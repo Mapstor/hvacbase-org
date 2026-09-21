@@ -42,7 +42,7 @@ export function SourcesBox({ sources }: SourcesBoxProps) {
             >
               {s.text}
             </a>
-            <span className="text-gray-400 ml-1">— {s.org}</span>
+            <span className="text-gray-400">, {s.org}</span>
           </li>
         ))}
       </ol>

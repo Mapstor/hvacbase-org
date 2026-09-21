@@ -52,7 +52,7 @@ const heaterTypes = [
   { value: 'tank-40', name: '40-gal tank', summary: '4.5kW resistive', watts: 4500, efficiency: 0.90, standbyLoss: 1.2, capacity: 40 },
   { value: 'tank-50', name: '50-gal tank', summary: '4.5kW resistive', watts: 4500, efficiency: 0.90, standbyLoss: 1.4, capacity: 50 },
   { value: 'tank-80', name: '80-gal tank', summary: '4.5kW resistive', watts: 4500, efficiency: 0.90, standbyLoss: 1.8, capacity: 80 },
-  { value: 'heat-pump', name: 'Heat pump (50 gal)', summary: '3.5 COP — 3× efficient', watts: 2000, efficiency: 3.5, standbyLoss: 0.5, capacity: 50 },
+  { value: 'heat-pump', name: 'Heat pump (50 gal)', summary: '3.5 COP, 3× efficient', watts: 2000, efficiency: 3.5, standbyLoss: 0.5, capacity: 50 },
   { value: 'tankless', name: 'Tankless electric', summary: '18kW on demand', watts: 18000, efficiency: 0.98, standbyLoss: 0, capacity: 999 },
 ];
 
@@ -138,10 +138,10 @@ export default function WaterHeatingCostCalculator() {
   }, [heater, people, src.usage, src.heaterType, src.electricRate]);
 
   const fit =
-    calc.annualCost < 200 ? { tone: 'good' as const, text: 'Low cost — efficient setup or low usage' } :
+    calc.annualCost < 200 ? { tone: 'good' as const, text: 'Low cost, efficient setup or low usage' } :
     calc.annualCost < 500 ? { tone: 'ok' as const, text: 'Typical annual cost' } :
-    calc.annualCost < 800 ? { tone: 'warn' as const, text: 'High — explore heat pump or solar' } :
-                            { tone: 'bad' as const, text: 'Very high — major savings available' };
+    calc.annualCost < 800 ? { tone: 'warn' as const, text: 'High, explore heat pump or solar' } :
+                            { tone: 'bad' as const, text: 'Very high, major savings available' };
 
   const sortedStates = Object.entries(stateRates).sort((a, b) => a[1].name.localeCompare(b[1].name));
 
@@ -154,7 +154,7 @@ export default function WaterHeatingCostCalculator() {
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       <section>
-        <SectionHeader step={1} title="Your electric rate" subtitle="Off your last bill — or quick-fill a typical state rate" Icon={DollarSign} accent={ACCENT} />
+        <SectionHeader step={1} title="Your electric rate" subtitle="Off your last bill | or quick-fill a typical state rate" Icon={DollarSign} accent={ACCENT} />
 
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
@@ -170,10 +170,10 @@ export default function WaterHeatingCostCalculator() {
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
             >
               {sortedStates.map(([code, data]) => (
-                <option key={code} value={code}>{data.name} — {data.rate}¢/kWh</option>
+                <option key={code} value={code}>{data.name}, {data.rate}¢/kWh</option>
               ))}
             </select>
-            <p className="text-[11px] text-gray-400 mt-1.5">Typical residential rates by state (EIA, ~2024 basis — enter your actual rate above for accuracy). Picking a state fills the rate; you can still edit it.</p>
+            <p className="text-[11px] text-gray-400 mt-1.5">Typical residential rates by state (EIA, ~2024 basis, enter your actual rate above for accuracy). Picking a state fills the rate; you can still edit it.</p>
           </div>
         </div>
       </section>
@@ -304,12 +304,12 @@ export default function WaterHeatingCostCalculator() {
 
         <DisclaimerBox title="Cost reduction levers (ranked by impact)">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li><strong>Heat pump water heater</strong> — saves 60–70% vs electric tank in most climates</li>
-            <li><strong>Lower temp to 120°F</strong> — saves 3–5% per 10°F reduction; reduces scalding risk</li>
-            <li><strong>Low-flow showerheads</strong> — 1.5 GPM vs 2.5 GPM saves 25–60% on shower water</li>
-            <li>Insulate hot pipes + tank blanket (older units) — saves 4–9%</li>
+            <li><strong>Heat pump water heater</strong>, saves 60–70% vs electric tank in most climates</li>
+            <li><strong>Lower temp to 120°F</strong>, saves 3–5% per 10°F reduction; reduces scalding risk</li>
+            <li><strong>Low-flow showerheads</strong>, 1.5 GPM vs 2.5 GPM saves 25–60% on shower water</li>
+            <li>Insulate hot pipes + tank blanket (older units), saves 4–9%</li>
             <li>Fix dripping faucets (1 drip/sec = 3,000 gallons wasted/year)</li>
-            <li>Solar pre-heat — uses thermal panels to warm cold incoming water before the electric heater finishes it</li>
+            <li>Solar pre-heat, uses thermal panels to warm cold incoming water before the electric heater finishes it</li>
           </ul>
         </DisclaimerBox>
       </section>

@@ -233,7 +233,7 @@ export default function ACTonnageCalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Climate zone
               <InfoTip label="climate zone">
-                US DOE climate zones 1 (Miami) to 7 (Alaska). Cooling load is highest in hot zones (Z1–Z3) because peak sensible + latent load is larger; cold zones (Z5–Z7) run mild summers and need less tonnage. This is a central-AC (cooling) calc — heating tonnage is sized separately.
+                US DOE climate zones 1 (Miami) to 7 (Alaska). Cooling load is highest in hot zones (Z1–Z3) because peak sensible + latent load is larger; cold zones (Z5–Z7) run mild summers and need less tonnage. This is a central-AC (cooling) calc, heating tonnage is sized separately.
               </InfoTip>
             </label>
             <div role="radiogroup" aria-label="Climate zone" className="grid grid-cols-4 sm:grid-cols-7 gap-1.5">
@@ -425,7 +425,7 @@ export default function ACTonnageCalculator() {
               Load exceeds typical single central AC unit
             </h4>
             <p className="text-[13px] text-amber-900 leading-relaxed">
-              Your calculated load is <strong>{calc.tons.toFixed(2)} tons</strong> ({fmt(calc.totalBTU)} BTU/hr) —
+              Your calculated load is <strong>{calc.tons.toFixed(2)} tons</strong> ({fmt(calc.totalBTU)} BTU/hr), 
               above the ~5 ton / 60,000 BTU/hr ceiling of most residential central AC. You'll need a
               professional <strong>ACCA Manual J</strong> load calc, and likely a{' '}
               <strong>dual-system or multi-stage / zoned setup</strong> rather than one oversized unit.
@@ -436,7 +436,7 @@ export default function ACTonnageCalculator() {
         <DisclaimerBox title="Use this for budgeting, not contract specs.">
           <p>
             A licensed HVAC contractor should run a full ACCA Manual J load calculation before
-            purchase — it measures each room, window orientation, duct leakage, and your local 99%
+            purchase, it measures each room, window orientation, duct leakage, and your local 99%
             design temperature. Oversized AC short-cycles and leaves rooms cold and clammy; undersized
             can't keep up on the hottest 1% of hours.
           </p>

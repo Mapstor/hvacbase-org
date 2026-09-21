@@ -131,7 +131,7 @@ export default function FurnaceElectricalCalculator() {
     calc.totalKwh === 0 ? { tone: 'warn' as const, text: 'Enter runtime hours' } :
     calc.annualCost < 50 ? { tone: 'good' as const, text: 'Trivial annual electric cost' } :
     calc.annualCost < 120 ? { tone: 'good' as const, text: 'Modest annual electric cost' } :
-                            { tone: 'ok' as const, text: 'Notable cost — ECM upgrade pays back' };
+                            { tone: 'ok' as const, text: 'Notable cost, ECM upgrade pays back' };
 
   return (
     <CalcShell
@@ -269,7 +269,7 @@ export default function FurnaceElectricalCalculator() {
             <p className="text-[11px] text-gray-600 mt-3 leading-snug">
               Gas furnaces install on a <strong>dedicated 120V circuit</strong> (typically 15A / 14 AWG) per the
               manufacturer's install manual and NEC 422. This confirms your furnace's draw fits within that standard
-              circuit — always follow your unit's install manual and have a licensed electrician verify the circuit.
+              circuit, always follow your unit's install manual and have a licensed electrician verify the circuit.
             </p>
           </div>
 
@@ -300,7 +300,7 @@ export default function FurnaceElectricalCalculator() {
               <p className="text-xs text-gray-700 leading-relaxed">
                 Your PSC blower pulls <strong>{specs.blowerWatts}W</strong>. An ECM swap drops that to roughly{' '}
                 <strong>{Math.round(specs.blowerWatts * 0.5)}W</strong>, saving <strong>${fmtMoney(calc.ecmSavings)}/yr</strong>.
-                ECM motors also run variable-speed for better comfort and 50% quieter operation. Upgrade typically costs $800–$1,200 — payback in {calc.ecmSavings > 0 ? `${(1000 / calc.ecmSavings).toFixed(1)} years` : '—'}.
+                ECM motors also run variable-speed for better comfort and 50% quieter operation. Upgrade typically costs $800–$1,200, payback in {calc.ecmSavings > 0 ? `${(1000 / calc.ecmSavings).toFixed(1)} years` : ', '}.
                 Some state/utility programs (check DSIRE for your area) offset part of the swap cost.
               </p>
             </div>
@@ -312,21 +312,21 @@ export default function FurnaceElectricalCalculator() {
               Cost in perspective
             </h4>
             <p className="text-xs text-gray-700 leading-relaxed">
-              Gas furnaces use surprisingly little electricity — about as much as 2–3 LED bulbs during operation.
+              Gas furnaces use surprisingly little electricity, about as much as 2–3 LED bulbs during operation.
               The blower motor accounts for <strong>{Math.round((calc.actualBlowerWatts / calc.heatingWatts) * 100)}%</strong> of furnace electrical draw.
-              {calc.maxAmps > 10 && <> Your furnace needs a dedicated <strong>{calc.recommendedBreaker}A</strong> circuit — sharing with other appliances will trip the breaker on startup.</>}
-              {fanHrs > 1000 && <> Running fan-only continuously adds <strong>${fmtMoney(calc.fanOnlyKwh * rate)}</strong> per year — worth it only if you're filtering allergens.</>}
+              {calc.maxAmps > 10 && <> Your furnace needs a dedicated <strong>{calc.recommendedBreaker}A</strong> circuit, sharing with other appliances will trip the breaker on startup.</>}
+              {fanHrs > 1000 && <> Running fan-only continuously adds <strong>${fmtMoney(calc.fanOnlyKwh * rate)}</strong> per year, worth it only if you're filtering allergens.</>}
             </p>
           </div>
         </div>
 
         <DisclaimerBox title="Real-world notes">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Igniter wattage shown is the peak draw — it runs only 20–60 seconds per cycle, so total kWh impact is tiny (~0.5% of annual furnace electricity)</li>
+            <li>Igniter wattage shown is the peak draw, it runs only 20–60 seconds per cycle, so total kWh impact is tiny (~0.5% of annual furnace electricity)</li>
             <li>ECM motors save more in homes with longer heating seasons or extensive fan-only runtime</li>
-            <li>Two-stage and modulating furnaces with ECM can pull as little as 100W on low fire — half what's shown here</li>
+            <li>Two-stage and modulating furnaces with ECM can pull as little as 100W on low fire, half what's shown here</li>
             <li>If your furnace shares a circuit with the AC condensate pump, sump pump, or AC blower (rare but possible), wire amperage may need to be sized for the larger load</li>
-            <li><strong>Monthly/daily "heat season" figures assume a 6-month (~180-day) heating season</strong> — scale roughly to your climate (~2 months in Florida, ~9 months in Alaska). Total annual kWh and cost are driven by the runtime hours you selected above, not by this assumption.</li>
+            <li><strong>Monthly/daily "heat season" figures assume a 6-month (~180-day) heating season</strong>, scale roughly to your climate (~2 months in Florida, ~9 months in Alaska). Total annual kWh and cost are driven by the runtime hours you selected above, not by this assumption.</li>
           </ul>
         </DisclaimerBox>
       </section>

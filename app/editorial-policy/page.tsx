@@ -2,20 +2,20 @@ import { Metadata } from 'next';
 import { AUTHOR_LINKEDIN } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Editorial Policy — HVACBase',
+  title: 'Editorial Policy | HVACBase',
   description:
     'How HVACBase sources specifications (AHRI Directory, ENERGY STAR, manufacturer documentation), the verified-or-omitted rule, what we do not do (no testing lab, no first-person measurements, no affiliate links), and the corrections process.',
   alternates: { canonical: 'https://www.hvacbase.org/editorial-policy' },
   openGraph: {
-    title: 'Editorial Policy — HVACBase',
+    title: 'Editorial Policy | HVACBase',
     description: 'How HVACBase sources specifications, the verified-or-omitted rule, and the corrections process.',
     url: 'https://www.hvacbase.org/editorial-policy',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Editorial Policy' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Editorial Policy' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Editorial Policy — HVACBase',
+    title: 'Editorial Policy | HVACBase',
     description: 'How HVACBase sources specifications, the verified-or-omitted rule, and the corrections process.',
     images: ['/opengraph-image'],
   },
@@ -35,7 +35,7 @@ export default function EditorialPolicyPage() {
             HVACBase is researched and written by <strong>Marko Visic, BSc Physics</strong>{' '}
             (Faculty of Mathematics and Physics, University of Ljubljana). He is the
             site&apos;s sole author and editor. He is a physicist specializing in
-            thermodynamics and heat transfer — <strong>not a licensed HVAC contractor</strong> —
+            thermodynamics and heat transfer, <strong>not a licensed HVAC contractor</strong>,
             and the site reflects that: clear, physics-grounded explanation built on
             verified manufacturer and certification data.
           </p>
@@ -57,7 +57,7 @@ export default function EditorialPolicyPage() {
           <p>
             We do not run a testing laboratory, and we never claim first-hand testing
             or measurements we didn&apos;t perform. We do not accept payment for reviews
-            or rankings, and the site carries <strong>no affiliate links</strong> —
+            or rankings, and the site carries <strong>no affiliate links</strong>,
             recommendations are based only on verified specifications and the
             underlying physics.
           </p>

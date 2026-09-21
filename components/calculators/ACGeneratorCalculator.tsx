@@ -269,7 +269,7 @@ export default function ACGeneratorCalculator() {
               })}
               <div className="p-2.5 rounded-lg text-xs bg-blue-50 ring-1 ring-blue-200">
                 <div className="font-semibold text-blue-900">Whole house: 22–24 kW</div>
-                <div className="text-[11px] text-blue-700 mt-0.5">Run everything without load management — $5,500–$6,000</div>
+                <div className="text-[11px] text-blue-700 mt-0.5">Run everything without load management, $5,500–$6,000</div>
               </div>
             </div>
             <div className="mt-3 p-3 bg-gray-50 rounded text-xs">
@@ -282,11 +282,11 @@ export default function ACGeneratorCalculator() {
 
         <DisclaimerBox title="Generator installation requirements">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Central AC needs <strong>240V power</strong> — generator must output 240V (some smaller portables don't)</li>
-            <li><strong>Automatic transfer switch (ATS)</strong> recommended for standby generators — $500–1,500 installed</li>
+            <li>Central AC needs <strong>240V power</strong>, generator must output 240V (some smaller portables don't)</li>
+            <li><strong>Automatic transfer switch (ATS)</strong> recommended for standby generators, $500–1,500 installed</li>
             <li>Standby generators run weekly self-exercise to keep cells lubricated and detect issues</li>
-            <li>Natural gas/propane standby needs fuel line — propane tanks should be sized for 24–48 hr autonomy</li>
-            <li><strong>Never backfeed</strong> a generator through a wall outlet — illegal in all jurisdictions, can kill line workers</li>
+            <li>Natural gas/propane standby needs fuel line, propane tanks should be sized for 24–48 hr autonomy</li>
+            <li><strong>Never backfeed</strong> a generator through a wall outlet, illegal in all jurisdictions, can kill line workers</li>
           </ul>
         </DisclaimerBox>
       </section>

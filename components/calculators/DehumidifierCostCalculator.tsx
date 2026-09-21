@@ -132,9 +132,9 @@ export default function DehumidifierCostCalculator() {
   }, [selected, sqft, climate, cur, tgt, rate, maxHr, usage]);
 
   const fit =
-    !calc.adequateSize ? { tone: 'warn' as const, text: `Undersized — recommend ${Math.ceil(calc.recommendedCapacity)}+ pint` } :
-    calc.actualRuntime >= 20 ? { tone: 'warn' as const, text: 'High runtime — address moisture source' } :
-    calc.seasonalCost < 100 ? { tone: 'good' as const, text: 'Low operating cost — strong value' } :
+    !calc.adequateSize ? { tone: 'warn' as const, text: `Undersized, recommend ${Math.ceil(calc.recommendedCapacity)}+ pint` } :
+    calc.actualRuntime >= 20 ? { tone: 'warn' as const, text: 'High runtime, address moisture source' } :
+    calc.seasonalCost < 100 ? { tone: 'good' as const, text: 'Low operating cost, strong value' } :
     { tone: 'ok' as const, text: 'Reasonable cost for capacity' };
 
   return (
@@ -263,7 +263,7 @@ export default function DehumidifierCostCalculator() {
             </div>
             {calc.paybackYears < 10 && (
               <div className="mt-3 p-3 bg-emerald-50 rounded text-xs text-emerald-900">
-                <strong>ENERGY STAR upgrade:</strong> A 25%-more-efficient model (${fmtMoney(calc.efficientPrice)}) saves <strong>${fmtMoney(calc.energySavingsPerYear)}/yr</strong> — pays back in <strong>{calc.paybackYears.toFixed(1)} yrs</strong>.
+                <strong>ENERGY STAR upgrade:</strong> A 25%-more-efficient model (${fmtMoney(calc.efficientPrice)}) saves <strong>${fmtMoney(calc.energySavingsPerYear)}/yr</strong>, pays back in <strong>{calc.paybackYears.toFixed(1)} yrs</strong>.
               </div>
             )}
           </div>
@@ -301,10 +301,10 @@ export default function DehumidifierCostCalculator() {
 
         <DisclaimerBox title="Notes on dehumidifier economics">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>ENERGY STAR units use ~25% less power than standard models — usually worth the upcharge for year-round use</li>
+            <li>ENERGY STAR units use ~25% less power than standard models, usually worth the upcharge for year-round use</li>
             <li>Auto-defrost-equipped models work below 65°F (cold basements) without ice-up; standard models stall</li>
             <li>Pump-equipped units drain to a sink/upstairs; gravity drain limits placement</li>
-            <li>For continuous-runtime applications (whole basement), consider a whole-house dehumidifier ducted to the HVAC system — lower lifetime cost</li>
+            <li>For continuous-runtime applications (whole basement), consider a whole-house dehumidifier ducted to the HVAC system, lower lifetime cost</li>
           </ul>
         </DisclaimerBox>
       </section>

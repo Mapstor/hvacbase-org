@@ -26,7 +26,7 @@ const costCategories = {
   'Installation Costs': {
     icon: <Home className="w-6 h-6 text-blue-600" />,
     description: 'Complete system installation pricing and factors',
-    prose: `Installation is where the widest price spread lives, and most of it comes down to things that have nothing to do with the equipment itself. Two identical 3-ton systems can land $4,000 apart based on ductwork condition, electrical upgrades, permit costs in your municipality, and whether the crew is working in an easy basement or a cramped attic in July. The equipment is often less than half the total — labor, materials, and site conditions make up the rest. A legitimate quote itemizes these: equipment, labor, permits, and any modifications (new line sets, electrical, ductwork) as separate lines. If a contractor gives you a single lump sum and won't break it down, that's a signal to get another quote. The honest range for a straightforward central AC install is roughly $4,000–$8,000; quotes far above that should come with a specific reason you can see on the itemized bid.`,
+    prose: `Installation is where the widest price spread lives, and most of it comes down to things that have nothing to do with the equipment itself. Two identical 3-ton systems can land $4,000 apart based on ductwork condition, electrical upgrades, permit costs in your municipality, and whether the crew is working in an easy basement or a cramped attic in July. The equipment is often less than half the total, labor, materials, and site conditions make up the rest. A legitimate quote itemizes these: equipment, labor, permits, and any modifications (new line sets, electrical, ductwork) as separate lines. If a contractor gives you a single lump sum and won't break it down, that's a signal to get another quote. The honest range for a straightforward central AC install is roughly $4,000–$8,000; quotes far above that should come with a specific reason you can see on the itemized bid.`,
     guides: [
       {
         title: 'Central AC Installation Cost',
@@ -40,7 +40,7 @@ const costCategories = {
         href: '/furnace-installation-cost',
         priceRange: '$2,500 - $6,500',
         factors: ['Fuel type', 'AFUE rating', 'Venting', 'Permits'],
-        savings: 'Federal, state, and utility rebates vary — see /hvac-rebates-by-state'
+        savings: 'Federal, state, and utility rebates vary, see /hvac-rebates-by-state'
       },
       {
         title: 'Mini Split Installation Cost',
@@ -61,7 +61,7 @@ const costCategories = {
   'Repair Costs': {
     icon: <DollarSign className="w-6 h-6 text-green-600" />,
     description: 'Common repair pricing and diagnostic fees',
-    prose: `The hard question with any repair isn't "how much" — it's "is this worth it, or am I putting money into a system I'll replace in two years?" The rule of thumb professionals use: if the repair costs more than about half the price of a new system and the unit is past two-thirds of its expected lifespan, replacement usually wins. A $600 capacitor on a 6-year-old system is an easy yes. A $2,500 compressor on a 14-year-old unit rarely is — you're paying half a new system's cost to keep an old one limping. Watch for the upsell pattern where a minor fix becomes a "you really should replace the whole thing" conversation; get the specific failed part named and priced before agreeing to anything larger. Common repairs run $150–$600; anything quoted above $1,500 is in "should I just replace it?" territory and deserves a second opinion.`,
+    prose: `The hard question with any repair isn't "how much", it's "is this worth it, or am I putting money into a system I'll replace in two years?" The rule of thumb professionals use: if the repair costs more than about half the price of a new system and the unit is past two-thirds of its expected lifespan, replacement usually wins. A $600 capacitor on a 6-year-old system is an easy yes. A $2,500 compressor on a 14-year-old unit rarely is, you're paying half a new system's cost to keep an old one limping. Watch for the upsell pattern where a minor fix becomes a "you really should replace the whole thing" conversation; get the specific failed part named and priced before agreeing to anything larger. Common repairs run $150–$600; anything quoted above $1,500 is in "should I just replace it?" territory and deserves a second opinion.`,
     guides: [
       {
         title: 'Emergency Repair Pricing',
@@ -75,7 +75,7 @@ const costCategories = {
   'Maintenance Costs': {
     icon: <TrendingUp className="w-6 h-6 text-purple-600" />,
     description: 'Annual service contracts and tune-up pricing',
-    prose: `Maintenance is the cheapest money you'll spend on HVAC, and skipping it is how the expensive problems start. A tune-up runs $75–$200 and mostly buys you two things: catching small failures before they cascade (a $20 capacitor replaced now versus a $600 compressor it takes out later), and keeping the system at rated efficiency — a dirty coil or clogged filter can quietly add 15% to your energy bill. The honest version: you don't need a "membership plan" with quarterly visits for a residential system. One professional tune-up a year (spring for AC, fall for heating) plus filter changes you do yourself covers the vast majority of the benefit. Be wary of maintenance plans that bundle in vague "priority service" and "discounts" that mostly pay for visits you don't need. What you're actually paying for is the inspection and cleaning — anything beyond that is margin.`,
+    prose: `Maintenance is the cheapest money you'll spend on HVAC, and skipping it is how the expensive problems start. A tune-up runs $75–$200 and mostly buys you two things: catching small failures before they cascade (a $20 capacitor replaced now versus a $600 compressor it takes out later), and keeping the system at rated efficiency, a dirty coil or clogged filter can quietly add 15% to your energy bill. The honest version: you don't need a "membership plan" with quarterly visits for a residential system. One professional tune-up a year (spring for AC, fall for heating) plus filter changes you do yourself covers the vast majority of the benefit. Be wary of maintenance plans that bundle in vague "priority service" and "discounts" that mostly pay for visits you don't need. What you're actually paying for is the inspection and cleaning, anything beyond that is margin.`,
     guides: [
       {
         title: 'Annual Maintenance Cost',
@@ -96,7 +96,7 @@ const costCategories = {
   'Replacement Costs': {
     icon: <Calculator className="w-6 h-6 text-orange-600" />,
     description: 'Component replacement and upgrade pricing',
-    prose: `Replacing a system is the biggest HVAC decision you'll make, and timing changes the math more than most people realize. A system replaced on an emergency basis in the middle of a July heat wave costs more — you have no leverage, no time to get competing quotes, and you're taking whatever's in stock. Planning a replacement for the shoulder seasons (spring or fall) routinely saves 10–20% on the same equipment, because contractors are slower and more willing to negotiate. The other lever is sizing: an oversized system, which contractors sometimes default to "just to be safe," short-cycles, controls humidity poorly, and wears out faster. Insist on a Manual J load calculation rather than a rule-of-thumb "your house needs 4 tons." A right-sized system installed off-season is the difference between a good outcome and overpaying for equipment that runs worse. Expect $5,000–$12,000 installed depending on system type and home.`,
+    prose: `Replacing a system is the biggest HVAC decision you'll make, and timing changes the math more than most people realize. A system replaced on an emergency basis in the middle of a July heat wave costs more, you have no leverage, no time to get competing quotes, and you're taking whatever's in stock. Planning a replacement for the shoulder seasons (spring or fall) routinely saves 10–20% on the same equipment, because contractors are slower and more willing to negotiate. The other lever is sizing: an oversized system, which contractors sometimes default to "just to be safe," short-cycles, controls humidity poorly, and wears out faster. Insist on a Manual J load calculation rather than a rule-of-thumb "your house needs 4 tons." A right-sized system installed off-season is the difference between a good outcome and overpaying for equipment that runs worse. Expect $5,000–$12,000 installed depending on system type and home.`,
     guides: [
       {
         title: 'Compressor Replacement Cost',
@@ -131,7 +131,7 @@ const costCategories = {
   'Operating Costs': {
     icon: <PiggyBank className="w-6 h-6 text-cyan-600" />,
     description: 'Monthly and annual energy cost calculators',
-    prose: `Operating cost is the number that shows up every month, and it's driven by three things you can actually influence: your equipment's efficiency rating, your local energy price, and how well your home holds conditioned air. The efficiency piece has real but diminishing returns — jumping from an old 10-SEER unit to a 16-SEER is a large saving; going from 18 to 22 SEER often isn't worth the price premium unless you're in a hot climate running the system constantly. Before assuming you need higher-efficiency equipment, the cheapest kWh is the one you don't use: sealing duct leaks, adding attic insulation, and a programmable thermostat frequently save more than an efficiency upgrade, for a fraction of the cost. Use the operating-cost calculators to run your actual rates and hours before deciding — the honest answer is often "fix the envelope first, upgrade the equipment later."`,
+    prose: `Operating cost is the number that shows up every month, and it's driven by three things you can actually influence: your equipment's efficiency rating, your local energy price, and how well your home holds conditioned air. The efficiency piece has real but diminishing returns, jumping from an old 10-SEER unit to a 16-SEER is a large saving; going from 18 to 22 SEER often isn't worth the price premium unless you're in a hot climate running the system constantly. Before assuming you need higher-efficiency equipment, the cheapest kWh is the one you don't use: sealing duct leaks, adding attic insulation, and a programmable thermostat frequently save more than an efficiency upgrade, for a fraction of the cost. Use the operating-cost calculators to run your actual rates and hours before deciding, the honest answer is often "fix the envelope first, upgrade the equipment later."`,
     guides: [
       {
         title: 'AC Operating Cost Calculator',
@@ -166,7 +166,7 @@ const costCategories = {
   'Financing & Incentives': {
     icon: <CreditCard className="w-6 h-6 text-indigo-600" />,
     description: 'Payment options, rebates, and tax credits',
-    prose: `Financing an HVAC system is sometimes the right move and sometimes an expensive habit dressed up as convenience. The genuinely good options are worth knowing: many utilities and states offer rebates and low- or zero-interest loans for high-efficiency equipment and heat pumps, and federal tax credits can offset a meaningful chunk of a qualifying system. Those are real money — check what your utility and state offer before you sign anything. Where to be careful is contractor-arranged financing with a rate buried in the paperwork; a "low monthly payment" over ten years can hide an interest cost that rivals the equipment price. If you finance, know the actual APR and total cost, not just the monthly figure. And always separate the two questions — "what system do I need" and "how do I pay for it" — because financing pressure is a common way an oversized or overpriced system gets sold. Decide the equipment first, then the payment.`,
+    prose: `Financing an HVAC system is sometimes the right move and sometimes an expensive habit dressed up as convenience. The genuinely good options are worth knowing: many utilities and states offer rebates and low- or zero-interest loans for high-efficiency equipment and heat pumps, and federal tax credits can offset a meaningful chunk of a qualifying system. Those are real money, check what your utility and state offer before you sign anything. Where to be careful is contractor-arranged financing with a rate buried in the paperwork; a "low monthly payment" over ten years can hide an interest cost that rivals the equipment price. If you finance, know the actual APR and total cost, not just the monthly figure. And always separate the two questions, "what system do I need" and "how do I pay for it", because financing pressure is a common way an oversized or overpriced system gets sold. Decide the equipment first, then the payment.`,
     guides: [
       {
         title: 'HVAC Financing Options',
@@ -212,11 +212,11 @@ const priceRanges = {
 }
 
 const moneySavingTips = [
-  'Get 3+ quotes for major work — installer pricing varies widely',
+  'Get 3+ quotes for major work, installer pricing varies widely',
   'Schedule installation in the off-season for lower pricing',
   'Regular maintenance catches most issues before they cause a failure',
   'Upgrade during replacement for best efficiency ROI',
-  'Check federal, state, and utility rebates before purchasing — see /hvac-rebates-by-state for current programs',
+  'Check federal, state, and utility rebates before purchasing, see /hvac-rebates-by-state for current programs',
   'Consider financing for 0% APR promotional periods'
 ]
 

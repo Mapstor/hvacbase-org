@@ -157,7 +157,7 @@ export default function GeneratorSizingCalculator() {
 
   const fit =
     calc.items.length === 0 ? { tone: 'warn' as const, text: 'Pick at least one appliance' } :
-    calc.peakWatts <= 2200 ? { tone: 'good' as const, text: 'Inverter generator territory — quiet + portable' } :
+    calc.peakWatts <= 2200 ? { tone: 'good' as const, text: 'Inverter generator territory, quiet + portable' } :
     calc.peakWatts <= 5000 ? { tone: 'good' as const, text: 'Mid-size portable generator' } :
     calc.peakWatts <= 10000 ? { tone: 'ok' as const, text: 'Large portable / dual-fuel' } :
                               { tone: 'warn' as const, text: 'Consider standby generator with transfer switch' };
@@ -166,7 +166,7 @@ export default function GeneratorSizingCalculator() {
     <CalcShell
       Icon={Zap}
       title="Generator Sizing Calculator"
-      subtitle="Pick the appliances you need during an outage — we compute starting + running watts and the right generator."
+      subtitle="Pick the appliances you need during an outage, we compute starting + running watts and the right generator."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -262,11 +262,11 @@ export default function GeneratorSizingCalculator() {
               <Home className="w-4 h-4 text-orange-600" />
               Selected appliances ({calc.items.length})
               <InfoTip label="starting watts">
-                Motors briefly draw 2–6× their running wattage at startup. We assume only one motor starts at a time — that's why "peak surge" = running watts + the LARGEST starting delta, not the sum of all starting deltas.
+                Motors briefly draw 2–6× their running wattage at startup. We assume only one motor starts at a time, that's why "peak surge" = running watts + the LARGEST starting delta, not the sum of all starting deltas.
               </InfoTip>
             </h4>
             {calc.items.length === 0 ? (
-              <p className="text-xs text-gray-500 italic">No appliances selected yet — pick from the categories above.</p>
+              <p className="text-xs text-gray-500 italic">No appliances selected yet, pick from the categories above.</p>
             ) : (
               <div className="space-y-1 max-h-72 overflow-y-auto text-xs">
                 {calc.items.map((item) => (
@@ -326,10 +326,10 @@ export default function GeneratorSizingCalculator() {
         <DisclaimerBox title="A few sizing rules of thumb">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li>Inverter generators (under 3,500W) are 50% quieter and 30% more fuel-efficient at light loads</li>
-            <li>Motors don't all start at once — that's why we only add the LARGEST starting delta</li>
+            <li>Motors don't all start at once, that's why we only add the LARGEST starting delta</li>
             <li>For permanent backup, use a standby generator + automatic transfer switch (8–22 kW, $5,000–$15,000 installed)</li>
-            <li>Never run a generator indoors or in attached garage — CO is deadly within minutes</li>
-            <li>Have an electrician install a transfer switch — backfeeding the grid kills line workers</li>
+            <li>Never run a generator indoors or in attached garage, CO is deadly within minutes</li>
+            <li>Have an electrician install a transfer switch, backfeeding the grid kills line workers</li>
           </ul>
         </DisclaimerBox>
       </section>

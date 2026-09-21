@@ -83,15 +83,15 @@ export default function PowerConsumptionCalculator() {
 
   const fit =
     calc.realPower === 0 ? { tone: 'warn' as const, text: 'Enter voltage + current' } :
-    pf >= 0.95 ? { tone: 'good' as const, text: 'Excellent power factor — efficient load' } :
+    pf >= 0.95 ? { tone: 'good' as const, text: 'Excellent power factor, efficient load' } :
     pf >= 0.85 ? { tone: 'ok' as const, text: 'Good power factor' } :
-                 { tone: 'warn' as const, text: 'Poor power factor — consider correction' };
+                 { tone: 'warn' as const, text: 'Poor power factor, consider correction' };
 
   const loadType =
     pf === 1.0 ? { name: 'Resistive load', desc: 'Heaters, incandescent bulbs, toasters', color: 'orange' } :
     pf >= 0.85 ? { name: 'Inductive (motor)', desc: 'Induction motors, transformers', color: 'blue' } :
     pf >= 0.6 ? { name: 'Mixed inductive', desc: 'Fluorescent ballasts, switched-mode supplies', color: 'amber' } :
-    { name: 'Highly inductive / poor', desc: 'Old fluorescent gear, neglected motors — needs PF correction', color: 'red' };
+    { name: 'Highly inductive / poor', desc: 'Old fluorescent gear, neglected motors, needs PF correction', color: 'red' };
 
   return (
     <CalcShell
@@ -302,9 +302,9 @@ export default function PowerConsumptionCalculator() {
 
         <DisclaimerBox title="Electrical safety + edge cases">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>These results assume steady-state operation — motor inrush (starting) currents can be 3–6× higher for a few seconds</li>
+            <li>These results assume steady-state operation, motor inrush (starting) currents can be 3–6× higher for a few seconds</li>
             <li>Three-phase math assumes <strong>balanced</strong> loads across all 3 phases; unbalanced loads need per-phase analysis</li>
-            <li>Low PF (under 0.85) triggers utility demand charges on commercial accounts — power factor correction capacitors usually pay back in 1–3 years</li>
+            <li>Low PF (under 0.85) triggers utility demand charges on commercial accounts, power factor correction capacitors usually pay back in 1–3 years</li>
             <li>Always use proper electrical PPE and lockout/tagout before measuring on live circuits</li>
             <li>For critical or high-stakes work, consult a licensed electrical engineer</li>
           </ul>

@@ -52,7 +52,7 @@ export default function ContactPage() {
 
           <h2>Author / owner</h2>
           <p>
-            <strong>Marko Visic, BSc Physics</strong> — Faculty of Mathematics and
+            <strong>Marko Visic, BSc Physics</strong>, Faculty of Mathematics and
             Physics, University of Ljubljana. ·{' '}
             <a
               href={AUTHOR_LINKEDIN}
@@ -77,7 +77,7 @@ export default function ContactPage() {
             HVACBase is an independent education site. We don&apos;t provide HVAC
             installation, repair, or emergency service. We don&apos;t recommend
             specific local contractors. Marko is a physicist, not a licensed HVAC
-            contractor — nothing on the site is a substitute for a licensed
+            contractor, nothing on the site is a substitute for a licensed
             professional for installation, sizing sign-off, repair, or safety work.
           </p>
         </div>

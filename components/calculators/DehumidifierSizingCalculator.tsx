@@ -237,11 +237,11 @@ export default function DehumidifierSizingCalculator() {
     sqft <= 0
       ? { tone: 'warn' as const, text: 'Enter space size' }
       : calc.exceedsPortable
-      ? { tone: 'warn' as const, text: `${calc.totalPints.toFixed(0)} pt load exceeds single portable — needs whole-house / commercial LGR` }
+      ? { tone: 'warn' as const, text: `${calc.totalPints.toFixed(0)} pt load exceeds single portable, needs whole-house / commercial LGR` }
       : dutyPct > 85
-      ? { tone: 'warn' as const, text: `${calc.ideal}-pint unit runs at ~${dutyPct.toFixed(0)}% duty — consider one size up for headroom` }
+      ? { tone: 'warn' as const, text: `${calc.ideal}-pint unit runs at ~${dutyPct.toFixed(0)}% duty, consider one size up for headroom` }
       : dutyPct < 25
-      ? { tone: 'ok' as const, text: `${calc.ideal}-pint unit ~${dutyPct.toFixed(0)}% duty — sized generously` }
+      ? { tone: 'ok' as const, text: `${calc.ideal}-pint unit ~${dutyPct.toFixed(0)}% duty, sized generously` }
       : { tone: 'good' as const, text: `${calc.ideal}-pint unit ~${dutyPct.toFixed(0)}% duty (40-70% target)` };
 
   return (
@@ -285,7 +285,7 @@ export default function DehumidifierSizingCalculator() {
       <section>
         <SectionHeader step={2} title="Moisture condition" subtitle="How damp does the space feel" Icon={Droplets} accent={ACCENT} />
         <p className="text-xs text-gray-600 mb-3">
-          The ANSI/AHAM DH-1-2020 scale is based on observable moisture — pick the row that matches what you see and smell, not a humidity number.
+          The ANSI/AHAM DH-1-2020 scale is based on observable moisture, pick the row that matches what you see and smell, not a humidity number.
         </p>
         <CardChoice value={moistureLevel} onChange={setMoistureLevel} options={moistureConditions} ariaLabel="Moisture level" accent={ACCENT} />
       </section>
@@ -346,7 +346,7 @@ export default function DehumidifierSizingCalculator() {
           secondaryText={calc.exceedsPortable ? (
             <>
               Your {fmt(sqft)} sq ft {space.name.toLowerCase()} at {moisture.name.toLowerCase()} conditions needs{' '}
-              <strong>{calc.totalPints.toFixed(0)} pints/day</strong> — above the ~70 pt/day portable ceiling.
+              <strong>{calc.totalPints.toFixed(0)} pints/day</strong>, above the ~70 pt/day portable ceiling.
               No single residential portable can cover this load.
             </>
           ) : (
@@ -370,8 +370,8 @@ export default function DehumidifierSizingCalculator() {
             { label: 'Portable ceiling',  value: `${PORTABLE_MAX} pt` },
             { label: 'Next step',         value: 'Whole-house / LGR' },
           ] : [
-            { label: 'Smaller option', value: calc.minimumRaw !== null ? `${calc.minimumRaw} pt` : '—' },
-            { label: 'Larger option',  value: calc.maximumRaw !== null ? `${calc.maximumRaw} pt` : '—' },
+            { label: 'Smaller option', value: calc.minimumRaw !== null ? `${calc.minimumRaw} pt` : ', ' },
+            { label: 'Larger option',  value: calc.maximumRaw !== null ? `${calc.maximumRaw} pt` : ', ' },
             { label: 'Est. runtime',   value: `${calc.dailyRuntime.toFixed(1)} hr/day` },
           ]}
         />
@@ -390,7 +390,7 @@ export default function DehumidifierSizingCalculator() {
               ]}
               totals={[
                 { label: 'Required capacity', value: `${calc.totalPints.toFixed(1)} pt/day`, valueClass: 'text-emerald-700' },
-                { label: 'Standard size',     value: calc.exceedsPortable ? 'Exceeds portable — whole-house required' : `${calc.ideal} pt`, valueClass: 'text-emerald-700' },
+                { label: 'Standard size',     value: calc.exceedsPortable ? 'Exceeds portable, whole-house required' : `${calc.ideal} pt`, valueClass: 'text-emerald-700' },
               ]}
             />
           </div>
@@ -414,7 +414,7 @@ export default function DehumidifierSizingCalculator() {
             />
             {calc.exceedsPortable && (
               <p className="text-[11px] text-amber-700 bg-amber-50 px-2 py-1.5 rounded mt-3 leading-snug">
-                Numbers above are for a single 70-pt portable — the load exceeds portable class, so this cost estimate is for reference only. A properly-sized whole-house unit typically uses 10-20% less energy per pint at higher IEF.
+                Numbers above are for a single 70-pt portable, the load exceeds portable class, so this cost estimate is for reference only. A properly-sized whole-house unit typically uses 10-20% less energy per pint at higher IEF.
               </p>
             )}
             <div className="mt-3 bg-emerald-50 rounded-lg p-3 text-xs text-emerald-900">
@@ -422,7 +422,7 @@ export default function DehumidifierSizingCalculator() {
               <p className="text-[11px] leading-snug">
                 Since Oct 2019, DOE tests portable dehumidifiers at <strong>65°F / 60% RH</strong> (formerly 80°F). Same
                 physical machine now rates about 30-40% <strong>lower</strong> on the nameplate. A unit sold as{' '}
-                <strong>50 pt today</strong> removes what an old <strong>70 pt</strong> did — don&rsquo;t match your old
+                <strong>50 pt today</strong> removes what an old <strong>70 pt</strong> did, don&rsquo;t match your old
                 unit&rsquo;s number, use the recommendation above.
               </p>
             </div>
@@ -431,8 +431,8 @@ export default function DehumidifierSizingCalculator() {
 
         <DisclaimerBox title="Sizing is a starting point">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>The recommendation is calibrated to <strong>ENERGY STAR&rsquo;s published sizing anchors</strong> using ANSI/AHAM DH-1-2020 (65°F test). If your basement runs colder than 65°F, real capacity drops 30-50% below the nameplate — pick a <strong>low-temp / auto-defrost model</strong> or bump one size up.</li>
-            <li>Persistent dampness usually signals a <strong>moisture-intrusion problem</strong> (grade slope, gutter run-off, foundation cracks, missing vapor barrier). A dehumidifier treats the symptom — <strong>address the source first</strong> or the unit will run forever.</li>
+            <li>The recommendation is calibrated to <strong>ENERGY STAR&rsquo;s published sizing anchors</strong> using ANSI/AHAM DH-1-2020 (65°F test). If your basement runs colder than 65°F, real capacity drops 30-50% below the nameplate, pick a <strong>low-temp / auto-defrost model</strong> or bump one size up.</li>
+            <li>Persistent dampness usually signals a <strong>moisture-intrusion problem</strong> (grade slope, gutter run-off, foundation cracks, missing vapor barrier). A dehumidifier treats the symptom, <strong>address the source first</strong> or the unit will run forever.</li>
             <li>Set + leave at <strong>45-50% RH</strong>. Chasing 30% wastes energy without health benefit and pushes wood to over-dry.</li>
             <li>Undersized: runs continuously, never reaches target, wears out fast. Oversized: short-cycles and misses latent removal. Pick the size that runs 40-70% of the day, not 10% or 100%.</li>
             <li>Above ~70 pt/day load, a <strong>whole-house dehumidifier</strong> (HVAC-installed, ~$1,200-2,500) usually beats multiple portables on total cost of ownership, drain plumbing, and noise.</li>

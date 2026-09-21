@@ -83,7 +83,7 @@ export default async function HomePage() {
           </h1>
 
           <p className="text-lg text-brand-100 mb-8 max-w-3xl">
-            Free HVAC calculators, sizing guides, and troubleshooting help — with the reasoning shown, not just a recommendation.
+            Free HVAC calculators, sizing guides, and troubleshooting help, with the reasoning shown, not just a recommendation.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl">
@@ -270,7 +270,7 @@ export default async function HomePage() {
             <div className="text-center mb-2">
               <h3 className="text-xl font-semibold text-gray-900">How much AC do you actually need?</h3>
               <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
-                Room size drives the BTU/hr your AC needs, at roughly 20 BTU per square foot as a starting point. Oversizing feels safe but causes short-cycling — the unit cools the air fast, shuts off, and never runs long enough to strip humidity, leaving a cold clammy room.
+                Room size drives the BTU/hr your AC needs, at roughly 20 BTU per square foot as a starting point. Oversizing feels safe but causes short-cycling, the unit cools the air fast, shuts off, and never runs long enough to strip humidity, leaving a cold clammy room.
               </p>
             </div>
             <ScaleDiagram
@@ -474,10 +474,10 @@ export default async function HomePage() {
             <div className="text-center mb-2">
               <h3 className="text-xl font-semibold text-gray-900">How a heat pump moves heat</h3>
               <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
-                A heat pump doesn&apos;t generate heat — it moves it. The same closed refrigerant loop pulls heat from outdoor air (even cold air still has usable heat) and releases it indoors. Run the loop backwards in summer, and it moves indoor heat out. That&apos;s why a heat pump can deliver 2–4 kWh of heat for every 1 kWh of electricity it consumes.
+                A heat pump doesn&apos;t generate heat, it moves it. The same closed refrigerant loop pulls heat from outdoor air (even cold air still has usable heat) and releases it indoors. Run the loop backwards in summer, and it moves indoor heat out. That&apos;s why a heat pump can deliver 2–4 kWh of heat for every 1 kWh of electricity it consumes.
               </p>
             </div>
-            <RefrigerationCycle caption="The same cycle drives central AC, mini splits, and heat pumps — reversing the flow direction switches between cooling and heating." />
+            <RefrigerationCycle caption="The same cycle drives central AC, mini splits, and heat pumps, reversing the flow direction switches between cooling and heating." />
             <div className="text-center mt-2">
               <Link href="/heat-pump-guide" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
                 Read the full heat pump guide →
@@ -565,12 +565,12 @@ export default async function HomePage() {
             <div className="text-center mb-2">
               <h3 className="text-xl font-semibold text-gray-900">What efficiency actually saves</h3>
               <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
-                Higher SEER2 lowers annual cooling cost — but with diminishing returns. Going from the 13.4 SEER2 minimum to 16 saves more per point than going from 18 to 22. The chart uses a 3-ton AC with about 1,500 cooling hours a year at $0.18/kWh; run the SEER2 calculator to plug in your rates.
+                Higher SEER2 lowers annual cooling cost, but with diminishing returns. Going from the 13.4 SEER2 minimum to 16 saves more per point than going from 18 to 22. The chart uses a 3-ton AC with about 1,500 cooling hours a year at $0.18/kWh; run the SEER2 calculator to plug in your rates.
               </p>
             </div>
             <EfficiencyCurve
               title="SEER2 rating vs annual cooling cost"
-              desc="Line plot showing that annual cooling cost falls sharply as SEER2 increases from 13.4 to 16, then flattens as SEER2 rises further to 22. At SEER2 13.4 (2026 US minimum), the modeled annual cost is about $725; at 15 it's $648; at 16 it's $608; at 18 it's $540; at 20 it's $486; at 22 it's $442. The largest per-point savings come at the low end — the 13.4 to 16 jump saves about $118/year, while the 18 to 22 jump saves about $98/year despite covering twice as many SEER2 points. Model assumptions: 3-ton (36,000 BTU/hr) central AC, 1,500 equivalent full-load cooling hours per year (mid-Atlantic climate), electricity at $0.18 per kWh."
+              desc="Line plot showing that annual cooling cost falls sharply as SEER2 increases from 13.4 to 16, then flattens as SEER2 rises further to 22. At SEER2 13.4 (2026 US minimum), the modeled annual cost is about $725; at 15 it's $648; at 16 it's $608; at 18 it's $540; at 20 it's $486; at 22 it's $442. The largest per-point savings come at the low end, the 13.4 to 16 jump saves about $118/year, while the 18 to 22 jump saves about $98/year despite covering twice as many SEER2 points. Model assumptions: 3-ton (36,000 BTU/hr) central AC, 1,500 equivalent full-load cooling hours per year (mid-Atlantic climate), electricity at $0.18 per kWh."
               xLabel="SEER2 Rating"
               yLabel="Annual Cooling Cost"
               yUnit="$"
@@ -838,7 +838,7 @@ export default async function HomePage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Smart Thermostats</h3>
               <p className="text-gray-600 mb-4">
-                What smart thermostats actually save, and when a $30 programmable does the same job — with the payback math shown.
+                What smart thermostats actually save, and when a $30 programmable does the same job, with the payback math shown.
               </p>
               <div className="space-y-2">
                 <Link href="/programmable-vs-smart-thermostat" className="block text-brand-600 hover:text-brand-700 font-medium">
@@ -945,7 +945,7 @@ export default async function HomePage() {
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We provide HVAC information based on manufacturer data,
-              industry standards, and AHRI-certified efficiency ratings — no affiliate links or paid product placements.
+              industry standards, and AHRI-certified efficiency ratings, no affiliate links or paid product placements.
             </p>
           </div>
           

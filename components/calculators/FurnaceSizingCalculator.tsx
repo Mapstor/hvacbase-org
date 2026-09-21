@@ -394,7 +394,7 @@ export default function FurnaceSizingCalculator() {
         </div>
       </section>
 
-      {/* Section 2 — Climate */}
+      {/* Section 2, Climate */}
       <section>
         <SectionHeader step={2} title="Your climate" subtitle="Local winter severity and sun" Icon={Snowflake} accent={ACCENT} />
 
@@ -665,14 +665,14 @@ export default function FurnaceSizingCalculator() {
             This calc uses industry rule-of-thumb BTU-per-square-foot sizing that reflects a
             typical <strong>existing-home replacement</strong>. New or recently-built tight homes
             (IRC-2018 or later, blower-door-tested, spray-foam or Low-E triple-pane envelope) often
-            need <strong>40–60% less</strong> heating capacity than this estimate suggests — real
+            need <strong>40–60% less</strong> heating capacity than this estimate suggests, real
             Manual J on a tight new build in a cold climate can land at 12–20 BTU/sqft, not 45–60.
           </p>
           <p>
             Real residential load calculations measure each room, every window's orientation,
             the home's air leakage rate (ACH50), and local 99% design temperatures. Have a
             licensed HVAC contractor run a proper <strong>ACCA Manual J</strong> before purchasing
-            equipment — especially for new construction, for a result near a size boundary, or
+            equipment, especially for new construction, for a result near a size boundary, or
             above 120,000 BTU.
           </p>
         </DisclaimerBox>

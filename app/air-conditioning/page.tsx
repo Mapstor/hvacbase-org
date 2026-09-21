@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Air Conditioning Guides, Calculators & Reviews',
-  description: 'Complete air conditioning resource center: BTU calculators, sizing guides, energy efficiency ratings, and troubleshooting help — educational tools and primary-sourced guidance.',
+  description: 'Complete air conditioning resource center: BTU calculators, sizing guides, energy efficiency ratings, and troubleshooting help, educational tools and primary-sourced guidance.',
   alternates: {
     canonical: 'https://www.hvacbase.org/air-conditioning',
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'In-depth AC guides, sizing calculators, and efficiency comparisons grounded in AHRI-certified data.',
     url: 'https://www.hvacbase.org/air-conditioning',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Air Conditioning' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Air Conditioning' }],
   },
   twitter: {
     card: 'summary_large_image',

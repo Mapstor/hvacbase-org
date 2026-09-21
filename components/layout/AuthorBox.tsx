@@ -10,7 +10,7 @@ const AUTHOR_BYLINE = `${AUTHOR_NAME}, BSc Physics`;
 const AUTHOR_PHOTO_ALT = `${AUTHOR_NAME}, founder of HVACBase`;
 const AUTHOR_PHOTO_SRC = '/authors/marko-visic.jpg';
 const AUTHOR_BIO =
-  'Marko Visic holds a BSc in Physics from the Faculty of Mathematics and Physics, University of Ljubljana, where he focused on thermodynamics and heat transfer — the physics behind how heat pumps, air conditioners, insulation, and airflow actually work. He founded HVACBase to explain HVAC from first principles, using manufacturer documentation and AHRI-certified specifications.';
+  'Marko Visic holds a BSc in Physics from the Faculty of Mathematics and Physics, University of Ljubljana, where he focused on thermodynamics and heat transfer, the physics behind how heat pumps, air conditioners, insulation, and airflow actually work. He founded HVACBase to explain HVAC from first principles, using manufacturer documentation and AHRI-certified specifications.';
 
 interface AuthorBoxProps {
   variant?: 'inline' | 'card';

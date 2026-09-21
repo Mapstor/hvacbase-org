@@ -138,8 +138,8 @@ export default function LargeRoomPortableACCalculator() {
   }, [sqft, ceiling, sun, ins, win, clm, people, heatSources]);
 
   const fit =
-    calc.tooLarge ? { tone: 'bad' as const, text: 'Above 18,000 BTU — go window or mini-split' } :
-    sqft >= 700 ? { tone: 'warn' as const, text: 'Large for portable — mini-split may be better long-term' } :
+    calc.tooLarge ? { tone: 'bad' as const, text: 'Above 18,000 BTU, go window or mini-split' } :
+    sqft >= 700 ? { tone: 'warn' as const, text: 'Large for portable, mini-split may be better long-term' } :
     calc.needsMultiple ? { tone: 'ok' as const, text: 'Dual-hose recommended for efficiency' } :
     { tone: 'good' as const, text: 'Portable AC works for this size' };
 
@@ -231,7 +231,7 @@ export default function LargeRoomPortableACCalculator() {
             ) : (
               <>
                 Sized for <strong>{fmt(Math.round(calc.portableAdjusted))} BTU</strong> after the +30% portable-AC efficiency penalty.
-                Pulls <strong>{calc.idealUnit.power}W</strong> ({calc.idealUnit.amps}A){calc.requiresDedicated && ' — dedicated 15A circuit'}.
+                Pulls <strong>{calc.idealUnit.power}W</strong> ({calc.idealUnit.amps}A){calc.requiresDedicated && ', dedicated 15A circuit'}.
                 {calc.needsMultiple && ' Choose a dual-hose model for 40% better efficiency.'}
               </>
             )
@@ -295,11 +295,11 @@ export default function LargeRoomPortableACCalculator() {
 
         <DisclaimerBox title="Portable AC reality checks">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Portable ACs lose 30% of their nameplate cooling to hose heat reintroducing warm air — built into calc</li>
+            <li>Portable ACs lose 30% of their nameplate cooling to hose heat reintroducing warm air, built into calc</li>
             <li>Dual-hose units (one in, one out) eliminate this and gain 40% efficiency, but cost $200–$300 more</li>
-            <li>Above 700 sq ft, a window AC or mini-split is dramatically better — portable struggles to keep up</li>
+            <li>Above 700 sq ft, a window AC or mini-split is dramatically better, portable struggles to keep up</li>
             <li>Position centrally, use ceiling fans, seal the window kit completely, and clean filters weekly</li>
-            <li>Empty the condensate tank daily in humid climates — auto-evaporation models avoid this</li>
+            <li>Empty the condensate tank daily in humid climates, auto-evaporation models avoid this</li>
           </ul>
         </DisclaimerBox>
       </section>

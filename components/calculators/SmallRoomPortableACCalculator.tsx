@@ -146,8 +146,8 @@ export default function SmallRoomPortableACCalculator() {
   }, [sqft, rType, clm, pri, maxBudget, powerCap, noiseCap]);
 
   const fit =
-    calc.suitable.length === 0 ? { tone: 'bad' as const, text: 'No unit matches all constraints — relax budget/noise/power' } :
-    calc.isUltraCompact ? { tone: 'good' as const, text: 'Ultra-compact — fits anywhere' } :
+    calc.suitable.length === 0 ? { tone: 'bad' as const, text: 'No unit matches all constraints, relax budget/noise/power' } :
+    calc.isUltraCompact ? { tone: 'good' as const, text: 'Ultra-compact, fits anywhere' } :
     { tone: 'good' as const, text: `${calc.suitable.length} suitable models match constraints` };
 
   const r = calc.recommended.unit;
@@ -185,7 +185,7 @@ export default function SmallRoomPortableACCalculator() {
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Top priority
-              <InfoTip label="priority">Determines which model wins when multiple meet your constraints — most-compact, quietest, most-efficient, or cheapest.</InfoTip>
+              <InfoTip label="priority">Determines which model wins when multiple meet your constraints, most-compact, quietest, most-efficient, or cheapest.</InfoTip>
             </label>
             <Segmented value={priority} onChange={setPriority} options={priorityOptions} ariaLabel="Priority" accent={ACCENT} />
           </div>
@@ -308,18 +308,18 @@ export default function SmallRoomPortableACCalculator() {
               <div className="flex justify-between font-semibold text-blue-900"><span>Your unit</span><span>{r.noise} dB</span></div>
             </div>
             {r.noise <= 50 && <p className="text-[11px] text-blue-800 mt-2">Quiet enough for sleeping or focus work.</p>}
-            {r.noise > 50 && r.noise <= 55 && <p className="text-[11px] text-amber-800 mt-2">Noticeable background — fine for TV rooms, may bother light sleepers.</p>}
+            {r.noise > 50 && r.noise <= 55 && <p className="text-[11px] text-amber-800 mt-2">Noticeable background, fine for TV rooms, may bother light sleepers.</p>}
           </div>
         </div>
 
         <DisclaimerBox title="Small-room cooling tips">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Position near a window for the shortest exhaust hose run — every foot of hose loses cooling</li>
-            <li>Use blackout curtains during peak sun hours — solar gain through windows = 20–40% of cooling load</li>
-            <li>Run a small fan to circulate cool air — feels 4–6°F cooler at the same temperature</li>
+            <li>Position near a window for the shortest exhaust hose run, every foot of hose loses cooling</li>
+            <li>Use blackout curtains during peak sun hours, solar gain through windows = 20–40% of cooling load</li>
+            <li>Run a small fan to circulate cool air, feels 4–6°F cooler at the same temperature</li>
             <li>For bedrooms: set a timer to start 30 min before bedtime so the room is pre-cooled</li>
-            <li>For dorms: check policies — some ban portable ACs entirely or require window-AC permits</li>
-            <li>If you have window-AC option, take it — window units are 30–40% more efficient + quieter for the same BTU</li>
+            <li>For dorms: check policies, some ban portable ACs entirely or require window-AC permits</li>
+            <li>If you have window-AC option, take it, window units are 30–40% more efficient + quieter for the same BTU</li>
           </ul>
         </DisclaimerBox>
       </section>

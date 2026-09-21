@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Heating Systems Guides, Calculators & Reviews',
-  description: 'Comprehensive heating resource center: furnace sizing, space heater guides, energy efficiency ratings, and troubleshooting help — educational tools and primary-sourced guidance.',
+  description: 'Comprehensive heating resource center: furnace sizing, space heater guides, energy efficiency ratings, and troubleshooting help, educational tools and primary-sourced guidance.',
   alternates: {
     canonical: 'https://www.hvacbase.org/heating',
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'In-depth heating guides, sizing calculators, and manufacturer-spec efficiency comparisons.',
     url: 'https://www.hvacbase.org/heating',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Heating Systems' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Heating Systems' }],
   },
   twitter: {
     card: 'summary_large_image',

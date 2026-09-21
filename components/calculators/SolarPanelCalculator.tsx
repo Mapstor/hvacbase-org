@@ -41,9 +41,9 @@ const locations = [
 ];
 
 const panelTypes = [
-  { value: 'monocrystalline', name: 'Monocrystalline', summary: '20% efficient — most common', tier: 'High', efficiency: 0.20, costPerWatt: 3.00 },
-  { value: 'polycrystalline', name: 'Polycrystalline', summary: '18% efficient — older tech', tier: 'Mid', efficiency: 0.18, costPerWatt: 2.50 },
-  { value: 'thin-film', name: 'Thin film', summary: '12% efficient — flexible/cheap', tier: 'Low', efficiency: 0.12, costPerWatt: 2.00 },
+  { value: 'monocrystalline', name: 'Monocrystalline', summary: '20% efficient, most common', tier: 'High', efficiency: 0.20, costPerWatt: 3.00 },
+  { value: 'polycrystalline', name: 'Polycrystalline', summary: '18% efficient, older tech', tier: 'Mid', efficiency: 0.18, costPerWatt: 2.50 },
+  { value: 'thin-film', name: 'Thin film', summary: '12% efficient, flexible/cheap', tier: 'Low', efficiency: 0.12, costPerWatt: 2.00 },
 ];
 
 const DEFAULTS = {
@@ -129,10 +129,10 @@ export default function SolarPanelCalculator() {
   }, [bill, rate, loc, panel, roof, shading, sysEff, creditPct]);
 
   const fit =
-    calc.spaceUtilization > 100 ? { tone: 'bad' as const, text: 'Roof too small — need ground mount' } :
-    calc.paybackYears <= 8 ? { tone: 'good' as const, text: 'Excellent payback — great investment' } :
+    calc.spaceUtilization > 100 ? { tone: 'bad' as const, text: 'Roof too small, need ground mount' } :
+    calc.paybackYears <= 8 ? { tone: 'good' as const, text: 'Excellent payback, great investment' } :
     calc.paybackYears <= 12 ? { tone: 'good' as const, text: 'Good investment' } :
-    calc.paybackYears <= 18 ? { tone: 'ok' as const, text: 'Long payback — wait for incentives' } :
+    calc.paybackYears <= 18 ? { tone: 'ok' as const, text: 'Long payback, wait for incentives' } :
     { tone: 'warn' as const, text: 'Marginal economics in your area' };
 
   return (
@@ -205,7 +205,7 @@ export default function SolarPanelCalculator() {
         <div className="max-w-xs">
           <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
             Federal tax credit
-            <InfoTip label="federal solar credit">The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA) — 2026 installs are not eligible. Enter a credit % only if your system was placed in service in 2025 or earlier.</InfoTip>
+            <InfoTip label="federal solar credit">The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA), 2026 installs are not eligible. Enter a credit % only if your system was placed in service in 2025 or earlier.</InfoTip>
             <span className="ml-auto text-sm font-semibold text-emerald-700">{creditPct}%</span>
           </label>
           <input type="range" min={0} max={30} step={1} value={federalCreditPct} onChange={(e) => setFederalCreditPct(e.target.value)} className="w-full accent-emerald-600" aria-label="Federal tax credit percent" />
@@ -302,7 +302,7 @@ export default function SolarPanelCalculator() {
                 <div className="flex justify-between text-amber-700"><span>Still need from grid</span><strong>{fmt(Math.round(calc.remainingUsage))} kWh/mo</strong></div>
               )}
             </div>
-            <p className="text-[11px] text-gray-600 mt-2">{calc.netMetering ? 'Surplus — earns net-metering credits at most utilities.' : 'Partial offset — pair with battery storage for self-consumption.'}</p>
+            <p className="text-[11px] text-gray-600 mt-2">{calc.netMetering ? 'Surplus, earns net-metering credits at most utilities.' : 'Partial offset, pair with battery storage for self-consumption.'}</p>
           </div>
 
           <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4">
@@ -320,9 +320,9 @@ export default function SolarPanelCalculator() {
 
         <DisclaimerBox title="Solar economics caveats">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA) — 2026 installs are not eligible, so the credit defaults to 0%. Enter a credit % only for a system placed in service in 2025 or earlier.</li>
-            <li>Net metering rates vary by utility — California's NEM 3.0 cut export rates by ~75% vs older systems</li>
-            <li>Roof age matters — replace shingles BEFORE solar install if roof is &gt; 15 yr old (otherwise pay to remove + reinstall panels)</li>
+            <li>The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA), 2026 installs are not eligible, so the credit defaults to 0%. Enter a credit % only for a system placed in service in 2025 or earlier.</li>
+            <li>Net metering rates vary by utility, California's NEM 3.0 cut export rates by ~75% vs older systems</li>
+            <li>Roof age matters, replace shingles BEFORE solar install if roof is &gt; 15 yr old (otherwise pay to remove + reinstall panels)</li>
             <li>Lease vs purchase: purchase + tax credit yields 2–3× more lifetime savings than leasing in most cases</li>
             <li>Battery storage adds $10–$20k but enables backup power + self-consumption when net metering is weak</li>
           </ul>

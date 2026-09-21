@@ -125,16 +125,16 @@ export default function ThreePhasePowerCalculator() {
 
   const fit =
     calc.realPower === 0 ? { tone: 'warn' as const, text: 'Enter voltage + current' } :
-    pf >= 0.95 ? { tone: 'good' as const, text: 'Excellent PF — efficient industrial load' } :
+    pf >= 0.95 ? { tone: 'good' as const, text: 'Excellent PF, efficient industrial load' } :
     pf >= 0.85 ? { tone: 'good' as const, text: 'Good PF for motor-heavy loads' } :
-    pf >= 0.75 ? { tone: 'ok' as const, text: 'Marginal PF — utility may apply demand penalty' } :
-                 { tone: 'warn' as const, text: 'Poor PF — install correction capacitors' };
+    pf >= 0.75 ? { tone: 'ok' as const, text: 'Marginal PF, utility may apply demand penalty' } :
+                 { tone: 'warn' as const, text: 'Poor PF, install correction capacitors' };
 
   return (
     <CalcShell
       Icon={Zap}
       title="Three-Phase Power Calculator"
-      subtitle="P = √3 × V × I × PF — full electrical analysis for industrial systems."
+      subtitle="P = √3 × V × I × PF, full electrical analysis for industrial systems."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -315,8 +315,8 @@ export default function ThreePhasePowerCalculator() {
               <div className="flex justify-between"><span>Per year (365 days)</span><strong>{fmt(Math.round(calc.yearlyKWh))} kWh · ${fmtMoney(calc.yearlyCost)}</strong></div>
             </div>
             <p className="text-[11px] text-gray-600 mt-2 leading-snug">
-              At <strong>${rate.toFixed(2)}/kWh</strong>. Costs assume 24/7 continuous operation — adjust by your actual duty cycle.
-              Commercial/industrial accounts also pay <strong>demand charges</strong> (kW peak) that this calculator does not model — low PF amplifies these.
+              At <strong>${rate.toFixed(2)}/kWh</strong>. Costs assume 24/7 continuous operation, adjust by your actual duty cycle.
+              Commercial/industrial accounts also pay <strong>demand charges</strong> (kW peak) that this calculator does not model, low PF amplifies these.
             </p>
           </div>
 
@@ -350,35 +350,35 @@ export default function ThreePhasePowerCalculator() {
         <div className="bg-white rounded-xl border border-red-200 p-4">
           <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
             <AlertTriangle className="w-4 h-4 text-red-600" />
-            Wire, overcurrent protection, and voltage-drop sizing — follow NEC by a qualified person
+            Wire, overcurrent protection, and voltage-drop sizing, follow NEC by a qualified person
           </h4>
           <p className="text-xs text-gray-700 leading-relaxed">
             The <strong>line current</strong> shown above ({calc.lineCurrent.toFixed(1)}A at {mode === 'line' ? volts : Math.round(calc.lineVoltage)}V L-L) is
             the correct starting input for sizing your conductors and protective devices. Use it against the actual code sections
-            for your installation — <strong>this calculator deliberately does not emit a specific wire gauge or breaker size.</strong>
+            for your installation, <strong>this calculator deliberately does not emit a specific wire gauge or breaker size.</strong>
           </p>
           <ul className="mt-2 space-y-1 text-xs text-gray-700 list-disc list-outside ml-5 leading-relaxed">
-            <li><strong>NEC 310.16</strong> — ampacity of insulated conductors (copper vs aluminum, 60/75/90°C insulation, ambient temp)</li>
-            <li><strong>NEC 310.15(B)</strong> — ambient temperature correction factors (installations above 30°C ambient derate)</li>
-            <li><strong>NEC 310.15(C)</strong> — adjustment for more than three current-carrying conductors bundled or in raceway</li>
-            <li><strong>NEC 240.4(D)</strong> — small-conductor rules override the ampacity table: 14 AWG max 15A, 12 AWG max 20A, 10 AWG max 30A regardless of insulation temperature rating</li>
-            <li><strong>NEC 430.22</strong> — motor branch circuit conductors must be sized at <strong>125% × motor full-load current</strong>, not the raw current shown above</li>
-            <li><strong>NEC 210.19 / 215.2</strong> — voltage drop should be ≤3% for branch circuits, ≤5% total feeder + branch</li>
+            <li><strong>NEC 310.16</strong>, ampacity of insulated conductors (copper vs aluminum, 60/75/90°C insulation, ambient temp)</li>
+            <li><strong>NEC 310.15(B)</strong>, ambient temperature correction factors (installations above 30°C ambient derate)</li>
+            <li><strong>NEC 310.15(C)</strong>, adjustment for more than three current-carrying conductors bundled or in raceway</li>
+            <li><strong>NEC 240.4(D)</strong>, small-conductor rules override the ampacity table: 14 AWG max 15A, 12 AWG max 20A, 10 AWG max 30A regardless of insulation temperature rating</li>
+            <li><strong>NEC 430.22</strong>, motor branch circuit conductors must be sized at <strong>125% × motor full-load current</strong>, not the raw current shown above</li>
+            <li><strong>NEC 210.19 / 215.2</strong>, voltage drop should be ≤3% for branch circuits, ≤5% total feeder + branch</li>
           </ul>
           <p className="text-xs text-gray-700 leading-relaxed mt-2">
-            Industrial 3-phase installations require an electrical engineer's stamp for permit review in most jurisdictions —
+            Industrial 3-phase installations require an electrical engineer's stamp for permit review in most jurisdictions, 
             do not act on a rule-of-thumb gauge from any calculator for permanent 480V/600V work.
           </p>
         </div>
 
         <DisclaimerBox title="Three-phase electrical notes">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Three-phase math assumes <strong>balanced loads</strong> — if currents differ by &gt;5% across phases, use per-phase analysis</li>
-            <li>Motor inrush (starting) current is 3–6× FLA for 1–10 seconds — sized conductors AND breakers must handle this per NEC 430</li>
-            <li>Low PF triggers utility demand charges + larger conductor sizing — PF correction capacitors usually pay back in 1–3 yr at industrial scale</li>
-            <li>Energy figures assume continuous 24/7 operation — adjust by your actual duty cycle for real bill impact</li>
+            <li>Three-phase math assumes <strong>balanced loads</strong>, if currents differ by &gt;5% across phases, use per-phase analysis</li>
+            <li>Motor inrush (starting) current is 3–6× FLA for 1–10 seconds, sized conductors AND breakers must handle this per NEC 430</li>
+            <li>Low PF triggers utility demand charges + larger conductor sizing, PF correction capacitors usually pay back in 1–3 yr at industrial scale</li>
+            <li>Energy figures assume continuous 24/7 operation, adjust by your actual duty cycle for real bill impact</li>
             <li>Costs use your entered rate; commercial/industrial accounts also pay demand charges (kW peak) not modeled here</li>
-            <li>For critical work, get a licensed electrical engineer's stamp — this calculator sizes power, not conductors</li>
+            <li>For critical work, get a licensed electrical engineer's stamp, this calculator sizes power, not conductors</li>
           </ul>
         </DisclaimerBox>
       </section>

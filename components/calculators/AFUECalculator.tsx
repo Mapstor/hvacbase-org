@@ -184,10 +184,10 @@ export default function AFUECalculator() {
   const isUpgrade = nxt.afue > cur.afue;
   const fit =
     !isUpgrade ? { tone: 'warn' as const, text: 'New AFUE must exceed current to show savings' } :
-    calc.percentSavings >= 25 ? { tone: 'good' as const, text: 'Massive savings — strong upgrade' } :
+    calc.percentSavings >= 25 ? { tone: 'good' as const, text: 'Massive savings, strong upgrade' } :
     calc.percentSavings >= 15 ? { tone: 'good' as const, text: 'Strong upgrade' } :
     calc.percentSavings >= 5  ? { tone: 'ok' as const, text: 'Meaningful savings' } :
-                                { tone: 'warn' as const, text: 'Modest improvement — comfort + reliability matter too' };
+                                { tone: 'warn' as const, text: 'Modest improvement, comfort + reliability matter too' };
 
   return (
     <CalcShell
@@ -247,7 +247,7 @@ export default function AFUECalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Climate zone
               <InfoTip label="climate">
-                Pick the row whose example cities match yours. HDD (heating degree-days, base 65°F) is the physical driver — the calc multiplies your home's heat-loss coefficient by HDD × 24 hr/day to get annual heating BTU.
+                Pick the row whose example cities match yours. HDD (heating degree-days, base 65°F) is the physical driver, the calc multiplies your home's heat-loss coefficient by HDD × 24 hr/day to get annual heating BTU.
               </InfoTip>
             </label>
             <CardChoice value={climate} onChange={setClimate} options={climateOptions} ariaLabel="Climate" accent={ACCENT} columns={5} />
@@ -296,11 +296,11 @@ export default function AFUECalculator() {
             <>
               Upgrading from {cur.afue}% → {nxt.afue}% AFUE saves {fmt(Math.max(Math.round(calc.thermsSaved), 0))} therms/year.
               Incremental cost vs an 80% code-min replacement:{' '}
-              <strong>{calc.incrementalCost > 0 ? `$${fmtMoney(calc.incrementalCost)}` : 'none — same tier'}</strong>{' · '}
+              <strong>{calc.incrementalCost > 0 ? `$${fmtMoney(calc.incrementalCost)}` : 'none, same tier'}</strong>{' · '}
               payback in{' '}
               <strong>
                 {calc.incrementalCost === 0 ? 'immediate (no premium)' :
-                 calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : '—'}
+                 calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : ', '}
               </strong>.
             </>
           }
@@ -399,9 +399,9 @@ export default function AFUECalculator() {
             <li>Annual load uses the <strong>degree-day rule of thumb</strong> (UA × HDD × 24 with UA = 0.25 × sqft, a code-built IRC-2018+ tight-envelope assumption). Older / leaky homes can use <strong>50–100% more gas</strong> for the same climate; deep-retrofit passive-house builds use less. Get an <strong>ACCA Manual J</strong> or blower-door test for a real UA.</li>
             <li>Lab AFUE is a steady-state rating. Real seasonal efficiency runs lower when a furnace is oversized and short-cycles.</li>
             <li>Condensing furnaces (90%+) only deliver their full rating when return-air temp is below 130°F. Hot returns kill condensing efficiency.</li>
-            <li>Above 95% AFUE, every 1% gain costs disproportionately more — diminishing returns set in.</li>
+            <li>Above 95% AFUE, every 1% gain costs disproportionately more, diminishing returns set in.</li>
             <li>A modulating two-stage furnace at 95% AFUE often outperforms a single-stage 97% in real-world comfort and total bills.</li>
-            <li>Payback compares incremental cost (extra premium over an 80% AFUE code-min replacement) — if you're just replacing a working furnace with no upgrade, the "payback" question doesn't apply.</li>
+            <li>Payback compares incremental cost (extra premium over an 80% AFUE code-min replacement), if you're just replacing a working furnace with no upgrade, the "payback" question doesn't apply.</li>
           </ul>
         </DisclaimerBox>
       </section>

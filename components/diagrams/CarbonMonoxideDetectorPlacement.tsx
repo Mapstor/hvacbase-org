@@ -50,16 +50,16 @@ function AvoidIcon({ cx, cy, r = 12 }: any) {
 export default function CarbonMonoxideDetectorPlacement({
   caption,
 }: CarbonMonoxideDetectorPlacementProps) {
-  const title = 'CO Detector Placement — 2-Story, 3-Bedroom Home';
+  const title = 'CO Detector Placement | 2-Story, 3-Bedroom Home';
   const desc =
     'Cross-section of a typical two-story, three-bedroom home showing where carbon monoxide (CO) detectors should be installed and where they should not, per NFPA 720. ' +
     'REQUIRED per code: one detector on every habitable level (basement, main floor, upstairs) and one within 10 feet of each bedroom door (shown in the upstairs hallway). ' +
     'HIGH-VALUE additions: within 10 feet of the attached garage entry door on the main floor; within 15 feet of the furnace and near the gas water heater in the basement. ' +
     'MODERATE-VALUE: in the kitchen, but at least 10 feet from any gas cooking appliance. ' +
-    'AVOID zones (red X markers): inside the garage (extreme temperatures and vehicle exhaust cause constant false alarms — place just inside the house near the entry instead), inside bathrooms (humidity damages sensors), within 5 feet of gas cooking appliances (normal cooking causes brief CO spikes that trigger nuisance alarms), near windows or HVAC vents (drafts dilute CO at the sensor before detection), and at floor level (slower response, not a floatation issue). ' +
-    'MOUNTING PHYSICS — critical safety point: CO has a molecular weight of 28, essentially identical to air (average molecular weight 29). CO does NOT rise or sink through a room — it mixes thoroughly with room air through thermal convection. ' +
+    'AVOID zones (red X markers): inside the garage (extreme temperatures and vehicle exhaust cause constant false alarms, place just inside the house near the entry instead), inside bathrooms (humidity damages sensors), within 5 feet of gas cooking appliances (normal cooking causes brief CO spikes that trigger nuisance alarms), near windows or HVAC vents (drafts dilute CO at the sensor before detection), and at floor level (slower response, not a floatation issue). ' +
+    'MOUNTING PHYSICS, critical safety point: CO has a molecular weight of 28, essentially identical to air (average molecular weight 29). CO does NOT rise or sink through a room, it mixes thoroughly with room air through thermal convection. ' +
     'Ceiling placement is preferred not because CO "floats," but for two other reasons: (1) the warm convective plume from a combustion source (furnace, water heater, stove, running vehicle) initially carries CO upward before it mixes with room air, so ceiling-mounted detectors register the plume first; and (2) alarm audibility carries farther from a ceiling-mounted unit, which is critical for waking sleeping occupants. ' +
-    'High-wall mounting within 12 inches of the ceiling is nearly as effective as ceiling placement. Any height is acceptable per UL 2034 — floor level is discouraged solely due to slightly slower response, not because CO stays elevated.';
+    'High-wall mounting within 12 inches of the ceiling is nearly as effective as ceiling placement. Any height is acceptable per UL 2034, floor level is discouraged solely due to slightly slower response, not because CO stays elevated.';
 
   return (
     <figure className="my-8 not-prose">
@@ -143,7 +143,7 @@ export default function CarbonMonoxideDetectorPlacement({
               lineHeight: 1.25,
             }}
           >
-            REQUIRED — within 10 ft of each bedroom door
+            REQUIRED, within 10 ft of each bedroom door
           </div>
         </foreignObject>
 
@@ -220,7 +220,7 @@ export default function CarbonMonoxideDetectorPlacement({
               textAlign: 'center',
             }}
           >
-            HIGH — within 10 ft
+            HIGH, within 10 ft
             <br />
             of garage entry
           </div>
@@ -326,7 +326,7 @@ export default function CarbonMonoxideDetectorPlacement({
               lineHeight: 1.25,
             }}
           >
-            REQUIRED (basement) + HIGH — within 15 ft of furnace &amp; near water heater
+            REQUIRED (basement) + HIGH, within 15 ft of furnace &amp; near water heater
           </div>
         </foreignObject>
 
@@ -355,10 +355,10 @@ export default function CarbonMonoxideDetectorPlacement({
               }}
             >
               <div style={{ fontWeight: 700, marginBottom: 3 }}>
-                Mounting-height physics — often misstated:
+                Mounting-height physics, often misstated:
               </div>
               <div>
-                CO has molecular weight 28, essentially identical to air (~29). CO does <strong>not</strong> rise or sink — it mixes with room air. Ceiling placement is preferred because (1) the warm combustion plume initially carries CO upward before it mixes, and (2) alarm audibility carries farther from a ceiling unit — critical for waking sleeping occupants. <strong>Not</strong> because CO floats.
+                CO has molecular weight 28, essentially identical to air (~29). CO does <strong>not</strong> rise or sink, it mixes with room air. Ceiling placement is preferred because (1) the warm combustion plume initially carries CO upward before it mixes, and (2) alarm audibility carries farther from a ceiling unit, critical for waking sleeping occupants. <strong>Not</strong> because CO floats.
               </div>
             </div>
           </foreignObject>

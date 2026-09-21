@@ -130,9 +130,9 @@ export default function GasVsElectricCalculator() {
   }, [gasBtuPerHr, electricWatts, hours, gP, eR, selected]);
 
   const fit =
-    Math.abs(calc.yearlySavings) < 30 ? { tone: 'ok' as const, text: 'Roughly equal — pick on comfort or fuel availability' } :
-    Math.abs(calc.yearlySavings) < 150 ? { tone: 'good' as const, text: 'Modest difference — convenience may matter more' } :
-                                         { tone: 'good' as const, text: `Clear winner — ${calc.gasCheaper ? 'gas' : 'electric'} saves $${fmtMoney(Math.abs(calc.yearlySavings))}/yr` };
+    Math.abs(calc.yearlySavings) < 30 ? { tone: 'ok' as const, text: 'Roughly equal, pick on comfort or fuel availability' } :
+    Math.abs(calc.yearlySavings) < 150 ? { tone: 'good' as const, text: 'Modest difference, convenience may matter more' } :
+                                         { tone: 'good' as const, text: `Clear winner, ${calc.gasCheaper ? 'gas' : 'electric'} saves $${fmtMoney(Math.abs(calc.yearlySavings))}/yr` };
 
   return (
     <CalcShell
@@ -144,7 +144,7 @@ export default function GasVsElectricCalculator() {
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
       {/* Section 1 — Appliance */}
       <section>
-        <SectionHeader step={1} title="Pick an appliance" subtitle="Common defaults ship with each — override below if you have specs" Icon={Flame} accent={ACCENT} />
+        <SectionHeader step={1} title="Pick an appliance" subtitle="Common defaults ship with each | override below if you have specs" Icon={Flame} accent={ACCENT} />
 
         <CardChoice value={applianceType} onChange={setApplianceType} options={applianceTypes} ariaLabel="Appliance type" accent={ACCENT} />
       </section>
@@ -290,7 +290,7 @@ export default function GasVsElectricCalculator() {
               </div>
             </div>
             <p className="text-[11px] text-gray-600 mt-2 leading-snug">
-              Based on EPA eGRID 2022 US average ({GRID_LB_CO2_PER_MWH} lbs CO₂/MWh — down ~30% from the 2010 vintage as coal retired and gas/renewables built out). Renewable-heavy grids (CA, WA) tip the balance further toward electric; remaining coal grids (WV, KY) tip toward gas.
+              Based on EPA eGRID 2022 US average ({GRID_LB_CO2_PER_MWH} lbs CO₂/MWh, down ~30% from the 2010 vintage as coal retired and gas/renewables built out). Renewable-heavy grids (CA, WA) tip the balance further toward electric; remaining coal grids (WV, KY) tip toward gas.
             </p>
           </div>
 
@@ -325,7 +325,7 @@ export default function GasVsElectricCalculator() {
 
         <DisclaimerBox title="What this comparison can't tell you">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Heat pumps change the game — for water heaters and home heating, heat pumps deliver 2–3× the heat per kWh, often beating gas on cost AND CO₂</li>
+            <li>Heat pumps change the game, for water heaters and home heating, heat pumps deliver 2–3× the heat per kWh, often beating gas on cost AND CO₂</li>
             <li>Connection fees: switching from gas to all-electric saves the monthly gas meter fee ($15–$30/mo in most utilities)</li>
             <li>Resale value: in some markets, gas hookup adds value; in CA and parts of NE, all-electric adds value</li>
             <li>Cooking preference: chefs often pay for gas comfort; induction matches gas on responsiveness for a fraction of the energy</li>

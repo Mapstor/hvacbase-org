@@ -50,7 +50,7 @@ function BatteryIcon() {
           }}
         >
           <div style={{ fontSize: 17, fontWeight: 700, textShadow: '0 1px 2px rgba(0,0,0,0.35)' }}>
-            Tesla Powerwall 3 — 13.5 kWh usable capacity
+            Tesla Powerwall 3, 13.5 kWh usable capacity
           </div>
           <div style={{ fontSize: 13, fontWeight: 600, textShadow: '0 1px 2px rgba(0,0,0,0.35)', marginTop: 2 }}>
             11.5 kW continuous · 18.5 kW peak (enables central-AC compressor startup)
@@ -176,13 +176,13 @@ function Scenario({ row }: { row: ScenarioRow }) {
 }
 
 export default function BatteryRuntimeByLoad({ caption }: BatteryRuntimeByLoadProps) {
-  const title = 'Home Battery Runtime by Load Level — Tesla Powerwall 3 (13.5 kWh)';
+  const title = 'Home Battery Runtime by Load Level | Tesla Powerwall 3 (13.5 kWh)';
   const desc =
     'How long a single Tesla Powerwall 3 (13.5 kWh usable capacity, 11.5 kW continuous / 18.5 kW peak output) sustains three common backup-load scenarios, per the article. ' +
-    'ESSENTIAL LOADS ONLY (refrigerator, LED lighting, Wi-Fi, sump pump, phone charging — no HVAC): 5-8 kWh/day, article states 1.5-2.5 days of runtime (36-60 hours). ' +
+    'ESSENTIAL LOADS ONLY (refrigerator, LED lighting, Wi-Fi, sump pump, phone charging, no HVAC): 5-8 kWh/day, article states 1.5-2.5 days of runtime (36-60 hours). ' +
     'ESSENTIAL + WINDOW AC: 10-15 kWh/day, article states approximately 1 day of runtime (~24 hours). ' +
-    'WHOLE HOME INCLUDING CENTRAL AC: 25-40 kWh/day. Article states a single Powerwall is insufficient — you need 2-3 batteries or battery+solar to sustain a whole home. As a rough sanity check, a single 13.5 kWh battery divided by the article-cited 25-40 kWh/day daily load equals about 8-13 hours — shown as a derived secondary reference; the article-cited "need 2-3 batteries" is the primary guidance. ' +
-    'Continuous and peak output matter as much as capacity. A central AC compressor draws 3,000 watts running and 9,000-12,000 watts at startup — batteries with only 5 kW continuous output cannot start a central AC. The Powerwall 3\'s 11.5 kW continuous / 18.5 kW peak spec is what enables the whole-home-plus-central-AC scenario at all.';
+    'WHOLE HOME INCLUDING CENTRAL AC: 25-40 kWh/day. Article states a single Powerwall is insufficient, you need 2-3 batteries or battery+solar to sustain a whole home. As a rough sanity check, a single 13.5 kWh battery divided by the article-cited 25-40 kWh/day daily load equals about 8-13 hours, shown as a derived secondary reference; the article-cited "need 2-3 batteries" is the primary guidance. ' +
+    'Continuous and peak output matter as much as capacity. A central AC compressor draws 3,000 watts running and 9,000-12,000 watts at startup, batteries with only 5 kW continuous output cannot start a central AC. The Powerwall 3\'s 11.5 kW continuous / 18.5 kW peak spec is what enables the whole-home-plus-central-AC scenario at all.';
 
   return (
     <figure className="my-8 not-prose">
@@ -205,7 +205,7 @@ export default function BatteryRuntimeByLoad({ caption }: BatteryRuntimeByLoadPr
           fill={DARK}
           fontFamily={FONT}
         >
-          Home Battery Runtime by Load — Tesla Powerwall 3 (13.5 kWh)
+          Home Battery Runtime by Load, Tesla Powerwall 3 (13.5 kWh)
         </text>
 
         <BatteryIcon />
@@ -313,7 +313,7 @@ export default function BatteryRuntimeByLoad({ caption }: BatteryRuntimeByLoadPr
                 Continuous kW output matters as much as capacity kWh
               </div>
               <div>
-                Central AC draws ~3,000 W running and 9,000-12,000 W at startup. Batteries rated at only 5 kW continuous output <strong>cannot start a central AC</strong>. Powerwall 3&#x27;s 11.5 kW continuous / 18.5 kW peak is what enables the whole-home + central-AC scenario at all — not just its 13.5 kWh capacity.
+                Central AC draws ~3,000 W running and 9,000-12,000 W at startup. Batteries rated at only 5 kW continuous output <strong>cannot start a central AC</strong>. Powerwall 3&#x27;s 11.5 kW continuous / 18.5 kW peak is what enables the whole-home + central-AC scenario at all, not just its 13.5 kWh capacity.
               </div>
             </div>
           </foreignObject>

@@ -57,14 +57,14 @@ const batterySizes = [
 ];
 
 const commonLoads = [
-  { value: 'led-lights', name: 'LED strip (5m)', summary: '12V DC — 24W', watts: 24, isAc: false, Icon: Lightbulb },
-  { value: 'car-fridge', name: '12V fridge', summary: '12V DC — 45W', watts: 45, isAc: false, Icon: Refrigerator },
-  { value: 'fan', name: '12V fan', summary: '12V DC — 15W', watts: 15, isAc: false, Icon: Wind },
-  { value: 'water-pump', name: 'Water pump', summary: '12V DC — 60W', watts: 60, isAc: false, Icon: Wind },
-  { value: 'radio', name: 'CB / ham radio', summary: '12V DC — 25W', watts: 25, isAc: false, Icon: Wind },
-  { value: 'inverter-small', name: '300W inverter load', summary: 'AC via inverter — 300W', watts: 300, isAc: true, Icon: Zap },
-  { value: 'inverter-medium', name: '600W inverter load', summary: 'AC via inverter — 600W', watts: 600, isAc: true, Icon: Zap },
-  { value: 'winch', name: '12V winch (peak)', summary: '12V DC — 1200W surge', watts: 1200, isAc: false, Icon: Wind },
+  { value: 'led-lights', name: 'LED strip (5m)', summary: '12V DC, 24W', watts: 24, isAc: false, Icon: Lightbulb },
+  { value: 'car-fridge', name: '12V fridge', summary: '12V DC, 45W', watts: 45, isAc: false, Icon: Refrigerator },
+  { value: 'fan', name: '12V fan', summary: '12V DC, 15W', watts: 15, isAc: false, Icon: Wind },
+  { value: 'water-pump', name: 'Water pump', summary: '12V DC, 60W', watts: 60, isAc: false, Icon: Wind },
+  { value: 'radio', name: 'CB / ham radio', summary: '12V DC, 25W', watts: 25, isAc: false, Icon: Wind },
+  { value: 'inverter-small', name: '300W inverter load', summary: 'AC via inverter, 300W', watts: 300, isAc: true, Icon: Zap },
+  { value: 'inverter-medium', name: '600W inverter load', summary: 'AC via inverter, 600W', watts: 600, isAc: true, Icon: Zap },
+  { value: 'winch', name: '12V winch (peak)', summary: '12V DC, 1200W surge', watts: 1200, isAc: false, Icon: Wind },
 ];
 
 // Charge-time efficiency factor covers the CC-CV taper (last 15-20% of a charge
@@ -220,14 +220,14 @@ export default function Battery12VWattsCalculator() {
 
   const fit =
     !calc.canMeet ? { tone: 'bad' as const, text: `Need ${calc.parallelBatteries}× battery in parallel for ${requestedHours} hr` } :
-    calc.runtimeHours >= requestedHours * 2 ? { tone: 'good' as const, text: 'Excellent reserve — 2× your need' } :
+    calc.runtimeHours >= requestedHours * 2 ? { tone: 'good' as const, text: 'Excellent reserve, 2× your need' } :
     { tone: 'good' as const, text: 'Battery covers requested runtime' };
 
   return (
     <CalcShell
       Icon={Battery}
       title="12V Battery Watts Calculator"
-      subtitle="Runtime estimate for 12V DC systems — planning tool, not a design specification."
+      subtitle="Runtime estimate for 12V DC systems, planning tool, not a design specification."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -289,7 +289,7 @@ export default function Battery12VWattsCalculator() {
             </label>
             <input type="range" min={20} max={100} step={5} value={depthOfDischarge} onChange={(e) => setDepthOfDischarge(e.target.value)} className="w-full accent-blue-600" aria-label="DOD" />
             <p className="text-xs text-gray-500 mt-1">
-              Default snapped from chemistry above — override if you know what you're doing.
+              Default snapped from chemistry above, override if you know what you're doing.
             </p>
           </div>
           <div>
@@ -307,7 +307,7 @@ export default function Battery12VWattsCalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Operating temperature
               <InfoTip label="temperature">
-                Cold reduces battery capacity — cold is a loss, never a gain. Lithium is more tolerant than lead-acid.
+                Cold reduces battery capacity, cold is a loss, never a gain. Lithium is more tolerant than lead-acid.
                 Approximate anchor points: at 32 °F, lithium delivers ~80% of rated capacity, lead-acid ~65%.
                 At −4 °F, lithium ~60%, lead-acid ~40%.
               </InfoTip>
@@ -395,7 +395,7 @@ export default function Battery12VWattsCalculator() {
                 <strong>{calc.recommendedChargeRateA.toFixed(1)}A</strong>
               </div>
               <div className="flex justify-between py-1.5 border-b border-gray-100">
-                <span>Recharge time (used portion — {dod}% DoD)</span>
+                <span>Recharge time (used portion, {dod}% DoD)</span>
                 <strong>{calc.rechargeUsedPortionHours.toFixed(1)} hr</strong>
               </div>
               <div className="flex justify-between py-1.5">
@@ -405,9 +405,9 @@ export default function Battery12VWattsCalculator() {
             </div>
             <div className="mt-3 p-3 bg-blue-50 rounded text-xs text-blue-900">
               Formula: <code className="bg-blue-100 px-1 rounded">time = (Ah × DoD) / charge amps × 1.15</code>
-              — the 1.15 covers CC-CV taper (last 15–20% of charging slows) plus round-trip charging losses.
+, the 1.15 covers CC-CV taper (last 15–20% of charging slows) plus round-trip charging losses.
               {srcChemistry === 'lithium' && (
-                <> Lithium (LiFePO4) can safely accept up to C/2 (50A on a 100Ah battery) with a matched lithium charger — cut these times ~5×.</>
+                <> Lithium (LiFePO4) can safely accept up to C/2 (50A on a 100Ah battery) with a matched lithium charger, cut these times ~5×.</>
               )}
             </div>
 
@@ -443,36 +443,36 @@ export default function Battery12VWattsCalculator() {
         <div className="bg-white rounded-xl border border-red-200 p-4">
           <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
             <AlertTriangle className="w-4 h-4 text-red-600" />
-            Wire gauge, fuse sizing, and voltage drop — do this by the standard, not a rule of thumb
+            Wire gauge, fuse sizing, and voltage drop, do this by the standard, not a rule of thumb
           </h4>
           <p className="text-xs text-gray-700 leading-relaxed">
             Correct wire gauge and fuse size for a DC circuit depend on the specific cable run length, ambient
             temperature, insulation rating, and whether you follow <strong>NEC 310</strong> (residential /
             general) or <strong>ABYC E-11</strong> (marine, ~40% stricter derating). Voltage drop follows{' '}
-            <code className="bg-gray-100 px-1 rounded">V_drop = 2 × I × L × ρ / A_cmil</code> — length matters, and a
+            <code className="bg-gray-100 px-1 rounded">V_drop = 2 × I × L × ρ / A_cmil</code>, length matters, and a
             lookup that ignores length can push you toward wire that overheats.
           </p>
           <p className="text-xs text-gray-700 leading-relaxed mt-2">
             <strong>Do not size wire or a fuse from this calculator's runtime estimate alone.</strong>
             {' '}Look up your ampacity from an NEC 310.16 or ABYC E-11 wire chart for your specific cable length and
             temperature, and pick a standard fuse size from NEC 240.6(A) that protects the WIRE (not the load).
-            Consult a licensed electrician for anything permanent — undersized wire is a real fire hazard.
+            Consult a licensed electrician for anything permanent, undersized wire is a real fire hazard.
           </p>
           <div className="mt-2 text-[11px] text-gray-500">
-            The <em>load current</em> above ({calc.currentAmps.toFixed(1)}A at 12V) is correct as a starting point —
+            The <em>load current</em> above ({calc.currentAmps.toFixed(1)}A at 12V) is correct as a starting point, 
             it's the input to your wire-sizing chart, not a substitute for one.
           </div>
         </div>
 
-        <DisclaimerBox title="Honest framing — what this calculator is and isn't">
+        <DisclaimerBox title="Honest framing | what this calculator is and isn't">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li><strong>This is a planning estimate, not a design.</strong> Real runtime varies with battery age (down 20–30% at 3–5 years), discharge rate (see Peukert note for lead-acid), and repeated deep-cycling.</li>
-            <li><strong>Lead-acid Peukert:</strong> derate 20–30% for heavy or fast loads (finishing in &lt;5 hr). Lithium (LiFePO4) barely affected — ignore Peukert for lithium.</li>
-            <li><strong>AC loads:</strong> add another 5–10% loss on top of System efficiency for the inverter itself — pure sinewave inverters run 85–90%, cheap modified-sinewave 80% or less.</li>
-            <li><strong>Cold:</strong> capacity numbers here use approximate anchors — get manufacturer capacity-vs-temperature curves for your exact cell for a real answer.</li>
-            <li><strong>Electrical installation:</strong> wire, fuse, and connector sizing follow NEC or ABYC — use those standards or a licensed electrician. This calculator deliberately does not emit specific gauge or fuse numbers.</li>
-            <li><strong>Fuse within 7 inches of the positive battery terminal</strong> — shorts in unfused wire can melt copper.</li>
-            <li><strong>Parallel batteries should be identical age + chemistry</strong> — mismatched batteries kill cycle life.</li>
+            <li><strong>Lead-acid Peukert:</strong> derate 20–30% for heavy or fast loads (finishing in &lt;5 hr). Lithium (LiFePO4) barely affected, ignore Peukert for lithium.</li>
+            <li><strong>AC loads:</strong> add another 5–10% loss on top of System efficiency for the inverter itself, pure sinewave inverters run 85–90%, cheap modified-sinewave 80% or less.</li>
+            <li><strong>Cold:</strong> capacity numbers here use approximate anchors, get manufacturer capacity-vs-temperature curves for your exact cell for a real answer.</li>
+            <li><strong>Electrical installation:</strong> wire, fuse, and connector sizing follow NEC or ABYC, use those standards or a licensed electrician. This calculator deliberately does not emit specific gauge or fuse numbers.</li>
+            <li><strong>Fuse within 7 inches of the positive battery terminal</strong>, shorts in unfused wire can melt copper.</li>
+            <li><strong>Parallel batteries should be identical age + chemistry</strong>, mismatched batteries kill cycle life.</li>
           </ul>
         </DisclaimerBox>
       </section>

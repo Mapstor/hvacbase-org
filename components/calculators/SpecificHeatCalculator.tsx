@@ -303,7 +303,7 @@ export default function SpecificHeatCalculator() {
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'Formula', detail: 'Q = m · c · ΔT', factor: '—' },
+                { label: 'Formula', detail: 'Q = m · c · ΔT', factor: ', ' },
                 { label: 'Material', detail: selected.name, factor: '' },
                 { label: 'Specific heat (c)', detail: 'Energy per kg per °C', factor: `${fmt(specificHeat)} J/kg·°C` },
                 { label: 'Density (ρ)', detail: 'kg per m³', factor: `${fmt(density)} kg/m³` },
@@ -366,10 +366,10 @@ export default function SpecificHeatCalculator() {
 
         <DisclaimerBox title="Use cases + edge cases">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Water has the highest practical specific heat — that's why it dominates HVAC and process heating systems</li>
+            <li>Water has the highest practical specific heat, that's why it dominates HVAC and process heating systems</li>
             <li>Phase changes (water freezing, ice melting) add huge latent-heat terms NOT captured by Q = mcΔT alone</li>
-            <li>Real systems include heat losses through container walls — multiply input energy by 1.1–1.4 for real-world use</li>
-            <li>Specific heat varies slightly with temperature — values used here are room-temp averages, accurate within ±5% for normal HVAC ranges</li>
+            <li>Real systems include heat losses through container walls, multiply input energy by 1.1–1.4 for real-world use</li>
+            <li>Specific heat varies slightly with temperature, values used here are room-temp averages, accurate within ±5% for normal HVAC ranges</li>
             <li>Air has tiny mass per cubic meter (1.225 kg/m³), so heating a room of air takes much less energy than the same volume of water</li>
           </ul>
         </DisclaimerBox>

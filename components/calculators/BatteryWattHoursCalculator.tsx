@@ -221,16 +221,16 @@ export default function BatteryWattHoursCalculator() {
   const isLeadAcidGroup = chemistry.tempFamily === 'lead-acid';
 
   const fit =
-    calc.daysBetweenCharges >= 3 ? { tone: 'good' as const, text: `${calc.daysBetweenCharges.toFixed(1)} days between charges — strong reserve` } :
+    calc.daysBetweenCharges >= 3 ? { tone: 'good' as const, text: `${calc.daysBetweenCharges.toFixed(1)} days between charges, strong reserve` } :
     calc.daysBetweenCharges >= 1 ? { tone: 'good' as const, text: `${calc.daysBetweenCharges.toFixed(1)} days between charges` } :
-    calc.cyclesPerDay > 1        ? { tone: 'bad'  as const, text: `${calc.cyclesPerDay.toFixed(1)} cycles/day — battery dies fast, add capacity` } :
+    calc.cyclesPerDay > 1        ? { tone: 'bad'  as const, text: `${calc.cyclesPerDay.toFixed(1)} cycles/day, battery dies fast, add capacity` } :
                                    { tone: 'ok'   as const, text: 'Adequate for daily use' };
 
   return (
     <CalcShell
       Icon={Battery}
       title="Battery Watt-Hours Calculator"
-      subtitle="Runtime, days-per-charge, cycle life — planning estimate for battery banks."
+      subtitle="Runtime, days-per-charge, cycle life, planning estimate for battery banks."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -266,7 +266,7 @@ export default function BatteryWattHoursCalculator() {
                 Depth of discharge
                 <InfoTip label="DOD">
                   LiFePO4: 80–90% safe. Lithium-ion: 80% for cycle life.
-                  Lead-acid / AGM / Gel: 50% preserves cycle life — deeper cycling drops cycle count dramatically.
+                  Lead-acid / AGM / Gel: 50% preserves cycle life, deeper cycling drops cycle count dramatically.
                 </InfoTip>
                 <span className="ml-auto text-sm font-semibold text-emerald-700">{dod}%</span>
               </label>
@@ -287,7 +287,7 @@ export default function BatteryWattHoursCalculator() {
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 Operating temperature
                 <InfoTip label="temperature">
-                  Cold reduces battery capacity — cold is a loss, never a gain. Lithium tolerates cold better than lead-acid.
+                  Cold reduces battery capacity, cold is a loss, never a gain. Lithium tolerates cold better than lead-acid.
                   Approximate anchor points (per Battery University BU-410):
                   at 32 °F, lithium delivers ~80% of rated capacity, lead-acid ~65%.
                   At −4 °F, lithium ~60%, lead-acid ~40%.
@@ -352,7 +352,7 @@ export default function BatteryWattHoursCalculator() {
               A {volts}V × {ah}Ah {chemistry.name} battery has <strong>{fmt(Math.round(calc.batteryWattHours))} Wh</strong>{' '}
               nominal, <strong>{fmt(Math.round(calc.usableWattHours))} Wh</strong> usable at {dod}% DoD and {tempF}°F.
               After inverter losses, that's <strong>{fmt(Math.round(calc.effectiveWattHours))} Wh</strong> delivered to your{' '}
-              {isCustom ? 'device' : device?.name.toLowerCase()} — enough for <strong>{calc.daysBetweenCharges.toFixed(2)} days</strong>{' '}
+              {isCustom ? 'device' : device?.name.toLowerCase()}, enough for <strong>{calc.daysBetweenCharges.toFixed(2)} days</strong>{' '}
               at {deviceWatts}W × {deviceHours} hr/day, or <strong>{calc.continuousRuntimeHr.toFixed(1)} hours</strong> if you ran it nonstop.
             </>
           }
@@ -417,18 +417,18 @@ export default function BatteryWattHoursCalculator() {
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Estimated lifespan</span><strong>{calc.estimatedLifeYears.toFixed(1)} years</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Round-trip efficiency (charging losses)</span><strong>{(calc.roundTripEfficiency * 100).toFixed(0)}%</strong></div>
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Recommended charger (C/10 universal)</span><strong>{calc.recommendedChargeRateA.toFixed(1)}A</strong></div>
-              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Recharge time (used portion — {dod}% DoD)</span><strong>{calc.rechargeUsedPortionHours.toFixed(1)} hr</strong></div>
+              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Recharge time (used portion, {dod}% DoD)</span><strong>{calc.rechargeUsedPortionHours.toFixed(1)} hr</strong></div>
               <div className="flex justify-between py-1.5"><span>Full charge (0% → 100%)</span><strong>{calc.fullChargeFromEmptyHours.toFixed(1)} hr</strong></div>
             </div>
             <div className="mt-3 p-3 bg-blue-50 rounded text-xs text-blue-900">
-              <div><strong>Round-trip efficiency</strong> is a CHARGE-side loss — energy you have to put IN vs energy that
+              <div><strong>Round-trip efficiency</strong> is a CHARGE-side loss, energy you have to put IN vs energy that
               comes OUT over a full cycle. It sizes your solar array or grid charger, NOT the runtime above (which counts only
-              the inverter loss on discharge — round-tripping it would double-count).</div>
+              the inverter loss on discharge, round-tripping it would double-count).</div>
               <div className="mt-1.5">
-                Formula: <code className="bg-blue-100 px-1 rounded">time = (Ah × DoD) / charge amps × 1.15</code> — the 1.15
+                Formula: <code className="bg-blue-100 px-1 rounded">time = (Ah × DoD) / charge amps × 1.15</code>, the 1.15
                 covers CC-CV taper plus round-trip charging losses.
                 {(chemistry.value === 'lifepo4' || chemistry.value === 'lithium-ion') && (
-                  <> Lithium can safely accept up to C/2 (50A on 100Ah) with a matched charger — cut these times ~5×.</>
+                  <> Lithium can safely accept up to C/2 (50A on 100Ah) with a matched charger, cut these times ~5×.</>
                 )}
               </div>
             </div>
@@ -443,23 +443,23 @@ export default function BatteryWattHoursCalculator() {
             )}
             {calc.estimatedLifeYears >= 10 && calc.cyclesPerDay <= 1 && (
               <div className="mt-3 p-3 bg-emerald-50 rounded text-xs text-emerald-900">
-                ✓ <strong>{calc.estimatedLifeYears.toFixed(1)}-year</strong> expected lifespan — battery is well-sized for this load.
+                ✓ <strong>{calc.estimatedLifeYears.toFixed(1)}-year</strong> expected lifespan, battery is well-sized for this load.
               </div>
             )}
           </div>
         </div>
 
-        <DisclaimerBox title="Honest framing — what this calculator is and isn't">
+        <DisclaimerBox title="Honest framing | what this calculator is and isn't">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li><strong>This is a planning estimate, not a design.</strong> Real values vary with battery age (down 20–30% at 3–5 years), discharge rate (Peukert for lead-acid), and repeated deep-cycling.</li>
-            <li><strong>Cycle ratings assume standard discharge depth</strong>; deeper cycling (especially lead-acid) reduces cycle life significantly — a lead-acid battery cycled to 80% DoD delivers roughly one-third of its rated cycles vs 50% DoD.</li>
+            <li><strong>Cycle ratings assume standard discharge depth</strong>; deeper cycling (especially lead-acid) reduces cycle life significantly, a lead-acid battery cycled to 80% DoD delivers roughly one-third of its rated cycles vs 50% DoD.</li>
             <li><strong>Round-trip efficiency values are approximate ranges</strong> from Battery University / manufacturer datasheets; individual cells vary. LiFePO4 92–96%, lithium-ion 90–95%, lead-acid 75–85%, AGM 80–85%.</li>
             <li><strong>Duty-cycled appliances</strong> (fridges, freezers, well pumps): the number that matters is your 24-hour AVERAGE draw, not the nameplate. The Refrigerator preset uses 52W average (150W nameplate × 35% duty cycle) as a real-world approximation; your fridge could be more or less.</li>
             <li><strong>Microwaves and kettles</strong>: the wattage on the door is COOKING output; wall draw is 40–60% higher. The Microwave preset uses 1,500W input, not the 1,000W plate rating.</li>
-            <li><strong>Cold weather:</strong> capacity anchors here are approximate — get manufacturer capacity-vs-temperature curves for your exact cell for a real answer.</li>
+            <li><strong>Cold weather:</strong> capacity anchors here are approximate, get manufacturer capacity-vs-temperature curves for your exact cell for a real answer.</li>
             <li><strong>For off-grid:</strong> size for 2–3 days of autonomy on top of the daily draw, and match your solar/charge source to the round-trip efficiency (charging losses) figure above.</li>
-            <li><strong>Motors and pumps need 3–5× their running watts at startup</strong> — the inverter must handle the surge, not just the average.</li>
-            <li><strong>Parallel batteries should be identical age + chemistry</strong> — mismatched cells kill cycle life.</li>
+            <li><strong>Motors and pumps need 3–5× their running watts at startup</strong>, the inverter must handle the surge, not just the average.</li>
+            <li><strong>Parallel batteries should be identical age + chemistry</strong>, mismatched cells kill cycle life.</li>
           </ul>
         </DisclaimerBox>
       </section>

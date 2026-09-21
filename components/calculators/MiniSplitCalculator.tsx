@@ -194,8 +194,8 @@ export default function MiniSplitCalculator() {
   const fit =
     calc.totalBTU === 0 ? { tone: 'warn' as const, text: 'Add zones to start' } :
     srcZoneBTUs.length === 1 ? { tone: 'good' as const, text: 'Single-zone system' } :
-    srcZoneBTUs.length <= 3   ? { tone: 'good' as const, text: `${srcZoneBTUs.length}-zone system — ideal multi-zone size` } :
-                                { tone: 'ok' as const, text: `${srcZoneBTUs.length}-zone system — consider two condensers if branches are far apart` };
+    srcZoneBTUs.length <= 3   ? { tone: 'good' as const, text: `${srcZoneBTUs.length}-zone system, ideal multi-zone size` } :
+                                { tone: 'ok' as const, text: `${srcZoneBTUs.length}-zone system, consider two condensers if branches are far apart` };
 
   return (
     <CalcShell
@@ -234,7 +234,7 @@ export default function MiniSplitCalculator() {
                     {index + 1}
                   </span>
                   Zone {index + 1}
-                  <span className="text-xs font-normal text-gray-500">— {zone.zoneType?.name}, {fmt(zone.sqFt)} sq ft</span>
+                  <span className="text-xs font-normal text-gray-500">, {zone.zoneType?.name}, {fmt(zone.sqFt)} sq ft</span>
                 </h4>
                 {zones.length > 1 && (
                   <button
@@ -429,7 +429,7 @@ export default function MiniSplitCalculator() {
             </div>
             <ul className="mt-3 space-y-1 text-[11px] text-gray-600">
               <li>• Varies ±30% by region and house complexity</li>
-              <li>• Federal §25C/§25D credits ended for property placed in service after Dec 31, 2025 (OBBBA) — 2026 installs are not eligible; check state/utility rebates or IRA-funded HEAR/HOMES</li>
+              <li>• Federal §25C/§25D credits ended for property placed in service after Dec 31, 2025 (OBBBA), 2026 installs are not eligible; check state/utility rebates or IRA-funded HEAR/HOMES</li>
               <li>• Typical equipment warranty: 10–12 years parts, 7 years compressor</li>
             </ul>
           </div>
@@ -441,10 +441,10 @@ export default function MiniSplitCalculator() {
             </h4>
             <ul className="space-y-1 text-xs text-gray-700">
               <li><strong>30–40% lower</strong> energy use vs central AC of equivalent capacity</li>
-              <li><strong>Zone control</strong> — only run heads in occupied rooms</li>
-              <li><strong>No ducts</strong> — no 20–30% duct losses, no major construction</li>
-              <li><strong>Whisper quiet</strong> — typical indoor unit runs under 40 dB</li>
-              <li><strong>Year-round</strong> — heat pump mode for heating; cold-climate models work below 0°F</li>
+              <li><strong>Zone control</strong>, only run heads in occupied rooms</li>
+              <li><strong>No ducts</strong>, no 20–30% duct losses, no major construction</li>
+              <li><strong>Whisper quiet</strong>, typical indoor unit runs under 40 dB</li>
+              <li><strong>Year-round</strong>, heat pump mode for heating; cold-climate models work below 0°F</li>
             </ul>
           </div>
 
@@ -462,11 +462,11 @@ export default function MiniSplitCalculator() {
           </div>
         </div>
 
-        <DisclaimerBox title="Mini split sizing is forgiving — but only within reason.">
+        <DisclaimerBox title="Mini split sizing is forgiving | but only within reason.">
           <p>
             Multi-zone systems can handle slight under-sizing per zone better than central AC (inverter compressors ramp up gracefully).
-            Don't over-size individual heads though — a 12k head in a 200 sq ft bedroom short-cycles and never dehumidifies properly.
-            For complex multi-story layouts, get a licensed installer to run Manual J and Manual S — they'll spec exact head models
+            Don't over-size individual heads though, a 12k head in a 200 sq ft bedroom short-cycles and never dehumidifies properly.
+            For complex multi-story layouts, get a licensed installer to run Manual J and Manual S, they'll spec exact head models
             and the right outdoor unit branching.
           </p>
         </DisclaimerBox>

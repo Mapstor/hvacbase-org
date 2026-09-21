@@ -255,13 +255,13 @@ export default function HeatPumpVsFurnaceCalculator() {
       // Both options lose money vs the current system — recommend keeping
       // it and revisiting when it fails. Previously, the "environmental
       // benefits" tie-breaker would still push HP here.
-      return { choice: 'furnace' as const, confidence: 'medium', reason: 'Both new systems cost more than your current setup at these energy prices — keep the current system and reconsider when it needs replacement anyway.' };
+      return { choice: 'furnace' as const, confidence: 'medium', reason: 'Both new systems cost more than your current setup at these energy prices, keep the current system and reconsider when it needs replacement anyway.' };
     }
     if (climateScore === 'excellent' && calc.heatPumpPayback < 12 && calc.heatPump15 >= calc.furnace15) return { choice: 'heat-pump' as const, confidence: 'high', reason: 'Excellent climate match with strong financial returns.' };
     if (climateScore === 'ideal' && calc.heatPump15 > calc.furnace15) return { choice: 'heat-pump' as const, confidence: 'high', reason: 'Ideal climate zone with better long-term economics.' };
-    if (climateScore === 'cold-climate-only') return { choice: 'furnace' as const, confidence: 'medium', reason: 'Very cold climate — a standard HP loses too much capacity below the balance point. Use a NEEP-listed cold-climate model (HSPF2 10+, enter its HSPF2 for a real comparison) or keep gas backup.' };
+    if (climateScore === 'cold-climate-only') return { choice: 'furnace' as const, confidence: 'medium', reason: 'Very cold climate, a standard HP loses too much capacity below the balance point. Use a NEEP-listed cold-climate model (HSPF2 10+, enter its HSPF2 for a real comparison) or keep gas backup.' };
     if (calc.heatPumpPayback - calc.furnacePayback > 5 && calc.furnacePayback < 10) return { choice: 'furnace' as const, confidence: 'medium', reason: 'Significantly faster payback with furnace system at these fuel prices.' };
-    if (Math.abs(savingsDiff) < 100 && (calc.heatPumpSavings > 0 || calc.furnaceSavings > 0)) return { choice: 'heat-pump' as const, confidence: 'medium', reason: 'Similar economics — heat pump wins on environmental benefits and future-proofing.' };
+    if (Math.abs(savingsDiff) < 100 && (calc.heatPumpSavings > 0 || calc.furnaceSavings > 0)) return { choice: 'heat-pump' as const, confidence: 'medium', reason: 'Similar economics, heat pump wins on environmental benefits and future-proofing.' };
     if (calc.heatPump15 > calc.furnace15) return { choice: 'heat-pump' as const, confidence: 'medium', reason: 'Better long-term financial performance.' };
     return { choice: 'furnace' as const, confidence: 'medium', reason: 'Better short-term financial performance at these fuel prices.' };
   }, [selectedClimate, calc]);
@@ -331,7 +331,7 @@ export default function HeatPumpVsFurnaceCalculator() {
               <div>
                 <label className="text-sm font-medium text-gray-700 mb-2 block">Fuel rate</label>
                 <div className="px-3 py-2.5 border border-gray-200 rounded-lg bg-gray-50 text-xs text-gray-500">
-                  n/a — electric resistance is priced from the electric rate above.
+                  n/a, electric resistance is priced from the electric rate above.
                 </div>
               </div>
             ) : (
@@ -346,7 +346,7 @@ export default function HeatPumpVsFurnaceCalculator() {
 
       {/* Section 3 — System costs & incentives */}
       <section>
-        <SectionHeader step={3} title="New system costs & rebates" subtitle="Federal 25C tax credit expired 31 Dec 2025 — enter state/utility/HEAR amounts below" Icon={DollarSign} accent={ACCENT} />
+        <SectionHeader step={3} title="New system costs & rebates" subtitle="Federal 25C tax credit expired 31 Dec 2025 | enter state/utility/HEAR amounts below" Icon={DollarSign} accent={ACCENT} />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
           <div>
@@ -472,13 +472,13 @@ export default function HeatPumpVsFurnaceCalculator() {
                 { label: 'Design temp', detail: 'Coldest 1% winter hours', factor: `${selectedClimate.designTemp}°F` },
                 { label: 'Heating hours/yr', detail: 'Equivalent full-load', factor: `${fmt(selectedClimate.heatingHours)}` },
                 { label: 'Cooling hours/yr', detail: 'Equivalent full-load', factor: `${fmt(selectedClimate.coolingHours)}` },
-                { label: 'Heat pump fit', detail: selectedClimate.heatPumpViable.replace(/-/g, ' '), factor: '—' },
+                { label: 'Heat pump fit', detail: selectedClimate.heatPumpViable.replace(/-/g, ' '), factor: ', ' },
               ]}
               totals={[]}
             />
             <p className="text-[11px] text-gray-600 mt-3 leading-snug">
               {selectedClimate.heatPumpViable === 'excellent' && '✓ Heat pumps thrive here. Minimal backup heating needed.'}
-              {selectedClimate.heatPumpViable === 'ideal' && '✓ Perfect heat pump climate — balanced loads, mild winters.'}
+              {selectedClimate.heatPumpViable === 'ideal' && '✓ Perfect heat pump climate, balanced loads, mild winters.'}
               {selectedClimate.heatPumpViable === 'yes-with-backup' && '⚠ Heat pumps work but expect to run electric strips on the coldest 5–10 days.'}
               {selectedClimate.heatPumpViable === 'cold-climate-only' && '⚠ Standard heat pumps lose capacity below 17°F. Use cold-climate model (75% capacity at 5°F) or stick with gas furnace.'}
             </p>
@@ -506,11 +506,11 @@ export default function HeatPumpVsFurnaceCalculator() {
         <DisclaimerBox title="The answer depends on your local price ratio, not the technology.">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li><strong>Electric-to-gas price ratio drives the answer.</strong> At the calc&rsquo;s default HSPF2 8.2 / 95% AFUE, heat-pump heating is cheaper than a new gas furnace only when (elec $/kWh) ÷ (gas $/therm) drops below <strong>~0.09</strong> (heating alone) or <strong>~0.10</strong> when the HP&rsquo;s cooling advantage is included. At the defaults (0.18/1.35 = <strong>0.133</strong>) the furnace wins; a cold-climate model rated HSPF2 10+ shifts the crossover to ~0.11, and cooling-dominated hot climates push it to ~0.15-0.20. Enter your local rates to see where you land.</li>
-            <li><strong>Heat pumps lose capacity in extreme cold</strong> — a standard HSPF2 8 unit at 5°F outdoor delivers ~40% of nameplate; needs backup heat (electric strips or dual-fuel furnace) below the balance point. This calc <strong>derates HSPF2 for cold zones</strong> (6.5 for cold, 5.0 for very-cold) to approximate the supplemental-strip kWh burden. See our <a href="/heat-pump-size-calculator" className="text-purple-600 underline">Heat Pump Size Calculator</a> for the balance-point math.</li>
-            <li><strong>Cold-climate NEEP-listed models</strong> (HSPF2 9.5-10.5) hold 85%+ capacity at 5°F and change the arithmetic dramatically — this calc doesn&rsquo;t currently take a per-model HSPF2 input, so if you&rsquo;re comparing a specific ccASHP, run its published HSPF2 through the sister calc.</li>
-            <li><strong>Federal 25C tax credit expired 31 Dec 2025</strong> under OBBBA (placed-in-service rule, no grandfather clause). Enter state/utility/HEAR rebate amounts in the fields above — DOE HEAR is up to <strong>$8,000</strong> for a heat pump but requires household income ≤80% AMI ($4,000 up to 150% AMI, $0 above); check <a href="https://www.dsireusa.org" className="text-purple-600 underline">DSIRE</a> for state programs.</li>
+            <li><strong>Heat pumps lose capacity in extreme cold</strong>, a standard HSPF2 8 unit at 5°F outdoor delivers ~40% of nameplate; needs backup heat (electric strips or dual-fuel furnace) below the balance point. This calc <strong>derates HSPF2 for cold zones</strong> (6.5 for cold, 5.0 for very-cold) to approximate the supplemental-strip kWh burden. See our <a href="/heat-pump-size-calculator" className="text-purple-600 underline">Heat Pump Size Calculator</a> for the balance-point math.</li>
+            <li><strong>Cold-climate NEEP-listed models</strong> (HSPF2 9.5-10.5) hold 85%+ capacity at 5°F and change the arithmetic dramatically, this calc doesn&rsquo;t currently take a per-model HSPF2 input, so if you&rsquo;re comparing a specific ccASHP, run its published HSPF2 through the sister calc.</li>
+            <li><strong>Federal 25C tax credit expired 31 Dec 2025</strong> under OBBBA (placed-in-service rule, no grandfather clause). Enter state/utility/HEAR rebate amounts in the fields above, DOE HEAR is up to <strong>$8,000</strong> for a heat pump but requires household income ≤80% AMI ($4,000 up to 150% AMI, $0 above); check <a href="https://www.dsireusa.org" className="text-purple-600 underline">DSIRE</a> for state programs.</li>
             <li><strong>Ductwork sizing</strong>: gas furnaces deliver 130°F air; heat pumps deliver 95-105°F. Existing furnace ducts may need upsizing for a heat pump.</li>
-            <li><strong>Load assumption</strong>: this calc uses 40 BTU/sqft heating and 25 BTU/sqft cooling with per-zone equivalent-full-load hours — a screening estimate that varies ±30% with construction. The recommendation is a RATIO — absolute annual costs are directional, not to-the-dollar.</li>
+            <li><strong>Load assumption</strong>: this calc uses 40 BTU/sqft heating and 25 BTU/sqft cooling with per-zone equivalent-full-load hours, a screening estimate that varies ±30% with construction. The recommendation is a RATIO, absolute annual costs are directional, not to-the-dollar.</li>
             <li><strong>Fuel-price trajectory</strong>: gas has averaged ~3%/yr inflation for 20 years; electricity ~2-3%/yr. If your area is electrifying, expect the electric-to-gas ratio to shift over your 15-year comparison window.</li>
           </ul>
         </DisclaimerBox>

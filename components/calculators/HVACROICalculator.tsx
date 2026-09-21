@@ -180,11 +180,11 @@ export default function HVACROICalculator() {
   ]);
 
   const fit =
-    calc.annualSavings <= 0 ? { tone: 'warn' as const, text: 'New system costs more to run — recheck efficiency' } :
-    calc.payback < 5 ? { tone: 'good' as const, text: 'Excellent — pays back fast' } :
+    calc.annualSavings <= 0 ? { tone: 'warn' as const, text: 'New system costs more to run, recheck efficiency' } :
+    calc.payback < 5 ? { tone: 'good' as const, text: 'Excellent, pays back fast' } :
     calc.payback < 8 ? { tone: 'good' as const, text: 'Strong investment' } :
     calc.payback < 12 ? { tone: 'ok' as const, text: 'Reasonable payback' } :
-                        { tone: 'warn' as const, text: 'Long payback — comfort + reliability matter more than ROI here' };
+                        { tone: 'warn' as const, text: 'Long payback, comfort + reliability matter more than ROI here' };
 
   const effLabel = (sys: typeof systemTypes[0]) => sys.isGas ? 'AFUE %' : 'SEER';
 
@@ -221,7 +221,7 @@ export default function HVACROICalculator() {
               <NumberInput value={currentAge} onChange={setCurrentAge} min={0} max={30} suffix="years" ariaLabel="Current system age" accent={ACCENT} />
               {calc.age > 10 && (
                 <p className="text-xs text-amber-700 mt-1.5">
-                  ⚠ Over 10 years old — assumed maintenance cost rises to ${calc.currentMaint}/yr.
+                  ⚠ Over 10 years old, assumed maintenance cost rises to ${calc.currentMaint}/yr.
                 </p>
               )}
             </div>
@@ -229,7 +229,7 @@ export default function HVACROICalculator() {
         </div>
       </section>
 
-      {/* Section 2 — New system */}
+      {/* Section 2, New system */}
       <section>
         <SectionHeader step={2} title="Proposed new system" subtitle="What you're considering buying" Icon={Zap} accent={ACCENT} />
 
@@ -247,7 +247,7 @@ export default function HVACROICalculator() {
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 Total installed cost
-                <InfoTip label="installed cost">Equipment + labor + permits. Get 3+ contractor quotes — installed prices vary 20–40% in the same market.</InfoTip>
+                <InfoTip label="installed cost">Equipment + labor + permits. Get 3+ contractor quotes, installed prices vary 20–40% in the same market.</InfoTip>
               </label>
               <NumberInput value={systemCost} onChange={setSystemCost} min={1000} max={50000} suffix="$" ariaLabel="System cost" accent={ACCENT} />
             </div>
@@ -255,7 +255,7 @@ export default function HVACROICalculator() {
         </div>
       </section>
 
-      {/* Section 3 — Home + utilities */}
+      {/* Section 3, Home + utilities */}
       <section>
         <SectionHeader step={3} title="Your home & utility rates" subtitle="Determines runtime and operating cost" Icon={Wallet} accent={ACCENT} />
 
@@ -284,7 +284,7 @@ export default function HVACROICalculator() {
         </div>
       </section>
 
-      {/* Section 4 — Incentives */}
+      {/* Section 4, Incentives */}
       <section>
         <SectionHeader step={4} title="Incentives" subtitle="Utility rebates reduce net cost (federal 25C credit ended for 2026 installs)" Icon={Receipt} accent={ACCENT} />
 
@@ -292,7 +292,7 @@ export default function HVACROICalculator() {
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Federal tax credit
-              <InfoTip label="federal credit">The federal Section 25C tax credit ended for property placed in service after Dec 31, 2025 (OBBBA), with no federal successor. Enter 0 for a 2026 install. For a 2024–2025 install, enter the amount you actually claimed — consult a tax professional if unsure.</InfoTip>
+              <InfoTip label="federal credit">The federal Section 25C tax credit ended for property placed in service after Dec 31, 2025 (OBBBA), with no federal successor. Enter 0 for a 2026 install. For a 2024–2025 install, enter the amount you actually claimed, consult a tax professional if unsure.</InfoTip>
             </label>
             <NumberInput value={federalCredit} onChange={setFederalCredit} min={0} max={2000} suffix="$" ariaLabel="Federal tax credit" accent={ACCENT} />
           </div>
@@ -346,7 +346,7 @@ export default function HVACROICalculator() {
             <div className="space-y-2">
               <div className="flex items-center justify-between p-3 rounded-lg bg-red-50 ring-1 ring-red-200">
                 <div>
-                  <div className="font-semibold text-red-900 text-sm">Current — {srcCurrentSystem.name}</div>
+                  <div className="font-semibold text-red-900 text-sm">Current, {srcCurrentSystem.name}</div>
                   <div className="text-[11px] text-red-700">{calc.cEff} {srcCurrentSystem.isGas ? 'AFUE' : 'SEER'} · {calc.age}-yr-old</div>
                 </div>
                 <div className="text-right">
@@ -356,7 +356,7 @@ export default function HVACROICalculator() {
               </div>
               <div className="flex items-center justify-between p-3 rounded-lg bg-emerald-50 ring-1 ring-emerald-200">
                 <div>
-                  <div className="font-semibold text-emerald-900 text-sm">New — {srcNewSystem.name}</div>
+                  <div className="font-semibold text-emerald-900 text-sm">New, {srcNewSystem.name}</div>
                   <div className="text-[11px] text-emerald-700">{calc.nEff} {srcNewSystem.isGas ? 'AFUE' : 'SEER'} · new install</div>
                 </div>
                 <div className="text-right">
@@ -379,7 +379,7 @@ export default function HVACROICalculator() {
             <BreakdownTable
               rows={[
                 { label: 'Equipment + install', detail: 'Quoted system cost', factor: `$${fmtMoney(calc.cost)}` },
-                { label: 'Federal credit', detail: 'If any — 25C ended for 2026 installs', factor: `−$${fmtMoney(calc.credit)}` },
+                { label: 'Federal credit', detail: 'If any, 25C ended for 2026 installs', factor: `−$${fmtMoney(calc.credit)}` },
                 { label: 'Utility rebate', detail: 'Local utility program', factor: `−$${fmtMoney(calc.rebate)}` },
               ]}
               totals={[

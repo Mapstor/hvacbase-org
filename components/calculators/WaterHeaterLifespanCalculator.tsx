@@ -138,9 +138,9 @@ export default function WaterHeaterLifespanCalculator() {
 
   const fit =
     age === 0 ? { tone: 'warn' as const, text: 'Enter heater age' } :
-    calc.hasCritical ? { tone: 'bad' as const, text: 'Critical issue — replace immediately' } :
+    calc.hasCritical ? { tone: 'bad' as const, text: 'Critical issue, replace immediately' } :
     calc.shouldReplace ? { tone: 'warn' as const, text: 'Replace recommended' } :
-                         { tone: 'good' as const, text: 'Keep + maintain — repair is economical' };
+                         { tone: 'good' as const, text: 'Keep + maintain, repair is economical' };
 
   const severityColor =
     calc.severity === 'critical' ? 'bg-red-500' :
@@ -151,7 +151,7 @@ export default function WaterHeaterLifespanCalculator() {
     <CalcShell
       Icon={Droplets}
       title="Water Heater Lifespan Calculator"
-      subtitle="Repair vs replace — 50% rule + age + warning signs."
+      subtitle="Repair vs replace, 50% rule + age + warning signs."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -171,7 +171,7 @@ export default function WaterHeaterLifespanCalculator() {
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 Repair cost (if quoted)
-                <InfoTip label="repair cost">If you don't have a quote yet, skip — the calculator still factors age + warning signs.</InfoTip>
+                <InfoTip label="repair cost">If you don't have a quote yet, skip, the calculator still factors age + warning signs.</InfoTip>
               </label>
               <div className="mb-2">
                 <Segmented value={repairCost} onChange={setRepairCost} options={repairPresets.map(p => ({ value: String(p), name: `$${fmt(p)}` }))} ariaLabel="Repair preset" accent={ACCENT} />
@@ -252,7 +252,7 @@ export default function WaterHeaterLifespanCalculator() {
           secondaryText={
             calc.hasCritical ? (
               <>
-                <strong>Critical safety issue detected</strong> — leaks cause water damage; gas smell is a CO/explosion hazard.
+                <strong>Critical safety issue detected</strong>, leaks cause water damage; gas smell is a CO/explosion hazard.
                 Call a plumber today; replace, don't repair.
               </>
             ) : calc.shouldReplace ? (
@@ -354,14 +354,14 @@ export default function WaterHeaterLifespanCalculator() {
         <DisclaimerBox title="Type-specific lifespan notes">
           {heater.value.includes('tank') && !heater.value.includes('tankless') ? (
             <p>
-              Tank heaters typically fail by tank corrosion through the bottom — usually sudden and catastrophic (40–60 gallons of water on the floor).
+              Tank heaters typically fail by tank corrosion through the bottom, usually sudden and catastrophic (40–60 gallons of water on the floor).
               {age > 8 && ' At your age, proactive replacement avoids water damage to flooring + drywall.'}
               {' '}Annual flushing removes sediment and extends life 3–5 years.
             </p>
           ) : heater.value.includes('tankless') ? (
             <p>
-              Tankless units last longer but need annual descaling — especially in hard water areas. The heat exchanger is the failure point.
-              {(src.waterHardness === 'hard' || src.waterHardness === 'very-hard') && ' Your hard water materially shortens lifespan — a water softener pays for itself.'}
+              Tankless units last longer but need annual descaling, especially in hard water areas. The heat exchanger is the failure point.
+              {(src.waterHardness === 'hard' || src.waterHardness === 'very-hard') && ' Your hard water materially shortens lifespan, a water softener pays for itself.'}
             </p>
           ) : heater.value === 'heat-pump' ? (
             <p>HPWH compressors are the failure mode (similar to refrigerators). Lifespan is shorter than gas tankless but operating cost is 60–70% lower.</p>

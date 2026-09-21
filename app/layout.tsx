@@ -8,7 +8,7 @@ import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.hvacbase.org'),
   title: {
-    default: 'HVAC Base — Data-Driven HVAC Guides, Calculators & Comparisons',
+    default: 'HVAC Base | Data-Driven HVAC Guides, Calculators & Comparisons',
     template: '%s | HVAC Base',
   },
   description:
@@ -18,20 +18,20 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.hvacbase.org',
     siteName: 'HVAC Base',
-    title: 'HVAC Base — Your Comprehensive HVAC Knowledge Resource',
+    title: 'HVAC Base | Your Comprehensive HVAC Knowledge Resource',
     description: 'In-depth HVAC guides, interactive sizing and cost calculators, and editorially independent, primary-sourced guidance for all your heating and cooling needs.',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'HVAC Base — Data-Driven HVAC Guides & Calculators',
+        alt: 'HVAC Base | Data-Driven HVAC Guides & Calculators',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HVAC Base — Data-Driven HVAC Guides & Calculators',
+    title: 'HVAC Base | Data-Driven HVAC Guides & Calculators',
     description: 'In-depth HVAC guides with interactive calculators and editorially independent recommendations.',
     images: ['/opengraph-image'],
   },

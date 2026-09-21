@@ -107,8 +107,8 @@ export default function HVACLifespanCalculator() {
 
   const fit =
     age === 0 ? { tone: 'warn' as const, text: 'Enter system age' } :
-    calc.replaceRecommended ? { tone: 'bad' as const, text: 'Replace recommended — repair past economic threshold' } :
-                              { tone: 'good' as const, text: 'Repair recommended — repair within economic threshold' };
+    calc.replaceRecommended ? { tone: 'bad' as const, text: 'Replace recommended, repair past economic threshold' } :
+                              { tone: 'good' as const, text: 'Repair recommended, repair within economic threshold' };
 
   const riskColor =
     calc.repairProbability === 'high' ? 'bg-red-500' :
@@ -143,7 +143,7 @@ export default function HVACLifespanCalculator() {
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
                 Quoted repair cost
-                <InfoTip label="repair cost">If multiple things are failing at once, sum them. The 50% rule applies to the total quote — not individual line items.</InfoTip>
+                <InfoTip label="repair cost">If multiple things are failing at once, sum them. The 50% rule applies to the total quote, not individual line items.</InfoTip>
               </label>
               <div className="mb-2">
                 <Segmented value={repairCost} onChange={setRepairCost} options={repairPresets.map(p => ({ value: String(p), name: `$${fmt(p)}` }))} ariaLabel="Repair cost preset" accent={ACCENT} />
@@ -199,7 +199,7 @@ export default function HVACLifespanCalculator() {
               <>
                 Your {system.name.toLowerCase()} is {fmt(age)} years old ({calc.percentLifeUsed.toFixed(0)}% of expected lifespan).
                 Repair cost (${fmtMoney(repair)}) is {calc.repairPctOfReplace.toFixed(0)}% of average replacement.
-                <strong> Replace</strong> — repair is past the economic threshold.
+                <strong> Replace</strong>, repair is past the economic threshold.
               </>
             ) : (
               <>
@@ -238,7 +238,7 @@ export default function HVACLifespanCalculator() {
           <p className="text-xs text-gray-700 mt-3 leading-relaxed">
             {calc.repairProbability === 'high' && 'System is at end of life. Expect frequent repairs, lost capacity on extreme days, and declining efficiency.'}
             {calc.repairProbability === 'moderate' && 'Middle-aged system. Budget for replacement within 3–5 years; major repairs not worth more than 30% of replacement cost.'}
-            {calc.repairProbability === 'low' && 'Relatively young system. Regular maintenance pays off — repairs are usually worth doing.'}
+            {calc.repairProbability === 'low' && 'Relatively young system. Regular maintenance pays off, repairs are usually worth doing.'}
           </p>
         </div>
 
@@ -298,11 +298,11 @@ export default function HVACLifespanCalculator() {
 
         <DisclaimerBox title="Edge cases the 50% rule misses">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Refrigerant-related repairs on R-22 systems (made before 2010) — refrigerant alone can run $80+/lb, often making "small" leak fixes uneconomic</li>
-            <li>Aging heat exchangers (cracked = carbon monoxide risk) — replace immediately regardless of cost ratio</li>
-            <li>Compressor or coil replacement above 50% but the rest of the system is healthy — sometimes worth doing if you'll stay 2–3+ more years</li>
-            <li>State and utility rebates and IRA-funded HEAR/HOMES programs (federal §25C/§25D credits terminated for 2026 installs under OBBBA) — timing can shift what's available in your area</li>
-            <li>Comfort issues that won't be fixed by a repair (oversized system, bad ductwork) — replacement is a chance to fix the underlying design</li>
+            <li>Refrigerant-related repairs on R-22 systems (made before 2010), refrigerant alone can run $80+/lb, often making "small" leak fixes uneconomic</li>
+            <li>Aging heat exchangers (cracked = carbon monoxide risk), replace immediately regardless of cost ratio</li>
+            <li>Compressor or coil replacement above 50% but the rest of the system is healthy, sometimes worth doing if you'll stay 2–3+ more years</li>
+            <li>State and utility rebates and IRA-funded HEAR/HOMES programs (federal §25C/§25D credits terminated for 2026 installs under OBBBA), timing can shift what's available in your area</li>
+            <li>Comfort issues that won't be fixed by a repair (oversized system, bad ductwork), replacement is a chance to fix the underlying design</li>
           </ul>
         </DisclaimerBox>
       </section>

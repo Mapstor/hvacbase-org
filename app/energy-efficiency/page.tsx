@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'In-depth energy efficiency guides, calculators, and primary-source-based savings analysis.',
     url: 'https://www.hvacbase.org/energy-efficiency',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base — Energy Efficiency' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Energy Efficiency' }],
   },
   twitter: {
     card: 'summary_large_image',

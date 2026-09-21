@@ -690,7 +690,7 @@ export function ResultsHeader({
       {dirty && (
         <span className="ml-auto inline-flex items-center gap-1 text-[11px] text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
           <RefreshCw className="w-3 h-3" />
-          Inputs changed — recalculate for updated result
+          Inputs changed, recalculate for updated result
         </span>
       )}
     </div>
@@ -740,7 +740,7 @@ export function CalculateResetBar({
           onCalculate();
         }}
         className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${calcClasses}`}
-        aria-label={dirty ? 'Recalculate — inputs have changed' : calculateLabel}
+        aria-label={dirty ? 'Recalculate, inputs have changed' : calculateLabel}
       >
         <Play className="w-4 h-4" />
         {dirty ? 'Recalculate' : calculateLabel}
@@ -756,7 +756,7 @@ export function CalculateResetBar({
       </button>
       {!hasResult && (
         <span className="text-xs text-gray-500 sm:ml-2">
-          Enter your values and click Calculate — press Enter in any field.
+          Enter your values and click Calculate, press Enter in any field.
         </span>
       )}
     </div>
