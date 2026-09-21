@@ -703,19 +703,19 @@ export default async function HomePage() {
               <div className="space-y-2 text-sm">
                 <Link href="/central-ac-cost-to-install" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC install cost?</span>
-                  <span className="text-green-600 font-medium">$3,500-$7,500</span>
+                  <span className="text-green-600 font-medium">$4,000–$12,000+</span>
                 </Link>
                 <Link href="/furnace-installation-cost" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Furnace replacement?</span>
-                  <span className="text-green-600 font-medium">$2,500-$6,500</span>
+                  <span className="text-green-600 font-medium">$3,500–$8,500</span>
                 </Link>
                 <Link href="/mini-split-installation-cost" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Mini split install?</span>
-                  <span className="text-green-600 font-medium">$2,000-$5,000</span>
+                  <span className="text-green-600 font-medium">$2,000–$6,000+ / zone</span>
                 </Link>
                 <Link href="/heat-pump-cost-to-install" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Heat pump cost?</span>
-                  <span className="text-green-600 font-medium">$4,000-$8,000</span>
+                  <span className="text-green-600 font-medium">$4,500–$12,500</span>
                 </Link>
               </div>
             </div>
@@ -778,15 +778,15 @@ export default async function HomePage() {
               <div className="space-y-2 text-sm">
                 <Link href="/mini-split-electricity-usage" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Mini split watts?</span>
-                  <span className="text-green-600 font-medium">500-1500W</span>
+                  <span className="text-green-600 font-medium">200–700W</span>
                 </Link>
                 <Link href="/furnace-guide" className="flex justify-between group">
-                  <span className="text-gray-600 group-hover:text-brand-600">Furnace watts?</span>
-                  <span className="text-green-600 font-medium">300-800W</span>
+                  <span className="text-gray-600 group-hover:text-brand-600">Furnace blower watts?</span>
+                  <span className="text-green-600 font-medium">300–800W</span>
                 </Link>
                 <Link href="/heat-pump-electricity-usage" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Heat pump kWh?</span>
-                  <span className="text-green-600 font-medium">2-5 kW/hr</span>
+                  <span className="text-green-600 font-medium">2–5 kW</span>
                 </Link>
               </div>
             </div>
@@ -966,7 +966,7 @@ export default async function HomePage() {
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Industry Standards</h3>
               <p className="text-sm text-gray-600">
-                Following ASHRAE, ACCA, EPA, and ENERGY STAR guidelines in all recommendations
+                Grounded in ASHRAE, ACCA, EPA, DOE, and ENERGY STAR guidance
               </p>
             </div>
 
@@ -989,7 +989,7 @@ export default async function HomePage() {
                 <ul className="space-y-1 text-sm text-gray-600">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span>Verify all specifications against AHRI Directory</span>
+                    <span>Cite primary sources (EPA, DOE, ENERGY STAR, ASHRAE, ACCA, NEC) with direct links</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
