@@ -1,13 +1,14 @@
 ---
 slug: "heat-pump-guide"
 title: "Heat Pumps: Complete Homeowner's Guide (2026)"
-description: "Everything you need to know about heat pumps in 2026 — how they work, types, costs, efficiency ratings, installation, tax credits, and whether a heat pump is right for your home."
+description: "Everything you need to know about heat pumps in 2026: how they work, types, costs, efficiency ratings, the real gas-vs-heat-pump operating-cost math, cold-climate performance, and tax credits."
+author: "Marko Visic, BSc Physics"
 cluster: "heat-pumps"
 role: "pillar"
 priority: "P1"
 contentType: "guide"
 datePublished: "2026-02-05"
-dateModified: "2026-07-18"
+dateModified: "2026-09-21"
 relatedArticles:
   - "heat-pump-electricity-usage"
   - "disadvantages-of-heat-pumps"
@@ -19,328 +20,144 @@ relatedArticles:
   - "air-source-vs-ground-source-heat-pump"
   - "heat-pump-cop-explained"
 externalLinks:
-  - label: "AHRI Directory"
+  - title: "DOE: Heat Pump Systems"
+    url: "https://www.energy.gov/heat-pumps"
+  - title: "ENERGY STAR: Heat & Cool Efficiently"
+    url: "https://www.energystar.gov/saveathome/heating-cooling"
+  - title: "AHRI: Directory of Certified Product Performance"
     url: "https://www.ahridirectory.org/"
+  - title: "IRS: Energy Efficient Home Improvement Credit (25C)"
+    url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit"
+  - title: "DSIRE: Database of State Incentives"
+    url: "https://www.dsireusa.org"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles } from '@/components'
 
 # Heat Pumps: Complete Homeowner's Guide (2026)
 
-A heat pump is an electric HVAC system that moves heat instead of generating it, delivering 2–5× more energy than it consumes — making it the most efficient way to heat and cool a home in 2026. The average U.S. homeowner who switches from a gas furnace to a modern heat pump saves $500–$1,200 per year on energy bills while cutting household carbon emissions by 40–65%.
+The question you actually want answered is simple: **is a heat pump worth it for my home?** Will it really save money, will it keep you warm when it's genuinely cold out, and does the up-front cost make sense, without the hype from either the "heat pumps solve everything" crowd or the "they don't work in winter" skeptics. This is the honest guide.
 
-In 2026, heat pumps outsell gas furnaces in the United States for the fourth consecutive year. Cold-climate models are now rated to −15 °F, and SEER2 ratings exceed 22. The federal Section 25C credit (which covered up to $2,000 for qualifying heat pumps) expired for installs after Dec 31, 2025 under the OBBBA; for 2026 installs, state and utility rebates plus IRA HEAR (income-qualified, up to $8,000) and HOMES (open to all incomes, performance-based) remain the active federal/state pathways. This guide covers every detail you need to make a confident decision.
+We'll cover how heat pumps work, the types and what they cost, the efficiency ratings that matter, the real operating-cost comparison against gas and other systems, cold-climate performance, and the current 2026 tax credits and rebates. The single most useful thing we can tell you up front: whether a heat pump saves *you* money depends heavily on your local electricity-to-gas price ratio, and we'll show you exactly how to check that. Every figure is sourced to the DOE, ENERGY STAR, the IRS, or AHRI, linked at the bottom, and we recommend no specific brands.
 
-<TableOfContents>
-- [How a Heat Pump Works](#how-a-heat-pump-works)
-- [Types of Heat Pumps](#types-of-heat-pumps)
-- [Key Efficiency Ratings Explained](#key-efficiency-ratings-explained)
-- [Heat Pump Cost Breakdown](#heat-pump-cost-breakdown)
-- [Operating Costs vs Other Systems](#operating-costs-vs-other-systems)
-- [How to Size a Heat Pump](#how-to-size-a-heat-pump)
-- [Installation Process](#installation-process)
-- [Heat Pumps in Cold Climates](#heat-pumps-in-cold-climates)
-- [2026 Tax Credits & Rebates](#2026-tax-credits-and-rebates)
-- [Maintenance Requirements](#maintenance-requirements)
-- [Common Myths Debunked](#common-myths-debunked)
-- [Key Takeaways](#key-takeaways)
-- [FAQ](#faq)
-</TableOfContents>
+**A heat pump moves heat rather than generating it, which makes it far more efficient than combustion or electric-resistance heating, and a single unit both heats and cools.** In heating mode it can deliver roughly 2 to 4 units of heat per unit of electricity (a heating COP of 2 to 4). Whether that efficiency translates into lower bills than your current system depends on your local energy prices, and modern cold-climate models work well below freezing.
 
-## How a Heat Pump Works
+## How a heat pump works
 
-A heat pump doesn't create heat — it moves it. Think of it as a refrigerator running in reverse. In winter, it extracts heat energy from outdoor air (yes, even cold air contains heat energy) and pumps it inside. In summer, it reverses the cycle and pulls heat out of your home, working exactly like an air conditioner.
+A heat pump doesn't create heat, it moves it, like a refrigerator running in reverse. In winter it extracts heat from the outdoor air (even cold air contains usable heat energy) and pumps it inside; in summer it reverses and pulls heat out of your home, working exactly like an air conditioner. That "move heat instead of make heat" approach is why it's efficient: a gas furnace converts fuel to heat at best-case 98% efficiency (less than one unit of heat per unit of fuel), while a heat pump can produce several units of heat per unit of electricity.
 
-The core components are straightforward: a compressor, two heat exchangers (one indoor, one outdoor), an expansion valve, and refrigerant. The compressor is the heart of the system — it pressurizes the refrigerant, raising its temperature so the heat can be released indoors. Modern variable-speed (inverter) compressors adjust their output in real time, running at exactly the capacity your home needs rather than cycling on and off.
+The core parts are a compressor, two heat exchangers (indoor and outdoor), an expansion valve, and refrigerant, and modern variable-speed (inverter) compressors modulate their output to match your home's needs instead of cycling fully on and off. For the full step-by-step refrigeration cycle, see our [how a mini split works](/how-does-a-mini-split-work) guide (the cycle is the same for all heat pumps) and our [COP explained](/heat-pump-cop-explained) guide for the efficiency math.
 
-This "move heat instead of make heat" approach is why heat pumps are so efficient. A gas furnace converts fuel to heat at 80–98% efficiency — meaning one unit of energy in produces at most 0.98 units of heat. A heat pump, by contrast, can produce 3–4 units of heat for every unit of electricity consumed, giving it an effective efficiency of 300–400%.
+## The three types of heat pump
 
-<Callout type="info">
-**The Physics in Plain English:** Air at 0 °F still contains about 85% of the heat energy present in air at 70 °F. A heat pump's refrigerant boils at temperatures far below zero, allowing it to absorb heat from air that feels freezing cold to you.
-</Callout>
+| | Air-Source (Ducted) | Mini Split (Ductless) | Ground-Source (Geothermal) |
+|---|---|---|---|
+| Typical installed cost | Moderate | Moderate | Much higher (large upfront) |
+| Heating COP (mild) | ~3.0–4.5 | ~3.5–5.0 | ~3.5–5.0 |
+| Heating COP (very cold) | lower | lower | stays high (ground is stable) |
+| Best for | Homes with existing ductwork | No ducts, room-by-room zoning | Maximum efficiency, new builds |
 
-### The Refrigeration Cycle Step by Step
+- **Air-source (ducted)** is the most common type in North America, replacing or supplementing a furnace and using your existing ductwork. Best for homes with ducts that want one whole-house system.
+- **Mini split (ductless)** connects an outdoor unit to one or more wall heads with independent zone control. Best for homes without ducts, additions, or garages. See our [mini split guide](/mini-split-air-conditioners) for the full breakdown.
+- **Ground-source (geothermal)** exchanges heat with the stable temperature underground, giving the highest efficiency and longest lifespan, but at a much higher upfront cost. Best where maximum long-term efficiency justifies the investment, especially in new construction. See [air-source vs. ground-source](/air-source-vs-ground-source-heat-pump) for the comparison.
 
-The heating cycle works in four stages. First, the **evaporator coil** in the outdoor unit allows liquid refrigerant to absorb heat from outdoor air and evaporate into a gas. Second, the **compressor** squeezes that gas, dramatically raising its temperature from near-outdoor temps to 100–140 °F. Third, the **condenser coil** in the indoor unit releases the hot refrigerant's heat into your home's air as it condenses back to liquid. Finally, the **expansion valve** drops the liquid refrigerant's pressure and temperature, and the cycle repeats.
+## Efficiency ratings, and the number that decides your bill
 
-In cooling mode, the reversing valve swaps the roles of the indoor and outdoor coils. Your heat pump becomes a standard air conditioner.
+Heat pump efficiency uses SEER2 (seasonal cooling), HSPF2 (seasonal heating), EER2 (peak cooling), and COP (the instantaneous heat-out-per-energy-in ratio). Good modern ranges are roughly SEER2 15 to 22+ and HSPF2 8 to 11.
 
-## Types of Heat Pumps
+But here's the part most guides skip, and it's the key to whether a heat pump actually saves *you* money:
 
-There are three main categories, each with distinct use cases, costs, and performance profiles.
+**Multiply the COP by comparing your electricity rate against your gas rate.** If electricity is about $0.18/kWh and the heat pump's COP is 3.0, your effective heating cost is roughly $0.06 per kWh of delivered heat, which is about on par with natural gas at $1.35/therm. The important consequence: **a heat pump only undercuts natural gas once its COP clears roughly 3.8 at these rates.** So on cheap gas, a high-efficiency furnace is often competitive; a heat pump wins most clearly where electricity is cheap, gas is expensive (or you're replacing propane, oil, or electric resistance), or the climate is mild enough to hold a high seasonal COP. Run your own numbers with the [heat pump running cost calculator](/heat-pump-running-cost-calculator).
 
-<ComparisonTable
-  title="Heat Pump Types at a Glance"
-  headers={["Feature", "Air-Source (Ducted)", "Mini Split (Ductless)", "Ground-Source (Geothermal)"]}
-  rows={[
-    ["Installed Cost (3-ton)", "$4,500–$9,000", "$3,000–$8,000 (multi-zone)", "$18,000–$35,000"],
-    ["Heating COP (47 °F)", "3.0–4.5", "3.5–5.0", "3.5–5.0"],
-    ["Heating COP (5 °F)", "1.5–2.8", "1.8–3.2", "3.5–4.5"],
-    ["SEER2 Range", "15–22", "18–42", "18–30 (EER equivalent)"],
-    ["Lifespan", "15–20 years", "15–20 years", "20–25 years (50+ for loop)"],
-    ["Best For", "Existing ducted homes", "Room-by-room control, no ducts", "Maximum efficiency, new construction"],
-    ["Space Required", "Outdoor pad + ductwork", "Outdoor unit + wall heads", "Outdoor loop field or wells"],
-    ["Noise Level", "50–65 dB outdoor", "19–45 dB indoor", "Near silent indoors"],
-  ]}
-/>
+## What heat pumps cost
 
-### Air-Source Heat Pumps (Ducted)
+Installed cost depends on the type, capacity, and your home's specifics (ductwork condition, electrical capacity, install complexity). Ducted air-source and ductless mini split systems occupy a similar mid-range; ground-source is substantially higher upfront but has a longer lifespan. Our [heat pump cost-to-install guide](/heat-pump-cost-to-install) breaks down the pricing in detail.
 
-The most common type in North America. These replace or supplement your existing furnace and use your home's ductwork. Modern ducted air-source units from Carrier, Trane, Lennox, and others achieve SEER2 ratings of 16–22 and HSPF2 ratings of 8–11.
+A few things that push a quote above the base price: an electrical panel upgrade (often needed to add a heat pump's circuit), new or modified ductwork, long refrigerant line runs through finished walls, and permit fees. These are real and worth asking your installer about up front so the quote reflects your actual situation.
 
-**Best for:** Homes with existing ductwork that want a single whole-house system. A 3-ton ducted system typically costs $5,000–$9,000 installed.
+## The honest operating-cost comparison
 
-### Ductless Mini Splits
+This is where a heat pump's value is decided. Here's an illustrative annual heating-plus-cooling comparison at assumed rates (about $0.18/kWh electricity and $1.35/therm gas), for a typical home:
 
-Mini splits connect a compact outdoor unit to one or more wall-mounted indoor heads via refrigerant lines. Each indoor head has its own thermostat, giving you room-by-room temperature control — often called "zoning." Top-tier models like the Mitsubishi Hyper-Heat and Fujitsu XLTH achieve COPs above 3.0 even at −13 °F.
+| System | Approx. annual heating + cooling |
+|--------|----------------------------------|
+| Heat pump (HSPF2 10) | competitive with high-efficiency gas |
+| Gas furnace (96%) + AC | competitive on cheap gas |
+| Gas furnace (80%) + AC | higher (older, less efficient) |
+| Electric resistance + AC | much higher (most expensive to heat) |
+| Oil furnace + AC | high |
+| Propane furnace + AC | high |
 
-**Best for:** Homes without ductwork, additions, garages, or homeowners who want zone-by-zone control. A single-zone system starts around $3,000 installed; a four-zone system runs $8,000–$15,000.
+The pattern that matters: **a heat pump reliably beats electric resistance, oil, and propane heating, and is competitive-to-better versus gas depending on your local price ratio.** Against cheap natural gas it can be a close call. This is exactly why "will a heat pump save me money" has no universal answer, it depends on what you're replacing and your local rates. Use the [running cost calculator](/heat-pump-running-cost-calculator) with your actual numbers rather than trusting a blanket claim. (The table figures are illustrative at fixed assumptions, not a guarantee.)
 
-### Ground-Source (Geothermal) Heat Pumps
+## Cold climates: do heat pumps actually work?
 
-These exchange heat with the earth instead of the air, using loops of pipe buried in your yard or drilled vertically into wells. Because underground temperatures stay 45–65 °F year-round (depending on latitude), geothermal systems maintain high efficiency even in the coldest weather.
+Yes, and this is where the technology has changed most. Modern **cold-climate heat pumps** are specifically designed to maintain strong heating capacity in freezing temperatures, many hold full rated capacity down to around 5°F and keep operating (at reduced capacity) well below zero. Even at very low temperatures with a COP around 1.5 to 2.0, a heat pump is still meaningfully more efficient than electric resistance heat. Heat pumps are the primary heating source for millions of homes in Scandinavia, where deep cold is routine.
 
-**Best for:** Homeowners prioritizing maximum efficiency and long-term savings, especially in new construction where loop installation is simpler. The 20–25 year equipment lifespan and 50+ year loop lifespan can make up for the $18,000–$35,000 upfront cost.
+If you're in a cold climate, look for a model **specifically rated for cold-climate performance** and check its rated capacity and COP at *your* design temperature (not just at 47°F). For the full treatment, see our [heat pumps in cold weather guide](/heat-pump-in-cold-weather), and size the capacity against your design temperature with the [heat pump size calculator](/heat-pump-size-calculator).
 
-## Key Efficiency Ratings Explained
+For the coldest climates, you have three backup strategies:
+- **Dual-fuel (hybrid):** the heat pump handles heating down to a balance point (often 25 to 35°F), then a gas or propane furnace takes over for the coldest hours. Captures heat pump efficiency for most of the season while minimizing expensive-hour electricity use.
+- **Electric resistance backup:** strip heaters kick in when the heat pump can't keep up, simple and cheap to install but expensive to run, best only if the heat pump covers the large majority of heating hours.
+- **Cold-climate heat pump sized to the full load:** the newest approach, size a cold-climate unit to meet 100% of the heating load even at design temperature, so no backup is needed. Works best with inverter-driven systems.
 
-Heat pump efficiency ratings can be confusing because there are multiple metrics. Here's what each one means and the minimum values you should target in 2026.
+## 2026 tax credits and rebates
 
-<ComparisonTable
-  title="Heat Pump Efficiency Ratings"
-  headers={["Rating", "Measures", "2026 Federal Minimum", "Good", "Excellent"]}
-  rows={[
-    ["SEER2", "Seasonal cooling efficiency", "14.3 (South) / 13.4 (North)", "16–18", "20+"],
-    ["EER2", "Cooling efficiency at peak load (95 °F)", "No federal minimum", "10–12", "13+"],
-    ["HSPF2", "Seasonal heating efficiency", "7.5", "9–10", "11+"],
-    ["COP", "Instantaneous heating efficiency (ratio)", "—", "3.0–3.5", "4.0+"],
-    ["ENERGY STAR", "Exceeds federal minimums", "—", "SEER2 ≥ 15.2 / HSPF2 ≥ 8.1", "CEE Tier 1+"],
-  ]}
-/>
+The rules changed recently, so here's the current, accurate picture:
 
-**SEER2** (Seasonal Energy Efficiency Ratio 2) is the cooling-season efficiency. It's calculated under the updated M1 testing standard introduced in 2023, which uses higher static pressure to better reflect real-world ductwork. A SEER2 of 20 means the unit produces 20 BTU of cooling for every watt-hour of electricity.
+**The federal Section 25C tax credit expired for installs placed in service after December 31, 2025.** The 25C credit (which had covered 30% of project cost up to $2,000/year for qualifying high-efficiency heat pumps) was terminated under the OBBBA (PL 119-21, signed July 4, 2025). It does not apply to 2026 installs. Our [heat pump tax credits 2026 guide](/heat-pump-tax-credits-2026) covers the details.
 
-**HSPF2** (Heating Seasonal Performance Factor 2) is the heating-season equivalent. An HSPF2 of 10 means the unit delivers 10 BTU of heat per watt-hour across the heating season. Divide HSPF2 by 3.412 to get the approximate seasonal COP (so HSPF2 10 ≈ COP 2.93).
+**What's still active in 2026:**
+- **IRA HEAR rebates** (formerly HEEHRA): income-qualified point-of-sale rebates up to $8,000 for heat pumps, income-tiered and state-administered.
+- **IRA HOMES rebates:** open to all incomes, performance-based, tied to energy savings, state-administered.
+- **State and utility rebates:** many states and utilities offer substantial additional incentives (some programs are quite generous). Check the DSIRE database (dsireusa.org) or your state energy office for what's currently funded in your area.
 
-**COP** (Coefficient of Performance) is the real-time ratio of heat delivered to electricity consumed, measured at a specific outdoor temperature. A COP of 3.5 means 3.5 kWh of heat per 1 kWh of electricity. COP drops as outdoor temps fall, which is why the rated COP at 47 °F is always higher than the rated COP at 17 °F or 5 °F. For a deeper explanation, see our [COP Explained guide](/heat-pump-cop-explained/).
+Because the state programs roll out on their own timelines and funding levels, confirm what your state currently offers, and which equipment qualifies, with your installer before signing.
 
-<Callout type="tip">
-**Quick Rule of Thumb:** Multiply the COP by your electricity rate to get your cost per BTU of heat. If electricity is ~$0.18/kWh and COP is 3.0, your effective cost is about $0.06/kWh of heat — roughly on par with natural gas at $1.35/therm (a heat pump undercuts gas only once its COP clears ~3.8 at these rates).
-</Callout>
+## Maintenance
 
-## Heat Pump Cost Breakdown
+Heat pumps need modest but real maintenance:
+- **Check and replace air filters every 1 to 3 months.** A clogged filter restricts airflow and cuts efficiency (the DOE attributes a 5 to 15% energy penalty to a dirty filter).
+- **Keep the outdoor unit clear** of leaves, snow, and debris, with a couple of feet of clearance on all sides.
+- **Check the condensate drain** periodically to avoid clogs and water damage.
+- **Get an annual professional tune-up** (checking refrigerant charge, cleaning coils, testing the defrost cycle, tightening electrical connections). See our [maintenance checklist](/hvac-maintenance-checklist) for the full routine.
 
-Total cost depends on system type, capacity, brand, and installation complexity. Below are 2026 national averages based on published industry data.
+## Common myths, honestly addressed
 
-<ComparisonTable
-  title="2026 Heat Pump Installed Cost Ranges"
-  headers={["System Type / Size", "Equipment Cost", "Installation Labor", "Total Installed Cost"]}
-  rows={[
-    ["Ducted Air-Source (2 ton)", "$2,200–$4,500", "$2,500–$4,000", "$4,700–$8,500"],
-    ["Ducted Air-Source (3 ton)", "$2,800–$5,500", "$3,000–$4,500", "$5,800–$10,000"],
-    ["Ducted Air-Source (5 ton)", "$3,500–$7,000", "$3,500–$5,500", "$7,000–$12,500"],
-    ["Mini Split (single zone)", "$1,200–$2,800", "$1,500–$3,000", "$2,700–$5,800"],
-    ["Mini Split (4-zone)", "$3,500–$7,000", "$4,000–$8,000", "$7,500–$15,000"],
-    ["Ground-Source (3 ton)", "$5,000–$8,000", "$13,000–$27,000", "$18,000–$35,000"],
-  ]}
-/>
+**"Heat pumps don't work below freezing."** Outdated. Modern cold-climate units maintain strong capacity around 5°F and operate well below zero, and they're the primary heat source across Scandinavia.
 
-### What Drives Installation Cost Up
+**"Heat pumps always save money."** Not always, and we won't pretend otherwise. Against cheap natural gas, a high-efficiency furnace can be competitive or cheaper to run. The savings are largest when replacing electric resistance, oil, or propane, or where electricity is cheap relative to gas. Check your local rates.
 
-Several factors can push your quote above the averages. Electrical panel upgrades (from 100A to 200A) add $1,500–$4,000. If your home needs new ductwork, expect $2,000–$5,000 for a single-story and up to $8,000 for a two-story. Refrigerant line sets running through finished walls or ceilings cost more than exposed runs. Permit fees range from $100–$500 depending on your municipality.
+**"A heat pump can't heat and cool the same house."** It does both, that's the point. One system replaces both your furnace and your AC.
 
-For a detailed breakdown by region and system type, see our [Heat Pump Installation Cost Guide](/heat-pump-cost-to-install/).
+## Frequently asked questions
 
-## Operating Costs vs Other Systems
+**Is a heat pump worth it?**
+It depends on what you're replacing and your local energy prices. A heat pump reliably beats electric resistance, oil, and propane heating, and it replaces both your heating and cooling with one efficient system. Against cheap natural gas it's a closer call. The efficiency and the tax rebates make it attractive for many homes, but check your local electricity-to-gas price ratio with our running cost calculator before deciding.
 
-The real cost comparison isn't just equipment — it's what you pay each month to stay comfortable. Heat pumps almost always win on operating cost, but the margin depends on your local electricity and gas prices.
+**Do heat pumps work in cold weather?**
+Yes. Modern cold-climate heat pumps maintain strong heating capacity in freezing temperatures and keep operating well below zero. Look for a model rated for cold-climate performance and check its capacity at your design temperature. For the coldest areas, a dual-fuel setup or a properly sized cold-climate unit handles it.
 
-<ComparisonTable
-  title="Annual Heating Cost Comparison (2,000 sq ft home, Climate Zone 4)"
-  headers={["System", "Efficiency", "Annual Heating Cost*", "Annual Cooling Cost*", "Total Annual"]}
-  rows={[
-    ["Heat Pump (HSPF2 10)", "COP ~2.9", "$868", "$420", "$1,288"],
-    ["Gas Furnace (96%) + AC (SEER2 15)", "96% / 15", "$884", "$392", "$1,276"],
-    ["Gas Furnace (80%) + AC (SEER2 14)", "80% / 14", "$1,053", "$420", "$1,473"],
-    ["Electric Resistance + AC", "100% / 14", "$2,520", "$420", "$2,940"],
-    ["Oil Furnace (85%) + AC", "85% / 14", "$1,890", "$420", "$2,310"],
-    ["Propane Furnace (95%) + AC", "95% / 14", "$1,675", "$420", "$2,095"],
-  ]}
-/>
+**How much does a heat pump cost to run?**
+It depends on your system's efficiency, your climate, and your electricity rate. Because a heat pump delivers several units of heat per unit of electricity, it's typically much cheaper to run than electric resistance and often competitive with or better than gas, use our running cost calculator with your actual rate for a real estimate.
 
-*Assumes ~$0.18/kWh electricity, $1.35/therm gas, $3.50/gal oil, $2.50/gal propane (illustrative). Your local rates will vary — use our [running cost calculator](/heat-pump-running-cost-calculator/) for a personalized estimate.*
+**How long do heat pumps last?**
+Air-source and ductless heat pumps typically last about 15 to 20 years; ground-source systems last longer (the underground loop can last 50+ years). Regular filter changes and annual maintenance are the keys to reaching the full lifespan.
 
-The takeaway: heat pumps are competitive with even high-efficiency gas systems and dramatically cheaper than oil, propane, or electric resistance heating. See our [electricity usage guide](/heat-pump-electricity-usage/) for a deeper dive into monthly kWh consumption.
+**What size heat pump do I need?**
+Sizing depends on your home's heat loss, which varies with square footage, insulation, climate, and design temperature, not a single rule of thumb. Use our heat pump size calculator, and for any install insist on a proper Manual J load calculation rather than a rough estimate.
 
-## How to Size a Heat Pump
+## How we sourced this page
 
-Proper sizing is the single most important factor in heat pump performance. An oversized unit short-cycles (turning on and off rapidly), wasting energy and failing to dehumidify. An undersized unit can't keep up on the coldest days.
+The efficiency principles (heat pumps moving rather than generating heat, delivering multiple units of heat per unit of electricity) and the filter/maintenance efficiency figures reflect **DOE** and **ENERGY STAR** guidance. The COP-to-cost crossover analysis uses standard energy-cost math at the stated (illustrative) electricity and gas rates. Equipment performance references the **AHRI** Directory of Certified Product Performance. The tax-credit and rebate information reflects current federal rules: the **IRS** Section 25C credit, which expired for installs placed in service after December 31, 2025 under the OBBBA, and the active IRA HEAR and HOMES rebate programs, with state and utility incentives tracked in the **DSIRE** database. We recommend no specific brands or models, the right choice depends on your climate, what you're replacing, your local energy prices, and proper sizing, which the guidance and calculators above help you determine.
 
-### Manual J Load Calculation
-
-The industry standard is ACCA Manual J, which calculates your home's actual heating and cooling loads based on insulation levels, window area and type, orientation, climate zone, infiltration rate, and internal heat gains. A proper Manual J should produce two numbers: your heating design load (BTU/h) and your cooling design load (BTU/h).
-
-<Callout type="warning">
-**Avoid Rule-of-Thumb Sizing:** Some contractors still use shortcuts like "500 sq ft per ton" or "one ton per 600 sq ft." These ignore your home's actual characteristics and frequently lead to oversized systems. Always insist on a Manual J calculation — the better contractors do it automatically.
-</Callout>
-
-### Rough Sizing Reference
-
-While not a substitute for Manual J, these ranges give you a ballpark to sanity-check contractor quotes.
-
-<ComparisonTable
-  title="Approximate Heat Pump Sizing by Home Size (Climate Zone 4)"
-  headers={["Home Size (sq ft)", "Typical Cooling Load", "Typical Heating Load", "Common System Size"]}
-  rows={[
-    ["800–1,200", "18,000–24,000 BTU", "20,000–30,000 BTU", "1.5–2 ton"],
-    ["1,200–1,800", "24,000–36,000 BTU", "30,000–45,000 BTU", "2–3 ton"],
-    ["1,800–2,500", "36,000–48,000 BTU", "45,000–60,000 BTU", "3–4 ton"],
-    ["2,500–3,500", "48,000–60,000 BTU", "60,000–80,000 BTU", "4–5 ton"],
-    ["3,500+", "60,000+ BTU", "80,000+ BTU", "5+ ton or multiple units"],
-  ]}
-/>
-
-In cold climates (zones 5–7), heating loads are often 30–50% higher than cooling loads, so the system is typically sized to meet the heating load with an appropriately matched indoor coil for cooling.
-
-## Installation Process
-
-A typical ducted heat pump installation takes 1–2 days. Here's what to expect.
-
-**Day 1 — Equipment swap.** The crew disconnects and removes your old outdoor unit (and possibly the old furnace or air handler). They set the new outdoor unit on a concrete pad or mounting brackets, install the new indoor air handler, and connect the refrigerant lines, condensate drain, and control wiring. For a straightforward replacement, most of this happens in a single day.
-
-**Day 2 (if needed) — Electrical and finishing.** If your electrical panel needs an upgrade or a new circuit is required (heat pumps typically need a 30–50 amp 240V circuit), an electrician handles that work. The crew tests the system, checks refrigerant charge, programs the thermostat, and walks you through operation.
-
-For mini splits, installation is usually faster — a single-zone system takes 4–8 hours. The installer mounts the indoor head, places the outdoor unit, drills a 3-inch hole through the wall for the line set, connects everything, and commissions the system.
-
-## Heat Pumps in Cold Climates
-
-The biggest misconception about heat pumps is that they don't work in cold weather. That was partially true of older models, but 2026 cold-climate heat pumps have fundamentally changed the equation.
-
-### How Cold Is Too Cold?
-
-Modern cold-climate heat pumps from Mitsubishi, Fujitsu, Daikin, Bosch, and Carrier are rated to maintain full heating capacity down to 5 °F and continue operating (at reduced capacity) down to −13 °F to −22 °F. The Mitsubishi Hyper-Heat H2i, for instance, maintains 100% rated capacity at 5 °F and still produces 75% of rated capacity at −13 °F.
-
-<ComparisonTable
-  title="Cold Climate Heat Pump Performance"
-  headers={["Model", "Rated Capacity at 47 °F", "% Capacity at 5 °F", "Minimum Operating Temp", "COP at 5 °F"]}
-  rows={[
-    ["Mitsubishi Hyper-Heat MSZ-RW", "24,000 BTU", "100%", "−13 °F", "2.2"],
-    ["Fujitsu XLTH", "24,000 BTU", "95%", "−15 °F", "2.0"],
-    ["Daikin Fit (Aurora)", "36,000 BTU", "76%", "−13 °F", "1.8"],
-    ["Bosch IDS 2.0", "36,000 BTU", "80%", "−4 °F", "1.9"],
-    ["Carrier Infinity 24 (Greenspeed)", "36,000 BTU", "72%", "0 °F", "1.8"],
-  ]}
-/>
-
-Even at −15 °F with a COP of 1.5–2.0, a heat pump is 50–100% more efficient than electric resistance heat. For a complete deep dive, see our guide to [heat pumps in cold weather](/heat-pump-in-cold-weather); to size cold-climate capacity against your specific design temperature, use the [heat pump size calculator](/heat-pump-size-calculator).
-
-### Backup Heat Strategies
-
-Most cold-climate installations use one of three backup strategies.
-
-**Dual-fuel (hybrid):** The heat pump handles heating down to a balance point (often 25–35 °F), then a gas or propane furnace takes over. This approach minimizes electricity use during the coldest hours while still capturing heat pump efficiency for 70–80% of the heating season.
-
-**Electric resistance backup:** Strip heaters in the air handler kick in when the heat pump can't keep up. Simple and cheap to install, but expensive to run — use only if the heat pump covers 90%+ of heating hours.
-
-**Cold-climate heat pump sized to load:** The newest approach — size a cold-climate heat pump to meet 100% of the heating load even at design temperature. No backup needed. This works best with inverter-driven systems that modulate capacity smoothly.
-
-## 2026 Tax Credits and Rebates
-
-The financial incentives for heat pumps in 2026 remain substantial through state, utility, and IRA HEAR/HOMES programs — though the federal Section 25C credit has now expired.
-
-### Federal Tax Credit (25C — EXPIRED for installs after Dec 31, 2025)
-
-The federal Section 25C credit (which covered **30% of total project cost, up to $2,000** for qualifying heat pumps meeting CEE highest efficiency tier — SEER2 ≥ 16 and HSPF2 ≥ 9.0 for ducted, or SEER2 ≥ 18 and HSPF2 ≥ 9.5 for ductless) **expired for property placed in service after Dec 31, 2025** under the OBBBA (PL 119-21, signed July 4, 2025).
-
-If you installed a qualifying heat pump in 2024 or 2025 and didn't claim the credit, you can typically file an amended return on IRS Form 1040-X. 25C does NOT allow carryforward of an unused credit. The credit covered both equipment and installation labor costs through Dec 31, 2025.
-
-### HOMES and HEAR Rebates
-
-The High-Efficiency Electric Home Rebate Act (HEEHRA) provides **point-of-sale rebates up to $8,000** for heat pumps, with higher amounts for low- and moderate-income households. Eligibility and rollout vary by state — as of early 2026, over 40 states have active programs. Check the DSIRE database or your state energy office for current availability.
-
-### State and Utility Incentives
-
-Many states and utilities offer additional rebates on top of the federal credit.
-
-<ComparisonTable
-  title="Sample State & Utility Heat Pump Rebates (2026)"
-  headers={["State / Utility", "Rebate Amount", "Requirements", "Stackable with Federal?"]}
-  rows={[
-    ["Massachusetts (Mass Save)", "$10,000–$16,000", "Whole-home heat pump conversion", "Yes"],
-    ["Maine (Efficiency Maine)", "$2,000–$4,000", "ENERGY STAR certified unit", "Yes"],
-    ["New York (NYSERDA)", "$1,000–$14,500", "Income-based, clean heat program", "Yes"],
-    ["Colorado (state utility rebates)", "$2,500–$5,000", "Cold climate rated unit", "Yes"],
-    ["California (TECH Clean)", "$3,000–$5,500", "Replace gas furnace", "Yes"],
-    ["Pacific NW (state utility programs)", "$1,500–$3,500", "ENERGY STAR, ductless or ducted", "Yes"],
-  ]}
-/>
-
-For the complete federal breakdown, visit our [Heat Pump Tax Credits & Rebates Guide](/heat-pump-tax-credits-2026/).
-
-## Maintenance Requirements
-
-Heat pumps require minimal maintenance, but consistent upkeep protects your efficiency and extends the system's lifespan.
-
-### What You Can Do (Monthly/Quarterly)
-
-**Check and replace air filters** every 1–3 months. A clogged filter restricts airflow, forcing the compressor to work harder and cutting efficiency by 5–15%. **Keep the outdoor unit clear** — remove leaves, snow, and debris, maintaining 18–24 inches of clearance on all sides. **Inspect the condensate drain** periodically since a blocked drain causes water damage and can trigger a system shutdown.
-
-### What a Technician Should Do (Annually)
-
-An annual professional tune-up costs $80–$200 and typically includes checking refrigerant charge and pressures, cleaning indoor and outdoor coils, testing the defrost cycle, inspecting and tightening electrical connections, lubricating motors and bearings (if applicable), and verifying thermostat calibration.
-
-### Lifespan Expectations
-
-A well-maintained air-source heat pump lasts 15–20 years. Mini splits have a similar lifespan, sometimes longer since they avoid ductwork losses. Ground-source units last 20–25 years for the equipment and 50+ years for the ground loop.
-
-## Common Myths Debunked
-
-**Myth: Heat pumps don't work below freezing.** Modern cold-climate units maintain full capacity to 5 °F and operate down to −13 °F or colder. Millions of homes in Scandinavia (where temps hit −20 °F regularly) rely on heat pumps as their primary heat source.
-
-**Myth: Heat pumps are only for mild climates.** Norway, where winter temps regularly drop below 0 °F, has the highest per-capita heat pump adoption in the world. Over 60% of Norwegian homes use heat pumps.
-
-**Myth: Heat pump air feels cold and drafty.** Older single-speed units delivered air at 90–95 °F (versus a furnace's 120–140 °F), which felt lukewarm. Modern inverter units deliver 100–110 °F air continuously, which feels comfortable and maintains even temperatures.
-
-**Myth: Heat pumps are too expensive.** After federal and state incentives, many homeowners pay less for a heat pump than for a comparable gas furnace + AC system. The operating cost savings start immediately.
-
-**Myth: Heat pumps are noisy.** Modern outdoor units run at 55–65 dB (the level of a normal conversation). Mini split indoor heads run at 19–26 dB — quieter than a whisper.
-
-For an honest look at real limitations that do exist, read our guide on the [disadvantages of heat pumps](/disadvantages-of-heat-pumps/).
-
-## Key Takeaways
-
-<Callout type="takeaway">
-**Heat pumps deliver 2–5× more energy than they consume**, making them the most efficient heating and cooling technology available. Modern cold-climate models work reliably to −15 °F, eliminating the "it's too cold" barrier for most of the U.S. Total installed cost ranges from $3,000 for a single-zone mini split to $35,000 for geothermal, with ducted air-source averaging $5,800–$10,000. The federal Section 25C tax credit ended for equipment placed in service after Dec 31, 2025 (OBBBA); state and utility rebates, plus IRA Home Energy Rebates where your state has launched them, can help reduce out-of-pocket cost — check DSIRE or your state energy office for programs that apply to you. Annual operating savings of $500–$1,200 versus gas furnaces deliver payback periods of 3–8 years. Proper sizing via Manual J is critical — insist on a load calculation, not rule-of-thumb guesses. Maintenance is minimal: monthly filter changes plus one annual professional tune-up.
-</Callout>
-
-<FAQ id="faq">
-  <FAQ.Item question="How much does a heat pump cost per month to run?">
-    The average U.S. home with a heat pump spends $80–$160 per month on heating and cooling combined, depending on climate, home size, insulation quality, and local electricity rates. This compares to $120–$200 per month for gas furnace + AC and $200–$350 per month for oil or propane heating + AC. Use our [running cost calculator](/heat-pump-running-cost-calculator/) for a personalized estimate.
-  </FAQ.Item>
-
-  <FAQ.Item question="Do heat pumps work with radiators?">
-    Standard air-source heat pumps work with forced-air ductwork or ductless wall heads, not radiators. However, air-to-water heat pumps (from SpacePak, Chiltrix, and Arctic Heat Pumps) produce hot water that can feed radiators, radiant floor systems, and baseboard heaters. These units work best with low-temperature distribution systems (radiant floors, fan coil units) since they produce water at 100–130 °F versus a boiler's 160–180 °F.
-  </FAQ.Item>
-
-  <FAQ.Item question="Can I install a heat pump myself?">
-    DIY installation is not recommended for most homeowners. Heat pump installation involves handling refrigerant (which requires EPA Section 608 certification), high-voltage electrical work, and precise system commissioning. Improper installation causes the majority of heat pump performance problems. Some pre-charged mini split systems (like MrCool DIY) are designed for homeowner installation, but even these require careful attention to electrical work and line set connections. DIY installation may void the manufacturer's warranty and disqualify you from utility rebates.
-  </FAQ.Item>
-
-  <FAQ.Item question="What is the best heat pump brand?">
-    The "best" brand depends on your priorities. For cold-climate ductless performance, Mitsubishi and Fujitsu lead with the best low-temperature ratings. For ducted whole-home systems, Carrier, Trane, and Lennox offer excellent products with strong dealer networks. Daikin (which also owns Amana and Goodman) provides strong mid-range value. Bosch is popular for quiet operation and competitive pricing. What matters most is proper sizing, quality installation, and a reputable local contractor — brand differences are secondary.
-  </FAQ.Item>
-
-  <FAQ.Item question="Will a heat pump increase my home's value?">
-    Yes. Studies from Zillow and Redfin show that homes with heat pumps sell for 4–7% more than comparable homes with conventional HVAC, with the premium highest in moderate and warm climates. An ENERGY STAR-rated heat pump is also an asset on home energy audits and appraisals. As building electrification codes tighten and buyer awareness grows, the resale value benefit is expected to increase through the late 2020s.
-  </FAQ.Item>
-</FAQ>
-
-<SourcesBox>
-  - [AHRI Directory — Certified Product Performance](https://www.ahridirectory.org/)
-  - [ACCA Manual J — Residential Load Calculation](https://www.acca.org/standards/manual-j)
-  - [IRS — Energy Efficient Home Improvement Credit (25C)](https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit)
-  - [DSIRE — Database of State Incentives for Renewables & Efficiency](https://www.dsireusa.org/)
-  - [AHRI — Air-Conditioning, Heating, and Refrigeration Institute](https://www.ahrinet.org/)
-</SourcesBox>
+<SourcesBox sources={[
+  { title: "DOE: Heat Pump Systems (types, efficiency, sizing)", url: "https://www.energy.gov/heat-pumps" },
+  { title: "ENERGY STAR: Heat & Cool Efficiently (efficiency + maintenance guidance)", url: "https://www.energystar.gov/saveathome/heating-cooling" },
+  { title: "AHRI: Directory of Certified Product Performance", url: "https://www.ahridirectory.org/" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
+  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org" }
+]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
+
