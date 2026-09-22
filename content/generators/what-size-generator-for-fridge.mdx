@@ -1,220 +1,138 @@
 ---
 slug: "what-size-generator-for-fridge"
 title: "What Size Generator to Run a Fridge and Freezer? (Wattage Guide)"
-description: "Exact wattage requirements for running refrigerators and freezers on a generator. Running watts, starting watts, and recommended generator sizes for every fridge type. Includes chest freezer, side-by-side, and mini fridge data."
+description: "Wattage to run a refrigerator and freezer on a generator: running vs starting watts, how to size for the compressor surge, and the FDA/CDC food-safety timelines that let you run it intermittently."
+author: "Marko Visic, BSc Physics"
 cluster: "generators"
 role: "spoke"
 priority: "P2"
 contentType: "guide"
 datePublished: "2026-02-05"
-dateModified: "2026-07-18"
+dateModified: "2026-09-22"
 relatedArticles:
   - "generator-guide"
   - "how-long-generator-on-5-gallons"
   - "how-many-amps-does-generator-produce"
   - "portable-generator-safety-tips"
 externalLinks:
-  - label: "ENERGY STAR — Refrigerator Data"
-    url: "https://www.energystar.gov/productfinder/product/certified-residential-refrigerators/"
-  - label: "DOE — Appliance Energy Use"
-    url: "https://www.energy.gov/"
+  - title: "FDA: Food and Water Safety During Power Outages"
+    url: "https://www.fda.gov/food/buy-store-serve-safe-food/food-and-water-safety-during-power-outages-and-floods"
+  - title: "CDC: Keep Food Safe After an Emergency"
+    url: "https://www.cdc.gov/food-safety/foods/keep-food-safe-after-emergency.html"
+  - title: "ENERGY STAR: Certified Products (refrigerator efficiency)"
+    url: "https://www.energystar.gov/products"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 # What Size Generator to Run a Fridge and Freezer?
 
-You need a minimum of 2,000 watts (starting) to run a standard refrigerator and freezer simultaneously. A 2,200W inverter generator like the Honda EU2200i handles both comfortably, while a 3,500W generator gives you enough headroom to add lights, a phone charger, and a fan on top of the fridge and freezer.
+The power's out (or you're prepping for when it is), and the one thing you really don't want to lose is a fridge and freezer full of food. So the question is simple: what size generator do you actually need to keep them running, without buying way more generator than necessary or, worse, one that trips its breaker every time the compressor kicks on at 2 AM?
 
-The key is understanding that your fridge and freezer need far more power to start their compressors (800–1,500W surge for each) than they do to keep running (100–400W each). Sizing for starting watts, not running watts, is what prevents your generator from tripping its overload breaker at 2 AM when the compressor kicks on. For a silent, battery-powered alternative, see our [home battery backup guide](/home-battery-backup-guide) — it covers battery-only sizing plus battery-plus-generator hybrid strategies.
+Here's the straight answer and the method behind it. We'll cover exactly how much power a fridge and freezer need (it's less than you'd think to *run*, but more to *start*), what size generator that adds up to, and a money-saving trick: you often don't need to run it continuously at all. Wattage figures are typical ranges (check your appliance's nameplate for exact numbers), and the food-safety timelines are from the FDA and CDC, linked at the bottom. We recommend no specific generator brands.
 
-<TableOfContents />
+**To run a standard refrigerator and freezer together, you generally need a generator rated for at least about 2,000 starting watts.** The catch that trips people up: a fridge and freezer draw far more power to *start* their compressors (a surge of roughly 800 to 1,500 watts each) than to keep *running* (roughly 100 to 400 watts each). Size for the starting surge, not the running load, and you won't get a tripped breaker when the compressor cycles on.
 
-## Interactive Generator Sizing Calculator
+## How much power a fridge and freezer actually use
 
-Use our calculator to determine the right generator size for your specific appliances:
+The key numbers are *running watts* (steady draw) and *starting watts* (the brief compressor surge). Typical ranges by appliance:
+
+| Appliance | Running watts | Starting watts |
+|-----------|---------------|----------------|
+| Standard top/bottom-freezer fridge (18–21 cu ft) | ~100–200W | ~800–1,200W |
+| Side-by-side / French door (22–28 cu ft) | ~150–300W | ~1,000–1,500W |
+| Mini / compact fridge | ~50–150W | ~300–800W |
+| Chest freezer (5–18 cu ft) | ~50–200W | ~500–1,100W |
+| Upright freezer (10–25 cu ft) | ~100–400W | ~800–1,500W |
+
+**To find your exact numbers:** look for the nameplate sticker on your fridge or freezer (inside the door, on the back, or behind the kick plate). It lists amps and volts, multiply amps × volts for running watts. Starting watts are harder to read off the plate; a common rule of thumb is roughly 3× the running watts for the compressor surge.
+
+## What size generator that adds up to
+
+Here's the sizing rule, and it's the important part: **you do NOT add up all the starting watts.** Compressors don't all start at the same instant. Instead:
+
+1. **Add the running watts** of everything you want to power at once.
+2. **Add the single largest starting surge** from any one appliance (not all of them).
+3. **Add about a 20% margin** for reliable operation.
+
+That total is your minimum generator size. Worked example:
+
+> **Fridge + chest freezer + a few LED lights + phone charger:**
+> Running: fridge ~150W + freezer ~100W + lights ~50W + charger ~15W = **~315W running.**
+> Largest single surge: the fridge compressor at ~1,200W (adds ~1,050W over its running draw).
+> Peak need: ~315 + 1,050 = **~1,365W.** With a 20% margin, about **1,640W**, so a ~2,000W inverter generator handles this comfortably.
+
+Rough guide for common combinations:
+
+| What you want to power | Approx. minimum generator |
+|------------------------|---------------------------|
+| Standard fridge only | ~1,500–2,000W |
+| Fridge + a freezer | ~2,000–2,200W |
+| Fridge + freezer + lights/charger | ~2,200–3,000W |
+| Fridge + freezer + sump or well pump | ~3,500–5,000W (pumps have big surges) |
+| Fridge + freezer + furnace blower | ~3,000–5,000W |
+| Fridge + freezer + window AC | ~3,500–5,500W |
+
+For your specific appliances, use the [generator sizing calculator](/what-size-generator-do-i-need) below or on our [generator guide](/generator-guide). Note that pumps (sump, well) and AC compressors have large starting surges that often drive the generator size more than the fridge does.
 
 <CalcWrapper type="generator-sizing" />
 
-## Refrigerator and Freezer Wattage Data
+## You may not need to run it continuously (the cycling trick)
 
-<ComparisonTable
-  title="Wattage Requirements by Appliance Type"
-  headers={["Appliance", "Running Watts", "Starting Watts", "Amps (120V)", "Annual kWh"]}
-  rows={[
-    ["Standard Top-Freezer Refrigerator (18–21 cu ft)", "100–200W", "800–1,200W", "0.8–1.7A running", "350–500 kWh"],
-    ["Side-by-Side Refrigerator (22–26 cu ft)", "150–300W", "1,000–1,500W", "1.3–2.5A running", "500–700 kWh"],
-    ["French Door Refrigerator (22–28 cu ft)", "150–300W", "1,000–1,500W", "1.3–2.5A running", "500–700 kWh"],
-    ["Bottom-Freezer Refrigerator (18–22 cu ft)", "100–250W", "800–1,200W", "0.8–2.1A running", "400–550 kWh"],
-    ["Mini Fridge (1.7–4.5 cu ft)", "50–100W", "300–600W", "0.4–0.8A running", "200–350 kWh"],
-    ["Compact Refrigerator (4.5–10 cu ft)", "75–150W", "500–800W", "0.6–1.3A running", "250–400 kWh"],
-    ["Chest Freezer (5–9 cu ft)", "50–100W", "500–800W", "0.4–0.8A running", "200–350 kWh"],
-    ["Chest Freezer (10–18 cu ft)", "100–200W", "700–1,100W", "0.8–1.7A running", "300–500 kWh"],
-    ["Chest Freezer (18–25 cu ft)", "150–250W", "900–1,300W", "1.3–2.1A running", "400–600 kWh"],
-    ["Upright Freezer (10–18 cu ft)", "100–300W", "800–1,200W", "0.8–2.5A running", "350–550 kWh"],
-    ["Upright Freezer (18–25 cu ft)", "200–400W", "1,000–1,500W", "1.7–3.3A running", "500–700 kWh"],
-    ["Commercial Refrigerator (residential use)", "200–400W", "1,200–2,000W", "1.7–3.3A running", "600–1,000 kWh"],
-  ]}
-/>
+Here's the money-saver most people miss: **a fridge and freezer hold their cold for hours after the power (or generator) stops, so you can run the generator intermittently.** This can cut your fuel use dramatically.
 
-<Callout type="tip">
-**How to find your exact wattage:** Look for the nameplate sticker on your fridge or freezer — usually inside the door, on the back, or behind the kick plate. It lists the amps and volts. Multiply amps × volts for running watts. For starting watts, multiply the running watts by 3 (a safe estimate for compressor surge).
-</Callout>
+The food-safety timelines below are from the FDA and CDC, and they're the numbers to trust:
 
-## Recommended Generator Size
+| Appliance | Stays safe (door closed) | Safe temperature |
+|-----------|--------------------------|------------------|
+| Refrigerator | about **4 hours** | below 40°F |
+| Full freezer | about **48 hours** | below 0°F |
+| Half-full freezer | about **24 hours** | below 0°F |
 
-<ComparisonTable
-  title="Minimum Generator Size for Fridge/Freezer Combinations"
-  headers={["What You Want to Power", "Running Watts Total", "Starting Watts (largest surge)", "Minimum Generator", "Recommended Generator"]}
-  rows={[
-    ["Standard fridge only", "150W", "1,200W", "1,500W inverter", "2,000W inverter"],
-    ["Standard fridge + chest freezer", "250W", "1,200W", "2,000W inverter", "2,200W inverter"],
-    ["Standard fridge + upright freezer", "350W", "1,200W", "2,000W inverter", "2,200–3,000W inverter"],
-    ["Side-by-side fridge + chest freezer", "350W", "1,500W", "2,200W inverter", "3,000W inverter"],
-    ["Fridge + freezer + lights + phone charger", "450W", "1,200W", "2,200W inverter", "3,000–3,500W"],
-    ["Fridge + freezer + sump pump", "600W", "2,150W (sump)", "3,500W", "4,000–5,000W"],
-    ["Fridge + freezer + well pump", "600W", "2,100W (well)", "3,500W", "4,500–5,500W"],
-    ["Fridge + freezer + furnace blower", "700W", "1,200W (furnace/fridge)", "3,000W", "3,500–5,000W"],
-    ["Fridge + freezer + window AC", "1,200W+", "1,800W (AC)", "3,500W", "5,000–5,500W"],
-    ["Fridge + freezer + everything essential", "2,000W+", "2,150W", "5,000W", "5,500–7,500W"],
-  ]}
-/>
+So a practical approach: run the generator for an hour or two to pull the fridge and freezer down to temperature, then shut it off. A closed fridge stays safe for about 4 hours; a full freezer stays frozen for up to about 48. Cycling like this, rather than running 24/7, can cut fuel consumption substantially. Two rules make it work: **keep the doors closed** (every opening dumps cold air), and **keep the freezer full** (a packed freezer acts like a block of ice and holds cold far longer than a half-empty one).
 
-### How Sizing Works
+One safety note from the FDA: when power is restored, check temperatures. Discard refrigerated perishables (meat, dairy, eggs, leftovers) that have been above 40°F for 4 hours or more, and never taste food to judge whether it's safe.
 
-When calculating your generator size, you do not simply add all starting watts together. Compressors do not all start at the same time. Here is the method:
+## A few things that change your numbers
 
-Add all running watts for everything you want to power simultaneously. Then add the single largest starting surge from any one appliance. That total is your minimum generator size. Finally, add a 20% safety margin for reliable operation.
+- **Older fridges use much more power.** A pre-2010 refrigerator can draw two to three times what a modern ENERGY STAR model does. If your fridge is 15+ years old, it may pull noticeably more running and starting watts, pushing you toward a larger generator. A modern ENERGY STAR fridge is easier on a small generator.
+- **Ice makers and water dispensers** add a bit of intermittent load, budget a little extra.
+- **Hot garages or outdoor fridges** work harder in summer heat and draw more, so size up if that's your setup.
+- **A soft-start device** (also called a hard-start kit) installed on the fridge or freezer can reduce the compressor's starting surge substantially, which can be the difference between a successful start and a tripped breaker if your generator is borderline on surge capacity.
 
-<Callout type="example">
-**Example — Fridge + Chest Freezer + 5 LED Lights + Phone Charger:**
-- Fridge running: 150W
-- Chest freezer running: 100W
-- 5 LED lights: 50W
-- Phone charger: 15W
-- **Total running: 315W**
-- Largest starting surge: fridge compressor at 1,200W (adds 1,050W over running)
-- **Peak need: 1,365W**
-- With 20% margin: **1,638W → A 2,000W inverter generator handles this easily.**
-</Callout>
+## Inverter vs. conventional generators
 
-<Callout type="example">
-**Example — Fridge + Upright Freezer + Sump Pump + Furnace Blower:**
-- Fridge running: 200W
-- Upright freezer running: 200W
-- Sump pump (½ HP) running: 1,050W
-- Furnace blower running: 700W
-- **Total running: 2,150W**
-- Largest starting surge: sump pump at 2,150W (adds 1,100W)
-- **Peak need: 3,250W**
-- With 20% margin: **3,900W → A 4,000–5,000W generator is recommended.**
-</Callout>
+Two quick points that matter for a fridge:
 
-<Callout type="example">
-**Example — Two Refrigerators + Chest Freezer (Second Home/Garage):**
-- Main fridge running: 200W
-- Garage fridge running: 200W
-- Chest freezer running: 100W
-- **Total running: 500W**
-- Largest starting surge: either fridge at 1,200W (adds 1,000W)
-- **Peak need: 1,500W**
-- With 20% margin: **1,800W → A 2,200W inverter handles three cold appliances.**
-</Callout>
+- **Inverter generators produce cleaner, more stable power** (low total harmonic distortion), which is safer for the electronics in modern refrigerators. A conventional (non-inverter) generator can produce voltage fluctuations that may stress sensitive electronics over time, if you use one, add a surge protector between the generator and the fridge.
+- **Fuel efficiency:** running only a fridge and freezer puts a light load on the generator (often 10 to 15% of a 2,000W-class unit's capacity), so fuel use is modest, and cycling stretches it much further. For a fuel-duration estimate, see [how long a generator runs on 5 gallons](/how-long-generator-on-5-gallons).
 
-## How Long Does Food Last Without Power?
+## Frequently asked questions
 
-Understanding food safety timelines helps you decide whether you even need to run the generator continuously or if you can cycle it.
+**Will a 2,000-watt generator run a refrigerator and freezer at the same time?**
+Usually yes, though it can be tight. A fridge (~150W running) and freezer (~100W running) only draw about 250W combined to run. The risk is if both compressors happen to surge at the exact same moment. In practice that's rare, and most ~2,000W-class inverter generators handle both. For extra safety, stagger startup: plug in the fridge first, let it stabilize, then plug in the freezer.
 
-<ComparisonTable
-  title="Food Safety Timeline Without Power"
-  headers={["Appliance", "Door Kept Closed", "Safe Temperature", "After That..."]}
-  rows={[
-    ["Full refrigerator", "4–6 hours", "Below 40°F (4°C)", "Perishables become unsafe"],
-    ["Half-full refrigerator", "2–4 hours", "Below 40°F (4°C)", "Perishables become unsafe"],
-    ["Full chest freezer", "48–72 hours", "Below 0°F (-18°C)", "Food begins thawing"],
-    ["Half-full chest freezer", "24–36 hours", "Below 0°F (-18°C)", "Food begins thawing"],
-    ["Full upright freezer", "24–48 hours", "Below 0°F (-18°C)", "Food begins thawing"],
-    ["Half-full upright freezer", "12–24 hours", "Below 0°F (-18°C)", "Food begins thawing"],
-  ]}
-/>
+**Can a generator damage my refrigerator?**
+A conventional (non-inverter) generator can produce voltage spikes that may stress a modern fridge's electronics over time. Inverter generators produce clean, stable power that's safe for electronics. With a conventional generator, use a surge protector between it and the fridge.
 
-<Callout type="tip">
-**The cycling strategy:** You do not need to run the fridge and freezer 24/7 on a generator. Run the generator for 1–2 hours to cool the fridge below 35°F and the freezer below -5°F, then turn it off. A well-sealed fridge stays safe for 4–6 hours; a full freezer stays frozen for 48+ hours. This can cut your fuel consumption by 50–75%.
-</Callout>
+**How long can I run my fridge on a generator?**
+As long as you have fuel. Running just a fridge and freezer is a light load, so fuel lasts a long time, and cycling the generator (running it intermittently) stretches it much further. See our generator fuel-duration guide for an estimate based on your generator and tank size.
 
-## ENERGY STAR Refrigerators Use Less Generator Power
+**How long does food stay safe if I can't run the generator?**
+Per the FDA and CDC, a refrigerator keeps food safe about 4 hours with the door closed, a full freezer about 48 hours (24 if half full). Keep the doors shut, keep the freezer full, and check temperatures when power returns, discard refrigerated perishables held above 40°F for 4+ hours.
 
-Older refrigerators (pre-2010) can use 2–3x more electricity than modern ENERGY STAR models. If your fridge is over 15 years old, it may be pulling 400–600W running — pushing you into larger generator territory.
+**Do I need to size for starting watts or running watts?**
+Starting watts. The compressor surge (roughly 800 to 1,500W for a fridge or freezer) is much higher than the running draw, and it's what trips an undersized generator. Add your total running watts plus the single largest starting surge, then add about 20% margin.
 
-<ComparisonTable
-  title="Energy Use: Old Fridge vs. ENERGY STAR (18–21 cu ft)"
-  headers={["Fridge Age", "Running Watts", "Starting Watts", "Annual kWh", "Generator Impact"]}
-  rows={[
-    ["Pre-2000", "400–600W", "1,500–2,000W", "800–1,200 kWh", "Needs 3,000W+ generator"],
-    ["2000–2010", "200–400W", "1,000–1,500W", "500–700 kWh", "Needs 2,200W+ generator"],
-    ["2010–2020 ENERGY STAR", "100–200W", "800–1,200W", "350–500 kWh", "2,000W inverter works"],
-    ["2020–2026 ENERGY STAR", "80–150W", "600–1,000W", "300–400 kWh", "Small inverter works"],
-  ]}
-/>
+## How we sourced this page
 
-## Special Considerations
+The food-safety timelines (a refrigerator safe about 4 hours, a full freezer about 48 hours, half-full about 24 hours, at or below 40°F and 0°F) are from the **FDA** and **CDC** guidance on food safety during power outages. Refrigerator energy-use context references **ENERGY STAR** (modern certified refrigerators use substantially less power than older models). The generator-sizing method (running watts plus the single largest starting surge, plus a safety margin) is the standard approach for portable generator load calculation. Wattage figures are typical ranges, not fixed values, check your appliance's nameplate for its exact draw, and fuel-cost figures depend on your generator's efficiency and local fuel price. We recommend no specific generator or accessory brands.
 
-### Refrigerators with Ice Makers and Water Dispensers
+<SourcesBox sources={[
+  { title: "FDA: Food and Water Safety During Power Outages (fridge 4 hours, full freezer 48 hours)", url: "https://www.fda.gov/food/buy-store-serve-safe-food/food-and-water-safety-during-power-outages-and-floods" },
+  { title: "CDC: Keep Food Safe After an Emergency (4hr / 48hr / 24hr timelines)", url: "https://www.cdc.gov/food-safety/foods/keep-food-safe-after-emergency.html" },
+  { title: "ENERGY STAR: Certified Products (modern refrigerators use less power)", url: "https://www.energystar.gov/products" }
+]} />
 
-Models with ice makers and through-door water/ice dispensers use 15–25% more electricity than basic models. The water valve, dispenser motor, and ice maker heater add intermittent loads. Budget an extra 30–50W of running watts for these features.
-
-### Garage or Outdoor Refrigerators
-
-Fridges in hot garages or outdoors work harder to maintain temperature, especially in summer. A fridge in a 100°F garage may draw 30–50% more power than the same fridge in a climate-controlled kitchen. Size your generator accordingly.
-
-### Deep Freezers with Large Quantities of Meat
-
-A chest freezer packed full of frozen meat acts as a thermal battery — it stays frozen much longer than a half-empty freezer. If your freezer is full, you may only need to run the generator for 2–3 hours per day to keep everything frozen.
-
-### Using a Soft-Start Device
-
-If your generator is borderline on starting watts, a compressor soft-start device (also called a hard-start kit) can reduce the compressor's starting surge by 50–70%. A $30–$80 device installed on your fridge or freezer can make the difference between a successful start and a tripped breaker. The Micro-Air EasyStart is a popular option for RV and generator use.
-
-<Callout type="takeaway">
-**Key Takeaways:**
-- A standard fridge needs 100–200W running and 800–1,200W starting.
-- A chest freezer needs 50–200W running and 500–1,100W starting.
-- A 2,200W inverter generator (like Honda EU2200i) handles a fridge + freezer + lights.
-- For fridge + freezer + sump pump or well pump, you need 3,500–5,000W.
-- Always size for the largest starting surge, not total running watts.
-- You can cycle the fridge/freezer 1–2 hours on, 4–6 hours off, to save 50–75% on fuel.
-- A full freezer stays frozen 48–72 hours without power (door closed).
-- Modern ENERGY STAR fridges use half the power of models from 15+ years ago.
-- A soft-start device ($30–$80) can reduce compressor surge by 50–70%.
-</Callout>
-
-<FAQ
-  items={[
-    {
-      question: "Will a 2000 watt generator run a refrigerator and freezer at the same time?",
-      answer: "Usually yes, but it is tight. A fridge (150W running, 1,200W starting) and chest freezer (100W running, 800W starting) have a combined running load of only 250W. The risk is if both compressors start simultaneously — that could require 2,000W of surge. In practice, this rarely happens, and most 2,200W inverter generators handle both fine. For extra safety, stagger the startup: plug in the fridge first, let it stabilize, then plug in the freezer."
-    },
-    {
-      question: "Can a portable generator damage my refrigerator?",
-      answer: "A conventional (non-inverter) generator can produce voltage spikes and fluctuations that may damage sensitive electronics in modern refrigerators over time. Inverter generators produce clean, stable power (under 3% THD) that is safe for all electronics. If using a conventional generator, add a surge protector between the generator and the fridge."
-    },
-    {
-      question: "How long can I run my fridge on a generator?",
-      answer: "As long as you have fuel. A 2,200W inverter generator running a fridge and freezer (250W combined load) at roughly 12% capacity burns only 0.12 gallons/hour. That means 5 gallons of gas lasts about 40 hours — nearly two full days of continuous fridge and freezer operation. Cycling the appliances stretches that even further."
-    },
-    {
-      question: "How much does it cost to run a fridge on a generator?",
-      answer: "Very little. A modern fridge running on a 2,200W inverter generator at roughly 10–15% load uses about 0.12 gallons of gas per hour. At $3.20/gallon, that is $0.38/hour or about $9.22/day for continuous operation. With cycling (1 hour on, 4 hours off), cost drops to roughly $2.00–$3.00/day."
-    },
-  ]}
-/>
-
-<SourcesBox
-  sources={[
-    { label: "ENERGY STAR — Certified Refrigerators", url: "https://www.energystar.gov/productfinder/product/certified-residential-refrigerators/" },
-    { label: "FDA — Food Safety During Power Outages", url: "https://www.fda.gov/food/buy-store-serve-safe-food/food-and-water-safety-during-power-outages-and-floods" },
-    { label: "USDA — Keeping Food Safe During Emergencies", url: "https://www.usda.gov/" },
-    { label: "Honda — EU2200i Specifications", url: "https://powerequipment.honda.com/generators/models/eu2200i" },
-  ]}
-/>
+<RelatedArticles articles={frontmatter.relatedArticles} />
 
