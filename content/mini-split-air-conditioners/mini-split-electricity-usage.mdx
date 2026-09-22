@@ -1,272 +1,150 @@
 ---
 slug: "mini-split-electricity-usage"
 title: "How Much Electricity Does a Mini Split Use? (Watts, kWh, Amps)"
-description: "Real electricity consumption data for mini splits by size — wattage, kWh per day/month/year, and how usage compares to central air, window units, and space heaters."
+description: "How much electricity a mini split uses by size: watts, kWh per day and month, the factors that change it, a per-state rate table, and how to cut consumption. Sourced to DOE, ENERGY STAR, and EIA."
+author: "Marko Visic, BSc Physics"
 cluster: "mini-split-air-conditioners"
 role: "spoke"
 priority: "P1"
 contentType: "data-analysis"
 datePublished: "2026-01-15"
-dateUpdated: "2026-07-17"
+dateModified: "2026-09-22"
 relatedArticles:
   - how-much-does-mini-split-cost-to-run
   - mini-split-amps
   - mini-split-air-conditioners
   - mini-split-vs-central-air
 externalLinks:
-  - label: "EIA — Average Retail Price of Electricity"
+  - title: "U.S. Department of Energy: Maintaining Your Air Conditioner"
+    url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner"
+  - title: "ENERGY STAR: Ductless Heating & Cooling"
+    url: "https://www.energystar.gov/products/ductless_heating_cooling"
+  - title: "EIA: Electricity Monthly (average retail price)"
     url: "https://www.eia.gov/electricity/monthly/"
-  - label: "AHRI Directory — Certified Equipment"
-    url: "https://www.ahridirectory.org"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+import { SourcesBox, RelatedArticles } from '@/components'
 
-# How Much Electricity Does a Mini Split Use? (Watts, kWh, Amps)
+# How Much Electricity Does a Mini Split Use?
 
-A 12,000 BTU mini split uses 400–1,200 watts depending on compressor load, consuming 3.2–9.6 kWh per day when running 8 hours. Over a full cooling season, that's 500–900 kWh. Use the calculator above for your exact seasonal cost — as a rule of thumb, expect a few dollars a day in mild weather and more during peak season, scaled to your local rate. Inverter-driven mini splits average 30–50% less electricity than these maximum wattage figures because they modulate compressor speed rather than running at full power.
+You want to know what a mini split actually costs to run before you commit, or you've got one and your electric bill went up and you're wondering if it's the culprit. Either way, the honest answer is that mini splits are among the most efficient ways to heat and cool, but the actual number depends on your unit's size, your climate, how you use it, and your local electricity rate.
 
-The exact electricity consumption depends on five factors: the unit's BTU capacity, its SEER2 efficiency rating, how many hours per day it runs, the temperature differential between your thermostat setting and outdoor temp, and your local electricity rate. Below you'll find real wattage data for every common mini split size, plus worked examples showing actual monthly kWh usage in different climates.
+This guide breaks down how much electricity a mini split really uses, in watts, kWh, and dollars, plus the factors that push the number up or down and the practical steps that lower it. The wattage figures are typical ranges (your unit's rated draw is on its nameplate), and cost figures use current electricity-rate data. Use the calculator to get a number for your specific situation.
 
-<TableOfContents />
+**A typical 12,000 BTU mini split draws roughly 400 to 1,200 watts depending on how hard the compressor is working, which comes to about 3 to 10 kWh per day at 8 hours of use, or roughly 500 to 900 kWh over a cooling season.** The key thing that makes mini splits efficient: their inverter compressors modulate speed, so once a room reaches temperature the unit throttles way down and draws far less than its maximum rating. Your actual cost is that energy use multiplied by your local electricity rate, use the calculator below for your exact figure.
 
 <DataChart
   data={[
-    { label: "6,000 BTU", value: 275, note: "range 200-350 W" },
-    { label: "9,000 BTU", value: 375, note: "range 250-500 W" },
-    { label: "12,000 BTU", value: 525, note: "range 350-700 W" },
+    { label: "6,000 BTU", value: 300, note: "range 200-400 W" },
+    { label: "9,000 BTU", value: 400, note: "range 300-500 W" },
+    { label: "12,000 BTU", value: 550, note: "range 400-700 W" },
     { label: "18,000 BTU", value: 850, note: "range 600-1,100 W" },
     { label: "24,000 BTU", value: 1200, note: "range 900-1,500 W" },
-    { label: "36,000 BTU", value: 1850, note: "range 1,400-2,300 W" }
+    { label: "36,000 BTU", value: 1800, note: "range 1,400-2,200 W" }
   ]}
   title="Mini Split Typical Wattage (Cooling Mode, Inverter Average)"
-  desc="Typical average watts drawn in cooling mode by each mini-split BTU size, from the article's own wattage table. Inverter mini splits rarely run at full rated wattage — they typically operate at 30-70% capacity once the room reaches setpoint. Midpoints shown: 6K = 275W, 9K = 375W, 12K = 525W, 18K = 850W, 24K = 1,200W, 36K = 1,850W. Full ranges (per bar) in the notes. Rated (max) watts are roughly 2x these averages. Heating mode adds 10-30% at mild outdoor temps and dramatically more in extreme cold (see the article's heating wattage table)."
+  desc="Typical average watts drawn in cooling mode by each mini-split BTU size, from the article's wattage table. Inverter mini splits rarely run at full rated wattage; they typically operate at 30-70% of capacity once the room reaches setpoint. Midpoints shown: 6K = 300W, 9K = 400W, 12K = 550W, 18K = 850W, 24K = 1,200W, 36K = 1,800W, with full ranges in each bar's note. Rated (max) watts are roughly double these averages, and heating mode draws somewhat more, much more in extreme cold."
   yLabel="Typical (average) watts"
   unit=" W"
-  caption="Midpoints of the article's Typical Watts (Avg) column for cooling mode. Full ranges in each bar's note. Rated (max) watts are roughly double these averages; heating mode consumes 10-30% more at mild temps, much more in cold."
+  caption="Midpoints of the article's typical average-watt ranges for cooling mode; full ranges in each bar's note. Rated (max) watts are roughly double these; heating draws more, especially in cold."
 />
 
-## Mini Split Wattage by Size
+## Rated watts vs. what it actually draws
 
-Every mini split has a rated wattage that represents maximum power draw at full compressor speed. But inverter mini splits rarely run at maximum — they typically operate at 30–70% capacity once a room reaches the set temperature. The table below shows both rated (maximum) and typical (average) wattage.
+Every mini split has a *rated* wattage, its maximum draw at full compressor speed. But here's what matters for your bill: inverter mini splits rarely run at maximum. They typically operate at **30 to 70% of capacity** once a room reaches the set temperature, throttling down to just maintain it. So the "average" draw over a day is well below the rated number.
 
-### Cooling Mode Wattage
+| Mini split size | Rated (max) watts | Typical average watts (cooling) |
+|-----------------|-------------------|--------------------------------|
+| 6,000 BTU | ~450–650W | ~200–400W |
+| 9,000 BTU | ~600–800W | ~300–500W |
+| 12,000 BTU | ~800–1,200W | ~400–700W |
+| 18,000 BTU | ~1,200–1,800W | ~600–1,100W |
+| 24,000 BTU | ~1,600–2,400W | ~900–1,500W |
+| 36,000 BTU | ~2,400–3,600W | ~1,400–2,200W |
 
-| Unit Size (BTU) | Tonnage | Rated Watts (Max) | Typical Watts (Avg) | Startup Watts |
-|-----------------|---------|-------------------|--------------------|--------------:|
-| 6,000 | 0.5 ton | 500–600 | 200–350 | 800–1,000 |
-| 9,000 | 0.75 ton | 600–900 | 250–500 | 1,000–1,400 |
-| 12,000 | 1 ton | 800–1,200 | 350–700 | 1,200–1,800 |
-| 15,000 | 1.25 ton | 1,000–1,500 | 500–900 | 1,500–2,200 |
-| 18,000 | 1.5 ton | 1,200–1,800 | 600–1,100 | 1,800–2,700 |
-| 24,000 | 2 ton | 1,800–2,500 | 900–1,500 | 2,500–3,500 |
-| 30,000 | 2.5 ton | 2,200–3,000 | 1,100–1,800 | 3,000–4,200 |
-| 36,000 | 3 ton | 2,800–3,800 | 1,400–2,300 | 3,800–5,000 |
+**Heating mode** typically draws somewhat more than cooling for the same BTU output, because the outdoor unit works harder to extract heat from cold air, and in extreme cold, supplemental electric resistance heat may engage, which raises consumption significantly. That's why a mini split's heating cost depends heavily on your climate.
 
-### Heating Mode Wattage
+## What drives your usage up or down
 
-Mini splits in heating mode typically consume 10–30% more electricity than in cooling mode for the same BTU output, because the outdoor unit must work harder to extract heat from cold air. At extremely cold temperatures, supplemental electric resistance heating strips may kick in, dramatically increasing wattage.
+Your actual electricity use can swing widely from the typical figures based on these factors:
 
-| Unit Size (BTU) | Heating Watts (Mild, 40°F) | Heating Watts (Cold, 20°F) | Heating Watts (Extreme, 0°F) |
-|-----------------|---------------------------|---------------------------|------------------------------|
-| 9,000 | 300–600 | 600–1,000 | 900–1,500 |
-| 12,000 | 400–800 | 800–1,400 | 1,200–2,000 |
-| 18,000 | 600–1,200 | 1,200–2,000 | 1,800–3,000 |
-| 24,000 | 900–1,600 | 1,600–2,800 | 2,400–4,000 |
-| 36,000 | 1,400–2,400 | 2,400–4,000 | 3,600–6,000 |
+| Factor | Effect on usage | Why |
+|--------|-----------------|-----|
+| Bigger indoor/outdoor temperature gap | Higher | Unit works harder to bridge a larger difference |
+| Poor insulation | Higher | Room gains or loses heat faster |
+| Dirty filters | Higher | Restricted airflow forces the compressor to work harder |
+| Dirty coils | Higher | Reduced heat-transfer efficiency |
+| Wrong-sized unit (over or under) | Higher | Oversized short-cycles; undersized runs at max continuously |
+| Sunny, unshaded room | Higher | Solar heat gain adds to the cooling load |
+| More occupants and heat-generating equipment | Higher | People and appliances add heat the unit must remove |
+| Lower SEER2 rating | Higher | Less efficient conversion of electricity to cooling |
 
-<Callout type="info">
-**Why heating uses more watts in colder weather:** As outdoor temperature drops, the temperature differential between the refrigerant and outdoor air shrinks, making it harder to extract heat. The compressor must work harder (higher speed, higher pressure), drawing more electricity. A mini split heating at 40°F might use 400 watts; the same unit heating at 0°F could use 1,200+ watts — triple the consumption for lower heat output.
-</Callout>
+The pattern: a right-sized unit, in a well-insulated room, with clean filters, run at a sensible temperature, uses far less than a neglected or poorly-matched one.
 
-## How to Calculate Your Mini Split's kWh Usage
+## How to cut your mini split's electricity use
 
-The formula is straightforward:
+These practical steps genuinely reduce consumption:
 
-**Daily kWh = (Average watts × Hours of operation) ÷ 1,000**
+**Set the temperature sensibly.** Per the Department of Energy, you save on energy costs by setting the thermostat closer to the outdoor temperature (roughly on the order of a percent or so of energy use per degree over an extended period). In cooling, every degree warmer you can tolerate reduces the load; the DOE notes that setting it colder than you need doesn't cool any faster, it just runs up the bill.
 
-**Monthly kWh = Daily kWh × 30**
+**Clean the filters regularly.** A clogged filter is one of the biggest efficiency killers, per the DOE it can increase energy use by 5 to 15% by restricting airflow. Most mini split filters are washable, check them roughly monthly and rinse when dirty.
 
-**Annual kWh = Monthly kWh × Months of use**
+**Use dry mode in humid conditions.** In humid (but not very hot) weather, dry mode removes moisture while the compressor runs at low speed, so it generally uses less power than full cooling. Exact savings vary by unit (it's a manufacturer feature without a fixed standard), see our [dry mode guide](/dry-mode-in-ac) for how it works.
 
-### Worked Example 1: 18K BTU in Portland, OR (Mild Climate)
+**Shade the outdoor unit.** A condenser in direct sun works a bit harder than one in shade, so shading it (while keeping the manufacturer's required airflow clearance, and never enclosing it) helps efficiency.
 
-A 500 sq ft living room with an 18,000 BTU mini split (SEER2 22). Portland summer: outdoor 85°F, indoor setpoint 74°F, unit runs ~8 hours/day.
+**Improve the room's insulation.** Weatherstripping, insulating window film, or thermal curtains reduce the heat your room gains or loses, so the mini split works less. These are low-cost improvements that pay back over time.
 
-- At full load: 18,000 ÷ 22 = 818 watts
-- Inverter at ~40% capacity (small temp differential): 818 × 0.4 = **327 watts average**
-- Daily kWh: (327 × 8) ÷ 1,000 = **2.62 kWh/day**
-- Monthly kWh: 2.62 × 30 = **78.5 kWh/month**
-- Cooling season (June–September, 4 months): 78.5 × 4 = **314 kWh/year**
-- **Cost:** Use the calculator above for your exact figure — at Oregon's below-average rate and this light usage, a full cooling season costs only a modest amount.
+**Keep up with maintenance.** Clean coils and an annual check keep the system running at its rated efficiency; a neglected unit drifts toward the higher end of the usage ranges.
 
-### Worked Example 2: 24K BTU Heating in Minneapolis, MN (Cold Climate)
+## Electricity cost by state
 
-A 24,000 BTU Mitsubishi Hyper-Heat in a 700 sq ft finished basement. January conditions: outdoor 10°F average, indoor setpoint 68°F, unit runs ~18 hours/day.
+Your running cost is your energy use times your local rate, and rates vary enormously by state. Here's a sample of average residential electricity rates (per kWh) alongside rough cooling-season and heating-season hours, to show how much location matters:
 
-- At 10°F, the unit produces ~18,000 BTU of heating (reduced capacity)
-- Heating power draw at 10°F: approximately 2,200 watts average
-- Daily kWh: (2,200 × 18) ÷ 1,000 = **39.6 kWh/day**
-- Monthly kWh: 39.6 × 30 = **1,188 kWh/month**
-- Full heating season (October–April, 7 months, varying intensity): **~5,500 kWh**
-- **Cost:** Use the calculator above for your exact heating cost — sustained deep-cold heating like this is the costliest scenario, with a steep monthly bill during peak cold and a significant seasonal total.
+| State | Avg. rate ($/kWh) | Cooling hrs (approx.) | Heating hrs (approx.) |
+|-------|-------------------|----------------------|----------------------|
+| Hawaii | ~0.37 | 650 | 200 |
+| Connecticut | ~0.30 | 550 | 700 |
+| Massachusetts | ~0.28 | 500 | 800 |
+| California | ~0.27 | 600 | 350 |
+| New York | ~0.24 | 550 | 750 |
+| National average | ~0.18 | 600 | 600 |
+| Florida | ~0.15 | 900 | 200 |
+| Texas | ~0.14 | 850 | 400 |
+| Georgia | ~0.14 | 800 | 450 |
+| Louisiana | ~0.10 | 900 | 300 |
+| Idaho | ~0.10 | 400 | 700 |
 
-### Worked Example 3: Multi-Zone 36K BTU in Atlanta, GA
+*(State rates are approximate averages from EIA data and shift over time; use your actual rate from your utility bill for a precise figure.)*
 
-A 36,000 BTU 3-zone system (12K + 12K + 12K) serving living room, master bedroom, and office. Summer in Atlanta: outdoor 92°F, setpoint 73°F. Not all zones run simultaneously — average 2 zones active for 10 hours/day.
+The takeaway: the same mini split can cost more than twice as much to run in a high-rate state as in a low-rate one. That's why a generic dollar figure isn't very useful, plug your own rate and usage into the [mini split cost-to-run calculator](/how-much-does-mini-split-cost-to-run) for a real number.
 
-- Two 12K zones at SEER2 18: each draws ~667 watts at full load
-- Average load per zone (~55% capacity): 667 × 0.55 = 367 watts
-- Two zones running: 367 × 2 = **734 watts average**
-- Daily kWh: (734 × 10) ÷ 1,000 = **7.34 kWh/day**
-- Monthly kWh: 7.34 × 30 = **220 kWh/month**
-- Cooling season (5 months): **1,100 kWh/year cooling**
-- **Cost:** Use the calculator above for your exact figure — running two zones through a Georgia cooling season costs a moderate amount spread across the summer.
+## Frequently asked questions
 
-<CalcWrapper calculator="kwh-cost" />
+**How much electricity does a mini split use per month?**
+It depends on the unit size, how many hours it runs, your climate, and your rate. A 12,000 BTU unit running several hours a day might use roughly 150 to 300 kWh a month in active cooling season, more in extreme heat or cold. Multiply your kWh by your electricity rate for the cost, or use the calculator for an estimate.
 
-## Mini Split vs. Other HVAC: Electricity Usage Comparison
+**Are mini splits cheaper to run than central air?**
+Generally yes. Mini splits avoid the 20 to 30% duct losses the DOE attributes to typical duct systems, and their inverter compressors modulate to match demand, so they usually use less electricity than a comparable ducted system. See our [mini split vs. central air](/mini-split-vs-central-air) comparison.
 
-How does a mini split stack up against other cooling and heating methods? The differences are dramatic.
+**Does a mini split use a lot of electricity in winter?**
+It can, in cold climates. Heating draws more than cooling for the same output, and in extreme cold, supplemental electric resistance heat may engage, raising consumption. A cold-climate-rated model is more efficient at low temperatures. Your heating cost depends heavily on your climate and electricity rate.
 
-### Cooling Comparison (Same 400 sq ft Room)
+**How can I reduce my mini split's electricity use?**
+Set the temperature sensibly (closer to outdoor temp), clean the filters regularly (a dirty filter can add 5 to 15% per the DOE), use dry mode in humid weather, shade the outdoor unit, and improve room insulation. A right-sized, well-maintained unit run at a reasonable temperature uses far less than a neglected one.
 
-| System Type | Watts (Avg) | kWh/Day (8 hrs) | kWh/Month |
-|-------------|-------------|-----------------|-----------|
-| Mini split 12K (SEER2 20) | 350–500 | 2.8–4.0 | 84–120 |
-| Window AC 12K (EER 12) | 1,000 | 8.0 | 240 |
-| Portable AC 12K (EER 8) | 1,500 | 12.0 | 360 |
-| Central AC 12K (SEER2 15) | 550–800 | 4.4–6.4 | 132–192 |
+**What uses more electricity, a mini split or window AC?**
+For the same cooling, a mini split's inverter compressor is typically more efficient than a standard window unit's single-speed compressor, especially over a full season, because it modulates rather than cycling fully on and off.
 
-Use the calculator above for your exact monthly cost — as a rule of thumb, a mini split runs at most a few dollars a day, while a window or portable unit of the same capacity costs roughly two to three times as much to run.
+## How we sourced this page
 
-### Heating Comparison (Same 400 sq ft Room, 40°F Outdoor)
+The efficiency figures, that inverter compressors modulate rather than running at full power, that a dirty filter can increase energy use by 5 to 15%, that thermostat setback saves energy, and that ducts lose 20 to 30% of conditioning energy (relevant to the mini-split-vs-central comparison), reflect **U.S. Department of Energy** and **ENERGY STAR** guidance. State electricity rates are approximate averages based on **EIA** (U.S. Energy Information Administration) data and change over time. Mini split wattage figures are typical ranges, not fixed values, your unit's rated draw is on its nameplate, and actual consumption depends on size, climate, usage, and efficiency. For a cost estimate at your specific rate, use the calculator and our dedicated cost-to-run guide. We recommend no specific brands.
 
-| System Type | Watts (Avg) | kWh/Day (12 hrs) | kWh/Month |
-|-------------|-------------|-----------------|-----------|
-| Mini split 12K heat pump (HSPF2 10) | 400–700 | 4.8–8.4 | 144–252 |
-| Electric baseboard (1,500W) | 1,500 | 18.0 | 540 |
-| Electric space heater (1,500W) | 1,500 | 18.0 | 540 |
-| Electric furnace (5 kW, cycling) | 2,500 avg | 30.0 | 900 |
+<SourcesBox sources={[
+  { title: "U.S. Department of Energy: Maintaining Your Air Conditioner (dirty filter raises energy use 5-15%)", url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner" },
+  { title: "ENERGY STAR: Ductless Heating & Cooling (inverter efficiency)", url: "https://www.energystar.gov/products/ductless_heating_cooling" },
+  { title: "EIA: Electricity Monthly (average residential retail rates by state)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
 
-Use the calculator above for your exact monthly heating cost — as a rule of thumb, a mini split heat pump costs roughly a third to a half of what electric baseboard, space heaters, or an electric furnace cost to deliver the same heat.
+<RelatedArticles articles={frontmatter.relatedArticles} />
 
-<Callout type="tip">
-**The heating comparison is where mini splits truly shine.** A mini split heat pump delivers 2.5–4x more heat per watt than any electric resistance heater (baseboard, space heater, electric furnace). This is because a heat pump moves heat rather than creating it — for every 1 watt of electricity consumed, it delivers 2.5–4 watts of heat energy from outdoor air.
-</Callout>
-
-## Factors That Increase Mini Split Electricity Usage
-
-Understanding what drives consumption up helps you optimize performance and keep bills low.
-
-| Factor | Impact on kWh | Why |
-|--------|--------------|-----|
-| Higher temperature differential | +30–100% | Unit works harder to bridge bigger gap |
-| Poor insulation | +20–40% | Room gains/loses heat faster |
-| Dirty filters | +5–15% | Restricted airflow forces higher compressor load |
-| Dirty coils | +10–20% | Reduced heat transfer efficiency |
-| Oversized unit | +10–25% | Short cycling wastes energy on startup/shutdown |
-| Undersized unit | +15–30% | Unit runs at max capacity continuously |
-| Sunny room (unshaded) | +10–20% | Solar heat gain adds to cooling load |
-| Multiple occupants | +5–15% | Each person generates ~350 BTU/hr of body heat |
-| Heat-generating equipment | +10–30% | Computers, ovens, dryers add to cooling load |
-| Low SEER2 rating | +20–50% | Less efficient conversion of electricity to cooling |
-
-## How to Reduce Mini Split Electricity Usage
-
-These practical steps can cut your mini split's electricity consumption by 20–40%:
-
-**Set temperature wisely.** Every degree cooler (or warmer in heating mode) increases energy use by approximately 3–5%. Setting your AC to 76°F instead of 72°F saves roughly 12–20% on cooling costs with minimal comfort impact.
-
-**Clean filters every 2–4 weeks.** A clogged filter is the single biggest efficiency killer. A dirty filter can increase electricity consumption by 5–15% and reduces the unit's cooling capacity, making it run longer to maintain temperature.
-
-**Use the timer and scheduling features.** There's no reason to cool an empty room. Program the unit to power down when you leave and start cooling 15–30 minutes before you return. Most smart mini splits support scheduling through their app.
-
-**Run dry mode in humid conditions.** In humid climates, switching to dry mode uses less electricity than cool mode while still removing moisture. Dry mode runs the compressor at minimum speed and the fan at the lowest setting, using 40–60% less power than cooling mode.
-
-**Shade the outdoor unit.** An outdoor condenser operating in direct sunlight is 5–10% less efficient than one in shade. Plant bushes (keep 2+ feet of clearance) or install an awning. Never enclose the unit — it needs unrestricted airflow.
-
-**Improve room insulation.** Adding weatherstripping, insulating window film, or thermal curtains reduces your room's heat gain/loss, meaning the mini split works less. A modest (around $50) investment in window film can measurably reduce your annual electricity use.
-
-## Electricity Rates and Annual Usage by State (12,000 BTU Mini Split, SEER2 20)
-
-Electricity rates vary enormously by state, and so does seasonal usage. Below are published average rates alongside typical annual kWh for a 12K mini split in each state. Use the calculator above for your exact cost — multiply your own usage by your rate, and expect a modest annual figure in low-rate states but noticeably more where power is expensive.
-
-| State | Avg Rate ($/kWh) | Annual Cooling kWh | Annual Heating kWh |
-|-------|------------------|-------------------|--------------------|
-| Hawaii | $0.37 | 650 | 200 |
-| Connecticut | $0.30 | 550 | 700 |
-| Massachusetts | $0.28 | 500 | 800 |
-| California | $0.27 | 600 | 350 |
-| New York | $0.24 | 550 | 750 |
-| National Average | $0.18 | 600 | 600 |
-| Florida | $0.15 | 900 | 200 |
-| Texas | $0.14 | 850 | 400 |
-| Georgia | $0.14 | 800 | 450 |
-| Louisiana | $0.10 | 900 | 300 |
-| Idaho | $0.10 | 400 | 700 |
-
-<Callout type="info">
-**Note:** These figures assume moderate usage patterns typical for each climate. Florida and Texas have high cooling kWh because cooling seasons are long (7–9 months). Connecticut and Massachusetts have high heating kWh because heating seasons are long (6–7 months). States like California have moderate usage for both because coastal areas enjoy mild weather year-round.
-</Callout>
-
-## Measuring Your Mini Split's Actual Electricity Usage
-
-Want exact data rather than estimates? Here are three ways to measure real consumption:
-
-**Method 1: Kill-A-Watt meter ($25–$35).** Works for 120V mini splits only. Plug the unit into the Kill-A-Watt, and it records cumulative kWh. After 24 hours or a week, you'll have precise consumption data. Limitation: most mini splits are 240V hardwired, so this only works for the few 120V models (typically 6K and 9K units).
-
-**Method 2: CT clamp energy monitor ($40–$80).** Devices like the Emporia Vue or Sense clamp onto the dedicated circuit's wiring in your breaker panel and measure consumption continuously. Works with any voltage, provides real-time data via an app, and tracks usage over weeks and months. This is the best method for most homeowners.
-
-**Method 3: Smart circuit breaker ($80–$150).** Replace your mini split's circuit breaker with a smart breaker (like Eaton or Leviton) that monitors energy consumption and reports to an app. Provides the most accurate data with automatic tracking and historical charts.
-
-**Method 4: Read your utility bill.** If the mini split is the only significant load change in your home, compare utility bills before and after installation. The difference approximates the mini split's consumption. This method is rough but requires no equipment.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- **A 12,000 BTU mini split uses 350–700 watts on average** (rated maximum 800–1,200 watts) thanks to inverter modulation
-- **Daily consumption:** 2.8–5.6 kWh for cooling (8 hours), 4.8–8.4 kWh for heating (12 hours)
-- **Monthly cost:** Use the calculator above for your exact figure — a single zone typically runs from a few dollars to a few tens of dollars a month depending on climate, usage, and rate
-- **Mini splits use 50–70% less electricity** than window ACs or portable ACs for the same cooling capacity
-- **Heating efficiency is the biggest advantage** — mini split heat pumps deliver 2.5–4x more heat per watt than electric resistance heaters
-- **Clean filters save 5–15% on electricity** — this is the easiest efficiency win
-- **Your electricity rate matters enormously** — the same unit can cost several times more to run in a high-rate state like Hawaii than in a low-rate state like Idaho; run your own rate through the calculator above
-</Callout>
-
-<FAQ
-  items={[
-    {
-      question: "How much does it cost to run a mini split 24/7?",
-      answer: "Use the calculator above for your exact 24/7 cost. Running a 12,000 BTU mini split (SEER2 20) continuously for a month typically lands in the low tens of dollars rather than the hundreds, because the inverter throttles down once the room reaches setpoint. The unit won't actually draw full power for 24 hours straight — once the room reaches the set temperature, the inverter reduces compressor speed to maintenance levels (30–50% capacity). Actual 24/7 cost depends heavily on insulation quality, outdoor temperature, and your thermostat setpoint."
-    },
-    {
-      question: "Can I run a mini split on solar panels?",
-      answer: "Yes, and it's an excellent combination. A 12,000 BTU mini split averaging 400 watts requires about 1.2–1.6 kW of solar panels to fully offset cooling electricity (accounting for panel efficiency and sun hours). That's 3–4 standard 400-watt panels. With net metering, your solar panels generate credits during peak sun hours that offset the mini split's consumption in the evening. Many homeowners achieve net-zero cooling costs this way."
-    },
-    {
-      question: "How much electricity does a multi-zone mini split use?",
-      answer: "A multi-zone system's total consumption is the sum of active zones' consumption. A 3-zone 36K system with all zones running uses 2,400–3,800 watts maximum. However, not all zones typically run simultaneously or at full capacity. Real-world average for a 3-zone system with moderate usage is 800–1,500 watts, consuming 6–12 kWh per day. Use the calculator above for your exact monthly cost — a 3-zone system in cooling season typically runs a few tens of dollars a month at average rates."
-    },
-    {
-      question: "Does leaving a mini split on all day use more electricity than cycling it?",
-      answer: "With inverter mini splits, leaving the unit on at a moderate setpoint often uses less electricity than cycling it on and off. When you turn the unit off, the room temperature rises. When you turn it back on, the compressor runs at maximum power to bring the temperature back down — this high-power phase uses significantly more electricity than the low-power maintenance mode of a running inverter. Set it and forget it is the optimal strategy for inverter mini splits."
-    }
-  ]}
-/>
-
-<SourcesBox
-  sources={[
-    { label: "EIA — Average Retail Price of Electricity", url: "https://www.eia.gov/electricity/monthly/" },
-    { label: "AHRI Directory of Certified Product Performance", url: "https://www.ahridirectory.org" },
-  ]}
-/>
-
-<RelatedArticles
-  articles={[
-    { title: "How Much Does It Cost to Run a Mini Split?", slug: "how-much-does-mini-split-cost-to-run" },
-    { title: "How Many Amps Does a Mini Split Use?", slug: "mini-split-amps" },
-    { title: "Mini Split Air Conditioners: Complete Guide", slug: "mini-split-air-conditioners" },
-    { title: "Mini Split vs Central Air: Which Is Better?", slug: "mini-split-vs-central-air" },
-  ]}
-/>
