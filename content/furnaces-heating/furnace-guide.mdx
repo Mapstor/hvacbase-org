@@ -1,13 +1,14 @@
 ---
 slug: "furnace-guide"
 title: "Furnaces: Complete Homeowner's Guide (Gas, Electric, Oil) | 2026"
-description: "Everything you need to know about furnaces in 2026 — gas, electric, and oil types compared by cost, efficiency, lifespan, and performance. Covers sizing, installation, maintenance, and when to replace."
+description: "Everything you need to know about furnaces in 2026: gas, electric, and oil compared by cost, efficiency, lifespan, and sizing, plus the new federal 95% AFUE standard for gas furnaces manufactured from December 18, 2028."
 cluster: "furnaces-heating"
 role: "pillar"
 priority: "P1"
 contentType: "guide"
+author: "Marko Visic, BSc Physics"
 datePublished: "2026-01-15"
-dateModified: "2026-07-17"
+dateModified: "2026-09-23"
 relatedArticles:
   - "gas-vs-electric-heating-cost"
   - "furnace-vs-heat-pump"
@@ -15,291 +16,183 @@ relatedArticles:
   - "furnace-efficiency-explained"
   - "how-long-do-furnaces-last"
 externalLinks:
-  - url: "https://www.acca.org/standards/manuals/manual-j"
-    label: "ACCA Manual J — Load Calculations"
+  - url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion"
+    label: "U.S. DOE: Residential Furnace Efficiency Standards"
+  - url: "https://www.acca.org/standards/technical-manuals/manual-j"
+    label: "ACCA Manual J: Load Calculations"
   - url: "https://www.ahridirectory.org/"
-    label: "AHRI Directory — Certified Equipment"
+    label: "AHRI Directory: Certified Equipment"
 ---
 
-import TableOfContents from '@/components/TableOfContents'
-import FAQ from '@/components/FAQ'
-import ComparisonTable from '@/components/ComparisonTable'
-import Callout from '@/components/Callout'
 import SourcesBox from '@/components/SourcesBox'
 import RelatedArticles from '@/components/RelatedArticles'
 
-# Furnaces: Complete Homeowner's Guide (Gas, Electric, Oil)
+You're buying or replacing a furnace and want to understand your options before a contractor starts throwing terms like AFUE, condensing, and two-stage at you. This guide covers everything that actually matters for the decision: the fuel types, efficiency ratings, sizing, cost, and the maintenance that keeps a furnace running for 15 to 20 years.
 
-A furnace heats air and pushes it through ductwork to warm your home — and roughly 60 million American households rely on one as their primary heat source. Whether you're shopping for a new system, troubleshooting a breakdown, or just trying to understand what's in your basement, this guide covers every furnace type, efficiency rating, cost range, and maintenance task you need to know in 2026.
+The figures here are typical ranges from contractor pricing and are sourced to the DOE, EIA, ACCA, and AHRI, linked at the bottom, so always get itemized quotes for your home. We don't recommend specific brands, since install quality matters more than the badge.
 
-The three main furnace types — gas, electric, and oil — differ dramatically in operating cost, installation price, and efficiency. Natural gas is the most common home heating fuel in the U.S., followed by electricity, while oil heating is now concentrated mostly in the Northeast (per U.S. EIA residential energy data).
+**A new furnace typically costs $3,500 to $8,500 installed for a gas unit, $2,000 to $5,500 for electric, and $5,000 to $10,000 for oil.** The two biggest decisions are fuel type (gas is cheapest to run in most of the country) and efficiency, measured in AFUE, where higher means less wasted fuel but a higher upfront cost. One rule change to know: a new federal standard raises the minimum gas-furnace efficiency starting in late 2028.
 
-<TableOfContents />
+## How a furnace works
 
-## How a Furnace Works: The Basics
+A furnace heats air and distributes it through your ducts. The basic cycle:
 
-Every furnace follows the same core cycle regardless of fuel type. Your thermostat signals for heat, the furnace ignites or activates its heating element, a heat exchanger warms the air, and a blower motor pushes that heated air through your ductwork. Return ducts pull cooled air back to the furnace, and the cycle repeats.
+- The **thermostat** calls for heat.
+- The **burners** (gas/oil) ignite, or the **heating elements** (electric) energize.
+- A **heat exchanger** transfers that heat to the air passing over it (keeping combustion gases separate from your home's air).
+- The **blower motor** pushes the warmed air through your ductwork to the rooms.
+- Combustion gases (in gas/oil units) vent safely outside through a flue.
 
-Here's the simplified sequence:
+The heat exchanger is the critical safety component: a cracked one can leak carbon monoxide, which is why an annual inspection matters (and why you should always have working [CO detectors](/carbon-monoxide-detector-guide)).
 
-1. **Thermostat calls for heat** — the temperature drops below your set point.
-2. **Fuel ignites or element activates** — gas valve opens and igniter fires, electric elements energize, or oil burner sprays and ignites fuel.
-3. **Heat exchanger warms up** — combustion gases (gas/oil) heat the metal exchanger walls, or electric elements heat directly.
-4. **Blower motor engages** — after a short delay (30–60 seconds), the blower pushes air across the hot exchanger and into your ducts.
-5. **Exhaust vents out** — combustion byproducts exit through a flue pipe (gas/oil only).
-6. **Thermostat satisfied** — the burner shuts off, blower runs for 1–2 more minutes to extract remaining heat, then shuts down.
+## Gas, electric, and oil furnaces compared
 
-The key difference between fuel types is step 2. Gas furnaces use a burner assembly with either a hot surface igniter or spark ignition. Electric furnaces use sequenced heating elements (usually 3–6 elements that activate in stages). Oil furnaces use a pump-and-nozzle system that atomizes fuel oil before igniting it.
+The fuel type drives both your upfront and operating costs. Here's how the three compare:
 
-## Gas, Electric, and Oil Furnaces Compared
+| | Gas | Electric | Oil |
+|---|---|---|---|
+| Typical AFUE | 80%–98.5% | ~100% | 80%–87% |
+| Installed cost | $3,500–$8,500 | $2,000–$5,500 | $5,000–$10,000 |
+| Operating cost | Lowest (in most markets) | Highest (in most markets) | High |
+| Best for | Most homes with gas service | Mild climates, no gas access | Northeast homes with oil infrastructure |
 
-<ComparisonTable
-  title="Furnace Type Comparison — 2026"
-  headers={["Specification", "Gas Furnace", "Electric Furnace", "Oil Furnace"]}
-  rows={[
-    ["Fuel Source", "Natural gas (piped utility)", "Electricity (grid)", "Heating oil (#2 fuel oil, delivered)"],
-    ["AFUE Range", "80%–98.5%", "95%–100%", "80%–87%"],
-    ["Equipment Cost", "$1,200–$4,500", "$800–$2,500", "$2,500–$6,000"],
-    ["Installation Cost (Total)", "$3,500–$8,500", "$2,000–$5,500", "$5,000–$10,000"],
-    ["Annual Operating Cost*", "$600–$1,200", "$1,200–$2,500", "$1,500–$2,800"],
-    ["Lifespan", "15–25 years", "20–30 years", "15–25 years"],
-    ["Maintenance Frequency", "Annual", "Minimal (every 2–3 years)", "Annual (critical)"],
-    ["Carbon Monoxide Risk", "Yes (combustion)", "No", "Yes (combustion)"],
-    ["Heating Speed", "Fast (100–140°F supply air)", "Slower (90–120°F supply air)", "Fast (120–150°F supply air)"],
-    ["Best For", "Cold climates with gas access", "Mild climates, no gas line", "Northeast, rural with no gas"],
-    ["Prevalence (U.S.)", "Most common", "Common", "Regional (Northeast)"],
-  ]}
-  footnote="*Annual operating costs based on a 2,000 sq ft home in a moderate-to-cold climate, 2026 national average fuel prices."
-/>
+**Gas furnaces** are the most popular choice in the U.S., because natural gas is typically the cheapest heating fuel per BTU in most markets. They come in three types:
 
-### Gas Furnaces
+- **Single-stage:** runs at 100% capacity every time it fires. Simplest and cheapest.
+- **Two-stage:** runs at around 65 to 70% most of the time and ramps to full only on the coldest days, for steadier temperatures.
+- **Modulating:** adjusts in small increments from about 40% to 100%, giving the most consistent comfort and the lowest bills.
 
-Gas furnaces are the most popular choice in the U.S. for good reason — natural gas is typically the cheapest heating fuel per BTU in most markets. A modern high-efficiency gas furnace (96%+ AFUE) converts nearly all the fuel you pay for into usable heat.
+**Electric furnaces** are the simplest mechanically, with no combustion, gas lines, flue, or carbon monoxide risk, and they reach nearly 100% AFUE since every watt becomes heat. The catch: **electricity typically costs 2 to 3 times more per BTU than natural gas** in most of the U.S., so a home spending $800/year on gas heat might spend closer to $1,800 to $2,200 on electric-furnace heat. They make the most sense in mild climates with low heating loads and cheap electricity. (In many cases a heat pump is a far more efficient electric option than an electric furnace, see our [heat pump guide](/heat-pump-guide).)
 
-The two main categories are **single-stage** and **two-stage/modulating**. Single-stage furnaces run at 100% capacity every time they fire. Two-stage units run at around 65–70% most of the time and ramp to 100% only on the coldest days. Modulating furnaces adjust in 1% increments from about 40% to 100%, providing the most consistent temperatures and lowest energy bills.
+**Oil furnaces** burn #2 heating oil delivered by truck and stored in an on-site tank (typically 275 gallons). They're most common in the Northeast, where oil-heating infrastructure is established, and are generally being replaced by gas or heat pumps where those are available.
 
-Gas furnaces require a gas line, proper venting (either a standard metal flue or PVC piping for high-efficiency condensing models), and annual maintenance. The main risk is carbon monoxide — a cracked heat exchanger or improper venting can leak CO into your home, which is why CO detectors are essential.
+## Furnace efficiency: understanding AFUE
 
-### Electric Furnaces
+**AFUE (Annual Fuel Utilization Efficiency) tells you what percentage of the fuel a furnace consumes actually becomes heat in your home.** A 96% AFUE furnace turns 96 cents of every fuel dollar into heat; the other 4 cents goes up the flue.
 
-Electric furnaces are the simplest systems mechanically — no combustion, no gas lines, no flue pipes, no carbon monoxide risk. They achieve near-100% AFUE because every watt of electricity converts directly to heat with zero exhaust losses.
+The efficiency tiers:
 
-The catch: electricity costs 2–3× more per BTU than natural gas in most of the U.S. A home spending $800/year on gas heat might spend $1,800–$2,200 on electric furnace heat for the same comfort level. Electric furnaces make the most economic sense in mild climates (the Southeast, Pacific Northwest) where heating loads are low and electricity rates are below $0.12/kWh.
+- **Standard efficiency (80%–83% AFUE):** single-stage, non-condensing, metal flue venting. The traditional budget option.
+- **High efficiency (90%–95% AFUE):** two-stage, condensing, PVC venting. A meaningful step up.
+- **Ultra-high efficiency (96%–98.5% AFUE):** modulating with a variable-speed blower, condensing. The most efficient and most comfortable, at the highest upfront cost.
 
-Electric furnaces excel in specific situations: homes without gas access, additions or garages where running gas lines is impractical, and areas where electricity is generated from cheap hydropower or renewables.
+### The 2028 federal efficiency standard (get this right)
 
-### Oil Furnaces
+There's a lot of confused information about this, so here's the accurate version. The **U.S. DOE finalized a rule requiring residential gas furnaces manufactured on or after December 18, 2028 to have a minimum AFUE of 95%.** A few key points people get wrong:
 
-Oil furnaces burn #2 heating oil, which is delivered by truck and stored in a tank on your property (typically 275 gallons). They're most common in the Northeast — Connecticut, Maine, Massachusetts, New Hampshire, Vermont, and parts of New York and Pennsylvania.
+- **It's national**, applying to all non-weatherized residential gas furnaces (and mobile-home furnaces), not just northern regions.
+- **It applies to the manufacture date, not ownership.** Nobody has to replace a working furnace, and existing 80% AFUE inventory can still be installed after the date until it sells through.
+- **It effectively phases out non-condensing (80% AFUE) furnaces**, since 95% requires condensing technology.
 
-Oil furnaces produce intense heat quickly (supply air temperatures of 120–150°F), which feels noticeably warmer than electric systems. However, oil prices are volatile — ranging from $3.00 to $5.50 per gallon in recent years — making annual heating costs unpredictable. A typical home burns 600–1,200 gallons per season.
+The practical takeaway for a 2026 buyer: a 95%+ condensing furnace is the future-proof choice, and the efficiency gain is real (going from 80% to 95% AFUE cuts your gas use by about 16%). Just note that a condensing furnace needs PVC venting and a condensate drain, so replacing an old non-condensing unit in a home with a metal flue can add installation cost. (The rule has faced legal challenges; as of early 2026 it has been upheld, though details could still shift, worth checking current status if your timing depends on it.)
 
-Maintenance is critical for oil furnaces. The nozzle, oil filter, and combustion chamber need annual cleaning and adjustment. Neglected oil furnaces lose efficiency rapidly and can produce soot buildup, foul odors, and even dangerous puffback explosions.
+### Condensing vs. non-condensing
 
-## Furnace Efficiency Ratings: Understanding AFUE
+The **90% AFUE mark is the dividing line**, and it's a fundamental design difference, not just marketing:
 
-AFUE (Annual Fuel Utilization Efficiency) tells you what percentage of the fuel a furnace consumes actually becomes heat in your home. An 96% AFUE furnace converts 96 cents of every dollar you spend on fuel into heat — the other 4 cents goes up the flue as exhaust.
+- **Non-condensing (80%–83% AFUE):** one heat exchanger, exhausts hot flue gases (300 to 500°F) through a metal vent. That hot exhaust is wasted energy.
+- **Condensing (90%–98.5% AFUE):** a secondary heat exchanger extracts extra heat from the exhaust, cooling it enough that water vapor condenses out. The exhaust exits at only 100 to 150°F through cheaper PVC venting, and the slightly acidic condensate drains away through a pipe.
 
-<ComparisonTable
-  title="AFUE Efficiency Tiers — 2026"
-  headers={["AFUE Range", "Category", "Typical Features", "Price Premium"]}
-  rows={[
-    ["80%–83%", "Standard Efficiency", "Single-stage, standard flue, non-condensing", "Baseline ($1,200–$2,000)"],
-    ["90%–95%", "High Efficiency", "Two-stage, PVC venting, condensing", "+$800–$1,500"],
-    ["96%–98.5%", "Ultra-High Efficiency", "Modulating, variable-speed blower, condensing", "+$1,500–$3,000"],
-  ]}
-/>
+## Sizing your furnace
 
-<Callout type="important">
-**As of January 1, 2029**, the U.S. DOE's updated minimum efficiency standards will require all new residential gas furnaces to meet a **minimum AFUE of 95%** in northern climate regions. This effectively phases out 80% AFUE non-condensing furnaces in cold climates. Some manufacturers have already begun shifting production toward condensing models — so if you're buying in 2026, a 95%+ AFUE unit future-proofs your investment.
-</Callout>
+Furnaces are sized in BTUs, and both undersizing and oversizing cause problems:
 
-### Condensing vs. Non-Condensing
+- **Undersized:** can't keep up on the coldest days.
+- **Oversized:** short-cycles (turns on and off rapidly), which wastes energy, wears out parts, and creates uneven temperatures.
 
-The 90% AFUE threshold marks the dividing line between **non-condensing** and **condensing** furnaces. This isn't just a marketing distinction — it's a fundamental design difference.
+Proper sizing comes from a **Manual J load calculation** (per ACCA) that accounts for your home's square footage, insulation, windows, climate, and layout, not a rule-of-thumb guess. Insist your contractor does one. A rough starting point is 30 to 60 BTU per square foot depending on climate, but the load calculation is what gets it right.
 
-Non-condensing furnaces (80–83% AFUE) exhaust flue gases at 300–500°F through a metal vent pipe. That hot exhaust represents wasted energy.
+## Furnace installation cost in 2026
 
-Condensing furnaces (90–98.5% AFUE) use a secondary heat exchanger to extract additional heat from the exhaust, cooling it so much that water vapor in the combustion gases condenses into liquid. This condensate (slightly acidic, pH 3–4) drains away through a PVC pipe. The exhaust exits at only 100–150°F through PVC or CPVC venting, which is cheaper and easier to route than metal flue pipes.
+Installed cost depends on the fuel type, efficiency, and your home. The components of a typical quote:
 
-## Sizing Your Furnace: BTU Requirements
+- **Equipment:** $800 to $6,000 depending on fuel type and efficiency tier.
+- **Labor:** $800 to $3,500.
+- **Permits and inspection:** $100 to $500 (required by most municipalities).
+- **Venting or fuel connection:** varies, a condensing furnace's PVC venting, or an oil tank, adds cost.
+- **Thermostat:** $0 to $300 if you upgrade.
 
-An oversized furnace short-cycles (turns on and off frequently), wastes energy, creates hot/cold spots, and wears out faster. An undersized furnace runs constantly and can't keep up on the coldest days. Proper sizing starts with a Manual J load calculation.
+Factors that push a quote higher include converting from non-condensing to condensing venting (new PVC and a condensate drain), difficult access, and ductwork modifications. Get at least three itemized quotes and compare them on the same efficiency tier and scope. For the full breakdown, see our [furnace installation cost guide](/furnace-installation-cost).
 
-Use the calculator below to size your system — as a rule of thumb, plan on roughly 30–40 BTU per square foot in mild climates and 50–60+ BTU per square foot in cold climates, but treat that only as a sanity check against a proper Manual J load calculation.
+## Key components worth knowing
 
-<BTUCalculator />
-
-<Callout type="warning">
-**Never size a furnace based on square footage alone.** A 2,000 sq ft home with new double-pane windows, R-49 attic insulation, and air sealing might need only 60,000 BTU. The same square footage with single-pane windows and minimal insulation could need 120,000+ BTU. Always get a Manual J calculation from a qualified HVAC contractor — it takes about an hour and should be included in any legitimate installation quote.
-</Callout>
-
-## Furnace Installation Cost in 2026
-
-<ComparisonTable
-  title="Furnace Installation Cost Breakdown — 2026 National Averages"
-  headers={["Cost Component", "Gas Furnace", "Electric Furnace", "Oil Furnace"]}
-  rows={[
-    ["Equipment", "$1,200–$4,500", "$800–$2,500", "$2,500–$6,000"],
-    ["Labor (installation)", "$1,500–$3,000", "$800–$2,000", "$2,000–$3,500"],
-    ["Ductwork Modifications", "$0–$1,500", "$0–$1,500", "$0–$1,500"],
-    ["Permits & Inspections", "$100–$500", "$100–$400", "$100–$500"],
-    ["Gas Line/Venting/Tank", "$0–$800 (venting)", "N/A", "$300–$2,000 (tank)"],
-    ["Thermostat Upgrade", "$0–$300", "$0–$300", "$0–$300"],
-    ["**Total Range**", "**$3,500–$8,500**", "**$2,000–$5,500**", "**$5,000–$10,000**"],
-    ["**National Average**", "**$5,500**", "**$3,500**", "**$7,200**"],
-  ]}
-/>
-
-<Callout type="tip">
-**Timing tip:** Schedule your furnace installation in late spring or early fall. HVAC contractors are slowest (and often offer discounts of 10–15%) during these shoulder seasons. Avoid emergency replacements in December or January when demand — and prices — peak.
-</Callout>
-
-## Key Components Every Homeowner Should Know
-
-Understanding your furnace's major components helps you communicate with technicians, diagnose basic problems, and make informed repair-vs-replace decisions.
-
-### Heat Exchanger
-The heat exchanger is the most critical (and expensive) component. It's a series of metal tubes or a clamshell-shaped chamber where combustion gases transfer heat to the air flowing over it. A cracked heat exchanger can leak carbon monoxide into your home. Replacement costs $1,500–$3,500 — often enough to justify replacing the entire furnace if it's older than 15 years.
-
-### Burner Assembly (Gas/Oil)
-The burner assembly is where fuel mixes with air and ignites. Gas furnaces use a row of burner tubes fed by a gas valve. Oil furnaces use a gun-type burner with a nozzle, pump, and electrodes. Burners should produce a steady blue flame (gas) or clean yellow-white flame (oil). Orange or yellow gas flames indicate incomplete combustion.
+- **Heat exchanger:** transfers combustion heat to your air while keeping exhaust gases separate. A crack is a carbon-monoxide hazard, this is the part an annual inspection checks most closely.
+- **Burner assembly (gas/oil):** where fuel combusts.
+- **Blower motor:** moves heated air through the ducts. Variable-speed models are quieter and more efficient.
+- **Ignition system:** modern furnaces use electronic ignition (hot-surface or spark) rather than a standing pilot light.
+- **Flame sensor:** a safety device that confirms the burner has actually lit, and shuts off the gas if it hasn't. A dirty flame sensor is one of the most common causes of a furnace that starts then quickly shuts off.
 
-### Blower Motor
-The blower motor drives the fan that circulates heated air through your ducts. There are three types:
-- **Single-speed** — runs at one speed (100%). Cheapest but loudest and least efficient.
-- **Multi-speed** — has 3–5 fixed speeds, technician-selectable. Moderate cost and efficiency.
-- **Variable-speed (ECM)** — adjusts RPM continuously based on demand. Uses 60–75% less electricity than single-speed motors, runs quieter, and provides better humidity control. Standard on high-end furnaces.
+## Maintenance schedule
 
-### Ignition System
-Modern furnaces use one of two ignition methods:
-- **Hot surface igniter (HSI)** — a silicon carbide or silicon nitride element that glows red-hot to ignite gas. Most common; lifespan of 3–7 years.
-- **Direct spark ignition (DSI)** — creates a spark to ignite gas. Less common but durable.
-
-Standing pilot lights are largely obsolete in furnaces manufactured after 2010, though you'll still find them in older units.
-
-### Flame Sensor
-The flame sensor is a small metal rod that detects whether the burner has lit. If it doesn't detect a flame within a few seconds of ignition, it shuts off the gas valve as a safety measure. Dirty flame sensors are one of the most common causes of furnace lockouts — and one of the easiest fixes (a quick cleaning with fine sandpaper).
-
-## Maintenance Schedule: What to Do and When
-
-Regular maintenance extends furnace lifespan by 5–10 years, maintains efficiency, and prevents costly breakdowns.
-
-<ComparisonTable
-  title="Furnace Maintenance Schedule"
-  headers={["Task", "Frequency", "DIY or Pro?", "Cost If Pro"]}
-  rows={[
-    ["Replace/clean air filter", "Every 1–3 months", "DIY", "$5–$30 per filter"],
-    ["Check thermostat operation", "Seasonally", "DIY", "Free"],
-    ["Clear vents and returns", "Monthly during heating season", "DIY", "Free"],
-    ["Clean flame sensor", "Annually", "DIY (experienced) or Pro", "$80–$200 if pro"],
-    ["Inspect heat exchanger", "Annually", "Pro only", "Part of tune-up"],
-    ["Check gas connections/leaks", "Annually", "Pro only", "Part of tune-up"],
-    ["Clean and adjust burners", "Annually", "Pro only", "Part of tune-up"],
-    ["Lubricate blower motor bearings", "Annually", "Pro (some DIY)", "Part of tune-up"],
-    ["Test safety controls", "Annually", "Pro only", "Part of tune-up"],
-    ["Inspect flue/venting", "Annually", "Pro only", "Part of tune-up"],
-    ["Full professional tune-up", "Annually (fall)", "Pro", "$80–$200"],
-    ["Duct cleaning", "Every 3–5 years", "Pro", "$300–$600"],
-  ]}
-/>
-
-<Callout type="tip">
-**The single most impactful maintenance task is changing your air filter regularly.** A clogged filter restricts airflow, forces the blower motor to work harder, reduces efficiency by up to 15%, and can cause overheating shutdowns. Check your filter monthly during the heating season and replace it when it's visibly dirty — typically every 30–90 days depending on the filter type, pets, and household dust levels.
-</Callout>
-
-## Common Furnace Problems and Troubleshooting
-
-Before calling a technician, run through these common issues. Many have simple fixes that save you the $75–$150 service call fee.
-
-**Furnace won't turn on:**
-- Check the thermostat is set to "Heat" and the temperature is set above room temperature.
-- Verify the furnace power switch (looks like a light switch, usually on or near the furnace) is ON.
-- Check the breaker panel — a tripped breaker kills the entire system.
-- If you have a gas furnace, confirm the gas valve is open (handle parallel to the pipe = open).
-
-**Furnace runs but blows cold air:**
-- The blower may be set to "ON" instead of "AUTO" on the thermostat — it circulates air even when the burner is off.
-- A dirty flame sensor can cause the burner to light briefly, then shut off, while the blower continues running.
-- An overheating furnace triggers a high-limit switch that shuts off the burners — often caused by a clogged filter.
-
-**Short cycling (frequent on/off):**
-- Oversized furnace — a common installation error.
-- Dirty filter restricting airflow.
-- Faulty thermostat or thermostat in a bad location (near a heat source or exterior wall).
-- Flame sensor issue.
-
-**Strange noises:**
-- **Banging** — delayed ignition (gas buildup before igniting), or expanding/contracting ductwork.
-- **Squealing** — belt issues (older furnaces) or blower motor bearing failure.
-- **Rattling** — loose panels, screws, or ductwork connections.
-- **Clicking** — normal during startup/shutdown, but persistent clicking without ignition suggests an igniter problem.
-
-## When to Repair vs. Replace Your Furnace
-
-This decision comes down to a few practical factors. Use the following framework:
-
-<Callout type="takeaway">
-**The 50% Rule:** If the repair costs more than 50% of a new furnace AND your furnace is more than 15 years old, replace it. A $2,000 heat exchanger repair on a 17-year-old furnace doesn't make economic sense when a new high-efficiency unit costs $4,000–$6,000 installed.
-
-**The $5,000 Rule:** Multiply the furnace's age by the repair cost. If the result exceeds $5,000, replace it. Example: A 12-year-old furnace needing a $450 repair → 12 × $450 = $5,400 → lean toward replacement.
-</Callout>
-
-Other factors pushing toward replacement:
-- Your current furnace is 80% AFUE and you'd save significantly with a 96%+ unit.
-- You've had 3+ repairs in the past 2 years.
-- Your energy bills have been steadily increasing despite maintenance.
-- Parts for your model are discontinued or hard to find.
-- Your heat exchanger is cracked (safety issue — don't delay).
-
-## Energy-Saving Tips for Any Furnace
-
-These strategies reduce heating costs regardless of your furnace type:
-
-**Programmable or smart thermostat:** Setting the temperature back 7–10°F for 8 hours per day saves up to 10% on annual heating costs, according to the DOE. A smart thermostat like the Ecobee or Google Nest learns your schedule and optimizes automatically.
-
-**Seal air leaks:** The average home leaks enough air to fill a blower door opening of 1,500–2,500 CFM at 50 Pascals. Sealing gaps around windows, doors, outlets, and plumbing penetrations with caulk and weatherstripping costs under $100 and can reduce heating loads by 10–20%.
-
-**Insulate properly:** Upgrading attic insulation from R-19 to R-49 (the current code minimum for cold climates) typically costs $1,500–$3,000 and saves $200–$500 per year in a cold climate.
-
-**Keep vents open and unobstructed:** Closing vents in unused rooms doesn't save energy — it increases duct pressure, causes leaks, and can damage the blower. Keep all supply and return vents open and clear of furniture.
-
-**Use ceiling fans:** Run ceiling fans clockwise on low speed in winter to push warm air pooling at the ceiling back down to living level. This can let you set the thermostat 1–2°F lower without sacrificing comfort.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- **Gas furnaces** are the most cost-effective heating option in most of the U.S. where natural gas is available. Target 96%+ AFUE for cold climates.
-- **Electric furnaces** cost less upfront but 2–3× more to operate. Best for mild climates or homes without gas access.
-- **Oil furnaces** make sense only where gas isn't available and oil is the most practical fuel. Budget for annual maintenance and volatile fuel costs.
-- **Proper sizing** through a Manual J calculation prevents short cycling, efficiency loss, and comfort problems. Never accept a furnace sized by square footage alone.
-- **Annual professional maintenance** ($80–$200) extends lifespan by 5–10 years and catches safety issues like cracked heat exchangers early.
-- **Filter changes** are the single most impactful DIY maintenance task — check monthly, replace every 1–3 months.
-- Use the **50% rule** and **$5,000 rule** to make repair-vs-replace decisions objectively.
-- The **upcoming 2029 DOE efficiency standards** will phase out 80% AFUE furnaces in northern regions — buying 95%+ AFUE now future-proofs your investment.
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "Do I need a furnace or a heat pump?",
-    answer: "In climates where winter temperatures regularly drop below 25–30°F, a gas furnace is usually more cost-effective and reliable. In mild climates (Southeast, Pacific Northwest, Mid-Atlantic), heat pumps can heat and cool more efficiently and cost-effectively than a separate furnace and AC. Many homeowners in moderate climates use a dual-fuel system — a heat pump for mild days and a gas furnace for the coldest weather."
-  },
-  {
-    question: "Can I install a furnace myself to save money?",
-    answer: "For gas and oil furnaces, no — you should not attempt DIY installation. Gas furnace installation requires handling gas lines, proper venting, and combustion testing, all of which require professional training and often require permits and inspections by code. Improper installation can cause carbon monoxide poisoning, fire, or gas leaks. Electric furnace installation is somewhat simpler but still involves high-voltage electrical work that should be done by a licensed professional."
-  }
-]} />
+A well-maintained furnace lasts 15 to 20+ years. The routine:
+
+- **Monthly:** check the air filter, replace a standard filter every 1 to 3 months (more with pets). See our [filter guide](/how-often-change-hvac-filter).
+- **Each fall, before heating season:** a professional tune-up, including a heat-exchanger inspection, burner cleaning, and safety checks. See our [maintenance checklist](/hvac-maintenance-checklist).
+- **As needed:** keep the area around the furnace clear, and make sure vents and returns aren't blocked.
+
+The fall heat-exchanger inspection is the one not to skip, it's the carbon-monoxide safety check.
+
+## Common furnace problems
+
+A quick troubleshooting guide for the most frequent issues:
+
+- **Furnace won't turn on:** check the thermostat setting and batteries, the breaker, the furnace power switch, and whether the filter is severely clogged.
+- **Blows cold air:** could be the thermostat set to "on" instead of "auto" (running the fan between heat cycles), a pilot/ignition problem, or an overheating shutdown from restricted airflow.
+- **Starts then shuts off quickly (short-cycling):** often a dirty flame sensor, a clogged filter, or an oversized furnace.
+- **Loud noises:** banging on startup can be delayed ignition; screeching can be the blower motor; rattling is often a loose panel.
+
+For a system that runs but the house won't warm up, start with the filter and thermostat, then call a pro if the basics check out. Anything involving gas, the heat exchanger, or a burning smell warrants shutting the system off and calling a technician.
+
+## Repair vs. replace
+
+A useful rule: if a repair costs more than about half the price of a new furnace and your unit is past 15 years old, replacement usually makes more sense. Consider replacing when:
+
+- The furnace is **15 to 20+ years old** and needs a significant repair.
+- The **heat exchanger is cracked** (a safety issue and an expensive repair).
+- Repairs are becoming frequent, or your **energy bills keep climbing** as efficiency degrades.
+
+A newer furnace also brings higher efficiency, quieter operation, and a fresh warranty. If you're weighing your options, a heat pump may be worth considering as an alternative, see our [heat pump vs. furnace comparison](/furnace-vs-heat-pump).
+
+## Frequently asked questions
+
+**What AFUE furnace should I buy?**
+For most homes, a 90 to 96% AFUE condensing furnace is the sweet spot, meaningfully more efficient than an 80% unit, and future-proof against the 2028 standard. Ultra-high 96%+ modulating units cost more but give the best comfort and lowest bills. In a very mild climate with low heating use, the payback on the highest efficiency is smaller.
+
+**How long do furnaces last?**
+A well-maintained gas furnace typically lasts 15 to 20 years; electric furnaces often last a bit longer (fewer combustion components), and oil furnaces are similar to gas. Regular filter changes and annual professional maintenance are the keys to reaching the full lifespan.
+
+**Is a gas or electric furnace cheaper?**
+Electric furnaces cost less to install but usually much more to run, since electricity typically costs 2 to 3 times more per BTU than gas in most of the U.S. Gas is generally the cheaper long-term choice where it's available. In many cases a heat pump is a more efficient electric option than an electric furnace.
+
+**What size furnace do I need?**
+It depends on your home's heat loss, which varies with square footage, insulation, climate, windows, and layout, not a single rule of thumb. A Manual J load calculation (per ACCA) is the correct method. A rough starting estimate is 30 to 60 BTU per square foot by climate, but insist on a real load calculation for an accurate size.
+
+**Are 80% furnaces being banned?**
+Not for ownership, and not immediately. The DOE standard requires furnaces manufactured on or after December 18, 2028 to be at least 95% AFUE, which phases out new non-condensing 80% units. But it applies to the manufacture date, so nobody must replace a working furnace, and existing 80% inventory can still be installed until it sells through.
+
+## How we sourced this page
+
+Furnace cost ranges reflect typical 2026 contractor pricing and vary by fuel type, efficiency, and home, they're estimates to budget with, not fixed quotes. Fuel-cost comparisons use **U.S. EIA** residential energy and price data. The federal efficiency standard (residential gas furnaces manufactured on or after December 18, 2028 must meet a minimum 95% AFUE, a national standard that phases out non-condensing furnaces) is from the **U.S. Department of Energy's** finalized rule. Proper sizing follows **ACCA** Manual J, and equipment certification data is available through **AHRI**. Gas furnace installation is governed by **NFPA 54** (National Fuel Gas Code) and local code. We recommend no specific brands; install quality and correct sizing matter more than brand for a furnace's real-world performance and lifespan.
+
 
 ## Sources
 
 <SourcesBox sources={[
-  { title: "ACCA Manual J — Residential Load Calculation", url: "https://www.acca.org/standards/manuals/manual-j" },
+  { title: "U.S. DOE: Residential Furnace Efficiency Standards (2028 minimum 95% AFUE rule)", url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion" },
+  { title: "ACCA Manual J: Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
   { title: "AHRI Certified Equipment Directory", url: "https://www.ahridirectory.org/" },
-  { title: "U.S. EIA — Residential Energy Consumption Survey (home heating fuel)", url: "https://www.eia.gov/consumption/residential/" },
-  { title: "U.S. EIA — Natural Gas Prices", url: "https://www.eia.gov/dnav/ng/ng_pri_sum_dcu_nus_a.htm" },
-  { title: "U.S. EIA — Electricity Prices", url: "https://www.eia.gov/electricity/monthly/" },
-  { title: "NFPA 54 — National Fuel Gas Code", url: "https://www.nfpa.org/codes-and-standards/nfpa-54-standard-development/54" },
+  { title: "U.S. EIA: Residential Energy Consumption Survey (home heating fuel)", url: "https://www.eia.gov/consumption/residential/" },
+  { title: "U.S. EIA: Natural Gas Prices", url: "https://www.eia.gov/dnav/ng/ng_pri_sum_dcu_nus_a.htm" },
+  { title: "U.S. EIA: Electricity Prices", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "NFPA 54: National Fuel Gas Code", url: "https://www.nfpa.org/codes-and-standards/nfpa-54-standard-development/54" }
 ]} />
 
 ## Related Articles
 
+<RelatedArticles articles={[
+  "gas-vs-electric-heating-cost",
+  "furnace-vs-heat-pump",
+  "furnace-installation-cost",
+  "furnace-efficiency-explained",
+  "how-long-do-furnaces-last"
+]} />
