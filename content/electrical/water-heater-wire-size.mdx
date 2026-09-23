@@ -1,313 +1,137 @@
 ---
 slug: water-heater-wire-size
 title: "Water Heater Wire Size Chart: What AWG Gauge? (2026 Guide)"
-description: "Complete wire size chart for electric water heaters from 30 to 80+ gallons. Most tank water heaters need 10 AWG wire on a 30A breaker. Tankless units require multiple circuits with 6–8 AWG wire."
+description: "Wire and breaker sizes for electric water heaters. Most tank units (4,500 to 5,500W) need 10 AWG copper on a 30A double-pole breaker; tankless units draw far more and need heavier wire or multiple circuits. Includes the NEC continuous-load math."
+author: "Marko Visic, BSc Physics"
 cluster: "electrical-wiring"
 role: "spoke"
 priority: "P2"
 contentType: "reference"
 datePublished: "2026-02-05"
-dateModified: "2026-07-18"
+dateModified: "2026-09-23"
 relatedArticles:
   - electrical-wiring-guide
   - wire-gauge-chart
+  - wire-for-220-volt
   - water-heater-breaker-size
   - water-heater-amps
-  - water-heater-wattage
   - what-wire-size-for-30-amp
 externalLinks:
+  - title: "National Electrical Code (NFPA 70)"
+    url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70"
+  - title: "IRS: Energy Efficient Home Improvement Credit (25C)"
+    url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit"
+  - title: "DSIRE: Database of State Incentives"
+    url: "https://www.dsireusa.org/"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles } from '@/components'
 
 # Water Heater Wire Size Chart: What AWG Gauge?
 
-**Most electric tank water heaters (30–80 gallons, up to 5,500W) require 10 AWG copper wire on a 30-amp, 240V circuit.** Tankless electric water heaters are different — they're power-hungry units that require multiple circuits, typically 2–4 separate runs of 6 AWG or 8 AWG wire, depending on the kW rating.
+You're installing or replacing an electric water heater and need to know what size wire and breaker it takes. Get it right and it's a straightforward job; get the wire undersized and it's a fire risk, so this is worth confirming against the code, not guessing.
 
-Below you'll find complete wire sizing charts for every common water heater type, from compact 20-gallon tanks to whole-house tankless units. Water heaters use 10/2 cable, not 10/3 — see our [10/2 vs 10/3 wire guide](/10-2-or-10-3-wire-for-ac) for why 240V-only loads don't need a neutral conductor.
+This guide gives you the wire and breaker sizes for tank, tankless, and heat-pump water heaters, the NEC math behind them, and the details that trip people up (like why a tank with two heating elements still only needs a 30-amp circuit). The wire sizes here follow the National Electrical Code, linked at the bottom. One note up front: a new or replaced water-heater circuit usually requires a permit and inspection, and the electrical work is safety-critical, so if you're not confident, have a licensed electrician do or verify it.
 
-<TableOfContents />
+**Most standard electric tank water heaters (3,500 to 5,500 watts) use 10 AWG copper wire on a 30-amp double-pole breaker, on a dedicated 240-volt circuit.** That combination covers the large majority of residential tanks. Tankless electric units draw far more power and need much larger wiring (often 6 AWG or multiple circuits), and heat-pump water heaters use the same 10 AWG / 30-amp setup as standard tanks.
 
-## Quick Answer: Water Heater Wire Size Chart
+## Quick reference: wire size by water heater type
 
-### Tank Water Heaters (Standard Electric)
+### Standard electric tank heaters
 
-| Tank Size | Wattage | Amps at 240V | Wire Gauge | Breaker | Cable Type |
-|-----------|---------|-------------|-----------|---------|------------|
-| 20–30 gallon | 3,000–3,500W | 12.5–14.6A | 12 AWG | 20A DP | 12/2 NM-B |
-| 30–40 gallon | 4,000–4,500W | 16.7–18.75A | 10 AWG | 30A DP | 10/2 NM-B |
-| 40–50 gallon | 4,500W | 18.75A | 10 AWG | 30A DP | 10/2 NM-B |
-| 50–65 gallon | 4,500–5,500W | 18.75–22.9A | 10 AWG | 30A DP | 10/2 NM-B |
-| 65–80 gallon | 5,500W | 22.9A | 10 AWG | 30A DP | 10/2 NM-B |
-| 80+ gallon (commercial) | 5,500–6,000W | 22.9–25A | 10 AWG | 30A DP | 10/2 NM-B |
+| Wattage (at 240V) | Amp draw | Wire | Breaker |
+|-------------------|----------|------|---------|
+| 3,000–3,500W | ~12.5–14.6A | 12 AWG | 20A double-pole |
+| 4,000–5,500W | ~16.7–22.9A | 10 AWG | 30A double-pole |
 
-<Callout type="important">
-**The 4,500W / 30A combination covers 90%+ of residential tank water heaters.** Even large 80-gallon tanks typically use 4,500W or 5,500W elements, which stay comfortably under the 30A breaker limit. 10 AWG wire on a 30A circuit is the near-universal standard for tank water heaters.
-</Callout>
+The vast majority of residential tanks use a 4,500W element and land on **10 AWG / 30A**. Use 10/2 NM-B cable (two conductors plus ground); a water heater doesn't need a neutral, so 10/3 is only for units that specifically call for one.
 
-### Tankless Water Heaters (Electric)
+### Electric tankless heaters (much higher demand)
 
-| Model kW Rating | Amps at 240V | Number of Circuits | Wire Gauge (each) | Breaker (each) |
-|-----------------|-------------|-------------------|------------------|----------------|
-| 8–11 kW | 33–46A | 1 | 6 AWG | 50–60A DP |
-| 13–14 kW | 54–58A | 2 | 8 AWG | 40A DP |
-| 18 kW | 75A | 2 | 8 AWG | 40A DP |
-| 21–24 kW | 88–100A | 2–3 | 8 AWG | 40A DP |
-| 27 kW | 113A | 3 | 8 AWG | 40A DP |
-| 29–36 kW | 121–150A | 3–4 | 6–8 AWG | 40–50A DP |
+Tankless electric units heat water instantly, which takes a lot of power, so they need substantially heavier wiring, often more than one circuit:
 
-### Heat Pump Water Heaters
+| Size | Approx. amp draw (240V) | Typical wiring |
+|------|-------------------------|----------------|
+| 8–11 kW | ~33–46A | 6 AWG, single 50–60A circuit |
+| 13–18 kW | ~54–75A | Two circuits (commonly 8 AWG / 40A each) |
+| 24–36 kW | ~100–150A | Three to four circuits, or heavier feeders |
 
-| Type | Wattage | Amps at 240V | Wire Gauge | Breaker | Notes |
-|------|---------|-------------|-----------|---------|-------|
-| Hybrid (heat pump + backup) | 500–4,500W | 2.1–18.75A | 10 AWG | 30A DP | Backup element same as tank |
-| Heat pump only mode | 500–600W | 2.1–2.5A | 10 AWG | 30A DP | Very low draw |
+Because tankless requirements vary so much by model and can approach or exceed a typical panel's capacity, always size to the specific unit's nameplate and confirm your panel can handle it. Whole-home electric tankless often requires an electrical service evaluation, this is a common case where a panel upgrade is needed.
 
-## Why Most Tank Water Heaters Use 10 AWG / 30A
+### Heat-pump (hybrid) water heaters
 
-### The Math Behind the Standard
+| Mode | Amp draw | Wire | Breaker |
+|------|----------|------|---------|
+| Hybrid (heat pump + backup element) | ~2–19A | 10 AWG | 30A double-pole |
 
-Standard residential water heater elements are either 4,500W or 5,500W. Here's the load calculation:
+Heat-pump water heaters use the same 10 AWG / 30A circuit as a standard tank (the backup resistance element is the same as a tank's), while using far less energy in normal operation.
 
-**4,500W element:**
-- Amps = 4,500W ÷ 240V = 18.75A
-- Continuous load (water heaters run 3+ hours): 18.75A × 1.25 = 23.4A
-- Required breaker: minimum 25A, standard 30A
-- Required wire: 10 AWG (rated 30A at 60°C)
+## The NEC math behind the standard
 
-**5,500W element:**
-- Amps = 5,500W ÷ 240V = 22.9A
-- Continuous load: 22.9A × 1.25 = 28.6A
-- Required breaker: minimum 30A, standard 30A
-- Required wire: 10 AWG (rated 30A at 60°C) — marginal but acceptable
+The 10 AWG / 30A standard for tank heaters comes from a straightforward code calculation. A water heater is treated as a **continuous load** under the NEC, which means the circuit is sized to 125% of the steady draw:
 
-**Why not larger elements?** Residential electrical panels and typical wiring can't efficiently support elements much larger than 5,500W without requiring 40A+ circuits. Since water heaters heat in cycles (not continuously), 4,500W provides adequate recovery for most households.
+**For a 4,500W element at 240V:**
+- Amp draw = 4,500 ÷ 240 = 18.75A
+- Continuous-load requirement = 18.75 × 1.25 = 23.4A
+- Next standard breaker up = **30A**
+- Wire for a 30A circuit = **10 AWG**
 
-### Upper vs. Lower Elements
+**For a 5,500W element at 240V:**
+- Amp draw = 5,500 ÷ 240 = 22.9A
+- Continuous-load requirement = 22.9 × 1.25 = 28.6A
+- Breaker = **30A** (the NEC specifically permits a 30A breaker for water heaters rated up to 5,500W)
+- Wire = **10 AWG**
 
-Most tank water heaters have two heating elements — upper and lower. But they don't run simultaneously. A thermostat-controlled switch energizes only one element at a time. This means:
+So both common element sizes land on the same 10 AWG / 30A circuit, which is why it's the near-universal residential standard.
 
-- 4,500W upper element OR 4,500W lower element = 4,500W total draw
-- Never 4,500W + 4,500W = 9,000W
+## Why two elements still only need a 30-amp circuit
 
-The wire size is based on the single-element load, not combined. That's why a water heater with two 4,500W elements still only needs 10 AWG wire and a 30A breaker.
+Most tank water heaters have two heating elements, upper and lower, which surprises people into thinking they need to size for both at once. They don't. A thermostat energizes **only one element at a time**, never both together, so the circuit is sized for a single element's draw (4,500W), not the combined 9,000W.
 
-<Callout type="tip">
-**Exception: Simultaneous-operation water heaters.** Some commercial and high-recovery residential units can run both elements at once (requiring 9,000W circuits). These are rare and require 6 AWG wire on a 50A breaker — or two separate circuits. Always check the nameplate.
-</Callout>
+The one exception: some commercial or high-recovery units are designed for *simultaneous* operation of both elements. Those genuinely do need a larger circuit (typically 6 AWG on a 50A breaker, or two separate circuits). This is uncommon in homes, always check the nameplate to see whether your unit is simultaneous or (far more likely) non-simultaneous.
 
-## Tankless Electric Water Heater Wiring
+## The rules that keep it safe
 
-Tankless water heaters are electrical monsters. Unlike tank heaters that maintain stored hot water, tankless units heat water on demand — requiring massive instantaneous power.
+A few code points that matter for any water-heater circuit:
 
-### Tankless Wiring Requirements by Model
+- **Dedicated circuit.** A water heater must be on its own circuit powering nothing else. Sharing it violates code and risks overloading.
+- **Match wire to breaker.** A 30A breaker requires 10 AWG; never put a smaller wire on a larger breaker. This is the pairing that prevents overheating.
+- **240V uses a double-pole breaker** (it connects to both hot legs). Single-pole breakers are only for 120V point-of-use units.
+- **Confirm the nameplate.** Size from the unit's actual rated wattage, not an assumption or the old unit's wiring. And a metal plumbing system may require a bonding jumper per local code.
+- **Permit and inspection.** Most jurisdictions require a permit for a water-heater circuit, and the inspection is there precisely because a wiring error on this kind of load is a fire risk.
 
-| Model | kW | Circuits | Wire per Circuit | Breaker per Circuit | Total Amps |
-|-------|-----|----------|-----------------|--------------------| -----------|
-| Rheem RTEX-08 | 8 kW | 1 | 8 AWG | 40A | 33A |
-| Rheem RTEX-11 | 11 kW | 1 | 6 AWG | 60A | 46A |
-| Rheem RTEX-13 | 13 kW | 2 | 8 AWG | 40A ea | 54A |
-| Rheem RTEX-18 | 18 kW | 2 | 8 AWG | 40A ea | 75A |
-| Stiebel Eltron Tempra 12 | 12 kW | 2 | 8 AWG | 40A ea | 50A |
-| Stiebel Eltron Tempra 20 | 20 kW | 2 | 8 AWG | 50A ea | 83A |
-| Stiebel Eltron Tempra 24 | 24 kW | 2 | 8 AWG | 50A ea | 100A |
-| Stiebel Eltron Tempra 29 | 29 kW | 3 | 8 AWG | 40A ea | 121A |
-| Stiebel Eltron Tempra 36 | 36 kW | 4 | 8 AWG | 40A ea | 150A |
-| EcoSmart ECO 11 | 13 kW | 2 | 8 AWG | 40A ea | 54A |
-| EcoSmart ECO 18 | 18 kW | 2 | 8 AWG | 40A ea | 75A |
-| EcoSmart ECO 27 | 27 kW | 3 | 8 AWG | 40A ea | 113A |
-| EcoSmart ECO 36 | 36 kW | 4 | 8 AWG | 40A ea | 150A |
+If any of this is outside your comfort zone, this is a job for a licensed electrician, the cost of doing it right is small next to the risk of an undersized or improperly connected circuit.
 
-<Callout type="warning">
-**Tankless electric water heaters can overload residential panels.** A 27 kW unit draws 113 amps — more than half of a 200A service. Before installing a tankless electric unit, verify your panel has sufficient capacity. In many cases, a panel upgrade is required. For whole-house hot water, a heat pump water heater (30A single circuit) is often a better choice than tankless electric (multiple circuits, 80–150A total).
-</Callout>
+## Energy and incentives (2026)
 
-### Why Tankless Units Need Multiple Circuits
+Heat-pump water heaters are the efficiency standout, using the same wiring as a standard tank but far less energy in normal operation (they move heat rather than generating it with resistance elements). On incentives, the rules changed recently: **the federal Section 25C tax credit (which had covered up to $2,000 for qualifying ENERGY STAR heat-pump water heaters) expired for installs placed in service after December 31, 2025** under the OBBBA. For 2026, the active pathways are **IRA HEAR** (income-qualified, up to $1,750 for a heat-pump water heater), **IRA HOMES** (performance-based), and state and utility rebates, check the DSIRE database for what your area currently offers.
 
-Tankless manufacturers split the load across multiple circuits for several reasons:
+## Frequently asked questions
 
-1. **Breaker availability:** Residential panels don't have 150A breaker slots. Splitting a 36 kW load into four 40A circuits uses standard breakers.
+**What size wire does a water heater need?**
+Most residential electric tank water heaters (4,500 to 5,500W) need 10 AWG copper wire on a 30-amp double-pole breaker, using 10/2 cable on a dedicated 240V circuit. Smaller units (3,000 to 3,500W) can use 12 AWG on a 20A breaker. Always confirm against your unit's nameplate.
 
-2. **Wire cost:** Running one 150A circuit would require expensive 1/0 AWG or larger wire. Four runs of 8 AWG is cheaper.
+**What size breaker for a 4,500-watt water heater?**
+A 30-amp double-pole breaker. The 4,500W element draws 18.75A, and the NEC's 125% continuous-load rule brings that to 23.4A, which rounds up to a 30A breaker on 10 AWG wire.
 
-3. **Staged heating:** Some units energize heating elements progressively based on flow rate, reducing peak demand.
+**Do tankless water heaters need special wiring?**
+Yes, much heavier. Electric tankless units draw far more power than tank heaters (often 40 to 150 amps) and frequently need multiple circuits and heavier wire (6 AWG or larger), and sometimes an electrical panel upgrade. Size strictly to the unit's nameplate and have an electrician confirm your panel can support it.
 
-## Wire Run Length and Voltage Drop
+**Can I use 10/3 wire instead of 10/2 for a water heater?**
+You can, but you usually don't need to. A standard water heater doesn't use a neutral, so 10/2 (two hots plus ground) is correct. Use 10/3 only if your specific unit requires a neutral for a digital control or timer, which is uncommon, check the wiring diagram.
 
-### Tank Water Heater Voltage Drop (10 AWG at 18.75A)
+**Do I need a permit to install a water heater circuit?**
+In most jurisdictions, yes. A new or replaced water-heater circuit typically requires a permit and inspection, and because a wiring error on this load is a fire risk, the inspection is a genuine safety check. If you're not confident with the electrical work, have a licensed electrician handle it.
 
-| Distance | Voltage Drop | % Drop | Status |
-|----------|-------------|--------|--------|
-| 25 ft | 1.2V | 0.5% | ✅ Excellent |
-| 50 ft | 2.3V | 1.0% | ✅ Good |
-| 75 ft | 3.5V | 1.5% | ✅ Good |
-| 100 ft | 4.6V | 1.9% | ✅ Acceptable |
-| 125 ft | 5.8V | 2.4% | ✅ Acceptable |
-| 150 ft | 7.0V | 2.9% | ⚠️ Marginal |
-| 200 ft | 9.3V | 3.9% | ❌ Upsize to 8 AWG |
+## How we sourced this page
 
-Water heaters are typically located near the panel (basement, utility room, garage), so long runs are uncommon. Most installations are under 50 feet.
-
-### When to Upsize Wire
-
-| Scenario | Standard Wire | Upsized Wire |
-|----------|--------------|--------------|
-| Run under 100 ft | 10 AWG | — |
-| Run 100–150 ft | 10 AWG (marginal) | 8 AWG recommended |
-| Run 150–250 ft | 8 AWG | 6 AWG |
-| Tankless, any distance | Per manufacturer | — |
-
-## Wiring a Tank Water Heater: Step-by-Step
-
-### Materials Needed
-
-| Item | Quantity | Cost |
-|------|----------|------|
-| 10/2 NM-B cable | Length + 20% | $0.65–$1.00/ft |
-| 30A double-pole breaker | 1 | $8–$20 |
-| 4" × 4" steel junction box | 1 | $3–$8 |
-| Cable clamps | 2 | $2–$5 |
-| Wire nuts or Wago connectors | 3 | $2–$5 |
-| Flexible metal conduit + fittings | 3 ft | $10–$20 |
-
-### Wiring Steps
-
-**Step 1:** Turn off main breaker. Install 30A double-pole breaker in panel.
-
-**Step 2:** Run 10/2 NM-B from panel to water heater location. Secure with staples every 4.5 feet and within 12 inches of boxes.
-
-**Step 3:** Mount junction box on wall near water heater (typically above or beside).
-
-**Step 4:** Connect NM-B to junction box. Wire nuts: Black to black, white (re-identified with black tape) to white/red, bare to ground.
-
-**Step 5:** Run flexible metal conduit from junction box to water heater connection point.
-
-**Step 6:** At water heater terminals, connect per wiring diagram (typically labeled L1 and L2).
-
-**Step 7:** Restore power. Test for 240V between L1 and L2 with multimeter before filling tank.
-
-<Callout type="example">
-**Real installation — 50-gallon Rheem tank in garage:**
-- Distance from panel: 30 feet
-- Cable: 10/2 NM-B, 35 feet (extra for connections)
-- Breaker: 30A double-pole
-- Voltage drop: (2 × 30 × 18.75 × 1.24) / 1000 = 1.4V = 0.6% ✓
-- Total materials: ~$60–$90
-- Professional installation: $250–$500
-</Callout>
-
-## Water Heater Types and Wiring Comparison
-
-| Type | Typical Wattage | Wire | Breaker | Annual kWh | Operating Cost ($0.18/kWh — illustrative) |
-|------|-----------------|------|---------|-----------|-------------------------------|
-| Standard tank (50 gal) | 4,500W | 10/2 | 30A | 4,000–5,000 | $664–$830/yr |
-| High-efficiency tank | 4,500W | 10/2 | 30A | 3,500–4,500 | $581–$747/yr |
-| Heat pump hybrid | 500–4,500W | 10/2 | 30A | 1,500–2,000 | $249–$332/yr |
-| Tankless (18 kW) | 18,000W | 2 × 8/2 | 2 × 40A | 3,000–4,000 | $498–$664/yr |
-| Tankless (27 kW) | 27,000W | 3 × 8/2 | 3 × 40A | 3,500–5,000 | $581–$830/yr |
-
-<Callout type="tip">
-**Heat pump water heaters are the efficiency champions.** They use the same 10/2 wire and 30A breaker as standard tanks but consume 60–70% less energy. The federal 25C credit (which covered up to $2,000 of the purchase price for qualifying ENERGY STAR HPWHs) expired for installs after Dec 31, 2025 under the OBBBA; for 2026 installs, IRA HEAR (income-qualified, up to $1,750 for water heaters) and HOMES (performance-based) plus state/utility rebates still help close the upfront cost gap with standard tanks, while saving $300–$500/year in operating costs.
-</Callout>
-
-## Common Water Heater Wiring Mistakes
-
-### Mistake 1: Using 12 AWG Wire on a 4,500W Heater
-
-**Why it's wrong:** 4,500W ÷ 240V = 18.75A. With continuous load factor: 18.75 × 1.25 = 23.4A required capacity. 12 AWG wire is only rated for 20A. This combination will cause the wire to overheat before the breaker trips.
-
-**The fix:** Always use 10 AWG wire for 4,500W and 5,500W water heaters.
-
-### Mistake 2: Connecting to a 120V Circuit
-
-**Why it fails:** A 4,500W element connected to 120V draws only 1,125W (power is proportional to voltage squared). The water heater will "work" but heat incredibly slowly — 4× slower than designed.
-
-**The fix:** Water heaters require 240V, which means a double-pole breaker and two hot conductors. Verify 240V with a multimeter between L1 and L2.
-
-### Mistake 3: Not Using a Junction Box
-
-**Why it's a code violation:** NEC 422.16(B)(2) requires accessible connections for water heaters. Running NM-B directly into the water heater's wiring compartment without a junction box makes future service difficult and may not meet code.
-
-**The fix:** Install a junction box near the water heater. Run NM-B to the box, then flexible conduit from box to water heater.
-
-### Mistake 4: Undersizing Tankless Circuits
-
-**Why it's catastrophic:** A 27 kW tankless water heater requires 113 amps across 3 circuits. Wiring it with a single 30A circuit means the water heater can only produce a fraction of its rated output — like having a trickle of lukewarm water.
-
-**The fix:** Follow the manufacturer's wiring requirements exactly. Tankless electric units require multiple high-amperage circuits — there are no shortcuts.
-
-## Real-World Examples
-
-### Example 1: Replacing Gas Water Heater with Electric Tank
-
-**Scenario:** 40-gallon gas water heater failed. Homeowner wants to switch to electric. Panel has space; water heater is 25 feet from panel.
-
-**Wiring needed:**
-- Cable: 10/2 NM-B, 30 feet
-- Breaker: 30A double-pole (takes 2 panel spaces)
-- Materials cost: $50–$80
-- Professional installation: $250–$500 (plus new water heater)
-
-### Example 2: Installing Heat Pump Water Heater
-
-**Scenario:** Upgrading from standard electric tank to heat pump model for efficiency. Existing circuit: 10/2 NM-B, 30A breaker.
-
-**Wiring change needed:** None. Heat pump water heaters use the same 10/2 wire and 30A breaker as standard tanks. The existing circuit is compatible — just swap the water heater.
-
-### Example 3: Tankless Installation Requiring Panel Upgrade
-
-**Scenario:** Family of 5 wants a 27 kW tankless for whole-house hot water. Current panel: 150A main with 8 spaces remaining.
-
-**Wiring challenge:**
-- 27 kW unit needs 3 × 40A circuits = 120A at the panel
-- 150A panel can't support 120A additional load
-- Panel upgrade to 200A required: $1,500–$4,000
-- Plus tankless wiring: 3 runs of 8/2 NM-B, 3 × 40A breakers
-
-**Alternative:** Install a heat pump water heater instead (30A single circuit, no panel upgrade needed). Lower upfront cost, lower operating cost, easier installation.
-
-### Example 4: Point-of-Use Tankless at Kitchen Sink
-
-**Scenario:** Adding a small tankless unit under the kitchen sink for instant hot water. Model: 4 kW point-of-use.
-
-**Wiring:**
-- 4,000W ÷ 240V = 16.7A
-- Continuous load: 16.7 × 1.25 = 20.8A → 25A or 30A breaker
-- Wire: 10/2 NM-B (can use 12 AWG with 20A breaker if unit draws under 16A)
-- Run: 20 feet from panel → negligible voltage drop
-
-## Key Takeaways
-
-<Callout type="takeaway">
-**NEC's 125% continuous-load multiplier is what forces 30A, not the raw 18.75A draw** — 18.75A × 1.25 = 23.4A of required capacity, so a 12 AWG / 20A setup overheats before it trips even though the nameplate amps look safely under limit
-**Whole-house tankless (27 kW+) usually forces a service upgrade before install** — a 27 kW unit pulls 120A across 3 dedicated circuits, more than half a 200A service, and the $1,500–$4,000 panel upgrade is typically the real budget item, not the wiring itself (see Example 3)
-- **Heat pump water heaters use standard 10/2 / 30A wiring** — same as tank heaters, but 60–70% less energy
-- **Upper and lower elements don't run simultaneously** — wire size is based on single-element draw (4,500W)
-- **For runs over 150 feet, upsize to 8 AWG** to keep voltage drop under 3%
-- **Tankless electric can overload residential panels** — verify capacity before installing or consider a heat pump unit
-- **Always check the nameplate** — manufacturer specs override generic charts
-</Callout>
-
-<FAQ items={[
-  {
-    question: "Do I need a ground wire for a water heater?",
-    answer: "Yes, absolutely. The equipment ground wire is required by NEC for all water heater installations. When using 10/2 NM-B cable, the bare copper wire serves as the ground. This provides a safe path for fault current and protects against electrical shock."
-  },
-  {
-    question: "Can I wire a water heater myself?",
-    answer: "In many states, homeowners can perform their own electrical work on primary residences with a permit. However, water heater wiring involves a 240V, 30A circuit — improper installation can cause fires or electrocution. If you're not confident working with electrical systems, hire a licensed electrician. Always pull a permit and have the work inspected."
-  }
-]} />
+The wire and breaker sizes, and the sizing method (a water heater is a continuous load, so the circuit is sized to 125% of the steady draw per NEC 210.19, and a 30-amp breaker is permitted for water heaters rated up to 5,500W per NEC 422.11(E)(3)), follow the **National Electrical Code (NEC / NFPA 70)**. Because conductor sizing depends on the specific unit, the wire type, and installation conditions, the sizes here are standard references, confirm against your water heater's nameplate and your local code, and have the work done or verified by a licensed electrician. The tax-credit and rebate information reflects current federal rules: the **IRS** Section 25C credit (expired for installs placed in service after December 31, 2025 under the OBBBA) and the active IRA HEAR and HOMES rebate programs, with state and utility incentives tracked in the **DSIRE** database. NFPA 70 is the authoritative U.S. electrical standard, adopted (sometimes with amendments) by your local jurisdiction.
 
 <SourcesBox sources={[
-  { name: "ENERGY STAR — Water Heaters", url: "https://www.energystar.gov/products/water_heaters", description: "Efficient water heater specifications and ratings" },
-  { name: "AHRI — Water Heater Standards", url: "https://www.ahrinet.org/", description: "Air-Conditioning, Heating, and Refrigeration Institute water heater standards" }
+  { title: "National Electrical Code (NFPA 70): Table 310.16, 210.19, 422.11(E)(3)", url: "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
+  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org/" }
 ]} />
 
-<RelatedArticles articles={[
-  { slug: "water-heater-breaker-size", title: "What Size Breaker for Water Heater?" },
-  { slug: "water-heater-amps", title: "Water Heater Amps: How Many Amps?" },
-  { slug: "water-heater-wattage", title: "Water Heater Wattage: How Many Watts?" },
-  { slug: "what-wire-size-for-30-amp", title: "What Wire Size for 30 Amp Circuit?" },
-  { slug: "electrical-wiring-guide", title: "Home Electrical Wiring Guide" }
-]} />
+<RelatedArticles articles={frontmatter.relatedArticles} />
+
