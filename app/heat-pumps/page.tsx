@@ -39,7 +39,6 @@ async function getHeatPumpArticles() {
 // Organize articles by topic
 function organizeArticles(articles: any[]) {
   const topics = {
-    'Buying Guides': [] as any[],
     'Installation & Costs': [] as any[],
     'Efficiency & Performance': [] as any[],
     'Tax Credits & Rebates': [] as any[],
@@ -50,9 +49,7 @@ function organizeArticles(articles: any[]) {
   
   articles.forEach(article => {
     const title = article.meta.title.toLowerCase();
-    if (title.includes('best') || title.includes('buying') || title.includes('guide')) {
-      topics['Buying Guides'].push(article);
-    } else if (title.includes('cost') || title.includes('install') || title.includes('price')) {
+    if (title.includes('cost') || title.includes('install') || title.includes('price')) {
       topics['Installation & Costs'].push(article);
     } else if (title.includes('tax') || title.includes('credit') || title.includes('rebate')) {
       topics['Tax Credits & Rebates'].push(article);
@@ -79,10 +76,6 @@ function organizeArticles(articles: any[]) {
 
 // Topic metadata
 const topicInfo = {
-  'Buying Guides': {
-    description: 'Best heat pump recommendations and buying guides',
-    icon: Activity
-  },
   'Installation & Costs': {
     description: 'Installation costs, quotes, and pricing analysis',
     icon: DollarSign

@@ -326,7 +326,7 @@ export default function SEER2Calculator() {
 
       <SocialShare
         title="SEER2 Energy Savings Calculator"
-        description="Calculate exact energy savings when upgrading your AC system with payback and CO₂ math."
+        description="Estimate energy savings when upgrading your AC system with payback and CO₂ math."
       />
 
       <EmbedCode calculatorType="seer2-savings-calculator" title="SEER2 Energy Savings Calculator" />

@@ -150,7 +150,7 @@ export default function ACTonnageCalculator() {
   const fit =
     calc.tons === 0 ? { tone: 'warn' as const, text: 'Enter square footage' } :
     calc.exceedsSingleUnit ? { tone: 'warn' as const, text: 'Exceeds single-unit capacity' } :
-    calc.ideal - calc.tons < 0.25 ? { tone: 'good' as const, text: 'Exact size match' } :
+    calc.ideal - calc.tons < 0.25 ? { tone: 'good' as const, text: 'On-target estimate' } :
     calc.ideal - calc.tons < 0.5  ? { tone: 'ok' as const, text: 'Good fit' } :
                                     { tone: 'warn' as const, text: 'Rounding up by half-ton' };
 

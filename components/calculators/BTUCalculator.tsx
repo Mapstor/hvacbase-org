@@ -264,7 +264,7 @@ export default function BTUCalculator() {
   const fit =
     calc.totalBTU === 0 ? { tone: 'warn' as const, text: 'Enter room dimensions' } :
     calc.totalBTU < 5000 ? { tone: 'ok' as const, text: 'Tiny load, smallest unit fits' } :
-    calc.ideal - calc.totalBTU < calc.ideal * 0.1 ? { tone: 'good' as const, text: 'Exact match' } :
+    calc.ideal - calc.totalBTU < calc.ideal * 0.1 ? { tone: 'good' as const, text: 'On-target estimate' } :
     calc.ideal - calc.totalBTU < calc.ideal * 0.25 ? { tone: 'ok' as const, text: 'Good fit' } :
                                                      { tone: 'warn' as const, text: 'Slightly oversized at this tier' };
 
@@ -283,7 +283,7 @@ export default function BTUCalculator() {
     <CalcShell
       Icon={Calculator}
       title="BTU Calculator"
-      subtitle="Exact cooling capacity for any room."
+      subtitle="Estimated cooling capacity for any room."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -635,7 +635,7 @@ export default function BTUCalculator() {
 
       <SocialShare
         title="BTU Calculator"
-        description="Calculate the exact cooling capacity needed for any room. Free HVAC sizing tool that helps you choose the perfect air conditioner size."
+        description="Estimate the cooling capacity needed for any room. Free HVAC sizing tool that helps you choose the perfect air conditioner size."
       />
 
       <EmbedCode calculatorType="air-conditioner-btu-calculator" title="BTU Calculator" />

@@ -96,7 +96,7 @@ export default function KWhCostCalculator() {
     <CalcShell
       Icon={Zap}
       title="kWh Cost Calculator"
-      subtitle="Exact electricity cost for any appliance."
+      subtitle="Estimated electricity cost for any appliance."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">

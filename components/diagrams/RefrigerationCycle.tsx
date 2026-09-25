@@ -73,7 +73,7 @@ export default function RefrigerationCycle({ caption }: RefrigerationCycleProps)
     '(2) The compressor (outdoor, bottom-right) then pressurizes that gas into a high-pressure, high-temperature gas. ' +
     '(3) The condenser coil (outdoor, top-right) releases the absorbed heat to outdoor air, condensing the refrigerant into a high-pressure warm liquid. ' +
     '(4) The expansion valve (indoor, top-left) drops the pressure sharply, cooling the refrigerant back into a low-pressure cold liquid/vapor mixture, which returns to the evaporator to repeat the cycle. ' +
-    'Common residential refrigerants following this cycle: R-410A (phase-down 2023+, GWP 2088), R-32 (single-component, GWP 675), R-454B (R-410A successor for 2025+ equipment, GWP 466).';
+    'Common residential refrigerants following this cycle: R-410A (January 1, 2025 EPA cutoff, GWP 2088), R-32 (single-component, GWP 675), R-454B (R-410A successor for 2025+ equipment, GWP 466).';
 
   return (
     <figure className="my-8 not-prose">
@@ -376,7 +376,7 @@ export default function RefrigerationCycle({ caption }: RefrigerationCycleProps)
               Common residential refrigerants following this cycle:
             </div>
             <div style={{ fontSize: 12, color: AXIS, lineHeight: 1.5 }}>
-              <strong style={{ color: DARK }}>R-410A</strong> (phase-down 2023+, GWP 2088) ·{' '}
+              <strong style={{ color: DARK }}>R-410A</strong> (January 1, 2025 EPA cutoff, GWP 2088) ·{' '}
               <strong style={{ color: DARK }}>R-32</strong> (single-component, GWP 675) ·{' '}
               <strong style={{ color: DARK }}>R-454B</strong> (R-410A successor, GWP 466)
             </div>

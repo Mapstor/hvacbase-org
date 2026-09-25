@@ -128,12 +128,8 @@ export default async function HomePage() {
               <span>EPA & DOE Data Sources</span>
             </span>
             <span className="flex items-center gap-2 text-gray-600">
-              <Award className="w-4 h-4 text-blue-600" />
-              <span>AHRI Certified Equipment</span>
-            </span>
-            <span className="flex items-center gap-2 text-gray-600">
               <BookOpen className="w-4 h-4 text-purple-600" />
-              <span>ACCA Manual J Based</span>
+              <span>Simplified Load Estimates</span>
             </span>
             <span className="flex items-center gap-2 text-gray-600">
               <CheckCircle className="w-4 h-4 text-brand-600" />
@@ -151,8 +147,9 @@ export default async function HomePage() {
               HVAC Calculators & Sizing Tools
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Size your HVAC equipment correctly with our ACCA Manual J based calculators. Avoid oversizing,
-              reduce energy costs, and ensure optimal comfort with ACCA Manual J based sizing tools.
+              Our calculators give a simplified load estimate from your climate, insulation, windows, and
+              occupants, so you can avoid oversizing and ballpark the right size. A contractor&apos;s Manual J
+              load calculation should confirm the final size before you buy.
             </p>
           </div>
           
@@ -165,9 +162,9 @@ export default async function HomePage() {
                 <span className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium">Most Popular</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">AC BTU Calculator</h3>
-              <p className="text-gray-600 mb-4">Calculate exact cooling capacity for any room size. Factors in climate zone, insulation, windows, and heat sources.</p>
+              <p className="text-gray-600 mb-4">Estimate cooling capacity for any room size. Factors in climate zone, insulation, windows, and heat sources.</p>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">ACCA Manual J Based</span>
+                <span className="text-sm text-gray-500">Simplified Load Estimate</span>
                 <ArrowRight className="w-5 h-5 text-brand-600 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
@@ -180,7 +177,7 @@ export default async function HomePage() {
                 <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">Professional</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">AC Tonnage Calculator</h3>
-              <p className="text-gray-600 mb-4">Convert BTUs to tons and size central AC systems. Includes ductwork considerations and SEER ratings.</p>
+              <p className="text-gray-600 mb-4">Convert BTUs to tons and size central AC systems.</p>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-500">1-5 Ton Systems</span>
                 <ArrowRight className="w-5 h-5 text-brand-600 group-hover:translate-x-1 transition-transform" />
@@ -240,7 +237,7 @@ export default async function HomePage() {
                 <span className="text-xs bg-cyan-50 text-cyan-700 px-2 py-1 rounded-full font-medium">Multi-Zone</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Mini Split Sizing</h3>
-              <p className="text-gray-600 mb-4">Size ductless mini splits for single or multi-zone applications. Includes line set calculations.</p>
+              <p className="text-gray-600 mb-4">Size ductless mini splits for single or multi-zone applications.</p>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-500">1-5 Zones</span>
                 <ArrowRight className="w-5 h-5 text-brand-600 group-hover:translate-x-1 transition-transform" />
@@ -250,7 +247,7 @@ export default async function HomePage() {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-600 mb-4">
-              All calculators updated for 2026 efficiency standards and include regional climate adjustments
+              All calculators updated for 2026 efficiency standards
             </p>
             <div className="flex items-center justify-center gap-6">
               <Link href="/water-heater-sizing-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
@@ -270,25 +267,31 @@ export default async function HomePage() {
             <div className="text-center mb-2">
               <h3 className="text-xl font-semibold text-gray-900">How much AC do you actually need?</h3>
               <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
-                Room size drives the BTU/hr your AC needs, at roughly 20 BTU per square foot as a starting point. Oversizing feels safe but causes short-cycling, the unit cools the air fast, shuts off, and never runs long enough to strip humidity, leaving a cold clammy room.
+                Room size drives the BTU/hr your AC needs. These bands follow the ENERGY STAR room air conditioner sizing chart. Oversizing feels safe but causes short-cycling, the unit cools the air fast, shuts off, and never runs long enough to strip humidity, leaving a cold clammy room.
               </p>
             </div>
             <ScaleDiagram
               title="Room size → AC capacity (starting-point BTU/hr)"
-              desc="Four room-size bands mapped to typical AC capacity in BTU per hour: 100-300 sq ft needs about 5,000 to 8,000 BTU/hr, 300-550 sq ft needs 9,000 to 12,000 BTU/hr, 550-1,000 sq ft needs 14,000 to 18,000 BTU/hr, and 1,000-2,000 sq ft needs 24,000 to 36,000 BTU/hr (equivalent to 2 to 3 tons of central AC). These are starting-point figures based on the roughly 20 BTU per square foot rule; final sizing should use a Manual J load calculation that accounts for insulation, windows, and climate."
+              desc="Three room-size bands mapped to typical window and room AC capacity in BTU per hour from the ENERGY STAR room air conditioner sizing chart: 100 to 300 sq ft needs about 5,000 to 7,000 BTU/hr, 300 to 550 sq ft needs 8,000 to 12,000 BTU/hr, and 550 to 1,000 sq ft needs 14,000 to 18,000 BTU/hr. Adjust down 10 percent for heavily shaded rooms, up 10 percent for very sunny rooms, add 600 BTU per person beyond two, and add 4,000 BTU for a kitchen. For spaces above 1,000 sq ft, central AC sized in tons is usually the right approach."
               tiers={[
-                { range: '100–300 sq ft', label: '5,000–8,000 BTU/hr', description: 'Bedroom, small office, den' },
-                { range: '300–550 sq ft', label: '9,000–12,000 BTU/hr', description: 'Living room, primary bedroom' },
+                { range: '100–300 sq ft', label: '5,000–7,000 BTU/hr', description: 'Bedroom, small office, den' },
+                { range: '300–550 sq ft', label: '8,000–12,000 BTU/hr', description: 'Living room, primary bedroom' },
                 { range: '550–1,000 sq ft', label: '14,000–18,000 BTU/hr', description: 'Open floor plan, studio, small home' },
-                { range: '1,000–2,000 sq ft', label: '24,000–36,000 BTU/hr', description: '2–3 tons central AC, multi-room whole floor' },
               ]}
-              axisLabel="~20 BTU per sq ft baseline · Manual J refines by climate, insulation, windows, and heat sources"
-              caption="Rule-of-thumb sizing bands. Use the BTU Calculator above for a Manual J-based figure that reflects your climate zone and home."
+              axisLabel="ENERGY STAR room-AC sizing chart · adjust for shade, sun, occupants, and kitchens"
+              caption="ENERGY STAR sizing chart; adjust -10% for heavily shaded rooms, +10% for very sunny rooms, +600 BTU per person beyond two, +4,000 BTU in a kitchen."
             />
-            <div className="text-center mt-4">
-              <Link href="/air-conditioner-btu-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+            <div className="text-center mt-4 space-y-2">
+              <Link href="/air-conditioner-btu-calculator" className="block text-brand-600 hover:text-brand-700 font-medium text-sm">
                 Run the BTU Calculator with your actual numbers →
               </Link>
+              <Link href="/ac-tonnage-calculator" className="block text-brand-600 hover:text-brand-700 font-medium text-sm">
+                Cooling a whole home over 1,000 sq ft? Size central AC in tons →
+              </Link>
+              <p className="text-xs text-gray-500">
+                Sizing bands from the{' '}
+                <a href="https://www.energystar.gov/products/room_air_conditioners" className="underline hover:text-brand-600" target="_blank" rel="noopener noreferrer">ENERGY STAR room air conditioner sizing chart</a>.
+              </p>
             </div>
           </div>
         </div>
@@ -438,7 +441,7 @@ export default async function HomePage() {
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Alternative Heat</h4>
                 <Link href="/space-heater-guide" className="block text-gray-600 hover:text-brand-600 py-1">
-                  Best Space Heaters
+                  Space Heater Guide
                 </Link>
                 <Link href="/heating-cost-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
                   Baseboard Heating Cost
@@ -545,7 +548,7 @@ export default async function HomePage() {
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Saving Tips</h4>
                 <Link href="/hvac-energy-saving-tips" className="block text-gray-600 hover:text-brand-600 py-1">
-                  25 Energy Saving Tips
+                  Energy Saving Tips
                 </Link>
                 <Link href="/thermostat-temperature-winter" className="block text-gray-600 hover:text-brand-600 py-1">
                   Winter Thermostat Setpoints
@@ -570,7 +573,7 @@ export default async function HomePage() {
             </div>
             <EfficiencyCurve
               title="SEER2 rating vs annual cooling cost"
-              desc="Line plot showing that annual cooling cost falls sharply as SEER2 increases from 13.4 to 16, then flattens as SEER2 rises further to 22. At SEER2 13.4 (2026 US minimum), the modeled annual cost is about $725; at 15 it's $648; at 16 it's $608; at 18 it's $540; at 20 it's $486; at 22 it's $442. The largest per-point savings come at the low end, the 13.4 to 16 jump saves about $118/year, while the 18 to 22 jump saves about $98/year despite covering twice as many SEER2 points. Model assumptions: 3-ton (36,000 BTU/hr) central AC, 1,500 equivalent full-load cooling hours per year (mid-Atlantic climate), electricity at $0.18 per kWh."
+              desc="Line plot showing that annual cooling cost falls sharply as SEER2 increases from 13.4 to 16, then flattens as SEER2 rises further to 22. At SEER2 13.4 (minimum for split ACs in the North; 14.3 in the South and Southwest), the modeled annual cost is about $725; at 15 it's $648; at 16 it's $608; at 18 it's $540; at 20 it's $486; at 22 it's $442. The largest per-point savings come at the low end, the 13.4 to 16 jump saves about $118/year, while the 18 to 22 jump saves about $98/year despite covering about 1.5 times as many SEER2 points. Model assumptions: 3-ton (36,000 BTU/hr) central AC, 1,500 equivalent full-load cooling hours per year (mid-Atlantic climate), electricity at $0.18 per kWh."
               xLabel="SEER2 Rating"
               yLabel="Annual Cooling Cost"
               yUnit="$"
@@ -582,7 +585,7 @@ export default async function HomePage() {
                 { x: 20, y: 486 },
                 { x: 22, y: 442 },
               ]}
-              caption="Diminishing returns are real: the 13.4→16 jump saves ~$118/yr, but 18→22 only saves ~$98/yr despite covering twice as many SEER2 points."
+              caption="Diminishing returns are real: the 13.4→16 jump saves ~$118/yr, but 18→22 only saves ~$98/yr despite covering about 1.5 times as many SEER2 points."
             />
             <div className="text-center mt-2">
               <Link href="/seer2-savings-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
@@ -690,7 +693,7 @@ export default async function HomePage() {
                 </Link>
                 <Link href="/heat-pump-size-calculator" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Heat pump sizing?</span>
-                  <span className="text-green-600 font-medium">600 sq ft/ton</span>
+                  <span className="text-blue-600 font-medium">Depends on climate →</span>
                 </Link>
               </div>
             </div>
@@ -757,7 +760,7 @@ export default async function HomePage() {
                 </Link>
                 <Link href="/furnace-blowing-cold-air" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Furnace cold air?</span>
-                  <span className="text-blue-600 font-medium">8 causes →</span>
+                  <span className="text-blue-600 font-medium">Causes &amp; fixes →</span>
                 </Link>
                 <Link href="/heat-pump-guide" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Heat pump issues?</span>
@@ -765,7 +768,7 @@ export default async function HomePage() {
                 </Link>
                 <Link href="/ac-troubleshooting-guide" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC freezing up?</span>
-                  <span className="text-blue-600 font-medium">5 causes →</span>
+                  <span className="text-blue-600 font-medium">Causes &amp; fixes →</span>
                 </Link>
               </div>
             </div>
@@ -799,7 +802,7 @@ export default async function HomePage() {
               <div className="space-y-2 text-sm">
                 <Link href="/hvac-maintenance-checklist" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">HVAC checklist</span>
-                  <span className="text-blue-600 font-medium">21 tasks →</span>
+                  <span className="text-blue-600 font-medium">Full checklist →</span>
                 </Link>
                 <Link href="/how-often-change-hvac-filter" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Filter frequency?</span>
@@ -997,7 +1000,7 @@ export default async function HomePage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span>Use ACCA Manual J for all sizing calculations</span>
+                    <span>Sizing tools use simplified load estimates; we recommend a contractor&apos;s Manual J before you buy.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
@@ -1035,8 +1038,8 @@ export default async function HomePage() {
             Start With Our Most Popular Calculator
           </h2>
           <p className="text-xl text-brand-100 mb-8">
-            Size your AC correctly and avoid the #1 HVAC mistake: oversizing. 
-            Our calculator uses ACCA Manual J methodology for accurate results.
+            Size your AC correctly and avoid the #1 HVAC mistake: oversizing.
+            Our calculator gives a simplified load estimate; a contractor&apos;s Manual J should confirm the final size before you buy.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
