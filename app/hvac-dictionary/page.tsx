@@ -603,7 +603,7 @@ export default function HVACDictionaryPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/furnace-maintenance"
+              href="/hvac-maintenance-checklist"
               className="bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-600 transition-colors border border-indigo-500"
             >
               Maintenance Guide

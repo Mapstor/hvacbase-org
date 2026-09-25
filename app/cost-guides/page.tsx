@@ -121,7 +121,7 @@ const costCategories = {
       },
       {
         title: 'Thermostat Replacement Cost',
-        href: '/programmable-vs-smart-thermostat',
+        href: '/smart-thermostat-savings',
         priceRange: '$150 - $500',
         factors: ['Smart features', 'Wiring', 'Zoning', 'Installation'],
         consideration: 'Smart features enable easier scheduling'
@@ -156,7 +156,7 @@ const costCategories = {
       },
       {
         title: 'Energy Savings Calculator',
-        href: '/seer2-savings-calculator',
+        href: '/seer2-comparison-calculator',
         savingsRange: '$200 - $1,000/year',
         factors: ['Current system', 'New efficiency', 'Usage patterns', 'Rates'],
         tool: 'ROI calculator'
@@ -465,7 +465,7 @@ export default function CostGuidesPage() {
               <h3 className="font-semibold text-gray-900 mb-1">Heating Calculator</h3>
               <p className="text-sm text-gray-600">Compare fuel costs</p>
             </Link>
-            <Link href="/is-higher-seer-worth-it" className="bg-purple-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+            <Link href="/seer2-comparison-calculator" className="bg-purple-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <TrendingUp className="w-8 h-8 text-purple-600 mx-auto mb-3" />
               <h3 className="font-semibold text-gray-900 mb-1">SEER Upgrade Worth It?</h3>
               <p className="text-sm text-gray-600">Efficiency payback analysis</p>

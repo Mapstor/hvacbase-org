@@ -92,7 +92,7 @@ const calculatorCategories = {
     calculators: [
       {
         title: 'SEER2 Savings Calculator',
-        href: '/seer2-savings-calculator',
+        href: '/seer2-comparison-calculator',
         description: 'Calculate energy savings from high-efficiency AC',
         difficulty: 'Easy',
         time: '3 min',
@@ -157,7 +157,7 @@ const popularCalculators = [
   },
   {
     title: 'SEER2 Savings Calculator',
-    href: '/seer2-savings-calculator',
+    href: '/seer2-comparison-calculator',
     description: 'Calculate energy savings potential',
     users: '456K+'
   }

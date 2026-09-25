@@ -184,7 +184,7 @@ export default async function HomePage() {
               </div>
             </Link>
 
-            <Link href="/seer2-savings-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
+            <Link href="/seer2-comparison-calculator" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-emerald-100 p-3 rounded-lg group-hover:bg-emerald-200 transition-colors">
                   <DollarSign className="w-6 h-6 text-emerald-700" />
@@ -365,10 +365,10 @@ export default async function HomePage() {
                 <Link href="/window-air-conditioners" className="block text-gray-600 hover:text-brand-600 py-1">
                   Window AC Buyer's Guide
                 </Link>
-                <Link href="/window-ac-installation-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/how-to-tilt-window-ac" className="block text-gray-600 hover:text-brand-600 py-1">
                   Installation Guide
                 </Link>
-                <Link href="/window-ac-vs-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/mini-split-vs-central-air" className="block text-gray-600 hover:text-brand-600 py-1">
                   Window vs Mini Split
                 </Link>
               </div>
@@ -417,7 +417,7 @@ export default async function HomePage() {
                 <Link href="/furnace-installation-cost" className="block text-gray-600 hover:text-brand-600 py-1">
                   Replacement Costs
                 </Link>
-                <Link href="/furnace-maintenance" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hvac-maintenance-checklist" className="block text-gray-600 hover:text-brand-600 py-1">
                   Annual Maintenance Guide
                 </Link>
               </div>
@@ -508,10 +508,10 @@ export default async function HomePage() {
                 <Link href="/seer2-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   SEER2 Rating Guide
                 </Link>
-                <Link href="/eer2-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/eer-chart-for-ac-units" className="block text-gray-600 hover:text-brand-600 py-1">
                   EER2 Explained
                 </Link>
-                <Link href="/ceer-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/eer-chart-for-ac-units" className="block text-gray-600 hover:text-brand-600 py-1">
                   CEER for Window ACs
                 </Link>
                 <Link href="/seer2-comparison-calculator" className="block text-gray-600 hover:text-brand-600 py-1">
@@ -524,7 +524,7 @@ export default async function HomePage() {
                 <Link href="/afue-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   AFUE Rating Guide
                 </Link>
-                <Link href="/hspf2-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hspf-rating-explained" className="block text-gray-600 hover:text-brand-600 py-1">
                   HSPF2 Explained
                 </Link>
                 <Link href="/coefficient-of-performance" className="block text-gray-600 hover:text-brand-600 py-1">
@@ -534,7 +534,7 @@ export default async function HomePage() {
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Tax Credits</h4>
-                <Link href="/seer-rating-tax-credits" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hvac-tax-credits-2026" className="block text-gray-600 hover:text-brand-600 py-1">
                   Federal Tax Credits
                 </Link>
                 <Link href="/heat-pump-tax-credits-2026" className="block text-gray-600 hover:text-brand-600 py-1">
@@ -588,7 +588,7 @@ export default async function HomePage() {
               caption="Diminishing returns are real: the 13.4→16 jump saves ~$118/yr, but 18→22 only saves ~$98/yr despite covering about 1.5 times as many SEER2 points."
             />
             <div className="text-center mt-2">
-              <Link href="/seer2-savings-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
+              <Link href="/seer2-comparison-calculator" className="text-brand-600 hover:text-brand-700 font-medium text-sm">
                 Model your own rates and hours in the SEER2 savings calculator →
               </Link>
             </div>
@@ -656,7 +656,7 @@ export default async function HomePage() {
                 <Link href="/indoor-air-quality-testing" className="block text-gray-600 hover:text-brand-600 py-1">
                   Indoor Air Quality Testing (IAQ, VOCs, Radon)
                 </Link>
-                <Link href="/mold-prevention-guide" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/how-to-identify-mold" className="block text-gray-600 hover:text-brand-600 py-1">
                   Mold Prevention
                 </Link>
               </div>
@@ -679,15 +679,15 @@ export default async function HomePage() {
                 Sizing Questions
               </h3>
               <div className="space-y-2 text-sm">
-                <Link href="/ac-size-for-1500-sq-ft" className="flex justify-between group">
+                <Link href="/ac-tonnage-calculator" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC for 1500 sq ft?</span>
                   <span className="text-green-600 font-medium">2.5-3 tons</span>
                 </Link>
-                <Link href="/ac-size-for-2000-sq-ft" className="flex justify-between group">
+                <Link href="/ac-tonnage-calculator" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC for 2000 sq ft?</span>
                   <span className="text-green-600 font-medium">3-3.5 tons</span>
                 </Link>
-                <Link href="/ac-size-for-2500-sq-ft" className="flex justify-between group">
+                <Link href="/ac-tonnage-calculator" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">AC for 2500 sq ft?</span>
                   <span className="text-green-600 font-medium">4-5 tons</span>
                 </Link>
@@ -737,7 +737,7 @@ export default async function HomePage() {
                   <span className="text-gray-600 group-hover:text-brand-600">Good AFUE rating?</span>
                   <span className="text-green-600 font-medium">90-95% AFUE</span>
                 </Link>
-                <Link href="/hspf2-rating-explained" className="flex justify-between group">
+                <Link href="/hspf-rating-explained" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Good HSPF2?</span>
                   <span className="text-green-600 font-medium">8.5+ HSPF2</span>
                 </Link>
@@ -812,7 +812,7 @@ export default async function HomePage() {
                   <span className="text-gray-600 group-hover:text-brand-600">AC tune-up?</span>
                   <span className="text-blue-600 font-medium">Annual →</span>
                 </Link>
-                <Link href="/furnace-maintenance" className="flex justify-between group">
+                <Link href="/hvac-maintenance-checklist" className="flex justify-between group">
                   <span className="text-gray-600 group-hover:text-brand-600">Furnace service?</span>
                   <span className="text-blue-600 font-medium">Maintenance guide →</span>
                 </Link>
@@ -844,7 +844,7 @@ export default async function HomePage() {
                 What smart thermostats actually save, and when a $30 programmable does the same job, with the payback math shown.
               </p>
               <div className="space-y-2">
-                <Link href="/programmable-vs-smart-thermostat" className="block text-brand-600 hover:text-brand-700 font-medium">
+                <Link href="/smart-thermostat-savings" className="block text-brand-600 hover:text-brand-700 font-medium">
                   Programmable vs Smart Thermostat →
                 </Link>
                 <Link href="/smart-thermostat-savings" className="block text-gray-600 hover:text-brand-600">
@@ -903,7 +903,7 @@ export default async function HomePage() {
                 <Link href="/how-to-clean-ac-coils" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Clean AC Coils Yourself
                 </Link>
-                <Link href="/programmable-vs-smart-thermostat" className="block text-gray-600 hover:text-brand-600 text-sm">
+                <Link href="/smart-thermostat-savings" className="block text-gray-600 hover:text-brand-600 text-sm">
                   Thermostat Basics
                 </Link>
                 <Link href="/duct-leakage-testing" className="block text-gray-600 hover:text-brand-600 text-sm">

@@ -100,7 +100,7 @@ const howToCategories = {
       },
       {
         title: 'How to Calculate SEER Rating',
-        href: '/how-to-calculate-seer',
+        href: '/seer2-rating-explained',
         time: '15 min',
         difficulty: 'Easy',
         savings: 'Compare units on equal ground before buying',
@@ -115,7 +115,7 @@ const howToCategories = {
     guides: [
       {
         title: 'Mini Split Maintenance Guide',
-        href: '/mini-split-maintenance-guide',
+        href: '/mini-split-air-conditioners',
         time: '30 min',
         difficulty: 'Easy',
         savings: 'Prevents 5-15% annual efficiency loss and mold buildup',
@@ -138,7 +138,7 @@ const howToCategories = {
       },
       {
         title: 'How to Install a Window AC Unit',
-        href: '/window-ac-installation-guide',
+        href: '/how-to-tilt-window-ac',
         time: '20-45 min',
         difficulty: 'Medium',
         savings: 'Skip a $100-200 install service call',

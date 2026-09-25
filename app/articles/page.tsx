@@ -333,7 +333,7 @@ export default async function ArticlesPage() {
               { label: 'Furnace Sizing', href: '/furnace-sizing-calculator', color: 'orange' },
               { label: 'Tax Credits', href: '/hvac-tax-credits-2026', color: 'red' },
               { label: 'Air Purifiers', href: '/air-purifier-sizing-guide', color: 'indigo' },
-              { label: 'Energy Costs', href: '/electricity-cost-by-state', color: 'yellow' },
+              { label: 'Energy Costs', href: '/kwh-cost-calculator', color: 'yellow' },
               { label: 'Maintenance', href: '/hvac-maintenance-checklist', color: 'gray' },
               { label: 'Troubleshooting', href: '/ac-troubleshooting-guide', color: 'pink' }
             ].map((topic) => (

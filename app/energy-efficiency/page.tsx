@@ -118,7 +118,7 @@ export default async function EnergyEfficiencyHub() {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-xl font-semibold mb-4">Popular Tools & Calculators</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/seer2-savings-calculator" className="p-4 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors group">
+            <Link href="/seer2-comparison-calculator" className="p-4 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors group">
               <Calculator className="w-6 h-6 text-yellow-600 mb-2" />
               <h3 className="font-medium text-gray-900 group-hover:text-yellow-600">SEER2 Savings</h3>
               <p className="text-sm text-gray-600">Energy cost savings</p>
