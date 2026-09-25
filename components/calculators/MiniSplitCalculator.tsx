@@ -128,11 +128,13 @@ export default function MiniSplitCalculator() {
       // or insulation, so it is added AFTER the envelope multipliers.
       const kitchenSurcharge = zone.type === 'kitchen' ? KITCHEN_SURCHARGE_BTU : 0;
       // Floor at the smallest mini-split head size available.
-      const btu = Math.max(envelope + kitchenSurcharge, MIN_MINI_SPLIT_HEAD_BTU);
+      const rawLoad = envelope + kitchenSurcharge;
+      const btu = Math.max(rawLoad, MIN_MINI_SPLIT_HEAD_BTU);
       const recommended = Math.ceil(btu / 3000) * 3;
       return {
         ...zone,
         sqFt,
+        rawLoad: Math.round(rawLoad),
         btu: Math.round(btu),
         tons: btu / 12000,
         recommendedSize: recommended,
@@ -155,11 +157,13 @@ export default function MiniSplitCalculator() {
       const envelope = (zType?.baseBTU ?? 20) * sqFt *
         srcClimate.factor * srcInsulation.factor * (sun?.factor ?? 1);
       const kitchenSurcharge = zone.type === 'kitchen' ? KITCHEN_SURCHARGE_BTU : 0;
-      const btu = Math.max(envelope + kitchenSurcharge, MIN_MINI_SPLIT_HEAD_BTU);
+      const rawLoad = envelope + kitchenSurcharge;
+      const btu = Math.max(rawLoad, MIN_MINI_SPLIT_HEAD_BTU);
       const recommended = Math.ceil(btu / 3000) * 3;
       return {
         ...zone,
         sqFt,
+        rawLoad: Math.round(rawLoad),
         btu: Math.round(btu),
         tons: btu / 12000,
         recommendedSize: recommended,
@@ -173,21 +177,21 @@ export default function MiniSplitCalculator() {
     const totalBTU = srcZoneBTUs.reduce((sum, z) => sum + z.btu, 0);
     const totalTons = totalBTU / 12000;
     const totalArea = srcZoneBTUs.reduce((sum, z) => sum + z.sqFt, 0);
+    const singleZone = srcZoneBTUs.length === 1;
+    // Outdoor unit: for multi-zone, size on the SUM OF ROOM LOADS (before the
+    // 6,000 BTU per-head floor) with a 10% margin, then confirm against the
+    // manufacturer's combination table. Single-zone systems ship as a matched
+    // indoor+outdoor pair of the same size, so there is no separate outdoor pick.
+    const rawTotal = srcZoneBTUs.reduce((sum, z) => sum + z.rawLoad, 0);
     const outdoorSizes = [18000, 24000, 30000, 36000, 42000, 48000, 60000];
-    const recommendedOutdoor = outdoorSizes.find((s) => s >= totalBTU * 1.1) || 60000;
-    const oversized = totalBTU > 0 ? ((recommendedOutdoor / 1.1 / totalBTU) - 1) * 100 + 10 : 0;
-    const equipmentCost = 800 + srcZoneBTUs.length * 600 + (totalBTU / 1000) * 15;
-    const installCost = 500 + srcZoneBTUs.length * 400;
-    const totalCost = equipmentCost + installCost;
+    const recommendedOutdoor = singleZone ? null : (outdoorSizes.find((s) => s >= rawTotal * 1.1) || 60000);
     return {
       totalBTU: Math.round(totalBTU),
       totalTons,
       totalArea,
+      singleZone,
+      rawTotal: Math.round(rawTotal),
       recommendedOutdoor,
-      oversized,
-      equipmentCost,
-      installCost,
-      totalCost,
     };
   }, [srcZoneBTUs]);
 
@@ -354,22 +358,28 @@ export default function MiniSplitCalculator() {
 
         <ResultHero
           accent={ACCENT}
-          eyebrow="Outdoor condenser size"
-          value={`${(calc.recommendedOutdoor / 1000).toFixed(0)}k`}
+          eyebrow={calc.singleZone ? 'Single-zone system (matched pair)' : 'Outdoor condenser size'}
+          value={calc.singleZone ? `${srcZoneBTUs[0].recommendedSize}k` : `${(calc.recommendedOutdoor! / 1000).toFixed(0)}k`}
           unit="BTU"
           secondaryText={
-            <>
-              Sized for <strong>{fmt(calc.totalBTU)} BTU/hr</strong> across {srcZoneBTUs.length} zone{srcZoneBTUs.length === 1 ? '' : 's'}
-              ({calc.totalTons.toFixed(2)} tons total).
-              Includes ~10% safety margin for line losses and peak demand.
-            </>
+            calc.singleZone ? (
+              <>
+                A single-zone system is sold as a <strong>matched indoor + outdoor pair of the same size</strong>,
+                here a {srcZoneBTUs[0].recommendedSize}k BTU head with its matching {srcZoneBTUs[0].recommendedSize}k condenser.
+              </>
+            ) : (
+              <>
+                Sized on the <strong>{fmt(calc.rawTotal)} BTU/hr</strong> combined room load across {srcZoneBTUs.length} zones
+                ({calc.totalTons.toFixed(2)} tons of heads), plus a ~10% margin.
+                Confirm against the manufacturer&apos;s combination table.
+              </>
+            )
           }
           fitTone={fit.tone}
           fitText={fit.text}
           sidePanel={[
             { label: 'Total area', value: `${fmt(calc.totalArea)} sq ft` },
-            { label: 'Equipment est.', value: `$${fmtMoney(calc.equipmentCost)}` },
-            { label: 'Total installed', value: `$${fmtMoney(calc.totalCost)}`, valueClass: 'text-emerald-700' },
+            { label: calc.singleZone ? 'Room load' : 'Combined room load', value: `${fmt(calc.rawTotal)} BTU/hr` },
           ]}
         />
 
@@ -401,37 +411,25 @@ export default function MiniSplitCalculator() {
                   {fmt(srcZoneBTUs.reduce((s, z) => s + z.recommendedSize * 1000, 0))} BTU
                 </span>
               </div>
+              {!calc.singleZone && calc.recommendedOutdoor && (
               <p className="text-[11px] text-gray-500 leading-snug pt-1">
                 Multi-zone systems allow indoor heads to total <strong>up to 130%</strong> of outdoor capacity since not all
-                zones run at max simultaneously. Your system is at {((srcZoneBTUs.reduce((s, z) => s + z.recommendedSize * 1000, 0) / calc.recommendedOutdoor) * 100).toFixed(0)}%.
+                zones run at max simultaneously. Your heads total {((srcZoneBTUs.reduce((s, z) => s + z.recommendedSize * 1000, 0) / calc.recommendedOutdoor) * 100).toFixed(0)}% of the {(calc.recommendedOutdoor / 1000).toFixed(0)}k outdoor unit.
               </p>
+              )}
             </div>
           </div>
 
           <div className="bg-white rounded-xl border border-gray-200 p-4">
-            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
+            <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
               <DollarSign className="w-4 h-4 text-emerald-600" />
-              Investment estimate
+              Installed cost
             </h4>
-            <div className="space-y-1.5 text-xs">
-              <div className="flex justify-between py-1.5 border-b border-gray-100">
-                <span className="text-gray-700">Outdoor condenser + heads</span>
-                <span className="font-mono text-gray-900 tabular-nums">${fmtMoney(calc.equipmentCost)}</span>
-              </div>
-              <div className="flex justify-between py-1.5 border-b border-gray-100">
-                <span className="text-gray-700">Professional installation</span>
-                <span className="font-mono text-gray-900 tabular-nums">${fmtMoney(calc.installCost)}</span>
-              </div>
-              <div className="flex justify-between py-1.5 pt-3 border-t border-gray-300">
-                <span className="font-semibold text-gray-900">Total installed cost</span>
-                <span className="font-bold text-emerald-700 tabular-nums text-base">${fmtMoney(calc.totalCost)}</span>
-              </div>
-            </div>
-            <ul className="mt-3 space-y-1 text-[11px] text-gray-600">
-              <li>• Varies ±30% by region and house complexity</li>
-              <li>• Federal §25C/§25D credits ended for property placed in service after Dec 31, 2025 (OBBBA), 2026 installs are not eligible; check state/utility rebates or IRA-funded HEAR/HOMES</li>
-              <li>• Typical equipment warranty: 10–12 years parts, 7 years compressor</li>
-            </ul>
+            <p className="text-xs text-gray-600 leading-snug">
+              Installed prices depend too much on your region, brand and access to estimate reliably from a formula.
+              See our <a href="/mini-split-installation-cost" className="text-emerald-700 underline">mini split installation cost guide</a> for
+              current ranges by zone count, plus what raises a quote.
+            </p>
           </div>
 
           <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4">

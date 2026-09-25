@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import {
   fmt,
-  fmtMoney,
   CalcShell,
   SectionHeader,
   InfoTip,
@@ -146,13 +145,7 @@ export default function GeneratorSizingCalculator() {
     const recommendedWatts = Math.ceil(peakWatts * 1.2);
     const recommendedGenerator = generatorSizes.find((g) => g.watts >= recommendedWatts) || generatorSizes[generatorSizes.length - 1];
     const minimumGenerator = generatorSizes.find((g) => g.watts >= peakWatts) || generatorSizes[generatorSizes.length - 1];
-    // Fuel scales with the LOAD carried (running watts), not nameplate
-    // capacity — a lightly-loaded generator sips fuel. ~1 gal/hr per 5000 W
-    // of actual load. (Was recommendedWatts/5000, which overstated ~2-3×.)
-    const fuelGalPerHr = totalRunning / 5000;
-    const runtime5Gal = fuelGalPerHr > 0 ? 5 / fuelGalPerHr : 0;
-    const dailyCost = fuelGalPerHr * 8 * 3.20; // $3.20/gal — 2026 US national average
-    return { items, totalRunning, largestStartingDelta, peakWatts, recommendedWatts, recommendedGenerator, minimumGenerator, fuelGalPerHr, runtime5Gal, dailyCost };
+    return { items, totalRunning, largestStartingDelta, peakWatts, recommendedWatts, recommendedGenerator, minimumGenerator };
   }, [src.selectedKey]);
 
   const fit =
@@ -239,7 +232,7 @@ export default function GeneratorSizingCalculator() {
           accent={ACCENT}
           eyebrow="Recommended generator"
           value={calc.recommendedGenerator.label}
-          unit={`(~$${fmtMoney(calc.recommendedGenerator.price)} typical)`}
+          unit=""
           secondaryText={
             <>
               Your selected loads draw <strong>{fmt(calc.totalRunning)}W continuously</strong> and peak at{' '}
@@ -252,7 +245,7 @@ export default function GeneratorSizingCalculator() {
           sidePanel={[
             { label: 'Running watts', value: `${fmt(calc.totalRunning)}W` },
             { label: 'Peak surge', value: `${fmt(calc.peakWatts)}W` },
-            { label: 'Daily fuel cost', value: `$${fmtMoney(calc.dailyCost)}`, valueClass: 'text-emerald-700' },
+            { label: 'Minimum size', value: calc.minimumGenerator.label },
           ]}
         />
 
@@ -303,21 +296,17 @@ export default function GeneratorSizingCalculator() {
                         {isRec ? '20% safety margin baked in' : 'Handles peak with no headroom'}
                       </div>
                     </div>
-                    <div className={`tabular-nums ${isRec ? a.bigNumber + ' font-bold' : 'text-gray-700'}`}>
-                      ${fmtMoney(g.price)}
-                    </div>
                   </div>
                 );
               })}
             </div>
-            <div className="mt-3 pt-3 border-t border-gray-200 space-y-1 text-xs text-gray-700">
-              <div className="flex justify-between"><span>Fuel use at running load</span><strong>{calc.fuelGalPerHr.toFixed(2)} gal/hr</strong></div>
-              <div className="flex justify-between"><span>Runtime on 5 gal tank</span><strong>{calc.runtime5Gal.toFixed(1)} hours</strong></div>
-              <div className="flex justify-between"><span>Daily fuel cost (8hr × $3.20/gal)</span><strong>${fmtMoney(calc.dailyCost)}</strong></div>
-            </div>
+            <p className="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-600 leading-snug">
+              Fuel use and runtime depend on the specific generator and how heavily it&apos;s loaded. Check the generator&apos;s
+              spec sheet for its rated runtime per tank at 25% and 50% load.
+            </p>
             {calc.recommendedGenerator.watts < 7500 && calc.items.length > 0 && (
               <div className="mt-3 p-2.5 bg-blue-50 border border-blue-200 rounded text-xs text-blue-900">
-                <strong>Comfort tier:</strong> Stepping up to a 7,500W generator (~$2,000) leaves room for additional loads during extended outages, plus longer runtime per gallon at lower load.
+                <strong>Comfort tier:</strong> Stepping up to a 7,500W generator leaves room for additional loads during extended outages, plus longer runtime per gallon at lower load.
               </div>
             )}
           </div>
