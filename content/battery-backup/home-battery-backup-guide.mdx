@@ -1,328 +1,154 @@
 ---
 slug: "home-battery-backup-guide"
-title: "Home Battery Backup: Complete Guide (Tesla Powerwall, Enphase & More) | 2026"
-description: "Everything you need to know about home battery backup systems in 2026. Compare Tesla Powerwall 3, Enphase IQ 5P, Franklin WH, Sonnen, and more — with manufacturer-published pricing, specs, and performance data."
+title: "Home Battery Backup: Complete Guide (Cost, Sizing & How They Work) | 2026"
+description: "Everything you need to know about home battery backup in 2026: how they work, how to size one, LFP vs NMC chemistry, cost and incentives, and how batteries compare to standby generators."
 cluster: "batteries-solar"
 role: "spoke"
-priority: 1
+priority: "P1"
 contentType: "guide"
+author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-07-17"
+dateModified: "2026-09-25"
 relatedArticles:
   - "solar-panel-calculator"
   - "solar-panel-cost-by-state"
   - "battery-watt-hours"
   - "how-many-watts-in-12v-battery"
-  - "whole-house-generator-sizing"
+  - "what-size-generator-do-i-need"
 externalLinks:
-  - url: "https://www.energystar.gov/"
-    label: "ENERGY STAR"
+  - url: "https://www.eia.gov/energyexplained/use-of-energy/electricity-use-in-homes.php"
+    label: "U.S. EIA: Electricity Use in Homes"
+  - url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit"
+    label: "IRS: Residential Clean Energy Credit (25D)"
+  - url: "https://www.dsireusa.org/"
+    label: "DSIRE: State Incentives"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles } from '@/components'
 
-# Home Battery Backup: Complete Guide (Tesla Powerwall, Enphase & More)
+You're thinking about a home battery, to keep the lights on during outages, to store solar power, or to cut your electric bill, and you want to understand how they work and what they cost before talking to installers. This guide covers the fundamentals: how backup batteries work, how to size one, the chemistry that matters, and how they compare to a generator.
 
-A home battery backup system stores 10–20 kWh of electricity and delivers 5–11.5 kW of continuous power, enough to run your essential circuits (refrigerator, lights, Wi-Fi, medical devices, and select HVAC equipment) for 8–24 hours during a grid outage. In 2026, the most popular residential batteries cost $8,000–$16,000 installed. (The 30% federal residential 25D tax credit — which previously applied to standalone batteries and to solar+storage systems — expired Dec 31, 2025 under the OBBBA; for 2024/2025 installs, carryforward of an unused pre-2026 25D credit to future tax years is allowed. For 2026 installs, state/utility incentives are the active federal/state pathways.)
+The figures here are typical 2026 ranges, and costs vary significantly by your home and region, so always get itemized quotes. We focus on how to evaluate any battery system rather than recommending specific products, since the right choice depends on your energy use, whether you have solar, and your goals.
 
-Whether you're buying a battery for backup power, solar self-consumption, time-of-use arbitrage, or all three — this guide covers every major product on the market with real specs, pricing, and performance comparisons.
+**A home battery backup system stores 10 to 20 kWh of electricity and delivers 5 to 11.5 kW of continuous power, enough to run your essential circuits (refrigerator, lights, Wi-Fi, medical devices, and select HVAC) for 8 to 24 hours during an outage.** In 2026, popular residential batteries cost roughly $8,000 to $16,000 installed. The 30% federal tax credit that used to offset this expired at the end of 2025, so state and utility incentives are now the active pathways (details below).
 
-<TableOfContents />
+## Why home batteries are surging in popularity
 
-<BatteryRuntimeByLoad caption="Runtime of a single 13.5 kWh Tesla Powerwall 3 across three load-level scenarios. Whole-home row shows the article's primary guidance ('need 2-3 batteries or battery + solar') and a derived single-battery estimate (8-13 hrs, from 13.5 ÷ 25-40 kWh/day). Peak-output caveat: continuous kW matters as much as capacity kWh." />
+Several trends are driving demand:
 
-## Why Home Batteries Took Off (2020–2026)
+- **More frequent grid outages** from extreme weather and aging infrastructure.
+- **Eroding net-metering policies** that make storing your own solar power more valuable than exporting it.
+- **Falling battery costs** as the technology matures.
+- **Electrification** (heat pumps, EVs, induction cooking) raising the stakes on reliable power.
 
-The residential battery market has grown from a niche curiosity to a mainstream product category. Several converging forces drove this shift:
+The net-metering shift is a big one. California's **NEM 3.0** (the Net Billing Tariff, effective April 15, 2023) cut solar export credits from around **$0.30/kWh to roughly $0.05 to $0.08/kWh, about a 75% reduction**, while grid electricity still costs $0.30 or more per kWh at peak. That gap makes storing your solar power in a battery (to use at night) far more valuable than exporting it. Hawaii, Nevada, and other states have made similar changes, so battery storage increasingly pays for itself where net metering has weakened.
 
-Grid reliability is declining in many regions. Texas experienced winter storm failures in 2021, California faces rolling blackouts during heat waves, and severe weather events are increasing in frequency nationwide. According to the EIA, the average U.S. customer experienced over 8 hours of power interruption in 2023 — double the average from a decade earlier.
+## How home battery backup works
 
-Meanwhile, net metering policies are eroding. California's NEM 3.0 (effective April 2023) slashed solar export credits from ~$0.30/kWh to ~$0.05–$0.08/kWh, making battery storage essential for California solar ROI. Hawaii, Nevada, and several other states have implemented similar changes.
+A battery backup system has a few core components:
 
-The 30% federal residential Section 25D tax credit was extended through 2032 by the IRA and (under the IRA) applied to standalone batteries — they didn't need to be paired with solar to qualify. **The 25D credit expired for property placed in service after Dec 31, 2025** under the OBBBA (PL 119-21, signed July 4, 2025). 25D allows carryforward of an unused pre-2026 credit to future tax years. For 2026 standalone-battery installs, state and utility incentives are the active pathways. (Sources: IRS OBBB FAQ; Congress.gov CRS IN12611.)
+- **The battery** stores DC electricity (measured in kWh of capacity).
+- **An inverter** converts between the battery's DC and your home's AC (some batteries have this built in).
+- **A gateway or automatic transfer switch** detects a grid outage and disconnects your home from the grid (so you don't backfeed the lines), then switches to battery power, usually within milliseconds.
+- **A backup subpanel** (in many installs) holds the essential circuits you want to keep running.
 
-## Top Home Batteries Compared (2026)
+When the grid goes down, the system automatically islands your home and powers your selected circuits from the battery. If you have solar, the battery can recharge from the panels during the day, potentially extending backup indefinitely in a long outage (as long as the sun keeps charging it faster than you drain it).
 
-| Battery | Capacity (kWh) | Continuous Output (kW) | Peak Output (kW) | Round-Trip Efficiency | Warranty | Installed Price |
-|---|---|---|---|---|---|---|
-| Tesla Powerwall 3 | 13.5 | 11.5 | 18.5 | 97.5% | 10 yr | $12,500–$15,500 |
-| Enphase IQ 5P | 5.0 | 3.84 | 7.68 | 96% | 15 yr | $6,500–$8,500 |
-| Franklin WH aPower | 13.6 | 10 | 18 | 96% | 12 yr | $12,000–$15,000 |
-| Sonnen ecoLinx | 12–20 | 8 | 8 | 95% | 10 yr (15k cycles) | $15,000–$25,000 |
-| LG RESU Prime | 16 | 9.6 | 11 | 95% | 10 yr | $11,000–$14,000 |
-| Generac PWRcell | 9–18 | 4.5–9 | 7.6 | 96.5% | 10 yr | $10,000–$18,000 |
-| SolarEdge Home Battery | 10 | 5 | 7.5 | 94.5% | 10 yr | $9,000–$12,000 |
-| BYD HVS/HVM | 5.1–22.1 | 5–12.8 | 5–12.8 | 95.3% | 10 yr | $7,000–$16,000 |
+## Two numbers that matter: capacity and output
 
-<Callout type="info">
-**Prices shown are typical installed costs** including battery, gateway/transfer switch, electrical work, permitting, and labor. Your actual cost may vary by $1,000–$3,000 depending on your location, electrical panel condition, and installer. (The federal 30% Section 25D credit that previously reduced these costs expired Dec 31, 2025 under the OBBBA (PL 119-21, signed July 4, 2025); 25D allows carryforward of unused pre-2026 credit, but new 2026 installs no longer accrue the credit — state and utility battery-storage incentives are the active pathway. Sources: IRS OBBB FAQ; Congress.gov CRS IN12611.)
-</Callout>
+Every battery has two key specs, and confusing them is the most common sizing mistake:
 
-## Detailed Product Breakdowns
+- **Capacity (kWh):** how much energy it stores, this determines *how long* it runs your loads. A 13.5 kWh battery holds 13.5 kilowatt-hours.
+- **Continuous power output (kW):** how much power it can deliver at once, this determines *what* you can run simultaneously. A battery with high capacity but low output can run a few things for a long time, but can't start a big load like a central AC.
 
-### Tesla Powerwall 3
+**Both matter, and for different reasons.** If you want to run a central air conditioner or a well pump (high startup surge), you need enough continuous kW output, not just capacity. If you just want to keep the fridge and lights going through a long outage, capacity matters more.
 
-The Powerwall 3 is Tesla's third-generation home battery and the most popular residential battery in the U.S. by volume. Key improvements over the Powerwall 2 include an integrated solar inverter (eliminating the need for a separate inverter), higher continuous output (11.5 kW vs 5 kW), and Tesla's whole-home backup capability.
+## How to size a home battery
 
-**Standout specs:**
-- 13.5 kWh usable capacity
-- 11.5 kW continuous / 18.5 kW peak (enough to start a central AC compressor)
-- Built-in 11.5 kW solar inverter (handles up to ~15 kW of panels)
-- 97.5% round-trip efficiency (DC-coupled)
-- Storm Watch feature — auto-charges before severe weather using NWS data
-- Stackable up to 4 units (54 kWh, 46 kW continuous)
+Sizing depends on what you want to back up and for how long. A rough process:
 
-**Limitations:** Requires the Tesla app ecosystem, limited installer network compared to Enphase, and whole-home backup requires Tesla Gateway 2 which adds cost. Availability can vary by region.
+1. **Decide your backup goal:** essentials only (fridge, lights, Wi-Fi, phone charging, medical devices) or whole-home (everything, including HVAC).
+2. **Add up the loads** you want to run and estimate their daily energy use in kWh.
+3. **Match the capacity** to how many hours you want to cover.
 
-**Best for:** Homeowners who want whole-home backup with solar integration and don't mind the Tesla ecosystem.
+Rough guidance by goal:
 
-### Enphase IQ 5P
-
-Enphase took a modular approach: each IQ 5P unit stores 5 kWh and delivers 3.84 kW continuous. You stack multiple units to reach your desired capacity and output. This makes Enphase the most flexible system for right-sizing.
-
-**Standout specs:**
-- 5 kWh per unit (stack 1–12 units for 5–60 kWh)
-- 3.84 kW continuous per unit
-- LFP (lithium iron phosphate) chemistry — safer, longer lifespan
-- 15-year warranty (best in class)
-- Pairs natively with Enphase microinverters
-- Each unit is compact (96 lbs) and wall-mountable
-
-**Limitations:** Lower per-unit output means you need 3+ units ($19,500–$25,500) for whole-home backup. Cost per kWh is higher than competitors at lower capacities.
-
-**Best for:** Homeowners with Enphase microinverter solar systems who want modular, reliable backup with an industry-leading warranty.
-
-### Franklin WH aPower
-
-Franklin Whole Home has rapidly gained market share with an all-in-one design that rivals Tesla's specs at similar pricing. The aPower includes a built-in transfer switch and smart electrical panel that can manage circuit-level backup priorities.
-
-**Standout specs:**
-- 13.6 kWh usable capacity
-- 10 kW continuous / 18 kW peak
-- Built-in 200A transfer switch and smart load management
-- Works with any solar inverter brand (DC or AC coupled)
-- Intuitive app with per-circuit monitoring and control
-- Stackable up to 15 units
-
-**Limitations:** Newer company with less track record than Tesla or Enphase. Installation requires Franklin-certified electricians.
-
-**Best for:** Homeowners who want whole-home backup with smart load management and installer-brand flexibility.
-
-### Sonnen ecoLinx
-
-Sonnen (now owned by Shell) targets the premium market with a smart home integration focus. The ecoLinx connects with smart home systems (Control4, Savant, Crestron) and offers intelligent energy management.
-
-**Standout specs:**
-- 12–20 kWh configurable capacity
-- 15,000 cycle warranty (roughly 15+ years of daily cycling)
-- LFP chemistry
-- Integrated smart home control
-- Sonnen virtual power plant participation (earn credits in some markets)
-
-**Limitations:** Highest cost per kWh. Lower peak output (8 kW) may not start large AC compressors. Premium-only positioning limits installer availability.
-
-**Best for:** High-end homes with smart home systems seeking premium build quality and long cycle life.
-
-## How to Size Your Home Battery
-
-### Step 1: Identify What You Want to Back Up
-
-The most common approach is "essential loads" backup — running critical circuits during an outage while leaving high-draw items (electric dryer, oven, pool pump, EV charger) offline.
-
-| Load | Watts (Running) | Daily kWh |
+| Backup goal | Typical capacity needed | Notes |
 |---|---|---|
-| Refrigerator | 150–400 | 1.5–3.5 |
-| LED lighting (whole home) | 200–500 | 2.0–5.0 |
-| Wi-Fi router + modem | 20–40 | 0.5–1.0 |
-| Phone/laptop charging | 50–150 | 0.5–1.5 |
-| Sump pump | 500–1,000 | 0.5–2.0 |
-| Garage door opener | 500–700 | 0.1–0.2 |
-| Gas furnace blower | 400–800 | 3.0–6.0 |
-| Window AC unit | 500–1,500 | 4.0–12.0 |
-| Central AC (3 ton) | 2,500–3,500 | 8.0–18.0 |
-| Medical devices (CPAP, O2) | 50–400 | 0.5–3.5 |
-| Well pump | 750–2,000 | 1.0–4.0 |
+| Essentials only (fridge, lights, Wi-Fi) | 5–10 kWh | One battery often covers 8–24 hrs |
+| Essentials + some HVAC | 10–20 kWh | May need higher continuous kW output |
+| Whole-home backup | 20–40+ kWh | Usually needs 2–3 batteries, or battery + solar |
 
-### Step 2: Calculate Your Backup Duration
+A typical U.S. home uses around 25 to 40 kWh per day, so a single 10-to-15 kWh battery running *everything* would last only hours, which is why whole-home backup usually means multiple batteries or a battery-plus-solar setup. For essentials-only backup, a single battery goes much further. Our [how many kWh per day is normal guide](/how-many-kwh-per-day-is-normal) helps you gauge your own usage.
 
-For most homeowners, 8–12 hours of essential backup is sufficient to ride through typical outages. If you experience multi-day outages (hurricanes, ice storms), you'll want either multiple batteries or a battery + solar combination.
+## Battery chemistry: LFP vs. NMC
 
-**Essential loads only (no HVAC):** 5–8 kWh/day → one 13.5 kWh battery lasts 1.5–2.5 days
+Most home batteries use one of two lithium-ion chemistries, and the difference matters for safety and lifespan:
 
-**Essential loads + window AC:** 10–15 kWh/day → one 13.5 kWh battery lasts ~1 day
+- **LFP (lithium iron phosphate):** the more common choice for home storage now. **More thermally stable (lower fire risk), longer cycle life, and no cobalt.** Slightly lower energy density (a bit larger for the same capacity), which rarely matters for a wall-mounted home battery.
+- **NMC (nickel manganese cobalt):** higher energy density (more compact), but less thermally stable and shorter cycle life than LFP.
 
-**Whole home including central AC:** 25–40 kWh/day → need 2–3 batteries or battery + solar to sustain
+For home backup, **LFP has become the preferred chemistry** because safety and longevity matter more than compactness in a stationary application. When comparing batteries, check the chemistry, LFP is generally the safer, longer-lasting choice.
 
-### Step 3: Match Output to Starting Loads
+Other specs worth comparing across any batteries:
 
-Continuous output (kW) matters as much as capacity (kWh). Large motors (AC compressors, well pumps, sump pumps) draw 3–5× their running wattage during startup. A battery with only 5 kW continuous output cannot start a central air conditioner.
+- **Usable capacity** (not just nominal, some capacity is held in reserve).
+- **Round-trip efficiency** (how much energy you get back out, typically 90%+).
+- **Warranty** (both years and throughput/cycles, longer is better).
+- **Stackability** (whether you can add units later to expand capacity).
 
-| Equipment | Running Watts | Starting Watts | Min Battery Output Needed |
-|---|---|---|---|
-| Central AC (3 ton) | 3,000 | 9,000–12,000 | 10+ kW peak |
-| Well pump (1 HP) | 1,000 | 3,000–4,000 | 5+ kW peak |
-| Sump pump (1/2 HP) | 500 | 1,500–2,000 | 3+ kW peak |
-| Refrigerator | 200 | 800–1,200 | 2+ kW peak |
+## Battery vs. generator for backup
 
-<Callout type="warning">
-**Critical for AC backup:** If you want your battery to power central air conditioning during an outage, you need a system with at least 10 kW peak output. Tesla Powerwall 3 (18.5 kW peak) and Franklin WH aPower (18 kW peak) can handle this. Most Enphase and Sonnen configurations cannot start a central AC compressor unless you stack 3+ units.
-</Callout>
+The two main backup options have real trade-offs:
 
-## Battery Chemistry: LFP vs NMC
-
-Two lithium-ion chemistries dominate the home battery market:
-
-| Feature | LFP (Lithium Iron Phosphate) | NMC (Nickel Manganese Cobalt) |
+| | Home battery | Standby generator |
 |---|---|---|
-| Cycle life | 5,000–10,000+ cycles | 3,000–5,000 cycles |
-| Safety | Very stable, minimal thermal runaway risk | Stable with proper BMS, rare thermal events |
-| Energy density | Lower (larger/heavier) | Higher (more compact) |
-| Temperature tolerance | Better in high heat | More sensitive to heat |
-| Cost trend | Dropping rapidly | Relatively stable |
-| Used by | Enphase, Sonnen, BYD, Franklin WH | Tesla (Powerwall 2), LG, SolarEdge |
+| Fuel | Stored electricity (+ solar) | Natural gas, propane, or diesel |
+| Runtime | Hours (longer with solar recharge) | Days (as long as fuel lasts) |
+| Noise | Silent | Loud |
+| Maintenance | Minimal | Regular (oil, fuel, testing) |
+| Emissions | None | Yes |
+| Instant switchover | Yes (milliseconds) | No (10–30 sec delay) |
+| Best for | Short/medium outages, solar homes, quiet operation | Long multi-day outages, whole-home high loads |
 
-The industry is moving decisively toward LFP. Tesla's Powerwall 3 uses NMC but achieves excellent thermal management. Most new entrants use LFP chemistry.
+The honest summary: **a battery is best for shorter outages, solar integration, silent operation, and daily bill management; a generator is better for long, multi-day outages** and running heavy whole-home loads without worrying about capacity. Some homes use both. For generator sizing, see our [generator guide](/generator-guide).
 
-For homeowners, the practical difference is warranty cycles. An LFP battery warranted for 10,000 cycles will easily handle daily cycling for 25+ years. An NMC battery warranted for 4,000 cycles will last about 10–12 years of daily cycling.
+## Cost and incentives in 2026
 
-## Real-World Cost Analysis
+Installed costs (battery, gateway, electrical work, permitting, labor) typically run **$8,000 to $16,000** for a popular residential battery, varying by capacity, your electrical panel's condition, and installer.
 
-### Scenario 1: Battery for Backup Only (No Solar)
+On incentives, the rules changed:
 
-- **System:** Tesla Powerwall 3 + Gateway
-- **Installed cost (2026):** $14,000
-- **Federal 25D credit:** $0 (EXPIRED Dec 31, 2025 under OBBBA — was -$4,200 pre-expiration)
-- **State/utility incentives (varies by location):** typically $0–$3,000
-- **Net cost (2026, no federal credit):** $14,000 (or $11,000–$14,000 depending on state/utility incentives)
-- **Value:** Peace of mind, food preservation, medical device backup, work-from-home continuity
-- **Financial return:** Minimal unless you have frequent outages costing you $500+ each (spoiled food, hotel stays, lost wages)
+- **The 30% federal residential clean energy credit (Section 25D) expired for systems placed in service after December 31, 2025** under the OBBBA (PL 119-21). It previously applied to standalone batteries (they didn't need to be paired with solar). For 2026 installs, it no longer applies.
+- **Carryforward:** an unused pre-2026 25D credit (from a 2024 or 2025 install) can still be carried forward to future tax years.
+- **State and utility incentives** are now the active pathways, several states and utilities offer battery-storage rebates or bill-credit programs (like virtual power plant programs that pay you to share stored energy during grid peaks). Check the DSIRE database for your area.
 
-### Scenario 2: Battery + Solar for TOU Arbitrage (California NEM 3.0)
+## Frequently asked questions
 
-- **System:** 8 kW solar + 13.5 kWh battery
-- **Installed cost (2026):** $30,000
-- **Federal 25D credit:** $0 (EXPIRED Dec 31, 2025 under OBBBA — was -$9,000 pre-expiration)
-- **State/utility incentives (CA SGIP, varies by income):** $0–$5,000
-- **Net cost (2026, no federal credit):** $25,000–$30,000 (depending on SGIP eligibility)
-- **Annual savings:** $2,800 (solar generation + TOU shifting)
-- **Payback (2026, no federal credit):** 8.9–10.7 years (vs. 7.5 years pre-OBBBA with the 25D credit)
-- **25-year savings (2026):** $40,000–$45,000 (vs. $49,000 pre-OBBBA)
+**How long will a home battery power my house?**
+It depends on the battery's capacity and your loads. A single 10-to-15 kWh battery can run essentials (fridge, lights, Wi-Fi) for 8 to 24 hours, but only a few hours if you try to run everything including HVAC. Whole-home backup for a full day usually requires multiple batteries or a battery-plus-solar system that recharges during daylight.
 
-Under NEM 3.0, storing solar energy in a battery and discharging during peak hours (4–9 PM at $0.40–$0.55/kWh) instead of exporting at $0.05–$0.08/kWh generates $600–$1,200 in additional annual value compared to a solar-only system.
+**How much does a home battery cost in 2026?**
+Popular residential batteries cost roughly $8,000 to $16,000 installed, depending on capacity, your electrical setup, and installer. The 30% federal tax credit that used to reduce this expired at the end of 2025, so state and utility incentives are now the way to offset the cost, check what your area offers.
 
-### Scenario 3: Battery for Virtual Power Plant (VPP) Income
+**Is a home battery better than a generator?**
+It depends on your needs. A battery is silent, maintenance-free, switches over instantly, and pairs with solar, best for shorter outages and daily bill management. A generator runs for days as long as it has fuel and handles heavy whole-home loads, best for long, multi-day outages. Some homeowners install both.
 
-Several utilities and companies now offer VPP programs that pay you to share your battery capacity:
+**What battery chemistry is safest for home use?**
+LFP (lithium iron phosphate) is generally the safer choice for home storage, it's more thermally stable (lower fire risk) and lasts more cycles than NMC (nickel manganese cobalt), at the cost of being slightly larger for the same capacity. Most home batteries have shifted to LFP for exactly these reasons.
 
-| VPP Program | Payment | Requirements |
-|---|---|---|
-| Tesla Virtual Power Plant (TX, CA) | $0.50–$2.00/kWh discharged | Powerwall + Tesla app |
-| OhmConnect (CA) | Variable, up to $1,000/year | Compatible battery |
-| Green Mountain Power (VT) | $850/year lease credit | Powerwall or equivalent |
-| ConnectedSolutions (MA, CT, RI) | $225–$275/kWh enrolled/year | Participating batteries |
+**Can a home battery run my air conditioner?**
+It can, but you need enough continuous power output (kW), not just capacity (kWh), because a central AC has a high startup surge. A battery with high capacity but low output may not start a large AC. Check the battery's continuous and peak kW ratings against your AC's requirements, and expect a battery to run AC for a limited time unless it's large or solar-recharged.
 
-<Callout type="tip">
-**VPP programs can offset 15–30% of your battery cost over its lifetime.** Check with your utility and battery manufacturer to see which programs are available in your area. Tesla's VPP program is the most widespread, but utility-specific programs often offer better per-kWh rates.
-</Callout>
+## How we sourced this page
 
-### Scenario 4: Full Energy Independence (Off-Grid Capable)
+Battery capacity, output, and chemistry information reflects general lithium-ion home-storage technology (LFP and NMC characteristics, round-trip efficiency, and sizing based on household load), consistent with **U.S. Department of Energy** and **NREL** (National Renewable Energy Laboratory) energy-storage guidance. Household energy-use figures are from the **U.S. EIA**. The California NEM 3.0 export-credit figures (a roughly 75% reduction from about $0.30/kWh to $0.05 to $0.08/kWh, effective April 15, 2023) are documented by the CPUC and widely reported. The tax-credit information reflects current federal rules: the **IRS** Section 25D residential clean energy credit expired for systems placed in service after December 31, 2025 under the OBBBA, with carryforward of unused pre-2026 credit allowed; state and utility incentives (tracked in the **DSIRE** database) are the active pathways for 2026. Cost figures are typical ranges that vary by system and region, not fixed quotes. We recommend no specific brands or models; capacity, output, chemistry, and warranty matter more than brand for evaluating a home battery.
 
-- **System:** 12 kW solar + 3× Powerwall 3 (40.5 kWh) + generator backup
-- **Installed cost (2026):** $58,000–$72,000
-- **Federal 25D credit:** $0 (EXPIRED Dec 31, 2025 under OBBBA — was -$17,400 to -$21,600 pre-expiration)
-- **Net cost (2026, no federal credit, before state/utility incentives):** $58,000–$72,000
-
-This setup can sustain a typical home (including central AC) for 1–3 days without sun. With solar recharging, it can operate indefinitely in most climates. A small propane generator provides additional backup for extended cloudy periods.
-
-## Installation: What to Expect
-
-### Timeline
-
-| Phase | Duration |
-|---|---|
-| Site assessment & quote | 1–2 weeks |
-| Permitting | 2–6 weeks (varies by jurisdiction) |
-| Equipment procurement | 1–4 weeks |
-| Installation day | 4–8 hours |
-| Utility inspection & permission to operate | 1–4 weeks |
-| **Total:** | **6–16 weeks** |
-
-### Installation Requirements
-
-Your electrical panel must have space for a battery gateway or transfer switch. Homes with older 100A or 150A panels may need a panel upgrade ($2,000–$4,000). (Pre-OBBBA, this upgrade was rolled into the 25D-eligible total cost; the 25D credit expired Dec 31, 2025 under the OBBBA, so 2026 installs absorb the full panel-upgrade cost — though state and utility incentive programs sometimes include electrical-work allowances.)
-
-Batteries are typically installed in garages, exterior walls, or utility rooms. They need a well-ventilated space with temperatures between 32°F and 110°F for optimal performance. Most batteries are NEMA 3R rated for outdoor installation but perform best in temperature-controlled environments.
-
-<Callout type="warning">
-**Permit and code requirements vary significantly by jurisdiction.** Some areas require separate permits for battery storage systems. Your installer should handle all permitting, but verify this is included in your quote. The 2023 and 2026 NEC codes have specific requirements for battery disconnect switches and signage.
-</Callout>
-
-## Battery vs. Generator: Which Is Better for Backup?
-
-| Feature | Home Battery | Standby Generator |
-|---|---|---|
-| Fuel source | Electricity (solar/grid) | Natural gas / propane / diesel |
-| Transfer time | Instant (`<200ms`) | 10–30 seconds |
-| Noise | Silent | 60–75 dB |
-| Maintenance | None | Oil changes, filters, annual service |
-| Runtime | 8–48 hours (battery size dependent) | Unlimited (with fuel) |
-| Whole-home backup | Requires 2–3 batteries | Standard |
-| Cost (installed) | $12,000–$35,000 | $5,000–$15,000 |
-| Operating cost | $0 (with solar) | $3–$8/hour of fuel |
-| Federal tax credit (2026) | None — 25D ITC EXPIRED Dec 31, 2025 (OBBBA) | None |
-| Works in garage/indoors | Yes | No (CO risk) |
-
-**Bottom line:** Batteries are better for frequent short outages (< 24 hours), TOU optimization, and solar integration. Generators are better for extended multi-day outages in areas without solar resources. Many homeowners install both — a battery for instant switchover and daily optimization, plus a smaller generator for extended events.
-
-## How to Choose the Right Battery for Your Home
-
-Consider these decision factors:
-
-**Backup goals:** Essential circuits only → 1 battery. Whole home with AC → 2+ batteries or high-output unit (Powerwall 3, Franklin WH).
-
-**Solar integration:** Already have Enphase microinverters → Enphase IQ 5P for seamless integration. New solar + battery → Tesla Powerwall 3 (built-in inverter saves $2,000–$3,000).
-
-**Budget:** Under $10,000 installed → Enphase IQ 5P (single unit) or SolarEdge. $12,000–$15,000 → Powerwall 3 or Franklin WH. $15,000+ → Multi-battery system or Sonnen premium.
-
-**Climate:** Hot climates → prioritize LFP chemistry and outdoor-rated units. Cold climates → ensure the battery's operating range extends below your minimum winter temperature (most go down to -4°F to -13°F).
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- **A single 13.5 kWh battery** (Tesla Powerwall 3, Franklin WH) covers essential backup for 1–2 days without solar
-- **Pair with solar** for indefinite backup capability and 7–10 year payback through TOU arbitrage
-- **The 30% federal 25D credit that previously covered standalone batteries** (no solar required) expired Dec 31, 2025 under the OBBBA; carryforward of unused pre-2026 credit is allowed, but new 2026 installs no longer accrue it — state/utility battery-storage incentives are the active pathway
-- **For central AC backup,** you need at least 10 kW peak output — Powerwall 3 and Franklin WH qualify; most Enphase/Sonnen single-unit configs don't
-- **LFP chemistry is winning** — longer cycle life, better safety, lower long-term cost
-- **VPP programs** can offset 15–30% of your battery investment over its lifetime
-- **Batteries and generators complement each other** — batteries for instant/daily use, generators for extended outages
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "Do home batteries qualify for the federal tax credit?",
-    answer: "Through Dec 31, 2025, yes — the Inflation Reduction Act extended the 30% federal residential Section 25D Investment Tax Credit to standalone battery storage systems with at least 3 kWh capacity, applying to total installed cost including battery, gateway, electrical work, and labor. **The 25D credit expired for property placed in service after Dec 31, 2025** under the OBBBA (PL 119-21, signed July 4, 2025). 25D allows carryforward of an unused pre-2026 credit to future tax years — so 2024/2025 installs that haven't fully used the credit can roll the remainder forward. For 2026 battery installs, state and utility incentives are the active pathways. (Sources: IRS OBBB FAQ; Congress.gov CRS IN12611.)"
-  },
-  {
-    question: "Are home batteries safe?",
-    answer: "Modern home batteries are very safe. LFP (lithium iron phosphate) batteries used by Enphase, Sonnen, Franklin WH, and BYD are particularly stable with virtually zero thermal runaway risk. NMC batteries (used in some Tesla and LG products) have sophisticated battery management systems and thermal controls. All UL-listed residential batteries meet rigorous safety standards. The risk of a home battery fire is extremely low — comparable to other large household appliances."
-  },
-  {
-    question: "Can I install a home battery without solar panels?",
-    answer: "Yes. A standalone battery charges from the grid during off-peak hours and discharges during peak hours (time-of-use arbitrage) or during outages. (The 30% federal 25D credit that previously covered standalone batteries expired Dec 31, 2025 under the OBBBA; carryforward of unused pre-2026 25D credit is allowed for households with prior installs, but new 2026 installs no longer accrue the credit — state and utility battery-storage incentives are the active pathway.) However, pairing with solar significantly improves ROI by eliminating grid charging costs and enabling energy independence during extended outages."
-  },
-  {
-    question: "How long do home batteries last before needing replacement?",
-    answer: "Most home batteries are warrantied for 10–15 years and will last 15–25+ years in practice. LFP batteries degrade more slowly than NMC. A typical LFP battery retains 80%+ capacity after 15 years of daily cycling. NMC batteries typically retain 70–80% after 10 years. When a battery reaches end-of-life, it still works — just with reduced capacity, similar to an older phone battery."
-  }
-]} />
 
 <SourcesBox sources={[
-  { title: "Tesla Powerwall Specifications", url: "https://www.tesla.com/powerwall" },
-  { title: "Enphase IQ Battery Specifications", url: "https://enphase.com/homeowners/home-battery" },
-  { title: "Franklin Whole Home aPower", url: "https://franklinwh.com/" },
-  { title: "NREL: Cost Projections for Utility-Scale Battery Storage", url: "https://www.nrel.gov/docs/fy23osti/85332.pdf" },
-  { title: "EIA: Battery Storage in the United States", url: "https://www.eia.gov/analysis/studies/electricity/batterystorage/" },
+  { title: "U.S. EIA: Electricity Use in Homes", url: "https://www.eia.gov/energyexplained/use-of-energy/electricity-use-in-homes.php" },
+  { title: "IRS: Residential Clean Energy Credit (Section 25D)", url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit" },
+  { title: "DSIRE: State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org/" }
 ]} />
 
 <RelatedArticles articles={[
@@ -330,5 +156,5 @@ Consider these decision factors:
   "solar-panel-cost-by-state",
   "battery-watt-hours",
   "how-many-watts-in-12v-battery",
-  "whole-house-generator-sizing"
+  "what-size-generator-do-i-need"
 ]} />
