@@ -142,18 +142,6 @@
 | Sub-panel feeder | 240V | sized to load | sized to load |
 
 
-## what-size-generator-for-5-ton-ac
-`content/hvac-brands/what-size-generator-for-5-ton-ac.mdx`
-
-| Requirement | Specification |
-|---|---|
-| Generator output | 240V split-phase |
-| AC circuit breaker | 40–60 A (check MOP on data plate) |
-| Wire size to AC | 8 AWG (40A) or 6 AWG (50–60A) |
-| Transfer switch rating | Must exceed total generator output |
-| Generator to transfer switch wire | Per manufacturer specs (typically 4 AWG for 20 kW) |
-
-
 ## mini-split-amps
 `content/mini-split-air-conditioners/mini-split-amps.mdx`
 
