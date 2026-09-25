@@ -23,7 +23,6 @@ import {
 } from 'lucide-react';
 import {
   fmt,
-  fmtMoney,
   CalcShell,
   SectionHeader,
   CardChoice,
@@ -449,14 +448,14 @@ export default function MiniSplitCalculator() {
           <div className="bg-amber-50 rounded-xl border border-amber-200 p-4">
             <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
               <TrendingUp className="w-4 h-4 text-amber-700" />
-              Operating cost estimate
+              Operating cost
             </h4>
-            <ul className="space-y-1 text-xs text-gray-700">
-              <li><strong>Cooling season:</strong> ~${fmtMoney(calc.totalTons * 120)}–${fmtMoney(calc.totalTons * 180)}/yr</li>
-              <li><strong>Heating season:</strong> ~${fmtMoney(calc.totalTons * 200)}–${fmtMoney(calc.totalTons * 300)}/yr (heat pump mode)</li>
-              <li><strong>Per ton baseline:</strong> $120–$180 cooling, $200–$300 heating annually</li>
-              <li className="pt-1 text-[11px] text-gray-500">Actual cost depends on usage hours, local kWh rate, and climate severity.</li>
-            </ul>
+            <p className="text-xs text-gray-700 leading-snug">
+              Running cost depends on your local electricity rate, run hours and climate, not just capacity,
+              so a per-ton rule of thumb misleads. See our{' '}
+              <a href="/how-much-does-mini-split-cost-to-run" className="text-amber-800 underline">mini split running cost guide</a>{' '}
+              to estimate it from your own rate.
+            </p>
           </div>
         </div>
 
