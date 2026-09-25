@@ -195,20 +195,57 @@ function scanMdx(file) {
   }
   c.precision_stats = prec;
 
-  // (g) COST RECOMPUTE (best-effort, conservative)
+  // (g) COST RECOMPUTE — read assumptions (hours, $/kWh, tonnage/BTU) from the
+  // paragraph ABOVE the table and any caption/footnote AFTER it, then check each
+  // SEER2 row (SEER2-per-row) or each SEER2-header cell (matrix) against
+  // BTU × hours / SEER2 / 1000 × rate. Flag rows/cells off by more than 5%.
   let recomputeFail = 0;
-  for (const t of body.match(tableRe) || []) {
-    if (!/SEER2/i.test(t)) continue;
-    for (const line of t.split('\n')) {
-      const btu = line.match(/([\d,]{4,})\s*BTU/i);
-      const seer = line.match(/SEER2?\s*([\d.]+)/i) || line.match(/\b(1[4-9]|2[0-9])(?:\.\d)?\b/);
-      const hrs = line.match(/([\d,]+)\s*(?:hours|hrs)/i);
-      const rate = line.match(/\$\s?(0?\.\d+)\s*\/?\s*kwh/i);
-      const cost = line.match(/\$\s?([\d,]+)(?:\.\d+)?\b(?!\s*\/)/);
-      if (btu && seer && hrs && rate && cost) {
-        const calc = (parseFloat(btu[1].replace(/,/g,'')) * parseFloat(hrs[1].replace(/,/g,'')) / parseFloat(seer[1]) / 1000) * parseFloat(rate[1]);
-        const stated = parseFloat(cost[1].replace(/,/g,''));
-        if (stated > 0 && Math.abs(calc - stated) / stated > 0.05) recomputeFail++;
+  for (const m of body.matchAll(tableRe)) {
+    const tbl = m[0];
+    if (!/SEER2/i.test(tbl)) continue;
+    const ctx = body.slice(Math.max(0, m.index - 400), m.index) + ' | ' +
+                body.slice(m.index + tbl.length, m.index + tbl.length + 320);
+    const hrsM = ctx.match(/([\d,]{3,})\s*(?:cooling\s+)?(?:hours|hrs)/i);
+    const rateM = ctx.match(/\$?\s*(0?\.\d{2,3})\s*(?:per\s+|\/)\s*kwh/i);
+    if (!hrsM || !rateM) continue; // can't recompute without stated hours + rate
+    const hours = parseFloat(hrsM[1].replace(/,/g, ''));
+    const rate = parseFloat(rateM[1]);
+    const tonM = ctx.match(/([\d.]+)[-\s]ton/i);
+    const btuM = ctx.match(/([\d,]{4,6})\s*BTU/i);
+    const globalBTU = tonM ? parseFloat(tonM[1]) * 12000 : (btuM ? parseFloat(btuM[1].replace(/,/g, '')) : null);
+    const lines = tbl.split('\n').filter((l) => l.trim().startsWith('|'));
+    if (lines.length < 2) continue;
+    const header = lines[0].split('|').map((s) => s.trim());
+    const colSeer = header.map((h) => { const mm = h.match(/SEER2?\s*(\d{2})/i); return mm ? parseFloat(mm[1]) : null; });
+    const isMatrix = colSeer.filter(Boolean).length >= 2;
+    const dataRows = lines.slice(1).filter((l) => !/^\|[\s|:\-]+\|?\s*$/.test(l));
+    const check = (btu, seer, cost) => {
+      if (!(btu && seer && cost)) return;
+      const calc = (btu * hours / seer / 1000) * rate;
+      if (calc > 0 && Math.abs(calc - cost) / cost > 0.05) recomputeFail++;
+    };
+    if (isMatrix) {
+      for (const r of dataRows) {
+        const cells = r.split('|').map((s) => s.trim());
+        const joined = cells.join(' ');
+        const rt = joined.match(/([\d.]+)\s*ton/i);
+        const rb = joined.match(/([\d,]{4,6})\s*BTU/i);
+        const rowBTU = rt ? parseFloat(rt[1]) * 12000 : (rb ? parseFloat(rb[1].replace(/,/g, '')) : globalBTU);
+        cells.forEach((cell, i) => {
+          if (colSeer[i]) { const cm = cell.match(/\$\s?([\d,]+)/); if (cm) check(rowBTU, colSeer[i], parseFloat(cm[1].replace(/,/g, ''))); }
+        });
+      }
+    } else {
+      const seerCol = header.findIndex((h) => /^SEER2?$/i.test(h));
+      const costCol = header.findIndex((h) => /annual.*cost|energy cost/i.test(h));
+      if (seerCol < 0 || costCol < 0) continue;
+      for (const r of dataRows) {
+        const cells = r.split('|').map((s) => s.trim());
+        const sm = (cells[seerCol] || '').match(/([\d.]+)/);
+        const cm = (cells[costCol] || '').match(/\$\s?([\d,]+)/);
+        const rb = cells.join(' ').match(/([\d,]{4,6})\s*BTU/i);
+        const rowBTU = rb ? parseFloat(rb[1].replace(/,/g, '')) : globalBTU;
+        if (sm && cm) check(rowBTU, parseFloat(sm[1]), parseFloat(cm[1].replace(/,/g, '')));
       }
     }
   }
@@ -221,14 +258,26 @@ function scanMdx(file) {
     const n = (body.match(re) || []).length;
     if (n) { brandCount += n; brandsFound.add(b); }
   }
-  // brand followed by model code
+  // brand + model code = a product mention (reported SEPARATELY from bare brand names)
   const modelRe = new RegExp('\\b(' + BRANDS.filter(b=>!/&/.test(b)).map((b) => b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\s+[A-Z0-9]{2,}[-A-Z0-9]*', 'g');
-  const models = body.match(modelRe) || [];
-  c.brands = brandCount; c.brands_list = [...brandsFound].concat([...new Set(models)]).join('; ');
+  const models = [...new Set(body.match(modelRe) || [])];
+  // Decoding is brand-specific by nature — brand NAMES are benign context on the
+  // serial-number decoder, so they don't count there (model codes still reported).
+  if (slug === 'hvac-serial-number-decoder') { brandCount = 0; brandsFound.clear(); }
+  c.brands = brandCount;
+  c.brands_list = [...brandsFound].join('; ');
+  c.model_codes = models.length;
+  c.model_list = models.join('; ');
 
-  // (i) OVERCLAIMS
+  // (i) OVERCLAIMS — "best for", "best practice(s)", "best way(s)" are NOT overclaims
   let over = 0;
-  for (const o of OVERCLAIMS) over += (noCode.toLowerCase().split(o.toLowerCase()).length - 1);
+  for (const o of OVERCLAIMS) {
+    if (o === 'best') {
+      over += (noCode.match(/\bbest\b(?!\s+(?:for|practice|practices|way|ways))/gi) || []).length;
+    } else {
+      over += (noCode.toLowerCase().split(o.toLowerCase()).length - 1);
+    }
+  }
   c.overclaims = over;
 
   // (j) COUNT PROMISES (self-title vs own structure)
@@ -298,7 +347,7 @@ function scanMdx(file) {
   if (fm.description) (descMap[fm.description] = descMap[fm.description] || []).push(slug);
 
   // totals
-  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','links_broken','links_badpath']) bump(k, c[k]);
+  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','links_broken','links_badpath']) bump(k, c[k]);
 
   rows.push({
     slug, file: rel(file), cluster, page_type: pageType[slug] || fm.contentType || '',
@@ -342,7 +391,7 @@ const dupTitles = Object.entries(titleMap).filter(([, v]) => v.length > 1);
 const dupDescs = Object.entries(descMap).filter(([, v]) => v.length > 1);
 
 // ---------- WRITE side files ----------
-const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','intro12'];
+const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','intro12'];
 fs.writeFileSync(path.join(OUT, 'SITE-AUDIT.csv'),
   csvRow(colOrder) + '\n' + rows.map((r) => csvRow(colOrder.map((k) => r[k]))).join('\n') + '\n');
 
