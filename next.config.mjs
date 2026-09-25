@@ -175,6 +175,10 @@ const nextConfig = {
       { source: '/window-ac-support-brackets', destination: '/how-to-tilt-window-ac', permanent: true },
       { source: '/window-ac-with-heater', destination: '/window-air-conditioners', permanent: true },
       { source: '/winix-air-purifiers', destination: '/air-purifier-guide', permanent: true },
+      // deferred merges (targets rewritten in SHIP-2) — 308
+      { source: '/what-size-mini-split-for-garage', destination: '/mini-split-sizing-calculator', permanent: true },
+      { source: '/is-it-ok-to-oversize-mini-split', destination: '/mini-split-sizing-calculator', permanent: true },
+      { source: '/what-size-generator-for-5-ton-ac', destination: '/what-size-generator-do-i-need', permanent: true },
       // consolidation wave 1 — 91 duplicate/variant pages merged into survivors (308)
       { source: '/what-is-seer-rating', destination: '/seer2-rating-explained', permanent: true },
       { source: '/good-seer-rating-for-ac', destination: '/seer2-rating-explained', permanent: true },
