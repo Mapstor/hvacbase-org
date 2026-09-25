@@ -337,7 +337,7 @@ function scanMdx(file) {
   c.sources_count = srcCount; c.sources_std = srcStd; c.sources_mfr = srcMfr; c.sources_bare = srcBare;
 
   // score
-  const score = c.brands * 5 + c.phantom_credit * 5 + c.rates_offrate * 3 + c.recompute_fail * 3 + c.overclaims * 2 + c.old_tells * 1;
+  const score = c.model_codes * 5 + c.phantom_credit * 5 + c.rates_offrate * 3 + c.recompute_fail * 3 + c.overclaims * 2 + c.old_tells * 1;
   scoreBySlug[slug] = score;
 
   // cluster/dup collectors

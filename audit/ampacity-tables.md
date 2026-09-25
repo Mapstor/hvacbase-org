@@ -1,30 +1,5 @@
 # Ampacity tables (verbatim) — AWG + amps
 
-## 10-2-or-10-3-wire-for-ac
-`content/electrical/10-2-or-10-3-wire-for-ac.mdx`
-
-| Item | Qty | Cost |
-|------|-----|------|
-| 10/2 NM-B cable (interior run) | 40 ft | $26–$40 |
-| 30A double-pole breaker | 1 | $8–$20 |
-| Non-fused disconnect (60A) | 1 | $15–$30 |
-| Flexible metal conduit ("whip") with 10 AWG THHN | 6 ft | $15–$25 |
-| Cable clamps, staples, connectors | — | $10–$15 |
-| **Total materials** | — | **$74–$130** |
-
-
-## 10-2-or-10-3-wire-for-ac
-`content/electrical/10-2-or-10-3-wire-for-ac.mdx`
-
-| Mini-Split Size | Typical MCA | Typical MOP | Wire | Cable |
-|----------------|-------------|-------------|------|-------|
-| 9,000 BTU (0.75 ton) | 5–8A | 15A | 14 AWG | 14/2 NM-B |
-| 12,000 BTU (1 ton) | 7–10A | 15–20A | 14–12 AWG | 14/2 or 12/2 NM-B |
-| 18,000 BTU (1.5 ton) | 11–15A | 20A | 12 AWG | 12/2 NM-B |
-| 24,000 BTU (2 ton) | 14–18A | 25–30A | 12–10 AWG | 12/2 or 10/2 NM-B |
-| 36,000 BTU (3 ton) | 19–24A | 30A | 10 AWG | 10/2 NM-B |
-
-
 ## 3-phase-power-calculator
 `content/electrical/3-phase-power-calculator.mdx`
 
@@ -111,74 +86,6 @@
 | Typical home vintage | Pre-1970 | 1990–present |
 
 
-## water-heater-amps
-`content/electrical/water-heater-amps.mdx`
-
-| Water Heater Type | Typical Amps | Circuit Required | Wire Gauge |
-|-------------------|-------------|-----------------|------------|
-| Tank (4,500W) | 18.75A | 30A / 240V | 10 AWG |
-| Tank (5,500W) | 22.9A | 30A / 240V | 10 AWG |
-| Tankless (18kW) | 75A total | 2 × 40A / 240V | 8 AWG each |
-| Tankless (27kW) | 113A total | 3 × 40A / 240V | 8 AWG each |
-| Heat pump (normal mode) | 2–3A | 30A / 240V | 10 AWG |
-| Heat pump (backup mode) | 18.75A | 30A / 240V | 10 AWG |
-
-
-## water-heater-breaker-size
-`content/electrical/water-heater-breaker-size.mdx`
-
-| Element Wattage | Amps at 240V | Continuous Load (×1.25) | Required Breaker | Wire Gauge |
-|-----------------|-------------|------------------------|------------------|------------|
-| 1,500W | 6.25A | 7.8A | 15A DP | 14 AWG |
-| 2,000W | 8.3A | 10.4A | 15A DP | 14 AWG |
-| 2,500W | 10.4A | 13.0A | 15A DP | 14 AWG |
-| 3,000W | 12.5A | 15.6A | 20A DP | 12 AWG |
-| 3,500W | 14.6A | 18.2A | 20A DP | 12 AWG |
-| 4,000W | 16.7A | 20.8A | 25A or 30A DP | 10 AWG |
-| 4,500W | 18.75A | 23.4A | 30A DP | 10 AWG |
-| 5,000W | 20.8A | 26.0A | 30A DP | 10 AWG |
-| 5,500W | 22.9A | 28.6A | 30A DP | 10 AWG |
-| 6,000W | 25.0A | 31.3A | 40A DP | 8 AWG |
-
-
-## water-heater-breaker-size
-`content/electrical/water-heater-breaker-size.mdx`
-
-| Tank Size (Gallons) | Common Element(s) | Amps | Breaker | Wire | Notes |
-|---------------------|------------------|------|---------|------|-------|
-| 6–20 (point-of-use) | 1,500–2,500W | 6.25–10.4A | 15–20A DP | 14–12 AWG | Under-sink units |
-| 20–30 (compact) | 3,000–4,000W | 12.5–16.7A | 20–25A DP | 12–10 AWG | Apartments, small homes |
-| 30–40 (standard) | 4,500W | 18.75A | 30A DP | 10 AWG | Most common residential |
-| 40–50 (standard) | 4,500W | 18.75A | 30A DP | 10 AWG | Most common residential |
-| 50–65 (large) | 4,500–5,500W | 18.75–22.9A | 30A DP | 10 AWG | Larger families |
-| 65–80 (extra-large) | 5,500W | 22.9A | 30A DP | 10 AWG | Large families, high demand |
-| 80–120 (commercial) | 5,500–6,000W | 22.9–25A | 30–40A DP | 10–8 AWG | Commercial applications |
-
-
-## water-heater-breaker-size
-`content/electrical/water-heater-breaker-size.mdx`
-
-| Type | Wattage (Heat Pump Mode) | Wattage (Backup Mode) | Breaker | Wire |
-|------|--------------------------|----------------------|---------|------|
-| Hybrid (normal use) | 500–600W | N/A | 30A DP | 10 AWG |
-| Hybrid (backup heating) | 4,500W | 4,500W | 30A DP | 10 AWG |
-| Heat pump only | 500–600W | N/A | 30A DP | 10 AWG |
-
-
-## water-heater-wattage
-`content/electrical/water-heater-wattage.mdx`
-
-| Element Wattage | Amps at 240V | Required Breaker | Required Wire | Cable Type |
-|-----------------|-------------|-----------------|---------------|------------|
-| 1,500W | 6.25A | 15A DP | 14 AWG | 14/2 NM-B |
-| 2,500W | 10.4A | 15A DP | 14 AWG | 14/2 NM-B |
-| 3,000W | 12.5A | 20A DP | 12 AWG | 12/2 NM-B |
-| 4,000W | 16.7A | 25A DP | 10 AWG | 10/2 NM-B |
-| 4,500W | 18.75A | 30A DP | 10 AWG | 10/2 NM-B |
-| 5,500W | 22.9A | 30A DP | 10 AWG | 10/2 NM-B |
-| 6,000W | 25A | 40A DP | 8 AWG | 8/2 NM-B |
-
-
 ## water-heater-wire-size
 `content/electrical/water-heater-wire-size.mdx`
 
@@ -204,48 +111,6 @@
 | Mode | Amp draw | Wire | Breaker |
 |------|----------|------|---------|
 | Hybrid (heat pump + backup element) | ~2–19A | 10 AWG | 30A double-pole |
-
-
-## what-wire-size-for-30-amp
-`content/electrical/what-wire-size-for-30-amp.mdx`
-
-| Wire Gauge (Copper) | Maximum Overcurrent Protection |
-|---------------------|-------------------------------|
-| 14 AWG | 15 amps |
-| 12 AWG | 20 amps |
-| 10 AWG | 30 amps |
-
-
-## what-wire-size-for-50-amp
-`content/electrical/what-wire-size-for-50-amp.mdx`
-
-| Wire Run Length | Copper Wire Size | Aluminum Wire Size | Cable Type | Voltage Drop at 50A/240V |
-|----------------|-----------------|-------------------|------------|--------------------------|
-| 0–50 feet | 6 AWG | 4 AWG | 6/2 or 6/3 NM-B | 0.5–2.0% ✅ |
-| 50–100 feet | 6 AWG | 4 AWG | 6/2 or 6/3 NM-B | 2.0–4.1% ⚠️ |
-| 100–150 feet | 4 AWG | 3 AWG | 4/2 or 4/3, THHN in conduit | 2.1–3.1% ✅ |
-| 150–200 feet | 4 AWG | 2 AWG | THHN in conduit | 3.1–4.1% ⚠️ |
-| 200–250 feet | 3 AWG | 1 AWG | THHN in conduit | 2.9–3.6% ⚠️ |
-| 250+ feet | 2 AWG or larger | 1/0 AWG | THHN in conduit | Calculate individually |
-
-
-## what-wire-size-for-50-amp
-`content/electrical/what-wire-size-for-50-amp.mdx`
-
-| Property | Value |
-|----------|-------|
-| Diameter (bare conductor) | 0.162 inches (4.115 mm) |
-| Cross-sectional area | 26.24 kcmil (13.30 mm²) |
-| Ampacity at 60°C (NM-B) | 55A |
-| Ampacity at 75°C (THWN) | 65A |
-| Ampacity at 90°C (THHN) | 75A |
-| Resistance (Ω/1000 ft, copper) | 0.491 |
-| Weight (copper, per 1000 ft) | 31.4 lbs (bare conductor) |
-| NM-B cable cost (6/2, per ft) | $2.00–$3.20 |
-| NM-B cable cost (6/3, per ft) | $2.50–$3.80 |
-| THHN cost (per conductor, per ft) | $0.60–$0.90 |
-| Max breaker (NEC) | 60A (per 240.4(B)) |
-| Conductor type at 6 AWG | Stranded (7 strands) |
 
 
 ## wire-for-220-volt
