@@ -1,6 +1,7 @@
 slug,org,sentence
 ac-tonnage-calculator,ACCA,"Treat the result as a starting estimate: the industry standard is ACCA's Manual J load calculation, and for tight, modern homes it often lands lower than any square-footage method, this one included."
-air-conditioner-btu-calculator,DOE,The DOE estimates that oversized systems use 10–20% more energy than properly sized ones.
+air-conditioner-btu-calculator,ENERGY STAR,"**ENERGY STAR's sizing chart puts a 5,000 BTU unit in a 100 to 150 sq ft room, 12,000 BTU in 450 to 550 sq ft, and 18,000 BTU in 700 to 1,000 sq ft, before adjustments for sun, people and cooking.** The calculator below makes the same estim"
+air-conditioner-btu-calculator,ENERGY STAR,"ENERGY STAR notes that an oversized unit cools the room before it removes the humidity, leaving it damp and clammy, and it's less efficient."
 furnace-sizing-calculator,DOE,</Callout> ## 2026 Furnace Efficiency Standards The DOE's minimum AFUE requirements for 2026: | Region | Minimum AFUE (Non-Weatherized Gas Furnace) | |---|---| | Northern states (DOE North region) | 95% (condensing) | | Southern states (DOE
 heat-pump-size-calculator,PRECISION,"</FAQ.Item>   <FAQ.Item question=""How long do heat pumps last?"">     Air-source heat pumps last 12–17 years on average, with cold-climate models averaging 12–15 years due to the harder work they perform in winter."
 mini-split-sizing-calculator,ENERGY STAR,"As a cross-check, ENERGY STAR's room air conditioner chart runs from 5,000 BTU for 100 to 150 sq ft up to 18,000 BTU for 700 to 1,000 sq ft, and it notes that oversized units cool the room before they've removed the humidity."
@@ -131,8 +132,8 @@ heat-pump-tax-credits-2026,PHANTOM-CREDIT,Heat pumps installed in 2026 do **not*
 heat-pump-tax-credits-2026,PHANTOM-CREDIT,"**Carryforward survives:** if you installed a qualifying 25D system on or before Dec 31, 2025 and your credit exceeded your 2025 tax liability, you can still carry the unused portion forward to future tax years per existing IRS rules."
 heat-pump-tax-credits-2026,PHANTOM-CREDIT,"## Key Takeaways <Callout type=""takeaway""> - **""Placed in service"" is the controlling date — not purchase, deposit, or delivery.** A heat pump paid for and delivered in December 2025 but not made operational until January 2026 gets zero 25C"
 heat-pump-tax-credits-2026,PHANTOM-CREDIT,"Equipment that was not operational by December 31, 2025 does not qualify for the 25C credit, even if it was purchased or partially installed in 2025."
-central-ac-cost-to-install,IRS,"(Sources: IRS OBBB FAQ; Congress.gov CRS IN12611.) <Callout type=""info""> Note: Standard central AC units qualify for a smaller credit than heat pumps."
-central-ac-cost-to-install,EPA,"Central AC installation requires EPA Section 608 certification to handle refrigerants, electrical permits, and knowledge of refrigerant line brazing, system evacuation, and charging."
+central-ac-cost-to-install,EPA,"Refrigerant recovery and charging legally require an EPA Section 608-certified technician, which is one reason central air isn't a DIY job."
+central-ac-cost-to-install,EPA,"Handling refrigerant requires EPA Section 608 certification, the electrical work usually needs a permit, and a DIY install can void the equipment warranty."
 hvac-system-lifespan,ASHRAE,Median lifespans below reflect ASHRAE service-life data; ASHRAE notes these medians assume properly maintained equipment.
 hvac-cost-by-state,ATTR,"According to BLS data, HVAC installers in Alaska earn a mean hourly wage of $39.42, while technicians in Mississippi average $20.86."
 air-duct-cleaning-worth-it,EPA,<TableOfContents /> ## What the EPA Actually Says The EPA's position on duct cleaning is often misquoted by both the duct cleaning industry and its critics.
