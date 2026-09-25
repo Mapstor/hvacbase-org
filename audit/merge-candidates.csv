@@ -1,0 +1,9 @@
+slug_a,slug_b,score,sessions_a,sessions_b,cluster
+hvac-cost-florida,hvac-cost-texas,0.64,4,1,hvac-costs-location
+ac-size-for-2500-sq-ft,ac-size-for-3000-sq-ft,0.61,23,37,ac-sizing-selection
+ac-size-for-1000-sq-ft,ac-size-for-3000-sq-ft,0.60,58,37,ac-sizing-selection
+hvac-cost-california,hvac-cost-texas,0.57,31,1,hvac-costs-location
+what-wire-size-for-30-amp,what-wire-size-for-50-amp,0.56,24,74,electrical-wiring
+ac-size-for-1000-sq-ft,ac-size-for-2500-sq-ft,0.54,58,23,ac-sizing-selection
+ac-size-for-2000-sq-ft,ac-size-for-2500-sq-ft,0.54,51,23,ac-sizing-selection
+hvac-cost-new-york,hvac-cost-texas,0.50,5,1,hvac-costs-location
