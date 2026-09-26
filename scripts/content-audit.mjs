@@ -2,7 +2,8 @@
 // content-audit.mjs — read-only content gate + baseline inventory. No network.
 // Scans content/**/*.mdx (skip _archived), app/**/page.tsx, components/**.
 // Writes audit/SITE-AUDIT.csv, audit/ampacity-tables.md, audit/claims-to-verify.csv,
-// audit/merge-candidates.csv, audit/FINDINGS.md. Changes no content.
+// audit/merge-candidates.csv, audit/FINDINGS.md, audit/external-urls.txt,
+// audit/citation-flags.csv. Changes no content.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -70,6 +71,45 @@ const NEW_TELLS = ['How we sourced this page','recommend no specific','honestly'
 const STD_DOMAINS = /(\.gov|\.edu|ashrae\.org|nfpa\.org|acca\.org|ahrinet\.org|ahridirectory\.org|ahamverifide\.org|ul\.com|esfi\.org|nrel\.gov|energystar\.gov|iso\.org|ansi\.org|nadca\.com|dsireusa\.org|ecfr\.gov)/i;
 const MFR_DOMAINS = /(tesla\.com|enphase\.com|franklinwh\.com|amazon\.|homedepot\.|lowes\.|carrier\.com|trane\.com|lennox\.com|daikin|mitsubishi|fujitsu|midea|mrcool|generac\.com)/i;
 
+// schema.org URLs are JSON-LD @type/@context values, not citations — never a source.
+const SCHEMA_ORG = /schema\.org/i;
+// The site's own domain is not an external citation either.
+const SITE_HOST = /hvacbase\.org/i;
+// ACCA URLs that resolve to a real, live page. Everything else on acca.org answers 200
+// with a "Page Not Found" body (a soft-404) and should be flagged for fixing.
+const ACCA_ALLOWED = new Set([
+  'https://www.acca.org/standards',
+  'https://www.acca.org/standards/technical-manuals',
+  'https://www.acca.org/standards/technical-manuals/manual-j',
+  'https://www.acca.org/standards/technical-manuals/manual-s',
+  'https://www.acca.org/standards/quality',
+  'https://hvac-contractors.acca.org/locator',
+]);
+// Build date drives the "future-dated citation" check (a report or period dated after today).
+const BUILD_DATE = new Date();
+const BUILD_YEAR = BUILD_DATE.getFullYear();
+const BUILD_Q = Math.floor(BUILD_DATE.getMonth() / 3) + 1; // 1..4
+function accaSoftFlag(u) {
+  if (!/acca\.org/i.test(u)) return null;
+  return ACCA_ALLOWED.has(u.replace(/\/+$/, '')) ? null : 'acca-soft-404';
+}
+function energysaverFlag(u) {
+  // DOE is retiring the Energy Saver section; flag any link into it.
+  return /energy\.gov\/energysaver\//i.test(u) ? 'retired-doe-energysaver' : null;
+}
+function futureDatedFlag(u) {
+  // A citation URL naming a period after the build date can't exist yet (e.g. "2026-q4", "2027").
+  const hits = [];
+  for (const m of u.matchAll(/(20\d\d)[\s\-_]?q([1-4])/gi)) hits.push([+m[1], +m[2]]);
+  for (const m of u.matchAll(/q([1-4])[\s\-_]?(20\d\d)/gi)) hits.push([+m[2], +m[1]]);
+  for (const m of u.matchAll(/\b(20\d\d)\b/g)) hits.push([+m[1], null]);
+  for (const [y, q] of hits) {
+    if (y > BUILD_YEAR) return `future-dated (${y}${q ? '-q' + q : ''})`;
+    if (y === BUILD_YEAR && q && q > BUILD_Q) return `future-dated (${y}-q${q})`;
+  }
+  return null;
+}
+
 // ---------- gather valid slugs (for link check) ----------
 const mdxFiles = walk(path.join(ROOT, 'content'), ['.mdx'], (p) => /_archived/.test(p));
 const mdxSlugs = new Set();
@@ -113,6 +153,7 @@ const titleMap = {};           // title -> [slug]
 const descMap = {};            // desc -> [slug]
 const homepageLinks = new Set();
 const scoreBySlug = {};
+const externalUrls = new Map();   // url -> Set(slug); excludes schema.org + self-host
 
 // ---------- per-mdx scan ----------
 function scanMdx(file) {
@@ -328,11 +369,16 @@ function scanMdx(file) {
   for (const m of body.matchAll(/url:\s*["']([^"']+)["']/g)) urls.push(m[1]);
   for (const m of body.matchAll(/https?:\/\/[^\s"'})\]]+/g)) urls.push(m[0]);
   for (const u of urls) {
+    // schema.org (JSON-LD types) and self-host links are not citations.
+    if (SCHEMA_ORG.test(u) || SITE_HOST.test(u)) continue;
     srcCount++;
     if (STD_DOMAINS.test(u)) srcStd++;
     else if (MFR_DOMAINS.test(u)) srcMfr++;
     else if (/^https?:\/\/[^\/]+\/?$/.test(u)) srcBare++;
     else srcOther++;
+    let set = externalUrls.get(u);
+    if (!set) { set = new Set(); externalUrls.set(u, set); }
+    set.add(slug);
   }
   c.sources_count = srcCount; c.sources_std = srcStd; c.sources_mfr = srcMfr; c.sources_bare = srcBare;
 
@@ -357,6 +403,20 @@ function scanMdx(file) {
 }
 
 for (const f of mdxFiles) { try { scanMdx(f); } catch (e) { console.error('ERR', rel(f), e.message); } }
+
+// ---------- EXTERNAL URLS + CITATION FLAGS ----------
+const citationFlags = []; // {url, reasons[], slugs[]}
+for (const [u, slugs] of externalUrls) {
+  const reasons = [accaSoftFlag(u), energysaverFlag(u), futureDatedFlag(u)].filter(Boolean);
+  if (reasons.length) citationFlags.push({ url: u, reasons, slugs: [...slugs].sort() });
+}
+citationFlags.sort((a, b) => a.url.localeCompare(b.url));
+const externalUrlList = [...externalUrls.keys()].sort();
+fs.writeFileSync(path.join(OUT, 'external-urls.txt'), externalUrlList.join('\n') + '\n');
+fs.writeFileSync(path.join(OUT, 'citation-flags.csv'),
+  'url,reason,slugs\n' +
+  citationFlags.map((c) => csvRow([c.url, c.reasons.join('; '), c.slugs.join(' ')])).join('\n') +
+  (citationFlags.length ? '\n' : ''));
 
 // ---------- FOOTER / chrome finding ----------
 const compFiles = walk(path.join(ROOT, 'components'), ['.tsx', '.ts', '.jsx', '.js']);
@@ -430,6 +490,9 @@ const nmb = rows.filter((r) => r.ampacity_flags > 0);
 if (!nmb.length) F += '- none\n';
 else for (const r of nmb) F += `- ${r.slug} (${r.ampacity_flags}) — ${r.file}\n`;
 F += '\n## Duplicate titles\n\n' + (dupTitles.length ? dupTitles.map(([t, v]) => `- "${t}" → ${v.join(', ')}`).join('\n') : '- none') + '\n';
+F += `\n## Flagged citation URLs\n\n(ACCA soft-404s, retired DOE Energy Saver pages, and citations dated after the build date of ${BUILD_YEAR}-Q${BUILD_Q}. schema.org excluded from the citation list as JSON-LD, not a source. External URLs: ${externalUrlList.length}.)\n\n`;
+if (!citationFlags.length) F += '- none\n';
+else for (const c of citationFlags) F += `- \`${c.url}\` — ${c.reasons.join(', ')} (in: ${c.slugs.join(', ')})\n`;
 fs.writeFileSync(path.join(OUT, 'FINDINGS.md'), F);
 
 // ---------- console summary ----------
@@ -440,3 +503,5 @@ console.log('Ampacity tables:', ampacityBlocks.length, '| NM-B flags pages:', nm
 console.log('Footer files:', footerFiles.map(rel).join(', '));
 console.log('Chrome hits:', JSON.stringify(Object.fromEntries(Object.entries(chromeHits).map(([k,v])=>[k,v.length]))));
 console.log('Top5:', top30.slice(0,5).map(r=>`${r.slug}=${r.score}`).join(', '));
+console.log('External URLs:', externalUrlList.length, '| Citation flags:', citationFlags.length, `(build ${BUILD_YEAR}-Q${BUILD_Q})`);
+for (const c of citationFlags) console.log('  FLAG', c.reasons.join(','), '-', c.url);
