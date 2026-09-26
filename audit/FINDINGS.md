@@ -176,4 +176,4 @@ Stale chrome-string hits (across app/ + components/):
 
 ## Attribution check
 
-175 sentences pin a number on DOE / ENERGY STAR / EPA / CDC / CPSC / NFPA / EIA — see audit/attribution-check.csv (manual review, not pass/fail).
+136 sentences pin a number on DOE / ENERGY STAR / EPA / CDC / CPSC / NFPA / EIA — see audit/attribution-check.csv (manual review, not pass/fail).

@@ -124,13 +124,13 @@ function mfrFlag(u) {
 // CITE-2: attribution-check — sentences that pin a NUMBER on a primary org, paired with that
 // org's cited URLs on the same page (empty if the claim has no matching citation). Manual review.
 const ATTR_ORGS = [
-  { org: 'DOE',         re: /\b(?:DOE|Department of Energy)\b/i, domain: /energy\.gov|doe\.gov/i },
-  { org: 'ENERGY STAR', re: /\bENERGY\s*STAR\b/i,               domain: /energystar\.gov/i },
-  { org: 'EPA',         re: /\bEPA\b/i,                          domain: /epa\.gov/i },
-  { org: 'CDC',         re: /\bCDC\b/i,                          domain: /cdc\.gov/i },
-  { org: 'CPSC',        re: /\bCPSC\b/i,                         domain: /cpsc\.gov/i },
-  { org: 'NFPA',        re: /\bNFPA\b/i,                         domain: /nfpa\.org/i },
-  { org: 'EIA',         re: /\bEIA\b/i,                          domain: /eia\.gov/i },
+  { org: 'DOE',         re: /\b(?:DOE|Department of Energy)\b/i,                       domain: /energy\.gov|doe\.gov/i },
+  { org: 'ENERGY STAR', re: /\bENERGY\s*STAR\b/i,                                      domain: /energystar\.gov/i },
+  { org: 'EPA',         re: /\bEPA\b|Environmental Protection Agency/i,                domain: /epa\.gov/i },
+  { org: 'CDC',         re: /\bCDC\b|Centers for Disease Control/i,                    domain: /cdc\.gov/i },
+  { org: 'CPSC',        re: /\bCPSC\b|Consumer Product Safety Commission/i,            domain: /cpsc\.gov/i },
+  { org: 'NFPA',        re: /\bNFPA\b|National Fire Protection Association/i,          domain: /nfpa\.org/i },
+  { org: 'EIA',         re: /\bEIA\b|Energy Information Administration/i,              domain: /eia\.gov/i },
 ];
 const ATTR_CUE = /\baccording to\b|\bper the\b|\b(?:says?|reports?|estimates?|recommends?|found|notes?|requires?|identifies|finds|puts|cites|states?|attributes?)\b/i;
 const HAS_NUMBER = /\d/;
@@ -413,9 +413,17 @@ function scanMdx(file) {
 
   // (p) ATTRIBUTION-CHECK + per-degree (CITE-2, manual review — not pass/fail)
   const pageUrls = [...new Set(urls.filter((u) => !SCHEMA_ORG.test(u) && !SITE_HOST.test(u)))];
-  const clean = (s) => s.replace(/<\/?[A-Za-z][^>]*>/g, ' ').replace(/[#|]+/g, ' ').replace(/\s+/g, ' ').trim();
-  for (const s of sentences(body)) {
+  const clean = (s) => s
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')   // markdown links -> link text
+    .replace(/<\/?[A-Za-z][^>]*>/g, ' ')       // JSX tags
+    .replace(/[#|]+/g, ' ').replace(/\s+/g, ' ').trim();
+  // Attribute PROSE only: strip SourcesBox citation blocks (both the sources={[...]} and the
+  // markdown-list forms) so URL/label list items don't masquerade as attribution "sentences".
+  // Inline prose links (e.g. "the [EPA](url) estimates ...") are kept.
+  const proseBody = body.replace(/<SourcesBox[\s\S]*?(?:<\/SourcesBox>|\/>)/gi, ' ');
+  for (const s of sentences(proseBody)) {
     if (!HAS_NUMBER.test(s) || !ATTR_CUE.test(s)) continue;
+    if (/\b(?:url|label|title|name)\s*:\s*["']/i.test(s)) continue; // stray citation-object backstop
     for (const a of ATTR_ORGS) {
       if (!a.re.test(s)) continue;
       const orgUrls = pageUrls.filter((u) => a.domain.test(u));
