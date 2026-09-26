@@ -3,7 +3,7 @@
 // Scans content/**/*.mdx (skip _archived), app/**/page.tsx, components/**.
 // Writes audit/SITE-AUDIT.csv, audit/ampacity-tables.md, audit/claims-to-verify.csv,
 // audit/merge-candidates.csv, audit/FINDINGS.md, audit/external-urls.txt,
-// audit/citation-flags.csv. Changes no content.
+// audit/citation-flags.csv, audit/attribution-check.csv. Changes no content.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -110,6 +110,33 @@ function futureDatedFlag(u) {
   return null;
 }
 
+// CITE-2: manufacturer/retail domains to flag on live pages (brand dictionary + the explicit
+// CITE-1/CITE-2 list + common retail), so a product or affiliate link can't pose as a citation.
+// The Carrier warranty-lookup TOOL is the one allowed exception.
+const MFR_RETAIL = /(carrier\.com|rinnai\.us|store\.google\.com|generac\.com|kohlerpower\.com|energysage\.com|trane\.com|lennox\.com|goodman(?:mfg)?\.com|rheem\.com|ruud\.com|bryant\.com|amana|daikin|mitsubishi|fujitsu|samsung\.com|greecomfort|mrcool|senville|pioneerminisplit|bosch-?home|york(?:hvac)?\.com|honeywell|ecobee\.com|sensi\.com|emerson\.com|frigidaire|geappliances|whynter|homelabs|santa-?fe-?products|aprilaire|blueair|coway|levoit|winix|dyson|navien|ecosmart|stiebel-?eltron|hondapower|championpowerequipment|westinghouse|tesla\.com|powerwall|enphase\.com|renogy|battleborn|victronenergy|aranet|qingping|nest\.com|franklinwh\.com|amazon\.|homedepot\.|lowes\.|walmart\.|wayfair\.|bestbuy\.|costco\.|menards\.|acehardware\.)/i;
+const CARRIER_WARRANTY = /carrier\.com\/us\/en\/residential\/homeowner-resources\/warranty-lookup/i;
+function mfrFlag(u) {
+  if (!MFR_RETAIL.test(u)) return null;
+  if (CARRIER_WARRANTY.test(u)) return null; // the one allowed manufacturer link (warranty tool)
+  return 'manufacturer-retail-domain';
+}
+
+// CITE-2: attribution-check — sentences that pin a NUMBER on a primary org, paired with that
+// org's cited URLs on the same page (empty if the claim has no matching citation). Manual review.
+const ATTR_ORGS = [
+  { org: 'DOE',         re: /\b(?:DOE|Department of Energy)\b/i, domain: /energy\.gov|doe\.gov/i },
+  { org: 'ENERGY STAR', re: /\bENERGY\s*STAR\b/i,               domain: /energystar\.gov/i },
+  { org: 'EPA',         re: /\bEPA\b/i,                          domain: /epa\.gov/i },
+  { org: 'CDC',         re: /\bCDC\b/i,                          domain: /cdc\.gov/i },
+  { org: 'CPSC',        re: /\bCPSC\b/i,                         domain: /cpsc\.gov/i },
+  { org: 'NFPA',        re: /\bNFPA\b/i,                         domain: /nfpa\.org/i },
+  { org: 'EIA',         re: /\bEIA\b/i,                          domain: /eia\.gov/i },
+];
+const ATTR_CUE = /\baccording to\b|\bper the\b|\b(?:says?|reports?|estimates?|recommends?|found|notes?|requires?|identifies|finds|puts|cites|states?|attributes?)\b/i;
+const HAS_NUMBER = /\d/;
+// CITE-2: "% per degree" savings claims (a per-degree rule of thumb), for review.
+const PER_DEGREE_RE = /\d[\d.]*\s*(?:%|percent)\s*(?:per|for (?:every|each))\s+degree/i;
+
 // ---------- gather valid slugs (for link check) ----------
 const mdxFiles = walk(path.join(ROOT, 'content'), ['.mdx'], (p) => /_archived/.test(p));
 const mdxSlugs = new Set();
@@ -154,6 +181,8 @@ const descMap = {};            // desc -> [slug]
 const homepageLinks = new Set();
 const scoreBySlug = {};
 const externalUrls = new Map();   // url -> Set(slug); excludes schema.org + self-host
+const attributionChecks = [];     // {slug, org, sentence, urls} — CITE-2 manual-review CSV
+const perDegreeFlags = [];        // {slug, sentence} — CITE-2 "% per degree" claims
 
 // ---------- per-mdx scan ----------
 function scanMdx(file) {
@@ -382,6 +411,21 @@ function scanMdx(file) {
   }
   c.sources_count = srcCount; c.sources_std = srcStd; c.sources_mfr = srcMfr; c.sources_bare = srcBare;
 
+  // (p) ATTRIBUTION-CHECK + per-degree (CITE-2, manual review — not pass/fail)
+  const pageUrls = [...new Set(urls.filter((u) => !SCHEMA_ORG.test(u) && !SITE_HOST.test(u)))];
+  const clean = (s) => s.replace(/<\/?[A-Za-z][^>]*>/g, ' ').replace(/[#|]+/g, ' ').replace(/\s+/g, ' ').trim();
+  for (const s of sentences(body)) {
+    if (!HAS_NUMBER.test(s) || !ATTR_CUE.test(s)) continue;
+    for (const a of ATTR_ORGS) {
+      if (!a.re.test(s)) continue;
+      const orgUrls = pageUrls.filter((u) => a.domain.test(u));
+      attributionChecks.push({ slug, org: a.org, sentence: clean(s).slice(0, 400), urls: orgUrls.join(' ') });
+    }
+  }
+  for (const s of sentences(body)) {
+    if (PER_DEGREE_RE.test(s)) perDegreeFlags.push({ slug, sentence: clean(s).slice(0, 300) });
+  }
+
   // score
   const score = c.model_codes * 5 + c.phantom_credit * 5 + c.rates_offrate * 3 + c.recompute_fail * 3 + c.overclaims * 2 + c.old_tells * 1;
   scoreBySlug[slug] = score;
@@ -407,7 +451,7 @@ for (const f of mdxFiles) { try { scanMdx(f); } catch (e) { console.error('ERR',
 // ---------- EXTERNAL URLS + CITATION FLAGS ----------
 const citationFlags = []; // {url, reasons[], slugs[]}
 for (const [u, slugs] of externalUrls) {
-  const reasons = [accaSoftFlag(u), energysaverFlag(u), futureDatedFlag(u)].filter(Boolean);
+  const reasons = [accaSoftFlag(u), energysaverFlag(u), futureDatedFlag(u), mfrFlag(u)].filter(Boolean);
   if (reasons.length) citationFlags.push({ url: u, reasons, slugs: [...slugs].sort() });
 }
 citationFlags.sort((a, b) => a.url.localeCompare(b.url));
@@ -417,6 +461,14 @@ fs.writeFileSync(path.join(OUT, 'citation-flags.csv'),
   'url,reason,slugs\n' +
   citationFlags.map((c) => csvRow([c.url, c.reasons.join('; '), c.slugs.join(' ')])).join('\n') +
   (citationFlags.length ? '\n' : ''));
+
+// CITE-2: attribution-check.csv — every sentence pinning a number on DOE/ENERGY STAR/EPA/CDC/
+// CPSC/NFPA/EIA, with that org's cited URLs on the page. Manual review, not a pass/fail gate.
+fs.writeFileSync(path.join(OUT, 'attribution-check.csv'),
+  'slug,org,sentence,urls\n' +
+  attributionChecks.map((a) => csvRow([a.slug, a.org, a.sentence, a.urls])).join('\n') +
+  (attributionChecks.length ? '\n' : ''));
+const mfrFlagRows = citationFlags.filter((c) => c.reasons.includes('manufacturer-retail-domain'));
 
 // ---------- FOOTER / chrome finding ----------
 const compFiles = walk(path.join(ROOT, 'components'), ['.tsx', '.ts', '.jsx', '.js']);
@@ -493,6 +545,13 @@ F += '\n## Duplicate titles\n\n' + (dupTitles.length ? dupTitles.map(([t, v]) =>
 F += `\n## Flagged citation URLs\n\n(ACCA soft-404s, retired DOE Energy Saver pages, and citations dated after the build date of ${BUILD_YEAR}-Q${BUILD_Q}. schema.org excluded from the citation list as JSON-LD, not a source. External URLs: ${externalUrlList.length}.)\n\n`;
 if (!citationFlags.length) F += '- none\n';
 else for (const c of citationFlags) F += `- \`${c.url}\` — ${c.reasons.join(', ')} (in: ${c.slugs.join(', ')})\n`;
+F += `\n## Manufacturer / retail links on live pages\n\n(Product or affiliate links, flagged so they don't pose as citations. The Carrier warranty-lookup tool is exempt.)\n\n`;
+if (!mfrFlagRows.length) F += '- none\n';
+else for (const c of mfrFlagRows) F += `- \`${c.url}\` (in: ${c.slugs.join(', ')})\n`;
+F += `\n## "% per degree" claims\n\n(Per-degree savings rules of thumb, for review. Count: ${perDegreeFlags.length}.)\n\n`;
+if (!perDegreeFlags.length) F += '- none\n';
+else for (const p of perDegreeFlags) F += `- ${p.slug}: ${p.sentence}\n`;
+F += `\n## Attribution check\n\n${attributionChecks.length} sentences pin a number on DOE / ENERGY STAR / EPA / CDC / CPSC / NFPA / EIA — see audit/attribution-check.csv (manual review, not pass/fail).\n`;
 fs.writeFileSync(path.join(OUT, 'FINDINGS.md'), F);
 
 // ---------- console summary ----------
@@ -505,3 +564,4 @@ console.log('Chrome hits:', JSON.stringify(Object.fromEntries(Object.entries(chr
 console.log('Top5:', top30.slice(0,5).map(r=>`${r.slug}=${r.score}`).join(', '));
 console.log('External URLs:', externalUrlList.length, '| Citation flags:', citationFlags.length, `(build ${BUILD_YEAR}-Q${BUILD_Q})`);
 for (const c of citationFlags) console.log('  FLAG', c.reasons.join(','), '-', c.url);
+console.log('Manufacturer/retail links (live):', mfrFlagRows.length, '| attribution-check rows:', attributionChecks.length, '| "% per degree" claims:', perDegreeFlags.length);
