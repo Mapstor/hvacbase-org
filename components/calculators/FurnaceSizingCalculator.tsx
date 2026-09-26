@@ -85,17 +85,17 @@ const ceilingHeights = [
 
 const furnaceEfficiency = [
   { value: '80', name: '80% AFUE', tier: 'Standard',
-    efficiency: 0.80, price: 2500, venting: 'Metal B-vent / chimney',
-    note: 'Cheapest upfront. Only allowed in southern US in 2026.' },
+    efficiency: 0.80, venting: 'Metal B-vent / chimney',
+    note: 'Lowest upfront cost; non-condensing, metal vent. Gas furnaces made on or after Dec 18, 2028 must be 95% AFUE or higher.' },
   { value: '90', name: '90% AFUE', tier: 'Mid',
-    efficiency: 0.90, price: 3500, venting: 'PVC condensing vent',
-    note: 'Good balance of upfront cost and yearly savings.' },
+    efficiency: 0.90, venting: 'PVC condensing vent',
+    note: 'Condensing; PVC vent.' },
   { value: '95', name: '95% AFUE', tier: 'High',
-    efficiency: 0.95, price: 4500, venting: 'PVC condensing vent',
-    note: '2026 minimum in northern US. Best mainstream value.' },
+    efficiency: 0.95, venting: 'PVC condensing vent',
+    note: 'Meets the federal minimum for gas furnaces made on or after Dec 18, 2028.' },
   { value: '98', name: '98% AFUE', tier: 'Ultra',
-    efficiency: 0.98, price: 5500, venting: 'PVC condensing vent',
-    note: 'Modulating/variable-speed. Top comfort, lowest bills.' },
+    efficiency: 0.98, venting: 'PVC condensing vent',
+    note: 'Condensing; usually modulating with a variable-speed blower.' },
 ];
 
 // Heating-load sun-exposure adjustment. Direction is OPPOSITE of cooling:
@@ -478,7 +478,7 @@ export default function FurnaceSizingCalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Furnace efficiency (AFUE)
               <InfoTip label="AFUE">
-                Annual Fuel Utilization Efficiency. 80% means 80¢ of every $1 of gas becomes heat; 20¢ goes up the flue. Northern US requires 95%+ for new installs in 2026.
+                Annual Fuel Utilization Efficiency. 80% means 80¢ of every $1 of gas becomes heat; 20¢ goes up the flue. Gas furnaces made on or after December 18, 2028 must be 95% AFUE or higher (a national rule).
               </InfoTip>
             </label>
             <CardChoice
@@ -598,7 +598,7 @@ export default function FurnaceSizingCalculator() {
                         {eff.name} <span className="font-normal text-gray-500">· {eff.tier}</span>
                       </div>
                       <div className="text-[11px] text-gray-500 mt-0.5">
-                        ~${fmtMoney(eff.price)} equipment · {eff.venting.split(' ')[0].toLowerCase()} vent
+                        {eff.venting.split(' ')[0].toLowerCase()} vent
                       </div>
                     </div>
                     <div className="text-right">
@@ -640,7 +640,6 @@ export default function FurnaceSizingCalculator() {
               <li><strong>Venting:</strong> {selectedEfficiency.venting}.</li>
               <li><strong>Gas line:</strong> {calc.recommendedSize >= 100000 ? '3/4″ or 1″ recommended' : '1/2″ typically sufficient'} for {fmt(calc.recommendedSize)} BTU input.</li>
               <li><strong>Electrical:</strong> Standard 115V circuit for blower and controls.</li>
-              <li><strong>Equipment cost:</strong> ~${fmtMoney(selectedEfficiency.price)} unit + labor (typically 40–80% on top).</li>
               <li><strong>Warranty:</strong> Usually 10-year heat exchanger, 5-year parts.</li>
             </ul>
           </div>
