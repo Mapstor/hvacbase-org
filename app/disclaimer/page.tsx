@@ -360,14 +360,13 @@ export default function Disclaimer() {
 
             <div className="bg-yellow-50 rounded-lg p-6">
               <p className="text-gray-700 mb-4">
-                HVACBase.org may display third-party programmatic advertisements. When such advertisements appear, they are served by ad networks and are not selected, endorsed, or reviewed by the HVACBase editorial team.
+                HVACBase.org does not currently display advertising and has no affiliate links. If that ever changes, this page and the <Link href="/privacy" className="text-brand-600 hover:text-brand-700">Privacy Policy</Link> will be updated first.
               </p>
 
               <div className="bg-white rounded p-4">
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Editorial content and rankings are governed by the <Link href="/editorial-policy" className="text-brand-600 hover:text-brand-700">Editorial Policy</Link>. Advertising has no influence on what we cover, how we rank equipment, or which specifications we cite.</li>
-                  <li>• Data processing associated with advertising, when applicable, is described in the <Link href="/privacy" className="text-brand-600 hover:text-brand-700">Privacy Policy</Link>.</li>
-                  <li>• Third-party ad content, when displayed, links to third-party sites; HVACBase is not responsible for the accuracy, safety, or legality of those destinations.</li>
+                  <li>• Editorial content and rankings are governed by the <Link href="/editorial-policy" className="text-brand-600 hover:text-brand-700">Editorial Policy</Link>; no advertiser or manufacturer influences what we cover, how we rank equipment, or which specifications we cite.</li>
+                  <li>• How the site handles data (Google Analytics, consent in the EEA/UK/Switzerland, cookies) is described in the <Link href="/privacy" className="text-brand-600 hover:text-brand-700">Privacy Policy</Link>.</li>
                 </ul>
               </div>
             </div>

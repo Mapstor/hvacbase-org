@@ -1,14 +1,16 @@
 import Link from 'next/link';
-import { Shield, Lock, Eye, Database, Mail, Globe, FileText, Users, AlertCircle, CheckCircle } from 'lucide-react';
+import { Shield, Database, Cookie, Scale, Globe, Clock, UserCheck, FileText, Mail } from 'lucide-react';
 import type { Metadata } from 'next';
+import CookieSettingsButton from '@/components/CookieSettingsButton';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | HVACBase',
-  description: 'How HVACBase collects, uses, and protects your data. Analytics, cookies, GDPR/CCPA rights, and data-retention policy.',
+  description:
+    'How HVACBase handles data: Google Analytics (consent-based in the EEA/UK/Switzerland), hosting logs, cookies, legal bases, processors, retention, and your GDPR rights.',
   alternates: { canonical: 'https://www.hvacbase.org/privacy' },
   openGraph: {
     title: 'Privacy Policy | HVACBase',
-    description: 'How HVACBase collects, uses, and protects your data.',
+    description: 'How HVACBase handles data and your privacy rights.',
     url: 'https://www.hvacbase.org/privacy',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Privacy Policy' }],
@@ -16,444 +18,178 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Privacy Policy | HVACBase',
-    description: 'How HVACBase collects, uses, and protects your data.',
+    description: 'How HVACBase handles data and your privacy rights.',
     images: ['/opengraph-image'],
   },
 };
 
 export default function PrivacyPolicy() {
-  const lastUpdated = 'February 12, 2026';
-  const effectiveDate = 'January 1, 2026';
+  const lastUpdated = 'September 26, 2026';
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <section className="bg-gradient-to-br from-gray-700 to-gray-900 text-white py-12">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-4">
             <Shield className="w-8 h-8 text-blue-400" />
             <h1 className="text-3xl md:text-4xl font-bold">Privacy Policy</h1>
           </div>
-          <p className="text-gray-300">
-            Last Updated: {lastUpdated} | Effective Date: {effectiveDate}
-          </p>
+          <p className="text-gray-300">Last updated: {lastUpdated}</p>
           <p className="text-gray-200 mt-4">
-            Your privacy is important to us. This policy explains how HVACBase.org collects, uses, and protects your information.
+            This policy explains, in plain language, what data HVACBase collects and why. The site is
+            informational: it publishes HVAC guides and calculators. It shows no advertising and has no affiliate links.
           </p>
         </div>
       </section>
 
-      {/* Table of Contents */}
-      <section className="py-8 bg-white border-b">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-xl font-semibold mb-4">Contents</h2>
-          <div className="grid md:grid-cols-2 gap-2">
-            <a href="#information-collected" className="text-brand-600 hover:text-brand-700">1. Information We Collect</a>
-            <a href="#how-we-use" className="text-brand-600 hover:text-brand-700">2. How We Use Your Information</a>
-            <a href="#data-sharing" className="text-brand-600 hover:text-brand-700">3. Information Sharing</a>
-            <a href="#cookies" className="text-brand-600 hover:text-brand-700">4. Cookies & Tracking</a>
-            <a href="#data-security" className="text-brand-600 hover:text-brand-700">5. Data Security</a>
-            <a href="#your-rights" className="text-brand-600 hover:text-brand-700">6. Your Rights</a>
-            <a href="#children" className="text-brand-600 hover:text-brand-700">7. Children's Privacy</a>
-            <a href="#changes" className="text-brand-600 hover:text-brand-700">8. Policy Changes</a>
-            <a href="#contact" className="text-brand-600 hover:text-brand-700">9. Contact Information</a>
+      <div className="max-w-4xl mx-auto px-4 py-10 space-y-8">
+        {/* Controller */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <FileText className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Data controller</h2>
           </div>
-        </div>
-      </section>
+          <p className="text-gray-700">
+            HVACBase is published by <strong>Moving Data Systems d.o.o.</strong>, Smolnik 62, 2342 Ruše, Slovenia.
+            For any privacy question or request, email{' '}
+            <a href="mailto:info@hvacbase.org" className="text-brand-600 hover:underline">info@hvacbase.org</a>.
+          </p>
+        </section>
 
-      {/* Main Content */}
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto px-4 space-y-12">
-          
-          {/* 1. Information We Collect */}
-          <div id="information-collected">
-            <div className="flex items-center gap-3 mb-4">
-              <Database className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">1. Information We Collect</h2>
-            </div>
-            
-            <div className="space-y-6">
-              <div className="bg-blue-50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 mb-3">Information You Provide Directly</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5" />
-                    <span><strong>Calculator Data:</strong> Information entered into our BTU, sizing, and efficiency calculators (room dimensions, climate zone, insulation type)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5" />
-                    <span><strong>Contact Forms:</strong> Name, email address, and messages when you contact us</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5" />
-                    <span><strong>Comments:</strong> Information provided when commenting on articles (if feature enabled)</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 mb-3">Information Collected Automatically</h3>
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left py-2">Type</th>
-                      <th className="text-left py-2">Examples</th>
-                      <th className="text-left py-2">Purpose</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-sm text-gray-700">
-                    <tr className="border-b">
-                      <td className="py-2">Device Information</td>
-                      <td className="py-2">Browser type, OS, screen size</td>
-                      <td className="py-2">Site optimization</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-2">Usage Data</td>
-                      <td className="py-2">Pages visited, time on site</td>
-                      <td className="py-2">Content improvement</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-2">Location Data</td>
-                      <td className="py-2">Country, state (IP-based)</td>
-                      <td className="py-2">Regional content</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2">Referral Data</td>
-                      <td className="py-2">How you found us</td>
-                      <td className="py-2">Marketing analysis</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+        {/* What we collect */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <Database className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">What we collect</h2>
           </div>
+          <ul className="space-y-3 text-gray-700 list-disc pl-5">
+            <li>
+              <strong>Google Analytics (GA4) usage data:</strong> pages viewed, device and browser type, approximate
+              location (derived from IP, not stored as a precise address), and the referring site. In the EEA, the UK
+              and Switzerland this is collected <strong>only after you consent</strong> via the cookie banner. Elsewhere
+              it is collected by default; you can opt out any time through <strong>Cookie settings</strong> in the footer.
+            </li>
+            <li>
+              <strong>Hosting logs:</strong> our host keeps standard server logs (such as IP address and request time)
+              for security and reliable operation.
+            </li>
+            <li>
+              <strong>Anything you email us:</strong> if you contact info@hvacbase.org, we receive whatever you send and
+              use it only to reply.
+            </li>
+          </ul>
+          <p className="text-gray-700 mt-3">
+            The calculators run in your browser; we do not store the numbers you type in.
+          </p>
+        </section>
 
-          {/* 2. How We Use Information */}
-          <div id="how-we-use">
-            <div className="flex items-center gap-3 mb-4">
-              <Eye className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">2. How We Use Your Information</h2>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white border rounded-lg p-5">
-                <h3 className="font-semibold text-gray-900 mb-3">Primary Uses</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Provide calculator results and recommendations</li>
-                  <li>• Respond to your inquiries and support requests</li>
-                  <li>• Improve our content and tools based on usage</li>
-                  <li>• Customize content for your climate zone</li>
-                  <li>• Send requested information or updates</li>
-                </ul>
-              </div>
-              
-              <div className="bg-white border rounded-lg p-5">
-                <h3 className="font-semibold text-gray-900 mb-3">We Do NOT</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>❌ Sell your personal information</li>
-                  <li>❌ Share data with HVAC contractors without consent</li>
-                  <li>❌ Use your data for unrelated marketing</li>
-                  <li>❌ Store calculator inputs beyond session</li>
-                </ul>
-                <p className="text-xs text-gray-500 mt-3 italic">
-                  If we display advertising, ads served through Google or other third-party
-                  ad networks use their own cookies to personalize what you see, 
-                  see the Cookies &amp; Tracking section below and Google&apos;s{' '}
-                  <a
-                    href="https://policies.google.com/technologies/partner-sites"
-                    target="_blank"
-                    rel="noopener"
-                    className="text-brand-600 hover:underline"
-                  >
-                    partner-sites policy
-                  </a>.
-                </p>
-              </div>
-            </div>
+        {/* Cookies */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <Cookie className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Cookies</h2>
           </div>
+          <ul className="space-y-3 text-gray-700 list-disc pl-5">
+            <li>
+              <strong>Google Analytics cookies</strong> (<code>_ga</code> and <code>_ga_&lt;container&gt;</code>): set in
+              the EEA, the UK and Switzerland <strong>only after consent</strong>, and by default in other regions.
+            </li>
+            <li>
+              <strong>Consent-choice cookies</strong> (<code>hvac_consent</code> and <code>hvac_region</code>): remember
+              your analytics choice and whether the banner applies to your region.
+            </li>
+          </ul>
+          <p className="text-gray-700 mt-3">
+            There are <strong>no advertising cookies</strong> and no advertising networks on this site.
+          </p>
+        </section>
 
-          {/* 3. Data Sharing */}
-          <div id="data-sharing">
-            <div className="flex items-center gap-3 mb-4">
-              <Users className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">3. Information Sharing & Disclosure</h2>
-            </div>
-            
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-              <div className="flex items-start gap-3">
-                <AlertCircle className="w-6 h-6 text-yellow-600 mt-0.5" />
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Limited Sharing Policy</h3>
-                  <p className="text-gray-700 mb-4">
-                    We share your information only in these specific circumstances:
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-700">
-                    <li><strong>Service Providers:</strong> Analytics (Google Analytics), hosting (Vercel/AWS), email services</li>
-                    <li><strong>Legal Requirements:</strong> When required by law, subpoena, or court order</li>
-                    <li><strong>Safety:</strong> To protect rights, property, or safety of HVACBase, users, or public</li>
-                    <li><strong>Business Transfers:</strong> In connection with merger, acquisition, or asset sale</li>
-                    <li><strong>With Consent:</strong> When you explicitly agree to sharing</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+        {/* Legal basis */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <Scale className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Legal basis (GDPR)</h2>
           </div>
+          <ul className="space-y-2 text-gray-700 list-disc pl-5">
+            <li><strong>Consent</strong> for analytics in the EEA, the UK and Switzerland.</li>
+            <li><strong>Legitimate interest</strong> for security and operational server logs.</li>
+          </ul>
+        </section>
 
-          {/* 4. Cookies */}
-          <div id="cookies">
-            <div className="flex items-center gap-3 mb-4">
-              <FileText className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">4. Cookies & Tracking Technologies</h2>
-            </div>
-            
-            <div className="space-y-4">
-              <table className="w-full bg-white rounded-lg overflow-hidden">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="text-left p-3">Cookie Type</th>
-                    <th className="text-left p-3">Purpose</th>
-                    <th className="text-left p-3">Duration</th>
-                  </tr>
-                </thead>
-                <tbody className="text-sm">
-                  <tr className="border-b">
-                    <td className="p-3 font-medium">Essential</td>
-                    <td className="p-3">Site functionality, calculator state</td>
-                    <td className="p-3">Session</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="p-3 font-medium">Analytics</td>
-                    <td className="p-3">Google Analytics for usage patterns</td>
-                    <td className="p-3">2 years</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="p-3 font-medium">Preferences</td>
-                    <td className="p-3">Climate zone, unit preferences</td>
-                    <td className="p-3">1 year</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-medium">Performance</td>
-                    <td className="p-3">Site speed and error tracking</td>
-                    <td className="p-3">30 days</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <div className="bg-blue-50 rounded-lg p-4">
-                <p className="text-sm text-gray-700">
-                  <strong>Managing Cookies:</strong> You can control cookies through browser settings.
-                  Disabling cookies may limit calculator functionality. We honor "Do Not Track" signals.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-brand-100 rounded-lg p-5">
-                <h3 className="font-semibold text-gray-900 mb-3">
-                  Third-Party Advertising Cookies
-                </h3>
-                <p className="text-sm text-gray-700 mb-3">
-                  HVACBase may serve advertisements through Google and other third-party ad
-                  networks. Under Google&apos;s partner-sites policy, these vendors, including
-                  Google, use cookies to serve ads based on your prior visits to this website
-                  and other sites on the internet. This may include personalized advertising.
-                </p>
-                <p className="text-sm text-gray-700 mb-3 font-semibold">
-                  You can opt out of personalized advertising:
-                </p>
-                <ul className="space-y-2 text-sm text-gray-700 mb-3">
-                  <li>
-                    ●{' '}
-                    <a
-                      href="https://www.google.com/settings/ads"
-                      target="_blank"
-                      rel="noopener"
-                      className="text-brand-600 hover:underline"
-                    >
-                      Google Ads Settings
-                    </a>{' '}
-, opt out of Google&apos;s personalized ads across all sites that use Google
-                    ad services.
-                  </li>
-                  <li>
-                    ●{' '}
-                    <a
-                      href="https://www.aboutads.info"
-                      target="_blank"
-                      rel="noopener"
-                      className="text-brand-600 hover:underline"
-                    >
-                      aboutads.info
-                    </a>{' '}
-, opt out of the Digital Advertising Alliance participating vendors.
-                  </li>
-                  <li>
-                    ●{' '}
-                    <a
-                      href="https://policies.google.com/technologies/partner-sites"
-                      target="_blank"
-                      rel="noopener"
-                      className="text-brand-600 hover:underline"
-                    >
-                      Google&apos;s partner-sites policy
-                    </a>{' '}
-, how Google uses information from sites and apps that use its services.
-                  </li>
-                </ul>
-                <p className="text-xs text-gray-500 italic">
-                  Opting out does not remove advertising, it removes personalization, so you
-                  will see less-targeted ads. We do not currently operate a consent-management
-                  platform (CMP); this policy will be updated if that changes.
-                </p>
-              </div>
-            </div>
+        {/* Processors & transfers */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <Globe className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Processors and international transfers</h2>
           </div>
+          <p className="text-gray-700">
+            We use <strong>Google</strong> (Analytics) and <strong>Vercel</strong> (hosting). These providers may process
+            data in the United States. Such transfers rely on appropriate safeguards, such as the EU-U.S. Data Privacy
+            Framework or the European Commission&apos;s standard contractual clauses.
+          </p>
+        </section>
 
-          {/* 5. Data Security */}
-          <div id="data-security">
-            <div className="flex items-center gap-3 mb-4">
-              <Lock className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">5. Data Security</h2>
-            </div>
-            
-            <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">Security Measures</h3>
-              <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                <ul className="space-y-2">
-                  <li>✓ SSL/TLS encryption for all data transmission</li>
-                  <li>✓ Regular security audits and updates</li>
-                  <li>✓ Limited access to personal information</li>
-                  <li>✓ Secure hosting infrastructure</li>
-                </ul>
-                <ul className="space-y-2">
-                  <li>✓ No storage of sensitive financial data</li>
-                  <li>✓ Regular backups and disaster recovery</li>
-                  <li>✓ Compliance with industry standards</li>
-                  <li>✓ Incident response procedures</li>
-                </ul>
-              </div>
-            </div>
+        {/* Retention */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <Clock className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Retention</h2>
           </div>
+          <p className="text-gray-700">
+            Google Analytics data is kept for the retention period set in our Google Analytics account. Server logs are
+            retained by our host for the period needed for security and operations.
+          </p>
+        </section>
 
-          {/* 6. Your Rights */}
-          <div id="your-rights">
-            <div className="flex items-center gap-3 mb-4">
-              <CheckCircle className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">6. Your Rights & Choices</h2>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="bg-white border rounded-lg p-5">
-                <h3 className="font-semibold text-gray-900 mb-3">You Have the Right To:</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-500">✓</span>
-                    <span><strong>Access:</strong> Request a copy of information we have about you</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-500">✓</span>
-                    <span><strong>Correction:</strong> Update or correct inaccurate information</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-500">✓</span>
-                    <span><strong>Deletion:</strong> Request deletion of your personal information</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-500">✓</span>
-                    <span><strong>Opt-Out:</strong> Unsubscribe from communications</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-500">✓</span>
-                    <span><strong>Portability:</strong> Receive your data in a structured format</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-gray-50 rounded-lg p-4">
-                <p className="text-sm text-gray-700">
-                  <strong>California Residents:</strong> Additional rights under CCPA including right to know, 
-                  delete, opt-out of sale (we don't sell data), and non-discrimination.
-                </p>
-              </div>
-            </div>
+        {/* Rights */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <UserCheck className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Your rights</h2>
           </div>
+          <p className="text-gray-700 mb-3">Under the GDPR you have the right to:</p>
+          <ul className="space-y-2 text-gray-700 list-disc pl-5">
+            <li>access the personal data we hold about you;</li>
+            <li>have inaccurate data corrected (rectification);</li>
+            <li>have your data erased;</li>
+            <li>restrict or object to processing;</li>
+            <li>data portability;</li>
+            <li>withdraw analytics consent at any time, via <strong>Cookie settings</strong> in the footer.</li>
+          </ul>
+          <p className="text-gray-700 mt-3">
+            To exercise any right, email{' '}
+            <a href="mailto:info@hvacbase.org" className="text-brand-600 hover:underline">info@hvacbase.org</a>. You also
+            have the right to complain to the Information Commissioner of the Republic of Slovenia
+            (Informacijski pooblaščenec).
+          </p>
+        </section>
 
-          {/* 7. Children's Privacy */}
-          <div id="children">
-            <div className="flex items-center gap-3 mb-4">
-              <Users className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">7. Children's Privacy</h2>
-            </div>
-            
-            <div className="bg-purple-50 rounded-lg p-6">
-              <p className="text-gray-700">
-                HVACBase.org is not directed to children under 13. We do not knowingly collect personal 
-                information from children under 13. If you believe we have collected information from a 
-                child under 13, please contact us immediately at privacy@hvacbase.org for deletion.
-              </p>
-            </div>
+        {/* Changes */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <FileText className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Changes to this policy</h2>
           </div>
+          <p className="text-gray-700">
+            If this changes, we will update this page and its date. The site does not currently show advertising; this
+            policy will be updated before any advertising is introduced.
+          </p>
+        </section>
 
-          {/* 8. Changes */}
-          <div id="changes">
-            <div className="flex items-center gap-3 mb-4">
-              <AlertCircle className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">8. Changes to This Policy</h2>
-            </div>
-            
-            <div className="bg-white border rounded-lg p-5">
-              <p className="text-gray-700 mb-4">
-                We may update this Privacy Policy periodically. Changes will be posted on this page with an 
-                updated "Last Updated" date. For material changes:
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li>• We'll post a prominent notice on the homepage</li>
-                <li>• The new policy will take effect 30 days after posting</li>
-                <li>• Continued use constitutes acceptance of changes</li>
-              </ul>
-            </div>
+        {/* Contact */}
+        <section className="bg-white rounded-xl p-6 border border-gray-200">
+          <div className="flex items-center gap-3 mb-4">
+            <Mail className="w-6 h-6 text-brand-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Contact</h2>
           </div>
-
-          {/* 9. Contact */}
-          <div id="contact">
-            <div className="flex items-center gap-3 mb-4">
-              <Mail className="w-6 h-6 text-brand-600" />
-              <h2 className="text-2xl font-bold text-gray-900">9. Contact Information</h2>
-            </div>
-            
-            <div className="bg-brand-50 rounded-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">Questions or Concerns?</h3>
-              <div className="space-y-2 text-gray-700">
-                <p className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-brand-600" />
-                  Email: <a href="mailto:privacy@hvacbase.org" className="text-brand-600 hover:text-brand-700">privacy@hvacbase.org</a>
-                </p>
-                <p className="flex items-center gap-2">
-                  <Globe className="w-5 h-5 text-brand-600" />
-                  Website: <Link href="/" className="text-brand-600 hover:text-brand-700">hvacbase.org</Link>
-                </p>
-                <p className="flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-brand-600" />
-                  Response Time: Within 48 business hours
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Resources */}
-          <div className="mt-12 pt-8 border-t">
-            <h3 className="font-semibold text-gray-900 mb-4">Additional Resources</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <Link href="/terms" className="bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors">
-                <h4 className="font-medium text-gray-900 mb-1">Terms of Service</h4>
-                <p className="text-sm text-gray-600">Our terms and conditions of use</p>
-              </Link>
-              <Link href="/disclaimer" className="bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors">
-                <h4 className="font-medium text-gray-900 mb-1">Disclaimer</h4>
-                <p className="text-sm text-gray-600">Important information about our content</p>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+          <p className="text-gray-700">
+            Moving Data Systems d.o.o., Smolnik 62, 2342 Ruše, Slovenia. Email{' '}
+            <a href="mailto:info@hvacbase.org" className="text-brand-600 hover:underline">info@hvacbase.org</a>. You can
+            review or change your analytics choice any time with{' '}
+            <span className="text-brand-600"><CookieSettingsButton /></span>.
+          </p>
+        </section>
+      </div>
     </div>
   );
 }
