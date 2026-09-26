@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ConsentBanner from '@/components/ConsentBanner';
 import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -98,6 +99,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
+              // Consent Mode v2 defaults — MUST run before gtag('config').
+              // No ads anywhere, so ad_* is denied for all regions.
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'granted'
+              });
+              // EEA + UK + Switzerland: analytics_storage also denied until consent.
+              gtag('consent', 'default', {
+                'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied',
+                'wait_for_update': 500
+              });
+              // Honor a stored acceptance immediately so returning EEA/UK/CH consenters aren't under-counted.
+              if (document.cookie.indexOf('hvac_consent=granted') !== -1) {
+                gtag('consent', 'update', { 'analytics_storage': 'granted' });
+              }
               gtag('config', 'G-ZCKSNVFR5V');
             `,
           }}
@@ -105,6 +127,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <ConsentBanner />
       </body>
     </html>
   );

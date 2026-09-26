@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Thermometer, Calculator, BookOpen, Wrench, TrendingUp, Shield, Award, Mail } from 'lucide-react';
+import CookieSettingsButton from '@/components/CookieSettingsButton';
 
 const CATEGORY_ROUTES: Record<string, string> = {
   'Calculators & Tools': '/calculators',
@@ -170,6 +171,7 @@ export default function Footer() {
               <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
               <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
+              <CookieSettingsButton />
               <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>
             </div>
             
