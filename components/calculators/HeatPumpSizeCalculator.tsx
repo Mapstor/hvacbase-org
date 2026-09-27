@@ -65,12 +65,12 @@ const homeAgeOptions = [
 const heatPumpTypes = [
   { value: 'code-min',    name: '14.3 SEER2 / 7.5 HSPF2',  tier: 'Code minimum',     efficiency: 14.3, hspf: 7.5,  compressor: 'single-stage', coolingCap: 1.15,
     note: '2023 federal minimum split-system. Fine for hot/mixed climates. Limited cold-weather output.' },
-  { value: 'energy-star', name: '15.2 SEER2 / 8.1 HSPF2',  tier: 'ENERGY STAR',      efficiency: 15.2, hspf: 8.1,  compressor: 'two-stage',    coolingCap: 1.20,
-    note: 'ENERGY STAR v6.2 baseline. Two-stage compressor, better dehumidification.' },
+  { value: 'energy-star', name: '15.2 SEER2 / 7.8 HSPF2',  tier: 'ENERGY STAR',      efficiency: 15.2, hspf: 7.8,  compressor: 'two-stage',    coolingCap: 1.20,
+    note: 'ENERGY STAR minimum for split systems (15.2 SEER2, 7.8 HSPF2, 11.0 EER2).' },
   { value: 'premium',     name: '18 SEER2 / 9.5 HSPF2',    tier: 'Premium inverter', efficiency: 18,   hspf: 9.5,  compressor: 'variable',     coolingCap: 1.30,
     note: 'Variable-speed inverter. Quiet, best humidity control, wide modulation.' },
   { value: 'cold-climate',name: '16 SEER2 / 10.0 HSPF2',   tier: 'Cold-climate',     efficiency: 16,   hspf: 10.0, compressor: 'variable',     coolingCap: 1.25,
-    note: 'NEEP-listed ccASHP with COP@5°F ≥ 1.75. Holds 90% capacity at 17°F, 85% at 5°F.' },
+    note: 'ENERGY STAR Cold Climate: COP of at least 1.75 at 5°F and at least 70% of rated heating capacity at 5°F. Check the specific model\'s rating.' },
 ];
 
 const storiesOptions = [
@@ -250,10 +250,10 @@ export default function HeatPumpSizeCalculator() {
     }
     const atSizeFloor = !isCcASHP && !abovefloor && recommendedSize === STANDARD_TON_SIZES[0];
 
-    // === CAPACITY vs OUTDOOR TEMPERATURE (per NEEP ccASHP data + AHRI) ===
+    // === CAPACITY vs OUTDOOR TEMPERATURE (ENERGY STAR cold-climate minimum: >=70% at 5°F; AHRI) ===
     const cap47 = recommendedSize * 12000;
-    const cap17 = isCcASHP ? cap47 * 0.90 : cap47 * 0.60;
-    const cap5  = isCcASHP ? cap47 * 0.85 : cap47 * 0.40;
+    const cap17 = isCcASHP ? cap47 * 0.79 : cap47 * 0.60; // ccASHP: interpolated on the 100%@47°F -> 70%@5°F line
+    const cap5  = isCcASHP ? cap47 * 0.70 : cap47 * 0.40; // ccASHP: ENERGY STAR cold-climate min (>=70% at 5°F)
 
     // === COMPUTED BALANCE POINT ===
     // Solve for the outdoor temp where HP capacity crosses house heating
@@ -426,7 +426,7 @@ export default function HeatPumpSizeCalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Heat pump tier (SEER2 / HSPF2)
               <InfoTip label="heat pump type">
-                SEER2 is cooling efficiency, HSPF2 is heating efficiency (both are the current 2023+ AHRI/DOE metrics, legacy SEER/HSPF are ~5% and ~15% higher for the same equipment). Cold-climate NEEP-listed units maintain ~90% capacity at 17°F and 85% at 5°F, required in cold/very-cold zones.
+                SEER2 is cooling efficiency, HSPF2 is heating efficiency (both are the current 2023+ AHRI/DOE metrics, legacy SEER/HSPF are ~5% and ~15% higher for the same equipment). ENERGY STAR cold-climate units hold at least 70% of rated heating capacity at 5°F (about 79% at 17°F on that line) and a COP of at least 1.75 at 5°F.
               </InfoTip>
             </label>
             <CardChoice value={heatPumpType} onChange={setHeatPumpType} options={heatPumpTypes} ariaLabel="Heat pump type" accent={ACCENT} />
@@ -533,8 +533,8 @@ export default function HeatPumpSizeCalculator() {
             <div className="space-y-1.5 text-xs">
               {[
                 { label: 'At 47°F', value: calc.cap47, sub: 'Nameplate rating' },
-                { label: 'At 17°F', value: calc.cap17, sub: calc.isCcASHP ? 'ccASHP holds ~90%' : 'Standard drops to ~60%' },
-                { label: 'At 5°F',  value: calc.cap5,  sub: calc.isCcASHP ? 'ccASHP holds ~85%' : 'Standard drops to ~40%' },
+                { label: 'At 17°F', value: calc.cap17, sub: calc.isCcASHP ? 'ccASHP ~79% (ENERGY STAR cold-climate)' : 'Standard drops to ~60%' },
+                { label: 'At 5°F',  value: calc.cap5,  sub: calc.isCcASHP ? 'ccASHP ~70% at 5°F (ENERGY STAR min)' : 'Standard drops to ~40%' },
                 { label: `At ${selectedClimate.coldestTemp}°F design`, value: calc.hpCapAtDesign, sub: 'Interpolated from curve' },
               ].map((row) => (
                 <div key={row.label} className="grid grid-cols-[auto_1fr_auto] gap-2 py-1.5 border-b border-gray-100 last:border-0 items-baseline">
