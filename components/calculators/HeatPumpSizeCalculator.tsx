@@ -30,6 +30,7 @@ import {
   CalculateResetBar,
   useCalculatorSubmit,
 } from './_shared';
+import { UA_PER_SQFT, STORIES_FACTOR, type UALevel } from './_heatloss';
 
 const ACCENT = 'purple' as const;
 
@@ -55,6 +56,16 @@ const homeAgeOptions = [
   { value: 'older',    name: 'Older (1960–1979)',  factor: 1.15, summary: 'Limited insulation' },
   { value: 'vintage',  name: 'Vintage (pre-1960)', factor: 1.3,  summary: 'Poor / no insulation' },
 ];
+
+// Heating load runs on the shared design heat-loss model (_heatloss.ts): map each
+// home age to an envelope UA level. Cooling load keeps its own per-sqft factors above.
+const HEATING_UA_LEVEL: Record<string, UALevel> = {
+  new: 'excellent',    // 0.177
+  modern: 'good',      // 0.189
+  standard: 'average', // 0.270
+  older: 'older',      // 0.45
+  vintage: 'poor',     // 0.604
+};
 
 // Heat pump tiers — SEER2 / HSPF2 (current AHRI / ENERGY STAR / DOE metrics
 // since 1 Jan 2023). Previous version used pre-2023 SEER/HSPF, and its
@@ -197,7 +208,13 @@ export default function HeatPumpSizeCalculator() {
     const envelopeFactor = selectedAge.factor * selectedStories.factor * selectedWindow.factor;
     const occupantAdj = Math.max(0, occN - 2) * 400;
     const coolingLoad = baseCool * envelopeFactor + occupantAdj;
-    const heatingLoad = baseHeat * envelopeFactor;
+    // Heating load on the shared design heat-loss model (_heatloss.ts): envelope UA
+    // by home age × sqft × stories × windows × design ΔT. Cooling stays on the
+    // per-sqft model above; only the heating side moved to the physics model.
+    const heatingUA = UA_PER_SQFT[HEATING_UA_LEVEL[selectedAge.value]];
+    const heatingEnvelope = STORIES_FACTOR[selectedStories.value] * selectedWindow.factor;
+    const heatingDeltaT = 70 - selectedClimate.coldestTemp;
+    const heatingLoad = heatingUA * sqFt * heatingEnvelope * heatingDeltaT;
     const coolingTons = coolingLoad / 12000;
     const heatingTons = heatingLoad / 12000;
 
@@ -305,6 +322,9 @@ export default function HeatPumpSizeCalculator() {
       baseHeat: Math.round(baseHeat),
       coolingLoad: Math.round(coolingLoad),
       heatingLoad: Math.round(heatingLoad),
+      heatingUA,
+      heatingEnvelope,
+      heatingDeltaT,
       coolingTons,
       heatingTons,
       sizingTarget,
@@ -570,10 +590,10 @@ export default function HeatPumpSizeCalculator() {
             <BreakdownTable
               rows={[
                 { label: 'Base cooling', detail: `${fmt(sqFt)} × ${selectedClimate.coolingBTU} BTU/sf`, factor: `${fmt(calc.baseCool)} BTU` },
-                { label: 'Base heating', detail: `${fmt(sqFt)} × ${selectedClimate.heatingBTU} BTU/sf`, factor: `${fmt(calc.baseHeat)} BTU` },
                 { label: 'Age factor',   detail: selectedAge.name,     factor: `× ${selectedAge.factor.toFixed(2)}` },
                 { label: 'Stories',      detail: selectedStories.name, factor: `× ${selectedStories.factor.toFixed(2)}` },
                 { label: 'Windows',      detail: selectedWindow.name,  factor: `× ${selectedWindow.factor.toFixed(2)}` },
+                { label: 'Heating design loss', detail: `${fmt(sqFt)} sf × ${calc.heatingUA} UA × ${calc.heatingEnvelope.toFixed(2)} env × ${calc.heatingDeltaT}°F`, factor: `${fmt(calc.heatingLoad)} BTU` },
               ]}
               totals={[
                 { label: 'Cooling load', value: `${fmt(calc.coolingLoad)} BTU (${calc.coolingTons.toFixed(2)} tons)`, valueClass: 'text-blue-700' },
