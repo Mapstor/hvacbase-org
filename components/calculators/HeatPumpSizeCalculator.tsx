@@ -63,13 +63,13 @@ const homeAgeOptions = [
 // single-stage 1.15, two-stage 1.20, variable 1.30 (heating-dominant
 // climates allow up to 1.25 for the cold-climate variable path).
 const heatPumpTypes = [
-  { value: 'code-min',    name: '14.3 SEER2 / 7.5 HSPF2',  tier: 'Code minimum',     efficiency: 14.3, hspf: 7.5,  price: 3800, compressor: 'single-stage', coolingCap: 1.15,
+  { value: 'code-min',    name: '14.3 SEER2 / 7.5 HSPF2',  tier: 'Code minimum',     efficiency: 14.3, hspf: 7.5,  compressor: 'single-stage', coolingCap: 1.15,
     note: '2023 federal minimum split-system. Fine for hot/mixed climates. Limited cold-weather output.' },
-  { value: 'energy-star', name: '15.2 SEER2 / 8.1 HSPF2',  tier: 'ENERGY STAR',      efficiency: 15.2, hspf: 8.1,  price: 4800, compressor: 'two-stage',    coolingCap: 1.20,
+  { value: 'energy-star', name: '15.2 SEER2 / 8.1 HSPF2',  tier: 'ENERGY STAR',      efficiency: 15.2, hspf: 8.1,  compressor: 'two-stage',    coolingCap: 1.20,
     note: 'ENERGY STAR v6.2 baseline. Two-stage compressor, better dehumidification.' },
-  { value: 'premium',     name: '18 SEER2 / 9.5 HSPF2',    tier: 'Premium inverter', efficiency: 18,   hspf: 9.5,  price: 6500, compressor: 'variable',     coolingCap: 1.30,
+  { value: 'premium',     name: '18 SEER2 / 9.5 HSPF2',    tier: 'Premium inverter', efficiency: 18,   hspf: 9.5,  compressor: 'variable',     coolingCap: 1.30,
     note: 'Variable-speed inverter. Quiet, best humidity control, wide modulation.' },
-  { value: 'cold-climate',name: '16 SEER2 / 10.0 HSPF2',   tier: 'Cold-climate',     efficiency: 16,   hspf: 10.0, price: 8500, compressor: 'variable',     coolingCap: 1.25,
+  { value: 'cold-climate',name: '16 SEER2 / 10.0 HSPF2',   tier: 'Cold-climate',     efficiency: 16,   hspf: 10.0, compressor: 'variable',     coolingCap: 1.25,
     note: 'NEEP-listed ccASHP with COP@5°F ≥ 1.75. Holds 90% capacity at 17°F, 85% at 5°F.' },
 ];
 
@@ -620,7 +620,6 @@ export default function HeatPumpSizeCalculator() {
                   ? <>Gap at design temp: ~{fmt(calc.supplementalBTU)} BTU/hr gas input (~{fmt(Math.round(calc.supplementalBTU / 0.85))} BTU/hr input at 85% AFUE).</>
                   : <>Needed at design temp: ~{calc.supplementalKW.toFixed(1)} kW.</>}
               </li>
-              <li><strong>Equipment cost:</strong> ~${fmtMoney(selectedType.price)} + install (typically 50–80% of equipment).</li>
               <li><strong>Why this tier:</strong> {selectedType.note}</li>
             </ul>
           </div>
