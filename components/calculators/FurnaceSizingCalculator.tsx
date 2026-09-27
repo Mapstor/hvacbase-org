@@ -9,9 +9,6 @@ import {
   Settings,
   Leaf,
   Layers,
-  Sun,
-  CloudSun,
-  Cloud,
   Building2,
   Wind,
   Ruler,
@@ -34,8 +31,15 @@ import {
   ResultsHeader,
   CalculateResetBar,
   useCalculatorSubmit,
-  UA_PER_SQFT,
 } from './_shared';
+import {
+  UA_PER_SQFT,
+  CEILING_FACTOR,
+  STORIES_FACTOR,
+  windowPercentFactor,
+  annualHeatOutputBtu,
+  type UALevel,
+} from './_heatloss';
 
 const ACCENT = 'orange' as const;
 
@@ -43,25 +47,25 @@ type StoriesValue = '1' | '2' | '3';
 
 const climateZones = [
   { value: 'zone1', short: 'Z1', name: 'Zone 1', label: 'Hot',
-    btuPerSqFt: 30, hdd: 1000, designTemp: '40°F', months: '2–3',
+    btuPerSqFt: 30, hdd: 1000, designTemp: '40°F', designTempF: 40, months: '2–3',
     description: 'Southern Florida, Hawaii' },
   { value: 'zone2', short: 'Z2', name: 'Zone 2', label: 'Warm',
-    btuPerSqFt: 35, hdd: 2000, designTemp: '30°F', months: '3–4',
+    btuPerSqFt: 35, hdd: 2000, designTemp: '30°F', designTempF: 30, months: '3–4',
     description: 'Southern Texas, Southern California' },
   { value: 'zone3', short: 'Z3', name: 'Zone 3', label: 'Moderate',
-    btuPerSqFt: 40, hdd: 2700, designTemp: '20°F', months: '4–5',
+    btuPerSqFt: 40, hdd: 2700, designTemp: '20°F', designTempF: 20, months: '4–5',
     description: 'Virginia, Tennessee, Arkansas' },
   { value: 'zone4', short: 'Z4', name: 'Zone 4', label: 'Cool',
-    btuPerSqFt: 45, hdd: 5000, designTemp: '10°F', months: '5–6',
+    btuPerSqFt: 45, hdd: 5000, designTemp: '10°F', designTempF: 10, months: '5–6',
     description: 'New York, Illinois, Missouri' },
   { value: 'zone5', short: 'Z5', name: 'Zone 5', label: 'Cold',
-    btuPerSqFt: 50, hdd: 6500, designTemp: '0°F', months: '6–7',
+    btuPerSqFt: 50, hdd: 6500, designTemp: '0°F', designTempF: 0, months: '6–7',
     description: 'Iowa, Michigan, Maine' },
   { value: 'zone6', short: 'Z6', name: 'Zone 6', label: 'Very Cold',
-    btuPerSqFt: 55, hdd: 8000, designTemp: '−10°F', months: '7–8',
+    btuPerSqFt: 55, hdd: 8000, designTemp: '−10°F', designTempF: -10, months: '7–8',
     description: 'Minnesota, Wisconsin, Montana' },
   { value: 'zone7', short: 'Z7', name: 'Zone 7', label: 'Extreme Cold',
-    btuPerSqFt: 60, hdd: 10000, designTemp: '−30°F', months: '8–9',
+    btuPerSqFt: 60, hdd: 10000, designTemp: '−30°F', designTempF: -30, months: '8–9',
     description: 'Northern Minnesota, Alaska' },
 ];
 
@@ -98,23 +102,6 @@ const furnaceEfficiency = [
     note: 'Condensing; usually modulating with a variable-speed blower.' },
 ];
 
-// Heating-load sun-exposure adjustment. Direction is OPPOSITE of cooling:
-// south-facing / sunny homes get a passive-solar credit and need LESS heating;
-// heavily shaded homes lose that credit and need a bit more. Verified vs DOE
-// Passive Solar Home Design + ACCA Manual J guidance (Manual J itself ignores
-// solar for the 99% design load; these factors are framed as an average-day
-// adjustment, ~±8%). Previously the factors were inverted (shaded 0.9, sun 1.1
-// — treating sunny as more heating), the same physics-sign bug as the cooling
-// climate tables had.
-const sunExposureOptions = [
-  { value: 'low', name: 'Mostly shaded', sub: 'Heavy tree cover, north-facing',
-    factor: 1.08, Icon: Cloud },
-  { value: 'average', name: 'Average', sub: 'Mixed sun and shade',
-    factor: 1.0, Icon: CloudSun },
-  { value: 'high', name: 'Full sun', sub: 'Open exposure, south-facing',
-    factor: 0.92, Icon: Sun },
-];
-
 const storiesOptions = [
   { value: '1' as const, name: '1 story', factor: 1.0 },
   { value: '2' as const, name: '2 stories', factor: 0.92 },
@@ -149,7 +136,6 @@ const DEFAULTS = {
   ceilingHeight: '8',
   efficiency: '95',
   windowPercentage: '15',
-  sunExposure: 'average',
   basement: 'unheated',
   ducts: 'insulated_attic',
 };
@@ -162,20 +148,18 @@ export default function FurnaceSizingCalculator() {
   const [ceilingHeight, setCeilingHeight] = useState(DEFAULTS.ceilingHeight);
   const [efficiency, setEfficiency] = useState(DEFAULTS.efficiency);
   const [windowPercentage, setWindowPercentage] = useState(DEFAULTS.windowPercentage);
-  const [sunExposure, setSunExposure] = useState(DEFAULTS.sunExposure);
   const [basement, setBasement] = useState(DEFAULTS.basement);
   const [ducts, setDucts] = useState(DEFAULTS.ducts);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
     squareFeet, stories, climateZone, insulation, ceilingHeight,
-    efficiency, windowPercentage, sunExposure, basement, ducts,
+    efficiency, windowPercentage, basement, ducts,
   });
 
   const selectedZone = climateZones.find((z) => z.value === src.climateZone)!;
   const selectedInsulation = insulationOptions.find((i) => i.value === src.insulation)!;
   const selectedCeiling = ceilingHeights.find((c) => c.value === src.ceilingHeight)!;
   const selectedEfficiency = furnaceEfficiency.find((e) => e.value === src.efficiency)!;
-  const selectedSun = sunExposureOptions.find((s) => s.value === src.sunExposure)!;
   const selectedStories = storiesOptions.find((s) => s.value === src.stories)!;
   const selectedBasement = basementOptions.find((b) => b.value === src.basement)!;
   const selectedDucts = ductOptions.find((d) => d.value === src.ducts)!;
@@ -191,25 +175,27 @@ export default function FurnaceSizingCalculator() {
     setCeilingHeight(DEFAULTS.ceilingHeight);
     setEfficiency(DEFAULTS.efficiency);
     setWindowPercentage(DEFAULTS.windowPercentage);
-    setSunExposure(DEFAULTS.sunExposure);
     setBasement(DEFAULTS.basement);
     setDucts(DEFAULTS.ducts);
     clear();
   };
 
   const calc = useMemo(() => {
-    const baseBTU = sqFt * selectedZone.btuPerSqFt;
-    let adjustedBTU = baseBTU;
-    adjustedBTU *= selectedInsulation.factor;
-    adjustedBTU *= selectedCeiling.factor;
-    adjustedBTU *= selectedStories.factor;
-    adjustedBTU *= selectedBasement.factor;
-    adjustedBTU *= selectedDucts.factor;
-    const windowFactor = 1 + (winPct - 15) * 0.01;
-    adjustedBTU *= windowFactor;
-    adjustedBTU *= selectedSun.factor;
+    // Design heat loss on the shared physics model (see _heatloss.ts): the home's
+    // envelope UA (BTU/hr·°F) times the design temperature difference. Insulation
+    // sets the base UA/sq ft; ceiling, stories, windows, ducts and basement adjust
+    // it. No solar credit at design — the coldest hours are at night.
+    const uaPerSqFt = UA_PER_SQFT[selectedInsulation.value as UALevel];
+    const ceilingFactor = CEILING_FACTOR[selectedCeiling.value] ?? 1;
+    const storiesFactor = STORIES_FACTOR[selectedStories.value] ?? 1;
+    const windowFactor = windowPercentFactor(winPct);
+    const adjustments =
+      ceilingFactor * storiesFactor * windowFactor * selectedDucts.factor * selectedBasement.factor;
+    const uaBase = uaPerSqFt * sqFt;       // BTU/hr·°F before adjustments
+    const uaTotal = uaBase * adjustments;  // BTU/hr·°F heat-loss rate
+    const designDeltaT = 70 - selectedZone.designTempF;
 
-    const outputBTUNeeded = Math.max(Math.round(adjustedBTU), 0);
+    const outputBTUNeeded = Math.max(Math.round(uaTotal * designDeltaT), 0);
     const inputBTUNeeded = Math.round(outputBTUNeeded / selectedEfficiency.efficiency);
 
     const standardSizes = [40000, 60000, 80000, 100000, 120000, 140000];
@@ -219,39 +205,38 @@ export default function FurnaceSizingCalculator() {
     const oversizing = outputBTUNeeded > 0
       ? ((actualOutput - outputBTUNeeded) / outputBTUNeeded) * 100
       : 0;
+    // Even the smallest common furnace (40,000 BTU input) delivers > 1.4× the load?
+    const smallestOversized =
+      outputBTUNeeded > 0 && 40000 * selectedEfficiency.efficiency > 1.4 * outputBTUNeeded;
 
-    // Annual gas use via the DOE degree-day method (UA × HDD × 24), shared
-    // with the AFUE/HeatPumpVsFurnace/HVAC-ROI calcs. The recommended furnace
-    // SIZE above is a design-PEAK figure and is untouched; deriving annual from
-    // that peak (÷65) overstated it ~2.5× because a design load bakes in
-    // oversizing and zero internal gains. envelopeFactor carries this home's
-    // insulation/ceiling/duct/etc. adjustments so a leaky home still shows a
-    // higher annual than a tight one, anchored to UA_PER_SQFT at average.
-    const envelopeFactor = baseBTU > 0 ? adjustedBTU / baseBTU : 1;
-    const annualHeatOutputBTU =
-      UA_PER_SQFT * sqFt * envelopeFactor * selectedZone.hdd * 24;
+    // Annual gas via the DOE degree-day method, using the SAME UA + adjustments as
+    // the design load above, so recommended size and running cost come from one model.
+    const annualHeatOutputBTU = annualHeatOutputBtu(uaPerSqFt, sqFt, adjustments, selectedZone.hdd);
     const annualGasUsage =
       annualHeatOutputBTU / (selectedEfficiency.efficiency * 100000);
-    // $1.35/therm — EIA 2026 US heating-season national midpoint for
-    // residential natural gas. Regional spread: Northeast ~$1.60,
-    // West ~$1.35, Midwest ~$1.15, South ~$1.05.
-    const annualCost = annualGasUsage * 1.35;
+    const annualCost = annualGasUsage * 1.35; // assumed $1.35/therm; the user's bill shows their rate
 
     return {
-      baseBTU: Math.round(baseBTU),
+      uaPerSqFt,
+      uaBase,
+      uaTotal,
+      ceilingFactor,
+      storiesFactor,
+      windowFactor,
+      designDeltaT,
       outputBTUNeeded,
       inputBTUNeeded,
       recommendedSize,
       requiresMultipleUnits,
       actualOutput,
       oversizing,
-      windowFactor,
+      smallestOversized,
       annualGasUsage,
       annualCost,
     };
   }, [
     sqFt, winPct, selectedZone, selectedInsulation, selectedCeiling,
-    selectedStories, selectedBasement, selectedDucts, selectedSun, selectedEfficiency,
+    selectedStories, selectedBasement, selectedDucts, selectedEfficiency,
   ]);
 
   const fit =
@@ -260,7 +245,6 @@ export default function FurnaceSizingCalculator() {
     calc.oversizing < 25 ? { tone: 'warn' as const, text: 'Acceptable, watch short-cycling' } :
                            { tone: 'bad' as const, text: 'Risk of oversizing' };
 
-  const tons = calc.outputBTUNeeded / 12000;
   const btuPerSqFtResult = sqFt > 0 ? calc.outputBTUNeeded / sqFt : 0;
 
   return (
@@ -396,7 +380,7 @@ export default function FurnaceSizingCalculator() {
 
       {/* Section 2, Climate */}
       <section>
-        <SectionHeader step={2} title="Your climate" subtitle="Local winter severity and sun" Icon={Snowflake} accent={ACCENT} />
+        <SectionHeader step={2} title="Your climate" subtitle="Local winter severity" Icon={Snowflake} accent={ACCENT} />
 
         <div className="space-y-5">
           <div>
@@ -450,21 +434,6 @@ export default function FurnaceSizingCalculator() {
                 <span className="font-semibold text-gray-800">{selectedZone.months} months</span>
               </div>
             </div>
-          </div>
-
-          <div>
-            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-              <Sun className="w-4 h-4 mr-1.5 text-gray-500" />
-              Sun exposure
-            </label>
-            <CardChoice
-              value={sunExposure}
-              onChange={setSunExposure}
-              options={sunExposureOptions}
-              ariaLabel="Sun exposure"
-              columns={3}
-              accent={ACCENT}
-            />
           </div>
         </div>
       </section>
@@ -542,10 +511,14 @@ export default function FurnaceSizingCalculator() {
               standard residential furnace. Consider two zoned furnaces or envelope upgrades
               to lower the load before purchasing.
             </>
+          ) : calc.smallestOversized ? (
+            <>
+              Even the smallest common furnace is larger than this home needs; a two-stage or
+              modulating furnace runs closer to the load.
+            </>
           ) : undefined}
           sidePanel={[
             { label: 'Per sq ft', value: `${btuPerSqFtResult.toFixed(0)} BTU` },
-            { label: 'Tonnage equiv.', value: `${tons.toFixed(1)} tons` },
             { label: 'Est. annual cost', value: `$${fmtMoney(calc.annualCost)}`, valueClass: 'text-emerald-700' },
           ]}
         />
@@ -559,16 +532,16 @@ export default function FurnaceSizingCalculator() {
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'Base load', detail: `${fmt(sqFt)} sq ft × ${selectedZone.btuPerSqFt} BTU/sq ft`, factor: `${fmt(calc.baseBTU)} BTU` },
-                { label: 'Insulation', detail: selectedInsulation.name, factor: `× ${selectedInsulation.factor.toFixed(2)}` },
-                { label: 'Ceiling', detail: selectedCeiling.name, factor: `× ${selectedCeiling.factor.toFixed(3)}` },
-                { label: 'Stories', detail: selectedStories.name, factor: `× ${selectedStories.factor.toFixed(2)}` },
-                { label: 'Basement', detail: selectedBasement.name, factor: `× ${selectedBasement.factor.toFixed(2)}` },
+                { label: 'Envelope UA', detail: `${fmt(sqFt)} sq ft × ${calc.uaPerSqFt} (${selectedInsulation.name})`, factor: `${fmt(Math.round(calc.uaBase))} BTU/hr·°F` },
+                { label: 'Ceiling', detail: selectedCeiling.name, factor: `× ${calc.ceilingFactor.toFixed(2)}` },
+                { label: 'Stories', detail: selectedStories.name, factor: `× ${calc.storiesFactor.toFixed(2)}` },
+                { label: 'Windows', detail: `${winPct}% of floor`, factor: `× ${calc.windowFactor.toFixed(2)}` },
                 { label: 'Ductwork', detail: selectedDucts.name, factor: `× ${selectedDucts.factor.toFixed(2)}` },
-                { label: 'Windows', detail: `${winPct}% of wall`, factor: `× ${calc.windowFactor.toFixed(2)}` },
-                { label: 'Sun', detail: selectedSun.name, factor: `× ${selectedSun.factor.toFixed(2)}` },
+                { label: 'Basement', detail: selectedBasement.name, factor: `× ${selectedBasement.factor.toFixed(2)}` },
               ]}
               totals={[
+                { label: 'Heat loss rate (BTU/hr per °F)', value: `${fmt(Math.round(calc.uaTotal))} BTU/hr·°F`, valueClass: 'text-gray-800' },
+                { label: `Design ΔT (70°F − ${selectedZone.designTemp})`, value: `${calc.designDeltaT}°F`, valueClass: 'text-gray-800' },
                 { label: 'Output heat needed', value: `${fmt(calc.outputBTUNeeded)} BTU/hr`, valueClass: 'text-blue-700' },
                 { label: 'Input required (÷ AFUE)', value: `${fmt(calc.inputBTUNeeded)} BTU/hr`, valueClass: 'text-orange-700' },
               ]}
@@ -616,9 +589,9 @@ export default function FurnaceSizingCalculator() {
               })}
             </div>
             <p className="text-[11px] text-gray-500 mt-2 leading-snug">
-              Costs based on {fmt(selectedZone.hdd)} HDD and $1.35/therm (EIA 2026 national
-              heating-season midpoint; Northeast ~$1.60, South ~$1.05). 10-yr fuel difference
-              between 80% and 98% AFUE on this load: roughly{' '}
+              Costs based on {fmt(selectedZone.hdd)} HDD and an assumed gas price of $1.35 per therm;
+              your bill shows your rate. 10-yr fuel difference between 80% and 98% AFUE on this
+              load: roughly{' '}
               <strong>
                 ${fmtMoney(
                   Math.abs(
@@ -638,7 +611,7 @@ export default function FurnaceSizingCalculator() {
             </h4>
             <ul className="space-y-1 text-xs text-gray-700">
               <li><strong>Venting:</strong> {selectedEfficiency.venting}.</li>
-              <li><strong>Gas line:</strong> {calc.recommendedSize >= 100000 ? '3/4″ or 1″ recommended' : '1/2″ typically sufficient'} for {fmt(calc.recommendedSize)} BTU input.</li>
+              <li><strong>Gas line:</strong> Gas pipe size depends on run length and the furnace's input rating; your installer sizes it from the fuel gas code tables.</li>
               <li><strong>Electrical:</strong> Standard 115V circuit for blower and controls.</li>
               <li><strong>Warranty:</strong> Usually 10-year heat exchanger, 5-year parts.</li>
             </ul>
