@@ -1,339 +1,177 @@
 ---
 slug: "kwh-cost-calculator"
 title: "kWh Cost Calculator: Convert kWh to Dollars Instantly (2026 Rates)"
-description: "Calculate your electricity cost per kWh, daily, monthly, and annual. Use real 2026 rates by state. The average US residential rate is 18¢/kWh — find yours and see exactly what your appliances cost to run."
+description: "Convert kWh to dollars at your rate. Residential electricity prices for every state from the EIA (January to July 2026), bill estimates and appliance running costs."
 cluster: "energy-costs"
 role: "hub"
 priority: "P1"
 contentType: "calculator"
+author: "Marko Visic, BSc Physics"
 datePublished: "2026-01-10"
-dateModified: "2026-02-06"
+dateModified: "2026-09-28"
 relatedArticles:
-  - "kwh-cost-calculator"
   - "how-many-kwh-per-day-is-normal"
+  - "power-consumption-calculator"
   - "electric-water-heating-cost"
-  - "seer-rating-explained"
-  - "btu-calculator"
+  - "gas-vs-electric-heating-cost"
+  - "seer2-comparison-calculator"
 externalLinks:
-  - title: "EIA Electric Power Monthly - Average Retail Price"
-    url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html"
-  - title: "ENERGY STAR Appliance Calculator"
-    url: "https://www.energystar.gov/campaign/waysToSave"
+  - label: "U.S. EIA: Electric Power Monthly (Tables 5.6.A and 5.6.B)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "U.S. EIA: How much electricity does an American home use?"
+    url: "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-One kilowatt-hour (kWh) costs an average of **$0.18 in the United States** as of 2026, but your actual cost ranges from $0.105/kWh in Idaho to $0.421/kWh in Hawaii. Use the calculator below to convert kWh to dollars using your exact local rate, or use the national average for quick estimates.
+# kWh Cost Calculator: Convert kWh to Dollars
 
-Understanding your cost per kWh is the foundation of every energy-saving decision. It tells you exactly how much each appliance, each degree on your thermostat, and each hour of runtime is costing you in real dollars.
+Your electric bill charges you for kilowatt-hours, but appliances are labeled in watts, and the rate on your bill may be split across several lines. This page connects the three: the calculator turns any appliance's wattage and hours into dollars, and the state table shows what a kilowatt-hour actually costs where you live.
 
-<TableOfContents />
-
-## kWh to Dollars Calculator
+**A kilowatt-hour costs the average U.S. household about 18 cents: 18.19 cents from January through July 2026, according to the U.S. Energy Information Administration. State averages range from 12.36 cents in North Dakota to 46.28 cents in Hawaii.** To find any appliance's cost, multiply its watts by the hours it runs, divide by 1,000, and multiply by your rate.
 
 <CalcWrapper type="kwh-cost" />
 
-### How to Use This Calculator
+## The formula
 
-1. **Enter your kWh usage** — find this on your electric bill or use one of the common appliance values below
-2. **Enter your electricity rate** — check your bill for the exact rate, or select your state for the 2026 average
-3. **Select your time period** — calculate costs per hour, day, month, or year
-4. The calculator instantly shows your total cost
+**Cost = watts × hours ÷ 1,000 × price per kWh.**
 
-<Callout type="tip">
-Your electricity rate is listed on your utility bill, usually as "price per kWh" or "energy charge." It may include generation, transmission, and distribution charges. Add all per-kWh charges together for your true cost. Don't include fixed monthly fees in the per-kWh rate.
-</Callout>
+A kilowatt-hour is 1,000 watts running for one hour. A 1,500-watt space heater running 8 hours uses 1,500 × 8 ÷ 1,000 = 12 kWh. At 18 cents that's $2.16 a day, or $64.80 over 30 days.
 
-## The kWh Cost Formula
+Your rate is on your bill, often split into supply (generation) and delivery charges. Add up every per-kWh charge to get the rate to use. For an all-in figure that includes fixed monthly fees, divide the bill total by the kWh you used.
 
-The math is straightforward:
+## Electricity prices by state
 
-**Cost = kWh × Price per kWh**
+Average residential prices from the EIA, in cents per kWh. The "Jan to Jul 2026" column averages out seasonal swings; July shows the latest month. The bill column multiplies each state's January-to-July average by 875 kWh, roughly what an average U.S. home uses in a month, so it isolates the effect of price: actual usage varies by state and season.
 
-For an appliance with a known wattage:
+| State | Jan to Jul 2026 average | July 2026 | Monthly bill at 875 kWh |
+|---|---|---|---|
+| Alabama | 16.54¢ | 16.40¢ | $145 |
+| Alaska | 27.09¢ | 28.83¢ | $237 |
+| Arizona | 15.44¢ | 15.38¢ | $135 |
+| Arkansas | 13.61¢ | 14.33¢ | $119 |
+| California | 33.25¢ | 33.61¢ | $291 |
+| Colorado | 16.72¢ | 17.00¢ | $146 |
+| Connecticut | 27.97¢ | 24.16¢ | $245 |
+| Delaware | 17.86¢ | 18.48¢ | $156 |
+| District of Columbia | 24.66¢ | 25.21¢ | $216 |
+| Florida | 15.30¢ | 15.03¢ | $134 |
+| Georgia | 15.40¢ | 16.27¢ | $135 |
+| Hawaii | 46.28¢ | 48.00¢ | $405 |
+| Idaho | 12.96¢ | 13.73¢ | $113 |
+| Illinois | 19.22¢ | 19.22¢ | $168 |
+| Indiana | 17.04¢ | 16.73¢ | $149 |
+| Iowa | 14.20¢ | 15.99¢ | $124 |
+| Kansas | 15.21¢ | 15.27¢ | $133 |
+| Kentucky | 14.27¢ | 13.81¢ | $125 |
+| Louisiana | 13.35¢ | 12.72¢ | $117 |
+| Maine | 29.99¢ | 32.41¢ | $262 |
+| Maryland | 21.30¢ | 21.41¢ | $186 |
+| Massachusetts | 30.14¢ | 30.49¢ | $264 |
+| Michigan | 21.53¢ | 23.05¢ | $188 |
+| Minnesota | 16.25¢ | 17.45¢ | $142 |
+| Mississippi | 15.19¢ | 14.54¢ | $133 |
+| Missouri | 13.96¢ | 16.09¢ | $122 |
+| Montana | 13.95¢ | 14.99¢ | $122 |
+| Nebraska | 12.90¢ | 13.78¢ | $113 |
+| Nevada | 13.53¢ | 12.77¢ | $118 |
+| New Hampshire | 26.79¢ | 26.60¢ | $234 |
+| New Jersey | 23.98¢ | 25.19¢ | $210 |
+| New Mexico | 15.08¢ | 16.09¢ | $132 |
+| New York | 29.38¢ | 29.90¢ | $257 |
+| North Carolina | 14.94¢ | 15.16¢ | $131 |
+| North Dakota | 12.36¢ | 13.41¢ | $108 |
+| Ohio | 18.70¢ | 19.45¢ | $164 |
+| Oklahoma | 13.58¢ | 14.35¢ | $119 |
+| Oregon | 15.40¢ | 15.97¢ | $135 |
+| Pennsylvania | 21.04¢ | 21.72¢ | $184 |
+| Rhode Island | 29.22¢ | 28.29¢ | $256 |
+| South Carolina | 15.93¢ | 15.47¢ | $139 |
+| South Dakota | 14.50¢ | 15.37¢ | $127 |
+| Tennessee | 13.87¢ | 13.71¢ | $121 |
+| Texas | 16.06¢ | 15.88¢ | $141 |
+| Utah | 13.16¢ | 13.12¢ | $115 |
+| Vermont | 23.95¢ | 23.75¢ | $210 |
+| Virginia | 16.83¢ | 17.55¢ | $147 |
+| Washington | 14.40¢ | 14.71¢ | $126 |
+| West Virginia | 15.47¢ | 15.78¢ | $135 |
+| Wisconsin | 19.00¢ | 19.06¢ | $166 |
+| Wyoming | 13.95¢ | 14.36¢ | $122 |
+| **U.S. average** | **18.19¢** | **18.31¢** | **$159** |
 
-**Cost = (Watts × Hours Used) ÷ 1,000 × Price per kWh**
+Source: EIA Electric Power Monthly, Tables 5.6.A and 5.6.B, July 2026 data released September 24, 2026. The EIA's average price is total residential revenue divided by kilowatt-hours sold, so it includes fixed and delivery charges spread across usage. That's why it can differ from the energy-charge line on your bill.
 
-For example, a 1,500W space heater running for 8 hours uses (1,500 × 8) ÷ 1,000 = 12 kWh. At ~$0.18/kWh that's ≈**$2.16** — use the calculator for your exact figure.
+## What's the average electric bill?
 
-Run that heater 8 hours daily for a month (30 days) and you'll use about 360 kWh, roughly ≈**$65/month** at ~$0.18/kWh.
+An average U.S. home uses roughly 10,500 kWh a year, about 875 kWh a month (see [how many kWh per day is normal](/how-many-kwh-per-day-is-normal)). At the January-to-July 2026 national average of 18.19 cents, that's about **$159 a month**.
 
-### Converting Watts to kWh
+The same usage costs about $108 in North Dakota and $405 in Hawaii. Your bill depends on your own usage, which climbs with electric heating, central air, a pool pump or an electric vehicle.
 
-One kWh equals 1,000 watts running for one hour. To convert any appliance from watts to kWh:
+## What common appliances cost to run
 
-**kWh = Watts × Hours ÷ 1,000**
+At 18 cents per kWh and 30 days a month. Wattages are examples; your appliance's label or manual has the real figure, and anything with a thermostat or compressor cycles on and off rather than running at full power the whole time.
 
-| Appliance | Watts | Hours/Day | Daily kWh | Monthly kWh |
+| Appliance | Example wattage | Use per day | kWh per month | Cost per month |
 |---|---|---|---|---|
-| LED Light Bulb | 10W | 5 | 0.05 | 1.5 |
-| Laptop Computer | 50W | 8 | 0.4 | 12 |
-| Desktop Computer | 200W | 8 | 1.6 | 48 |
-| 55" LED TV | 60W | 5 | 0.3 | 9 |
-| Refrigerator | 150W* | 24* | 1.5 | 45 |
-| Clothes Dryer | 3,000W | 1 | 3.0 | 36** |
-| Dishwasher | 1,800W | 1 | 1.8 | 27*** |
-| Electric Oven | 2,500W | 1 | 2.5 | 75 |
-| Space Heater | 1,500W | 8 | 12.0 | 360 |
-| Central AC (3-ton) | 3,500W | 8 | 28.0 | 840 |
-| Window AC Unit | 1,200W | 8 | 9.6 | 288 |
-| Electric Water Heater | 4,500W | 3* | 13.5 | 405 |
-| Pool Pump | 1,500W | 8 | 12.0 | 360 |
-| EV Charger (Level 2) | 7,200W | 3 | 21.6 | 648 |
+| Space heater | 1,500 W | 8 hours | 360 | $64.80 |
+| Window AC, 10,000 BTU | 900 W | 8 hours | 216 | $38.88 |
+| Desktop computer and monitor | 150 W | 8 hours | 36 | $6.48 |
+| LED TV | 100 W | 5 hours | 15 | $2.70 |
+| Electric clothes dryer | 5,000 W | 1 hour | 150 | $27.00 |
 
-*Average effective wattage (cycles on/off). **Based on 12 loads/month. ***Based on 15 cycles/month.
+## Time-of-use rates
 
-## 2026 Electricity Rates by State
+On a time-of-use plan, the price per kWh depends on when you use it: higher in peak hours (often late afternoon and evening) and lower off-peak. Your utility publishes its own hours and prices. To see the effect, run the calculator twice, once at each rate.
 
-Your state determines a large portion of your electricity cost. Here are the current 2026 average residential rates.
+As an example with made-up rates of 40 cents peak and 15 cents off-peak: charging an electric vehicle that uses 300 kWh a month costs $120 on peak and $45 off-peak. Moving flexible loads such as EV charging, dishwashers, laundry and water heating to off-peak hours is what makes these plans pay.
 
-| State | Rate (¢/kWh) | Cost of 1,000 kWh | State | Rate (¢/kWh) | Cost of 1,000 kWh |
-|---|---|---|---|---|---|
-| Alabama | 14.7 | $147 | Montana | 12.2 | $122 |
-| Alaska | 24.2 | $242 | Nebraska | 12.0 | $120 |
-| Arizona | 14.3 | $143 | Nevada | 13.1 | $131 |
-| Arkansas | 12.5 | $125 | New Hampshire | 27.1 | $271 |
-| California | 27.6 | $276 | New Jersey | 18.8 | $188 |
-| Colorado | 14.1 | $141 | New Mexico | 14.3 | $143 |
-| Connecticut | 29.9 | $299 | New York | 22.5 | $225 |
-| Delaware | 15.2 | $152 | North Carolina | 13.1 | $131 |
-| Florida | 15.5 | $155 | North Dakota | 11.6 | $116 |
-| Georgia | 14.2 | $142 | Ohio | 14.6 | $146 |
-| Hawaii | 42.1 | $421 | Oklahoma | 12.4 | $124 |
-| Idaho | 10.5 | $105 | Oregon | 12.0 | $120 |
-| Illinois | 15.4 | $154 | Pennsylvania | 17.5 | $175 |
-| Indiana | 14.8 | $148 | Rhode Island | 27.8 | $278 |
-| Iowa | 14.0 | $140 | South Carolina | 14.5 | $145 |
-| Kansas | 13.8 | $138 | South Dakota | 12.8 | $128 |
-| Kentucky | 12.3 | $123 | Tennessee | 12.8 | $128 |
-| Louisiana | 12.1 | $121 | Texas | 14.2 | $142 |
-| Maine | 24.8 | $248 | Utah | 11.2 | $112 |
-| Maryland | 16.2 | $162 | Vermont | 21.4 | $214 |
-| Massachusetts | 28.6 | $286 | Virginia | 14.0 | $140 |
-| Michigan | 18.4 | $184 | Washington | 10.8 | $108 |
-| Minnesota | 14.5 | $145 | West Virginia | 12.9 | $129 |
-| Mississippi | 13.8 | $138 | Wisconsin | 16.1 | $161 |
-| Missouri | 12.7 | $127 | Wyoming | 11.5 | $115 |
+## Comparing heating costs by energy source
 
-<Callout type="info">
-These are average residential rates. Your actual rate may be higher or lower depending on your specific utility, rate plan, and usage tier. Check your most recent bill for your exact rate. For a deeper dive, see our [electricity cost by state](/kwh-cost-calculator) breakdown.
-</Callout>
+What one million BTU of delivered heat costs, at 18.19 cents per kWh and an assumed $1.35 per therm of natural gas:
 
-## What Does 1 kWh Actually Power?
-
-One kWh is an abstract concept until you see it in real-world terms. Here's what a single kilowatt-hour can do:
-
-| 1 kWh Powers... | Duration |
+| Heat source | Cost per million BTU of heat |
 |---|---|
-| A 10W LED light bulb | 100 hours |
-| A 60W incandescent bulb | 16.7 hours |
-| A ceiling fan on medium | 15 hours |
-| A laptop computer | 20 hours |
-| A 55" LED TV | 17 hours |
-| A microwave oven (1,000W) | 1 hour |
-| A hair dryer (1,875W) | 32 minutes |
-| A space heater (1,500W) | 40 minutes |
-| A clothes dryer (3,000W) | 20 minutes |
-| An electric vehicle | ~3-4 miles of driving |
+| Electric resistance (baseboard, space heater) | $53.31 |
+| Heat pump averaging a COP of 3 | $17.77 |
+| Gas furnace at 95% AFUE | $14.21 |
 
-At the national average of $0.18/kWh, each of these scenarios costs you about **18 cents**. In Hawaii, that same kWh costs 42 cents. In Idaho, just 10.5 cents.
+One million BTU is 293 kWh of electricity. A heat pump moves about three units of heat for each unit of electricity at a COP of 3, which is why it costs a third as much as resistance heat. Gas prices vary as much as electricity prices, so compare using your own rates; our [gas vs. electric heating cost](/gas-vs-electric-heating-cost) guide goes further.
 
-## Common Appliance Costs: What You're Really Paying
+## What the calculator can't see
 
-Here's what typical household appliances actually cost to operate in 2026, calculated at the national average rate of $0.18/kWh (illustrative — the appliance tables below use this basis; use the calculator for exact costs).
+- **Time-of-use and tiered rates**, where the price changes with the hour or with how much you've used that month.
+- **Fixed monthly charges**, which you pay regardless of usage.
+- **Demand charges** on some plans, based on your highest use in a short window.
+- **Cycling:** a refrigerator or AC runs on and off, so its average draw is below its rated wattage.
 
-### Heating & Cooling
+The calculator also estimates carbon dioxide from the U.S. grid average of about 0.823 lb per kWh (EPA eGRID2022). Grids that lean on hydro, nuclear or renewables emit less per kWh; coal-heavy grids emit more.
 
-| Appliance | Typical kWh/Year | Annual Cost | Monthly Cost |
-|---|---|---|---|
-| Central AC (2,000 sq ft, 14 SEER) | 3,600 | $605 | $50* |
-| Central AC (2,000 sq ft, 20 SEER2) | 2,520 | $423 | $35* |
-| Window AC (10,000 BTU) | 1,400 | $235 | $39** |
-| Portable AC (12,000 BTU) | 1,700 | $286 | $48** |
-| Space Heater (1,500W, 8 hrs/day) | 2,160*** | $363 | $60*** |
-| Electric Baseboard (1,500W/room) | 5,400**** | $907 | $151**** |
-| Heat Pump (2,000 sq ft, 16 SEER2) | 5,400 | $907 | $76 |
-| Ceiling Fan | 55 | $9 | $0.77 |
+## Frequently asked questions
 
-*Averaged over 6-month cooling season. **6-month season. ***6-month heating season. ****6-month heating season, 3 rooms.
+### How much does 1 kWh cost?
 
-### Water Heating
+About 18 cents on average in the U.S.: 18.19 cents from January through July 2026, per the EIA. By state it ranges from 12.36 cents in North Dakota to 46.28 cents in Hawaii.
 
-| Type | kWh/Year | Annual Cost | Monthly Cost |
-|---|---|---|---|
-| Standard Electric Tank (50 gal) | 3,500 | $588 | $49 |
-| High-Efficiency Electric Tank | 3,000 | $504 | $42 |
-| Heat Pump Water Heater (50 gal) | 1,000 | $168 | $14 |
-| Tankless Electric | 2,500 | $420 | $35 |
+### How do I calculate my cost per kWh from my bill?
 
-### Kitchen Appliances
+Add every per-kWh charge on the bill (supply plus delivery) for your energy rate. For the all-in rate, divide the total bill by the kWh used that month.
 
-| Appliance | kWh/Year | Annual Cost | Monthly Cost |
-|---|---|---|---|
-| Refrigerator (new, ENERGY STAR) | 400 | $67 | $5.60 |
-| Refrigerator (pre-2000) | 900 | $151 | $12.60 |
-| Electric Range/Oven | 750 | $126 | $10.50 |
-| Induction Cooktop | 500 | $84 | $7.00 |
-| Dishwasher (ENERGY STAR) | 270 | $45 | $3.78 |
-| Microwave | 110 | $18 | $1.54 |
-| Coffee Maker (daily use) | 55 | $9 | $0.77 |
+### Which state has the cheapest electricity?
 
-### Laundry
+North Dakota, at 12.36 cents per kWh on average from January through July 2026, followed by Nebraska (12.90) and Idaho (12.96). Hawaii is the most expensive at 46.28 cents.
 
-| Appliance | kWh/Year | Annual Cost | Monthly Cost |
-|---|---|---|---|
-| Clothes Washer (ENERGY STAR) | 90 | $15 | $1.26 |
-| Electric Dryer (standard) | 630 | $106 | $8.82 |
-| Heat Pump Dryer | 240 | $40 | $3.36 |
+### How much does it cost to run a 1,500-watt heater?
 
-### Electronics & Other
+27 cents an hour at 18 cents per kWh (1.5 kWh × $0.18). Eight hours a day for a month is 360 kWh, about $65.
 
-| Appliance | kWh/Year | Annual Cost | Monthly Cost |
-|---|---|---|---|
-| Desktop Computer + Monitor | 360 | $60 | $5.04 |
-| Laptop | 72 | $12 | $1.01 |
-| Gaming Console (active use) | 180 | $30 | $2.52 |
-| WiFi Router | 88 | $15 | $1.23 |
-| Cable/Satellite Box | 175 | $29 | $2.45 |
-| Pool Pump (1.5 HP) | 3,000 | $504 | $42 |
-| Hot Tub | 2,500 | $420 | $35 |
+### How many kWh does a house use per month?
 
-## Real-World Cost Calculation Examples
-
-### Example 1: How Much Does Running the AC Cost Per Hour?
-
-You have a 3-ton central air conditioner rated at 14 SEER in Texas (rate: $0.142/kWh).
-
-A 3-ton AC at 14 SEER draws approximately 2,571 watts (36,000 BTU ÷ 14 SEER = 2,571W).
-
-- **Per hour:** 2.57 kWh × $0.142 = **$0.37/hour**
-- **Per day (8 hours runtime):** 20.6 kWh × $0.142 = **$2.92/day**
-- **Per month (peak summer):** 617 kWh × $0.142 = **$87.59/month**
-- **Per cooling season (6 months):** ~2,400 kWh × $0.142 = **$340.80/season**
-
-### Example 2: Is a Space Heater Cheaper Than Cranking Up the Furnace?
-
-You're in Ohio ($0.146/kWh, gas rate $1.15/therm) and wondering if a 1,500W space heater for your home office beats raising the whole-house thermostat.
-
-**Space heater (one room, 8 hours):** 12 kWh × $0.146 = **$1.75/day**
-
-**Furnace (80% AFUE, raising temp 2°F for whole 2,000 sq ft house):** Approximately 0.8 therms/day × $1.15 ÷ 0.80 = **$1.15/day**
-
-In this scenario, the furnace is actually cheaper for the whole house. But if you're only occupying one room and can lower the thermostat 5°F while running the space heater, the heater wins: $1.75 for the heater vs. the furnace savings of $2.88/day from the setback, netting $1.13/day in savings.
-
-### Example 3: Electric vs. Gas Water Heating Monthly Cost
-
-For a family of four using 64 gallons of hot water per day in Massachusetts ($0.286/kWh, $1.85/therm).
-
-**Standard electric tank (EF 0.92):** ~400 kWh/month × $0.286 = **$114.40/month**
-
-**Gas tank (EF 0.62):** ~30 therms/month × $1.85 ÷ 0.62 = **$89.52/month**
-
-**Heat pump water heater (UEF 3.5):** ~114 kWh/month × $0.286 = **$32.60/month**
-
-The heat pump water heater saves over $80/month compared to the standard electric tank and over $55/month compared to gas. See our [electric water heating cost by state](/electric-water-heating-cost) for detailed analysis.
-
-### Example 4: What Does an EV Charger Add to Your Electric Bill?
-
-You drive 1,000 miles/month in an EV averaging 3.5 miles/kWh, charging at home in California ($0.276/kWh peak, $0.14/kWh off-peak TOU).
-
-**At peak rates:** 286 kWh × $0.276 = **$78.94/month**
-
-**At off-peak TOU rates:** 286 kWh × $0.14 = **$40.04/month**
-
-**Gasoline equivalent (30 MPG, $3.20/gal):** 33.3 gal × $3.20 ≈ **$107/month**
-
-Even at California peak rates, the EV costs about 25% less than gasoline. At off-peak TOU rates, it's about 63% cheaper. This is why [time-of-use rates](/kwh-cost-calculator) matter enormously for EV owners.
-
-## Understanding Your Electricity Bill Line Items
-
-Your bill includes more than just the per-kWh charge. Here's what each component means:
-
-| Line Item | What It Is | Typical Range |
-|---|---|---|
-| Energy/Generation Charge | Cost of producing the electricity | 60–70% of total |
-| Transmission Charge | Moving power from plants to substations | 5–10% of total |
-| Distribution Charge | Delivering power from substations to your home | 15–20% of total |
-| Customer Charge | Fixed monthly service fee | $5–$20/month |
-| Fuel Adjustment | Pass-through of fuel cost changes | Variable |
-| Renewable Energy Charge | Funding for renewable programs | $2–$10/month |
-| Taxes & Fees | State, local taxes, regulatory fees | 5–12% of total |
-
-<Callout type="warning">
-When calculating your "true" cost per kWh, divide your **total bill** (minus any fixed monthly charges) by your **total kWh used**. This gives you your "all-in" effective rate, which is usually 10–20% higher than the advertised energy rate alone.
-</Callout>
-
-## How kWh Costs Compare Across Energy Sources
-
-When evaluating whether to go electric, gas, propane, or solar, you need to compare costs on an equal footing. The standard comparison unit is cost per million BTU delivered.
-
-| Energy Source | 2026 Avg Price | Efficiency | Effective Cost/MMBTU |
-|---|---|---|---|
-| Natural Gas (furnace) | $1.22/therm | 96% AFUE | $12.71 |
-| Natural Gas (furnace, old) | $1.22/therm | 80% AFUE | $15.25 |
-| Electricity (resistance heat) | $0.18/kWh | 100% | $49.24 |
-| Electricity (heat pump, COP 3.0) | $0.18/kWh | 300% | $16.41 |
-| Electricity (heat pump, COP 4.0) | $0.18/kWh | 400% | $12.31 |
-| Propane | $2.85/gallon | 95% AFUE | $32.75 |
-| Heating Oil | $3.95/gallon | 85% AFUE | $33.50 |
-| Wood Pellets | $280/ton | 80% | $21.34 |
-
-*The electricity rows use a ~$0.18/kWh basis (illustrative — use the calculator for exact costs).*
-
-This table reveals why heat pumps are transforming the economics of home heating. At a COP of 4.0 (common for modern cold-climate heat pumps at moderate temperatures), electricity through a heat pump is actually **cheaper per BTU than natural gas** — even at the national average electric rate.
-
-## Tips for Reducing Your Cost Per kWh
-
-You can't always control your utility's rate, but you can effectively reduce what you pay per kWh through several strategies.
-
-**Switch to a TOU plan.** If your utility offers time-of-use pricing, shifting major loads to off-peak hours (nights, weekends) can cut your effective rate by 15–25%. This works especially well if you can charge EVs, run dishwashers, and do laundry during off-peak windows.
-
-**Install solar panels.** A solar system produces electricity at an effective cost of $0.04–$0.08/kWh over its 25-year life, well below any utility rate. With net metering, excess production offsets your bill at retail rates.
-
-**Negotiate your rate.** In deregulated states (Texas, Ohio, Pennsylvania, and others), you can shop for competitive electricity suppliers. Comparison sites like EnergySage, Power to Choose (TX), and PA Power Switch let you find lower rates.
-
-**Reduce consumption in expensive tiers.** If you're on a tiered rate plan, every kWh you save comes off the most expensive tier first. Cutting 200 kWh/month from a tiered plan might save $0.25/kWh on those kilowatt-hours — far more than the average rate suggests.
-
-**Participate in demand response.** Many utilities offer bill credits ($50–$200/year) for allowing brief, controlled adjustments to your AC during peak demand events. You typically won't notice the difference, but the credits add up.
-
-<Callout type="takeaway">
-**Key Takeaways:**
-- 1 kWh costs $0.18 on average nationally, but ranges from $0.105 to $0.421 by state
-- kWh × rate understates real cost on tiered plans (top-tier kWh run ~$0.25 each) and TOU plans (California peak $0.276 vs off-peak $0.14) — multiply by your marginal or peak rate, not the average
-- Your biggest electricity consumers are HVAC, water heating, and clothes drying
-- Space heaters cost $1.50–$2.50/day — they're only economical for single-room heating
-- Heat pump water heaters cut water heating costs by 65–75%
-- Always use your "all-in" rate (total bill ÷ total kWh) for accurate calculations
-- TOU plans, solar, and shopping for rates can reduce your effective cost per kWh
-</Callout>
-
-<FAQ items={[
-  {
-    question: "What is a good price per kWh for electricity?",
-    answer: "The national average is about 18¢/kWh in 2026. Rates below 12¢/kWh are considered cheap (common in the Pacific Northwest and parts of the Great Plains), 12–17¢ is average, 17–25¢ is above average, and above 25¢ is expensive (common in New England, California, and Hawaii). However, a 'good' rate depends on your location — 15¢ is great in Massachusetts but high for Washington state."
-  },
-  {
-    question: "How much does it cost to run a 1,500 watt space heater for 24 hours?",
-    answer: "A 1,500W heater running 24 hours uses 1,500W × 24 ÷ 1,000 = 36 kWh. At ~$0.18/kWh that's ≈$6.48 per day, or roughly ≈$194 over a month — use the calculator for your exact figure. Space heaters are the most expensive form of electric heating on a whole-home basis, but can be economical for heating a single room while lowering the thermostat for the rest of the house."
-  },
-  {
-    question: "Why is my electricity rate different from the state average?",
-    answer: "Several factors cause individual rates to differ from state averages. Your specific utility company may charge more or less than others in the state. Your rate plan (flat, tiered, or TOU) affects your effective rate. Additional charges like fuel adjustments, renewable energy surcharges, and demand charges vary. Deregulated states have multiple competing suppliers with different rates. Also, the 'state average' includes all rate classes — your residential rate may differ from the blended average."
-  }
-]} />
+About 875 kWh on average in the U.S., though it varies widely with climate, home size and whether heating and hot water are electric.
 
 <SourcesBox sources={[
-  { title: "EIA Electric Power Monthly - Average Retail Price", url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html" },
-  { title: "EIA Residential Energy Consumption Survey", url: "https://www.eia.gov/consumption/residential/" },
-  { title: "ENERGY STAR Appliance Energy Use", url: "https://www.energystar.gov/products" },
-  { title: "EIA State Electricity Profiles", url: "https://www.eia.gov/electricity/state/" }
+  { title: "U.S. EIA: Electric Power Monthly, Tables 5.6.A and 5.6.B (average price by state)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "U.S. EIA: How much electricity does an American home use?", url: "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3" },
+  { title: "EPA: Greenhouse Gas Equivalencies Calculator, calculations and references", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" }
 ]} />
 
-<RelatedArticles articles={[
-  "kwh-cost-calculator",
-  "how-many-kwh-per-day-is-normal",
-  "kwh-cost-calculator",
-  "kwh-cost-calculator",
-  "electric-water-heating-cost",
-  "kwh-cost-calculator"
-]} />
+<RelatedArticles articles={frontmatter.relatedArticles} />
