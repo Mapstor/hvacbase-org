@@ -324,13 +324,19 @@ function scanMdx(file) {
   // (h) BRANDS
   let brandCount = 0; const brandsFound = new Set();
   for (const b of BRANDS) {
-    const re = new RegExp('(?<![A-Za-z0-9])' + b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?![A-Za-z0-9])', 'g');
+    // "York" is an HVAC brand but also the tail of "New York" (the state/city). A negative
+    // lookbehind for "New " keeps the place from counting as the brand.
+    const guard = b === 'York' ? '(?<![A-Za-z0-9])(?<!New )' : '(?<![A-Za-z0-9])';
+    const re = new RegExp(guard + b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?![A-Za-z0-9])', 'g');
     const n = (body.match(re) || []).length;
     if (n) { brandCount += n; brandsFound.add(b); }
   }
   // brand + model code = a product mention (reported SEPARATELY from bare brand names)
   const modelRe = new RegExp('\\b(' + BRANDS.filter(b=>!/&/.test(b)).map((b) => b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\s+[A-Z0-9]{2,}[-A-Z0-9]*', 'g');
-  const models = [...new Set(body.match(modelRe) || [])];
+  // Same "New York" guard: "New York NYSERDA" must not read as a York model code.
+  const models = [...new Set([...body.matchAll(modelRe)]
+    .filter((m) => !(m[1] === 'York' && body.slice(Math.max(0, m.index - 4), m.index) === 'New '))
+    .map((m) => m[0]))];
   // Decoding is brand-specific by nature — brand NAMES are benign context on the
   // serial-number decoder, so they don't count there (model codes still reported).
   if (slug === 'hvac-serial-number-decoder') { brandCount = 0; brandsFound.clear(); }
