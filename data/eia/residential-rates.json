@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "description": "Residential electricity price by state from the U.S. EIA Electric Power Monthly, Tables 5.6.A (latest month) and 5.6.B (year-to-date).",
+    "unit": "cents per kilowatthour",
+    "dataMonth": "July 2026",
+    "ytdPeriod": "year-to-date through July 2026",
+    "ytdColumnLabel": "July 2026 YTD",
+    "priorYearMonthColumn": "July 2025",
+    "priorYearYtdColumn": "July 2025 YTD",
+    "tableTitleLatestMonth": "Table 5.6.A. Average Price of Electricity to Ultimate Customers by End-Use Sector, by State, July 2026 and 2025 (Cents per Kilowatthour)",
+    "tableTitleYearToDate": "Table 5.6.B. Average Price of Electricity to Ultimate Customers by End-Use Sector, by State, Year-to-Date through July 2026 and 2025 (Cents per Kilowatthour)",
+    "source": "Source: U.S. Energy Information Administration, Form EIA-861M (formerly EIA-826), Monthly Electric Power Industry Report.",
+    "reportRunStampLatestMonth": "9/21/2026  3:43:03 PM",
+    "reportRunStampYearToDate": "9/21/2026  3:43:09 PM",
+    "generatedFrom": [
+      "data/eia/table_5_06_a.xlsx",
+      "data/eia/table_5_06_b.xlsx"
+    ],
+    "generatedBy": "scripts/eia-rates.mjs",
+    "entryCount": 52
+  },
+  "rates": {
+    "Alabama": {
+      "latestMonthCentsPerKwh": 16.4,
+      "yearToDateCentsPerKwh": 16.54
+    },
+    "Alaska": {
+      "latestMonthCentsPerKwh": 28.83,
+      "yearToDateCentsPerKwh": 27.09
+    },
+    "Arizona": {
+      "latestMonthCentsPerKwh": 15.38,
+      "yearToDateCentsPerKwh": 15.44
+    },
+    "Arkansas": {
+      "latestMonthCentsPerKwh": 14.33,
+      "yearToDateCentsPerKwh": 13.61
+    },
+    "California": {
+      "latestMonthCentsPerKwh": 33.61,
+      "yearToDateCentsPerKwh": 33.25
+    },
+    "Colorado": {
+      "latestMonthCentsPerKwh": 17,
+      "yearToDateCentsPerKwh": 16.72
+    },
+    "Connecticut": {
+      "latestMonthCentsPerKwh": 24.16,
+      "yearToDateCentsPerKwh": 27.97
+    },
+    "Delaware": {
+      "latestMonthCentsPerKwh": 18.48,
+      "yearToDateCentsPerKwh": 17.86
+    },
+    "Florida": {
+      "latestMonthCentsPerKwh": 15.03,
+      "yearToDateCentsPerKwh": 15.3
+    },
+    "Georgia": {
+      "latestMonthCentsPerKwh": 16.27,
+      "yearToDateCentsPerKwh": 15.4
+    },
+    "Hawaii": {
+      "latestMonthCentsPerKwh": 48,
+      "yearToDateCentsPerKwh": 46.28
+    },
+    "Idaho": {
+      "latestMonthCentsPerKwh": 13.73,
+      "yearToDateCentsPerKwh": 12.96
+    },
+    "Illinois": {
+      "latestMonthCentsPerKwh": 19.22,
+      "yearToDateCentsPerKwh": 19.22
+    },
+    "Indiana": {
+      "latestMonthCentsPerKwh": 16.73,
+      "yearToDateCentsPerKwh": 17.04
+    },
+    "Iowa": {
+      "latestMonthCentsPerKwh": 15.99,
+      "yearToDateCentsPerKwh": 14.2
+    },
+    "Kansas": {
+      "latestMonthCentsPerKwh": 15.27,
+      "yearToDateCentsPerKwh": 15.21
+    },
+    "Kentucky": {
+      "latestMonthCentsPerKwh": 13.81,
+      "yearToDateCentsPerKwh": 14.27
+    },
+    "Louisiana": {
+      "latestMonthCentsPerKwh": 12.72,
+      "yearToDateCentsPerKwh": 13.35
+    },
+    "Maine": {
+      "latestMonthCentsPerKwh": 32.41,
+      "yearToDateCentsPerKwh": 29.99
+    },
+    "Maryland": {
+      "latestMonthCentsPerKwh": 21.41,
+      "yearToDateCentsPerKwh": 21.3
+    },
+    "Massachusetts": {
+      "latestMonthCentsPerKwh": 30.49,
+      "yearToDateCentsPerKwh": 30.14
+    },
+    "Michigan": {
+      "latestMonthCentsPerKwh": 23.05,
+      "yearToDateCentsPerKwh": 21.53
+    },
+    "Minnesota": {
+      "latestMonthCentsPerKwh": 17.45,
+      "yearToDateCentsPerKwh": 16.25
+    },
+    "Mississippi": {
+      "latestMonthCentsPerKwh": 14.54,
+      "yearToDateCentsPerKwh": 15.19
+    },
+    "Missouri": {
+      "latestMonthCentsPerKwh": 16.09,
+      "yearToDateCentsPerKwh": 13.96
+    },
+    "Montana": {
+      "latestMonthCentsPerKwh": 14.99,
+      "yearToDateCentsPerKwh": 13.95
+    },
+    "Nebraska": {
+      "latestMonthCentsPerKwh": 13.78,
+      "yearToDateCentsPerKwh": 12.9
+    },
+    "Nevada": {
+      "latestMonthCentsPerKwh": 12.77,
+      "yearToDateCentsPerKwh": 13.53
+    },
+    "New Hampshire": {
+      "latestMonthCentsPerKwh": 26.6,
+      "yearToDateCentsPerKwh": 26.79
+    },
+    "New Jersey": {
+      "latestMonthCentsPerKwh": 25.19,
+      "yearToDateCentsPerKwh": 23.98
+    },
+    "New Mexico": {
+      "latestMonthCentsPerKwh": 16.09,
+      "yearToDateCentsPerKwh": 15.08
+    },
+    "New York": {
+      "latestMonthCentsPerKwh": 29.9,
+      "yearToDateCentsPerKwh": 29.38
+    },
+    "North Carolina": {
+      "latestMonthCentsPerKwh": 15.16,
+      "yearToDateCentsPerKwh": 14.94
+    },
+    "North Dakota": {
+      "latestMonthCentsPerKwh": 13.41,
+      "yearToDateCentsPerKwh": 12.36
+    },
+    "Ohio": {
+      "latestMonthCentsPerKwh": 19.45,
+      "yearToDateCentsPerKwh": 18.7
+    },
+    "Oklahoma": {
+      "latestMonthCentsPerKwh": 14.35,
+      "yearToDateCentsPerKwh": 13.58
+    },
+    "Oregon": {
+      "latestMonthCentsPerKwh": 15.97,
+      "yearToDateCentsPerKwh": 15.4
+    },
+    "Pennsylvania": {
+      "latestMonthCentsPerKwh": 21.72,
+      "yearToDateCentsPerKwh": 21.04
+    },
+    "Rhode Island": {
+      "latestMonthCentsPerKwh": 28.29,
+      "yearToDateCentsPerKwh": 29.22
+    },
+    "South Carolina": {
+      "latestMonthCentsPerKwh": 15.47,
+      "yearToDateCentsPerKwh": 15.93
+    },
+    "South Dakota": {
+      "latestMonthCentsPerKwh": 15.37,
+      "yearToDateCentsPerKwh": 14.5
+    },
+    "Tennessee": {
+      "latestMonthCentsPerKwh": 13.71,
+      "yearToDateCentsPerKwh": 13.87
+    },
+    "Texas": {
+      "latestMonthCentsPerKwh": 15.88,
+      "yearToDateCentsPerKwh": 16.06
+    },
+    "Utah": {
+      "latestMonthCentsPerKwh": 13.12,
+      "yearToDateCentsPerKwh": 13.16
+    },
+    "Vermont": {
+      "latestMonthCentsPerKwh": 23.75,
+      "yearToDateCentsPerKwh": 23.95
+    },
+    "Virginia": {
+      "latestMonthCentsPerKwh": 17.55,
+      "yearToDateCentsPerKwh": 16.83
+    },
+    "Washington": {
+      "latestMonthCentsPerKwh": 14.71,
+      "yearToDateCentsPerKwh": 14.4
+    },
+    "West Virginia": {
+      "latestMonthCentsPerKwh": 15.78,
+      "yearToDateCentsPerKwh": 15.47
+    },
+    "Wisconsin": {
+      "latestMonthCentsPerKwh": 19.06,
+      "yearToDateCentsPerKwh": 19
+    },
+    "Wyoming": {
+      "latestMonthCentsPerKwh": 14.36,
+      "yearToDateCentsPerKwh": 13.95
+    },
+    "District of Columbia": {
+      "latestMonthCentsPerKwh": 25.21,
+      "yearToDateCentsPerKwh": 24.66
+    },
+    "U.S. Total": {
+      "latestMonthCentsPerKwh": 18.31,
+      "yearToDateCentsPerKwh": 18.19
+    }
+  }
+}
