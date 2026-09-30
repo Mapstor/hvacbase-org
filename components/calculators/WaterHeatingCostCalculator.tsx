@@ -25,28 +25,31 @@ import {
   CalculateResetBar,
   useCalculatorSubmit,
 } from './_shared';
+import residentialRates from '@/data/eia/residential-rates.json';
 
 const ACCENT = 'red' as const;
 
-const stateRates: Record<string, { rate: number; name: string }> = {
-  AL: { rate: 14.91, name: 'Alabama' }, AK: { rate: 24.42, name: 'Alaska' }, AZ: { rate: 13.73, name: 'Arizona' },
-  AR: { rate: 12.82, name: 'Arkansas' }, CA: { rate: 29.45, name: 'California' }, CO: { rate: 14.87, name: 'Colorado' },
-  CT: { rate: 25.49, name: 'Connecticut' }, DE: { rate: 14.05, name: 'Delaware' }, FL: { rate: 13.85, name: 'Florida' },
-  GA: { rate: 13.73, name: 'Georgia' }, HI: { rate: 44.19, name: 'Hawaii' }, ID: { rate: 11.34, name: 'Idaho' },
-  IL: { rate: 15.83, name: 'Illinois' }, IN: { rate: 14.79, name: 'Indiana' }, IA: { rate: 13.81, name: 'Iowa' },
-  KS: { rate: 14.33, name: 'Kansas' }, KY: { rate: 12.82, name: 'Kentucky' }, LA: { rate: 12.15, name: 'Louisiana' },
-  ME: { rate: 22.87, name: 'Maine' }, MD: { rate: 14.48, name: 'Maryland' }, MA: { rate: 25.21, name: 'Massachusetts' },
-  MI: { rate: 17.72, name: 'Michigan' }, MN: { rate: 14.36, name: 'Minnesota' }, MS: { rate: 13.15, name: 'Mississippi' },
-  MO: { rate: 13.53, name: 'Missouri' }, MT: { rate: 12.70, name: 'Montana' }, NE: { rate: 12.07, name: 'Nebraska' },
-  NV: { rate: 12.54, name: 'Nevada' }, NH: { rate: 23.15, name: 'New Hampshire' }, NJ: { rate: 16.84, name: 'New Jersey' },
-  NM: { rate: 14.37, name: 'New Mexico' }, NY: { rate: 21.88, name: 'New York' }, NC: { rate: 12.44, name: 'North Carolina' },
-  ND: { rate: 11.66, name: 'North Dakota' }, OH: { rate: 14.22, name: 'Ohio' }, OK: { rate: 12.49, name: 'Oklahoma' },
-  OR: { rate: 12.16, name: 'Oregon' }, PA: { rate: 16.42, name: 'Pennsylvania' }, RI: { rate: 25.27, name: 'Rhode Island' },
-  SC: { rate: 13.70, name: 'South Carolina' }, SD: { rate: 13.04, name: 'South Dakota' }, TN: { rate: 12.51, name: 'Tennessee' },
-  TX: { rate: 13.30, name: 'Texas' }, UT: { rate: 11.23, name: 'Utah' }, VT: { rate: 20.24, name: 'Vermont' },
-  VA: { rate: 13.52, name: 'Virginia' }, WA: { rate: 11.38, name: 'Washington' }, WV: { rate: 13.72, name: 'West Virginia' },
-  WI: { rate: 15.69, name: 'Wisconsin' }, WY: { rate: 11.55, name: 'Wyoming' },
+// State residential prices come from the EIA Electric Power Monthly dataset
+// (year-to-date average, January to July 2026) imported at build time, matching
+// every other calculator in the suite. Keyed by two-letter code for the picker.
+const NAME_TO_CODE: Record<string, string> = {
+  Alabama: 'AL', Alaska: 'AK', Arizona: 'AZ', Arkansas: 'AR', California: 'CA', Colorado: 'CO',
+  Connecticut: 'CT', Delaware: 'DE', Florida: 'FL', Georgia: 'GA', Hawaii: 'HI', Idaho: 'ID',
+  Illinois: 'IL', Indiana: 'IN', Iowa: 'IA', Kansas: 'KS', Kentucky: 'KY', Louisiana: 'LA',
+  Maine: 'ME', Maryland: 'MD', Massachusetts: 'MA', Michigan: 'MI', Minnesota: 'MN', Mississippi: 'MS',
+  Missouri: 'MO', Montana: 'MT', Nebraska: 'NE', Nevada: 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
+  'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', Ohio: 'OH', Oklahoma: 'OK',
+  Oregon: 'OR', Pennsylvania: 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC', 'South Dakota': 'SD', Tennessee: 'TN',
+  Texas: 'TX', Utah: 'UT', Vermont: 'VT', Virginia: 'VA', Washington: 'WA', 'West Virginia': 'WV',
+  Wisconsin: 'WI', Wyoming: 'WY', 'District of Columbia': 'DC',
 };
+
+const rateData = residentialRates.rates as Record<string, { yearToDateCentsPerKwh: number }>;
+const stateRates: Record<string, { rate: number; name: string }> = Object.fromEntries(
+  Object.entries(NAME_TO_CODE)
+    .filter(([name]) => rateData[name])
+    .map(([name, code]) => [code, { rate: rateData[name].yearToDateCentsPerKwh, name }]),
+);
 
 const heaterTypes = [
   { value: 'tank-40', name: '40-gal tank', summary: '4.5kW resistive', watts: 4500, efficiency: 0.90, standbyLoss: 1.2, capacity: 40 },
@@ -57,8 +60,8 @@ const heaterTypes = [
 ];
 
 const householdOptions = [
-  { value: '1', name: '1 person', sub: '~15 gal/day' },
-  { value: '2', name: '2 people', sub: '~30 gal/day' },
+  { value: '1', name: '1 person', sub: '~20 gal/day' },
+  { value: '2', name: '2 people', sub: '~40 gal/day' },
   { value: '3', name: '3 people', sub: '~60 gal/day' },
   { value: '4', name: '4 people', sub: '~80 gal/day' },
   { value: '5', name: '5 people', sub: '~100 gal/day' },
@@ -163,7 +166,7 @@ export default function WaterHeatingCostCalculator() {
             <p className="text-xs text-gray-500 mt-1.5">US 2026 average: $0.18/kWh (EIA). Enter your actual rate for accuracy.</p>
           </div>
           <div>
-            <label className="text-sm font-medium text-gray-700 mb-2 block">Quick-fill by state (optional)</label>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">Quick-fill by state (EIA average, Jan-Jul 2026)</label>
             <select
               value={state}
               onChange={(e) => applyStateRate(e.target.value)}
@@ -173,7 +176,7 @@ export default function WaterHeatingCostCalculator() {
                 <option key={code} value={code}>{data.name}, {data.rate}¢/kWh</option>
               ))}
             </select>
-            <p className="text-[11px] text-gray-400 mt-1.5">Typical residential rates by state (EIA, ~2024 basis, enter your actual rate above for accuracy). Picking a state fills the rate; you can still edit it.</p>
+            <p className="text-[11px] text-gray-400 mt-1.5">EIA average, January to July 2026. Picking a state fills the rate; you can still edit it.</p>
           </div>
         </div>
       </section>
