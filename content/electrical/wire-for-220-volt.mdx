@@ -25,7 +25,9 @@ import { SourcesBox, RelatedArticles } from '@/components'
 
 You're adding a dryer, an EV charger, a range, or a hot tub, and you need to know one thing: **what size wire does this 240-volt circuit need?** Get it wrong and it's not a small mistake, undersized wire on a high-draw circuit overheats, and that's a genuine fire risk. So this is worth getting exactly right.
 
-Here's the honest version, and it starts with something most quick charts leave out: the wire size isn't just a lookup by amperage. It depends on whether the load runs continuously (like an EV charger), the wire's temperature rating, whether it's copper or aluminum, and how far the run is. This page gives you the standard NEC reference sizes *and* the four things that change them, so you actually understand your circuit instead of copying a number that might not fit your situation. Every wire-to-amperage pairing here is based on the National Electrical Code (NEC), linked at the bottom.
+Here's the honest version, and it starts with something most quick charts leave out: the wire size isn't just a lookup by amperage. It depends on whether the load runs continuously (like an EV charger), the wire's temperature rating, whether it's copper or aluminum, and how far the run is. This page gives you the standard NEC reference sizes *and* the four things that change them, so you actually understand your circuit instead of copying a number that might not fit your situation.
+
+Every wire-to-amperage pairing here is based on the National Electrical Code (NEC), linked at the bottom.
 
 One thing up front, because it's the truth and not a disclaimer we're hiding: **a new 240-volt circuit almost always requires a permit and inspection, and in most places it's work a licensed electrician should do or verify.** This page will help you understand what your circuit needs and talk to your electrician with confidence, but the sizing has to be confirmed against your specific appliance's nameplate and your local code.
 
@@ -51,13 +53,17 @@ These follow the NEC ampacity tables (Table 310.16) and the small-conductor rule
 If you take one thing from this page, take this: the table above is a starting point, and **four factors** can push you to a larger wire. This is exactly where simplified charts get people into trouble.
 
 **1. Continuous loads need 25% more (the EV charger trap).**
-The NEC requires circuits for continuous loads (anything drawing for 3+ hours, like an EV charger or an electric heater) to be sized at 125% of the load. This is the single most common dangerous mistake. A 40-amp EV charger draws 40 amps continuously, so people grab 8 AWG (rated for 40–50 amps). But the 125% rule means that 40-amp continuous load needs a **50-amp breaker and 6 AWG copper**, not 8 AWG. Getting this wrong means the wire runs hot for hours at a time.
+The NEC requires circuits for continuous loads (anything drawing for 3+ hours, like an EV charger or an electric heater) to be sized at 125% of the load. This is the single most common dangerous mistake. A 40-amp EV charger draws 40 amps continuously, so people grab 8 AWG (rated for 40–50 amps).
+
+But the 125% rule means that 40-amp continuous load needs a **50-amp breaker and 6 AWG copper**, not 8 AWG. Getting this wrong means the wire runs hot for hours at a time.
 
 **2. Wire temperature rating matters (the 60/75/90°C columns).**
 The same gauge wire has different ampacity depending on its insulation's temperature rating, and cheaper NM-B cable (Romex) is often held to the lower 60°C column at its terminations. A 6 AWG wire that's rated for 50 amps in one column may only be rated lower in another. This is why "6 AWG = 50 amps" isn't universally true, it depends on the wire type and how it's terminated.
 
 **3. Copper vs. aluminum are not interchangeable.**
-Aluminum wire carries less current than copper of the same gauge, so it has to be sized up. A circuit that needs 6 AWG copper needs roughly 4 AWG aluminum for the same job. Mixing these up, using an aluminum gauge as if it were copper, is a classic and dangerous undersizing error. If you have aluminum wire, every size in the table above goes up.
+Aluminum wire carries less current than copper of the same gauge, so it has to be sized up. A circuit that needs 6 AWG copper needs roughly 4 AWG aluminum for the same job.
+
+Mixing these up, using an aluminum gauge as if it were copper, is a classic and dangerous undersizing error. If you have aluminum wire, every size in the table above goes up.
 
 **4. Long runs need thicker wire (voltage drop).**
 On runs longer than about 50 feet, voltage drop becomes significant. The NEC recommends keeping voltage drop under 3% on a branch circuit, and a long run can require going up a wire size (or more) to stay within that, even though the ampacity table says the smaller wire is "fine." An EV charger 150 feet from the panel might need 4 AWG instead of the 6 AWG the amperage alone suggests.
@@ -87,7 +93,9 @@ Our honest recommendation: understand your circuit using this page, then have a 
 A standard electric dryer is a 30-amp circuit, which needs 10 AWG copper wire on a 30-amp breaker (typically 10/3 cable with ground, for a NEMA 14-30 outlet). This is one of the most standardized residential circuits. Confirm against your dryer's nameplate.
 
 **What size wire for a 50-amp 240V circuit?**
-The NEC minimum is 6 AWG copper for a 50-amp circuit. But if it's a continuous load like an EV charger, remember the 125% rule, and on long runs, voltage drop may require upsizing. Aluminum would need to be larger (about 4 AWG). Always confirm against the appliance nameplate and your local code.
+The NEC minimum is 6 AWG copper for a 50-amp circuit. But if it's a continuous load like an EV charger, remember the 125% rule, and on long runs, voltage drop may require upsizing.
+
+Aluminum would need to be larger (about 4 AWG). Always confirm against the appliance nameplate and your local code.
 
 **What wire do I need for a 40-amp EV charger?**
 This is the classic trap. A 40-amp EV charger is a continuous load, so the NEC 125% rule means it needs a 50-amp breaker and 6 AWG copper, not the 8 AWG that 40 amps alone would suggest. On long runs it may need to go larger still for voltage drop.
@@ -96,7 +104,9 @@ This is the classic trap. A 40-amp EV charger is a continuous load, so the NEC 1
 It depends on your experience and local rules, but a new 240V circuit almost always requires a permit and inspection, and the fire risk from an error makes it work most people should have a licensed electrician do or verify. If you DIY, pull the permit and get it inspected, that's your safety check.
 
 **Does copper or aluminum wire change the size I need?**
-Yes, significantly. Aluminum carries less current than copper of the same gauge, so every size goes up. A circuit needing 6 AWG copper needs roughly 4 AWG aluminum. Never substitute one for the other by matching gauge numbers, that's a dangerous undersizing error.
+Yes, significantly. Aluminum carries less current than copper of the same gauge, so every size goes up.
+
+A circuit needing 6 AWG copper needs roughly 4 AWG aluminum. Never substitute one for the other by matching gauge numbers, that's a dangerous undersizing error.
 
 ## How we sourced this page
 
