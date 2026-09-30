@@ -1,291 +1,83 @@
 ---
 slug: "smart-thermostat-savings"
-title: "How Much Do Smart Thermostats Save? (Real Data from 2026)"
-description: "Data-driven analysis of smart thermostat energy savings in 2026. Manufacturer-reported field data and independent study results showing how much you can save by climate zone, HVAC system type, and thermostat brand."
+title: "How Much Do Smart Thermostats Save? (2026)"
+description: "How much a smart or programmable thermostat saves on heating and cooling, where the savings come from, who saves the most and least, and what to watch with heat pumps."
 cluster: "smart-home-thermostats"
 role: "spoke"
-priority: 1
+priority: "P1"
 contentType: "guide"
+author: "Marko Visic, BSc Physics"
 datePublished: "2026-01-15"
-dateUpdated: "2026-07-18"
+dateModified: "2026-09-28"
 relatedArticles:
-  - "smart-thermostat-savings"
-  - "energy-cost-calculator"
-  - "seer-rating-explained"
+  - "hvac-maintenance-checklist"
+  - "heat-pump-guide"
+  - "kwh-cost-calculator"
+  - "gas-vs-electric-heating-cost"
+  - "hvac-rebates-by-state"
 externalLinks:
-  - url: "https://www.energystar.gov/products/smart_thermostats"
-    label: "ENERGY STAR Smart Thermostat Specifications"
-  - url: "https://www.eia.gov/consumption/residential/"
-    label: "EIA Residential Energy Consumption Survey"
-  - url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
-    label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
+  - label: "ENERGY STAR: Smart Thermostats"
+    url: "https://www.energystar.gov/products/smart_thermostats"
+  - label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
+    url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles } from '@/components'
 
-# How Much Do Smart Thermostats Save? (Real Data from 2026)
+# How Much Do Smart Thermostats Save?
 
-Smart thermostats save the average U.S. household roughly **$130–$260 per year** on heating and cooling costs based on manufacturer-reported field studies (Ecobee, Google Nest, Honeywell, Emerson). Actual per-home savings vary widely by climate, HVAC system, and prior thermostat usage. The [ENERGY STAR Connected Thermostat v2.0 spec](https://www.energystar.gov/products/smart_thermostats/key_product_criteria) requires certified models to demonstrate a minimum of **8% heating savings and 10% cooling savings** through third-party field data — that's the floor. Higher figures reported by individual manufacturers are their own study results, not EPA-verified.
+A smart thermostat doesn't make your furnace or air conditioner more efficient. It saves money by running them less: easing off when you're asleep or away, then bringing the house back before you notice. How much that's worth depends on what you do today.
 
-The actual amount you'll save depends on five factors: your climate zone, HVAC system type, energy rates, home size, and how consistently you used your old thermostat. This article breaks down the real data so you can estimate your specific savings.
+**Up to about 10% of your heating and cooling cost, per the DOE's estimate for thermostat setbacks. ENERGY STAR puts the average household's heating and cooling at more than $900 a year, so that's up to about $90 a year; if you already turn the temperature down at night and when you're out, you'll save much less.**
 
-<TableOfContents />
+## Where the savings come from
 
-## The Hard Numbers: What the Data Actually Shows
+- **Setbacks while you sleep or are away.** A cooler house in winter and a warmer one in summer means less running time.
+- **Schedules you don't have to remember.** The savings come from setbacks that actually happen every day.
+- **Geofencing.** Some models detect when everyone has left and set back automatically, then recover before you get home.
+- **Learning.** Some learn your routine and build the schedule for you.
 
-Let's start with the most reliable source: the U.S. Department of Energy and EPA field study requirements for ENERGY STAR smart thermostat certification.
+Each feature saves only if it changes how your system runs compared with now.
 
-### ENERGY STAR v2.0 Requirements (2026)
+## Who saves the most
 
-To earn ENERGY STAR certification, smart thermostats must submit **connected thermostat savings data** from real installations proving a minimum threshold of savings. The [v2.0 specification](https://www.energystar.gov/products/smart_thermostats/key_product_criteria) requires:
+- **The most:** households that leave the temperature fixed day and night, or often forget to turn it down when leaving.
+- **Less:** households that already set back manually and consistently.
+- **Least:** homes that are occupied all day with a steady temperature.
 
-- Minimum **8% heating savings and 10% cooling savings** through field data
-- Data must come from real residential installations, not lab tests
-- Studies must cover at least one full heating and one full cooling season
-- Results must be validated by a third-party entity
+## What ENERGY STAR certification means
 
-This means every ENERGY STAR-certified smart thermostat has demonstrated at least the 8%/10% floor. Manufacturers frequently report higher figures ("up to 20%" or "up to 23%") from their own field studies — those are not the EPA-verified minimums and vary substantially from home to home.
+ENERGY STAR certifies smart thermostats based on actual field data showing they deliver savings, under a specification in effect since January 1, 2017. Certified models also enter a low-power standby mode when idle, and many work with utility programs that pay incentives.
 
-### Manufacturer-Reported Savings
+## Heat pumps need a gentler approach
 
-<ComparisonTable
-  title="Manufacturer-Reported Savings Claims by Brand (2026)"
-  headers={["Brand/Model", "Heating Savings", "Cooling Savings", "Study Basis", "Avg Dollar Savings/Year"]}
-  rows={[
-    ["Ecobee Premium", "Up to 23%", "Up to 20%", "Ecobee field studies (multi-zone)", "$190–$260"],
-    ["Google Nest Learning", "Up to 23%", "Up to 15%", "Nest-published field data", "$175–$245"],
-    ["Google Nest (Budget)", "Up to 20%", "Up to 15%", "Manufacturer-reported", "$130–$185"],
-    ["Honeywell T9", "Up to 20%", "Up to 20%", "Manufacturer-reported", "$155–$225"],
-    ["Emerson Sensi Touch 2", "Up to 23%", "Up to 23%", "Manufacturer-reported", "$160–$240"],
-    ["Amazon Smart Thermostat", "Up to 20%", "Up to 20%", "Manufacturer-reported", "$110–$170"],
-  ]}
-/>
+With a heat pump, a deep setback can backfire. When the thermostat calls for a big temperature rise in the morning, it may switch on the electric backup strips, which cost several times as much per unit of heat. Use a thermostat set up for heat pumps, which ramps up gradually, and keep setbacks modest.
 
-<Callout type="info">
-**About "Up to" claims:** Manufacturers report maximum savings from their best-performing installations. The "up to" qualifier means your results may vary — and often will. The ENERGY STAR v2.0 floor of 8% heating / 10% cooling is what's independently verified; the higher figures come from each manufacturer's own field study data submitted with certification. For a plain-language walk-through of the programmable-vs-smart tradeoffs and the savings math that underlies those "up to" claims, see our [programmable vs smart thermostat guide](/smart-thermostat-savings).
-</Callout>
+## Payback
 
-## How Much the Average Household Spends on HVAC
+At up to about $90 a year, a thermostat that costs $150 installed pays back in under two years, for a household that wasn't setting back before. For one already setting back consistently, the payback can take much longer. Check your utility for rebates, which can cut the price.
 
-To calculate dollar savings, you need to know your baseline. Here's what the data shows:
+## Frequently asked questions
 
-According to the U.S. Energy Information Administration's **Residential Energy Consumption Survey (RECS)**, the average American household spent approximately **$2,340 on total energy** in 2026. Space heating and cooling account for roughly **48% of household energy use** — about **$1,123 per year**.
+### How much money does a smart thermostat save?
 
-<ComparisonTable
-  title="Average Annual HVAC Costs by Region (EIA Data)"
-  headers={["Region", "Avg Heating Cost", "Avg Cooling Cost", "Total HVAC", "Savings at 15%", "Savings at 23%"]}
-  rows={[
-    ["Northeast", "$1,050", "$340", "$1,390", "$209", "$320"],
-    ["Midwest", "$890", "$380", "$1,270", "$191", "$292"],
-    ["South", "$470", "$790", "$1,260", "$189", "$290"],
-    ["West", "$510", "$420", "$930", "$140", "$214"],
-    ["Mountain", "$680", "$450", "$1,130", "$170", "$260"],
-    ["Pacific", "$440", "$290", "$730", "$110", "$168"],
-    ["National Average", "$640", "$483", "$1,123", "$168", "$258"],
-  ]}
-/>
+Up to about 10% of heating and cooling cost, per the DOE, or up to about $90 a year against ENERGY STAR's average of more than $900. Actual savings depend on how much you set back today.
 
-## Savings Breakdown by HVAC System Type
+### Is a smart thermostat worth it?
 
-Your HVAC system type significantly affects how much a smart thermostat can save you. Systems with higher operating costs offer more room for savings.
+Usually, if you don't already set back your temperature consistently. If you do, the savings are small, and the value is mostly convenience and remote control.
 
-<ComparisonTable
-  title="Smart Thermostat Savings by HVAC System"
-  headers={["HVAC System", "Avg Annual Cost", "Typical Savings %", "Annual Dollar Savings", "Notes"]}
-  rows={[
-    ["Gas Furnace + Central AC", "$1,100–$1,400", "18–23%", "$200–$320", "Most common setup; highest absolute savings"],
-    ["Oil Furnace + Central AC", "$1,800–$2,400", "15–20%", "$270–$480", "Expensive fuel = high savings potential"],
-    ["Heat Pump (all-electric)", "$900–$1,300", "15–22%", "$135–$286", "Savings vary with aux heat management"],
-    ["Electric Furnace + AC", "$1,200–$1,800", "20–25%", "$240–$450", "Most expensive to run; most to save"],
-    ["Dual Fuel (HP + Gas)", "$800–$1,100", "15–20%", "$120–$220", "Smart switchover optimization adds savings"],
-    ["Propane Furnace + AC", "$1,600–$2,200", "15–20%", "$240–$440", "Expensive fuel; significant savings"],
-    ["Boiler (hydronic)", "$900–$1,400", "10–15%", "$90–$210", "Lower savings due to system thermal mass"],
-  ]}
-/>
+### Are smart thermostats better than programmable ones?
 
-### Why Electric Systems Save the Most
+They save the same way, through setbacks. The difference is that smart thermostats make the setbacks happen automatically, which is where most programmable thermostats fall short.
 
-Homes with electric resistance heating (electric furnaces, baseboard heaters) have the highest per-unit energy costs. Electricity costs **$0.18/kWh nationally** (EIA, 2026), and electric resistance heating converts every kWh directly to heat at a 1:1 ratio. A 20% reduction on a $1,500/year electric heating bill saves $300 — nearly the cost of a premium smart thermostat.
+### Do smart thermostats work with heat pumps?
 
-### Why Boiler Systems Save the Least
+Yes, if configured for a heat pump. Keep setbacks modest so recovery doesn't trigger the electric backup heat.
 
-Hydronic (boiler) heating systems have high thermal mass. The water in the pipes and radiators retains heat for extended periods, which means temperature setbacks take longer to take effect and recovery times are longer. Smart thermostat algorithms designed for forced-air systems don't optimize as well for boilers. Expect savings at the lower end of the range (10–15%).
+<SourcesBox sources={[
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), thermostat savings up to 10%", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
+  { title: "ENERGY STAR: Smart Thermostats (certification; heating and cooling over $900 a year)", url: "https://www.energystar.gov/products/smart_thermostats" }
+]} />
 
-<Callout type="warning">
-**Warning:** If you have electric baseboard heaters, standard smart thermostats (Nest, Ecobee, Honeywell) won't work — they're designed for low-voltage (24V) systems. Baseboard heaters use line voltage (120V or 240V). You need a line-voltage smart thermostat like the **Mysa Smart Thermostat** ($149), which reports savings of up to 26% on baseboard heating costs.
-</Callout>
-
-## Savings by Climate Zone
-
-Climate is the single biggest factor in how much a smart thermostat saves you. The more extreme your heating or cooling needs, the more there is to save.
-
-<ComparisonTable
-  title="Smart Thermostat Savings by IECC Climate Zone"
-  headers={["Zone", "Example Cities", "Dominant Cost", "Smart Thermostat Savings Range", "Avg Payback Period"]}
-  rows={[
-    ["1 (Very Hot-Humid)", "Miami, Key West", "Cooling (80%+)", "$180–$310/yr", "8–14 months"],
-    ["2 (Hot-Humid)", "Houston, New Orleans, Phoenix", "Cooling (65–75%)", "$200–$370/yr", "7–12 months"],
-    ["3 (Warm)", "Atlanta, Dallas, Las Vegas", "Mixed (55/45)", "$180–$280/yr", "9–14 months"],
-    ["4 (Mixed)", "Washington DC, Nashville, Portland OR", "Mixed (50/50)", "$150–$260/yr", "10–16 months"],
-    ["5 (Cool)", "Chicago, Denver, Boston", "Heating (60–70%)", "$170–$310/yr", "8–15 months"],
-    ["6 (Cold)", "Minneapolis, Burlington VT", "Heating (75–85%)", "$220–$370/yr", "7–11 months"],
-    ["7 (Very Cold)", "Duluth, Fargo, Anchorage", "Heating (85%+)", "$280–$420/yr", "6–10 months"],
-  ]}
-/>
-
-**Key insight:** The coldest climates offer the fastest payback periods because heating costs are so high.
-
-## The Five Mechanisms That Generate Savings
-
-Understanding *how* smart thermostats save energy helps you maximize your results.
-
-### 1. Occupancy-Based Setbacks
-
-When sensors detect an empty home, the thermostat enters "away" mode, typically setting back the temperature 5–8°F. The DOE estimates that a programmable thermostat can save up to **10% per year** on heating and cooling. Smart thermostats do this automatically, capturing savings that most homeowners miss because they forget to adjust the thermostat when leaving.
-
-**Maximizing this savings:** Add remote sensors (Ecobee or Honeywell) so the thermostat knows the entire home is empty, not just the hallway.
-
-### 2. Optimized Scheduling
-
-Smart thermostats replace the static 4-period schedules of programmable thermostats with dynamic, adaptive schedules. The Nest Learning Thermostat adjusts its schedule daily based on your behavior patterns. Ecobee and Honeywell use occupancy data and user-set schedules with smart recovery algorithms.
-
-**The key insight:** Programmable thermostats technically offer the same scheduling capability, but most programmable-thermostat owners underuse the scheduling features, often treating them like manual thermostats and leaving substantial savings on the table. See our [programmable vs smart thermostat comparison](/smart-thermostat-savings) for the full picture.
-
-### 3. Geofencing
-
-Geofencing uses your smartphone's GPS to detect when you leave home and when you're returning. This is more responsive than occupancy sensors for departure detection (the thermostat starts saving energy the moment you drive away, rather than waiting for occupancy sensors to time out) and more proactive for arrival (it starts pre-conditioning your home when you're 15–20 minutes away).
-
-**Real impact:** Geofencing primarily helps households with irregular schedules. If you work 9–5 every weekday, scheduled setbacks capture most of the same savings. But if you travel frequently, work variable hours, or leave home unpredictably, geofencing adds measurable savings.
-
-### 4. Weather Compensation
-
-Smart thermostats pull local weather forecast data and adjust their algorithms accordingly. On a mild day, the system runs less aggressively. Before a cold front arrives, it may pre-heat slightly to take advantage of lower energy rates or pre-cool before a heat wave hits.
-
-Some models also use **Time-of-Use (TOU) rate awareness** in areas with variable electricity pricing, shifting HVAC demand to cheaper off-peak hours. This doesn't reduce energy consumption but reduces energy cost — which is what actually matters for your wallet.
-
-### 5. Runtime Optimization
-
-Smart thermostats minimize **short cycling** (frequent on/off switching that wastes energy and increases wear). They also optimize temperature differential settings, compressor protection timers, and fan-off delay settings to extract maximum efficiency from your existing HVAC equipment.
-
-This is the most invisible savings mechanism but it adds up, especially on older HVAC systems that may have been running with suboptimal thermostat settings for years.
-
-## What Affects Your Savings: The Variables
-
-Not every household will hit the manufacturer-reported 23% ceiling. Here are the factors that push you higher or lower:
-
-<ComparisonTable
-  title="Factors That Increase or Decrease Smart Thermostat Savings"
-  headers={["Factor", "Higher Savings", "Lower Savings"]}
-  rows={[
-    ["Previous thermostat behavior", "Never adjusted temp; set-and-forget", "Already manually set back when leaving/sleeping"],
-    ["Schedule regularity", "Variable/unpredictable schedule", "Very consistent 9-to-5 schedule"],
-    ["Home occupancy", "Empty home 8+ hours/day", "Someone always home (WFH, retirees)"],
-    ["Home insulation", "Moderate insulation (responds well to setbacks)", "Very poor insulation (loses heat too fast) or very good (already efficient)"],
-    ["HVAC system age", "Older, less efficient system (more waste to eliminate)", "Brand new high-efficiency system (already optimized)"],
-    ["Climate extremity", "Extreme hot or cold (high HVAC runtime)", "Mild year-round climate (low HVAC runtime)"],
-    ["Energy rates", "High rates ($0.20+/kWh)", "Low rates ($0.10/kWh)"],
-    ["Previous thermostat type", "Manual/no thermostat", "Already had a well-programmed programmable"],
-    ["Home size", "Larger homes (more to heat/cool)", "Small apartments (minimal HVAC load)"],
-  ]}
-/>
-
-## Smart Thermostat ROI Calculator
-
-Use these formulas to estimate your personal savings:
-
-**Step 1:** Find your annual HVAC cost. Check your utility bills and add up 12 months of gas + electricity, then multiply by 0.48 (the average HVAC share of total energy costs). If you know your exact HVAC costs from your utility's usage breakdown, use that instead.
-
-**Step 2:** Estimate your savings percentage. Use 10% (the ENERGY STAR cooling-savings floor) as a conservative baseline. Adjust upward toward the manufacturer-reported "up to" ceiling if you have an irregular schedule, leave home frequently, or previously never adjusted your thermostat.
-
-**Step 3:** Calculate payback.
-
-| Your HVAC Cost/Year | Savings at 15% | Savings at 20% | Savings at 23% |
-|---------------------|----------------|----------------|----------------|
-| $600 | $90 | $120 | $138 |
-| $900 | $135 | $180 | $207 |
-| $1,200 | $180 | $240 | $276 |
-| $1,500 | $225 | $300 | $345 |
-| $1,800 | $270 | $360 | $414 |
-| $2,100 | $315 | $420 | $483 |
-| $2,500 | $375 | $500 | $575 |
-
-For a $249 thermostat saving 20% on a $1,200 HVAC bill: $1,200 × 0.20 = $240/year → payback in 12.5 months.
-
-## Long-Term Savings: The 5 and 10-Year Picture
-
-Smart thermostats don't just save money in year one. Energy rates increase an average of **2.5–3% annually** (EIA historical data), which means your savings grow each year:
-
-<ComparisonTable
-  title="Cumulative Savings Over Time (Based on $1,200/yr HVAC, 20% savings, 2.8% rate increase)"
-  headers={["Year", "Annual HVAC Cost (no thermostat)", "Annual Savings", "Cumulative Savings"]}
-  rows={[
-    ["Year 1", "$1,200", "$240", "$240"],
-    ["Year 2", "$1,234", "$247", "$487"],
-    ["Year 3", "$1,268", "$254", "$741"],
-    ["Year 5", "$1,340", "$268", "$1,279"],
-    ["Year 7", "$1,416", "$283", "$1,855"],
-    ["Year 10", "$1,538", "$308", "$2,748"],
-  ]}
-/>
-
-Over a typical 10-year smart thermostat lifespan, a single $249 investment saves approximately **$2,750** in cumulative HVAC costs for the average household. That's an 11:1 return on investment.
-
-<Callout type="tip">
-**Tip:** If you're replacing a thermostat that already has smart features (like upgrading from a Nest 3rd Gen to 4th Gen), your incremental savings will be smaller — perhaps 2–5% improvement from algorithm updates. The biggest savings come from upgrading a manual or basic programmable thermostat to any smart model.
-</Callout>
-
-## Common Savings Myths Debunked
-
-**Myth: "Smart thermostats save 50% on energy bills."** No. Manufacturer-reported HVAC savings top out at roughly 20-23%, and HVAC is only about 48% of your total energy bill. Total bill savings are typically 8-12%.
-
-**Myth: "You need the most expensive thermostat for the best savings."** The $79 Amazon Smart Thermostat saves up to 20% — only 3 percentage points less than the $249 Ecobee Premium. Per dollar invested, budget models often have better ROI.
-
-**Myth: "Smart thermostats don't save much if you already program your thermostat."** Even well-programmed thermostats miss savings from occupancy detection, geofencing, and weather compensation.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-1. **Average savings: $130–$260/year** based on manufacturer-reported field studies; the ENERGY STAR-verified floor is 8% heating / 10% cooling
-2. **Fastest payback:** Budget models like Google Nest ($129) pay for themselves in 8–12 months
-3. **Biggest savers:** Homes with irregular schedules, extreme climates, or expensive fuel (oil/propane/electric)
-4. **Smallest savers:** Always-home households in mild climates with already-optimized thermostats
-5. **10-year ROI: approximately $2,750** in cumulative savings from a single $249 investment
-6. **Every ENERGY STAR-certified thermostat meets the 8% heating / 10% cooling floor** — even the cheapest certified model delivers verifiable savings
-7. **The #1 factor** in your savings is how you used your old thermostat — "set and forget" users save the most
-8. **Add remote sensors** to increase savings by 2–5% in homes with uneven temperatures
-</Callout>
-
-<FAQ
-  items={[
-    {
-      question: "How much does a smart thermostat save per month?",
-      answer: "The average U.S. household saves $11–$22 per month with a smart thermostat, based on annual savings of $130–$260. Monthly savings vary significantly by season — you'll save more during peak heating (December–February) and cooling (June–August) months, and less during mild shoulder seasons when your HVAC runs minimally."
-    },
-    {
-      question: "Will a smart thermostat save money if I work from home?",
-      answer: "Yes, but less than someone who leaves the house daily. Work-from-home households miss out on the biggest savings mechanism — occupancy-based setbacks. Manufacturers report full-time WFH households typically see savings toward the lower end of the reported range. A smart thermostat is still a positive investment for WFH households."
-    },
-    {
-      question: "How much do smart thermostats save on electric bills specifically?",
-      answer: "For cooling costs specifically, smart thermostats save 15–20% on your electricity bill attributable to air conditioning. If your AC costs $800/year, expect to save $120–$160. For homes with electric heating (heat pumps or electric furnaces), total electric bill savings can reach $200–$450/year since the thermostat optimizes both heating and cooling."
-    },
-    {
-      question: "Can a smart thermostat save money on gas bills?",
-      answer: "Yes. Manufacturer field studies report smart thermostats can reduce gas heating costs meaningfully — Ecobee reports up to 23% for best-case installations. For the average household spending $640/year on gas for heating, savings in the low double-digits translate to roughly $60–$150/year. The savings come from reducing furnace runtime through occupancy detection, geofencing, and optimized scheduling. Oil and propane users see even higher dollar savings due to higher fuel costs."
-    },
-    {
-      question: "Are smart thermostat savings worth it for a small apartment?",
-      answer: "For small apartments (under 800 sq ft) in mild climates, the savings may be modest — $50–$100/year. A $79 Amazon Smart Thermostat still pays for itself within a year, making it worthwhile. However, if your apartment HVAC costs are under $400/year, the convenience features (remote control, scheduling) may be a bigger benefit than the energy savings. For larger apartments or those in extreme climates, savings follow the same patterns as single-family homes."
-    }
-  ]}
-/>
-
-<SourcesBox
-  sources={[
-  { label: "ENERGY STAR Smart Thermostat Specifications v2.0", url: "https://www.energystar.gov/products/smart_thermostats" },
-  { label: "U.S. EIA — Residential Energy Consumption Survey (RECS)", url: "https://www.eia.gov/consumption/residential/" },
-  { label: "U.S. EIA — Average Retail Price of Electricity", url: "https://www.eia.gov/electricity/monthly/" },
-  { label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" }
-]}
-/>
-
+<RelatedArticles articles={frontmatter.relatedArticles} />
