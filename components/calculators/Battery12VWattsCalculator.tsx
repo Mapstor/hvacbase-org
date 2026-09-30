@@ -72,9 +72,9 @@ const commonLoads = [
 // efficiency losses. Standard mainstream guidance (Battery University, Victron).
 const CHARGE_TAPER_FACTOR = 1.15;
 
-// Recommended universal charge rate — C/10 is safe for both chemistries.
-// Lithium accepts up to C/2 with a matched charger; the caveat in the results
-// panel notes this so users don't assume 11.5 hr is the ceiling.
+// Charge-rate assumption for the charge-time estimate — C/10 (10% of capacity),
+// a conservative rate safe for both chemistries. The results panel tells the
+// user to charge at the rate their battery's maker specifies.
 const RECOMMENDED_C_RATE = 0.1;
 
 // Chemistry-specific temperature derating anchors, verified against
@@ -282,8 +282,7 @@ export default function Battery12VWattsCalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Depth of discharge
               <InfoTip label="DOD">
-                LiFePO4/lithium: 80–90% safely (some go 100% for one-shot runtime).
-                Lead-acid (flooded/AGM): 50% preserves cycle life; 80% shortens life dramatically.
+                Typical usable depth: about 90% for lithium iron phosphate, 50% for lead-acid. Check your battery&rsquo;s specs.
               </InfoTip>
               <span className="ml-auto text-sm font-semibold text-blue-700">{dod}%</span>
             </label>
@@ -302,14 +301,15 @@ export default function Battery12VWattsCalculator() {
               <span className="ml-auto text-sm font-semibold text-blue-700">{sysEff}%</span>
             </label>
             <input type="range" min={50} max={100} step={1} value={systemEfficiency} onChange={(e) => setSystemEfficiency(e.target.value)} className="w-full accent-blue-600" aria-label="System efficiency" />
+            <p className="text-xs text-gray-500 mt-1">Assumed 90%; lower it for an old inverter or long wiring runs.</p>
           </div>
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Operating temperature
               <InfoTip label="temperature">
                 Cold reduces battery capacity, cold is a loss, never a gain. Lithium is more tolerant than lead-acid.
-                Approximate anchor points: at 32 °F, lithium delivers ~80% of rated capacity, lead-acid ~65%.
-                At −4 °F, lithium ~60%, lead-acid ~40%.
+                These are assumed anchor points: at 32 °F, lithium delivers ~80% of rated capacity, lead-acid ~65%.
+                At −4 °F, lithium ~60%, lead-acid ~40%. Your cell&rsquo;s real curve varies.
               </InfoTip>
               <span className="ml-auto text-sm font-semibold text-blue-700">{tempF}°F</span>
             </label>
@@ -363,7 +363,7 @@ export default function Battery12VWattsCalculator() {
               rows={[
                 { label: 'Nominal capacity', detail: `${totalCapacity}Ah × 12V`, factor: `${fmt(calc.nominalWh)} Wh` },
                 { label: 'DoD limit', detail: `× ${dod}%`, factor: `${calc.usableAhBeforeTemp.toFixed(0)}Ah` },
-                { label: 'Temperature derating', detail: `${tempF}°F, ${srcChemistry} → ${(calc.derating * 100).toFixed(0)}%`, factor: `${calc.adjustedCapacityAh.toFixed(0)}Ah` },
+                { label: 'Temperature derating (assumed)', detail: `${tempF}°F, ${srcChemistry} → ${(calc.derating * 100).toFixed(0)}%`, factor: `${calc.adjustedCapacityAh.toFixed(0)}Ah` },
                 { label: 'System efficiency', detail: `× ${sysEff}%`, factor: `${calc.usableWh.toFixed(0)} Wh usable` },
                 { label: 'Load current', detail: `${loadWatts}W ÷ 12V`, factor: `${calc.currentAmps.toFixed(1)}A` },
               ]}
@@ -391,7 +391,7 @@ export default function Battery12VWattsCalculator() {
             </h4>
             <div className="space-y-1.5 text-xs text-gray-700">
               <div className="flex justify-between py-1.5 border-b border-gray-100">
-                <span>Recommended charger (C/10 universal)</span>
+                <span>Charge current (assumes C/10)</span>
                 <strong>{calc.recommendedChargeRateA.toFixed(1)}A</strong>
               </div>
               <div className="flex justify-between py-1.5 border-b border-gray-100">
@@ -406,9 +406,7 @@ export default function Battery12VWattsCalculator() {
             <div className="mt-3 p-3 bg-blue-50 rounded text-xs text-blue-900">
               Formula: <code className="bg-blue-100 px-1 rounded">time = (Ah × DoD) / charge amps × 1.15</code>
 , the 1.15 covers CC-CV taper (last 15–20% of charging slows) plus round-trip charging losses.
-              {srcChemistry === 'lithium' && (
-                <> Lithium (LiFePO4) can safely accept up to C/2 (50A on a 100Ah battery) with a matched lithium charger, cut these times ~5×.</>
-              )}
+              {' '}Charge at the rate your battery&rsquo;s maker specifies; the charge-time estimate assumes 10% of capacity (C/10).
             </div>
 
             {!calc.canMeet && (
@@ -448,7 +446,7 @@ export default function Battery12VWattsCalculator() {
           <p className="text-xs text-gray-700 leading-relaxed">
             Correct wire gauge and fuse size for a DC circuit depend on the specific cable run length, ambient
             temperature, insulation rating, and whether you follow <strong>NEC 310</strong> (residential /
-            general) or <strong>ABYC E-11</strong> (marine, ~40% stricter derating). Voltage drop follows{' '}
+            general) or <strong>ABYC E-11</strong> (marine). Voltage drop follows{' '}
             <code className="bg-gray-100 px-1 rounded">V_drop = 2 × I × L × ρ / A_cmil</code>, length matters, and a
             lookup that ignores length can push you toward wire that overheats.
           </p>
