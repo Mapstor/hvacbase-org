@@ -38,23 +38,23 @@ const ACCENT = 'red' as const;
 // against ENERGY STAR product listings + DOE 10 CFR 430.32 minimums.
 const heaterTypes = [
   { value: 'tank-electric', name: 'Tank, Electric', tier: 'Common',
-    uef: 0.92, recoveryRate: 20, price: 1500, isTank: true, isCOP: false,
-    note: 'Cheapest install; slow recovery (~20 gal/hr), needs a bigger tank than gas for the same household.' },
+    uef: 0.92, recoveryRate: 20, isTank: true, isCOP: false,
+    note: 'Electric resistance heating. Slower recovery than gas (the calculator assumes about 20 gallons per hour), so it needs a bigger tank for the same household.' },
   { value: 'tank-gas', name: 'Tank, Gas', tier: 'Common',
-    uef: 0.64, recoveryRate: 40, price: 1800, isTank: true, isCOP: false,
-    note: 'Fast recovery (~40 gal/hr). Standard in most homes; UEF 0.64 (typical) to 0.68+ (ENERGY STAR).' },
+    uef: 0.64, recoveryRate: 40, isTank: true, isCOP: false,
+    note: 'Faster recovery than electric (the calculator assumes about 40 gallons per hour). The most common setup in U.S. homes with gas.' },
   { value: 'tankless-electric', name: 'Tankless, Electric', tier: 'High',
-    uef: 0.98, recoveryRate: 0, price: 2500, isTank: false, isCOP: false,
-    note: 'Unlimited hot water. Often needs a 200A panel + multiple 240V circuits for whole-house flow.' },
+    uef: 0.98, recoveryRate: 0, isTank: false, isCOP: false,
+    note: 'Heats water on demand. Whole-house models draw a lot of current and often need several 240-volt circuits and panel capacity.' },
   { value: 'tankless-gas', name: 'Tankless, Gas', tier: 'High',
-    uef: 0.88, recoveryRate: 0, price: 3200, isTank: false, isCOP: false,
-    note: 'Unlimited + handles cold inlet better than electric. UEF 0.87-0.90 typical, condensing hits 0.93+.' },
+    uef: 0.88, recoveryRate: 0, isTank: false, isCOP: false,
+    note: 'Heats water on demand. Its burner size limits how much flow it can heat when the incoming water is cold.' },
   { value: 'heat-pump', name: 'Heat Pump (HPWH)', tier: 'Ultra',
-    uef: 3.5, recoveryRate: 15, price: 3500, isTank: true, isCOP: true,
-    note: 'Effective COP 3.0-3.5; ~3× cheaper to run than electric resistance. Needs 700-1000 cu ft of air or louvered closet.' },
+    uef: 3.5, recoveryRate: 15, isTank: true, isCOP: true,
+    note: 'Moves heat from the surrounding air, using a fraction of the electricity of resistance heating. Needs room and airflow around it; check the manufacturer\'s space requirements.' },
   { value: 'solar', name: 'Solar + Backup', tier: 'Ultra',
-    uef: 0.90, recoveryRate: 30, price: 6000, isTank: true, isCOP: false,
-    note: 'Lowest ongoing cost; highest upfront. UEF here reflects the backup element (solar itself is ~free).' },
+    uef: 0.90, recoveryRate: 30, isTank: true, isCOP: false,
+    note: 'Lowest running cost and highest upfront cost. The efficiency used here reflects the backup heater.' },
 ];
 
 const usagePatterns = [
@@ -125,7 +125,7 @@ const DEFAULTS = {
   laundryLoads:     '5',
   simultaneousUse:  '2',
   electricityRate:  '0.18',   // EIA 2026 US national avg
-  gasPrice:         '1.35',   // EIA 2026 heating-season national midpoint
+  gasPrice:         '1.35',   // assumed; your bill shows your rate
 };
 
 export default function WaterHeaterSizingCalculator() {
@@ -215,10 +215,11 @@ export default function WaterHeaterSizingCalculator() {
     // user already on tankless.
     const exceedsSingleTank = selectedType.isTank && requiredTankVol > TANK_MAX;
 
-    // === TANKLESS SIZING (unchanged conceptually) ===
+    // === TANKLESS SIZING ===
+    // 2.5 GPM per fixture is the federal showerhead maximum, so sizing on it
+    // stays on the safe side (most fixtures draw less than that).
     const simultaneousGPM = parseFloat(src.simultaneousUse) * 2.5;
-    const adjustedGPM = src.heaterType === 'tankless-electric' ? simultaneousGPM * 1.2 : simultaneousGPM;
-    const recommendedTanklessGPM = Math.ceil(adjustedGPM);
+    const recommendedTanklessGPM = Math.ceil(simultaneousGPM);
     const maxTemperatureRise = src.heaterType === 'tankless-gas' ? 70 : 50;
 
     // === ANNUAL ENERGY + COST (efficiency divides EXACTLY ONCE) ===
@@ -246,16 +247,12 @@ export default function WaterHeaterSizingCalculator() {
       yearlyCost = (backupInputBTU / BTU_PER_KWH) * eRate;
     }
 
-    // === BASELINE COMPARE (for HPWH payback framing) ===
+    // === BASELINE COMPARE (energy only) ===
     // Compare vs the equivalent standard electric tank at the same usage.
     const baselineElectricUEF = 0.92;
     const baselineElectricInputBTU = annualOutputBTU / baselineElectricUEF;
     const baselineElectricCost = (baselineElectricInputBTU / BTU_PER_KWH) * eRate;
-    const baselineElectricPrice = 1500;   // typical installed cost of a standard electric tank
     const annualSavings = baselineElectricCost - yearlyCost;
-    const paybackYears = annualSavings > 0.01
-      ? (selectedType.price - baselineElectricPrice) / annualSavings
-      : 0;
 
     const recoveryTime = selectedType.isTank && selectedType.recoveryRate > 0
       ? recommendedTankSize / selectedType.recoveryRate
@@ -273,7 +270,7 @@ export default function WaterHeaterSizingCalculator() {
       requiredFHR, fhrBasedSize, tableBasedSize, recommendedTankSize, exceedsSingleTank,
       recommendedTanklessGPM, maxTemperatureRise,
       annualOutputBTU, annualInputBTU, yearlyCost,
-      baselineElectricCost, annualSavings, paybackYears,
+      baselineElectricCost, annualSavings,
       recoveryTime, needsVenting, needsElectricalUpgrade,
     };
   }, [rN, sN, bN, dN, lN, eRate, gPrice, selectedUsage, selectedType, src.heaterType, src.simultaneousUse]);
@@ -376,7 +373,7 @@ export default function WaterHeaterSizingCalculator() {
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Natural gas price
-              <InfoTip label="gas price">EIA 2026 US heating-season national midpoint ≈ $1.35/therm; regional spread $1.05 (South) → $1.60 (Northeast).</InfoTip>
+              <InfoTip label="gas price">Assumed $1.35/therm; your bill shows your rate.</InfoTip>
             </label>
             <NumberInput value={gasPrice} onChange={setGasPrice} min={0.30} max={4.00} suffix="$/therm" ariaLabel="Gas price" accent={ACCENT} />
           </div>
@@ -411,7 +408,7 @@ export default function WaterHeaterSizingCalculator() {
               </>
             ) : (
               <>
-                Sized for {simultaneousOptions.find((o) => o.value === src.simultaneousUse)?.name ?? `${src.simultaneousUse} fixtures`}.
+                Sized for {simultaneousOptions.find((o) => o.value === src.simultaneousUse)?.name ?? `${src.simultaneousUse} fixtures`}, each counted at 2.5 GPM, the federal showerhead maximum, so the estimate stays on the safe side.
                 Max temperature rise: <strong>{calc.maxTemperatureRise}°F</strong>, cold-inlet regions (winter groundwater 40°F, delivery 120°F = 80°F rise) can cut delivered GPM by 30-50%.
               </>
             )
@@ -481,16 +478,15 @@ export default function WaterHeaterSizingCalculator() {
                   <li><strong>No standby loss:</strong> only fires when water flows</li>
                 </>
               )}
-              <li><strong>Equipment cost:</strong> ~${fmtMoney(selectedType.price)} (equipment only; install adds 50-100%)</li>
               <li><strong>Venting required:</strong> {calc.needsVenting ? 'Yes (gas, B-vent or PVC condensing)' : 'No (electric)'}</li>
               <li className="pt-1.5 border-t border-gray-100">
                 <strong>Annual operating cost:</strong>{' '}
                 <span className="text-emerald-700 font-bold">${fmtMoney(calc.yearlyCost)}</span>
               </li>
-              {!['tank-electric', 'tankless-electric'].includes(selectedType.value) && calc.annualSavings > 0 && calc.paybackYears > 0 && calc.paybackYears < 30 && (
+              {!['tank-electric', 'tankless-electric'].includes(selectedType.value) && calc.annualSavings > 0 && (
                 <li>
                   <strong>vs standard electric tank:</strong>{' '}
-                  saves ${fmtMoney(calc.annualSavings)}/yr &middot; payback ~{calc.paybackYears.toFixed(1)} years
+                  saves ${fmtMoney(calc.annualSavings)}/yr in energy
                 </li>
               )}
             </ul>
@@ -532,11 +528,12 @@ export default function WaterHeaterSizingCalculator() {
 
         <DisclaimerBox title="Sizing right matters | both ways.">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li><strong>The calculator's assumptions</strong>: 17 gallons per shower (EPA WaterSense: 8.2 minutes at about 2.1 gpm), 40 per bath, 6 per dishwasher load, 15 per laundry load, and 4 per person for sinks; 30% of daily use in the peak hour; a {INLET_TEMP_F}°F inlet warmed to {DELIVERY_TEMP_F}°F; a {FHR_MARGIN.toFixed(1)}× safety margin on peak-hour demand (FHR); and {Math.round(TANK_USABLE_FRACTION * 100)}% of a tank's volume usable as hot water. Your own use will differ.</li>
             <li>This is a <strong>screening estimate</strong>, not UEF-bin-exact. Get manufacturer FHR + UEF specs and your local AHJ (plumbing inspector) sign-off before purchasing.</li>
             <li><strong>Groundwater inlet varies by region</strong> (~42°F Minnesota winter to ~75°F Miami; calc assumes {INLET_TEMP_F}°F → {DELIVERY_TEMP_F}°F, {DELTA_T}°F rise). Cold-inlet regions can add <strong>~25-30%</strong> to annual cost; warm-inlet regions cut it by roughly the same amount. Because BTU/gal scales linearly with ΔT, the real regional swing is ~45/65 → 85/65 = 0.7×–1.3×.</li>
             <li><strong>HPWH install</strong>: needs 700-1,000 cu ft of ambient air (unfinished basement, garage, or louvered closet). A tight utility closet stalls the compressor. Also cools + dehumidifies the room ~10°F.</li>
             <li><strong>Electric tanks recover ~2× slower than gas</strong>, the calc sizes electric 20-30% larger than the equivalent gas unit for the same household to compensate.</li>
-            <li><strong>Tankless payback</strong>: tankless rarely pays back on energy alone vs a well-sized tank (~$50-100/yr savings), buy it for unlimited hot water and space savings, not fuel economics. Permitting-grade sizing needs a 2018 UPC/IPC fixture-unit demand calc with diversity factor, not the 2.5 GPM/fixture rule of thumb used here.</li>
+            <li><strong>Tankless sizing</strong>: each fixture is counted at 2.5 gallons per minute, the federal showerhead maximum, so it sizes on the safe side (most fixtures draw less). Permitting-grade sizing needs a 2018 UPC/IPC fixture-unit demand calc with a diversity factor, not this rule of thumb.</li>
             <li><strong>Solar</strong> cost estimate assumes a 70% solar fraction, realistic for Sunbelt annual, aggressive for Northern US where winter solar fraction can drop to 40-50%, roughly doubling backup-element cost. Get a site-specific SRCC OG-300 rating for your climate before purchasing.</li>
             <li><strong>Federal manufacture rule</strong>: The DOE&rsquo;s amended 10 CFR 430.32 requires new residential electric water heaters &gt;55 gal <em>manufactured after</em> the phased compliance date (currently targeted 2029, subject to ongoing rulemaking) to meet HPWH-tier efficiency. This affects future product availability, not current installs, standard large electric tanks remain legally installable today.</li>
             <li><strong>Peak-hour tip</strong>: for tankless, the biggest sizing mistake is under-estimating the required temperature rise. A unit that delivers 7 GPM in Texas (60°F inlet) will only deliver 4 GPM in Minnesota in February (42°F inlet).</li>
