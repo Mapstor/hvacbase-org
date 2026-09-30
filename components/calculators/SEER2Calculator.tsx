@@ -102,10 +102,8 @@ export default function SEER2Calculator() {
     const lifetimeSavings = annualSavings * 15;
     const systemCost = tons * 1800;
     const paybackYears = annualSavings > 0 ? systemCost / annualSavings : 0;
-    const co2Reduction = kwhSaved * 0.855; // EPA eGRID2022 US avg lb CO₂/kWh
+    const co2Reduction = kwhSaved * 0.823; // EPA eGRID2022 U.S. average (823.1 lb CO2e/MWh)
     const percentSavings = currentKwh > 0 ? (kwhSaved / currentKwh) * 100 : 0;
-    const treesEquivalent = Math.round(co2Reduction / 48);
-    const carsOffRoad = co2Reduction / 9600;
     return {
       btuPerHour,
       currentKwh,
@@ -121,8 +119,6 @@ export default function SEER2Calculator() {
       paybackYears,
       co2Reduction,
       percentSavings,
-      treesEquivalent,
-      carsOffRoad,
     };
   }, [tons, cur, next, rate, hours]);
 
@@ -279,10 +275,11 @@ export default function SEER2Calculator() {
             </h4>
             <ul className="space-y-1.5 text-xs text-gray-700">
               <li className="flex justify-between"><span>Annual CO₂ reduction</span><strong>{fmt(Math.round(Math.max(calc.co2Reduction, 0)))} lbs</strong></li>
-              <li className="flex justify-between"><span>Equivalent to planting</span><strong>{Math.max(calc.treesEquivalent, 0)} trees/yr</strong></li>
-              <li className="flex justify-between"><span>Like taking off road</span><strong>{Math.max(calc.carsOffRoad, 0).toFixed(1)} cars</strong></li>
               <li className="flex justify-between pt-2 border-t border-gray-200"><span>15-year CO₂ prevented</span><strong>{fmt(Math.round(Math.max(calc.co2Reduction * 15 / 2000, 0)))} tons</strong></li>
             </ul>
+            <p className="text-[11px] text-gray-500 mt-2 leading-snug">
+              Based on the EPA eGRID2022 U.S. average (823.1 lb CO2e/MWh, or 0.823 lb CO2e/kWh; <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" target="_blank" rel="noopener noreferrer" className="underline hover:text-emerald-700">EPA Greenhouse Gas Equivalencies</a>).
+            </p>
             <div className="mt-3 bg-emerald-50 rounded-lg p-2.5 text-[11px] text-emerald-800">
               Estimated system cost: <strong>${fmtMoney(calc.systemCost)}</strong>. Payback: <strong>{calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : ', '}</strong>.
             </div>
