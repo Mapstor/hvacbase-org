@@ -8,10 +8,9 @@ role: "pillar"
 priority: "P1"
 contentType: "guide"
 datePublished: "2026-02-05"
-dateModified: "2026-09-21"
+dateModified: "2026-09-28"
 relatedArticles:
   - "heat-pump-electricity-usage"
-  - "disadvantages-of-heat-pumps"
   - "heat-pump-cost-to-install"
   - "heat-pump-guide"
   - "heat-pump-in-cold-weather"
@@ -32,6 +31,10 @@ externalLinks:
     url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit"
   - title: "DSIRE: Database of State Incentives"
     url: "https://www.dsireusa.org"
+  - title: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+  - title: "U.S. EIA: Electric Power Monthly"
+    url: "https://www.eia.gov/electricity/monthly/"
 ---
 
 import { SourcesBox, RelatedArticles } from '@/components'
@@ -139,6 +142,16 @@ Heat pumps need modest but real maintenance:
 
 **"A heat pump can't heat and cool the same house."** It does both, that's the point. One system replaces both your furnace and your AC.
 
+## Downsides of heat pumps
+
+Heat pumps aren't the right answer for every house. The main trade-offs:
+
+- **Higher upfront cost** than a furnace or central AC alone; see [heat pump installation cost](/heat-pump-cost-to-install).
+- **Less heat when it's coldest.** Output falls as the outdoor temperature drops. ENERGY STAR's cold-climate models must still deliver at least 70% of their rated capacity at 5°F, but standard models drop further, so cold climates need a cold-climate model, backup heat, or both. Our [heat pump size calculator](/heat-pump-size-calculator) estimates the backup you'd need.
+- **Running cost depends on local prices.** At the U.S. average of 18.19 cents per kWh (EIA, January to July 2026) and an assumed $1.35 per therm of gas, a heat pump averaging a COP of 3 costs about $17.77 per million BTU of heat, against $14.21 for a 95% gas furnace. Where electricity is cheap or gas is expensive, the heat pump comes out ahead; check your state's rate in the [kWh cost calculator](/kwh-cost-calculator).
+- **Defrost cycles.** In cold, damp weather, frost builds on the outdoor coil, and the unit reverses for a few minutes at a time to melt it, briefly pausing heat.
+- **Electrical capacity.** A heat pump with electric backup strips can need a bigger circuit or a [panel upgrade](/electrical-panel-upgrade-cost).
+
 ## Frequently asked questions
 
 **Is a heat pump worth it?**
@@ -166,7 +179,9 @@ The efficiency principles (heat pumps moving rather than generating heat, delive
   { title: "ENERGY STAR: Heat & Cool Efficiently (efficiency + maintenance guidance)", url: "https://www.energystar.gov/saveathome/heating-cooling" },
   { title: "AHRI: Directory of Certified Product Performance", url: "https://www.ahridirectory.org/" },
   { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
-  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org" }
+  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org" },
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
+  { title: "U.S. EIA: Electric Power Monthly", url: "https://www.eia.gov/electricity/monthly/" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />

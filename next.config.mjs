@@ -171,7 +171,7 @@ const nextConfig = {
       { source: '/smallest-tankless-water-heaters', destination: '/what-size-tankless-water-heater', permanent: true },
       { source: '/smallest-window-acs', destination: '/window-air-conditioners', permanent: true },
       { source: '/through-the-wall-air-conditioners', destination: '/window-air-conditioners', permanent: true },
-      { source: '/wall-mounted-air-purifiers', destination: '/air-purifier-placement', permanent: true },
+      { source: '/wall-mounted-air-purifiers', destination: '/air-purifier-guide', permanent: true },
       { source: '/window-ac-support-brackets', destination: '/how-to-tilt-window-ac', permanent: true },
       { source: '/window-ac-with-heater', destination: '/window-air-conditioners', permanent: true },
       { source: '/winix-air-purifiers', destination: '/air-purifier-guide', permanent: true },
@@ -271,6 +271,11 @@ const nextConfig = {
       { source: '/electric-fireplace-cost-to-run', destination: '/space-heater-guide', permanent: true },
       { source: '/space-heater-vs-central-heat', destination: '/space-heater-guide', permanent: true },
       { source: '/home-energy-audit-diy', destination: '/hvac-energy-saving-tips', permanent: true },
+      // consolidation DEFER-FOLD (FOLD-1) — last 3 pages merged after their survivor
+      // gained the folded section (97/97 consolidations complete) — 308
+      { source: '/disadvantages-of-heat-pumps', destination: '/heat-pump-guide', permanent: true },
+      { source: '/mini-split-amps', destination: '/mini-split-electricity-usage', permanent: true },
+      { source: '/air-purifier-placement', destination: '/air-purifier-guide', permanent: true },
       // ============ end archived product pages ============
     ];
   },
