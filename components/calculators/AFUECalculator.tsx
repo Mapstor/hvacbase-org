@@ -4,7 +4,6 @@ import { useState, useMemo } from 'react';
 import {
   Flame,
   TrendingUp,
-  DollarSign,
   Leaf,
   Calendar,
   Wallet,
@@ -23,9 +22,8 @@ import {
   ResultsHeader,
   CalculateResetBar,
   useCalculatorSubmit,
-  UA_PER_SQFT,
-  annualHeatingOutputBtu,
 } from './_shared';
+import { UA_PER_SQFT, annualHeatOutputBtu } from './_heatloss';
 
 const ACCENT = 'orange' as const;
 
@@ -36,7 +34,7 @@ const furnaceTiers = [
   { value: 'mid-85', name: '85% AFUE', tier: 'Mid', afue: 85, summary: 'Transitional efficiency' },
   { value: 'high-90', name: '90% AFUE', tier: 'High', afue: 90, summary: 'Entry condensing furnace' },
   { value: 'high-92', name: '92% AFUE', tier: 'High', afue: 92, summary: 'Common high-efficiency' },
-  { value: 'high-95', name: '95% AFUE', tier: 'High', afue: 95, summary: '2026 northern US minimum' },
+  { value: 'high-95', name: '95% AFUE', tier: 'High', afue: 95, summary: '2028 federal minimum' },
   { value: 'ultra-97', name: '97% AFUE', tier: 'Ultra', afue: 97, summary: 'Modulating premium' },
   { value: 'ultra-98', name: '98% AFUE', tier: 'Ultra', afue: 98, summary: 'Top of market' },
 ];
@@ -53,18 +51,22 @@ const climateOptions = [
   { value: 'very-cold', name: 'Very cold', sub: 'Minneapolis, Fargo · ~8,000 HDD', hdd: 8000 },
 ];
 
-// Home heat-loss coefficient — UA (BTU/hr·°F) = UA_PER_SQFT × floorArea.
-// UA_PER_SQFT (0.25, average envelope) is imported from _shared so every
-// heating calc cites the same value; the calc doesn't expose an insulation
-// input, and the disclaimer notes that ±20% envelope variance flows straight
-// to bills.
-const BTU_PER_THERM = 100000;   // NIST — natural gas 1 therm = 100,000 BTU
-// Incremental install cost is computed vs 80% AFUE code-min baseline — the
-// question the calc answers is "is the extra premium for a higher tier
-// worth it?" not "should I keep a broken furnace."
-const BASELINE_INSTALL_COST = 4000;
+// Envelope heat-loss coefficient — UA per sq ft (BTU/hr·°F), from the shared
+// heat-loss model in _heatloss.ts, the same values the furnace and heat-pump
+// size calculators use. Annual heat the furnace must deliver =
+// UA × sqft × HDD × 24; no ceiling/stories/window adjustments here.
+const insulationOptions = [
+  { value: 'poor',      name: 'Poor',      sub: 'Pre-1970, little insulation', ua: UA_PER_SQFT.poor },      // 0.604
+  { value: 'average',   name: 'Average',   sub: '1980s–90s construction',      ua: UA_PER_SQFT.average },   // 0.270
+  { value: 'good',      name: 'Good',      sub: '2000s construction',          ua: UA_PER_SQFT.good },      // 0.189
+  { value: 'excellent', name: 'Excellent', sub: 'Current code, tight envelope', ua: UA_PER_SQFT.excellent }, // 0.177
+];
 
-const homeSizePresets = [1000, 1500, 2000, 2500, 3000, 4000];
+const BTU_PER_THERM = 100000;   // NIST — natural gas 1 therm = 100,000 BTU
+// EPA Greenhouse Gas Equivalencies: 0.0053 metric tons CO2 per therm of
+// natural gas, which is 5.3 kg or about 11.7 lb.
+const CO2_KG_PER_THERM = 5.3;
+const CO2_LB_PER_THERM = 11.7;
 
 const DEFAULTS = {
   currentAfue: 'old-70',
@@ -72,7 +74,8 @@ const DEFAULTS = {
   homeSize: '2000',
   gasPrice: '1.35',           // EIA 2026 US heating-season national midpoint
   climate: 'average',         // DC/KC ~4,500 HDD
-  currentAge: '15',
+  insulation: 'average',      // 1980s–90s envelope, UA 0.270
+  priceDifference: '',        // optional; payback only shows when provided
 };
 
 export default function AFUECalculator() {
@@ -81,19 +84,20 @@ export default function AFUECalculator() {
   const [homeSize, setHomeSize]       = useState(DEFAULTS.homeSize);
   const [gasPrice, setGasPrice]       = useState(DEFAULTS.gasPrice);
   const [climate, setClimate]         = useState(DEFAULTS.climate);
-  const [currentAge, setCurrentAge]   = useState(DEFAULTS.currentAge);
+  const [insulation, setInsulation]   = useState(DEFAULTS.insulation);
+  const [priceDifference, setPriceDifference] = useState(DEFAULTS.priceDifference);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
-    currentAfue, newAfue, homeSize, gasPrice, climate, currentAge,
+    currentAfue, newAfue, homeSize, gasPrice, climate, insulation, priceDifference,
   });
 
   const cur = furnaceTiers.find((t) => t.value === src.currentAfue)!;
   const nxt = furnaceTiers.find((t) => t.value === src.newAfue)!;
   const selectedClimate = climateOptions.find((c) => c.value === src.climate)!;
+  const selectedInsulation = insulationOptions.find((i) => i.value === src.insulation)!;
   const price = Math.max(parseFloat(src.gasPrice) || 1.35, 0);
 
   const sqft = Math.max(parseFloat(src.homeSize) || 0, 0);
-  const age  = Math.max(parseFloat(src.currentAge) || 0, 0);
 
   const handleReset = () => {
     setCurrentAfue(DEFAULTS.currentAfue);
@@ -101,59 +105,40 @@ export default function AFUECalculator() {
     setHomeSize(DEFAULTS.homeSize);
     setGasPrice(DEFAULTS.gasPrice);
     setClimate(DEFAULTS.climate);
-    setCurrentAge(DEFAULTS.currentAge);
+    setInsulation(DEFAULTS.insulation);
+    setPriceDifference(DEFAULTS.priceDifference);
     clear();
   };
 
   const calc = useMemo(() => {
-    // === ANNUAL HEAT LOAD (degree-day method) ===
-    // UA is the home's heat-loss coefficient in BTU/hr·°F. Multiplying by
-    // HDD (degree-days below 65°F base) × 24 (hours/day) converts to the
-    // total annual heating energy the furnace must deliver — in BTU/yr.
-    // Previously the calc computed peak BTU/hr and never multiplied by
-    // time, so annual "therms" were really therms-per-peak-hour, and every
-    // downstream number (cost, savings, CO₂, payback) was ~10-20× off.
-    const ua = UA_PER_SQFT * sqft;
-    const annualHeatLoadBTU = annualHeatingOutputBtu(sqft, selectedClimate.hdd);
+    // === ANNUAL HEAT LOAD (shared degree-day model) ===
+    // Heat the furnace must DELIVER in a year = UA_PER_SQFT × sqft × HDD × 24,
+    // from _heatloss.ts (same model as the furnace + heat-pump size calcs).
+    const ua = selectedInsulation.ua * sqft;
+    const annualHeatLoadBTU = annualHeatOutputBtu(selectedInsulation.ua, sqft, 1, selectedClimate.hdd);
     const annualThermsOutput = annualHeatLoadBTU / BTU_PER_THERM;
 
-    // Fuel input at each AFUE tier. AFUE = seasonal fraction of input BTU
-    // that becomes usable heat, so input = output ÷ AFUE.
-    const currentThermsInput = annualThermsOutput / (cur.afue / 100);
-    const newThermsInput     = annualThermsOutput / (nxt.afue / 100);
+    // Fuel input at each AFUE tier. AFUE = seasonal fraction of input BTU that
+    // becomes usable heat, so gas input = delivered heat ÷ (AFUE × 100,000).
+    const currentTherms = annualThermsOutput / (cur.afue / 100);
+    const newTherms     = annualThermsOutput / (nxt.afue / 100);
 
-    // Degradation for aged current furnace (real-world efficiency drops
-    // 5-15% over service life per DOE Building America field studies).
-    let degradation = 1;
-    if (age > 20)      degradation = 0.85;
-    else if (age > 15) degradation = 0.90;
-    else if (age > 10) degradation = 0.95;
-
-    // Old furnace running at degraded efficiency uses MORE fuel — adjust up.
-    const adjustedCurrentTherms = currentThermsInput / degradation;
-    const currentAnnualCost = adjustedCurrentTherms * price;
-    const newAnnualCost     = newThermsInput * price;
+    const currentAnnualCost = currentTherms * price;
+    const newAnnualCost     = newTherms * price;
 
     const annualSavings = currentAnnualCost - newAnnualCost;
     const percentSavings = currentAnnualCost > 0
       ? (annualSavings / currentAnnualCost) * 100
       : 0;
-    const thermsSaved = adjustedCurrentTherms - newThermsInput;
-    // EPA natural gas emissions factor: 11.7 lbs CO₂/therm = 5.3 kg/therm.
-    const co2ReductionKg = Math.max(thermsSaved * 5.3, 0);
+    const thermsSaved = Math.max(currentTherms - newTherms, 0);
+    const co2ReductionKg = thermsSaved * CO2_KG_PER_THERM;
+    const co2ReductionLb = thermsSaved * CO2_LB_PER_THERM;
 
-    // Full installed cost of the NEW furnace by tier — ballpark only.
-    // Real cost scales with home size + venting + labor market.
-    const installCost = nxt.afue >= 95 ? 6000 : nxt.afue >= 90 ? 5000 : 4000;
-    // Payback uses INCREMENTAL cost (extra premium over an 80% code-min
-    // replacement). The relevant decision is "is the tier premium worth
-    // it?", not "should I replace a broken furnace" (you have to replace
-    // either way). Note: 80% AFUE upgrade returns incrementalCost = 0
-    // and the calc surfaces "no premium — payback is instant".
-    const incrementalCost = Math.max(0, installCost - BASELINE_INSTALL_COST);
-    const paybackYears = annualSavings > 0 && incrementalCost > 0
-      ? incrementalCost / annualSavings
-      : 0;
+    // Payback from the user's own price difference between the two furnaces.
+    // Shown only when both the price difference and the annual saving are > 0.
+    const priceDiff = parseFloat(src.priceDifference);
+    const hasPriceDiff = Number.isFinite(priceDiff) && priceDiff > 0;
+    const paybackYears = hasPriceDiff && annualSavings > 0 ? priceDiff / annualSavings : 0;
 
     const fiveYearSavings   = annualSavings * 5;
     const tenYearSavings    = annualSavings * 10;
@@ -163,31 +148,31 @@ export default function AFUECalculator() {
       ua,
       annualHeatLoadBTU: Math.round(annualHeatLoadBTU),
       annualThermsOutput,
-      currentThermsUsed: adjustedCurrentTherms,
-      newThermsUsed: newThermsInput,
+      currentTherms,
+      newTherms,
       currentAnnualCost,
       newAnnualCost,
       annualSavings,
       percentSavings,
       thermsSaved,
       co2ReductionKg,
-      installCost,
-      incrementalCost,
+      co2ReductionLb,
+      hasPriceDiff,
+      priceDiff,
       paybackYears,
       fiveYearSavings,
       tenYearSavings,
       twentyYearSavings,
-      degradation,
     };
-  }, [sqft, age, cur, nxt, selectedClimate, price]);
+  }, [sqft, cur, nxt, selectedClimate, selectedInsulation, price, src.priceDifference]);
 
   const isUpgrade = nxt.afue > cur.afue;
   const fit =
     !isUpgrade ? { tone: 'warn' as const, text: 'New AFUE must exceed current to show savings' } :
-    calc.percentSavings >= 25 ? { tone: 'good' as const, text: 'Massive savings, strong upgrade' } :
+    calc.percentSavings >= 25 ? { tone: 'good' as const, text: 'Large savings, strong upgrade' } :
     calc.percentSavings >= 15 ? { tone: 'good' as const, text: 'Strong upgrade' } :
     calc.percentSavings >= 5  ? { tone: 'ok' as const, text: 'Meaningful savings' } :
-                                { tone: 'warn' as const, text: 'Modest improvement, comfort + reliability matter too' };
+                                { tone: 'warn' as const, text: 'Modest improvement, comfort and reliability matter too' };
 
   return (
     <CalcShell
@@ -206,7 +191,7 @@ export default function AFUECalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Current furnace
               <InfoTip label="current AFUE">
-                Look at the yellow EnergyGuide sticker on your existing furnace. Pre-1990 units are often 60–70% AFUE; 2000s code-min is 80%; modern condensing is 90%+.
+                Look at the yellow EnergyGuide sticker on your existing furnace. Pre-1990 units are often 60 to 70% AFUE; 2000s code-min is 80%; modern condensing is 90%+.
               </InfoTip>
             </label>
             <CardChoice value={currentAfue} onChange={setCurrentAfue} options={furnaceTiers} ariaLabel="Current AFUE" accent={ACCENT} columns={5} />
@@ -221,7 +206,7 @@ export default function AFUECalculator() {
 
       {/* Section 2 — Home + climate */}
       <section>
-        <SectionHeader step={2} title="Your home & climate" subtitle="Drives heating load" Icon={TrendingUp} accent={ACCENT} />
+        <SectionHeader step={2} title="Your home & climate" subtitle="Drives the heating load" Icon={TrendingUp} accent={ACCENT} />
 
         <div className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-5">
@@ -231,15 +216,12 @@ export default function AFUECalculator() {
             </div>
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-                Current furnace age
-                <InfoTip label="age">Old furnaces lose 5–15% of their nameplate efficiency over their lifetime. We adjust your current annual cost up accordingly.</InfoTip>
+                Insulation level
+                <InfoTip label="insulation">
+                  Sets the home&rsquo;s heat-loss rate (UA per sq ft): Poor 0.604, Average 0.270, Good 0.189, Excellent 0.177 BTU/hr·°F. Average is 1980s to 90s construction; a blower-door test or Manual J gives your real number.
+                </InfoTip>
               </label>
-              <NumberInput value={currentAge} onChange={setCurrentAge} min={0} max={30} suffix="years" ariaLabel="Furnace age" accent={ACCENT} />
-              {calc.degradation < 1 && (
-                <p className="text-xs text-amber-700 mt-1.5">
-                  ⚠ {age}-year-old furnace loses ~{((1 - calc.degradation) * 100).toFixed(0)}% of nameplate efficiency.
-                </p>
-              )}
+              <CardChoice value={insulation} onChange={setInsulation} options={insulationOptions} ariaLabel="Insulation level" accent={ACCENT} columns={4} />
             </div>
           </div>
 
@@ -247,7 +229,7 @@ export default function AFUECalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Climate zone
               <InfoTip label="climate">
-                Pick the row whose example cities match yours. HDD (heating degree-days, base 65°F) is the physical driver, the calc multiplies your home's heat-loss coefficient by HDD × 24 hr/day to get annual heating BTU.
+                Pick the row whose example cities match yours. HDD (heating degree-days, base 65°F) is the physical driver; the calc multiplies the home&rsquo;s heat-loss rate by HDD × 24 hr/day to get annual heating BTU.
               </InfoTip>
             </label>
             <CardChoice value={climate} onChange={setClimate} options={climateOptions} ariaLabel="Climate" accent={ACCENT} columns={5} />
@@ -257,7 +239,7 @@ export default function AFUECalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Natural gas price ($/therm)
               <InfoTip label="gas price">
-                Check your latest bill. EIA 2026 US heating-season national average is ~$1.35/therm. Regional spread: Northeast ~$1.60, West ~$1.35, Midwest ~$1.15, South ~$1.05.
+                Check your latest bill. EIA 2026 US heating-season national average is about $1.35/therm. Regional spread: Northeast ~$1.60, West ~$1.35, Midwest ~$1.15, South ~$1.05.
               </InfoTip>
             </label>
             <NumberInput
@@ -271,6 +253,29 @@ export default function AFUECalculator() {
               className="max-w-xs"
             />
           </div>
+        </div>
+      </section>
+
+      {/* Section 3 — Optional payback */}
+      <section>
+        <SectionHeader step={3} title="Payback (optional)" subtitle="Compare the two quotes" Icon={Wallet} accent={ACCENT} />
+        <div>
+          <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+            Price difference between the two furnaces ($)
+            <InfoTip label="price difference">
+              How much more the higher-AFUE furnace costs installed, versus the lower one. Leave blank to skip payback. Payback = price difference ÷ annual fuel saving.
+            </InfoTip>
+          </label>
+          <NumberInput
+            value={priceDifference}
+            onChange={setPriceDifference}
+            min={0}
+            max={20000}
+            suffix="$"
+            ariaLabel="Price difference between the two furnaces"
+            accent={ACCENT}
+            className="max-w-xs"
+          />
         </div>
       </section>
 
@@ -294,21 +299,17 @@ export default function AFUECalculator() {
           unit={`/yr (${calc.percentSavings > 0 ? calc.percentSavings.toFixed(1) : 0}% lower heating cost)`}
           secondaryText={
             <>
-              Upgrading from {cur.afue}% → {nxt.afue}% AFUE saves {fmt(Math.max(Math.round(calc.thermsSaved), 0))} therms/year.
-              Incremental cost vs an 80% code-min replacement:{' '}
-              <strong>{calc.incrementalCost > 0 ? `$${fmtMoney(calc.incrementalCost)}` : 'none, same tier'}</strong>{' · '}
-              payback in{' '}
-              <strong>
-                {calc.incrementalCost === 0 ? 'immediate (no premium)' :
-                 calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : ', '}
-              </strong>.
+              Upgrading from {cur.afue}% → {nxt.afue}% AFUE saves {fmt(Math.max(Math.round(calc.thermsSaved), 0))} therms/year.{' '}
+              {calc.hasPriceDiff && calc.annualSavings > 0
+                ? <>A ${fmtMoney(calc.priceDiff)} price difference pays back in <strong>{calc.paybackYears.toFixed(1)} years</strong>.</>
+                : <>Enter the price difference to see payback.</>}
             </>
           }
           fitTone={fit.tone}
           fitText={fit.text}
           sidePanel={[
             { label: 'Therms saved', value: `${fmt(Math.max(Math.round(calc.thermsSaved), 0))}/yr` },
-            { label: 'CO₂ reduced', value: `${fmt(Math.round(calc.co2ReductionKg))} kg/yr`, valueClass: 'text-emerald-700' },
+            { label: 'CO₂ reduced', value: `${fmt(Math.round(calc.co2ReductionLb))} lb/yr`, valueClass: 'text-emerald-700' },
             { label: '20-yr savings', value: `$${fmtMoney(Math.max(calc.twentyYearSavings, 0))}`, valueClass: 'text-emerald-700' },
           ]}
         />
@@ -321,11 +322,11 @@ export default function AFUECalculator() {
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'UA (heat loss)',    detail: `${fmt(sqft)} sq ft × ${UA_PER_SQFT} BTU/hr·°F`, factor: `${fmt(Math.round(calc.ua))} BTU/hr·°F` },
-                { label: 'Annual heat load',  detail: `UA × ${fmt(selectedClimate.hdd)} HDD × 24 hr`,   factor: `${(calc.annualHeatLoadBTU / 1000000).toFixed(1)} MMBtu (${fmt(Math.round(calc.annualThermsOutput))} therms out)` },
-                { label: 'Current input',     detail: `÷ ${cur.afue}% AFUE ÷ ${(calc.degradation * 100).toFixed(0)}% age`, factor: `${fmt(Math.round(calc.currentThermsUsed))} therms` },
-                { label: 'New input',         detail: `÷ ${nxt.afue}% AFUE`,                             factor: `${fmt(Math.round(calc.newThermsUsed))} therms` },
-                { label: 'Gas price',         detail: 'Per therm delivered',                             factor: `× $${price.toFixed(2)}/therm` },
+                { label: 'Heat loss (UA)',   detail: `${fmt(sqft)} sq ft × ${selectedInsulation.ua} BTU/hr·°F`, factor: `${fmt(Math.round(calc.ua))} BTU/hr·°F` },
+                { label: 'Annual heat load', detail: `UA × ${fmt(selectedClimate.hdd)} HDD × 24 hr`,             factor: `${(calc.annualHeatLoadBTU / 1000000).toFixed(1)} MMBtu (${fmt(Math.round(calc.annualThermsOutput))} therms out)` },
+                { label: 'Current input',    detail: `÷ ${cur.afue}% AFUE`,                                      factor: `${fmt(Math.round(calc.currentTherms))} therms` },
+                { label: 'New input',        detail: `÷ ${nxt.afue}% AFUE`,                                      factor: `${fmt(Math.round(calc.newTherms))} therms` },
+                { label: 'Gas price',        detail: 'Per therm delivered',                                      factor: `× $${price.toFixed(2)}/therm` },
               ]}
               totals={[
                 { label: 'Current annual cost', value: `$${fmtMoney(calc.currentAnnualCost)}`, valueClass: 'text-red-700' },
@@ -352,56 +353,50 @@ export default function AFUECalculator() {
                 </div>
               ))}
             </div>
-            <p className="text-[11px] text-gray-500 mt-3 leading-snug">
-              Assumes stable gas prices. Gas has averaged 3%/yr inflation over the last 20 years, so real savings are likely higher.
-            </p>
             <div className="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
               <div className="font-semibold text-amber-900 text-sm mb-1">
-                {nxt.afue >= 95 ? 'Condensing furnace (95%+ AFUE)' : nxt.afue >= 90 ? 'High-efficiency (90–94% AFUE)' : 'Standard efficiency (80–89% AFUE)'}
+                {calc.hasPriceDiff && calc.annualSavings > 0
+                  ? `Payback: ${calc.paybackYears.toFixed(1)} years`
+                  : 'Payback'}
               </div>
               <p className="text-xs text-amber-800">
-                {nxt.afue >= 95
-                  ? `Requires PVC venting + condensate drain. Best for climates above ~3,000 HDD; your zone is ${fmt(selectedClimate.hdd)} HDD.`
-                  : nxt.afue >= 90
-                  ? `Uses traditional metal venting. Lower install cost than condensing units.`
-                  : `Meets bare minimum standards. Only allowed in southern US for 2026 installs.`}
+                {calc.hasPriceDiff && calc.annualSavings > 0
+                  ? `A $${fmtMoney(calc.priceDiff)} price difference between the two furnaces ÷ $${fmtMoney(calc.annualSavings)}/yr saved.`
+                  : 'Enter the price difference to see payback.'}
               </p>
             </div>
+            <p className="text-[11px] text-gray-500 mt-3 leading-snug">
+              Assumes stable gas prices. Natural gas has averaged about 3%/yr over the last 20 years, so real savings are likely higher.
+            </p>
           </div>
         </div>
 
         <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4">
           <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2 text-sm">
             <Leaf className="w-4 h-4 text-emerald-700" />
-            Environmental impact
+            Carbon saved
           </h4>
-          <div className="grid sm:grid-cols-3 gap-3 text-xs text-gray-700">
+          <div className="grid sm:grid-cols-2 gap-3 text-xs text-gray-700">
             <div className="bg-white rounded-lg p-3 border border-emerald-100">
-              <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Annual CO₂ avoided</div>
-              <div className="text-lg font-bold text-emerald-900 tabular-nums">{fmt(Math.round(calc.co2ReductionKg))} kg</div>
-              <div className="text-[11px] text-gray-500">({fmt(Math.round(calc.co2ReductionKg * 2.2))} lbs)</div>
+              <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">CO₂ avoided per year</div>
+              <div className="text-lg font-bold text-emerald-900 tabular-nums">{fmt(Math.round(calc.co2ReductionLb))} lb</div>
+              <div className="text-[11px] text-gray-500">({(calc.co2ReductionKg / 1000).toFixed(2)} metric tons)</div>
             </div>
-            <div className="bg-white rounded-lg p-3 border border-emerald-100">
-              <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Equivalent trees</div>
-              <div className="text-lg font-bold text-emerald-900 tabular-nums">{fmt(Math.round(calc.co2ReductionKg / 21))}</div>
-              <div className="text-[11px] text-gray-500">planted per year</div>
-            </div>
-            <div className="bg-white rounded-lg p-3 border border-emerald-100">
-              <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 mb-0.5">Cars off road</div>
-              <div className="text-lg font-bold text-emerald-900 tabular-nums">{(calc.co2ReductionKg / 4040).toFixed(1)}</div>
-              <div className="text-[11px] text-gray-500">for one year</div>
+            <div className="bg-white rounded-lg p-3 border border-emerald-100 flex items-center">
+              <p className="text-[11px] text-gray-600 leading-snug">
+                EPA: 0.0053 metric tons CO₂ per therm (about 11.7 lb) of natural gas. Carbon saved tracks the {fmt(Math.max(Math.round(calc.thermsSaved), 0))} therms of gas you no longer burn.
+              </p>
             </div>
           </div>
         </div>
 
-        <DisclaimerBox title="Real-world AFUE notes">
+        <DisclaimerBox title="How this is figured">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>Annual load uses the <strong>degree-day rule of thumb</strong> (UA × HDD × 24 with UA = 0.25 × sqft, a code-built IRC-2018+ tight-envelope assumption). Older / leaky homes can use <strong>50–100% more gas</strong> for the same climate; deep-retrofit passive-house builds use less. Get an <strong>ACCA Manual J</strong> or blower-door test for a real UA.</li>
-            <li>Lab AFUE is a steady-state rating. Real seasonal efficiency runs lower when a furnace is oversized and short-cycles.</li>
-            <li>Condensing furnaces (90%+) only deliver their full rating when return-air temp is below 130°F. Hot returns kill condensing efficiency.</li>
-            <li>Above 95% AFUE, every 1% gain costs disproportionately more, diminishing returns set in.</li>
-            <li>A modulating two-stage furnace at 95% AFUE often outperforms a single-stage 97% in real-world comfort and total bills.</li>
-            <li>Payback compares incremental cost (extra premium over an 80% AFUE code-min replacement), if you're just replacing a working furnace with no upgrade, the "payback" question doesn't apply.</li>
+            <li>Annual heat uses the <strong>degree-day method</strong> (UA × sq ft × HDD × 24) from the shared heat-loss model, the same one behind our furnace and heat-pump size calculators. UA per sq ft is 0.604 poor / 0.270 average / 0.189 good / 0.177 excellent; a blower-door test or <strong>ACCA Manual J</strong> gives your home&rsquo;s real number.</li>
+            <li>AFUE is a seasonal average from the federal test. A furnace runs below its rating when it is oversized and short-cycles.</li>
+            <li>Condensing furnaces (90%+) reach their full rating only when return-air temperature stays below about 130°F.</li>
+            <li>Payback is the <strong>price difference between the two furnaces</strong> divided by the annual fuel saving. It ignores install extras like new venting or a condensate drain, so enter the fully installed difference from your quotes.</li>
+            <li>Carbon uses the EPA factor of 0.0053 metric tons (about 11.7 lb) of CO₂ per therm of natural gas.</li>
           </ul>
         </DisclaimerBox>
       </section>
