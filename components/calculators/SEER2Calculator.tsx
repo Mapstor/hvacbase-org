@@ -55,6 +55,7 @@ const DEFAULTS = {
   electricRate: '0.18',
   coolingHours: '1500',
   systemAge: '15',
+  priceDifference: '',
 };
 
 export default function SEER2Calculator() {
@@ -64,9 +65,10 @@ export default function SEER2Calculator() {
   const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
   const [coolingHours, setCoolingHours] = useState(DEFAULTS.coolingHours);
   const [systemAge, setSystemAge] = useState(DEFAULTS.systemAge);
+  const [priceDifference, setPriceDifference] = useState(DEFAULTS.priceDifference);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
-    currentSeer, newSeer, acSize, electricRate, coolingHours, systemAge,
+    currentSeer, newSeer, acSize, electricRate, coolingHours, systemAge, priceDifference,
   });
 
   const tons = parseFloat(src.acSize) || 0;
@@ -75,6 +77,7 @@ export default function SEER2Calculator() {
   const rate = parseFloat(src.electricRate) || 0;
   const hours = parseFloat(src.coolingHours) || 0;
   const age = parseFloat(src.systemAge) || 0;
+  const priceDiff = Math.max(parseFloat(src.priceDifference) || 0, 0);
 
   const handleReset = () => {
     setCurrentSeer(DEFAULTS.currentSeer);
@@ -83,6 +86,7 @@ export default function SEER2Calculator() {
     setElectricRate(DEFAULTS.electricRate);
     setCoolingHours(DEFAULTS.coolingHours);
     setSystemAge(DEFAULTS.systemAge);
+    setPriceDifference(DEFAULTS.priceDifference);
     clear();
   };
 
@@ -100,8 +104,10 @@ export default function SEER2Calculator() {
     const monthlySavings = annualSavings / 12;
     const tenYearSavings = annualSavings * 10;
     const lifetimeSavings = annualSavings * 15;
-    const systemCost = tons * 1800;
-    const paybackYears = annualSavings > 0 ? systemCost / annualSavings : 0;
+    // Payback uses the user's actual price difference between the two units, not
+    // an invented system price. Shown only when both the price difference and the
+    // annual savings are positive.
+    const paybackYears = (priceDiff > 0 && annualSavings > 0) ? priceDiff / annualSavings : 0;
     const co2Reduction = kwhSaved * 0.823; // EPA eGRID2022 U.S. average (823.1 lb CO2e/MWh)
     const percentSavings = currentKwh > 0 ? (kwhSaved / currentKwh) * 100 : 0;
     return {
@@ -115,12 +121,11 @@ export default function SEER2Calculator() {
       monthlySavings,
       tenYearSavings,
       lifetimeSavings,
-      systemCost,
       paybackYears,
       co2Reduction,
       percentSavings,
     };
-  }, [tons, cur, next, rate, hours]);
+  }, [tons, cur, next, rate, hours, priceDiff]);
 
   const fit =
     calc.annualSavings <= 0 ? { tone: 'warn' as const, text: 'New SEER must be higher than current' } :
@@ -199,6 +204,15 @@ export default function SEER2Calculator() {
             <label className="text-sm font-medium text-gray-700 mb-2 block">Annual cooling hours</label>
             <CardChoice value={coolingHours} onChange={setCoolingHours} options={coolingHourPresets} ariaLabel="Annual cooling hours" accent={ACCENT} columns={5} />
           </div>
+
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Price difference between the two units ($)
+              <InfoTip label="price difference">Optional. The extra you would pay for the higher-SEER2 unit over the lower one, taken from your two quotes. Used only for the payback estimate.</InfoTip>
+            </label>
+            <NumberInput value={priceDifference} onChange={setPriceDifference} min={0} max={20000} suffix="$" placeholder="e.g. 1200" ariaLabel="Price difference between the two units" accent={ACCENT} />
+            <p className="text-xs text-gray-500 mt-1.5">Leave blank if you don't have both quotes yet.</p>
+          </div>
         </div>
       </section>
 
@@ -231,7 +245,7 @@ export default function SEER2Calculator() {
           sidePanel={[
             { label: 'Monthly savings', value: `$${fmtMoney(Math.max(calc.monthlySavings, 0))}`, valueClass: 'text-emerald-700' },
             { label: '10-year savings', value: `$${fmtMoney(Math.max(calc.tenYearSavings, 0))}` },
-            { label: 'Payback period', value: calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} yr` : ', ' },
+            { label: 'Payback period', value: (priceDiff > 0 && calc.annualSavings > 0) ? `${calc.paybackYears.toFixed(1)} yr` : 'n/a' },
           ]}
         />
 
@@ -280,10 +294,20 @@ export default function SEER2Calculator() {
             <p className="text-[11px] text-gray-500 mt-2 leading-snug">
               Based on the EPA eGRID2022 U.S. average (823.1 lb CO2e/MWh, or 0.823 lb CO2e/kWh; <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" target="_blank" rel="noopener noreferrer" className="underline hover:text-emerald-700">EPA Greenhouse Gas Equivalencies</a>).
             </p>
-            <div className="mt-3 bg-emerald-50 rounded-lg p-2.5 text-[11px] text-emerald-800">
-              Estimated system cost: <strong>${fmtMoney(calc.systemCost)}</strong>. Payback: <strong>{calc.paybackYears > 0 ? `${calc.paybackYears.toFixed(1)} years` : ', '}</strong>.
-            </div>
           </div>
+        </div>
+
+        <div className="bg-white rounded-xl border border-gray-200 p-4">
+          <div className="flex items-center gap-2 mb-1 text-sm font-semibold text-gray-900">
+            <DollarSign className="w-4 h-4 text-emerald-600" /> Payback on the price difference
+          </div>
+          <p className="text-xs text-gray-700 leading-relaxed">
+            {priceDiff > 0 && calc.annualSavings > 0 ? (
+              <>A <strong>${fmtMoney(priceDiff)}</strong> price difference between the two units pays back in <strong>{calc.paybackYears.toFixed(1)} years</strong> at ${fmtMoney(calc.annualSavings)}/yr in savings.</>
+            ) : (
+              'Enter the price difference to see payback.'
+            )}
+          </p>
         </div>
 
         {age >= 12 && (
