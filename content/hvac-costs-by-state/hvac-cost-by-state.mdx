@@ -1,352 +1,143 @@
 ---
 slug: "hvac-cost-by-state"
-title: "HVAC Installation Cost by State: 2026 Pricing Guide (Interactive Map)"
-description: "Compare HVAC installation costs across all 50 states. See average prices for AC, furnaces, and heat pumps by state with our interactive cost map and detailed pricing data for 2026."
+title: "HVAC Cost by State: 2026 Electricity Rates, Efficiency Rules and Installation Costs"
+description: "What heating and cooling cost to run in every state, from EIA's 2026 electricity rates, which federal efficiency region each state is in, and what drives installation prices."
 cluster: "hvac-costs-location"
 role: "hub"
-priority: 1
+priority: "P1"
 contentType: "guide"
+author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-08"
-dateModified: "2026-02-08"
+dateModified: "2026-09-28"
 relatedArticles:
-  - "hvac-cost-by-state"
-  - "new-hvac-system-cost"
-  - "hvac-installation-cost"
-  - "central-air-conditioner-cost"
-  - "heat-pump-cost"
+  - "central-ac-cost-to-install"
+  - "heat-pump-cost-to-install"
+  - "mini-split-installation-cost"
+  - "minimum-seer-rating-by-state"
+  - "kwh-cost-calculator"
 externalLinks:
-  - url: "https://www.energy.gov/eere/buildings/building-technologies-office"
-    label: "U.S. Department of Energy"
-  - url: "https://www.bls.gov/oes/"
-    label: "Bureau of Labor Statistics - Occupational Employment Statistics"
+  - label: "U.S. EIA: Electric Power Monthly, Table 5.6.A (residential prices by state)"
+    url: "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_6_a"
+  - label: "eCFR: 10 CFR Part 430 (regional efficiency standards)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
-
-# HVAC Installation Cost by State: 2026 Pricing Guide
-
-**The average HVAC system installation in the United States costs between $5,800 and $14,500 in 2026, but your actual price can swing by 40–60% depending on which state you live in.** A full system replacement that costs $8,500 in Mississippi might run $14,000+ in Connecticut or California — and the difference comes down to labor rates, permit costs, code requirements, and regional demand.
-
-This guide breaks down real installation costs across all 50 states so you can benchmark what you should expect to pay in your area. We've compiled contractor pricing data, Bureau of Labor Statistics wage data, and regional material cost indexes to give you the most complete state-by-state comparison available.
-
-<TableOfContents />
-
-## Why HVAC Costs Vary So Much by State
-
-Before diving into the numbers, you need to understand the four major cost drivers that create state-to-state price differences. These aren't minor fluctuations — they can add or subtract thousands from your final invoice.
-
-### 1. Labor Rates
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# HVAC Cost by State
+
+The same air conditioner costs very different amounts to own depending on the state. Two things drive the difference: what it costs to install, which follows local labor and market prices, and what it costs to run, which follows the local price of electricity. The second is published for every state; the first is set by local quotes.
+
+**Electricity is the part you can compare directly. EIA's January-to-July 2026 residential averages range from 12.36 cents per kWh in North Dakota to 46.28 cents in Hawaii, so the same 3-ton air conditioner running the same hours costs about $467 a year in North Dakota, $687 at the U.S. average of 18.19 cents, and $1,748 in Hawaii.**
+
+## Why HVAC costs vary by state
+
+- **Electricity and gas prices** set the running cost, and they vary nearly fourfold across states.
+- **Climate** decides how many hours the system runs and whether heating or cooling dominates.
+- **Federal efficiency rules differ by region.** Air conditioners sold in the South and Southwest must meet a higher minimum than in the North.
+- **Labor and permits** set most of the installation price, and they follow local wages and codes.
+
+## State by state: electricity rates and efficiency regions
+
+The rate is EIA's January-to-July 2026 residential average. The cost of 1,000 kWh is that rate times 1,000, a useful yardstick: a 3-ton air conditioner at 14.3 SEER2 uses about 1,000 kWh for every 400 full-load hours. The minimum SEER2 is for split central air conditioners below 45,000 BTU per hour.
+
+| State | Rate, Jan-Jul 2026 (cents/kWh) | Cost of 1,000 kWh | Federal region | Minimum SEER2 (split AC under 45,000 BTU/h) |
+|-------|-------------------------------|-------------------|----------------|---------------------------------------------|
+| Alabama | 16.54 | $165.40 | Southeast | 14.3 |
+| Alaska | 27.09 | $270.90 | North | 13.4 |
+| Arizona | 15.44 | $154.40 | Southwest | 14.3 |
+| Arkansas | 13.61 | $136.10 | Southeast | 14.3 |
+| California | 33.25 | $332.50 | Southwest | 14.3 |
+| Colorado | 16.72 | $167.20 | North | 13.4 |
+| Connecticut | 27.97 | $279.70 | North | 13.4 |
+| Delaware | 17.86 | $178.60 | Southeast | 14.3 |
+| District of Columbia | 24.66 | $246.60 | Southeast | 14.3 |
+| Florida | 15.30 | $153.00 | Southeast | 14.3 |
+| Georgia | 15.40 | $154.00 | Southeast | 14.3 |
+| Hawaii | 46.28 | $462.80 | Southeast | 14.3 |
+| Idaho | 12.96 | $129.60 | North | 13.4 |
+| Illinois | 19.22 | $192.20 | North | 13.4 |
+| Indiana | 17.04 | $170.40 | North | 13.4 |
+| Iowa | 14.20 | $142.00 | North | 13.4 |
+| Kansas | 15.21 | $152.10 | North | 13.4 |
+| Kentucky | 14.27 | $142.70 | Southeast | 14.3 |
+| Louisiana | 13.35 | $133.50 | Southeast | 14.3 |
+| Maine | 29.99 | $299.90 | North | 13.4 |
+| Maryland | 21.30 | $213.00 | Southeast | 14.3 |
+| Massachusetts | 30.14 | $301.40 | North | 13.4 |
+| Michigan | 21.53 | $215.30 | North | 13.4 |
+| Minnesota | 16.25 | $162.50 | North | 13.4 |
+| Mississippi | 15.19 | $151.90 | Southeast | 14.3 |
+| Missouri | 13.96 | $139.60 | North | 13.4 |
+| Montana | 13.95 | $139.50 | North | 13.4 |
+| Nebraska | 12.90 | $129.00 | North | 13.4 |
+| Nevada | 13.53 | $135.30 | Southwest | 14.3 |
+| New Hampshire | 26.79 | $267.90 | North | 13.4 |
+| New Jersey | 23.98 | $239.80 | North | 13.4 |
+| New Mexico | 15.08 | $150.80 | Southwest | 14.3 |
+| New York | 29.38 | $293.80 | North | 13.4 |
+| North Carolina | 14.94 | $149.40 | Southeast | 14.3 |
+| North Dakota | 12.36 | $123.60 | North | 13.4 |
+| Ohio | 18.70 | $187.00 | North | 13.4 |
+| Oklahoma | 13.58 | $135.80 | Southeast | 14.3 |
+| Oregon | 15.40 | $154.00 | North | 13.4 |
+| Pennsylvania | 21.04 | $210.40 | North | 13.4 |
+| Rhode Island | 29.22 | $292.20 | North | 13.4 |
+| South Carolina | 15.93 | $159.30 | Southeast | 14.3 |
+| South Dakota | 14.50 | $145.00 | North | 13.4 |
+| Tennessee | 13.87 | $138.70 | Southeast | 14.3 |
+| Texas | 16.06 | $160.60 | Southeast | 14.3 |
+| Utah | 13.16 | $131.60 | North | 13.4 |
+| Vermont | 23.95 | $239.50 | North | 13.4 |
+| Virginia | 16.83 | $168.30 | Southeast | 14.3 |
+| Washington | 14.40 | $144.00 | North | 13.4 |
+| West Virginia | 15.47 | $154.70 | North | 13.4 |
+| Wisconsin | 19.00 | $190.00 | North | 13.4 |
+| Wyoming | 13.95 | $139.50 | North | 13.4 |
+
+## What the same air conditioner costs to run
+
+A 3-ton system at 14.3 SEER2 running 1,500 full-load hours uses about 3,776 kWh a year (36,000 BTU × 1,500 hours ÷ 14,300). That costs about $467 at North Dakota's rate, $687 at the U.S. average and $1,748 at Hawaii's. Hot states also run more hours, so their real bills diverge even further; our [kWh cost calculator](/kwh-cost-calculator) runs it with your numbers.
+
+## Federal efficiency regions
+
+- **North:** split air conditioners need at least 13.4 SEER2.
+- **Southeast** (Alabama, Arkansas, Delaware, the District of Columbia, Florida, Georgia, Hawaii, Kentucky, Louisiana, Maryland, Mississippi, North Carolina, Oklahoma, South Carolina, Tennessee, Texas and Virginia): 14.3 SEER2 below 45,000 BTU per hour, 13.8 at 45,000 and above.
+- **Southwest** (Arizona, California, Nevada and New Mexico): the same SEER2 minimums as the Southeast, plus a minimum EER2.
+
+Split heat pumps need 14.3 SEER2 everywhere. See [minimum SEER2 by state](/minimum-seer-rating-by-state).
+
+## Installation costs
+
+There's no official state-by-state data on installed HVAC prices; they come from local contractors and move with local wages, permit fees and demand. For typical national ranges by equipment type, see our cost guides for [central air](/central-ac-cost-to-install), [heat pumps](/heat-pump-cost-to-install) and [mini splits](/mini-split-installation-cost). Get at least three itemized quotes, and compare what each includes.
+
+## Rebates by state
+
+The federal HEAR rebates for heat pumps and related upgrades are run by each state, with its own launch date and rules, and utilities add programs of their own. The DSIRE database lists incentives by state; see also [HVAC tax credits 2026](/hvac-tax-credits-2026).
+
+## Frequently asked questions
+
+### Which state has the cheapest electricity for air conditioning?
+
+North Dakota, at 12.36 cents per kWh for January to July 2026, per the EIA. Hawaii is the most expensive at 46.28 cents.
+
+### Why does HVAC installation cost more in some states?
+
+Mostly labor. Installation prices follow local wages, permit costs and demand, which is why quotes in high-cost metro areas run well above those in rural areas.
 
-HVAC technician wages are the single biggest variable. According to BLS data, HVAC installers in Alaska earn a mean hourly wage of $39.42, while technicians in Mississippi average $20.86. Since labor typically makes up 40–60% of your total project cost, this wage gap translates directly into what you pay.
+### What SEER2 rating do I need in my state?
 
-### 2. Permit and Inspection Costs
+At least 13.4 SEER2 in the North and 14.3 in the South and Southwest for split air conditioners below 45,000 BTU per hour. The table above shows each state's minimum.
 
-Some states require mechanical permits, electrical permits, and multiple inspections for HVAC work. In New York City, permit fees alone can add $800–$1,500. In many rural Southern and Western counties, you may pay nothing for permits — or they may not be required at all.
+### How much does it cost to run central air in my state?
 
-### 3. Building Code Requirements
-
-States with aggressive energy codes (California Title 24, Washington State Energy Code, Massachusetts Stretch Code) mandate higher-efficiency equipment, additional insulation, duct sealing verification, and Manual J load calculations. These requirements improve performance but add $500–$3,000 to installation costs.
-
-### 4. Climate and Equipment Sizing
-
-A home in Phoenix needs a 5-ton AC system that barely uses its furnace. A home in Minnesota needs a high-capacity furnace and a smaller AC. Equipment sizing directly affects cost — larger systems cost more, and homes in extreme climates often need more robust equipment.
-
-## Average HVAC Installation Cost by State: 2026 Data
-
-The following table shows average total installation costs for a complete HVAC system (central AC + gas furnace) in a typical 2,000 sq ft home. These figures include equipment, labor, materials, and standard permits.
-
-<ComparisonTable
-  title="HVAC Installation Cost by State — 2026 Averages"
-  headers={["State", "Average Cost", "Low Range", "High Range", "Cost Index"]}
-  rows={[
-    ["Alabama", "$7,200", "$5,400", "$10,800", "0.87"],
-    ["Alaska", "$12,800", "$9,600", "$17,500", "1.55"],
-    ["Arizona", "$8,400", "$6,200", "$12,600", "1.02"],
-    ["Arkansas", "$6,900", "$5,200", "$10,200", "0.84"],
-    ["California", "$11,500", "$8,200", "$16,800", "1.39"],
-    ["Colorado", "$9,200", "$6,800", "$13,500", "1.11"],
-    ["Connecticut", "$11,800", "$8,800", "$16,500", "1.43"],
-    ["Delaware", "$9,400", "$7,000", "$13,200", "1.14"],
-    ["Florida", "$8,600", "$6,400", "$13,000", "1.04"],
-    ["Georgia", "$7,800", "$5,800", "$11,500", "0.94"],
-    ["Hawaii", "$14,200", "$10,500", "$19,800", "1.72"],
-    ["Idaho", "$7,800", "$5,800", "$11,600", "0.94"],
-    ["Illinois", "$9,600", "$7,100", "$14,200", "1.16"],
-    ["Indiana", "$8,000", "$5,900", "$11,800", "0.97"],
-    ["Iowa", "$7,800", "$5,800", "$11,400", "0.94"],
-    ["Kansas", "$7,600", "$5,600", "$11,200", "0.92"],
-    ["Kentucky", "$7,400", "$5,500", "$10,900", "0.90"],
-    ["Louisiana", "$7,600", "$5,600", "$11,200", "0.92"],
-    ["Maine", "$10,200", "$7,600", "$14,800", "1.23"],
-    ["Maryland", "$10,000", "$7,400", "$14,500", "1.21"],
-    ["Massachusetts", "$11,600", "$8,600", "$16,200", "1.40"],
-    ["Michigan", "$8,600", "$6,400", "$12,600", "1.04"],
-    ["Minnesota", "$9,000", "$6,600", "$13,200", "1.09"],
-    ["Mississippi", "$6,800", "$5,100", "$10,000", "0.82"],
-    ["Missouri", "$7,600", "$5,600", "$11,200", "0.92"],
-    ["Montana", "$8,400", "$6,200", "$12,400", "1.02"],
-    ["Nebraska", "$7,800", "$5,800", "$11,400", "0.94"],
-    ["Nevada", "$8,800", "$6,500", "$13,000", "1.06"],
-    ["New Hampshire", "$10,400", "$7,800", "$15,000", "1.26"],
-    ["New Jersey", "$11,200", "$8,400", "$15,800", "1.36"],
-    ["New Mexico", "$7,800", "$5,800", "$11,500", "0.94"],
-    ["New York", "$12,000", "$8,500", "$17,500", "1.45"],
-    ["North Carolina", "$7,800", "$5,800", "$11,600", "0.94"],
-    ["North Dakota", "$8,400", "$6,200", "$12,400", "1.02"],
-    ["Ohio", "$8,200", "$6,100", "$12,000", "0.99"],
-    ["Oklahoma", "$7,200", "$5,400", "$10,600", "0.87"],
-    ["Oregon", "$9,400", "$7,000", "$13,800", "1.14"],
-    ["Pennsylvania", "$9,400", "$7,000", "$13,600", "1.14"],
-    ["Rhode Island", "$10,800", "$8,000", "$15,200", "1.31"],
-    ["South Carolina", "$7,400", "$5,500", "$11,000", "0.90"],
-    ["South Dakota", "$7,800", "$5,800", "$11,400", "0.94"],
-    ["Tennessee", "$7,400", "$5,500", "$11,000", "0.90"],
-    ["Texas", "$8,200", "$6,000", "$12,800", "0.99"],
-    ["Utah", "$8,200", "$6,100", "$12,000", "0.99"],
-    ["Vermont", "$10,600", "$7,900", "$15,200", "1.28"],
-    ["Virginia", "$9,000", "$6,700", "$13,200", "1.09"],
-    ["Washington", "$10,200", "$7,600", "$14,800", "1.23"],
-    ["West Virginia", "$7,400", "$5,500", "$10,800", "0.90"],
-    ["Wisconsin", "$8,600", "$6,400", "$12,600", "1.04"],
-    ["Wyoming", "$8,200", "$6,100", "$12,200", "0.99"]
-  ]}
-/>
-
-<Callout type="info">
-**How to read the Cost Index:** A value of 1.00 represents the national average. States above 1.00 are more expensive than average; states below 1.00 are cheaper. Hawaii (1.72) is the most expensive state; Mississippi (0.82) is the least expensive.
-</Callout>
-
-## Most Expensive States for HVAC Installation
-
-The top five most expensive states for HVAC installation in 2026 are:
-
-**1. Hawaii — $14,200 average.** Shipping costs for equipment and materials drive prices sky-high. Every component arrives by cargo ship, adding 25–40% to material costs. Limited contractor availability on outer islands pushes prices even higher.
-
-**2. Alaska — $12,800 average.** Similar shipping challenges as Hawaii, combined with extreme heating demands. Most homes need high-capacity heating systems rated for -40°F operation, which cost more than standard equipment. The short construction season also compresses demand.
-
-**3. New York — $12,000 average.** High labor costs in the NYC metro area (HVAC techs average $35+/hour), expensive permits, strict energy codes, and high cost of living all contribute. Upstate New York is significantly cheaper, but the metro area pulls the state average up.
-
-**4. Connecticut — $11,800 average.** High labor rates, strict building codes, and proximity to the NYC market drive costs. The state's energy efficiency requirements add equipment costs compared to states with less stringent codes.
-
-**5. Massachusetts — $11,600 average.** The Stretch Energy Code adopted by many municipalities requires higher-efficiency equipment. Combined with high labor costs (Boston metro HVAC techs average $34+/hour), installations here cost 40% above the national average.
-
-## Least Expensive States for HVAC Installation
-
-The five most affordable states for HVAC installation are:
-
-**1. Mississippi — $6,800 average.** The lowest HVAC labor rates in the country ($20.86/hour average) combined with minimal permit requirements and basic energy code enforcement. Mild winters mean furnace sizing is typically smaller too.
-
-**2. Arkansas — $6,900 average.** Low labor costs, affordable housing stock that's typically easier to work in, and relaxed code requirements keep prices down. Many rural areas don't require HVAC permits.
-
-**3. Alabama — $7,200 average.** Similar cost dynamics to Mississippi with low labor rates and modest code requirements. The competitive contractor market in Birmingham and Huntsville helps keep prices reasonable even in metro areas.
-
-**4. Oklahoma — $7,200 average.** Low cost of living translates to lower HVAC labor rates. The state has a large number of HVAC contractors relative to population, which keeps competition high and prices low.
-
-**5. Kentucky — $7,400 average.** Low labor costs and moderate climate (requiring neither oversized AC nor extreme heating capacity) keep equipment costs reasonable. Rural areas are especially affordable.
-
-## Cost Breakdown by Equipment Type and State Region
-
-The national average cost varies significantly by what you're installing. Here's how different equipment types price out across four major cost regions:
-
-<ComparisonTable
-  title="Equipment Cost by Region — 2026"
-  headers={["Equipment Type", "Low-Cost States", "Average States", "High-Cost States", "Premium States"]}
-  rows={[
-    ["Central AC (3-ton)", "$3,200–$5,200", "$4,000–$6,500", "$5,000–$8,200", "$6,200–$10,500"],
-    ["Gas Furnace (80K BTU)", "$2,800–$4,500", "$3,400–$5,800", "$4,200–$7,200", "$5,400–$9,000"],
-    ["Heat Pump (3-ton)", "$4,200–$6,800", "$5,200–$8,500", "$6,500–$10,800", "$8,000–$13,500"],
-    ["Full System (AC + Furnace)", "$5,800–$9,500", "$7,200–$12,000", "$9,000–$15,000", "$11,000–$19,000"],
-    ["Ductless Mini-Split (single zone)", "$2,800–$4,200", "$3,500–$5,500", "$4,500–$7,000", "$5,500–$8,500"],
-    ["Ductless Mini-Split (multi-zone, 3 heads)", "$6,500–$9,500", "$8,000–$12,000", "$10,000–$15,000", "$12,500–$18,000"]
-  ]}
-/>
-
-<Callout type="tip">
-**Low-Cost States:** MS, AR, AL, OK, KY, WV, SC, TN | **Average States:** TX, GA, OH, IN, IA, MO, NC, KS, LA | **High-Cost States:** IL, FL, CO, MI, MN, VA, PA, OR | **Premium States:** CA, NY, MA, CT, NJ, HI, AK, WA, MD
-</Callout>
-
-## Real-World Examples: Same House, Different States
-
-To illustrate how dramatic state-to-state differences can be, let's look at what a standard replacement costs for the exact same scenario in different locations.
-
-**Scenario:** 2,000 sq ft ranch home, replacing a 15-year-old 3-ton AC and 80,000 BTU gas furnace with mid-range equipment (16 SEER2 AC, 96% AFUE furnace), using existing ductwork.
-
-<Callout type="example">
-**Example 1: Jackson, Mississippi** — Total cost: $7,100. Equipment: $4,200 (Goodman 16 SEER2 AC + 96% furnace). Labor: $2,100 (12 hours at $35/hour crew rate). Materials & misc: $600. Permits: $200.
-</Callout>
-
-<Callout type="example">
-**Example 2: Columbus, Ohio** — Total cost: $8,800. Equipment: $4,400 (Carrier 16 SEER2 AC + 96% furnace). Labor: $3,200 (14 hours at $45/hour crew rate). Materials & misc: $750. Permits: $450.
-</Callout>
-
-<Callout type="example">
-**Example 3: Denver, Colorado** — Total cost: $9,600. Equipment: $4,600 (Trane 16 SEER2 AC + 96% furnace). Labor: $3,600 (14 hours at $52/hour crew rate). Materials & misc: $800. Permits: $600.
-</Callout>
-
-<Callout type="example">
-**Example 4: Hartford, Connecticut** — Total cost: $12,200. Equipment: $5,000 (Carrier 16 SEER2 AC + 96% furnace). Labor: $5,200 (16 hours at $65/hour crew rate). Materials & misc: $1,000. Permits: $1,000. Additional code requirements (Manual J calc, duct leakage test): $800 included in labor.
-</Callout>
-
-The equipment itself only varies by about $800 across these four examples. The labor, permits, and code requirements account for the vast majority of the price difference.
-
-## How Labor Rates Drive State Pricing
-
-HVAC installation is labor-intensive work. A typical residential system replacement requires 8–16 hours of skilled labor (usually a two-person crew), plus additional time for permits, inspections, and system commissioning. Here's how HVAC tech wages break down by state tier:
-
-<ComparisonTable
-  title="HVAC Technician Mean Hourly Wages by State Tier (BLS 2026)"
-  headers={["Wage Tier", "Hourly Range", "Example States", "Impact on 2-Day Install"]}
-  rows={[
-    ["Premium ($35+/hr)", "$35–$45", "AK, CA, CT, HI, MA, NJ, NY, WA", "+$2,500–$4,000 labor cost"],
-    ["Above Average ($28–$35/hr)", "$28–$35", "CO, IL, MD, MN, OR, PA, VA", "+$1,200–$2,500 labor cost"],
-    ["Average ($23–$28/hr)", "$23–$28", "AZ, FL, GA, IN, MI, NC, OH, TX, WI", "Baseline labor cost"],
-    ["Below Average ($18–$23/hr)", "$18–$23", "AL, AR, KY, MS, OK, SC, TN, WV", "-$800–$1,500 labor cost"]
-  ]}
-/>
-
-<Callout type="important">
-**Remember:** The hourly wage shown is what the technician earns. What you pay per hour (the shop rate or crew rate) is typically 2–3x the technician's wage because it includes overhead, insurance, vehicles, tools, and profit margin. A $25/hour tech usually bills out at $55–$75/hour.
-</Callout>
-
-## State Permit and Code Requirements That Affect Cost
-
-Building codes and permit requirements vary enormously. Here's a snapshot of what major states require for HVAC replacement work:
-
-<ComparisonTable
-  title="HVAC Permit & Code Requirements by State"
-  headers={["State", "Permit Required?", "Inspection Required?", "Permit Cost", "Special Requirements"]}
-  rows={[
-    ["California", "Yes", "Yes (2 inspections)", "$250–$1,500", "Title 24 compliance, HERS testing, Manual J/D/S"],
-    ["Texas", "Varies by city", "Varies", "$75–$400", "State license required; some cities exempt like-for-like"],
-    ["Florida", "Yes", "Yes", "$150–$500", "Hurricane strapping, FBC compliance, load calc"],
-    ["New York", "Yes (NYC); varies elsewhere", "Yes (NYC)", "$200–$1,500", "NYC DOB filing, fire dept. coordination in some cases"],
-    ["Illinois", "Yes (Chicago); varies elsewhere", "Yes (Chicago)", "$100–$800", "Chicago requires plan review for some installs"],
-    ["Ohio", "Varies by jurisdiction", "Varies", "$50–$300", "Some jurisdictions exempt like-for-like replacement"],
-    ["Mississippi", "Varies; many areas none", "Rarely", "$0–$150", "Minimal requirements in most areas"],
-    ["Massachusetts", "Yes", "Yes", "$100–$600", "Stretch Code in many towns, Manual J required"],
-    ["Washington", "Yes", "Yes", "$100–$500", "WA State Energy Code, duct sealing verification"]
-  ]}
-/>
-
-## Seasonal Pricing Trends by Region
-
-When you buy matters almost as much as where. HVAC contractors in every state experience seasonal demand swings that affect pricing:
-
-**Sun Belt states (TX, FL, AZ, GA, SC, LA):** Peak demand runs May through September. You'll pay 10–20% more during summer rush. Best pricing comes in October through February when AC demand drops.
-
-**Northern states (MN, WI, MI, IL, NY, MA, CT):** Two peak seasons — summer (June–August) for AC and fall (September–November) for heating. Shoulder seasons (March–April, late October) offer the best deals with potential 10–15% savings.
-
-**Mild-climate states (OR, WA, NC, TN, VA):** Less dramatic seasonal swings, but spring and fall still offer marginally better pricing (5–10% savings) than peak summer or pre-winter periods.
-
-**Year-round warm states (HI, Southern CA, Southern FL):** Relatively flat demand year-round, though summer still sees slightly higher prices. Less seasonal discount opportunity.
-
-<Callout type="tip">
-**Pro tip:** In every state, the absolute best time to get competitive pricing is January and February. Contractors are least busy, most willing to negotiate, and manufacturers often run dealer promotions. You can save 15–25% compared to emergency summer replacements.
-</Callout>
-
-## How to Get Accurate Pricing for Your State
-
-State averages are useful for benchmarking, but your actual cost depends on your specific situation. Here's how to zero in on accurate local pricing:
-
-**Get at least three quotes.** This is non-negotiable regardless of state. Price variation between contractors in the same city can be 30–50%. Three quotes gives you a reliable range.
-
-**Ask for itemized quotes.** A good quote breaks out equipment cost, labor cost, materials, permits, and any additional charges. This lets you compare apples to apples across contractors.
-
-**Verify contractor licensing.** Every state has different licensing requirements. Check your state's contractor licensing board to verify credentials. Unlicensed contractors may offer lower prices but provide no warranty protection or legal recourse.
-
-**Check for utility rebates.** Many states offer rebates on high-efficiency equipment through utility companies. The federal Section 25C tax credit (which previously covered up to $2,000 for heat pumps and $600 for central AC/furnaces) **expired for installs after Dec 31, 2025** under the OBBBA; for 2026 installs, the active federal pathways are IRA HEAR (income-qualified, up to $8,000) and HOMES (open to all incomes, performance-based), both state-administered.
-
-**Factor in long-term energy costs.** A cheaper installation in a high-energy-cost state (CT, MA, CA, NY) may cost you more over time if you choose lower-efficiency equipment. In these states, upgrading to higher SEER2 ratings often pays back faster.
-
-## State-by-State Energy Costs: The Hidden Factor
-
-Installation cost is only part of the equation. What you pay monthly to run your system varies dramatically by state based on electricity and natural gas rates:
-
-<ComparisonTable
-  title="Average Residential Energy Rates by State (2026)"
-  headers={["State", "Electricity (¢/kWh)", "Natural Gas ($/therm)", "Annual HVAC Energy Cost*"]}
-  rows={[
-    ["California", "30.2", "$2.10", "$2,400–$3,200"],
-    ["Connecticut", "29.8", "$1.85", "$2,300–$3,100"],
-    ["Massachusetts", "28.5", "$1.90", "$2,200–$3,000"],
-    ["New York", "24.8", "$1.75", "$2,000–$2,800"],
-    ["New Hampshire", "25.2", "$1.80", "$2,100–$2,900"],
-    ["Hawaii", "38.5", "N/A (propane)", "$3,000–$4,200"],
-    ["Texas", "14.2", "$1.15", "$1,400–$2,200"],
-    ["Florida", "15.8", "$1.60", "$1,600–$2,400"],
-    ["Illinois", "16.5", "$1.05", "$1,300–$2,000"],
-    ["Ohio", "14.8", "$0.95", "$1,100–$1,700"],
-    ["Louisiana", "12.4", "$1.05", "$1,200–$1,800"],
-    ["Washington", "11.8", "$1.25", "$900–$1,500"],
-    ["Idaho", "10.5", "$0.95", "$800–$1,300"]
-  ]}
-/>
-
-*Annual HVAC energy cost estimate for a 2,000 sq ft home with moderate usage.
-
-<Callout type="takeaway">
-In high-energy-cost states like California, Connecticut, and Massachusetts, investing an extra $2,000–$4,000 in higher-efficiency equipment at installation often pays for itself within 4–6 years through energy savings. In low-energy-cost states like Idaho or Louisiana, the payback period stretches to 8–12+ years, making mid-range efficiency the better value.
-</Callout>
-
-## Federal and State Incentives That Reduce Your Cost
-
-Regardless of where you live, several incentives can significantly reduce your net HVAC installation cost in 2026:
-
-**Federal Section 25C Tax Credit — EXPIRED for installs after Dec 31, 2025.** The credit (up to $2,000 for qualifying heat pumps meeting CEE highest tier, up to $600 for qualifying central AC or gas furnaces) expired under the OBBBA (PL 119-21, signed July 4, 2025). For 2025 installs that didn't claim the credit, you can typically file Form 1040-X for an amended return; 25C does NOT allow carryforward.
-
-**IRA HEAR (formerly HEEHRA) — ACTIVE in 2026:** Income-qualified homeowners can receive point-of-sale rebates of up to $8,000 for heat pumps. State-administered; check your state energy office for current status.
-
-**IRA HOMES — ACTIVE in 2026:** Open to all incomes, performance-based rebates tied to modeled or measured energy savings. State-administered.
-
-**State-specific incentives worth checking:**
-
-- **California:** TECH Clean California offers $3,000–$4,250 for heat pump installations
-- **New York:** NYSERDA offers $1,000+ for qualifying heat pumps through Clean Heat program
-- **Massachusetts:** Mass Save offers $10,000+ in heat pump rebates for whole-home electrification
-- **Illinois:** State utility rebate programs offer incentives for high-efficiency AC and heat pumps — check DSIRE (dsireusa.org) for current offers in your ZIP code
-- **Colorado:** State utility rebate programs offer heat pump incentives that stack with IRA HEAR/HOMES — check DSIRE (dsireusa.org) for current offers in your ZIP code
-
-<Callout type="tip">
-**Stack your incentives:** In states like Massachusetts and New York, you can combine federal tax credits with state rebates and utility incentives. A $12,000 heat pump installation might net down to $4,000–$6,000 after all incentives.
-</Callout>
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- HVAC installation costs vary by 40–60% across states, from $6,800 (Mississippi) to $14,200 (Hawaii)
-- Labor rates are the #1 cost driver — they account for 40–60% of total installation cost
-- Building codes in CA, MA, NY, CT, and WA add $500–$3,000 in compliance costs
-- Winter installations (January–February) offer 15–25% savings in every state
-- Always get 3+ itemized quotes from licensed contractors in your area
-- Factor in energy costs: high-efficiency equipment pays back faster in high-energy-cost states
-- The federal Section 25C tax credit ($600 AC / $2,000 heat pump) expired for installs after Dec 31, 2025 under the OBBBA; for 2026 installs, IRA HEAR (income-qualified, up to $8,000 for heat pumps) and IRA HOMES (open to all incomes, performance-based) apply nationwide, with state and utility rebates adding thousands more
-- The cheapest installation isn't always the best value — consider equipment quality, warranty, and long-term energy costs
-</Callout>
-
-<FAQ items={[
-  {
-    question: "Are there federal tax credits for HVAC that apply in every state?",
-    answer: "The federal Section 25C credit (which covered up to $2,000 for qualifying heat pumps and up to $600 for qualifying central AC units or gas furnaces) expired for property placed in service after Dec 31, 2025 under the OBBBA (PL 119-21, signed July 4, 2025). For 2026 installs, the active federal pathways are IRA HEAR (income-qualified, point-of-sale rebates up to $8,000 for heat pumps) and IRA HOMES (open to all incomes, performance-based). Both are state-administered with implementation varying by state."
-  },
-  {
-    question: "How do I find my state's HVAC contractor licensing requirements?",
-    answer: "Search for your state's contractor licensing board or Department of Professional Regulation website. Most states require HVAC contractors to hold a mechanical or specialty contractor license, but requirements vary widely. Some states (like Texas) have strong state licensing; others delegate to local jurisdictions. Always verify a contractor's license before hiring — you can usually check online through your state's licensing portal."
-  }
-]} />
+Multiply the kWh your system uses by your state's rate. A 3-ton, 14.3 SEER2 system running 1,500 full-load hours uses about 3,776 kWh, about $687 a year at the U.S. average rate.
 
 <SourcesBox sources={[
-  { name: "Bureau of Labor Statistics — HVAC Mechanics and Installers Wages", url: "https://www.bls.gov/oes/current/oes499021.htm" },
-  { name: "U.S. Energy Information Administration — State Energy Data", url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html" },
-  { name: "AHRI — Directory of Certified Product Performance", url: "https://www.ahridirectory.org/" }
+  { title: "U.S. EIA: Electric Power Monthly, Table 5.6.A, residential prices by state (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_6_a" },
+  { title: "eCFR: 10 CFR Part 430 (regional efficiency standards for central air conditioners)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
+  { title: "U.S. DOE: Home Energy Rebate Programs", url: "https://www.energy.gov/scep/home-energy-rebate-programs" },
+  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org/" }
 ]} />
 
-<RelatedArticles articles={[
-  "hvac-cost-by-state",
-  "hvac-cost-by-state",
-  "hvac-cost-by-state",
-  "hvac-cost-by-state",
-  "hvac-cost-by-state",
-  "new-hvac-system-cost",
-  "central-air-conditioner-cost",
-  "heat-pump-cost"
-]} />
+<RelatedArticles articles={frontmatter.relatedArticles} />
