@@ -20,7 +20,7 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //   power-consumption, specific-heat, solar-panel, air-purifier-sizing,
 //   generator-sizing, ac-generator, dehumidifier-cost, hvac-lifespan,
 //   water-heater-lifespan, water-heating-cost, large-room-portable-ac,
-//   small-room-portable-ac
+//   small-room-portable-ac, duct-sizing
 //
 // GATE EMPTY: every calc has passed primary-source verification. The legacy
 // <SEERCalculator> component was retired (its content now uses
@@ -128,7 +128,10 @@ const calculators = {
   'hvac-roi': dynamic(() => import('./HVACROICalculator'), { 
     loading: () => <LoadingCalculator />
   }),
-  'heat-pump-vs-furnace': dynamic(() => import('./HeatPumpVsFurnaceCalculator'), { 
+  'heat-pump-vs-furnace': dynamic(() => import('./HeatPumpVsFurnaceCalculator'), {
+    loading: () => <LoadingCalculator />
+  }),
+  'duct-sizing': dynamic(() => import('./DuctSizingCalculator'), {
     loading: () => <LoadingCalculator />
   })
 };
