@@ -53,6 +53,19 @@ function stripCode(text) {
 function sentences(text) {
   return stripCode(text).replace(/\n+/g, ' ').split(/(?<=[.!?])\s+/).map((s) => s.trim()).filter(Boolean);
 }
+// Sentence count for one prose paragraph, abbreviation-aware. Longer abbreviations
+// first so "U.S.A." isn't half-masked by "U.S". Their periods (and decimal points
+// like 14.3 / $1.35) are masked to ∥ so they don't read as sentence ends.
+const SENT_ABBR = ['U.S.A', 'U.K', 'U.S', 'Ph.D', 'e.g', 'i.e', 'a.m', 'p.m', 'etc', 'vs', 'Inc', 'Ltd', 'Corp', 'Co', 'Dr', 'Mr', 'Mrs', 'Ms', 'Jr', 'Sr', 'St', 'No', 'approx', 'Fig', 'cf', 'Rev', 'Sen', 'Gov'];
+function countSentences(par) {
+  let t = par
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')  // markdown link -> text
+    .replace(/`[^`]*`/g, ' ')                  // inline code
+    .replace(/\*\*|__/g, '').replace(/[*_]/g, ''); // bold/italic markers
+  for (const a of SENT_ABBR) t = t.replace(new RegExp('\\b' + a.replace(/\./g, '\\.') + '\\.', 'gi'), a.replace(/\./g, '∥') + '∥');
+  t = t.replace(/(\d)\.(\d)/g, '$1∥$2'); // decimals
+  return (t.match(/[.!?]+(?=\s|$)/g) || []).length;
+}
 function tokens(s) {
   return new Set((s || '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter((w) => w.length > 2));
 }
@@ -183,6 +196,7 @@ const scoreBySlug = {};
 const externalUrls = new Map();   // url -> Set(slug); excludes schema.org + self-host
 const attributionChecks = [];     // {slug, org, sentence, urls} — CITE-2 manual-review CSV
 const perDegreeFlags = [];        // {slug, sentence} — CITE-2 "% per degree" claims
+const longParas = [];             // {slug, author, sentences, first} — >3-sentence prose paras
 
 // ---------- per-mdx scan ----------
 function scanMdx(file) {
@@ -386,6 +400,33 @@ function scanMdx(file) {
   // (m) EM DASHES
   c.em_dashes = (body.match(new RegExp(EM, 'g')) || []).length;
 
+  // (q) LONG PARAGRAPHS — prose paragraphs (not headings, lists, tables, or
+  // components) with more than 3 sentences (CLAUDE.md: "Max 3 sentences per
+  // paragraph in any user-facing content"). Abbreviations like "U.S." and "e.g."
+  // are treated as non-terminal by countSentences.
+  let longParaCount = 0;
+  for (const block of body.split(/\n\s*\n/)) {
+    const b = block.trim();
+    if (!b) continue;
+    const first = b.split('\n')[0];
+    if (/^#/.test(first)) continue;                                // heading
+    if (/^\|/.test(first) || /(^|\n)\s*\|/.test(b)) continue;       // table
+    if (/^(import\s|<)/.test(first)) continue;                     // component / import / JSX
+    if (/^\s*([-*+]\s|>\s?|\d+\.\s)/.test(first)) continue;         // list / blockquote
+    if (b.split('\n').some((l) => /^\s*[-*+]\s/.test(l))) continue; // multi-line list safety
+    let plines = b.split('\n');
+    if (/^\*\*.*\*\*$/.test(plines[0].trim())) plines = plines.slice(1); // FAQ bold-question label
+    const oneline = plines.join(' ').trim();
+    if (!oneline) continue;
+    const n = countSentences(oneline);
+    if (n > 3) {
+      longParaCount++;
+      const firstWords = oneline.replace(/\*\*|[*_>#`]/g, '').trim().split(/\s+/).slice(0, 10).join(' ');
+      longParas.push({ slug, author: fm.author || '', sentences: n, first: firstWords });
+    }
+  }
+  c.long_paragraphs = longParaCount;
+
   // (n) LINKS
   let broken = 0, badpath = 0;
   const linkRe = /\]\((\/[a-z0-9\-\/#]*)\)|href=["'](\/[a-z0-9\-\/#]*)["']/gi;
@@ -451,7 +492,7 @@ function scanMdx(file) {
   if (fm.description) (descMap[fm.description] = descMap[fm.description] || []).push(slug);
 
   // totals
-  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','links_broken','links_badpath']) bump(k, c[k]);
+  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath']) bump(k, c[k]);
 
   rows.push({
     slug, file: rel(file), cluster, page_type: pageType[slug] || fm.contentType || '',
@@ -517,7 +558,7 @@ const dupTitles = Object.entries(titleMap).filter(([, v]) => v.length > 1);
 const dupDescs = Object.entries(descMap).filter(([, v]) => v.length > 1);
 
 // ---------- WRITE side files ----------
-const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','intro12'];
+const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','intro12'];
 fs.writeFileSync(path.join(OUT, 'SITE-AUDIT.csv'),
   csvRow(colOrder) + '\n' + rows.map((r) => csvRow(colOrder.map((k) => r[k]))).join('\n') + '\n');
 
@@ -532,6 +573,13 @@ mergeCandidates.sort((a, b) => b.score - a.score);
 fs.writeFileSync(path.join(OUT, 'merge-candidates.csv'),
   'slug_a,slug_b,score,sessions_a,sessions_b,cluster\n' +
   mergeCandidates.map((m) => csvRow([m.a, m.b, m.score, m.sa, m.sb, m.cluster])).join('\n') + '\n');
+
+// LONG PARAGRAPHS — prose paragraphs over the CLAUDE.md 3-sentence limit, with author.
+longParas.sort((a, b) => b.sentences - a.sentences);
+fs.writeFileSync(path.join(OUT, 'long-paragraphs.csv'),
+  'slug,author,sentences,first_words\n' +
+  longParas.map((p) => csvRow([p.slug, p.author, p.sentences, p.first])).join('\n') +
+  (longParas.length ? '\n' : ''));
 
 // ---------- FINDINGS.md ----------
 const top30 = [...rows].sort((a, b) => b.score - a.score).slice(0, 30);
@@ -579,3 +627,4 @@ console.log('Top5:', top30.slice(0,5).map(r=>`${r.slug}=${r.score}`).join(', '))
 console.log('External URLs:', externalUrlList.length, '| Citation flags:', citationFlags.length, `(build ${BUILD_YEAR}-Q${BUILD_Q})`);
 for (const c of citationFlags) console.log('  FLAG', c.reasons.join(','), '-', c.url);
 console.log('Manufacturer/retail links (live):', mfrFlagRows.length, '| attribution-check rows:', attributionChecks.length, '| "% per degree" claims:', perDegreeFlags.length);
+console.log('Long paragraphs (>3 sentences):', longParas.length, '| pages affected:', new Set(longParas.map((p) => p.slug)).size);
