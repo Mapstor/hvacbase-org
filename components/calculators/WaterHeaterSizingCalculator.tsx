@@ -254,6 +254,12 @@ export default function WaterHeaterSizingCalculator() {
     const baselineElectricCost = (baselineElectricInputBTU / BTU_PER_KWH) * eRate;
     const annualSavings = baselineElectricCost - yearlyCost;
 
+    // Per-type annual energy for the "also consider" comparison, computed from
+    // the current inputs (no fixed multipliers). Electric tank == baseline.
+    const heatPumpCost = (annualOutputBTU / heaterTypes.find((t) => t.value === 'heat-pump')!.uef / BTU_PER_KWH) * eRate;
+    const electricTankCost = baselineElectricCost;
+    const gasTankCost = (annualOutputBTU / heaterTypes.find((t) => t.value === 'tank-gas')!.uef / BTU_PER_THERM) * gPrice;
+
     const recoveryTime = selectedType.isTank && selectedType.recoveryRate > 0
       ? recommendedTankSize / selectedType.recoveryRate
       : 0;
@@ -271,6 +277,7 @@ export default function WaterHeaterSizingCalculator() {
       recommendedTanklessGPM, maxTemperatureRise,
       annualOutputBTU, annualInputBTU, yearlyCost,
       baselineElectricCost, annualSavings,
+      heatPumpCost, electricTankCost, gasTankCost,
       recoveryTime, needsVenting, needsElectricalUpgrade,
     };
   }, [rN, sN, bN, dN, lN, eRate, gPrice, selectedUsage, selectedType, src.heaterType, src.simultaneousUse]);
@@ -433,7 +440,7 @@ export default function WaterHeaterSizingCalculator() {
           sidePanel={[
             { label: 'Daily use',   value: `${fmt(Math.round(calc.dailyGallons))} gal` },
             { label: 'Peak hour',   value: `${fmt(Math.round(calc.peakHourDemand))} gal` },
-            { label: 'Annual cost', value: `$${fmtMoney(calc.yearlyCost)}`, valueClass: 'text-emerald-700' },
+            { label: 'Annual cost', value: src.heaterType === 'solar' ? 'Not estimated' : `$${fmtMoney(calc.yearlyCost)}`, valueClass: 'text-emerald-700' },
           ]}
         />
 
@@ -466,7 +473,7 @@ export default function WaterHeaterSizingCalculator() {
             </h4>
             <ul className="space-y-1.5 text-xs text-gray-700">
               <li><strong>Type:</strong> {selectedType.name} ({selectedType.tier})</li>
-              <li><strong>Efficiency:</strong> {selectedType.isCOP ? `UEF ${selectedType.uef.toFixed(1)} (COP-basis)` : `UEF ${selectedType.uef.toFixed(2)}`}</li>
+              <li><strong>Assumed efficiency:</strong> {selectedType.isCOP ? `UEF ${selectedType.uef.toFixed(1)} (COP-basis)` : `UEF ${selectedType.uef.toFixed(2)}`}</li>
               {selectedType.isTank ? (
                 <>
                   <li><strong>Recovery:</strong> {selectedType.recoveryRate} gal/hr · full tank refill in {calc.recoveryTime.toFixed(1)} hrs</li>
@@ -481,9 +488,11 @@ export default function WaterHeaterSizingCalculator() {
               <li><strong>Venting required:</strong> {calc.needsVenting ? 'Yes (gas, B-vent or PVC condensing)' : 'No (electric)'}</li>
               <li className="pt-1.5 border-t border-gray-100">
                 <strong>Annual operating cost:</strong>{' '}
-                <span className="text-emerald-700 font-bold">${fmtMoney(calc.yearlyCost)}</span>
+                {src.heaterType === 'solar'
+                  ? <span className="text-gray-600">Depends on your collector and climate; not estimated</span>
+                  : <span className="text-emerald-700 font-bold">${fmtMoney(calc.yearlyCost)}</span>}
               </li>
-              {!['tank-electric', 'tankless-electric'].includes(selectedType.value) && calc.annualSavings > 0 && (
+              {!['tank-electric', 'tankless-electric', 'solar'].includes(selectedType.value) && calc.annualSavings > 0 && (
                 <li>
                   <strong>vs standard electric tank:</strong>{' '}
                   saves ${fmtMoney(calc.annualSavings)}/yr in energy
@@ -499,7 +508,7 @@ export default function WaterHeaterSizingCalculator() {
               </h4>
               <p className="text-xs text-gray-700 leading-relaxed">
                 HPWHs pull heat from surrounding air (basement, garage, utility room) instead of generating it electrically.
-                Effective COP 3.0-3.5 → saves roughly <strong>${fmtMoney(calc.annualSavings)}/yr</strong> vs a standard electric tank.
+                The calculator assumes an efficiency of 3.5; at that, a heat pump water heater uses about a quarter of the electricity of a resistance tank. Check the UEF on the model&rsquo;s label.
                 They also cool and dehumidify the space they&rsquo;re in. <strong>Install caveats</strong>: needs 700-1000 cu ft of ambient air (or a louvered closet) to avoid stalling; slow recovery means the tank should be sized 20-30% larger than a comparable gas unit.
                 <br /><br />
                 <strong>2026 tax-credit status</strong>: The federal 25C Energy Efficient Home Improvement Credit
@@ -516,11 +525,9 @@ export default function WaterHeaterSizingCalculator() {
                 <Zap className="w-4 h-4 text-amber-700" /> Also consider
               </h4>
               <p className="text-xs text-gray-700 leading-relaxed">
-                At {calc.recommendedTankSize} gal / {fmt(Math.round(calc.dailyGallons))} gal-per-day you&rsquo;re a
-                strong candidate for a <strong>heat-pump water heater</strong> (~3× cheaper to run than electric
-                resistance, ~2× vs gas). Tankless is another option, unlimited hot water and no standby losses,
-                but rarely pays back on energy alone (~$50-100/yr savings on this load) and often needs a bigger
-                electrical service or gas line.
+                At {calc.recommendedTankSize} gal / {fmt(Math.round(calc.dailyGallons))} gal-per-day, a <strong>heat-pump water heater</strong> is worth a look.
+                At your inputs the annual energy runs about <strong>heat pump ${fmtMoney(calc.heatPumpCost)}/yr</strong> vs <strong>electric tank ${fmtMoney(calc.electricTankCost)}/yr</strong> vs <strong>gas tank ${fmtMoney(calc.gasTankCost)}/yr</strong>.
+                Tankless is another option (unlimited hot water, no standby loss), though it often needs a bigger electrical service or gas line.
               </p>
             </div>
           )}
@@ -534,7 +541,7 @@ export default function WaterHeaterSizingCalculator() {
             <li><strong>HPWH install</strong>: needs 700-1,000 cu ft of ambient air (unfinished basement, garage, or louvered closet). A tight utility closet stalls the compressor. Also cools + dehumidifies the room ~10°F.</li>
             <li><strong>Electric tanks recover ~2× slower than gas</strong>, the calc sizes electric 20-30% larger than the equivalent gas unit for the same household to compensate.</li>
             <li><strong>Tankless sizing</strong>: each fixture is counted at 2.5 gallons per minute, the federal showerhead maximum, so it sizes on the safe side (most fixtures draw less). Permitting-grade sizing needs a 2018 UPC/IPC fixture-unit demand calc with a diversity factor, not this rule of thumb.</li>
-            <li><strong>Solar</strong> cost estimate assumes a 70% solar fraction, realistic for Sunbelt annual, aggressive for Northern US where winter solar fraction can drop to 40-50%, roughly doubling backup-element cost. Get a site-specific SRCC OG-300 rating for your climate before purchasing.</li>
+            <li><strong>Solar</strong> running cost isn&rsquo;t estimated here: it swings too much with the collector, tank, and climate (a Sunbelt system covers far more of the annual load than a Northern one does in winter). Get a site-specific SRCC OG-300 rating for your climate before purchasing.</li>
             <li><strong>Federal manufacture rule</strong>: The DOE&rsquo;s amended 10 CFR 430.32 requires new residential electric water heaters &gt;55 gal <em>manufactured after</em> the phased compliance date (currently targeted 2029, subject to ongoing rulemaking) to meet HPWH-tier efficiency. This affects future product availability, not current installs, standard large electric tanks remain legally installable today.</li>
             <li><strong>Peak-hour tip</strong>: for tankless, the biggest sizing mistake is under-estimating the required temperature rise. A unit that delivers 7 GPM in Texas (60°F inlet) will only deliver 4 GPM in Minnesota in February (42°F inlet).</li>
           </ul>
