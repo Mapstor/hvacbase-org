@@ -1,278 +1,94 @@
 ---
 slug: "portable-ac-electricity-cost"
 title: "How Much Electricity Does a Portable AC Use? (Cost Calc)"
-description: "Calculate exact portable AC electricity costs by BTU size, CEER rating, and your local electric rate. Includes hourly, daily, monthly, and annual cost tables for every scenario."
+description: "What a portable air conditioner costs to run, from its wattage and hours, with a built-in cost calculator, time-of-use math and how its ratings compare."
 cluster: "portable-air-conditioners"
 role: "spoke"
 priority: "P2"
 contentType: "calculator"
+author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-01"
-dateModified: "2026-07-17"
+dateModified: "2026-09-28"
 relatedArticles:
-  - "portable-air-conditioners"
-  - "portable-vs-window-ac"
   - "single-hose-vs-dual-hose-portable-ac"
+  - "how-to-vent-portable-ac-without-window"
+  - "portable-air-conditioners"
+  - "kwh-cost-calculator"
+  - "air-conditioner-btu-calculator"
 externalLinks:
-  - label: "EIA Average Electricity Prices"
-    url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html"
-  - label: "ENERGY STAR Savings Calculator"
-    url: "https://www.energystar.gov/products/room_air_conditioners"
+  - label: "U.S. EIA: Electric Power Monthly (residential prices)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "eCFR: 10 CFR Part 430, Subpart B (test procedures)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B"
 ---
 
-import TableOfContents from '@/components/TableOfContents'
-import FAQ from '@/components/FAQ'
-import Callout from '@/components/Callout'
-import SourcesBox from '@/components/SourcesBox'
-import RelatedArticles from '@/components/RelatedArticles'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-# How Much Electricity Does a Portable AC Use? (Cost Calc)
+# How Much Electricity Does a Portable AC Use?
 
-A typical 10,000 DOE BTU portable AC draws 1,000–1,200 watts and costs ≈$0.16–$0.23 per hour to run at the national average electricity rate of $0.18/kWh. That works out to ≈$1.27–$1.86 per day (8 hours), ≈$38–$56 per month, and ≈$190–$281 per cooling season (4 months) — use the calculator for your exact numbers. Your actual cost depends on three things: the unit's wattage, your electricity rate, and how many hours you run it.
+A portable air conditioner is easy to set up and easy to forget about, which is how it ends up running eight hours a day all summer. Its cost is simple to work out once you know its wattage.
 
-Below you'll find detailed cost tables for every BTU size, a calculator for your exact setup, and strategies to cut your portable AC electricity bill by 20%–40%.
+**A portable air conditioner drawing 1,000 watts, running 8 hours a day, uses 8 kWh a day and 240 kWh a month: about $43 a month at 18 cents per kWh.** Your unit's label or manual lists its watts; enter them below with your hours and your rate.
 
-<TableOfContents />
+<CalcWrapper calculator="kwh-cost" />
 
-## The Simple Cost Formula
+## The formula
 
-**Hourly cost = (Watts ÷ 1,000) × Your electricity rate per kWh**
+**Cost = watts × hours ÷ 1,000 × price per kWh.** At 1,000 watts, one hour uses 1 kWh, which costs 18 cents at the U.S. average rate.
 
-For example: A 1,100W portable AC costs **≈$0.20 per hour at ~$0.18/kWh** — use the calculator.
+If the label lists only amps, multiply by the voltage: a 120-volt unit drawing 8.5 amps uses about 1,020 watts.
 
-Multiply by hours per day, days per month, and months per season for larger timeframes.
+## Monthly cost by wattage
 
-## Cost by BTU Size
+At 8 hours a day, 30 days a month and 18 cents per kWh:
 
-| DOE BTU Rating | Typical Wattage | Hourly Cost (illustrative at ~$0.18/kWh — use the calculator) | Daily (8 hrs) | Monthly (30 days) | Seasonal (120 days) |
-|---------------|----------------|------------------------|---------------|-------------------|-------------------|
-| 5,000–6,000 | 600–750W | $0.10–$0.13 | $0.82–$1.02 | $24–$31 | $98–$122 |
-| 7,000–8,000 | 750–950W | $0.13–$0.16 | $1.02–$1.29 | $31–$39 | $122–$154 |
-| 8,000–10,000 | 950–1,200W | $0.16–$0.20 | $1.29–$1.63 | $39–$49 | $154–$196 |
-| 10,000–12,000 | 1,100–1,350W | $0.19–$0.23 | $1.50–$1.84 | $45–$55 | $180–$220 |
-| 12,000–14,000 | 1,250–1,500W | $0.21–$0.26 | $1.70–$2.04 | $51–$61 | $204–$245 |
+| Unit draw | kWh per month | Cost per month |
+|---|---|---|
+| 800 W | 192 | $34.56 |
+| 1,000 W | 240 | $43.20 |
+| 1,200 W | 288 | $51.84 |
+| 1,400 W | 336 | $60.48 |
 
-*Costs assume the compressor runs continuously. In practice, the compressor cycles on and off, reducing actual costs by 20%–40% depending on room conditions.*
+The same 240 kWh a month costs about $30 at North Dakota's 12.36 cents per kWh and about $111 at Hawaii's 46.28, the lowest and highest state averages for January to July 2026 (EIA). Check your state in the [kWh cost calculator](/kwh-cost-calculator).
 
-## Cost by Electricity Rate
+## Reading the ratings
 
-Electricity rates vary dramatically by state. Here's what a 10,000 DOE BTU portable AC (1,100W) costs at different rates, running 8 hours daily.
+Portable air conditioners are rated under a federal test that reports a seasonally adjusted cooling capacity (SACC) and a combined energy efficiency ratio (CEER). A higher CEER means more cooling per watt. The SACC is usually well below the BTU number printed on older boxes, because the test accounts for the heat a portable leaks back into the room.
 
-| State/Region | Rate ($/kWh) | Hourly | Monthly | Seasonal |
-|-------------|-------------|--------|---------|----------|
-| Louisiana | $0.10 | $0.11 | $26 | $106 |
-| Texas (avg) | $0.13 | $0.14 | $34 | $137 |
-| National average | $0.18 | $0.20 | $48 | $191 |
-| Arizona | $0.14 | $0.15 | $37 | $148 |
-| New York | $0.22 | $0.24 | $58 | $232 |
-| Massachusetts | $0.28 | $0.31 | $74 | $296 |
-| California | $0.30 | $0.33 | $79 | $317 |
-| Connecticut | $0.32 | $0.35 | $85 | $338 |
-| Hawaii | $0.40 | $0.44 | $106 | $422 |
+Hose design matters too. A single-hose unit pulls room air out through its exhaust, which draws warm outside air in through gaps; a dual-hose unit avoids most of that. See [single-hose vs. dual-hose portable ACs](/single-hose-vs-dual-hose-portable-ac).
 
-<Callout type="warning">
-**California and Northeast residents pay 2–3x the national average.** A portable AC that costs $45/month in Texas costs $79/month in California and $106/month in Hawaii. At these rates, investing in a more efficient unit (higher CEER) or a window AC/mini-split pays back much faster.
-</Callout>
+## Time-of-use rates
 
-## Efficiency Matters: CEER Impact on Cost
+On a time-of-use plan, running the same unit in peak hours can cost more than twice as much. With made-up rates of 40 cents peak and 15 cents off-peak, 240 kWh a month costs $96 on peak and $36 off-peak. Cooling the room before the peak window starts, then easing off, cuts the bill.
 
-CEER (Combined Energy Efficiency Ratio) directly determines how much electricity your unit uses per BTU of cooling. Higher CEER = lower bills.
+## How to cut the cost
 
-| CEER Rating | Unit Type (Example) | Wattage for 10K BTU | Monthly Cost (illustrative at ~$0.18/kWh, 8 hrs/day — use the calculator) | Annual Savings vs. CEER 8.0 |
-|-------------|-------------------|---------------------|-------------------------------------|---------------------------|
-| 8.0 | Budget single-hose | 1,250W | $51 | Baseline |
-| 9.0 | Mid-range single-hose | 1,111W | $45 | $72/year |
-| 10.0 | Good single-hose or budget dual | 1,000W | $41 | $120/year |
-| 11.0 | Premium dual-hose (Midea Duo) | 909W | $37 | $168/year |
-| 12.0 | Best-in-class (rare for portables) | 833W | $34 | $204/year |
+- **Size it for the room**, with our [BTU calculator](/air-conditioner-btu-calculator); a unit that's too small runs nonstop.
+- **Seal the window kit** and any gaps around the exhaust hose.
+- **Keep the hose short and straight**, and insulate it if it feels hot.
+- **Close the room's door and blinds**, so it cools one space, not the house.
 
-Moving from a CEER 8.0 budget unit to a CEER 11.0 premium unit saves $168/year. Over 5 years, that's $840 in savings against a typical $200–$300 price difference.
+## Frequently asked questions
 
-## Portable AC vs. Other Cooling Costs
+### How much does it cost to run a portable AC for 8 hours?
 
-| Cooling Method | Typical Wattage | Monthly Cost (8 hrs/day) | CEER/SEER2 |
-|---------------|----------------|-------------------------|------------|
-| Ceiling fan | 30–80W | $1–$3 | N/A |
-| Box fan | 50–100W | $2–$4 | N/A |
-| Evaporative cooler | 100–250W | $4–$10 | N/A |
-| Portable AC (single-hose) | 900–1,400W | $37–$57 | 7.0–10.0 CEER |
-| Portable AC (dual-hose) | 850–1,300W | $35–$53 | 8.5–11.2 CEER |
-| Window AC | 500–1,200W | $20–$49 | 10.0–15.0 CEER |
-| Mini-split (single-zone) | 300–900W | $12–$37 | 18–30 SEER2 |
-| Central AC (3-ton) | 2,500–3,500W | $102–$143 | 14–22 SEER2 |
+About $1.44 at 1,000 watts and 18 cents per kWh (8 kWh). Multiply by your own wattage and rate for your unit.
 
-Portable ACs cost 2–3x more per BTU than window ACs and 3–5x more than mini-splits. But they cost far less than running central AC to cool one room — if you only need cooling in one or two rooms, a portable AC can actually reduce your overall electricity bill.
+### How many watts does a portable air conditioner use?
 
-## 8 Ways to Reduce Portable AC Electricity Costs
+It depends on the unit; check the label or manual. The examples here use 800 to 1,400 watts.
 
-**1. Right-size your unit.** An oversized unit short-cycles (wastes energy), and an undersized unit runs nonstop. Match DOE BTU to your room size.
+### Is a portable AC more expensive to run than a window AC?
 
-**2. Use a programmable timer.** Set the AC to turn off after you fall asleep and on 30 minutes before you wake. Cutting 2 hours of nightly runtime saves 25% of sleeping-hour costs.
+Often, for the same cooling. Portables lose some cooling through their hose and cabinet, and single-hose models pull warm air into the room, so they tend to deliver less cooling per watt.
 
-**3. Close doors and seal gaps.** Every room you add to the cooling load doubles or triples energy consumption. Cool only the room you're in.
+### Does a portable AC use a lot of electricity?
 
-**4. Upgrade the window seal.** Replace the flimsy stock window kit with an aftermarket foam or plexiglass seal. Reducing hot air infiltration by 20%–40% directly translates to less compressor runtime.
-
-**5. Clean the filter every 2 weeks.** A clogged filter restricts airflow, reducing efficiency by 10%–25%. Takes 5 minutes.
-
-**6. Keep the exhaust hose short and straight.** Every extra foot and every bend increases backpressure, forcing the compressor to work harder.
-
-**7. Use blackout curtains on sunny windows.** Solar heat through windows is a major load. Curtains can reduce solar heat gain by 40%–60%, significantly reducing how hard your AC works.
-
-**8. Consider a dual-hose unit.** Dual-hose units save 10%–30% on electricity by eliminating negative pressure losses.
-
-## Time-of-Use Rate Plans: How Peak Pricing Changes the Math
-
-Time-of-use (TOU) plans charge different per-kWh rates depending on when electricity is consumed. Most large investor-owned utilities in warm-climate states now default new residential customers onto TOU tariffs rather than flat-rate service. PG&E, Southern California Edison, San Diego Gas & Electric, ConEd, and Arizona Public Service all publish schedules where late-afternoon and evening hours cost significantly more per kWh than overnight or midday hours.
-
-PG&E's residential E-TOU-C rate defines the summer on-peak window as 4:00 pm to 9:00 pm every day, with off-peak covering all remaining hours. Southern California Edison's TOU-D-4-9PM schedule uses the same 4:00-9:00 pm on-peak block, and the summer on-peak-to-off-peak differential commonly runs on the order of two to three times. Arizona Public Service's Saver Choice plan sets on-peak between 4:00 pm and 7:00 pm on weekdays. Con Edison in New York offers a voluntary Time-of-Use residential rate whose on-peak window generally spans the daytime and early evening on weekdays; the exact hours are published on the current SC1 Rate II tariff sheet.
-
-Portable ACs draw their heaviest load in the late afternoon, when accumulated solar heat gain has driven indoor temperatures up and the compressor works longest to catch up. That runtime almost perfectly overlaps the on-peak window on most TOU plans. A 1,100W unit running steadily from 4:00 pm to 9:00 pm consumes roughly 5.5 kWh, all of it inside the priciest tier of the day.
-
-Consider a household in a service territory where on-peak pricing sits three times higher than off-peak. If off-peak lands near $0.20/kWh and on-peak reaches roughly $0.60/kWh, that same 5.5 kWh window costs about $3.30 on-peak versus $1.10 off-peak. Over a 120-day cooling season, avoiding on-peak use during those hours saves on the order of $260, enough to fund a smart thermostat or a heavier window seal.
-
-The core mitigation strategy is pre-cooling. Run the portable AC aggressively during off-peak hours (typically before 3:00 pm), letting the room drop into the low 70s. Then raise the thermostat setpoint to 78-80 °F during the on-peak block so the compressor only cycles briefly to hold that ceiling.
-
-Pre-cooling works because building materials, drywall, floors, and furniture act as thermal mass. A room chilled to 72 °F at 3:00 pm will not reach 78 °F for one to two hours, depending on insulation and window exposure. During that coasting period the compressor stays off entirely, shifting the bulk of the load into cheaper hours.
-
-Programmable timers and smart plugs make pre-cooling trivial to automate. Many recent portable AC models include Wi-Fi apps that accept scheduled setpoint changes, and older units can be controlled with a Z-Wave or Wi-Fi smart plug rated for the unit's amperage draw. Confirm the plug's continuous-load rating before pairing it with a portable AC, since some inexpensive smart plugs are rated only for 10 amps continuous and a 1,400W unit at startup can exceed that briefly.
-
-Two additional tactics reduce on-peak exposure. Closing blackout curtains before the on-peak window begins cuts the peak solar gain that would otherwise force the compressor to work hardest. Running a ceiling fan during on-peak hours raises perceived comfort by 3-4 °F, letting the AC setpoint rise without discomfort.
-
-Households on a flat-rate plan can often switch to TOU voluntarily; check the utility's rate comparison tool before opting in. Whether TOU saves money depends heavily on lifestyle: a household with someone home all afternoon running the AC continuously will typically pay more on TOU, while an away-from-home-until-6-pm household that pre-cools may see 20-30% seasonal savings.
-
-## Solar-Offset ROI for a Portable-AC-Only Home
-
-For households whose primary summer electricity load is a single portable AC, a small dedicated solar array can offset that load at a levelized cost well below utility retail rates. The National Renewable Energy Laboratory (NREL) publishes annual solar cost benchmarks, and recent editions place residential rooftop PV levelized cost of energy (LCOE) in the range of roughly $0.06-$0.11/kWh, depending on system size, region, and financing assumptions. That range sits below the average retail rate in nearly every U.S. state.
-
-Sizing a solar array to offset one portable AC starts with the seasonal kWh consumption. A 10,000 DOE BTU portable AC drawing 1,100W and running 8 hours per day for 120 days consumes 1,056 kWh over the cooling season if the compressor is running continuously. Adjusted downward by 20-30% for realistic compressor cycling, the net summer draw lands closer to 740-850 kWh.
-
-Solar production varies by location, and NREL's free PVWatts calculator (pvwatts.nrel.gov) reports typical residential system output for any U.S. address. As a general reference, a 1 kW south-facing array in Phoenix generates on the order of 1,900 kWh/year, in Atlanta roughly 1,450 kWh/year, and in Seattle around 1,100 kWh/year. Because portable AC use concentrates in summer months when solar production also peaks, the seasonal alignment is favorable.
-
-A 1 kW array in a sunny state produces well more than the seasonal AC draw over the course of a year. For the narrow scope of offsetting one portable AC, a 500-750W dedicated array is technically sufficient in high-sun regions like Arizona, Nevada, or Texas. In lower-sun regions like the Pacific Northwest or New England, a 1-2 kW array better matches the seasonal need.
-
-Costs for very small residential arrays run higher per watt than mainstream installations because fixed permitting, inverter, interconnection, and labor costs do not scale down proportionally. NREL's benchmark reporting has shown small residential systems (under 4 kW) commonly landing in the $3.50-$4.50 per installed watt range before incentives. At that pricing, a 1 kW installed system costs approximately $3,500-$4,500 gross.
-
-Federal, state, and utility incentives can reduce net installation cost. The federal residential clean energy credit (Section 25D of the Internal Revenue Code) has historically applied to residential solar installations, though the specific credit percentage and expiration schedule have been modified by recent legislation; consult current IRS guidance or a qualified tax professional for the terms that apply in the year you install. Section 25D is distinct from the Section 25C efficiency credit for envelope and equipment upgrades, which expired December 31, 2025 under Public Law 119-21.
-
-Payback timing depends on offset value and net installed cost after all applicable incentives. On a gross $4,000 system offsetting 800 kWh per year, annual bill savings at a retail rate of $0.30/kWh (California, Massachusetts) equal $240 and simple payback runs 17 years; a hypothetical 30% credit shortens that payback to roughly 12 years. At the $0.18/kWh national average, annual savings drop to about $144 and payback extends past 25 years even with a 30% credit applied. At Hawaii's $0.40+/kWh rates, payback compresses to under 10 years.
-
-Battery storage changes the math for TOU-plan customers. A small battery (2-3 kWh) can store midday solar production for use during the 4-9 pm peak, effectively arbitraging the retail rate differential rather than exporting to the grid at lower net-metering compensation. Combined system costs rise substantially, though, so battery ROI attached to a portable-AC-only load is generally weak on its own.
-
-For most households, dedicated solar sized only for the portable AC rarely pencils out. The math improves substantially when the array is sized to offset the whole household's baseline consumption and simply happens to cover the AC as part of a larger installation.
-
-## Expanded State-by-State Rate Reference (All 50 States)
-
-Residential electricity rates vary by roughly a factor of four between the cheapest and most expensive states. The Energy Information Administration (EIA) publishes state-level average residential rates monthly in its Electric Power Monthly report (Table 5.6.A). Because rates fluctuate month-to-month with fuel costs and seasonal demand, the figures below reflect approximate ranges drawn from recent EIA reporting; consult the current EIA monthly release for exact current values.
-
-The table shows an approximate residential rate and a computed monthly cost for a 10,000 DOE BTU portable AC (1,100W) running 8 hours per day for 30 days, which equals 264 kWh of consumption per month.
-
-| State | Approx. Rate ($/kWh) | Monthly Cost |
-|-------|---------------------|--------------|
-| Alabama | $0.15 | $40 |
-| Alaska | $0.24 | $63 |
-| Arizona | $0.14 | $37 |
-| Arkansas | $0.13 | $34 |
-| California | $0.30 | $79 |
-| Colorado | $0.15 | $40 |
-| Connecticut | $0.32 | $85 |
-| Delaware | $0.15 | $40 |
-| Florida | $0.15 | $40 |
-| Georgia | $0.14 | $37 |
-| Hawaii | $0.42 | $111 |
-| Idaho | $0.11 | $29 |
-| Illinois | $0.16 | $42 |
-| Indiana | $0.15 | $40 |
-| Iowa | $0.14 | $37 |
-| Kansas | $0.14 | $37 |
-| Kentucky | $0.13 | $34 |
-| Louisiana | $0.11 | $29 |
-| Maine | $0.28 | $74 |
-| Maryland | $0.17 | $45 |
-| Massachusetts | $0.30 | $79 |
-| Michigan | $0.19 | $50 |
-| Minnesota | $0.15 | $40 |
-| Mississippi | $0.13 | $34 |
-| Missouri | $0.13 | $34 |
-| Montana | $0.12 | $32 |
-| Nebraska | $0.11 | $29 |
-| Nevada | $0.14 | $37 |
-| New Hampshire | $0.24 | $63 |
-| New Jersey | $0.18 | $48 |
-| New Mexico | $0.14 | $37 |
-| New York | $0.23 | $61 |
-| North Carolina | $0.13 | $34 |
-| North Dakota | $0.11 | $29 |
-| Ohio | $0.16 | $42 |
-| Oklahoma | $0.12 | $32 |
-| Oregon | $0.13 | $34 |
-| Pennsylvania | $0.18 | $48 |
-| Rhode Island | $0.29 | $77 |
-| South Carolina | $0.14 | $37 |
-| South Dakota | $0.12 | $32 |
-| Tennessee | $0.13 | $34 |
-| Texas | $0.15 | $40 |
-| Utah | $0.11 | $29 |
-| Vermont | $0.21 | $55 |
-| Virginia | $0.15 | $40 |
-| Washington | $0.11 | $29 |
-| West Virginia | $0.15 | $40 |
-| Wisconsin | $0.17 | $45 |
-| Wyoming | $0.12 | $32 |
-| U.S. Average | $0.18 | $48 |
-
-Several patterns are visible in the state data. The Pacific Northwest (Washington, Oregon, Idaho) benefits from abundant federal hydroelectric generation via the Bonneville Power Administration, keeping residential rates in the $0.11-$0.13/kWh range. The Deep South (Louisiana, Mississippi, Tennessee) enjoys similarly low rates thanks to a mix of natural gas generation and TVA-supplied power.
-
-New England pays some of the highest rates in the continental U.S. because of limited natural-gas pipeline capacity, higher renewables procurement costs, and older transmission infrastructure. Connecticut, Massachusetts, Rhode Island, and Maine consistently land in the roughly $0.28-$0.32/kWh range, more than double the national low. California's high rates reflect wildfire-related grid hardening, aggressive renewables procurement, and utility rate-base pass-through costs.
-
-Hawaii is a category of its own. Because the islands import petroleum for the majority of generation and cannot share transmission with the mainland, residential rates commonly exceed $0.40/kWh, nearly four times the lowest-rate states. A portable AC that costs $29/month in Louisiana costs more than $110/month in Hawaii for the same runtime.
-
-Rate structure matters as much as the headline number. Some states (California, Arizona) apply tiered rates that penalize high summer consumption; a portable AC that pushes household usage into an upper tier can cost 50-100% more per kWh than the state average would suggest. Others (Texas retail choice, Illinois, Pennsylvania) allow customers to choose competitive suppliers whose contracted rates may differ meaningfully from the utility default.
-
-To find the exact current rate on a specific bill, add the Supply or Generation line to the Delivery or Transmission line for the all-in per-kWh cost. The EIA state averages blend all customer classes served by all utilities in the state and will not match any individual bill precisely.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- **A typical portable AC costs ≈$0.16–$0.23/hour** to run at $0.18/kWh (national average).
-- **Monthly cost: $35–$55** for most users running 8 hrs/day.
-- **Seasonal cost: $150–$300** depending on unit size, efficiency, and local electricity rate.
-- **CEER rating directly determines cost** — a CEER 11.0 unit costs 27% less to run than a CEER 8.0 unit.
-- **High-rate states (CA, NY, CT, HI) pay 2–3x more** — efficiency upgrades pay back fastest here.
-- **Portable ACs cost 2–3x more per BTU than window ACs** but less than running central AC for one room.
-- **Simple steps** (sealing gaps, cleaning filters, using timers) can reduce costs by 20%–40%.
-</Callout>
-
-<FAQ items={[
-  {
-    question: "How much does it cost to run a portable AC for 24 hours?",
-    answer: "A 10,000 DOE BTU portable AC (1,100W) running continuously for 24 hours at $0.18/kWh costs ≈$4.75. In practice, the compressor cycles on and off, so actual 24-hour costs are typically ≈$3.18–$4.02. At California's $0.30/kWh rate, 24-hour cost rises to $5.30–$6.70."
-  },
-  {
-    question: "Does a portable AC use more electricity than a window AC?",
-    answer: "Yes. For the same BTU output, a portable AC uses 30%–80% more electricity than a window AC. A 10,000 BTU window AC typically draws 700–900W while a portable AC of the same rating draws 1,000–1,200W. The extra electricity powers the additional work of venting heat through a hose and overcoming negative pressure losses."
-  },
-  {
-    question: "Can a portable AC run on a standard 15-amp circuit?",
-    answer: "Yes — most portable ACs draw 6–13 amps, well within a standard 15-amp circuit's capacity. However, don't run a portable AC on the same circuit as other high-draw appliances (space heaters, microwaves, hair dryers). If the circuit breaker trips, the combined load exceeds 15 amps (1,800W)."
-  },
-  {
-    question: "Is it cheaper to run a portable AC or central air?",
-    answer: "If you only need to cool one room, a portable AC is much cheaper. A 3-ton central AC drawing 3,000W costs ≈$0.54/hour vs. ≈$0.20/hour for a portable. But central AC cools your entire home while a portable AC cools one room. If you need whole-home cooling, central AC is more efficient per BTU across all rooms combined."
-  },
-  {
-    question: "Do portable ACs use electricity in standby mode?",
-    answer: "Yes, but very little. Most portable ACs draw 1–5 watts in standby (plugged in but not running). That's about $0.01–$0.05 per day, or $2–$10 per year. CEER ratings account for standby power, which is why CEER is a better efficiency metric than EER."
-  },
-  {
-    question: "Does the portable AC cost the same to run in dehumidifier mode?",
-    answer: "Dehumidifier mode typically costs slightly less because the unit doesn't need to cool air to as low a temperature — it just needs to reach the dew point. Expect 10%–20% less energy use in dehumidifier mode compared to cooling mode. Some units also run the fan at lower speed in dehumidifier mode, further reducing consumption."
-  }
-]} />
+It's one of the bigger loads in a home while it runs, and it often runs for hours. Running it only in the rooms and hours you need keeps the cost down.
 
 <SourcesBox sources={[
-  { label: "EIA — Average Retail Price of Electricity", url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html" },
-  { label: "ENERGY STAR Room AC Specifications", url: "https://www.energystar.gov/products/room_air_conditioners" },
-  { label: "DOE Portable AC Test Procedure", url: "https://www.energy.gov/eere/buildings/portable-air-conditioners" },
-  { label: "AHRI Directory — Efficiency Ratings", url: "https://www.ahridirectory.org" }
+  { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "eCFR: 10 CFR Part 430, Subpart B (portable air conditioner test procedure)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" }
 ]} />
 
+<RelatedArticles articles={frontmatter.relatedArticles} />
