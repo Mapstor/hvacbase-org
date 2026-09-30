@@ -1,246 +1,100 @@
 ---
 slug: "gas-vs-electric-heating-cost"
 title: "Gas vs Electric Heating: Which Is Cheaper? (2026 Cost Calculator)"
-description: "Gas vs electric heating cost compared: gas averages $600–$1,200/year vs $1,200–$2,500/year for electric. Use the calculator with your local rates for an exact comparison."
+description: "Gas vs electric heating compared for the same heat delivered: cost per million BTU, when a heat pump beats gas, and the calculator's results for furnaces, water heaters and dryers."
 cluster: "furnaces-heating"
 role: "hub"
 priority: "P1"
 contentType: "comparison"
+author: "Marko Visic, BSc Physics"
 datePublished: "2026-01-10"
-dateModified: "2026-07-17"
+dateModified: "2026-09-28"
 relatedArticles:
+  - "heat-pump-guide"
+  - "furnace-sizing-calculator"
+  - "heat-pump-size-calculator"
+  - "kwh-cost-calculator"
   - "furnace-guide"
-  - "furnace-vs-heat-pump"
-  - "furnace-efficiency-explained"
-  - "thermostat-temperature-winter"
-  - "gas-furnace-wattage"
 externalLinks:
-  - url: "https://www.eia.gov/dnav/ng/ng_pri_sum_dcu_nus_a.htm"
-    label: "U.S. EIA — Natural Gas Prices"
-  - url: "https://www.eia.gov/electricity/monthly/"
-    label: "U.S. EIA — Electricity Prices"
+  - label: "U.S. EIA: Electric Power Monthly (residential prices)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "EPA: Greenhouse Gas Equivalencies, calculations and references"
+    url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references"
 ---
 
-import TableOfContents from '@/components/TableOfContents'
-import FAQ from '@/components/FAQ'
-import ComparisonTable from '@/components/ComparisonTable'
-import Callout from '@/components/Callout'
-import SourcesBox from '@/components/SourcesBox'
-import RelatedArticles from '@/components/RelatedArticles'
-import CalcWrapper from '@/components/CalcWrapper'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-# Gas vs Electric Heating: Which Is Cheaper? (2026 Cost Calculator)
+# Gas vs Electric Heating: Which Is Cheaper?
 
-Gas heating costs roughly 50–60% less than electric resistance heating for the average American home in 2026. At current national average fuel prices — $1.35 per therm for natural gas and $0.18 per kWh for electricity — a 2,000 sq ft home in a moderate climate spends about ≈$1,090/year on gas heat versus ≈$2,025/year on electric heat (illustrative — use the calculator). The gap narrows only in regions with unusually cheap electricity (under $0.10/kWh) or expensive gas (over $1.60/therm).
+Gas and electricity are sold in different units, at different prices, and turned into heat at very different efficiencies. Comparing the bills of two neighbors tells you little. The fair comparison is what each costs to deliver the same heat.
 
-However, the full picture is more nuanced. Upfront costs, maintenance, equipment lifespan, and — increasingly — heat pump technology all affect the real total cost of ownership. Here's the complete data-driven comparison.
-
-<TableOfContents />
-
-<ComparisonChart
-  optionA={{ name: "Natural gas (96% AFUE)" }}
-  optionB={{ name: "Electric resistance" }}
-  metrics={[
-    { label: "Upfront (equipment + install)", a: 5500, b: 3500, format: "currency" },
-    { label: "Annual operating cost (2,000 sq ft)", a: 875, b: 3750, format: "currency" },
-    { label: "Cost per MMBtu delivered heat", a: 10.94, b: 46.88, format: "currency" },
-    { label: "15-year total cost of ownership", a: 25375, b: 65050, format: "currency" }
-  ]}
-  title="Gas vs Electric Resistance Heating — 4-way cost comparison"
-  desc="Natural-gas heating and electric-resistance heating compared on the article's own cited national-average figures for a 2,000 sq ft home. Upfront installed cost favors electric ($3,500 vs $5,500), but every ongoing metric strongly favors gas: annual operating cost is 4.3x lower ($875 vs $3,750), cost per delivered MMBtu is 4.3x lower ($10.94 vs $46.88), and 15-year total cost of ownership is 2.6x lower ($25,375 vs $65,050). Lifespan is not explicitly quantified in the article's prose (only 15-year TCO horizon is), so lifespan is represented here via the 15-year total cost."
-  caption="All values midpoints from the article's own tables. Assumes national-average $1.35/therm gas and $0.18/kWh electricity (illustrative — see the calculator for exact figures)."
-/>
-
-## The Cost-Per-BTU Calculation
-
-Heating fuel costs are most accurately compared by calculating the cost to produce one million BTUs (MMBtu) of useful heat — the heat that actually warms your home after accounting for furnace efficiency.
-
-<ComparisonTable
-  title="Cost Per Million BTU of Delivered Heat — 2026 National Averages (illustrative — see the calculator for exact figures)"
-  headers={["Fuel", "Unit Price", "BTU per Unit", "Furnace Efficiency", "Cost per MMBtu (Delivered)"]}
-  rows={[
-    ["Natural Gas", "$1.35/therm", "100,000 BTU/therm", "96% AFUE", "$10.94"],
-    ["Natural Gas", "$1.35/therm", "100,000 BTU/therm", "80% AFUE", "$13.13"],
-    ["Electricity (resistance)", "$0.18/kWh", "3,412 BTU/kWh", "100% efficient", "$46.88"],
-    ["Electricity (heat pump)", "$0.18/kWh", "3,412 BTU/kWh", "250% COP (HSPF 8.5)", "$18.75"],
-    ["Heating Oil (#2)", "$3.80/gallon", "138,500 BTU/gallon", "85% AFUE", "$32.25"],
-    ["Propane", "$2.75/gallon", "91,500 BTU/gallon", "92% AFUE", "$32.74"],
-  ]}
-  footnote="Prices based on 2026 national averages from the U.S. EIA. Your local rates may differ significantly."
-/>
-
-<Callout type="important">
-**The critical takeaway from this table:** Natural gas heat costs $10–$13 per million BTU. Electric resistance heat costs $47 per million BTU — roughly **3.5–4.3× more expensive**. This is the fundamental reason gas heating dominates in most of the U.S. The only electric technology that approaches gas cost-effectiveness is the heat pump, which multiplies electricity's heating value by 2–3× through heat transfer rather than direct resistance heating.
-</Callout>
-
-## Annual Heating Cost Comparison by Home Size
-
-<ComparisonTable
-  title="Estimated Annual Heating Cost — Gas vs Electric (Moderate-Cold Climate)"
-  headers={["Home Size", "Heating Load (MMBtu/yr)", "Gas 96% AFUE", "Gas 80% AFUE", "Electric Resistance", "Heat Pump (COP 2.5)"]}
-  rows={[
-    ["1,000 sq ft", "40 MMBtu", "$440", "$525", "$1,875", "$750"],
-    ["1,500 sq ft", "60 MMBtu", "$660", "$790", "$2,815", "$1,125"],
-    ["2,000 sq ft", "80 MMBtu", "$875", "$1,050", "$3,750", "$1,500"],
-    ["2,500 sq ft", "100 MMBtu", "$1,095", "$1,315", "$4,690", "$1,875"],
-    ["3,000 sq ft", "120 MMBtu", "$1,315", "$1,575", "$5,625", "$2,250"],
-  ]}
-  footnote="Based on national average fuel prices, typical heating load for moderate-cold climate (4,500 HDD). Actual costs vary with climate, insulation, and local rates."
-/>
-
-## Use Our Calculator: Your Exact Costs
-
-Plug in your local electricity rate and gas rate to see a personalized comparison. You can find your rates on your utility bills.
+**At U.S. average prices, heat from gas costs about $14 to $15 per million BTU delivered, electric resistance heat about $53, and a heat pump about $18 at a COP of 3. Gas beats resistance heating by a wide margin, and a heat pump roughly ties gas: it needs to average a COP of about 3.75 to beat a 95% gas furnace at 18.19 cents per kWh and $1.35 per therm.**
 
 <CalcWrapper type="gas-vs-electric" />
 
-## State-by-State Cost Comparison
+## Cost per million BTU of heat
 
-Electricity and gas prices vary dramatically by state. Here's how the gas vs. electric equation plays out across the country.
+| Heat source | Cost per million BTU delivered |
+|---|---|
+| Electric resistance (baseboard, electric furnace, standard water heater) | $53.31 |
+| Heat pump, COP 3 | $17.77 |
+| Heat pump, COP 3.5 | $15.23 |
+| Gas furnace, 90% efficient | $15.00 |
+| Gas furnace, 95% efficient | $14.21 |
 
-<ComparisonTable
-  title="Gas vs Electric Heating Cost by State (2,000 sq ft home, 2026)"
-  headers={["State", "Avg Gas ($/therm)", "Avg Electric ($/kWh)", "Annual Gas Cost", "Annual Electric Cost", "Gas Savings"]}
-  rows={[
-    ["Connecticut", "$1.55", "$0.27", "$1,290", "$6,335", "$5,045 (80%)"],
-    ["Massachusetts", "$1.50", "$0.28", "$1,250", "$6,565", "$5,315 (81%)"],
-    ["California", "$1.30", "$0.25", "$580*", "$2,800*", "$2,220 (79%)"],
-    ["New York", "$1.15", "$0.22", "$1,085", "$5,160", "$4,075 (79%)"],
-    ["Illinois", "$0.85", "$0.15", "$710", "$3,520", "$2,810 (80%)"],
-    ["Texas", "$0.95", "$0.13", "$475*", "$1,460*", "$985 (67%)"],
-    ["Ohio", "$0.90", "$0.14", "$750", "$3,285", "$2,535 (77%)"],
-    ["Minnesota", "$0.80", "$0.14", "$800", "$3,940", "$3,140 (80%)"],
-    ["Florida", "$1.40", "$0.14", "$280*", "$870*", "$590 (68%)"],
-    ["Washington", "$1.10", "$0.10", "$550*", "$1,180*", "$630 (53%)"],
-    ["Oregon", "$1.05", "$0.11", "$525*", "$1,300*", "$775 (60%)"],
-    ["Idaho", "$0.70", "$0.10", "$490", "$2,350", "$1,860 (79%)"],
-    ["Louisiana", "$0.90", "$0.11", "$315*", "$860*", "$545 (63%)"],
-    ["Georgia", "$1.05", "$0.13", "$420*", "$1,300*", "$880 (68%)"],
-    ["Colorado", "$0.75", "$0.14", "$625", "$3,285", "$2,660 (81%)"],
-  ]}
-  footnote="*Lower total costs reflect milder heating climates. Gas costs assume 96% AFUE furnace. Electric costs assume 100% efficient resistance heating. Heating degree days vary by state."
-/>
+One million BTU is 293 kWh of electricity or 10 therms of gas. At 18.19 cents per kWh, the U.S. residential average for January to July 2026 (EIA), resistance heat costs $53.31. A heat pump divides that by its COP, and gas divides $13.50 by the furnace's efficiency, using an assumed $1.35 per therm.
 
-<Callout type="info">
-**Where electric heating can be competitive with gas:**
-- **Washington and Oregon** — cheap hydroelectric power ($0.10–$0.11/kWh) and moderate winter climates narrow the gap significantly.
-- **Anywhere with a heat pump** — at COP 2.5, a heat pump at $0.18/kWh costs only ≈$18.75/MMBtu, much closer to gas at ≈$10.94/MMBtu (illustrative — see the calculator).
-- **Areas without gas service** — if running a gas line costs $5,000–$15,000, the economics shift in favor of electric (especially heat pumps).
-</Callout>
+## What the calculator compares
 
-## Total Cost of Ownership: 15-Year Analysis
+The calculator takes a gas appliance's input rating, hours of use and efficiency, works out the heat it delivers, then asks what the same heat costs from electricity. For furnaces and water heaters you can choose standard electric (resistance) or a heat pump, which the calculator assumes delivers 3 units of heat per unit of electricity for space heating and 3.5 for water heating. The gas price is an assumption; your bill shows your rate.
 
-Annual fuel cost is only part of the equation. You need to account for equipment cost, installation, maintenance, and lifespan.
+At the defaults ($1.35 per therm, 18 cents per kWh):
 
-<ComparisonTable
-  title="15-Year Total Cost of Ownership — Gas vs Electric (2,000 sq ft, Moderate-Cold Climate)"
-  headers={["Cost Category", "Gas Furnace (96% AFUE)", "Electric Furnace", "Heat Pump + Electric Backup"]}
-  rows={[
-    ["Equipment + Installation", "$5,500", "$3,500", "$7,000"],
-    ["Annual Fuel/Energy Cost", "$875", "$3,750", "$1,500 (heating) + $800 (cooling)"],
-    ["Annual Maintenance", "$150", "$50", "$200"],
-    ["AC System (if separate)", "$4,500 (central AC)", "$4,500 (central AC)", "Included in heat pump"],
-    ["15-Year Fuel Cost", "$13,125", "$56,250", "$22,500 + $12,000 cooling"],
-    ["15-Year Maintenance", "$2,250", "$750", "$3,000"],
-    ["**15-Year Total**", "**$25,375**", "**$65,050**", "**$44,500**"],
-  ]}
-  footnote="Assumes national average fuel prices remain stable (inflation-adjusted). Gas furnace total includes separate AC system cost."
-/>
+| Appliance | Gas per year | Electric per year | Cheaper |
+|---|---|---|---|
+| Water heater, resistance | $729 | $2,549 | Gas, by $1,820 |
+| Water heater, heat pump | $729 | $692 | Electric, by $37 |
+| Furnace, resistance | $3,110 | $11,163 | Gas, by $8,052 |
+| Furnace, heat pump | $3,110 | $3,646 | Gas, by $536 |
+| Clothes dryer | $107 | $334 | Gas, by $227 |
+| Cooking range | $219 | $553 | Gas, by $334 |
+| Fireplace | $778 | $2,279 | Gas, by $1,501 |
 
-<Callout type="takeaway">
-**Over 15 years, a gas furnace system (with separate AC) costs approximately $25,000 — about $40,000 less than electric resistance heating.** A heat pump system falls in between at roughly $44,500, but provides both heating and cooling in a single system. In mild climates where cooling costs dominate, the heat pump often wins on total cost.
-</Callout>
+The furnace rows use the calculator's default of 8 hours a day at 80,000 BTU, a heavy load meant for comparison, not a typical annual bill. What matters is the ratio: resistance electric costs about 3.6 times as much as gas, and a heat pump comes within about 17%.
 
-## When Electric Heating Makes More Sense Than Gas
+## When electric heat wins
 
-Despite gas's clear cost advantage on fuel alone, there are legitimate scenarios where electric heating is the smarter choice:
+- **Cheap electricity.** At North Dakota's 12.36 cents per kWh, a COP-3 heat pump costs about $12.07 per million BTU, less than gas at $14.21.
+- **A heat pump that averages a high COP**, typical in mild climates where it rarely works in deep cold.
+- **Expensive gas, or no gas line**, where the connection cost alone can tip the decision.
 
-**No gas line available.** Running a new gas line from the street to your home costs $2,000–$15,000+ depending on distance and terrain. In rural areas, it may not be available at all. If you'd need to install gas infrastructure, the upfront cost erases years of fuel savings.
+Gas wins where electricity is expensive. At Massachusetts's 30.14 cents per kWh, the same heat pump costs about $29.44 per million BTU, twice the cost of gas. Our [kWh cost calculator](/kwh-cost-calculator) has every state's average rate.
 
-**Mild climate with low heating loads.** In a home that needs only $400–$600/year in heating (like in the Southeast or Southern California), the difference between gas and electric might be $200–$400/year — not enough to justify gas line costs and annual furnace maintenance.
+## Carbon
 
-**Heat pump territory.** In climates where winter temperatures rarely drop below 25–30°F, a heat pump provides both heating and cooling at 200–300% efficiency. This brings electric heating costs close to gas while eliminating the need for a separate AC system.
+The calculator also compares carbon dioxide, using the U.S. grid average of 0.823 lb per kWh (EPA eGRID2022) and about 117 lb per million BTU for natural gas (U.S. EIA emission coefficient). For the default furnace load, resistance heat emits about 51,000 lb a year against 27,000 for gas, while a heat pump emits about 16,700. Grids with more hydro, nuclear or renewable power do better than the average; coal-heavy grids do worse.
 
-**New construction efficiency.** Highly insulated new construction (R-49 attic, R-21 walls, triple-pane windows, tight air sealing) may need so little heat that the fuel type matters less. Some passive-house-level builds heat effectively with just a mini-split heat pump.
+## Frequently asked questions
 
-**Renewable energy goals.** If you have rooftop solar, electric heating can be partially or fully offset by self-generated electricity, making the effective operating cost near zero during sunny months. Gas can never be self-generated at the residential level.
+### Is gas or electric heat cheaper?
 
-## The Heat Pump Factor: Changing the Equation
+Gas is much cheaper than electric resistance heat, about $14 to $15 per million BTU against $53 at U.S. average prices. Against a heat pump it's close, and local electricity and gas prices decide it.
 
-Heat pumps are increasingly disrupting the gas vs. electric debate. Modern cold-climate heat pumps (like the Mitsubishi Hyper-Heat or Bosch IDS 2.0) can operate efficiently down to -15°F, which means they're now viable even in northern climates that previously required gas furnaces.
+### Is a heat pump cheaper to run than a gas furnace?
 
-The key metric is COP (Coefficient of Performance) — a heat pump with COP 3.0 delivers 3 units of heat for every 1 unit of electricity consumed, effectively tripling the efficiency of electric resistance heating. At a COP of 3.0 (figures illustrative — see the calculator for exact numbers):
+At U.S. average prices, only if it averages a COP above about 3.75 against a 95% furnace. With cheaper electricity or pricier gas, the break-even COP falls; see our [heat pump guide](/heat-pump-guide).
 
-- Electric resistance at $0.18/kWh → **≈$46.88/MMBtu**
-- Heat pump at $0.18/kWh with COP 3.0 → **≈$15.63/MMBtu**
-- Gas at $1.35/therm, 96% AFUE → **≈$10.94/MMBtu**
+### Is a gas water heater cheaper than electric?
 
-At COP 3.0, a heat pump still costs meaningfully more per BTU than gas at national average prices — see the calculator. But in areas with cheap electricity or expensive gas, the heat pump can actually beat gas on operating cost.
+Than a standard electric tank, yes, by a wide margin. A heat pump water heater costs about the same as gas, slightly less at the calculator's defaults.
 
-<Callout type="tip">
-**The crossover points:** A heat pump with COP 2.5 breaks even with a 96% gas furnace when gas costs more than $1.60/therm and electricity is at the national average of $0.18/kWh — or when electricity costs less than $0.07/kWh with gas at the national average of $1.35/therm. These crossover points shift with climate severity, making heat pumps increasingly attractive in mild and moderate climates.
-</Callout>
+### Which is better for the environment?
 
-## Environmental Comparison
-
-Beyond cost, carbon emissions are an increasingly important factor:
-
-<ComparisonTable
-  title="Carbon Emissions by Heating Source — 2026 U.S. Average Grid"
-  headers={["Heating Source", "CO2 per MMBtu (Delivered)", "Annual CO2 (2,000 sq ft home)", "Notes"]}
-  rows={[
-    ["Natural Gas (96% AFUE)", "123 lbs", "9,840 lbs", "Direct combustion emissions"],
-    ["Electric Resistance (grid avg)", "159 lbs", "12,720 lbs", "Depends heavily on grid mix"],
-    ["Heat Pump COP 2.5 (grid avg)", "64 lbs", "5,120 lbs", "Most efficient on average grid"],
-    ["Heat Pump COP 2.5 (clean grid)", "~10 lbs", "~800 lbs", "WA, OR, VT — mostly hydro/nuclear"],
-    ["Heating Oil (85% AFUE)", "188 lbs", "15,040 lbs", "Highest carbon option"],
-  ]}
-  footnote="Based on EPA eGRID 2024 average U.S. grid emission factor of 0.367 kg CO2/kWh. Clean grid states have emissions factors under 0.1 kg CO2/kWh."
-/>
-
-In states with clean electricity grids (Washington, Oregon, Vermont, California), heat pumps produce dramatically less carbon than gas furnaces. Even in coal-heavy grid states, heat pumps at COP 2.5+ produce less CO2 than gas.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- **Gas heating costs 50–60% less than electric resistance heating** at national average fuel prices — about $875/year vs. $1,800–$3,750/year for a typical home.
-- **Electric resistance heating is the most expensive option** in almost every scenario. It makes sense only in mild climates, homes without gas access, or as backup in a heat pump system.
-- **Heat pumps change the calculus.** At COP 2.5+, they bring electric heating costs within 40–70% of gas. In mild climates with cheap electricity, heat pumps can actually beat gas on operating cost.
-- **Location matters enormously.** The gas advantage ranges from 53% savings in Washington (cheap electricity) to 81% savings in Colorado (cheap gas, moderate electricity).
-- **Total cost of ownership favors gas** over electric resistance by about $40,000 over 15 years for a typical home. Heat pump systems fall in between and offer the bonus of efficient cooling.
-- **The best choice depends on**: local fuel prices, climate severity, gas line availability, and whether you also need air conditioning.
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "How much does it cost to heat a house with electricity per month?",
-    answer: "In a moderate-to-cold climate (like the Midwest or Northeast), electric resistance heating for a 2,000 sq ft home costs ≈$250–$550 per month during winter months at the national average rate of $0.18/kWh (illustrative). In mild climates (Southeast, Southwest), expect ≈$75–$175 per month. A heat pump reduces these costs by 50–65%."
-  },
-  {
-    question: "Is it worth switching from electric to gas heat?",
-    answer: "If natural gas is already available at your home, switching from electric resistance to gas typically saves $1,000–$3,000/year and pays back the conversion cost ($4,000–$7,000) in 2–5 years. If gas isn't available, the line installation cost ($2,000–$15,000+) may extend the payback to 5–10+ years. Consider a heat pump as an alternative — it can reduce electric heating costs by 50–65% without needing a gas line."
-  },
-  {
-    question: "How much does gas heat cost per month?",
-    answer: "Gas heating for a 2,000 sq ft home typically costs $80–$200 per month during winter in moderate-to-cold climates, using a 96% AFUE furnace at national average gas prices. In very cold climates (Minnesota, Wisconsin), expect $150–$250/month in the coldest months. Annual totals typically range from $600 to $1,200."
-  },
-  {
-    question: "Does electric heat dry out the air more than gas?",
-    answer: "Not significantly. Both gas and electric forced-air furnaces reduce relative humidity because they heat air without adding moisture. Gas furnaces are often blamed more for dry air because they tend to heat to higher supply air temperatures (120–140°F vs. 90–120°F for electric), but the primary driver of winter dryness is cold outside air with low absolute humidity infiltrating the home. A whole-house humidifier ($300–$800 installed) solves this regardless of fuel type."
-  },
-  {
-    question: "How do I find my local gas and electricity rates?",
-    answer: "Check your most recent utility bills — your gas rate appears as cost per therm (or per CCF, which equals 1.024 therms) and your electricity rate appears as cost per kWh. You can also find average rates by state on the U.S. EIA website (eia.gov). Look for the 'delivery' or 'total' rate, not just the 'supply' charge, since both components contribute to your actual cost."
-  }
-]} />
-
-## Sources
+At the U.S. grid average, a heat pump emits less carbon than gas heat for the same warmth, and resistance heat emits the most. Where the grid is cleaner, the heat pump's advantage grows.
 
 <SourcesBox sources={[
-  { title: "U.S. EIA — Natural Gas Prices", url: "https://www.eia.gov/dnav/ng/ng_pri_sum_dcu_nus_a.htm" },
-  { title: "U.S. EIA — Average Retail Price of Electricity", url: "https://www.eia.gov/electricity/monthly/" },
-  { title: "EPA eGRID — Power Profiler", url: "https://www.epa.gov/egrid/power-profiler" }
+  { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "EPA: Greenhouse Gas Equivalencies Calculator, calculations and references (eGRID2022)", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" }
 ]} />
 
-## Related Articles
-
+<RelatedArticles articles={frontmatter.relatedArticles} />
