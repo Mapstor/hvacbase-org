@@ -27,12 +27,15 @@ import {
 
 const ACCENT = 'emerald' as const;
 
+// watts = typical draw for the size; check your model's label for the exact
+// figure. Room-coverage claims were removed (they varied too much by ceiling
+// height, moisture load, and target humidity to state as a fixed number).
 const dehumidifierSizes = [
-  { value: '30', name: '30-pint', summary: '~300W, ≤1,500 sq ft', watts: 300, price: 200, pints: 30 },
-  { value: '50', name: '50-pint', summary: '~590W, ≤3,000 sq ft', watts: 590, price: 280, pints: 50 },
-  { value: '70', name: '70-pint', summary: '~700W, ≤4,500 sq ft', watts: 700, price: 350, pints: 70 },
-  { value: '95', name: '95-pint', summary: '~800W, ≤6,000 sq ft', watts: 800, price: 450, pints: 95 },
-  { value: '110', name: '110-pint', summary: '~900W, ≤7,000 sq ft', watts: 900, price: 550, pints: 110 },
+  { value: '30', name: '30-pint', summary: '~300W typical draw', watts: 300, pints: 30 },
+  { value: '50', name: '50-pint', summary: '~590W typical draw', watts: 590, pints: 50 },
+  { value: '70', name: '70-pint', summary: '~700W typical draw', watts: 700, pints: 70 },
+  { value: '95', name: '95-pint', summary: '~800W typical draw', watts: 800, pints: 95 },
+  { value: '110', name: '110-pint', summary: '~900W typical draw', watts: 900, pints: 110 },
 ];
 
 const climateZones = [
@@ -47,6 +50,8 @@ const usagePatterns = [
   { value: 'extended', name: 'Extended', sub: '7 months (spring–fall)', monthsPerYear: 7 },
   { value: 'year-round', name: 'Year-round', sub: '12 months', monthsPerYear: 12 },
 ];
+
+const GRID_LB_CO2_PER_KWH = 0.823; // EPA eGRID2022 U.S. average (823.1 lb CO2e/MWh)
 
 const DEFAULTS = {
   dehumidifierSize: '50',
@@ -97,51 +102,47 @@ export default function DehumidifierCostCalculator() {
 
   const calc = useMemo(() => {
     const watts = selected.watts;
-    const price = selected.price;
     const humidityDiff = cur - tgt;
     const baseRuntime = Math.min(24, Math.max(4, humidityDiff * 0.6));
     const climateAdjustedRuntime = baseRuntime * climate.humidityFactor;
     const actualRuntime = Math.min(maxHr, climateAdjustedRuntime);
     const dailyKwh = (watts * actualRuntime) / 1000;
     const monthlyKwh = dailyKwh * 30;
-    const seasonalKwh = monthlyKwh * usage.monthsPerYear;
-    const yearlyKwh = dailyKwh * 365;
+    // Annual energy follows the usage pattern: monthly × months in use, not
+    // daily × 365. A seasonal (4-month) user doesn't run it all year.
+    const annualKwh = monthlyKwh * usage.monthsPerYear;
     const dailyCost = dailyKwh * rate;
     const monthlyCost = monthlyKwh * rate;
-    const seasonalCost = seasonalKwh * rate;
-    const yearlyCost = yearlyKwh * rate;
+    const annualCost = annualKwh * rate;
     const dailyMoistureRemoval = selected.pints * (actualRuntime / 24);
     const monthlyMoistureRemoval = dailyMoistureRemoval * 30;
     const energyPerPint = selected.pints > 0 ? watts / selected.pints : 0;
     const costPerPint = dailyMoistureRemoval > 0 ? dailyCost / dailyMoistureRemoval : 0;
-    const fiveYearEnergyCost = seasonalCost * 5;
+    const fiveYearEnergyCost = annualCost * 5;
     const maintenanceCost = 50 * 5;
-    const totalCostOfOwnership = price + fiveYearEnergyCost + maintenanceCost;
+    const fiveYearRunningCost = fiveYearEnergyCost + maintenanceCost;
+    // ENERGY STAR upgrade: energy savings only (no invented equipment prices).
     const efficientWatts = watts * 0.75;
-    const efficientPrice = price * 1.3;
-    // Savings accrue only during actual usage months, not 365 days — a
-    // seasonal (4-month) user's benefit was overstated ~3× on a 365-day basis.
     const usageDaysPerYear = usage.monthsPerYear * 30;
     const energySavingsPerYear = ((watts - efficientWatts) * actualRuntime * usageDaysPerYear / 1000) * rate;
-    const paybackYears = energySavingsPerYear > 0 ? (efficientPrice - price) / energySavingsPerYear : 999;
-    const annualCO2 = yearlyKwh * 0.855; // EPA eGRID2022 US avg lb CO₂/kWh
+    const annualCO2 = annualKwh * GRID_LB_CO2_PER_KWH;
     const fiveYearCO2 = annualCO2 * 5;
     const recommendedCapacity = (sqft / 150) * climate.humidityFactor;
     const adequateSize = selected.pints >= recommendedCapacity;
-    return { watts, price, actualRuntime, dailyKwh, monthlyKwh, seasonalKwh, yearlyKwh, dailyCost, monthlyCost, seasonalCost, yearlyCost, dailyMoistureRemoval, monthlyMoistureRemoval, energyPerPint, costPerPint, fiveYearEnergyCost, maintenanceCost, totalCostOfOwnership, efficientPrice, energySavingsPerYear, paybackYears, annualCO2, fiveYearCO2, recommendedCapacity, adequateSize };
+    return { watts, actualRuntime, dailyKwh, monthlyKwh, annualKwh, dailyCost, monthlyCost, annualCost, dailyMoistureRemoval, monthlyMoistureRemoval, energyPerPint, costPerPint, fiveYearEnergyCost, maintenanceCost, fiveYearRunningCost, energySavingsPerYear, annualCO2, fiveYearCO2, recommendedCapacity, adequateSize };
   }, [selected, sqft, climate, cur, tgt, rate, maxHr, usage]);
 
   const fit =
     !calc.adequateSize ? { tone: 'warn' as const, text: `Undersized, recommend ${Math.ceil(calc.recommendedCapacity)}+ pint` } :
     calc.actualRuntime >= 20 ? { tone: 'warn' as const, text: 'High runtime, address moisture source' } :
-    calc.seasonalCost < 100 ? { tone: 'good' as const, text: 'Low operating cost, strong value' } :
+    calc.annualCost < 100 ? { tone: 'good' as const, text: 'Low operating cost, strong value' } :
     { tone: 'ok' as const, text: 'Reasonable cost for capacity' };
 
   return (
     <CalcShell
       Icon={Droplets}
       title="Dehumidifier Cost Calculator"
-      subtitle="Operating cost + 5-year cost of ownership."
+      subtitle="Operating cost by season and over 5 years."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -151,6 +152,7 @@ export default function DehumidifierCostCalculator() {
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Dehumidifier size</label>
             <CardChoice value={dehumidifierSize} onChange={setDehumidifierSize} options={dehumidifierSizes} ariaLabel="Dehumidifier size" accent={ACCENT} columns={5} />
+            <p className="text-[11px] text-gray-500 mt-1.5">Wattages are typical draw; check your model&rsquo;s label.</p>
           </div>
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
@@ -213,14 +215,14 @@ export default function DehumidifierCostCalculator() {
 
         <ResultHero
           accent={ACCENT}
-          eyebrow="Seasonal operating cost"
-          value={`$${fmtMoney(calc.seasonalCost)}`}
-          unit={`/${usage.name.toLowerCase()} (${fmt(Math.round(calc.seasonalKwh))} kWh)`}
+          eyebrow={`${usage.name} operating cost`}
+          value={`$${fmtMoney(calc.annualCost)}`}
+          unit={`/yr (${usage.monthsPerYear} months, ${fmt(Math.round(calc.annualKwh))} kWh)`}
           secondaryText={
             <>
-              {selected.name} runs ~{calc.actualRuntime.toFixed(1)} hr/day in your {climate.name.toLowerCase()} climate, removing{' '}
+              {selected.name} runs an estimated ~{calc.actualRuntime.toFixed(1)} hr/day in your {climate.name.toLowerCase()} climate, removing{' '}
               <strong>{calc.dailyMoistureRemoval.toFixed(0)} pints/day</strong>.
-              Monthly cost: <strong>${fmtMoney(calc.monthlyCost)}</strong>; yearly (if continuous): <strong>${fmtMoney(calc.yearlyCost)}</strong>.
+              Daily <strong>${calc.dailyCost.toFixed(2)}</strong>, monthly <strong>${fmtMoney(calc.monthlyCost)}</strong> while running.
             </>
           }
           fitTone={fit.tone}
@@ -236,18 +238,18 @@ export default function DehumidifierCostCalculator() {
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
               <DollarSign className="w-4 h-4 text-emerald-600" />
-              5-year cost of ownership
+              5-year running cost
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'Unit price', detail: selected.name, factor: `$${fmtMoney(calc.price)}` },
                 { label: 'Energy (5 yr)', detail: `${usage.name} use × 5`, factor: `$${fmtMoney(calc.fiveYearEnergyCost)}` },
                 { label: 'Maintenance', detail: '~$50/yr × 5', factor: `$${fmtMoney(calc.maintenanceCost)}` },
               ]}
               totals={[
-                { label: 'Total 5-yr cost', value: `$${fmtMoney(calc.totalCostOfOwnership)}`, valueClass: 'text-emerald-700' },
+                { label: 'Total 5-yr running cost', value: `$${fmtMoney(calc.fiveYearRunningCost)}`, valueClass: 'text-emerald-700' },
               ]}
             />
+            <p className="text-[11px] text-gray-500 mt-2 leading-snug">Energy plus filter and coil upkeep; the unit&rsquo;s purchase price isn&rsquo;t included.</p>
           </div>
 
           <div className="bg-white rounded-xl border border-gray-200 p-4">
@@ -261,9 +263,9 @@ export default function DehumidifierCostCalculator() {
               <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Capacity utilization</span><strong>{((calc.actualRuntime / 24) * 100).toFixed(0)}%</strong></div>
               <div className="flex justify-between py-1.5"><span>Moisture removed/mo</span><strong>{fmt(Math.round(calc.monthlyMoistureRemoval))} pints</strong></div>
             </div>
-            {calc.paybackYears < 10 && (
+            {calc.energySavingsPerYear > 0 && (
               <div className="mt-3 p-3 bg-emerald-50 rounded text-xs text-emerald-900">
-                <strong>ENERGY STAR upgrade:</strong> A 25%-more-efficient model (${fmtMoney(calc.efficientPrice)}) saves <strong>${fmtMoney(calc.energySavingsPerYear)}/yr</strong>, pays back in <strong>{calc.paybackYears.toFixed(1)} yrs</strong>.
+                <strong>ENERGY STAR upgrade:</strong> A 25%-more-efficient model saves about <strong>${fmtMoney(calc.energySavingsPerYear)}/yr</strong> in energy over {usage.name.toLowerCase()} use.
               </div>
             )}
           </div>
@@ -275,9 +277,9 @@ export default function DehumidifierCostCalculator() {
             </h4>
             <div className="space-y-1 text-xs text-gray-700">
               <div className="flex justify-between"><span>Annual CO₂</span><strong>{fmt(Math.round(calc.annualCO2))} lbs ({(calc.annualCO2 / 2000).toFixed(2)} tons)</strong></div>
-              <div className="flex justify-between"><span>5-year CO₂</span><strong>{fmt(Math.round(calc.fiveYearCO2 / 1000))}k lbs</strong></div>
+              <div className="flex justify-between"><span>5-year CO₂</span><strong>{(calc.fiveYearCO2 / 1000).toFixed(1)}k lbs</strong></div>
             </div>
-            <p className="text-[11px] text-gray-600 mt-2 leading-snug">Based on US grid average (0.855 lbs CO₂/kWh, EPA eGRID2022). Renewable-heavy grids cut this 30–60%.</p>
+            <p className="text-[11px] text-gray-600 mt-2 leading-snug">Based on the EPA eGRID2022 U.S. average (0.823 lb CO₂/kWh), for {usage.monthsPerYear} months of use. Renewable-heavy grids cut this 30-60%.</p>
           </div>
 
           <div className="bg-amber-50 rounded-xl border border-amber-200 p-4">
@@ -301,6 +303,7 @@ export default function DehumidifierCostCalculator() {
 
         <DisclaimerBox title="Notes on dehumidifier economics">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
+            <li>Run time is estimated from the humidity gap and climate; real run time depends on the room, its air sealing, and the moisture source</li>
             <li>ENERGY STAR units use ~25% less power than standard models, usually worth the upcharge for year-round use</li>
             <li>Auto-defrost-equipped models work below 65°F (cold basements) without ice-up; standard models stall</li>
             <li>Pump-equipped units drain to a sink/upstairs; gravity drain limits placement</li>
