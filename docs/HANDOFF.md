@@ -25,6 +25,7 @@ Get hvacbase.org accepted by Raptive on the next review (rejected 4 times, no re
 - Avoid template tells: "honest/honestly", "Here's the...", "How we sourced this page" boilerplate, "linked at the bottom", "worth knowing", "we recommend no specific brands", "Step 1/2/3:" headings, italic rhetorical-question blocks ("the worry underneath: *...?*"). FAQ questions phrased as real searches ("Is X worth it?") are fine.
 - Keep page titles and slugs of pages with meaningful Bing traffic unless there's a strong reason.
 - Citations deep-link to the page that states the fact. Bare homepages only for tools (ahridirectory.org, dsireusa.org, ashp.neep.org, pvwatts.nrel.gov, ahamverifide.org).
+- Every number in a page's bold answer must also appear in the body, with the step that produces it (hook traceability).
 
 ## Verified facts registry (source -> fact)
 - EIA Electric Power Monthly, Tables 5.6.A/B (July 2026 data, released Sept 24, 2026): U.S. residential 18.19 cents/kWh Jan-Jul 2026 (July 18.31). Lowest North Dakota 12.36, highest Hawaii 46.28. Full state table: data/eia/residential-rates.json (regenerate with scripts/eia-rates.mjs from EIA's xlsx). Calculator default $0.18/kWh.
