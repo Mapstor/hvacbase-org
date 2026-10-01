@@ -4,19 +4,12 @@ import { useState, useMemo } from 'react';
 import {
   Wind,
   Home,
-  Bed,
-  Sofa,
-  ChefHat,
-  Briefcase,
-  Bath,
-  Cat,
-  Cigarette,
+  Gauge,
 } from 'lucide-react';
 import {
   fmt,
   CalcShell,
   SectionHeader,
-  CardChoice,
   NumberInput,
   InfoTip,
   ResultHero,
@@ -25,117 +18,67 @@ import {
   ResultsHeader,
   CalculateResetBar,
   useCalculatorSubmit,
-  accentMap,
 } from './_shared';
 
 const ACCENT = 'blue' as const;
-const a = accentMap[ACCENT];
-
-const roomTypes = [
-  { value: 'bedroom', name: 'Bedroom', summary: 'Sleep, 4.8 ACH (AHAM)', acph: 4.8, Icon: Bed },
-  { value: 'living', name: 'Living room', summary: '4.8 ACH, allergen clearing', acph: 4.8, Icon: Sofa },
-  { value: 'kitchen', name: 'Kitchen', summary: 'Cooking fumes, 4.8 ACH', acph: 4.8, Icon: ChefHat },
-  { value: 'office', name: 'Home office', summary: '4.8 ACH clean air', acph: 4.8, Icon: Briefcase },
-  { value: 'basement', name: 'Basement', summary: 'Often unfinished, 2 ACH', acph: 2, Icon: Home },
-  { value: 'bathroom', name: 'Bathroom', summary: 'Moisture + odor, 4.8 ACH', acph: 4.8, Icon: Bath },
-];
-
-const pollutionLevels = [
-  { value: 'low', name: 'Low', summary: 'Rural, clean air, no smoking', multiplier: 1.0 },
-  { value: 'moderate', name: 'Moderate', summary: 'Suburban, light traffic', multiplier: 1.3 },
-  { value: 'high', name: 'High', summary: 'Urban, heavy traffic, pets', multiplier: 1.6 },
-  { value: 'severe', name: 'Severe', summary: 'Smoking, construction, wildfire', multiplier: 2.0 },
-];
-
-const extras = [
-  { id: 'allergies', label: 'Household allergies', factor: 1.3, Icon: Cigarette },
-  { id: 'pets', label: 'Pets in home', factor: 1.2, Icon: Cat },
-];
 
 const DEFAULTS = {
   roomLength: '12',
   roomWidth: '10',
   ceilingHeight: '8',
-  roomType: 'bedroom',
-  pollutionLevel: 'moderate',
+  achTarget: '', // optional higher target, empty by default
 };
 
 export default function AirPurifierSizingCalculator() {
   const [roomLength, setRoomLength] = useState(DEFAULTS.roomLength);
   const [roomWidth, setRoomWidth] = useState(DEFAULTS.roomWidth);
   const [ceilingHeight, setCeilingHeight] = useState(DEFAULTS.ceilingHeight);
-  const [roomType, setRoomType] = useState(DEFAULTS.roomType);
-  const [pollutionLevel, setPollutionLevel] = useState(DEFAULTS.pollutionLevel);
-  const [extraFactors, setExtraFactors] = useState<Set<string>>(new Set());
-
-  const extraFactorsKey = Array.from(extraFactors).sort().join(',');
+  const [achTarget, setAchTarget] = useState(DEFAULTS.achTarget);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
-    roomLength, roomWidth, ceilingHeight, roomType, pollutionLevel, extraFactorsKey,
+    roomLength, roomWidth, ceilingHeight, achTarget,
   });
 
-  const room = roomTypes.find((r) => r.value === src.roomType)!;
-  const pollution = pollutionLevels.find((p) => p.value === src.pollutionLevel)!;
   const L = Math.max(parseFloat(src.roomLength) || 0, 0);
   const W = Math.max(parseFloat(src.roomWidth) || 0, 0);
   const H = Math.max(parseFloat(src.ceilingHeight) || 0, 0);
-  const committedExtraFactors = new Set(
-    src.extraFactorsKey ? src.extraFactorsKey.split(',').filter(Boolean) : []
-  );
-
-  const toggle = (id: string) => {
-    setExtraFactors((prev) => {
-      const n = new Set(prev);
-      n.has(id) ? n.delete(id) : n.add(id);
-      return n;
-    });
-  };
+  const ach = Math.max(parseFloat(src.achTarget) || 0, 0);
 
   const handleReset = () => {
     setRoomLength(DEFAULTS.roomLength);
     setRoomWidth(DEFAULTS.roomWidth);
     setCeilingHeight(DEFAULTS.ceilingHeight);
-    setRoomType(DEFAULTS.roomType);
-    setPollutionLevel(DEFAULTS.pollutionLevel);
-    setExtraFactors(new Set());
+    setAchTarget(DEFAULTS.achTarget);
     clear();
   };
 
   const calc = useMemo(() => {
     const area = L * W;
     const volume = area * H;
-    let requiredCadr = (volume * room.acph) / 60;
-    requiredCadr *= pollution.multiplier;
-    for (const id of committedExtraFactors) {
-      const e = extras.find((x) => x.id === id);
-      if (e) requiredCadr *= e.factor;
-    }
-    const standardSizes = [
-      { area: 150, cadr: 100, name: 'Small room' },
-      { area: 300, cadr: 200, name: 'Medium room' },
-      { area: 500, cadr: 300, name: 'Large room' },
-      { area: 800, cadr: 450, name: 'Extra large' },
-      { area: 1200, cadr: 600, name: 'Whole home' },
-    ];
-    const recommended = standardSizes.find((s) => s.area >= area && s.cadr >= requiredCadr) || standardSizes[standardSizes.length - 1];
-    const actualAch = volume > 0 ? (recommended.cadr * 60) / volume : 0;
-    const powerConsumption = Math.round(recommended.cadr * 0.8);
-    const dailyEnergyUse = (powerConsumption * 16) / 1000;
-    const monthlyEnergyUse = dailyEnergyUse * 30;
-    return { area, volume, requiredCadr, recommended, actualAch, powerConsumption, dailyEnergyUse, monthlyEnergyUse };
-  }, [L, W, H, room, pollution, committedExtraFactors]);
+    // AHAM two-thirds rule: an air cleaner's smoke CADR should be at least
+    // two-thirds of the room's floor area in square feet, for an 8-foot ceiling
+    // (about 5 air changes per hour). Scale by ceiling height ÷ 8 for taller rooms.
+    const smokeCadr = area * (2 / 3) * (H / 8);
+    // Equivalent air changes per hour for that CADR in this room.
+    const smokeAch = volume > 0 ? (smokeCadr * 60) / volume : 0;
+    // Optional user-chosen higher target: CADR = volume × ACH ÷ 60.
+    const hasTarget = ach > 0;
+    const targetCadr = hasTarget ? (volume * ach) / 60 : 0;
+    const requiredCadr = hasTarget ? targetCadr : smokeCadr;
+    const equivalentAch = hasTarget ? ach : smokeAch;
+    return { area, volume, smokeCadr, smokeAch, hasTarget, targetCadr, requiredCadr, equivalentAch };
+  }, [L, W, H, ach]);
 
   const fit =
     calc.requiredCadr === 0 ? { tone: 'warn' as const, text: 'Enter room dimensions' } :
-    calc.actualAch >= room.acph * 1.5 ? { tone: 'good' as const, text: `Comfortably hits ${room.acph} ACH target` } :
-    calc.actualAch >= room.acph ? { tone: 'good' as const, text: `Meets ${room.acph} ACH target` } :
-    { tone: 'warn' as const, text: 'Slightly under-spec, consider bigger unit' };
+    calc.hasTarget ? { tone: 'good' as const, text: `Sized to your ${calc.equivalentAch.toFixed(1)} ACH target` } :
+    { tone: 'good' as const, text: `AHAM two-thirds rule, about ${calc.smokeAch.toFixed(1)} ACH` };
 
   return (
     <CalcShell
       Icon={Wind}
       title="Air Purifier Sizing Calculator"
-      subtitle="Right CADR + coverage area for your space."
+      subtitle="Smoke CADR from AHAM's two-thirds rule."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -162,49 +105,26 @@ export default function AirPurifierSizingCalculator() {
       </section>
 
       <section>
-        <SectionHeader step={2} title="Room type & pollution" subtitle="Drives the ACH target" Icon={Wind} accent={ACCENT} />
-        <div className="space-y-5">
-          <div>
-            <label className="text-sm font-medium text-gray-700 mb-2 block">Room type</label>
-            <CardChoice value={roomType} onChange={setRoomType} options={roomTypes} ariaLabel="Room type" accent={ACCENT} columns={3} />
-          </div>
-          <div>
-            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-              Pollution level
-              <InfoTip label="pollution level">
-                Includes outdoor air pollution, traffic proximity, smoking, cooking style, construction nearby, wildfire smoke seasons.
-              </InfoTip>
-            </label>
-            <CardChoice value={pollutionLevel} onChange={setPollutionLevel} options={pollutionLevels} ariaLabel="Pollution level" accent={ACCENT} />
-          </div>
-          <div>
-            <label className="text-sm font-medium text-gray-700 mb-2 block">Extra factors</label>
-            <div className="grid sm:grid-cols-2 gap-2">
-              {extras.map((e) => {
-                const active = extraFactors.has(e.id);
-                const Icon = e.Icon;
-                return (
-                  <button
-                    key={e.id}
-                    type="button"
-                    role="checkbox"
-                    aria-checked={active}
-                    onClick={() => toggle(e.id)}
-                    className={`text-left p-3 rounded-lg border-2 transition-all flex items-center gap-2 ${
-                      active ? `${a.selectedBorder} ${a.selectedBg} ring-1 ${a.selectedRing}` : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50/50'
-                    }`}
-                  >
-                    <div className={`w-4 h-4 rounded border-2 flex items-center justify-center ${active ? `${a.iconBg} border-transparent` : 'border-gray-300'}`}>
-                      {active && <span className="text-white text-[10px] leading-none">✓</span>}
-                    </div>
-                    <Icon className={`w-4 h-4 ${active ? a.sectionIconText : 'text-gray-500'}`} />
-                    <span className="text-sm font-medium text-gray-900">{e.label}</span>
-                    <span className="ml-auto text-[11px] text-gray-500">+{((e.factor - 1) * 100).toFixed(0)}%</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+        <SectionHeader step={2} title="Higher target (optional)" subtitle="Air changes per hour, if you want more than the AHAM rule" Icon={Gauge} accent={ACCENT} />
+        <div className="max-w-sm">
+          <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+            Higher target (air changes per hour)
+            <InfoTip label="higher ACH target">
+              Leave blank to use AHAM's two-thirds smoke-CADR rule (about 5 air changes per hour at an 8-foot ceiling). Enter a higher number for a faster clean rate. The required CADR then becomes volume × ACH ÷ 60.
+            </InfoTip>
+          </label>
+          <NumberInput
+            value={achTarget}
+            onChange={setAchTarget}
+            min={0}
+            max={30}
+            suffix="ACH"
+            placeholder="optional"
+            ariaLabel="Higher air changes per hour target"
+            accent={ACCENT}
+            className="max-w-none"
+          />
+          <p className="text-xs text-gray-500 mt-1.5">Your choice, for example for allergies or wildfire smoke.</p>
         </div>
       </section>
 
@@ -222,22 +142,30 @@ export default function AirPurifierSizingCalculator() {
 
         <ResultHero
           accent={ACCENT}
-          eyebrow="Required CADR rating"
+          eyebrow="Required smoke CADR"
           value={`${Math.round(calc.requiredCadr)}`}
-          unit={`CFM · ${calc.recommended.name}`}
+          unit={`CFM · ${calc.equivalentAch.toFixed(1)} ACH`}
           secondaryText={
-            <>
-              For your {fmt(Math.round(calc.area))} sq ft {room.name.toLowerCase()} with {pollution.name.toLowerCase()} pollution{committedExtraFactors.size > 0 && ' + extras'},
-              you need at least <strong>{Math.round(calc.requiredCadr)} CFM</strong> CADR.
-              The closest standard tier is <strong>{calc.recommended.name}</strong> at {calc.recommended.cadr} CFM (covers up to {calc.recommended.area} sq ft).
-            </>
+            calc.hasTarget ? (
+              <>
+                Your {calc.equivalentAch.toFixed(1)} ACH target needs <strong>{Math.round(calc.targetCadr)} CFM</strong> (volume × ACH ÷ 60).
+                AHAM's two-thirds rule calls for <strong>{Math.round(calc.smokeCadr)} CFM</strong> of smoke CADR for this {fmt(Math.round(calc.area))} sq ft room, about {calc.smokeAch.toFixed(1)} air changes per hour.
+              </>
+            ) : (
+              <>
+                For your {fmt(Math.round(calc.area))} sq ft room with a {H}-ft ceiling, AHAM's two-thirds rule calls for a smoke CADR of at least <strong>{Math.round(calc.smokeCadr)} CFM</strong>,
+                about {calc.smokeAch.toFixed(1)} air changes per hour.
+              </>
+            )
           }
           fitTone={fit.tone}
           fitText={fit.text}
           sidePanel={[
-            { label: 'Recommended CADR', value: `${calc.recommended.cadr} CFM` },
-            { label: 'Coverage rating', value: `${calc.recommended.area} sq ft` },
-            { label: 'Achieved ACH', value: `${calc.actualAch.toFixed(1)}` },
+            { label: 'AHAM smoke CADR', value: `${Math.round(calc.smokeCadr)} CFM` },
+            { label: 'Equivalent ACH', value: `${calc.equivalentAch.toFixed(1)}` },
+            calc.hasTarget
+              ? { label: 'Your target CADR', value: `${Math.round(calc.targetCadr)} CFM` }
+              : { label: 'Floor area', value: `${fmt(Math.round(calc.area))} sq ft` },
           ]}
         />
 
@@ -249,17 +177,15 @@ export default function AirPurifierSizingCalculator() {
             </h4>
             <BreakdownTable
               rows={[
-                { label: 'Room volume', detail: `${L} × ${W} × ${H}`, factor: `${fmt(Math.round(calc.volume))} cu ft` },
-                { label: 'Target ACH', detail: room.name, factor: `${room.acph} ACH` },
-                { label: 'Base CADR', detail: `Volume × ACH ÷ 60`, factor: `${fmt(Math.round((calc.volume * room.acph) / 60))} CFM` },
-                { label: 'Pollution factor', detail: pollution.name, factor: `× ${pollution.multiplier.toFixed(1)}` },
-                ...Array.from(committedExtraFactors).map((id) => {
-                  const e = extras.find((x) => x.id === id)!;
-                  return { label: e.label, detail: '', factor: `× ${e.factor.toFixed(1)}` };
-                }),
+                { label: 'Floor area', detail: `${L} × ${W}`, factor: `${fmt(Math.round(calc.area))} sq ft` },
+                { label: 'Two-thirds rule', detail: 'area × 2/3', factor: `${fmt(Math.round((calc.area * 2) / 3))} CFM` },
+                { label: 'Ceiling adjustment', detail: `${H} ft ÷ 8`, factor: `× ${(H / 8).toFixed(2)}` },
+                ...(calc.hasTarget
+                  ? [{ label: 'Your ACH target', detail: 'volume × ACH ÷ 60', factor: `${fmt(Math.round(calc.targetCadr))} CFM` }]
+                  : []),
               ]}
               totals={[
-                { label: 'Required CADR', value: `${Math.round(calc.requiredCadr)} CFM`, valueClass: 'text-blue-700' },
+                { label: 'Required smoke CADR', value: `${Math.round(calc.requiredCadr)} CFM`, valueClass: 'text-blue-700' },
               ]}
             />
           </div>
@@ -267,34 +193,25 @@ export default function AirPurifierSizingCalculator() {
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
               <Home className="w-4 h-4 text-blue-600" />
-              Operating + reference
+              How AHAM sizing works
             </h4>
-            <div className="space-y-1.5 text-xs text-gray-700">
-              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Power consumption</span><strong>{calc.powerConsumption}W</strong></div>
-              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Daily energy (16hr)</span><strong>{calc.dailyEnergyUse.toFixed(1)} kWh</strong></div>
-              <div className="flex justify-between py-1.5 border-b border-gray-100"><span>Monthly energy</span><strong>{fmt(Math.round(calc.monthlyEnergyUse))} kWh</strong></div>
-              <div className="flex justify-between py-1.5"><span>Monthly cost @ $0.18</span><strong>${(calc.monthlyEnergyUse * 0.18).toFixed(2)}</strong></div>
-            </div>
-            <div className="mt-3 bg-blue-50 rounded-lg p-3 text-xs">
-              <div className="font-semibold text-blue-900 mb-1">CADR reference (AHAM tested)</div>
-              <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[11px] text-blue-800">
-                <div className="flex justify-between"><span>Small room</span><span>100 CFM</span></div>
-                <div className="flex justify-between"><span>Medium room</span><span>200 CFM</span></div>
-                <div className="flex justify-between"><span>Large room</span><span>300 CFM</span></div>
-                <div className="flex justify-between"><span>XL room</span><span>450 CFM</span></div>
-                <div className="flex justify-between"><span>Whole home</span><span>600+ CFM</span></div>
+            <div className="space-y-2 text-xs text-gray-700 leading-relaxed">
+              <p>AHAM's guidance: an air cleaner's smoke CADR should be at least two-thirds of the room's floor area in square feet, for an 8-foot ceiling (about 5 air changes per hour).</p>
+              <p>For a taller ceiling, scale the target by ceiling height ÷ 8.</p>
+              <div className="mt-2 bg-blue-50 rounded-lg p-3 text-[11px] text-blue-800">
+                AHAM rates three CADRs (smoke, dust, pollen); the two-thirds rule uses the smoke CADR.
               </div>
             </div>
           </div>
         </div>
 
-        <DisclaimerBox title="What CADR doesn't capture">
+        <DisclaimerBox title="What CADR does and doesn't cover">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
-            <li>CADR is AHAM-certified for smoke, dust, and pollen, VOCs and viruses need different filtration (carbon, UV-C, HEPA-13)</li>
-            <li>The "coverage area" sticker assumes 4.8 ACH at lab conditions; for allergy sufferers, target 5 ACH+</li>
-            <li>HEPA filters need replacing every 6–12 months; pre-filters every 3 months, factor into total cost</li>
-            <li>Whole-house purifiers in the HVAC return are more efficient than individual room units for multiple rooms</li>
-            <li>For wildfire smoke season: bump up one tier and run continuously on high</li>
+            <li>CADR is AHAM-certified for smoke, dust, and pollen; gaseous pollutants such as VOCs need activated carbon, not a higher CADR</li>
+            <li>The two-thirds rule assumes an 8-foot ceiling and targets about 5 air changes per hour; taller rooms scale by ceiling height ÷ 8</li>
+            <li>For allergies or wildfire smoke, set a higher ACH target above and size to that CADR instead</li>
+            <li>HEPA filters need replacing every 6 to 12 months and pre-filters every 3 months; factor that into running cost</li>
+            <li>A unit's labeled coverage area is set by its maker; compare its smoke CADR against the figure here</li>
           </ul>
         </DisclaimerBox>
       </section>
