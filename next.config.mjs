@@ -276,6 +276,9 @@ const nextConfig = {
       { source: '/disadvantages-of-heat-pumps', destination: '/heat-pump-guide', permanent: true },
       { source: '/mini-split-amps', destination: '/mini-split-electricity-usage', permanent: true },
       { source: '/air-purifier-placement', destination: '/air-purifier-guide', permanent: true },
+      // FOLD-2: duplicate pages folded into their hubs (permanent, no chains)
+      { source: '/is-tankless-water-heater-worth-it', destination: '/tankless-water-heater-guide', permanent: true },
+      { source: '/furnace-efficiency-explained', destination: '/afue-rating-explained', permanent: true },
       // ============ end archived product pages ============
     ];
   },
