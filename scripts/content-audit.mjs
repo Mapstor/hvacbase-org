@@ -76,7 +76,7 @@ function jaccard(a, b) {
 }
 
 // ---------- config lists ----------
-const BRANDS = ['Carrier','Trane','Lennox','Goodman','Rheem','Ruud','Bryant','Amana','Daikin','Mitsubishi','Fujitsu','LG','Samsung','Gree','Midea','MrCool','Senville','Pioneer','Cooper & Hunter','Bosch','York','Honeywell','Nest','Ecobee','Emerson','Frigidaire','GE','Whynter','hOmeLabs','Santa Fe','AprilAire','Blueair','Coway','Levoit','Winix','Dyson','Rinnai','Navien','EcoSmart','Stiebel Eltron','Generac','Honda','Champion','Westinghouse','Tesla','Powerwall','Enphase','Renogy','Battle Born','Victron','Aranet','Qingping','Airthings','Temtop','Awair','uHoo','Kaiterra','PurpleAir','IQAir','Aeroseal','Sensi','A.O. Smith','Bradford White','Noritz','Takagi','Kohler','Briggs & Stratton','Haier','Toshiba','Heil','Tempstar','Fresh-Aire','RGF','Steril-Aire','Lumalier','UVGI Solutions','Atlantic Ultraviolet','Philips','Osram','Sylvania','Light Sources','WaterFurnace','ClimateMaster'];
+const BRANDS = ['Carrier','Trane','Lennox','Goodman','Rheem','Ruud','Bryant','Amana','Daikin','Mitsubishi','Fujitsu','LG','Samsung','Gree','Midea','MrCool','Senville','Pioneer','Cooper & Hunter','Bosch','York','Honeywell','Nest','Ecobee','Emerson','Frigidaire','GE','Whynter','hOmeLabs','Santa Fe','AprilAire','Blueair','Coway','Levoit','Winix','Dyson','Rinnai','Navien','EcoSmart','Stiebel Eltron','Generac','Honda','Champion','Westinghouse','Tesla','Powerwall','Enphase','Renogy','Battle Born','Victron','Aranet','Qingping','Airthings','Temtop','Awair','uHoo','Kaiterra','PurpleAir','IQAir','Aeroseal','Sensi','A.O. Smith','Bradford White','Noritz','Takagi','Kohler','Briggs & Stratton','Haier','Toshiba','Heil','Tempstar','Fresh-Aire','RGF','Steril-Aire','Lumalier','UVGI Solutions','Atlantic Ultraviolet','Philips','Osram','Sylvania','Light Sources','WaterFurnace','ClimateMaster','Span','Lumin','AirGradient'];
 const ORGS = ['EPA','DOE','ENERGY STAR','EIA','ASHRAE','ACCA','AHRI','NFPA','NEC','CDC','CPSC','FDA','IRS','NREL','ESFI','UL'];
 const OVERCLAIMS = ['exact','most comprehensive','best','top-rated','#1','guaranteed','Manual J based','Manual J methodology','AHRI Certified','every number'];
 const OLD_TELLS = ['Time Required','Difficulty:','Step 1:','Key Takeaways','Pro Tip','Good to Know','Real-World Example'];
@@ -233,10 +233,12 @@ function scanMdx(file) {
     ? (Math.abs(val - 18) < 0.05 || Math.abs(val - 18.19) < 0.05)
     : (Math.abs(val - 0.18) < 1e-4 || Math.abs(val - 0.1819) < 1e-4);
   // Exempt a kWh rate if its sentence ties it to a named state, a time-of-use example,
-  // or the word "example".
+  // the word "example", or a shown derivation ("÷", "divided by", "COP of", "at an assumed")
+  // so a derived delivered-heat cost passes without wording workarounds.
   const kwhExempt = (sent) => stateRe.test(sent)
     || /time[-\s]?of[-\s]?use|\bTOU\b|off[-\s]?peak|\bpeak\b/i.test(sent)
-    || /example/i.test(sent);
+    || /example/i.test(sent)
+    || /÷|divided by|COP of|at an assumed/i.test(sent);
   // (a1) kWh electricity rates — strict: any value that isn't canon is off-rate unless exempt
   // (so a bare $0.14/kWh is caught). Handles both "$0.14/kWh" and "14 cents per kWh".
   const kwhDollarRe = /\$\s?(\d[\d,]*(?:\.\d+)?)\s*(?:\/|per\s+)?\s*(?:kwh|kw h)\b/gi;
