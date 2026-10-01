@@ -84,11 +84,10 @@ const roomTypes = [
 // envelope multipliers, because appliance heat gain is not affected by climate,
 // insulation, sun, or window quality.
 const KITCHEN_COOKING_SURCHARGE_BTU = 4000;
-// Occupant sensible+latent per adult at rest per ASHRAE Handbook Ch.18 Table 1
-// (~230 + 190 = 420 BTU/hr). 400 is a conservative round number; previously
-// used 600 which corresponds to moderately-active occupants and overstates
-// typical residential rooms.
-const OCCUPANT_BTU_PER_PERSON = 400;
+// ENERGY STAR room AC sizing chart: add 600 BTU/hr for each regular occupant
+// beyond the first two. This matches the occupants InfoTip below, the site's
+// other sizing pages, and the verified-facts registry.
+const OCCUPANT_BTU_PER_PERSON = 600;
 const APPLIANCE_BTU_PER_ITEM = 400;
 
 const windowTypes = [
