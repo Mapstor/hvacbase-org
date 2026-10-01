@@ -29,14 +29,14 @@ import {
 const ACCENT = 'emerald' as const;
 
 const spaceTypes = [
-  { value: 'living', name: 'Living areas', summary: 'Code minimum 0.35, target 2 ACH', minACH: 0.35, recommendedACH: 2.0, Icon: Home },
+  { value: 'living', name: 'Living areas', summary: 'Rule of thumb ~0.35 to 2 ACH', minACH: 0.35, recommendedACH: 2.0, Icon: Home },
   { value: 'bedroom', name: 'Bedrooms', summary: 'Quieter, low contaminant', minACH: 0.35, recommendedACH: 1.5, Icon: Bed },
   { value: 'kitchen', name: 'Kitchens', summary: 'Range hood required', minACH: 5.0, recommendedACH: 15.0, Icon: ChefHat },
   { value: 'bathroom', name: 'Bathrooms', summary: 'Moisture + odor exhaust', minACH: 5.0, recommendedACH: 10.0, Icon: Bath },
   { value: 'basement', name: 'Basements', summary: 'Stagnant air, radon risk', minACH: 0.35, recommendedACH: 1.0, Icon: Home },
   { value: 'laundry', name: 'Laundry', summary: 'Lint + moisture', minACH: 3.0, recommendedACH: 8.0, Icon: Wind },
   { value: 'garage', name: 'Garages', summary: 'Vehicle exhaust + fumes', minACH: 4.0, recommendedACH: 6.0, Icon: Home },
-  { value: 'office', name: 'Commercial office', summary: 'ASHRAE 62.1 target', minACH: 4.0, recommendedACH: 8.0, Icon: Briefcase },
+  { value: 'office', name: 'Commercial office', summary: 'Higher office target', minACH: 4.0, recommendedACH: 8.0, Icon: Briefcase },
 ];
 
 const dimensionPresets = [
@@ -105,7 +105,7 @@ export default function ACHCalculator() {
     <CalcShell
       Icon={Wind}
       title="Air Changes Per Hour (ACH) Calculator"
-      subtitle="Ventilation rate + ASHRAE compliance check."
+      subtitle="Ventilation rate from airflow and room size."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -218,7 +218,7 @@ export default function ACHCalculator() {
             <BreakdownTable
               rows={[
                 { label: 'Space type', detail: space.name, factor: ', ' },
-                { label: 'Min ACH (ASHRAE)', detail: 'Health-based minimum', factor: `${space.minACH}` },
+                { label: 'Min ACH (rule of thumb)', detail: 'Common minimum', factor: `${space.minACH}` },
                 { label: 'Recommended ACH', detail: 'Best practice', factor: `${space.recommendedACH}` },
                 { label: 'Your current ACH', detail: '', factor: `${calc.ach.toFixed(1)}` },
                 { label: 'Required min airflow', detail: 'To meet minimum', factor: `${fmt(Math.round(calc.reqMinCfm))} CFM` },
@@ -293,7 +293,8 @@ export default function ACHCalculator() {
             <li>ACH measures bulk air movement, doesn&rsquo;t measure filtration efficiency or pollutant removal. For viruses + fine particulates, MERV-13+ filtration matters more than ACH alone.</li>
             <li><strong>ACH50 (blower-door test)</strong> measures envelope leakage under 50 Pa pressure, not the same as this mechanical-ventilation ACH. A tight home may be ACH50 &lt; 3 while its supply ventilation ACH is 0.35+.</li>
             <li>Kitchen and bathroom targets (5-15 ACH) apply only <strong>during peak use</strong>, these are intermittent-exhaust spaces sized to clear cooking smoke / shower moisture in ~5-10 minutes, not run continuously.</li>
-            <li>Recommended targets pulled from ASHRAE 62.2 (residential) and 62.1 (commercial office). Local code (IMC, IRC) may set different minimums, check your AHJ.</li>
+            <li>The per-space ACH targets here are common rules of thumb, not code requirements; neither the 0.35 ACH figure nor the per-room ACH values come from ASHRAE 62.2. Local code (IMC, IRC) sets the actual minimums, check your AHJ.</li>
+            <li>For whole-house ventilation, ASHRAE 62.2 sets airflow in cfm: 0.03 per square foot plus 7.5 per person (bedrooms + 1). Ventilation ACH (outdoor air) is not the same as an air purifier's filtered ACH; AHAM's two-thirds rule is about 5 ACH of filtered air at an 8-foot ceiling.</li>
             <li>In heated/cooled spaces, very high ACH wastes conditioning energy, use ERVs (energy recovery ventilators) to capture 70%+ of that energy.</li>
           </ul>
         </DisclaimerBox>
