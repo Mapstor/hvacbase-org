@@ -44,6 +44,8 @@ Get hvacbase.org accepted by Raptive on the next review (rejected 4 times, no re
 - Federal minimums: split AC 13.4 SEER2 North; South/Southwest 14.3 below 45,000 BTU/h, 13.8 at 45,000+. Split heat pumps 14.3 SEER2 / 7.5 HSPF2.
 - DOE furnace rule: gas furnaces made on or after Dec 18, 2028 must be >=95% AFUE (national).
 - Consumer gas instantaneous water heaters: under 200,000 BTU/h input (10 CFR 430).
+- DOE Energy Saver water heater comparison (energy.gov/node/1026276): storage tank lasts 10-15 years; tankless/demand about 20; heat pump water heater 10-15; solar about 20. These drive WaterHeaterLifespanCalculator (no unsourced hardness/maintenance modifiers, no operating-cost or degradation model, no replacement price ranges).
+- ENERGY STAR: tankless water heaters have a life expectancy of 20 years. HPWH fact sheet: if your water heater is over 10 years old, be proactive and replace it; a heat pump water heater uses less than half the energy of a standard electric storage water heater.
 - IRS (OBBB FAQ): 25C ends for property placed in service after 12/31/2025; 25D for expenditures after 12/31/2025. 2025 25C: 30%, up to $2,000/yr heat pumps, HPWH, biomass; $1,200/yr other ($600 central AC, furnace/boiler, panel; $150 audit).
 - HEAR (IRA, state-run, funds until spent or 9/30/2031): heat pump $8,000; panel $4,000; wiring $2,500; HPWH $1,750; insulation/air sealing/ventilation $1,600; stove $840; HP dryer $840; household cap $14,000. <=80% AMI up to 100% of cost; 80-150% up to 50%. Contractor assessment before heat pump install. Replacing an existing heat pump excluded (DOE guidance). No central AC or gas furnaces.
 - HOMES: whole-home savings >=20%, larger at 35%+. Generally not both HEAR and HOMES for the same upgrade.
