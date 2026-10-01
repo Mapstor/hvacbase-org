@@ -1,166 +1,85 @@
 ---
 slug: "pilot-light-gas-usage"
-title: "How Much Gas Does a Pilot Light Use? (Cost Per Month in 2026)"
-description: "A standing pilot light uses 600-1,800 BTU/hour, burning roughly 5-12 therms of gas per month at a cost of $5-$13/month. Here's the exact math and whether to upgrade to electronic ignition."
+title: "How Much Gas Does a Pilot Light Use? (Cost per Month and Year, 2026)"
+description: "How much gas a standing pilot light burns and what it costs, per 1,000 BTU of pilot input, where pilots are still found, whether to turn one off, and electronic ignition."
 cluster: "furnaces-heating"
 role: "spoke"
 priority: "P2"
-contentType: "guide"
-datePublished: "2026-02-01"
-dateModified: "2026-07-17"
+contentType: "explainer"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-10-01"
 relatedArticles:
-  - "pilot-light-gas-usage"
   - "furnace-guide"
   - "afue-rating-explained"
-  - "gas-furnace-wattage"
   - "gas-vs-electric-heating-cost"
+  - "water-heater-guide"
+  - "carbon-monoxide-detector-guide"
 externalLinks:
+  - label: "CPSC: Carbon monoxide information center"
+    url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Carbon-Monoxide-Information-Center"
 ---
 
-import TableOfContents from '@/components/TableOfContents'
-import FAQ from '@/components/FAQ'
-import ComparisonTable from '@/components/ComparisonTable'
-import Callout from '@/components/Callout'
-import SourcesBox from '@/components/SourcesBox'
-import RelatedArticles from '@/components/RelatedArticles'
+import { SourcesBox, RelatedArticles } from '@/components'
 
-# How Much Gas Does a Pilot Light Use? (Cost Per Month)
+# How Much Gas Does a Pilot Light Use?
 
-A standard standing pilot light burns approximately **600 to 1,800 BTU per hour**, depending on the appliance. That translates to **5–12 therms of gas per month**, costing roughly **$5–$13/month at the 2026 national average gas price of $1.35/therm**. Over a full year, a single pilot light costs approximately **$60–$156** in gas — and if you have multiple gas appliances with standing pilots (furnace, water heater, fireplace), those costs compound.
+A standing pilot light burns a small gas flame around the clock so the main burner can light. It's small, but it never stops, so it adds up over a year.
 
-<TableOfContents />
+**Each 1,000 BTU per hour of pilot input burns 0.24 therms a day: about 7.2 therms a month, or 88 a year. At an assumed $1.35 per therm, that's about $9.72 a month and $118 a year. Your appliance's rating plate or manual gives its pilot input; scale the cost to it.**
 
-## Pilot Light Gas Usage by Appliance
+## The math
 
-<ComparisonTable
-  title="Pilot Light Gas Usage and Cost by Appliance — 2026"
-  headers={["Appliance", "Pilot BTU/Hour", "Therms/Month", "Cost/Month*", "Cost/Year*"]}
-  rows={[
-    ["Gas furnace (older models)", "900–1,200", "6.5–8.6", "$6.80–$9.05", "$82–$109"],
-    ["Gas water heater", "600–1,000", "4.3–7.2", "$4.50–$7.55", "$54–$91"],
-    ["Gas fireplace", "1,000–1,800", "7.2–13.0", "$7.55–$13.65", "$91–$164"],
-    ["Gas stove/range", "400–600", "2.9–4.3", "$3.05–$4.50", "$36–$54"],
-    ["Gas dryer", "400–600", "2.9–4.3", "$3.05–$4.50", "$36–$54"],
-  ]}
-  footnote="*Based on national average natural gas price of $1.35/therm (2026). Your local rate may differ."
-/>
+Gas use = pilot input in BTU per hour × 24 hours ÷ 100,000 BTU per therm. For each 1,000 BTU per hour:
 
-<Callout type="info">
-**How to calculate your cost:** Pilot BTU/hour × 24 hours × 30 days ÷ 100,000 BTU/therm × your local $/therm = monthly cost. For a 1,000 BTU/hr pilot that is about 7.2 therms a month, which at the ~$1.35/therm national average works out to roughly ≈$9.70/month — use the calculator for your exact figure.
-</Callout>
+| Period | Gas | Cost at $1.35 per therm |
+|---|---|---|
+| Day | 0.24 therms | $0.32 |
+| Month (30 days) | 7.2 therms | $9.72 |
+| Year | 87.6 therms | $118 |
 
-## Multiple Pilot Lights Add Up
+The $1.35 per therm is an assumed price; your gas bill shows your rate. A pilot rated at half that input costs half as much.
 
-Many older homes have 2–3 gas appliances with standing pilot lights. The combined cost is significant:
+## Where pilot lights are still found
 
-<ComparisonTable
-  title="Total Pilot Light Cost — Multiple Appliances"
-  headers={["Scenario", "Pilot Lights", "Combined Monthly Cost", "Annual Cost"]}
-  rows={[
-    ["Furnace only", "1 pilot (1,000 BTU/hr)", "$7.50", "$90"],
-    ["Furnace + water heater", "2 pilots (1,800 BTU/hr total)", "$13.60", "$163"],
-    ["Furnace + water heater + fireplace", "3 pilots (3,400 BTU/hr total)", "$25.70", "$308"],
-    ["All gas (furnace + WH + fireplace + stove)", "4 pilots (4,000 BTU/hr total)", "$30.25", "$363"],
-  ]}
-/>
+Most furnaces made in recent decades use electronic ignition, which lights the burner only when heat is needed. Standing pilots are still common on many gas water heaters, gas fireplaces and older furnaces and boilers.
 
-A home with 3 standing pilot lights could save **$200–$300+ per year** by upgrading those appliances to electronic ignition models.
+## Some of the heat isn't wasted
 
-## Pilot Light vs. Electronic Ignition
+A pilot's heat isn't entirely lost: in a water heater it helps keep the water warm, and in a furnace or boiler inside the house it adds a little heat in winter. A fireplace pilot burning through the summer, though, is pure cost.
 
-Modern gas appliances use electronic ignition (either hot surface ignition or direct spark) instead of standing pilot lights. Electronic ignition uses gas only when the burner actually fires — consuming zero fuel when the appliance is idle.
+## Should you turn it off?
 
-<ComparisonTable
-  title="Standing Pilot vs. Electronic Ignition"
-  headers={["Feature", "Standing Pilot Light", "Electronic Ignition"]}
-  rows={[
-    ["Gas use when idle", "600–1,800 BTU/hr (always)", "0 BTU/hr"],
-    ["Annual idle cost", "$60–$160 per appliance", "$0"],
-    ["Reliability", "Very reliable (no electrical parts)", "Very reliable; igniter lasts 3–7 years"],
-    ["Electricity needed", "No", "Yes (minimal — uses furnace power)"],
-    ["Relight after outage", "Manual relighting required", "Automatic restart"],
-    ["Safety", "Always burning (small fire risk)", "No flame when system is off"],
-    ["Found in", "Pre-2010 furnaces, some fireplaces", "All modern furnaces (post-2010)"],
-  ]}
-/>
+- **Gas fireplace:** turning the pilot off for the warm months saves its full cost. Relight it following the manufacturer's instructions before the heating season.
+- **Water heater:** usually leave it on, since the heater needs it whenever you use hot water; turning it off for a long absence is an option.
+- **Furnace or boiler:** follow the manufacturer's instructions; turning it off for summer is possible on some models.
 
-## Should You Turn Off Your Pilot Light in Summer?
+If you ever smell gas, don't relight anything: leave and call your gas utility from outside.
 
-For gas furnaces, the pilot light only runs during the heating season (if you shut off the furnace in spring). However, for gas fireplaces and older water heaters with standing pilots, the pilot burns year-round — even when you're not using them.
+## Safety
 
-**Gas fireplace:** Yes, turn off the pilot in summer. A gas fireplace pilot costs $7–$14/month for zero benefit during warm months. That's $28–$56 saved over a 4-month summer. Most gas fireplaces have a clearly labeled pilot switch.
+A pilot and the appliance it serves need proper venting. Keep carbon monoxide alarms working, as the CPSC advises; see the [carbon monoxide detector guide](/carbon-monoxide-detector-guide).
 
-**Gas water heater:** Generally, leave it on. The pilot also helps dry out the combustion chamber, preventing corrosion. The savings from turning it off ($4–$8/month) are modest, and relighting can be inconvenient.
+## Frequently asked questions
 
-**Gas furnace:** If your furnace has a standing pilot (pre-2010 model), turn it off for the summer. Savings: $7–$9/month × 4 months = $28–$36. When fall arrives, follow the relighting instructions on the furnace.
+### How much does a pilot light cost per month?
 
-## Turning Off a Standing Pilot Light
+About $9.72 a month for each 1,000 BTU per hour of pilot input, at an assumed $1.35 per therm.
 
-Standing pilots are still common on older water heaters (pre-2005 Rheem, AO Smith), gas fireplaces, and some legacy gas ranges. To turn off:
+### How much gas does a pilot light use per day?
 
-**Water heater (typical):**
-1. Locate the gas control valve (round black or brass valve near the bottom of the tank).
-2. Rotate the pilot selector knob from **ON** to **PILOT** to **OFF**. This closes the pilot gas orifice.
-3. Wait 5 minutes for residual gas to dissipate before any further work.
-4. To relight later, follow the manufacturer's ignition sequence — usually press the pilot knob down while holding an ignition source (piezo or manual match) to the pilot orifice for 30–60 seconds until the thermocouple heats.
+0.24 therms a day for each 1,000 BTU per hour of input.
 
-**Gas fireplace:**
-1. Locate the wall switch or key valve — pilots on modern fireplaces are usually controlled via wall switch, not the appliance itself.
-2. Turn the wall switch to OFF, or rotate the gas key valve (usually near the fireplace floor) to the closed position.
-3. If the pilot has a millivolt-generator thermopile (not a simple thermocouple), it may take 15–30 seconds to fully extinguish after the valve closes.
+### Is it worth turning off a fireplace pilot light in summer?
 
-**Do NOT** blow out a pilot light or plug the orifice with anything. Both create ignition and asphyxiation hazards.
+Usually yes; it saves the full cost of the pilot for those months. Relight it following the manufacturer's instructions.
 
-## Pilot Light Maintenance (When Present)
+### Do new furnaces have pilot lights?
 
-Standing pilots can develop three common problems:
-
-- **Yellow/orange flame instead of blue** — indicates incomplete combustion, usually from a dirty pilot orifice or from soot buildup on the burner. A properly-adjusted pilot burns steady blue with a small yellow tip. Clean the orifice by removing the pilot assembly (usually two Phillips screws) and gently blowing out debris with compressed air. **Do not use a wire** to clean the orifice — the opening is very small, and any metal probe will oversize it, which changes the pilot flame's gas flow and causes further problems.
-
-- **Weak or wavering flame** — check the thermocouple. Thermocouples produce a small millivolt signal when heated by the pilot flame, which holds open the gas valve's pilot circuit. If the signal drops below the valve's rated minimum (varies by valve manufacturer), the gas valve closes as a safety cutoff. Test with a multimeter set to millivolts DC across the thermocouple terminals at the valve — compare against the valve's spec-sheet minimum. Replacement thermocouples typically cost $10–25 and take about 15 minutes to swap.
-
-- **Pilot goes out repeatedly** — most often a bad thermocouple, but can also indicate a drafty install location (near a window or bathroom exhaust), a partially-clogged main burner orifice, or (rarely) a bad gas valve. Rule out drafts and thermocouple before assuming valve failure.
-
-Modern intermittent-pilot ignition (IPI) systems avoid all of these — no standing flame to maintain. Any appliance with a standing pilot older than 20 years should be evaluated for replacement rather than repeated pilot repair. Modern high-efficiency units eliminate standing pilots for both safety and fuel-consumption reasons.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- A single standing pilot light costs **$60–$160/year** in gas — and most people forget they're running.
-- Multiple pilot lights (furnace + water heater + fireplace) can cost **$200–$360/year combined**.
-- **Modern electronic ignition uses zero gas when idle** — upgrading to new appliances eliminates pilot light costs entirely.
-- **Turn off gas fireplace pilots in summer** — this is the easiest immediate savings ($28–$56).
-- **Don't leave the furnace pilot running in summer** if your furnace has a standing pilot (pre-2010 models).
-- **Post-2010 furnaces** use electronic ignition and don't have standing pilots — there's nothing to turn off.
-- When replacing gas appliances, electronic ignition is now standard — but verify if buying budget or older-stock models.
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "Can a pilot light increase my carbon monoxide risk?",
-    answer: "A properly burning pilot light produces minimal CO. However, a pilot in a poorly ventilated area, or one that burns with a yellow/orange flame (indicating incomplete combustion), can produce elevated CO levels. Ensure adequate ventilation around gas appliances and install CO detectors on every floor. A healthy pilot flame is small, steady, and primarily blue."
-  },
-  {
-    question: "Is it safe to turn off a pilot light?",
-    answer: "Yes. Turn the gas control valve to the OFF or PILOT-OFF position. This closes the gas supply to both the pilot and main burner. Don't try to blow out the pilot — use the gas valve. When relighting, follow the manufacturer's instructions on the appliance label. If you smell gas after turning off the pilot, leave the area and call your gas company."
-  },
-  {
-    question: "How do I relight a pilot light?",
-    answer: "The instructions are printed on most appliances. Generally: (1) Turn the gas control knob to PILOT. (2) Press and hold the knob or pilot button. (3) Use a long lighter or built-in piezo igniter to light the pilot. (4) Continue holding the button for 30-60 seconds after the pilot lights (this heats the thermocouple). (5) Release the button — the pilot should stay lit. (6) Turn the knob to ON."
-  }
-]} />
-
-## Sources
+Most use electronic ignition instead, which lights the burner only when heat is needed.
 
 <SourcesBox sources={[
-  { title: "U.S. EIA — Natural Gas Prices", url: "https://www.eia.gov/dnav/ng/ng_pri_sum_dcu_nus_a.htm" }
+  { title: "CPSC: Carbon monoxide information center", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Carbon-Monoxide-Information-Center" }
 ]} />
 
-## Related Articles
-
-<RelatedArticles articles={[
-  { slug: "pilot-light-gas-usage", title: "Do Furnaces Have Pilot Lights? Which Ones Don't?" },
-  { slug: "furnace-guide", title: "Furnaces: Complete Homeowner's Guide" },
-  { slug: "afue-rating-explained", title: "AFUE Rating for Furnaces: How to Calculate AFUE Savings" },
-  { slug: "gas-vs-electric-heating-cost", title: "Gas vs Electric Heating: Which Is Cheaper?" },
-]} />
+<RelatedArticles articles={frontmatter.relatedArticles} />
