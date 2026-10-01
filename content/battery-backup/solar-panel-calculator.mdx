@@ -1,343 +1,90 @@
 ---
 slug: "solar-panel-calculator"
-title: "Solar Panel Calculator: How Many Panels Do You Need? (2026)"
-description: "Use our free solar panel calculator to find exactly how many panels your home needs. Based on your location, energy use, roof size, and panel wattage — with real cost estimates."
+title: "Solar Panel Calculator: How Many Panels Do I Need? (2026)"
+description: "Size a home solar system from your electric bill and sun hours: system size, number of panels, roof area, annual production, CO2 offset, and payback from your quoted price."
 cluster: "batteries-solar"
-role: "spoke"
-priority: 1
-contentType: "calculator-guide"
-datePublished: "2026-02-07"
-dateModified: "2026-02-07"
+role: "hub"
+priority: "P1"
+contentType: "calculator"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
 relatedArticles:
-  - "solar-panel-calculator"
   - "home-battery-backup-guide"
-  - "battery-watt-hours"
-  - "how-many-watts-in-12v-battery"
   - "kwh-cost-calculator"
+  - "how-many-kwh-per-day-is-normal"
+  - "how-many-watts-in-12v-battery"
+  - "how-to-read-electric-meter"
 externalLinks:
-  - url: "https://www.energy.gov/eere/solar/homeowners-guide-going-solar"
-    label: "DOE: Homeowner's Guide to Going Solar"
-  - url: "https://pvwatts.nrel.gov/"
-    label: "NREL PVWatts Calculator"
+  - label: "NREL PVWatts calculator"
+    url: "https://pvwatts.nrel.gov/"
+  - label: "IRS: Residential Clean Energy Credit (25D)"
+    url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-# Solar Panel Calculator: How Many Panels Do You Need?
+# Solar Panel Calculator: How Many Panels Do I Need?
 
-The average U.S. home needs **17 to 25 solar panels** to cover 100% of its electricity use — that's a 6.5 to 10 kW system costing $13,000 to $25,000 installed. (The 30% federal residential Section 25D ITC that previously offset $3,900–$7,500 of that cost expired Dec 31, 2025 under the OBBBA; carryforward of an unused pre-2026 credit is allowed. For 2026 installs, state and utility incentives are the active pathways.) Your exact panel count depends on four variables: annual electricity consumption (kWh), local peak sun hours, panel wattage, and system efficiency losses.
+The size of a solar system comes down to how much electricity you use and how much sun your roof gets. Your electric bill gives the first; your location, roof direction and shading give the second.
 
-Use our calculator below for a personalized estimate, then keep reading for the data behind the math and real-world examples from different climates.
-
-<TableOfContents />
-
-## Solar Panel Calculator
+**A home paying $150 a month at 18 cents per kWh uses about 833 kWh a month. With 5 peak sun hours a day and about 14% system losses, covering that takes about a 6.8 kW system: 17 panels of 400 watts, about 366 sq ft of roof, producing about 10,549 kWh a year.**
 
 <CalcWrapper type="solar-panel" />
 
-<Callout type="info">
-**How this calculator works:** We divide your annual kWh usage by 365, then by your location's peak sun hours, then by your chosen panel wattage. We apply a 20% system loss factor (inverter efficiency, wiring, soiling, temperature derating) to arrive at the final panel count. This methodology matches the NREL PVWatts approach.
-</Callout>
+## How the calculator sizes a system
 
-## The Solar Panel Formula (Step by Step)
-
-Here's the exact formula professional solar installers use to size residential systems:
-
-**Number of Panels = (Annual kWh ÷ 365 ÷ Peak Sun Hours ÷ Panel Wattage) × 1.20**
-
-The 1.20 multiplier accounts for real-world system losses. Let's break each variable down.
-
-### Step 1: Find Your Annual Electricity Use
-
-Pull your last 12 months of electric bills or check your utility's online portal. The national average is 10,500 kWh/year, but this varies enormously:
+- **Usage:** monthly bill ÷ your rate = monthly kWh, ÷ 30 for daily kWh.
+- **Sun:** peak sun hours, the hours of full-strength sunlight a day, × (1 − system losses) × shading.
+- **Size:** daily kWh ÷ effective sun hours = kW; ÷ 400 W, rounded up, gives the number of panels.
 
-| Household Type | Annual kWh | Monthly kWh |
-|---|---|---|
-| Small apartment (1-2 people) | 5,000–6,500 | 417–542 |
-| Average home (2-3 people) | 9,000–11,000 | 750–917 |
-| Large home (4+ people) | 12,000–16,000 | 1,000–1,333 |
-| Home with EV charging | 14,000–20,000 | 1,167–1,667 |
-| Home with pool + EV | 18,000–25,000 | 1,500–2,083 |
-| All-electric home (heat pump + EV) | 16,000–24,000 | 1,333–2,000 |
-
-<Callout type="tip">
-**Pro tip:** If you plan to add an EV, heat pump, or pool in the next few years, size your solar system for future consumption — not just today's. Adding 4,000–5,000 kWh for an EV and 3,000–6,000 kWh for a heat pump is standard practice.
-</Callout>
+The sun hours by state are approximate. For your address, roof angle and direction, NREL's free PVWatts calculator estimates production from local weather data.
 
-### Step 2: Determine Your Peak Sun Hours
-
-Peak sun hours (PSH) represent how many hours per day your location receives the equivalent of 1,000 W/m² of solar irradiance. This is the single biggest geographic variable.
-
-| City / Region | Peak Sun Hours | Annual kWh per kW Installed |
-|---|---|---|
-| Phoenix, AZ | 6.5 | 1,850 |
-| Los Angeles, CA | 5.6 | 1,650 |
-| Denver, CO | 5.5 | 1,600 |
-| Austin, TX | 5.3 | 1,550 |
-| Miami, FL | 5.2 | 1,500 |
-| Charlotte, NC | 4.8 | 1,400 |
-| Kansas City, MO | 4.6 | 1,350 |
-| New York, NY | 4.2 | 1,230 |
-| Portland, OR | 3.9 | 1,150 |
-| Seattle, WA | 3.6 | 1,050 |
-| Anchorage, AK | 3.0 | 880 |
-
-Data sourced from NREL's PVWatts calculator using south-facing fixed-tilt arrays with standard assumptions.
-
-### Step 3: Choose Your Panel Wattage
-
-Solar panel efficiency has improved dramatically. In 2026, residential panels typically range from 370W to 440W:
-
-| Panel Tier | Wattage Range | Efficiency | Cost per Watt | Best For |
-|---|---|---|---|---|
-| Budget | 370–390W | 19–20% | $0.25–$0.35 | Large roofs, tight budgets |
-| Mid-range | 400–415W | 20.5–21.5% | $0.35–$0.55 | Most homeowners |
-| Premium | 420–440W | 22–23% | $0.55–$0.80 | Small roofs, max output |
-| Ultra-premium | 440–470W | 23–24.5% | $0.80–$1.10 | Very limited roof space |
-
-<Callout type="info">
-**2026 panel landscape:** Companies like LONGi, Canadian Solar, Jinko, Trina, REC, and Q CELLS dominate the residential market. SunPower (now part of Maxeon) and REC Alpha continue to lead in premium efficiency. Most installers stock 400–420W panels as standard.
-</Callout>
-
-### Step 4: Apply the System Loss Factor
-
-No solar system converts 100% of sunlight into usable electricity. Real-world losses include:
-
-| Loss Source | Typical Loss |
-|---|---|
-| Inverter efficiency | 3–4% |
-| Wiring/connection losses | 1–2% |
-| Soiling (dust, pollen, bird droppings) | 2–5% |
-| Temperature derating | 5–10% |
-| Shading | 0–25% (site-dependent) |
-| Module mismatch | 1–2% |
-| Snow coverage (seasonal) | 0–5% |
-| Aging/degradation (Year 1) | 1–2% |
-| **Total typical loss** | **15–25%** |
+## How location changes the size
 
-We use a standard 20% loss factor (multiplier of 1.20) for the calculator, which aligns with NREL's default assumptions.
+The same $150 bill needs about a 4.7 kW system (12 panels) at Arizona's roughly 7 peak sun hours, about 6.8 kW (17 panels) at the U.S. average of 5, and about 7.8 kW (20 panels) at New York's roughly 4.2. Less sun means more panels for the same production.
 
-## Real-World Examples
+## Roof area
 
-### Example 1: Average Home in Phoenix, AZ
+A 400-watt panel takes about 21.5 sq ft at a typical 20% efficiency (monocrystalline), 23.9 at 18% and 35.9 at 12% (thin-film). The default system's 17 panels need about 366 sq ft, before setbacks and spacing your installer and local code require.
 
-- **Annual consumption:** 12,500 kWh (higher due to AC)
-- **Peak sun hours:** 6.5
-- **Panel wattage:** 410W
-- **Daily need:** 12,500 ÷ 365 = 34.25 kWh/day
-- **Raw panel count:** 34,250 ÷ 6.5 ÷ 410 = 12.85 panels
-- **With 20% losses:** 12.85 × 1.20 = **15.4 → 16 panels**
-- **System size:** 16 × 410W = 6.56 kW
-- **Estimated cost (2026):** $16,400–$19,700 (federal 25D credit EXPIRED Dec 31, 2025 under OBBBA — pre-expiration, the 30% credit would have brought this to $11,480–$13,790)
-- **2026 net:** $16,400–$19,700 before state/utility incentives (Arizona offers a $1,000 state tax credit + property-tax exemption; some utility rebates remain)
+## Cost and payback
 
-Phoenix's intense sun means you need fewer panels than the national average despite above-average electricity consumption from air conditioning.
+Installed prices vary widely by region and installer, so the calculator uses your quote: enter the price per watt. At an example $3.00 a watt, the default 6.8 kW system costs $20,400, saves about $1,873 a year at 18 cents per kWh, and pays back in about 10.9 years.
 
-### Example 2: Large Home in New York, NY
+The federal Residential Clean Energy Credit (25D) ended for expenditures made after December 31, 2025. State and utility incentives and net metering rules vary; check the DSIRE database for your state.
 
-- **Annual consumption:** 11,000 kWh
-- **Peak sun hours:** 4.2
-- **Panel wattage:** 420W (premium, space-constrained)
-- **Daily need:** 11,000 ÷ 365 = 30.14 kWh/day
-- **Raw panel count:** 30,140 ÷ 4.2 ÷ 420 = 17.08 panels
-- **With 20% losses:** 17.08 × 1.20 = **20.5 → 21 panels**
-- **System size:** 21 × 420W = 8.82 kW
-- **Estimated cost (2026):** $26,500–$31,000 (federal 25D credit EXPIRED Dec 31, 2025 under OBBBA — pre-expiration, the 30% credit would have brought this to $18,550–$21,700)
-- **2026 net (with NY state credit + NY-Sun):** roughly $19,900–$24,400 (NY state tax credit of 25%, capped at $5,000, plus NY-Sun incentive ~$2,000)
+## CO2 offset
 
-New York's lower sun hours and higher installation costs make the system more expensive, but NY also offers state-level incentives (NY-Sun program, 25% state tax credit capped at $5,000) that can reduce out-of-pocket costs by $2,000–$5,000 — these state pathways are now the primary incentive for 2026 installs since the federal 25D credit expired.
+At the U.S. grid average of 0.823 lb of carbon dioxide per kWh (EPA eGRID2022), the default system's 10,549 kWh a year offsets about 8,681 lb a year. Where the grid is cleaner, the offset is smaller.
 
-### Example 3: Eco Home with EV in Denver, CO
+## Batteries
 
-- **Annual consumption:** 18,000 kWh (heat pump + EV)
-- **Peak sun hours:** 5.5
-- **Panel wattage:** 415W
-- **Daily need:** 18,000 ÷ 365 = 49.32 kWh/day
-- **Raw panel count:** 49,320 ÷ 5.5 ÷ 415 = 21.60 panels
-- **With 20% losses:** 21.60 × 1.20 = **25.9 → 26 panels**
-- **System size:** 26 × 415W = 10.79 kW
-- **Estimated cost (2026):** $29,200–$34,400 (federal 25D credit EXPIRED Dec 31, 2025 under OBBBA — pre-expiration, the 30% credit would have brought this to $20,440–$24,080)
-- **2026 net:** $29,200–$34,400 before state/utility incentives (Colorado offers local utility rebates — check DSIRE for current programs)
+Solar panels alone shut down during a grid outage for safety. To keep power on, you need a battery and the right inverter setup; see the [home battery backup guide](/home-battery-backup-guide).
 
-Denver's excellent solar resource (300+ days of sunshine) keeps it among the better cities for solar ROI, especially when offsetting EV charging costs, even with the federal credit gone.
+## Frequently asked questions
 
-### Example 4: Modest Home in Seattle, WA
+### How many solar panels do I need?
 
-- **Annual consumption:** 8,500 kWh
-- **Peak sun hours:** 3.6
-- **Panel wattage:** 400W
-- **Daily need:** 8,500 ÷ 365 = 23.29 kWh/day
-- **Raw panel count:** 23,290 ÷ 3.6 ÷ 400 = 16.17 panels
-- **With 20% losses:** 16.17 × 1.20 = **19.4 → 20 panels**
-- **System size:** 20 × 400W = 8.0 kW
-- **Estimated cost (2026):** $22,400–$27,200 (federal 25D credit EXPIRED Dec 31, 2025 under OBBBA — pre-expiration, the 30% credit would have brought this to $15,680–$19,040)
-- **2026 net:** $22,400–$27,200 before utility incentives (Washington's net metering remains favorable; the federal-credit pathway is no longer available for 2026 installs)
+For a $150 monthly bill at 18 cents per kWh and 5 peak sun hours, about 17 panels of 400 watts (6.8 kW). Sunnier locations need fewer.
 
-Even in cloudy Seattle, solar can still make financial sense thanks to Washington's favorable net metering policies — though payback periods are longer for 2026 installs without the federal 25D credit.
+### How much roof space do solar panels need?
 
-## How Many Panels Fit on Your Roof?
+About 21.5 sq ft per 400-watt panel at 20% efficiency, so roughly 366 sq ft for 17 panels, plus required setbacks.
 
-Roof space is often the limiting factor. Here's a quick reference:
+### Is there still a federal solar tax credit?
 
-| Roof Area Available | Max Panels (portrait) | Max System Size (410W) |
-|---|---|---|
-| 200 sq ft | 8–10 | 3.3–4.1 kW |
-| 300 sq ft | 13–16 | 5.3–6.6 kW |
-| 400 sq ft | 18–22 | 7.4–9.0 kW |
-| 500 sq ft | 23–27 | 9.4–11.1 kW |
-| 600 sq ft | 28–32 | 11.5–13.1 kW |
-| 800 sq ft | 38–42 | 15.6–17.2 kW |
+Not for homeowners: the Residential Clean Energy Credit ended for expenditures after December 31, 2025. State and utility incentives may still apply.
 
-Each standard residential panel measures approximately 67" × 40" (17.5 sq ft). You need about 18–22 sq ft per panel when accounting for setbacks, vents, skylights, and code-required fire pathways.
+### How long does solar take to pay back?
 
-<Callout type="warning">
-**Roof orientation matters.** South-facing roofs (in the Northern Hemisphere) produce 100% of rated output. West-facing roofs produce about 85%, east-facing about 85%, and north-facing only 50–60%. If your main roof faces east/west, plan for 15–20% more panels.
-</Callout>
-
-## Panel Count by System Size
-
-| System Size | Panels (370W) | Panels (400W) | Panels (420W) | Panels (440W) |
-|---|---|---|---|---|
-| 4 kW | 11 | 10 | 10 | 10 |
-| 6 kW | 17 | 15 | 15 | 14 |
-| 8 kW | 22 | 20 | 20 | 19 |
-| 10 kW | 28 | 25 | 24 | 23 |
-| 12 kW | 33 | 30 | 29 | 28 |
-| 15 kW | 41 | 38 | 36 | 35 |
-
-## Factors That Affect Your Panel Count
-
-### Roof Angle and Orientation
-
-The ideal tilt angle roughly equals your latitude. For most of the continental U.S. (25°–48° latitude), roof pitches of 4/12 to 9/12 work well. A 30° south-facing roof in a mid-latitude location produces optimal annual output.
-
-Flat roofs can use tilted racking systems, but these require more space between rows to avoid self-shading and typically reduce usable area by 30–40%.
-
-### Shade and Obstructions
-
-Even partial shading on one panel can reduce the output of an entire string. Modern microinverters and DC optimizers mitigate this — a shaded panel only reduces its own output rather than dragging down the whole system. If your roof has significant shade, expect to need 10–25% more panels.
-
-### Panel Degradation Over Time
-
-All solar panels degrade. The industry standard warranty guarantees at least 80–85% output at year 25. Premium panels (REC Alpha, Maxeon) guarantee 88–92% at year 25. First-year degradation is typically 1–2%, then 0.3–0.5% per year thereafter.
-
-When sizing your system, the calculator assumes Year 1 output. By year 10, expect about 95% of original production; by year 25, about 82–88%.
-
-### Inverter Type
-
-Your inverter choice affects both system efficiency and your ability to add panels later:
-
-| Inverter Type | Efficiency | Panel-Level Optimization | Cost | Best For |
-|---|---|---|---|---|
-| String inverter | 96–98% | No | $ | Simple, unshaded roofs |
-| String + optimizers | 97–99% | Yes | $$ | Partial shading, mixed orientations |
-| Microinverters | 96–97% per panel | Yes | $$$ | Complex roofs, heavy shading |
-
-## Solar Panel System Cost Breakdown (2026)
-
-| Component | Cost Range | % of Total |
-|---|---|---|
-| Solar panels | $3,000–$8,000 | 25–35% |
-| Inverter(s) | $1,500–$4,000 | 10–18% |
-| Racking/mounting | $1,000–$2,500 | 7–12% |
-| Electrical (wiring, disconnects, panel upgrade) | $800–$2,000 | 5–10% |
-| Permitting & interconnection | $500–$1,500 | 3–7% |
-| Labor (installation) | $3,000–$7,000 | 20–30% |
-| Monitoring system | $200–$500 | 1–3% |
-| Overhead, margin, soft costs | $2,000–$5,000 | 15–25% |
-| **Total (before incentives)** | **$13,000–$30,000** | **100%** |
-
-### Federal Investment Tax Credit (ITC)
-
-The Inflation Reduction Act extended the federal residential Section 25D solar tax credit (30% of total installed cost, no cap) through 2032; it applied to the total installed cost including battery storage if installed simultaneously. **The 25D credit expired for property placed in service after Dec 31, 2025** under the OBBBA (PL 119-21, signed July 4, 2025). For a 2025 $20,000 install, the credit was $6,000; for a 2026 install of the same system, the federal credit no longer applies.
-
-<Callout type="important">
-**Pre-2026 25D was a tax credit, not a rebate** — you needed $6,000+ in federal tax liability to claim the full credit on a $20,000 system. **25D allows carryforward** of an unused pre-2026 credit to future tax years (unlike 25C). For 2026 solar installs, state and utility incentives are the active pathways. (Sources: IRS OBBB FAQ; Congress.gov CRS IN12611.)
-</Callout>
-
-## Solar Payback Period by Location (2026 — no federal 25D credit)
-
-The table below shows 2026 system costs (federal 25D credit EXPIRED Dec 31, 2025 under OBBBA — no longer applies to new installs) alongside annual savings, payback, and 25-year savings. Pre-OBBBA columns (with the 30% federal credit) are included for reference.
-
-| City | Pre-OBBBA Cost (with ITC, ref) | 2026 Cost (no fed credit) | Annual Savings | 2026 Payback | 2026 25-Year Savings |
-|---|---|---|---|---|---|
-| Phoenix, AZ | $13,300 | $19,000 | $1,850 | 10.3 years | $27,250 |
-| Los Angeles, CA | $15,400 | $22,000 | $2,200 | 10.0 years | $33,000 |
-| Denver, CO | $14,700 | $21,000 | $1,650 | 12.7 years | $20,250 |
-| Austin, TX | $13,000 | $18,600 | $1,500 | 12.4 years | $18,900 |
-| Charlotte, NC | $14,200 | $20,300 | $1,400 | 14.5 years | $14,700 |
-| New York, NY | $19,600 | $28,000 | $2,100 | 13.3 years | $24,500 |
-| Boston, MA | $18,200 | $26,000 | $2,000 | 13.0 years | $24,000 |
-| Seattle, WA | $16,800 | $24,000 | $1,100 | 21.8 years | $3,500 |
-
-State-level incentives (NY-Sun, MA SMART, CA state programs, etc.) and utility rebates can reduce 2026 net cost further; the table above is the federal-credit-only baseline.
-
-Payback periods assume 3% annual electricity rate increases and current net metering policies.
-
-## Should You Add Battery Storage?
-
-Adding a home battery (like Tesla Powerwall, Enphase IQ Battery, or Franklin WH) doesn't change the number of solar panels you need — but it changes how you use the electricity they produce.
-
-**Without a battery:** Excess solar energy goes to the grid via net metering. You get credited at the retail rate (in most states) or a lower export rate.
-
-**With a battery:** You store excess energy for use during peak-rate hours (time-of-use optimization) or during power outages. A 13.5 kWh battery (Powerwall 3) adds $10,000–$14,000 to your system cost.
-
-Batteries make the most financial sense if your utility has time-of-use rates with large peak/off-peak spreads ($0.15+/kWh difference), reduced net metering credits, or frequent power outages.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- **The average U.S. home needs 17–25 panels** (7–10 kW) to offset 100% of electricity use
-- **Peak sun hours** are the biggest geographic variable — Phoenix needs 40% fewer panels than Seattle for the same energy offset
-- **Use 400–420W panels** as the sweet spot between cost and efficiency in 2026
-- **Apply a 20% loss factor** to account for real-world system inefficiencies
-- **The 30% federal Section 25D solar credit expired Dec 31, 2025** under the OBBBA (PL 119-21, signed July 4, 2025); 25D allows carryforward of unused pre-2026 credit, but new 2026 installs no longer accrue it — state/utility incentives are the active pathway
-- **Payback periods range from 7–15 years** depending on location, electricity rates, and incentives
-- **Size for future needs** if you plan to add an EV, heat pump, or pool
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "How many solar panels do I need for a 2,000 sq ft house?",
-    answer: "A 2,000 sq ft home typically uses 10,000–12,000 kWh/year and needs 18–24 solar panels (7–10 kW system) depending on your location's sun hours and the panel wattage you choose. In sunny states like Arizona, you'll need closer to 18 panels; in cloudy regions like the Pacific Northwest, closer to 24."
-  },
-  {
-    question: "How many solar panels do I need to go completely off-grid?",
-    answer: "Going fully off-grid typically requires 30–50% more panels than a grid-tied system because you need to generate enough surplus to charge batteries for nighttime and cloudy-day use. A typical off-grid home needs 25–40 panels (10–16 kW), plus 30–60 kWh of battery storage. This setup costs $40,000–$80,000+ and requires careful load management."
-  },
-  {
-    question: "Can I add more solar panels later?",
-    answer: "Yes, but it's easier and cheaper to install the right number from the start. Adding panels later may require a new permit, additional racking, and potentially an inverter upgrade. If you use microinverters, adding panels is simpler since each panel has its own inverter. With a string inverter, you may need to replace or add a second inverter."
-  },
-  {
-    question: "How many solar panels to charge an electric vehicle?",
-    answer: "The average EV driven 12,000 miles per year uses about 3,500–4,500 kWh annually. That translates to 6–10 additional solar panels (2.5–4 kW) depending on your location. A Tesla Model 3 averaging 3.5 miles per kWh needs about 3,430 kWh/year; a less efficient EV like a pickup truck might need 5,000+ kWh/year."
-  },
-  {
-    question: "Do solar panels work on cloudy days?",
-    answer: "Yes, solar panels still produce electricity on cloudy days — typically 10–30% of their rated output depending on cloud thickness. Modern panels perform better in diffuse light than older generations. However, this reduced output is already factored into your location's peak sun hours data, so your system is sized accordingly."
-  },
-  {
-    question: "How long do solar panels last?",
-    answer: "Solar panels are warrantied for 25–30 years and typically last 30–40 years with gradual output decline. After 25 years, you can expect 82–88% of original output. Inverters last 12–25 years depending on type (microinverters typically outlast string inverters). The panels themselves are the most durable component of the system."
-  },
-  {
-    question: "Is it worth getting solar panels in 2026?",
-    answer: "For most homeowners, yes — though the math is tighter than it was through 2025. The federal Section 25D solar credit (30%) expired for property placed in service after Dec 31, 2025 under the OBBBA (PL 119-21, signed July 4, 2025), so 2026 installs no longer accrue the federal credit (carryforward of unused pre-2026 25D credit is still allowed for households with prior installs). Panel costs have dropped 70% in the last decade, electricity rates continue rising 2–4% annually, and state/utility incentives (state tax credits in NY/SC/HI, SREC programs, net metering, utility rebates) remain available. Average payback stretches from 7–10 years (pre-OBBBA) to roughly 10–14 years for 2026 installs without the federal credit, with 25-year lifetime savings still in the $15,000–$30,000+ range in high-electricity-rate states. The best ROI is in states with high electricity rates, strong state incentives, and good sun exposure. (Sources: IRS OBBB FAQ; Congress.gov CRS IN12611.)"
-  }
-]} />
+It depends on your price per watt, sun and electricity rate. At an example $3.00 a watt, the default system pays back in about 10.9 years at 18 cents per kWh.
 
 <SourcesBox sources={[
-  { title: "NREL PVWatts Calculator", url: "https://pvwatts.nrel.gov/" },
-  { title: "DOE Homeowner's Guide to Going Solar", url: "https://www.energy.gov/eere/solar/homeowners-guide-going-solar" },
-  { title: "DSIRE — Database of State Incentives", url: "https://www.dsireusa.org/" },
-  { title: "EIA Residential Energy Consumption Survey", url: "https://www.eia.gov/consumption/residential/" }
+  { title: "NREL: PVWatts calculator (location-specific production estimates)", url: "https://pvwatts.nrel.gov/" },
+  { title: "IRS: Residential Clean Energy Credit (25D)", url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit" },
+  { title: "EPA: Greenhouse Gas Equivalencies, calculations and references (eGRID2022)", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" },
+  { title: "DSIRE: State and utility incentives and net metering", url: "https://www.dsireusa.org/" }
 ]} />
 
-<RelatedArticles articles={[
-  "solar-panel-calculator",
-  "home-battery-backup-guide",
-  "battery-watt-hours",
-  "how-many-watts-in-12v-battery",
-  "kwh-cost-calculator"
-]} />
+<RelatedArticles articles={frontmatter.relatedArticles} />
