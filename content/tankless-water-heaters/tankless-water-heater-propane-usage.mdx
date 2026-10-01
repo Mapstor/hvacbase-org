@@ -1,182 +1,78 @@
 ---
 slug: "tankless-water-heater-propane-usage"
-title: "How Much Propane Does a Tankless Water Heater Use? (Gallons + Cost)"
-description: "Exact propane usage for tankless water heaters: gallons per day, month, and year by unit size and usage. Includes cost calculations, tank sizing requirements, and comparison to propane tank heaters."
+title: "How Much Propane Does a Tankless Water Heater Use? (2026)"
+description: "Propane use and cost for a tankless water heater per hour, day and year, compared with a propane tank and natural gas, plus how to size the propane tank and supply."
 cluster: "tankless-water-heaters"
 role: "spoke"
 priority: "P2"
-contentType: "guide"
+contentType: "reference"
+author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-07-18"
+dateModified: "2026-09-28"
 relatedArticles:
   - "tankless-water-heater-guide"
+  - "what-size-tankless-water-heater"
+  - "propane-generator-usage-per-hour"
+  - "water-heater-sizing-calculator"
   - "tankless-water-heater-cost"
-  - "is-tankless-water-heater-worth-it"
 externalLinks:
-  - label: "EIA — Propane Prices"
-    url: "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_PRS_dpgal_w.htm"
+  - label: "U.S. EIA: British thermal units (fuel energy content)"
+    url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles } from '@/components'
 
-# How Much Propane Does a Tankless Water Heater Use? (Gallons + Cost)
+# How Much Propane Does a Tankless Water Heater Use?
 
-A propane tankless water heater uses **0.8–2.5 gallons of propane per day** for a typical family, costing **$2.20–$7.50 per day** at the 2026 national average of $2.80 per gallon. That translates to **200–500 gallons per year** and **$560–$1,400 annually**, depending on household size, groundwater temperature, and unit efficiency.
+A propane tankless water heater only burns fuel while hot water flows, so its propane use follows how much hot water you use, not the size of its burner. The burner rating sets the most it can burn in an hour; your showers, dishes and laundry set what it actually burns.
 
-The good news: a propane tankless uses 15–30% less propane than a standard propane tank heater because it eliminates standby losses and operates at higher efficiency (0.93 UEF vs 0.58–0.67 UEF for tank models).
+**A typical four-person household uses about 275 gallons of propane a year on a tankless heater, about 0.75 gallons a day, or roughly $826 a year at an example price of $3.00 a gallon. At full fire, a 199,000 BTU per hour unit burns about 2.2 gallons an hour.**
 
-<TableOfContents />
+## Propane use per hour
 
-## The Propane Usage Formula
+A gallon of propane holds about 91,452 BTU (EIA). At full fire, gallons per hour = burner input in BTU per hour ÷ 91,452: a 199,000 BTU per hour unit burns about 2.18 gallons an hour. It reaches full fire only with several hot taps open on a cold day; most of the time it burns far less.
 
-Propane contains 91,500 BTU per gallon. A tankless water heater's propane consumption follows this formula:
+## Propane use per year
 
-**Gallons per day = (GPM x Minutes of use x Temperature rise x 500) / (91,500 x UEF)**
+Our [water heater sizing calculator](/water-heater-sizing-calculator)'s four-person household uses about 112 gallons of hot water a day, which takes about 22.2 million BTU of heat a year. At an assumed efficiency of 0.88 for a tankless heater:
 
-Where GPM is the average flow rate during use, minutes of use is total daily hot water runtime, temperature rise is desired temp minus incoming groundwater, 500 is the constant (BTU to heat 1 gallon of water 1F per hour), and UEF is the unit's efficiency rating.
+| Water heater | Propane per year | Per day | Cost at $3.00 a gallon |
+|---|---|---|---|
+| Propane tankless (0.88) | about 275 gallons | about 0.75 | about $826 |
+| Propane tank (0.64) | about 379 gallons | about 1.04 | about $1,136 |
 
-### Simplified Version
+The tankless heater saves the standby heat a tank loses. Check your model's Uniform Energy Factor; a higher one means less propane for the same hot water.
 
-For practical estimation:
+## Propane vs. natural gas
 
-**Gallons per day = Daily hot water gallons x Temperature rise / (91,500 x UEF)**
+Propane at $3.00 a gallon costs about $3.28 per therm of energy, against an assumed $1.35 per therm for natural gas. So the same tankless heater on natural gas would cost about $340 a year for this household, as the [sizing calculator](/water-heater-sizing-calculator) shows. Propane prices vary by region and season; your supplier's price is the number to use.
 
-A family of 4 using 60 gallons of hot water per day with a 65F temperature rise and a 0.93 UEF condensing unit:
+## Sizing the propane supply
 
-60 x 65 x 8.33 / (91,500 x 0.93) = 60 x 65 / (91,500 x 0.93 / 8.33) = **approximately 1.27 gallons per day** or **38 gallons per month**.
+- **Tank size:** a large tankless heater draws propane quickly at full fire, and small cylinders can't vaporize enough gas in cold weather. The heater's installation manual and your propane supplier specify the minimum tank size.
+- **Regulator and line:** both must be sized for the heater's full input.
+- **Refills:** at about 275 gallons a year for water heating alone, a 500-gallon tank filled to 80% holds about 400 gallons, around 17 months of water heating.
 
-At $2.80/gallon: **$3.56/day, $107/month, $1,283/year.**
+## Frequently asked questions
 
-## Propane Usage by Household Size
+### How much propane does a tankless water heater use per day?
 
-<ComparisonTable
-  title="Daily Propane Usage by Household and Climate (Condensing, 0.93 UEF)"
-  headers={["Household", "Daily Hot Water", "Warm Climate (50F rise)", "Moderate (65F rise)", "Cold Climate (80F rise)"]}
-  rows={[
-    ["1 person", "20 gal/day", "0.32 gal/day", "0.42 gal/day", "0.51 gal/day"],
-    ["2 people", "35 gal/day", "0.56 gal/day", "0.73 gal/day", "0.90 gal/day"],
-    ["3 people", "50 gal/day", "0.81 gal/day", "1.05 gal/day", "1.29 gal/day"],
-    ["4 people", "65 gal/day", "1.05 gal/day", "1.36 gal/day", "1.67 gal/day"],
-    ["5 people", "80 gal/day", "1.29 gal/day", "1.67 gal/day", "2.06 gal/day"],
-    ["6 people", "95 gal/day", "1.53 gal/day", "1.99 gal/day", "2.45 gal/day"],
-  ]}
-/>
+About 0.75 gallons a day for a typical four-person household, or roughly 275 gallons a year.
 
-## Monthly and Annual Cost by Propane Price
+### Is a propane tankless water heater cheaper than a propane tank?
 
-Propane prices vary dramatically by region and season. Here is what a family of 4 (65 gallons/day, moderate climate) pays at different propane prices:
+Yes. For the same hot water it uses about 27% less propane in this example: about 275 gallons a year against 379 for a tank.
 
-<ComparisonTable
-  title="Monthly Propane Cost for Tankless (Family of 4, 65F Rise)"
-  headers={["Propane Price (per gallon)", "Monthly Usage", "Monthly Cost", "Annual Cost"]}
-  rows={[
-    ["$1.80 (bulk contract, low)", "41 gal", "$74", "$886"],
-    ["$2.20 (low region)", "41 gal", "$90", "$1,083"],
-    ["$2.80 (national average)", "41 gal", "$115", "$1,377"],
-    ["$3.20 (moderate region)", "41 gal", "$131", "$1,574"],
-    ["$3.80 (high region/winter peak)", "41 gal", "$156", "$1,869"],
-    ["$4.50 (extreme/emergency delivery)", "41 gal", "$185", "$2,214"],
-  ]}
-/>
+### Is propane or natural gas cheaper for a water heater?
 
-<Callout type="warning">
-**Propane price seasonality:** Prices can swing 40–60% between summer lows and winter peaks. Lock in a pre-buy or fixed-rate contract in late summer (July–September) to avoid winter price spikes. A 500-gallon pre-buy in August at $2.20/gallon versus emergency delivery in January at $4.00/gallon saves $900 on the same 500 gallons.
-</Callout>
+Natural gas, usually. At $3.00 a gallon, propane costs about $3.28 per therm, against an assumed $1.35 for natural gas.
 
-## Propane Tankless vs Propane Tank: Usage Comparison
+### What size propane tank do I need for a tankless water heater?
 
-<ComparisonTable
-  title="Annual Propane Usage: Tankless vs Tank (Family of 4)"
-  headers={["Metric", "Propane Tank (50 gal, 0.60 UEF)", "Propane Tankless (Condensing, 0.93 UEF)", "Savings"]}
-  rows={[
-    ["Annual propane for heating water", "480–550 gallons", "330–400 gallons", "130–170 gallons (28–31%)"],
-    ["Propane wasted on standby", "80–120 gallons", "0 gallons", "80–120 gallons (100%)"],
-    ["Total annual propane", "560–670 gallons", "330–400 gallons", "210–290 gallons saved"],
-    ["Annual cost at $2.80/gal", "$1,568–$1,876", "$924–$1,120", "$530–$870 saved"],
-  ]}
-/>
-
-**Propane users see the biggest savings from going tankless** because propane is expensive and standby losses on tank heaters waste 80–120 gallons per year — that is $225–$335 in pure waste at $2.80/gallon.
-
-The payback on a propane tankless is often faster than for natural gas. A $2,000 premium over a propane tank, with $530–$870 in annual savings, pays back in **2.3–3.8 years**.
-
-## Propane Tank Sizing for Tankless Heaters
-
-Your propane storage tank must deliver adequate vaporization pressure to feed the tankless heater at full fire. This is critical — an undersized propane tank is the #1 cause of "my tankless keeps shutting off" complaints in propane homes.
-
-<ComparisonTable
-  title="Propane Tank Sizing Requirements"
-  headers={["Tankless BTU Rating", "Min Tank Size (Cold Climate)", "Min Tank Size (Warm Climate)", "Annual Refills Needed"]}
-  rows={[
-    ["100,000 BTU/h", "250 gallon", "120 gallon", "2–3 per year"],
-    ["120,000 BTU/h", "250 gallon", "250 gallon", "2–3 per year"],
-    ["150,000 BTU/h", "500 gallon", "250 gallon", "3–4 per year"],
-    ["199,900 BTU/h", "500 gallon", "500 gallon", "3–5 per year"],
-    ["Two units in parallel", "1,000 gallon", "500 gallon", "5–8 per year"],
-  ]}
-/>
-
-**Why cold climate matters for tank sizing:** Propane vaporizes (converts from liquid to gas) more slowly in cold temperatures. A 250-gallon tank at 20F ambient can only deliver about 175,000 BTU/h of vaporized gas. At 0F, that drops to roughly 130,000 BTU/h. If your tankless needs 199,000 BTU/h, the 250-gallon tank cannot keep up in winter, even if it is full.
-
-<Callout type="important">
-**Rule of thumb:** In cold climates (winter ambient below 20F), your propane tank should be rated for at least 150% of your tankless unit's BTU/h demand. For a 199,000 BTU/h unit, that means a 500-gallon tank minimum. Consult your propane supplier for a vaporization analysis specific to your location.
-</Callout>
-
-## Reducing Propane Consumption
-
-### 1. Choose a Condensing Unit
-
-The efficiency gap between condensing (0.93 UEF) and non-condensing (0.82 UEF) is even more significant with propane. At $2.80/gallon, upgrading from non-condensing to condensing saves $130–$200/year — paying for the condensing premium in 2–4 years.
-
-### 2. Lower Your Set Temperature
-
-Reducing from 120F to 115F cuts propane usage by approximately 7%. For a family of 4, that is 25–35 gallons/year saved ($70–$100).
-
-### 3. Install Low-Flow Fixtures
-
-A 1.5 GPM showerhead instead of 2.0 GPM reduces hot water usage (and propane) by 25% per shower. Annual savings: 50–80 gallons ($140–$225).
-
-### 4. Insulate Hot Water Pipes
-
-Foam pipe insulation on the first 6 feet of hot and cold water pipe from the heater reduces heat loss in transit, meaning you run the faucet for less time before hot water arrives. Annual savings: 10–20 gallons.
-
-### 5. Fix Leaks Immediately
-
-A dripping hot water faucet wastes 1,660 gallons of hot water per year — approximately 8 gallons of propane per year ($22). A running toilet with a stuck hot valve wastes far more.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- **Typical usage: 200–500 gallons/year** ($560–$1,400 at $2.80/gal) for a family of 2–5
-- **Savings vs propane tank: 28–31%** (130–290 gallons/year), worth $365–$810 annually
-- **Propane tankless has the fastest payback** of any fuel type due to high propane costs — typically 2–4 years
-- **Tank sizing is critical** — a 500-gallon tank is the minimum for 199K BTU units in cold climates
-- **Lock in pre-buy propane contracts** in summer to avoid 40–60% winter price spikes
-- **Condensing saves an extra $130–$200/year** over non-condensing on propane
-- **Seasonal homes see the largest savings** — zero consumption during empty months
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "How often will I need to refill my propane tank with a tankless heater?",
-    answer: "For water heating only (not counting furnace or other propane appliances), a family of 4 uses 330–500 gallons/year. With a 500-gallon tank, that is 1–2 dedicated water heating refills per year. However, most homes use propane for multiple purposes (heating, cooking, dryer), so you are likely already on a regular delivery schedule that absorbs the water heater's usage."
-  },
-  {
-    question: "Is propane tankless cheaper than electric tankless?",
-    answer: "It depends on local rates. At $2.80/gallon propane and $0.18/kWh electricity, a propane condensing tankless costs roughly $1,100–$1,400/year while electric costs $600–$900/year for the same family. Electric is cheaper to operate in most cases. However, propane tankless delivers 2–3x more flow rate, making it necessary for whole-home use in cold climates where electric cannot keep up."
-  },
-  {
-    question: "Does a propane tankless water heater use a pilot light?",
-    answer: "No. Modern propane tankless water heaters use electronic ignition (either direct spark or hot surface ignition), eliminating the standing pilot light that older tank models used. This saves 5–10 gallons of propane per month that a standing pilot would consume. The unit draws only 3–5 watts of electricity for standby controls."
-  },
-  {
-    question: "Can I run a propane tankless water heater off a 100-pound cylinder?",
-    answer: "Only for very small units (under 60,000 BTU/h) in warm weather. A 100-pound (approximately 24-gallon) cylinder can deliver about 45,000 BTU/h of vaporized gas at 60F ambient. Most residential tankless units need 120,000–199,000 BTU/h. For temporary or emergency use, you could connect two 100-pound cylinders in parallel, but this is not a long-term solution."
-  }
-]} />
+Use the minimum in the heater's installation manual, and confirm with your propane supplier; large units and cold climates need bigger tanks.
 
 <SourcesBox sources={[
-  { label: "EIA — Weekly Propane Prices", url: "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_PRS_dpgal_w.htm" }
+  { title: "U.S. EIA: British thermal units (propane 91,452 BTU per gallon)", url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php" }
 ]} />
 
-<RelatedArticles />
+<RelatedArticles articles={frontmatter.relatedArticles} />
