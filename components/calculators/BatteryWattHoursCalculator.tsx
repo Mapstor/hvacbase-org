@@ -288,7 +288,7 @@ export default function BatteryWattHoursCalculator() {
                 Operating temperature
                 <InfoTip label="temperature">
                   Cold reduces battery capacity, cold is a loss, never a gain. Lithium tolerates cold better than lead-acid.
-                  Approximate anchor points (per Battery University BU-410):
+                  Typical anchor points (check your battery's specs):
                   at 32 °F, lithium delivers ~80% of rated capacity, lead-acid ~65%.
                   At −4 °F, lithium ~60%, lead-acid ~40%.
                 </InfoTip>
@@ -453,7 +453,7 @@ export default function BatteryWattHoursCalculator() {
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li><strong>This is a planning estimate, not a design.</strong> Real values vary with battery age (down 20–30% at 3–5 years), discharge rate (Peukert for lead-acid), and repeated deep-cycling.</li>
             <li><strong>Cycle ratings assume standard discharge depth</strong>; deeper cycling (especially lead-acid) reduces cycle life significantly, a lead-acid battery cycled to 80% DoD delivers roughly one-third of its rated cycles vs 50% DoD.</li>
-            <li><strong>Round-trip efficiency values are approximate ranges</strong> from Battery University / manufacturer datasheets; individual cells vary. LiFePO4 92–96%, lithium-ion 90–95%, lead-acid 75–85%, AGM 80–85%.</li>
+            <li><strong>Round-trip efficiency values are typical ranges</strong>, check your battery's specs; individual cells vary. LiFePO4 92–96%, lithium-ion 90–95%, lead-acid 75–85%, AGM 80–85%.</li>
             <li><strong>Duty-cycled appliances</strong> (fridges, freezers, well pumps): the number that matters is your 24-hour AVERAGE draw, not the nameplate. The Refrigerator preset uses 52W average (150W nameplate × 35% duty cycle) as a real-world approximation; your fridge could be more or less.</li>
             <li><strong>Microwaves and kettles</strong>: the wattage on the door is COOKING output; wall draw is 40–60% higher. The Microwave preset uses 1,500W input, not the 1,000W plate rating.</li>
             <li><strong>Cold weather:</strong> capacity anchors here are approximate, get manufacturer capacity-vs-temperature curves for your exact cell for a real answer.</li>
