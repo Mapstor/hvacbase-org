@@ -76,7 +76,7 @@ function jaccard(a, b) {
 }
 
 // ---------- config lists ----------
-const BRANDS = ['Carrier','Trane','Lennox','Goodman','Rheem','Ruud','Bryant','Amana','Daikin','Mitsubishi','Fujitsu','LG','Samsung','Gree','Midea','MrCool','Senville','Pioneer','Cooper & Hunter','Bosch','York','Honeywell','Nest','Ecobee','Emerson','Frigidaire','GE','Whynter','hOmeLabs','Santa Fe','AprilAire','Blueair','Coway','Levoit','Winix','Dyson','Rinnai','Navien','EcoSmart','Stiebel Eltron','Generac','Honda','Champion','Westinghouse','Tesla','Powerwall','Enphase','Renogy','Battle Born','Victron','Aranet','Qingping','Airthings','Temtop','Awair','uHoo','Kaiterra','PurpleAir','IQAir','Aeroseal','Sensi','A.O. Smith','Bradford White','Noritz','Takagi','Kohler','Briggs & Stratton','Haier','Toshiba','Heil','Tempstar'];
+const BRANDS = ['Carrier','Trane','Lennox','Goodman','Rheem','Ruud','Bryant','Amana','Daikin','Mitsubishi','Fujitsu','LG','Samsung','Gree','Midea','MrCool','Senville','Pioneer','Cooper & Hunter','Bosch','York','Honeywell','Nest','Ecobee','Emerson','Frigidaire','GE','Whynter','hOmeLabs','Santa Fe','AprilAire','Blueair','Coway','Levoit','Winix','Dyson','Rinnai','Navien','EcoSmart','Stiebel Eltron','Generac','Honda','Champion','Westinghouse','Tesla','Powerwall','Enphase','Renogy','Battle Born','Victron','Aranet','Qingping','Airthings','Temtop','Awair','uHoo','Kaiterra','PurpleAir','IQAir','Aeroseal','Sensi','A.O. Smith','Bradford White','Noritz','Takagi','Kohler','Briggs & Stratton','Haier','Toshiba','Heil','Tempstar','Fresh-Aire','RGF','Steril-Aire','Lumalier','UVGI Solutions','Atlantic Ultraviolet','Philips','Osram','Sylvania','Light Sources','WaterFurnace','ClimateMaster'];
 const ORGS = ['EPA','DOE','ENERGY STAR','EIA','ASHRAE','ACCA','AHRI','NFPA','NEC','CDC','CPSC','FDA','IRS','NREL','ESFI','UL'];
 const OVERCLAIMS = ['exact','most comprehensive','best','top-rated','#1','guaranteed','Manual J based','Manual J methodology','AHRI Certified','every number'];
 const OLD_TELLS = ['Time Required','Difficulty:','Step 1:','Key Takeaways','Pro Tip','Good to Know','Real-World Example'];
@@ -211,13 +211,55 @@ function scanMdx(file) {
 
   // (a) RATES
   let ratesOff = 0, ratesTotal = 0;
-  const rateRe = /\$\s?(\d[\d,]*(?:\.\d+)?)\s*(?:\/|per\s+)?\s*(kwh|kw h|therm|gal(?:lon)?s?)/gi;
-  for (const m of body.matchAll(rateRe)) {
+  const US_STATES = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+  const stateRe = new RegExp('\\b(' + US_STATES.join('|') + ')\\b');
+  // Sentence splitter that ignores decimal points: '.', '!', '?' end a sentence only
+  // when adjacent to whitespace (so "12.36" and "46.28" don't split the sentence and hide
+  // a following state name); '\n' and '|' (table cells) are always boundaries.
+  const enclosingSentence = (text, idx) => {
+    let s = idx, e = idx;
+    while (s > 0) { const ch = text[s - 1];
+      if (ch === '\n' || ch === '|') break;
+      if ((ch === '.' || ch === '!' || ch === '?') && /\s/.test(text[s] || ' ')) break;
+      s--; }
+    while (e < text.length) { const ch = text[e];
+      if (ch === '\n' || ch === '|') break;
+      if ((ch === '.' || ch === '!' || ch === '?') && /\s/.test(text[e + 1] || ' ')) break;
+      e++; }
+    return text.slice(s, e);
+  };
+  // kWh canon values: 18 / 18.19 cents, or 0.18 / 0.1819 dollars.
+  const kwhOk = (val, cents) => cents
+    ? (Math.abs(val - 18) < 0.05 || Math.abs(val - 18.19) < 0.05)
+    : (Math.abs(val - 0.18) < 1e-4 || Math.abs(val - 0.1819) < 1e-4);
+  // Exempt a kWh rate if its sentence ties it to a named state, a time-of-use example,
+  // or the word "example".
+  const kwhExempt = (sent) => stateRe.test(sent)
+    || /time[-\s]?of[-\s]?use|\bTOU\b|off[-\s]?peak|\bpeak\b/i.test(sent)
+    || /example/i.test(sent);
+  // (a1) kWh electricity rates — strict: any value that isn't canon is off-rate unless exempt
+  // (so a bare $0.14/kWh is caught). Handles both "$0.14/kWh" and "14 cents per kWh".
+  const kwhDollarRe = /\$\s?(\d[\d,]*(?:\.\d+)?)\s*(?:\/|per\s+)?\s*(?:kwh|kw h)\b/gi;
+  const kwhCentsRe = /(\d[\d,]*(?:\.\d+)?)\s*(?:¢|cents?)\s*(?:\/|per\s+)?\s*(?:kwh|kw h)\b/gi;
+  for (const [re, cents] of [[kwhDollarRe, false], [kwhCentsRe, true]]) {
+    for (const m of body.matchAll(re)) {
+      ratesTotal++;
+      const val = parseFloat(m[1].replace(/,/g, ''));
+      if (kwhOk(val, cents)) continue;
+      if (kwhExempt(enclosingSentence(body, m.index))) continue;
+      ratesOff++;
+      claims.push({ slug, org: 'RATE', sentence: `[kwh ${cents ? val + 'c' : '$' + val} not canon 18/18.19/0.18/0.1819] ...${ctx(body, m.index, 60)}...` });
+    }
+  }
+  // (a2) therm / gallon rates — flag only when stated as a national/average/typical figure
+  // and off the site canon by more than 2%.
+  const fuelRe = /\$\s?(\d[\d,]*(?:\.\d+)?)\s*(?:\/|per\s+)?\s*(therm|gal(?:lon)?s?)/gi;
+  for (const m of body.matchAll(fuelRe)) {
     ratesTotal++;
     const val = parseFloat(m[1].replace(/,/g, ''));
-    const unit = /kwh|kw h/i.test(m[2]) ? 'kwh' : /therm/i.test(m[2]) ? 'therm' : 'gal';
+    const unit = /therm/i.test(m[2]) ? 'therm' : 'gal';
     const context = ctx(body, m.index, 60);
-    const isNat = /(national|average|avg|typical|u\.?s\.?|per kwh nationally)/i.test(context);
+    const isNat = /(national|average|avg|typical|u\.?s\.?)/i.test(context);
     const canon = CANON[unit];
     if (isNat && Math.abs(val - canon) / canon > 0.02) {
       ratesOff++;
