@@ -122,7 +122,7 @@ export default function DehumidifierCostCalculator() {
     const maintenanceCost = 50 * 5;
     const fiveYearRunningCost = fiveYearEnergyCost + maintenanceCost;
     // ENERGY STAR upgrade: energy savings only (no invented equipment prices).
-    const efficientWatts = watts * 0.75;
+    const efficientWatts = watts * 0.80;
     const usageDaysPerYear = usage.monthsPerYear * 30;
     const energySavingsPerYear = ((watts - efficientWatts) * actualRuntime * usageDaysPerYear / 1000) * rate;
     const annualCO2 = annualKwh * GRID_LB_CO2_PER_KWH;
@@ -265,7 +265,7 @@ export default function DehumidifierCostCalculator() {
             </div>
             {calc.energySavingsPerYear > 0 && (
               <div className="mt-3 p-3 bg-emerald-50 rounded text-xs text-emerald-900">
-                <strong>ENERGY STAR upgrade:</strong> A 25%-more-efficient model saves about <strong>${fmtMoney(calc.energySavingsPerYear)}/yr</strong> in energy over {usage.name.toLowerCase()} use.
+                <strong>ENERGY STAR upgrade:</strong> A 20%-more-efficient model saves about <strong>${fmtMoney(calc.energySavingsPerYear)}/yr</strong> in energy over {usage.name.toLowerCase()} use.
               </div>
             )}
           </div>
@@ -304,7 +304,7 @@ export default function DehumidifierCostCalculator() {
         <DisclaimerBox title="Notes on dehumidifier economics">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li>Run time is estimated from the humidity gap and climate; real run time depends on the room, its air sealing, and the moisture source</li>
-            <li>ENERGY STAR units use ~25% less power than standard models, usually worth the upcharge for year-round use</li>
+            <li>ENERGY STAR certified dehumidifiers use about 20% less energy than conventional models (ENERGY STAR).</li>
             <li>Auto-defrost-equipped models work below 65°F (cold basements) without ice-up; standard models stall</li>
             <li>Pump-equipped units drain to a sink/upstairs; gravity drain limits placement</li>
             <li>For continuous-runtime applications (whole basement), consider a whole-house dehumidifier ducted to the HVAC system, lower lifetime cost</li>

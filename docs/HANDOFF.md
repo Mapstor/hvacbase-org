@@ -21,6 +21,7 @@ Get hvacbase.org accepted by Raptive on the next review (rejected 4 times, no re
 - CLAUDE.md non-negotiables: max 3 sentences per paragraph (audit enforces it); every number explained in prose.
 - No em dashes. No brands, model numbers, product recommendations or invented prices.
 - Verified-or-omitted: every figure from a live primary source or from a published calculator formula. No primary source -> remove it. Never credit an agency with a number its page doesn't state (attribution-check.csv exists for this).
+- If page text conflicts with a calculator constant and the source can't be checked offline, flag it in CC-OUTPUT and leave both unchanged; don't align content to an unverified constant.
 - Assumptions in calculators are labeled as assumptions, never presented as facts.
 - Avoid template tells: "honest/honestly", "Here's the...", "How we sourced this page" boilerplate, "linked at the bottom", "worth knowing", "we recommend no specific brands", "Step 1/2/3:" headings, italic rhetorical-question blocks ("the worry underneath: *...?*"). FAQ questions phrased as real searches ("Is X worth it?") are fine.
 - Keep page titles and slugs of pages with meaningful Bing traffic unless there's a strong reason.
@@ -36,6 +37,7 @@ Get hvacbase.org accepted by Raptive on the next review (rejected 4 times, no re
 - ENERGY STAR heat pump key product criteria: split systems >=15.2 SEER2, >=7.8 HSPF2, >=11.0 EER2; cold climate: COP >=1.75 at 5F, >=70% of rated capacity at 5F, >=8.1 HSPF2 ducted / 8.5 ductless.
 - ENERGY STAR air-source heat pump page: up to 3x more heat energy than the electricity consumed. Ductless page: up to 60% less energy than standard electric radiators; it no longer says ducts waste "more than 30%". Both still show the dead 2032 tax credit.
 - ENERGY STAR room AC sizing chart: 100-150 sq ft 5,000 BTU ... 700-1,000 sq ft 18,000; adjustments shaded -10%, sunny +10%, +600 BTU per person beyond two, kitchen +4,000.
+- ENERGY STAR dehumidifiers: certified models use 20% less energy (spec effective Oct 1, 2025); sizing chart: 20-30 / 25-40 / 30-50 pints under 2,000 sq ft, 30+ / 40+ / 50+ over.
 - EPA Report on the Environment (epa.gov/report-environment/indoor-air-quality): ~90% of time indoors; some pollutants often 2-5x higher indoors.
 - EPA mold course ch. 2: indoor humidity 30-50%, below 60%.
 - EPA WaterSense: standard showerheads 2.5 gpm; WaterSense <=2.0 gpm; average shower 8.2 minutes (~17 gallons). Federal faucet max 2.2 gpm; WaterSense bath faucet <=1.5.
