@@ -16,7 +16,7 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //   mini-split, battery-12v-watts, battery-watt-hours, three-phase-power,
 //   generator-amps, furnace-electrical, btu, ac-tonnage, furnace-sizing,
 //   heat-pump-size, afue, dehumidifier-sizing, water-heater-sizing,
-//   heat-pump-vs-furnace, gas-vs-electric, ach, seer2, kwh-cost, hvac-roi,
+//   heat-pump-vs-furnace, gas-vs-electric, ach, seer2, kwh-cost,
 //   power-consumption, specific-heat, solar-panel, air-purifier-sizing,
 //   generator-sizing, ac-generator, dehumidifier-cost, hvac-lifespan,
 //   water-heater-lifespan, water-heating-cost, large-room-portable-ac,
@@ -123,9 +123,6 @@ const calculators = {
     loading: () => <LoadingCalculator />
   }),
   'small-room-portable-ac': dynamic(() => import('./SmallRoomPortableACCalculator'), { 
-    loading: () => <LoadingCalculator />
-  }),
-  'hvac-roi': dynamic(() => import('./HVACROICalculator'), { 
     loading: () => <LoadingCalculator />
   }),
   'heat-pump-vs-furnace': dynamic(() => import('./HeatPumpVsFurnaceCalculator'), {
