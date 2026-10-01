@@ -1,5 +1,7 @@
 # hvacbase.org — SEO Audit & Fix Workflow
 
+@docs/HANDOFF.md
+
 ## Stack
 Next.js 15 (App Router) · TypeScript · Tailwind · Vercel · GitHub
 
