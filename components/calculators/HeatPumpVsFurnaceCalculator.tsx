@@ -43,14 +43,14 @@ const HP_HSPF2       = 8.2;            // ENERGY STAR mid-range default
 // hours cross below the balance point and supplemental resistance strips run at
 // COP 1, so the seasonal average drops. A NEEP-listed cold-climate unit would
 // instead have its own high HSPF2 entered in the sister HeatPumpSizeCalculator.
-const HP_HSPF2_BY_ZONE: Record<string, number> = {
+export const HP_HSPF2_BY_ZONE: Record<string, number> = {
   'very-hot':  8.2,   // no derating (barely uses heating)
   'hot':       8.2,
   'mixed':     8.2,
   'cold':      6.5,   // colder zone: lower assumed seasonal efficiency
   'very-cold': 5.0,   // coldest zone: lower still (standard HP shouldn't be here)
 };
-const HP_SEER2       = 17.1;           // premium inverter
+export const HP_SEER2       = 17.1;           // premium inverter
 const NEW_FURNACE_AC_SEER2 = 15.2;     // ENERGY STAR baseline
 const CURRENT_AC_SEER2     = 13.3;     // typical existing AC
 const NEW_FURNACE_AFUE     = 0.95;     // high-efficiency condensing furnace
@@ -68,7 +68,7 @@ const FUEL_CO2_LB_PER_MMBTU: Record<string, number> = {
   'electric-resistance': 0,
 };
 
-const climateZones = [
+export const climateZones = [
   { value: 'very-cold', name: 'Very cold', summary: 'MN, AK, N. Maine', designTemp: -10, hdd: 8000, heatingHours: 3500, coolingHours: 800, heatPumpViable: 'cold-climate-only' },
   { value: 'cold', name: 'Cold', summary: 'Chicago, Boston, Denver', designTemp: 5, hdd: 6500, heatingHours: 2800, coolingHours: 1200, heatPumpViable: 'yes-with-backup' },
   { value: 'mixed', name: 'Mixed', summary: 'DC, St. Louis, Portland', designTemp: 15, hdd: 4500, heatingHours: 1800, coolingHours: 1800, heatPumpViable: 'ideal' },

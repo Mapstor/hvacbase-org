@@ -41,20 +41,7 @@ The average heat pump costs $80–$160 per month to run for combined heating and
 
 ## Running Cost Calculator 
 
-<CalcWrapper>
-  <BTUCalculator
-    description="Enter your details below to estimate your heat pump's monthly and annual running costs."
-    inputs={[
-      { label: "Home Size (sq ft)", name: "homeSize", default: 2000, min: 500, max: 6000 },
-      { label: "Heat Pump Size (tons)", name: "tons", default: 3, min: 1, max: 5 },
-      { label: "SEER2 Rating", name: "seer2", default: 16, min: 13, max: 30 },
-      { label: "HSPF2 Rating", name: "hspf2", default: 9, min: 7, max: 14 },
-      { label: "Heating Degree Days", name: "hdd", default: 4500, min: 500, max: 10000 },
-      { label: "Cooling Degree Days", name: "cdd", default: 1500, min: 200, max: 5000 },
-      { label: "Electricity Rate ($/kWh)", name: "rate", default: 0.18, min: 0.05, max: 0.50 },
-    ]}
-  />
-</CalcWrapper>
+<CalcWrapper type="heat-pump-running-cost" />
 
 <Callout type="tip">
 **Find Your Electricity Rate:** Check your most recent electric bill for the "per kWh" rate. The U.S. average is about $0.18/kWh, but rates range from $0.08/kWh (Louisiana, Idaho) to $0.35/kWh (Massachusetts, Connecticut, Hawaii). You can also look up state averages on the EIA website.

@@ -131,6 +131,9 @@ const calculators = {
   'heat-pump-vs-furnace': dynamic(() => import('./HeatPumpVsFurnaceCalculator'), {
     loading: () => <LoadingCalculator />
   }),
+  'heat-pump-running-cost': dynamic(() => import('./HeatPumpRunningCostCalculator'), {
+    loading: () => <LoadingCalculator />
+  }),
   'duct-sizing': dynamic(() => import('./DuctSizingCalculator'), {
     loading: () => <LoadingCalculator />
   })
