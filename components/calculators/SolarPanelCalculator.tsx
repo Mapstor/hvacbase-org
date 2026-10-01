@@ -40,10 +40,12 @@ const locations = [
   { value: 'washington', name: 'Washington', summary: '3.8 sun hr/day', sunHours: 3.8 },
 ];
 
+// Efficiencies are typical for each panel family; they drive the per-panel area
+// (not an installed price). Installed price comes from the user's quote.
 const panelTypes = [
-  { value: 'monocrystalline', name: 'Monocrystalline', summary: '20% efficient, most common', tier: 'High', efficiency: 0.20, costPerWatt: 3.00 },
-  { value: 'polycrystalline', name: 'Polycrystalline', summary: '18% efficient, older tech', tier: 'Mid', efficiency: 0.18, costPerWatt: 2.50 },
-  { value: 'thin-film', name: 'Thin film', summary: '12% efficient, flexible/cheap', tier: 'Low', efficiency: 0.12, costPerWatt: 2.00 },
+  { value: 'monocrystalline', name: 'Monocrystalline', summary: 'typical 20% efficiency, most common', tier: 'High', efficiency: 0.20 },
+  { value: 'polycrystalline', name: 'Polycrystalline', summary: 'typical 18% efficiency, older tech', tier: 'Mid', efficiency: 0.18 },
+  { value: 'thin-film', name: 'Thin film', summary: 'typical 12% efficiency, flexible/cheap', tier: 'Low', efficiency: 0.12 },
 ];
 
 const DEFAULTS = {
@@ -54,6 +56,10 @@ const DEFAULTS = {
   roofSpace: '800',
   shadingFactor: '100',
   systemEfficiency: '85',
+  // Installed price comes from the user's quote; no default (it varies widely by
+  // region, installer and incentives). Cost / payback / 20-year savings appear
+  // only once a price per watt is entered.
+  pricePerWatt: '',
   // §25D residential solar credit ended for systems placed in service after
   // Dec 31, 2025 (OBBBA) — 2026 installs get 0%. User can enter 30% for a
   // 2024–2025 install.
@@ -68,10 +74,11 @@ export default function SolarPanelCalculator() {
   const [roofSpace, setRoofSpace] = useState(DEFAULTS.roofSpace);
   const [shadingFactor, setShadingFactor] = useState(DEFAULTS.shadingFactor);
   const [systemEfficiency, setSystemEfficiency] = useState(DEFAULTS.systemEfficiency);
+  const [pricePerWatt, setPricePerWatt] = useState(DEFAULTS.pricePerWatt);
   const [federalCreditPct, setFederalCreditPct] = useState(DEFAULTS.federalCreditPct);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
-    monthlyBill, electricRate, location, panelType, roofSpace, shadingFactor, systemEfficiency, federalCreditPct,
+    monthlyBill, electricRate, location, panelType, roofSpace, shadingFactor, systemEfficiency, pricePerWatt, federalCreditPct,
   });
 
   const loc = locations.find((l) => l.value === src.location)!;
@@ -82,6 +89,8 @@ export default function SolarPanelCalculator() {
   const shading = Math.min(Math.max(parseFloat(src.shadingFactor) || 100, 50), 100);
   const sysEff = Math.min(Math.max(parseFloat(src.systemEfficiency) || 85, 70), 95);
   const creditPct = Math.min(Math.max(parseFloat(src.federalCreditPct) || 0, 0), 30);
+  const ppw = Math.max(parseFloat(src.pricePerWatt) || 0, 0);
+  const hasPrice = ppw > 0;
 
   const handleReset = () => {
     setMonthlyBill(DEFAULTS.monthlyBill);
@@ -91,6 +100,7 @@ export default function SolarPanelCalculator() {
     setRoofSpace(DEFAULTS.roofSpace);
     setShadingFactor(DEFAULTS.shadingFactor);
     setSystemEfficiency(DEFAULTS.systemEfficiency);
+    setPricePerWatt(DEFAULTS.pricePerWatt);
     setFederalCreditPct(DEFAULTS.federalCreditPct);
     clear();
   };
@@ -106,30 +116,35 @@ export default function SolarPanelCalculator() {
     const panelsNeeded = Math.ceil(systemSizeWatts / typicalPanelWatts);
     const actualSystemWatts = panelsNeeded * typicalPanelWatts;
     const actualSystemKW = actualSystemWatts / 1000;
-    const panelArea = 22;
+    // Area per 400 W panel from its typical efficiency: 400 W ÷ (1000 W/m² × eff)
+    // is the module area in m², × 10.764 → sq ft (mono ~21.5, poly ~23.9,
+    // thin-film ~35.9). Replaces the old flat 22 sq ft.
+    const panelArea = (typicalPanelWatts / (1000 * panel.efficiency)) * 10.764;
     const totalPanelArea = panelsNeeded * panelArea;
     const spaceUtilization = roof > 0 ? (totalPanelArea / roof) * 100 : 0;
     const dailyProduction = actualSystemKW * effectiveSunHours;
     const monthlyProduction = dailyProduction * 30;
     const yearlyProduction = dailyProduction * 365;
-    const systemCost = actualSystemWatts * panel.costPerWatt;
+    // Installed cost only when the user enters a quoted price per watt.
+    const systemCost = hasPrice ? actualSystemWatts * ppw : 0;
     // §25D ended after Dec 31, 2025 (OBBBA) — defaults to 0% for 2026 installs.
     const federalTaxCredit = systemCost * (creditPct / 100);
     const netSystemCost = systemCost - federalTaxCredit;
     const monthlyElectricSavings = monthlyProduction * rate;
     const yearlyElectricSavings = monthlyElectricSavings * 12;
-    const paybackYears = yearlyElectricSavings > 0 ? netSystemCost / yearlyElectricSavings : 999;
-    const twentyYearSavings = (yearlyElectricSavings * 20) - netSystemCost;
-    const yearlyCO2Offset = yearlyProduction * 0.855; // EPA eGRID2022 US avg lb CO₂/kWh
+    const paybackYears = hasPrice && yearlyElectricSavings > 0 ? netSystemCost / yearlyElectricSavings : 0;
+    const twentyYearSavings = hasPrice ? (yearlyElectricSavings * 20) - netSystemCost : 0;
+    const yearlyCO2Offset = yearlyProduction * 0.823; // EPA eGRID2022 US avg lb CO₂/kWh (EPA GHG Equivalencies)
     const twentyYearCO2Offset = yearlyCO2Offset * 20;
     const netMetering = monthlyProduction > monthlyKwh;
     const excessProduction = Math.max(0, monthlyProduction - monthlyKwh);
     const remainingUsage = Math.max(0, monthlyKwh - monthlyProduction);
-    return { monthlyKwh, dailyKwh, yearlyKwh, effectiveSunHours, actualSystemKW, panelsNeeded, totalPanelArea, spaceUtilization, dailyProduction, monthlyProduction, yearlyProduction, systemCost, federalTaxCredit, netSystemCost, yearlyElectricSavings, paybackYears, twentyYearSavings, yearlyCO2Offset, twentyYearCO2Offset, netMetering, excessProduction, remainingUsage };
-  }, [bill, rate, loc, panel, roof, shading, sysEff, creditPct]);
+    return { monthlyKwh, dailyKwh, yearlyKwh, effectiveSunHours, actualSystemKW, panelsNeeded, panelArea, totalPanelArea, spaceUtilization, dailyProduction, monthlyProduction, yearlyProduction, systemCost, federalTaxCredit, netSystemCost, yearlyElectricSavings, paybackYears, twentyYearSavings, yearlyCO2Offset, twentyYearCO2Offset, netMetering, excessProduction, remainingUsage };
+  }, [bill, rate, loc, panel, roof, shading, sysEff, creditPct, ppw, hasPrice]);
 
   const fit =
     calc.spaceUtilization > 100 ? { tone: 'bad' as const, text: 'Roof too small, need ground mount' } :
+    !hasPrice ? { tone: 'good' as const, text: 'Enter a quoted price for payback' } :
     calc.paybackYears <= 8 ? { tone: 'good' as const, text: 'Excellent payback, great investment' } :
     calc.paybackYears <= 12 ? { tone: 'good' as const, text: 'Good investment' } :
     calc.paybackYears <= 18 ? { tone: 'ok' as const, text: 'Long payback, wait for incentives' } :
@@ -139,7 +154,7 @@ export default function SolarPanelCalculator() {
     <CalcShell
       Icon={Sun}
       title="Solar Panel Calculator"
-      subtitle="System size + 20-year ROI from your bill."
+      subtitle="System size, production and payback from your bill."
       accent={ACCENT}
     >
       <form onSubmit={(e) => { e.preventDefault(); calculate(); }} className="space-y-8">
@@ -166,6 +181,9 @@ export default function SolarPanelCalculator() {
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Location (sun hours)</label>
             <CardChoice value={location} onChange={setLocation} options={locations} ariaLabel="Location" accent={ACCENT} columns={5} />
+            <p className="text-xs text-gray-500 mt-1.5">
+              Approximate peak sun hours; for your address, use <a href="https://pvwatts.nrel.gov/" className="text-emerald-700 underline">NREL PVWatts</a>.
+            </p>
           </div>
           <div>
             <label className="text-sm font-medium text-gray-700 mb-2 block">Panel type</label>
@@ -192,7 +210,7 @@ export default function SolarPanelCalculator() {
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               System efficiency
-              <InfoTip label="system efficiency">Accounts for inverter losses, wiring resistance, panel mismatch. Typical: 80–90%.</InfoTip>
+              <InfoTip label="system efficiency">This is 100% minus system losses (inverter, wiring, soiling, panel mismatch). The default 85% is system losses of about 14%, close to PVWatts' default.</InfoTip>
               <span className="ml-auto text-sm font-semibold text-emerald-700">{sysEff}%</span>
             </label>
             <input type="range" min={70} max={95} step={1} value={systemEfficiency} onChange={(e) => setSystemEfficiency(e.target.value)} className="w-full accent-emerald-600" aria-label="System efficiency" />
@@ -201,15 +219,24 @@ export default function SolarPanelCalculator() {
       </section>
 
       <section>
-        <SectionHeader step={4} title="Incentives" subtitle="Federal solar tax credit (Section 25D)" Icon={DollarSign} accent={ACCENT} />
-        <div className="max-w-xs">
-          <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-            Federal tax credit
-            <InfoTip label="federal solar credit">The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA), 2026 installs are not eligible. Enter a credit % only if your system was placed in service in 2025 or earlier.</InfoTip>
-            <span className="ml-auto text-sm font-semibold text-emerald-700">{creditPct}%</span>
-          </label>
-          <input type="range" min={0} max={30} step={1} value={federalCreditPct} onChange={(e) => setFederalCreditPct(e.target.value)} className="w-full accent-emerald-600" aria-label="Federal tax credit percent" />
-          <p className="text-xs text-gray-500 mt-1.5">2026 installs: 0% (§25D expired). Placed in service 2025 or earlier: up to 30%.</p>
+        <SectionHeader step={4} title="Cost & incentives" subtitle="Your quoted price (optional) and the federal solar tax credit" Icon={DollarSign} accent={ACCENT} />
+        <div className="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Installed price per watt (from your quote)
+              <InfoTip label="price per watt">Optional. From a contractor quote: total installed price ÷ system watts. Leave blank to see system size and production only; enter it to see cost, payback and 20-year savings.</InfoTip>
+            </label>
+            <NumberInput value={pricePerWatt} onChange={setPricePerWatt} min={0} max={10} placeholder="e.g. 3.00" suffix="$/W" ariaLabel="Installed price per watt" accent={ACCENT} />
+          </div>
+          <div>
+            <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+              Federal tax credit
+              <InfoTip label="federal solar credit">The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA), 2026 installs are not eligible. Enter a credit % only if your system was placed in service in 2025 or earlier.</InfoTip>
+              <span className="ml-auto text-sm font-semibold text-emerald-700">{creditPct}%</span>
+            </label>
+            <input type="range" min={0} max={30} step={1} value={federalCreditPct} onChange={(e) => setFederalCreditPct(e.target.value)} className="w-full accent-emerald-600" aria-label="Federal tax credit percent" />
+            <p className="text-xs text-gray-500 mt-1.5">2026 installs: 0% (§25D expired). Placed in service 2025 or earlier: up to 30%.</p>
+          </div>
         </div>
       </section>
 
@@ -234,15 +261,21 @@ export default function SolarPanelCalculator() {
             <>
               Produces <strong>{fmt(Math.round(calc.monthlyProduction))} kWh/month</strong> in {loc.name}.
               {calc.netMetering && <> Sends <strong>{fmt(Math.round(calc.excessProduction))} kWh/mo</strong> back to grid.</>}
-              {' '}Net cost after federal credit: <strong>${fmtMoney(calc.netSystemCost)}</strong>.
+              {hasPrice
+                ? <> Net cost after federal credit: <strong>${fmtMoney(calc.netSystemCost)}</strong>.</>
+                : <> Enter your quoted price per watt to see cost and payback.</>}
             </>
           }
           fitTone={fit.tone}
           fitText={fit.text}
-          sidePanel={[
+          sidePanel={hasPrice ? [
             { label: 'Net system cost', value: `$${fmtMoney(calc.netSystemCost)}` },
-            { label: 'Payback', value: calc.paybackYears < 50 ? `${calc.paybackYears.toFixed(1)} yr` : '50+ yr' },
+            { label: 'Payback', value: calc.paybackYears > 0 && calc.paybackYears < 50 ? `${calc.paybackYears.toFixed(1)} yr` : '50+ yr' },
             { label: '20-yr savings', value: `$${fmtMoney(calc.twentyYearSavings)}`, valueClass: 'text-emerald-700' },
+          ] : [
+            { label: 'Annual production', value: `${fmt(Math.round(calc.yearlyProduction))} kWh` },
+            { label: 'Panels', value: `${calc.panelsNeeded} × 400W` },
+            { label: 'CO₂ offset/yr', value: `${fmt(Math.round(calc.yearlyCO2Offset))} lb` },
           ]}
         />
 
@@ -259,7 +292,7 @@ export default function SolarPanelCalculator() {
                 { label: 'Effective sun', detail: `× shading × system eff`, factor: `${calc.effectiveSunHours.toFixed(2)} hr` },
                 { label: 'Raw size needed', detail: 'Daily ÷ effective sun', factor: `${calc.actualSystemKW.toFixed(2)} kW` },
                 { label: 'Panels (400W each)', detail: `${calc.actualSystemKW * 1000} W ÷ 400W`, factor: `${calc.panelsNeeded} panels` },
-                { label: 'Total panel area', detail: '22 sq ft per panel', factor: `${fmt(Math.round(calc.totalPanelArea))} sq ft` },
+                { label: 'Total panel area', detail: `${calc.panelArea.toFixed(1)} sq ft per panel`, factor: `${fmt(Math.round(calc.totalPanelArea))} sq ft` },
                 { label: 'Roof utilization', detail: `${fmt(Math.round(roof))} sq ft available`, factor: `${calc.spaceUtilization.toFixed(0)}%` },
               ]}
               totals={[
@@ -274,18 +307,24 @@ export default function SolarPanelCalculator() {
               <DollarSign className="w-4 h-4 text-emerald-600" />
               Investment analysis
             </h4>
+            {hasPrice ? (
             <BreakdownTable
               rows={[
-                { label: 'Equipment cost', detail: `${calc.panelsNeeded} × 400W × $${panel.costPerWatt}/W`, factor: `$${fmtMoney(calc.systemCost)}` },
+                { label: 'Equipment cost', detail: `${calc.panelsNeeded} × 400W × $${ppw.toFixed(2)}/W`, factor: `$${fmtMoney(calc.systemCost)}` },
                 { label: 'Federal 25D credit', detail: `${creditPct}% of system cost`, factor: `−$${fmtMoney(calc.federalTaxCredit)}` },
                 { label: 'Net investment', detail: 'After federal credit', factor: `$${fmtMoney(calc.netSystemCost)}` },
                 { label: 'Annual savings', detail: `${fmt(Math.round(calc.monthlyProduction))} kWh × $${rate.toFixed(2)} × 12`, factor: `$${fmtMoney(calc.yearlyElectricSavings)}` },
-                { label: 'Payback', detail: 'Net cost ÷ annual savings', factor: calc.paybackYears < 50 ? `${calc.paybackYears.toFixed(1)} yr` : '50+ yr' },
+                { label: 'Payback', detail: 'Net cost ÷ annual savings', factor: calc.paybackYears > 0 && calc.paybackYears < 50 ? `${calc.paybackYears.toFixed(1)} yr` : '50+ yr' },
               ]}
               totals={[
                 { label: '20-year net profit', value: `${calc.twentyYearSavings > 0 ? '+' : ''}$${fmtMoney(calc.twentyYearSavings)}`, valueClass: calc.twentyYearSavings > 0 ? 'text-emerald-700' : 'text-red-700' },
               ]}
             />
+            ) : (
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Enter your quoted price per watt to see cost and payback. Your estimated production is <strong>{fmt(Math.round(calc.yearlyProduction))} kWh/yr</strong>, worth about <strong>${fmtMoney(calc.yearlyElectricSavings)}/yr</strong> at ${rate.toFixed(2)}/kWh.
+              </p>
+            )}
           </div>
 
           <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-4">
@@ -313,17 +352,17 @@ export default function SolarPanelCalculator() {
             <div className="space-y-1 text-xs text-gray-700">
               <div className="flex justify-between"><span>CO₂ offset/yr</span><strong>{fmt(Math.round(calc.yearlyCO2Offset))} lbs</strong></div>
               <div className="flex justify-between"><span>20-year CO₂</span><strong>{fmt(Math.round(calc.twentyYearCO2Offset / 1000))}k lbs ({(calc.twentyYearCO2Offset / 2000).toFixed(1)} tons)</strong></div>
-              <div className="flex justify-between"><span>Equivalent trees</span><strong>{fmt(Math.round(calc.twentyYearCO2Offset / 48))} (1 yr each)</strong></div>
             </div>
+            <p className="text-[11px] text-gray-600 mt-2">Grid offset at the EPA eGRID2022 U.S. average of 0.823 lb CO₂ per kWh.</p>
           </div>
         </div>
 
         <DisclaimerBox title="Solar economics caveats">
           <ul className="space-y-0.5 list-disc list-outside ml-4">
             <li>The 30% federal solar tax credit (Section 25D) ended for systems placed in service after Dec 31, 2025 (OBBBA), 2026 installs are not eligible, so the credit defaults to 0%. Enter a credit % only for a system placed in service in 2025 or earlier.</li>
+            <li>Cost, payback and 20-year savings appear only when you enter a quoted installed price per watt; prices vary too much to assume one.</li>
             <li>Net metering rates vary by utility, California's NEM 3.0 cut export rates by ~75% vs older systems</li>
             <li>Roof age matters, replace shingles BEFORE solar install if roof is &gt; 15 yr old (otherwise pay to remove + reinstall panels)</li>
-            <li>Lease vs purchase: purchase + tax credit yields 2–3× more lifetime savings than leasing in most cases</li>
             <li>Battery storage adds $10–$20k but enables backup power + self-consumption when net metering is weak</li>
           </ul>
         </DisclaimerBox>
