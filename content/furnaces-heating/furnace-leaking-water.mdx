@@ -1,199 +1,88 @@
 ---
 slug: "furnace-leaking-water"
-title: "Furnace Leaking Water: 7 Causes & How to Fix Each One"
-description: "Water pooling around your furnace? The 7 most common causes are a clogged condensate drain, cracked heat exchanger, or humidifier leak. Here's how to diagnose and fix each one."
+title: "Furnace Leaking Water? Causes and Fixes (2026)"
+description: "Why a furnace leaks water: condensate drain clogs on high-efficiency furnaces, the AC coil, a humidifier, or venting problems on older furnaces, what you can check yourself, and when to call a pro."
 cluster: "furnaces-heating"
 role: "spoke"
-priority: "P1"
+priority: "P2"
 contentType: "troubleshooting"
-datePublished: "2026-01-18"
-dateModified: "2026-07-17"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-10-01"
 relatedArticles:
-  - "furnace-guide"
-  - "cracked-heat-exchanger"
-  - "furnace-blowing-cold-air"
-  - "hvac-system-lifespan"
   - "afue-rating-explained"
+  - "furnace-guide"
+  - "hvac-maintenance-checklist"
+  - "carbon-monoxide-detector-guide"
+  - "furnace-blowing-cold-air"
 externalLinks:
+  - label: "CPSC: Carbon monoxide information center"
+    url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Carbon-Monoxide-Information-Center"
 ---
 
-import TableOfContents from '@/components/TableOfContents'
-import FAQ from '@/components/FAQ'
-import ComparisonTable from '@/components/ComparisonTable'
-import Callout from '@/components/Callout'
-import SourcesBox from '@/components/SourcesBox'
-import RelatedArticles from '@/components/RelatedArticles'
+import { SourcesBox, RelatedArticles } from '@/components'
 
-# Furnace Leaking Water: 7 Causes & How to Fix Each One
+# Furnace Leaking Water?
 
-A furnace leaking water is almost always caused by one of two things: a clogged condensate drain line (the most common cause, affecting 90%+ AFUE condensing furnaces) or a malfunctioning whole-house humidifier. The fix ranges from a simple DIY drain flush ($0) to a professional condensate pump replacement ($150–$400). Here's how to identify which of the 7 possible causes is behind your leak and what to do about it.
+Water around a furnace usually has a simple source: the drain that carries away condensation. High-efficiency furnaces make water as part of how they work, and when that water can't drain, it ends up on the floor.
 
-First, the most important question: **is your furnace a high-efficiency condensing model (90%+ AFUE) or a standard-efficiency non-condensing model (80% AFUE)?** This determines the most likely cause. High-efficiency furnaces produce condensate (water) as a normal byproduct — so a leak usually means the drainage system is failing. Standard-efficiency furnaces should NOT produce water, so a leak points to a different issue.
+**If you have a high-efficiency furnace (90% AFUE or higher, with white plastic vent pipes), the leak is most likely its condensate drain: a clogged trap, a blocked or disconnected drain line, or a failed condensate pump. Other common sources are the AC's indoor coil sitting on the furnace and a whole-house humidifier. On an older, standard-efficiency furnace, water usually points to a venting problem that needs a technician.**
 
-<TableOfContents />
+## Turn it off first
 
-## How to Tell If Your Furnace Is Condensing or Non-Condensing
+Switch off the furnace at the thermostat and its power switch before working near it. Mop up the water, and if any gas smell or venting problem is possible, leave the area and call your gas utility or a technician. Keep carbon monoxide alarms working; see the [carbon monoxide detector guide](/carbon-monoxide-detector-guide).
 
-<ComparisonTable
-  title="Condensing vs. Non-Condensing — Quick ID"
-  headers={["Feature", "Condensing (90%+ AFUE)", "Non-Condensing (80% AFUE)"]}
-  rows={[
-    ["Vent pipe material", "White PVC or CPVC plastic", "Metal (galvanized steel or aluminum)"],
-    ["Number of vent pipes", "Two PVC pipes (intake + exhaust)", "One metal flue pipe going up"],
-    ["Condensate drain", "Has a drain line (PVC tube to floor drain)", "No drain line"],
-    ["AFUE rating (on sticker)", "90%–98.5%", "78%–83%"],
-    ["Normal water production?", "Yes — 0.5–1 gallon per hour of operation", "No — water is abnormal"],
-  ]}
-/>
+## High-efficiency furnace: the condensate drain
 
-Check the rating plate on your furnace (usually inside the access panel) for the AFUE percentage, or look at the vent pipe — PVC plastic means condensing, metal means non-condensing.
+Condensing furnaces cool their exhaust until its water vapor condenses, recovering extra heat; that's how they reach 90% AFUE and higher. The water, which is mildly acidic, runs through a trap and a drain line to a floor drain or a condensate pump. Leaks come from:
 
-## The 7 Causes at a Glance
+- **A clogged trap or drain line**, from sediment or slime buildup.
+- **A disconnected or cracked line**, often at a fitting.
+- **A failed condensate pump**, or one whose float switch stuck.
+- **A frozen drain line** where it runs through an unheated space.
 
-<ComparisonTable
-  title="Furnace Leak Causes — Quick Diagnosis"
-  headers={["Cause", "Applies To", "How Common", "DIY Fix?", "Pro Cost"]}
-  rows={[
-    ["1. Clogged condensate drain", "Condensing furnaces", "Very common", "Yes", "$75–$200"],
-    ["2. Failed condensate pump", "Condensing (with pump)", "Common", "Maybe", "$150–$400"],
-    ["3. Cracked condensate trap/line", "Condensing furnaces", "Moderate", "Yes (if accessible)", "$50–$200"],
-    ["4. Humidifier malfunction", "Any furnace with humidifier", "Common in winter", "Sometimes", "$100–$350"],
-    ["5. Clogged secondary heat exchanger", "Condensing furnaces", "Less common", "No — pro only", "$200–$600"],
-    ["6. Improper vent pipe slope", "Condensing furnaces", "Installation error", "No — pro only", "$150–$400"],
-    ["7. AC evaporator coil leak", "Any furnace with AC coil", "Summer/shoulder season", "Sometimes", "$100–$300"],
-  ]}
-/>
+Clearing a clogged line or reconnecting a hose is often a homeowner job; a cracked trap, a failed pump or water inside the furnace cabinet calls for a technician.
 
-## Cause 1: Clogged Condensate Drain Line (Most Common)
+## The AC coil
 
-**What's happening:** Your condensing furnace produces 0.5–1 gallon of acidic condensate per hour of operation. This water drains through a PVC line to a floor drain, utility sink, or condensate pump. Over time, algae, mold, mineral deposits, and debris clog the drain line, and water backs up and overflows.
+If your air conditioner's indoor coil sits on top of the furnace, its condensate pan and drain can leak in summer, and the water runs down onto the furnace. A clogged AC drain line or a cracked pan is the usual cause; the leak happens when the AC runs, not the heat.
 
-**How to identify it:** Look for a small-diameter PVC tube (usually 3/4" or 1") coming from the bottom of your furnace. Follow it to where it terminates. If you see standing water in the drain trap or the line feels full, it's clogged.
+## A whole-house humidifier
 
-**DIY fix:**
-1. Turn off your furnace.
-2. Locate the condensate trap (a U-shaped or P-shaped section of PVC near the furnace).
-3. Disconnect the trap — have a bucket ready for the backed-up water.
-4. Flush the trap and line with a mixture of warm water and white vinegar (50/50).
-5. Use a wet/dry vacuum on the end of the drain line to suck out clogs.
-6. Reassemble and test by running the furnace.
+A humidifier mounted on the furnace's ductwork has its own water supply and drain. A stuck valve, clogged drain or worn pad can drip onto or around the furnace, usually during the heating season.
 
-**Prevention:** Pour 1/2 cup of white vinegar into the condensate trap every 3 months to prevent algae and mineral buildup.
+## Older standard-efficiency furnace
 
-<Callout type="warning">
-**Safety note:** Furnace condensate is mildly acidic (pH 3–4) and may contain trace heavy metals. Wear gloves when handling it, and don't let it contact painted surfaces or concrete for extended periods — it can cause staining and mild etching.
-</Callout>
+A standard furnace, around 80% AFUE with a metal flue, shouldn't produce condensate. Water around one usually means exhaust is cooling and condensing in the flue, often from a flue that's the wrong size or poorly connected. That's a venting problem: turn the furnace off and have a technician inspect it, because the same problem can let exhaust escape.
 
-## Cause 2: Failed Condensate Pump
+## When to call a professional
 
-**What's happening:** If your furnace can't drain by gravity to a floor drain (common in basements and crawl spaces), a condensate pump collects the water and pumps it to a drain or outside. When the pump motor fails or the float switch sticks, water overflows the pump reservoir.
+- Water inside the furnace cabinet or on its controls.
+- Any sign of a venting or exhaust problem, or a carbon monoxide alarm.
+- A cracked condensate trap, failed pump or repeated clogs.
+- You can't find the source.
 
-**How to identify it:** Your condensate pump is a small box (usually white or gray) sitting near the furnace base with a small PVC inlet tube and an outlet tube running to a drain. Open the lid — if the reservoir is full and the pump isn't running, the pump has failed. If it's running but not pumping, the impeller or check valve is bad.
+## Frequently asked questions
 
-**DIY fix:**
-1. Check that the pump is plugged in and the outlet isn't frozen.
-2. Clean the float switch — debris can prevent it from rising to trigger the pump.
-3. If the motor is dead, replace the entire pump. Condensate pumps cost $30–$80 at home improvement stores and take about 30 minutes to swap.
+### Why is my furnace leaking water?
 
-**Pro cost:** $150–$400 including the pump and labor.
+Most often, a clogged or disconnected condensate drain on a high-efficiency furnace. Other sources are the AC coil above it, a humidifier, or, on older furnaces, condensation in the flue.
 
-## Cause 3: Cracked Condensate Trap or Line
+### Is a furnace leaking water dangerous?
 
-**What's happening:** The PVC condensate trap or drain line has developed a crack, loose joint, or has been knocked loose. Condensate leaks from the break point.
+The water itself can damage the floor and the furnace's electronics. On an older furnace it can signal a venting problem, which can be a carbon monoxide risk; have it inspected.
 
-**How to identify it:** Trace the condensate line from the furnace to its termination point. Look for wet spots, drips, or loose fittings at joints. Cracks often occur at the trap itself due to thermal stress over years of hot/cold cycling.
+### Can I fix a leaking furnace myself?
 
-**DIY fix:** PVC cement and replacement fittings from a hardware store. The entire condensate trap can usually be rebuilt for under $10 in parts. Make sure joints are properly primed and cemented — condensate lines are low-pressure, so a proper PVC joint will hold indefinitely.
+Clearing a clogged condensate line or reconnecting a hose often, yes, with the power off. Pumps, traps, venting and anything inside the cabinet are jobs for a technician.
 
-## Cause 4: Humidifier Malfunction
+### Why does my furnace leak water only when the AC runs?
 
-**What's happening:** If your furnace has an attached whole-house humidifier (bypass, fan-powered, or steam type), several failure modes can cause water leaks: a stuck solenoid valve that won't close, a cracked water distribution tray, a clogged drain, or a leaking water supply line.
-
-**How to identify it:** Look at the humidifier unit mounted on the furnace plenum or return duct. Check for water running down the outside of the unit, dripping from the water supply line, or pooling beneath it. If the humidifier is running when the furnace is off, the solenoid valve is stuck open.
-
-**DIY fix:**
-1. Turn off the humidifier water supply (there's usually a dedicated saddle valve on a nearby water pipe).
-2. If the solenoid is stuck, the valve assembly needs replacement ($20–$60 for the part).
-3. If the water panel/pad is clogged with mineral deposits, replace it ($10–$25).
-4. Check the drain line for clogs and flush if needed.
-
-**Pro cost:** $100–$350 depending on the component that needs replacement.
-
-<Callout type="tip">
-**Seasonal tip:** Many humidifier leaks occur at the beginning of winter when the unit is turned on for the first time after months of sitting idle. Inspect the humidifier, replace the water panel, and test it before the heating season starts.
-</Callout>
-
-## Cause 5: Clogged Secondary Heat Exchanger
-
-**What's happening:** In condensing furnaces, the secondary heat exchanger extracts extra heat from exhaust gases, causing water vapor to condense. Over time, this exchanger can become restricted with scale, soot, or corrosion — especially if the furnace isn't maintained annually. Water then backs up and leaks out of the furnace cabinet.
-
-**How to identify it:** This is harder to diagnose without professional tools. Signs include: water leaking from inside the furnace cabinet (not the drain line), reduced efficiency, and a furnace that seems to run longer than usual. The secondary heat exchanger is internal and not easily visible.
-
-**This is a pro-only repair.** A technician will need to inspect and possibly flush or replace the secondary heat exchanger. Cost: $200–$600 for cleaning, $1,500–$3,000+ for replacement.
-
-## Cause 6: Improper Vent Pipe Slope
-
-**What's happening:** Condensing furnace vent pipes (PVC) must slope slightly back toward the furnace so that any condensation inside the pipe drains back into the furnace's condensate system. If the vent pipe was installed level or sloping away from the furnace, condensate pools in the pipe and eventually leaks at joints or backs up into the furnace.
-
-**How to identify it:** Look at your PVC exhaust vent pipe. It should slope at least 1/4 inch per foot toward the furnace. If it runs level or slopes away from the furnace toward the exterior wall, this could be the problem — especially if you see water dripping from vent pipe joints.
-
-**This is typically a pro repair.** The vent pipe needs to be re-routed or re-supported with proper hangers. Cost: $150–$400.
-
-## Cause 7: AC Evaporator Coil Drainage Issue
-
-**What's happening:** If your furnace shares an air handler with a central AC system, the AC evaporator coil sits above or beside the furnace. During cooling season (or during shoulder season when both heating and cooling cycles may occur), the evaporator coil produces condensate that drains through its own drain pan and line. A clogged AC condensate drain causes water to overflow and pool around the furnace.
-
-**How to identify it:** This cause is most likely if you see water leaking in summer or early fall, or if you recently switched from cooling to heating mode. Look for the AC drain pan (usually beneath the evaporator coil, above the furnace). If it's full of water, the AC drain is clogged.
-
-**DIY fix:** Same approach as cause 1 — flush the AC condensate drain line with vinegar or use a wet/dry vacuum. Also check the drain pan for cracks (common in older metal pans).
-
-## When to Call a Professional
-
-Call a technician immediately if:
-
-- You smell rotten eggs (gas leak — leave the house and call your gas company).
-- Water has been leaking for an extended period and you can't identify the source.
-- You suspect the secondary heat exchanger is failing.
-- The leak is coming from inside the furnace cabinet itself.
-- You're not comfortable working with PVC, electrical, or water connections.
-
-A typical service call for a furnace leak diagnosis costs $75–$150. Most condensate-related repairs are completed in one visit for under $300 total.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- **Clogged condensate drain** is the #1 cause of furnace water leaks — and it's the easiest DIY fix. Flush with vinegar or use a wet/dry vacuum.
-- **Only condensing furnaces (90%+ AFUE)** should produce water during normal operation. If your 80% AFUE furnace is leaking, the cause is likely a humidifier, AC coil, or plumbing issue — not the furnace itself.
-- **Condensate pumps fail every 3–8 years.** If you have one, keep a spare on hand ($30–$80) for quick replacement.
-- **Humidifier leaks** are especially common at the start of heating season when the unit hasn't been serviced since spring.
-- **Prevention is easy:** Pour 1/2 cup white vinegar down the condensate drain every 3 months, and include drain inspection in your annual furnace tune-up.
-- **Water damage from furnace leaks** can cause mold growth within 24–48 hours. If you discover a leak, clean up standing water immediately and run a dehumidifier in the area.
-- **When in doubt, call a pro.** Most furnace leak repairs cost $100–$400 and are completed in one visit.
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "Can I run my furnace while it's leaking?",
-    answer: "You can run the furnace briefly while you diagnose the issue, but you should fix the leak as soon as possible. Running a furnace with a clogged condensate drain can cause water to back up into the secondary heat exchanger, potentially causing corrosion damage. Most modern furnaces have a pressure switch that will shut down the furnace automatically if the condensate drain is severely clogged."
-  },
-  {
-    question: "Can a furnace water leak cause mold?",
-    answer: "Yes. Standing water and damp conditions around a furnace can promote mold growth within 24-48 hours, especially in basements and crawl spaces with limited ventilation. If you've had a persistent leak, inspect surrounding areas for mold. Clean small affected areas with a mold-killing cleaner, and run a dehumidifier. For large mold areas (more than 10 square feet), consider professional mold remediation."
-  }
-]} />
-
-## Sources
+The water is coming from the AC's indoor coil and condensate pan above the furnace, usually a clogged drain line.
 
 <SourcesBox sources={[
-  { title: "ACCA — Residential HVAC Maintenance", url: "https://www.acca.org/standards" }
+  { title: "U.S. DOE: Final energy efficiency standards for residential furnaces (condensing furnaces)", url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion" },
+  { title: "CPSC: Carbon monoxide information center", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Carbon-Monoxide-Information-Center" }
 ]} />
 
-## Related Articles
-
-<RelatedArticles articles={[
-  { slug: "furnace-guide", title: "Furnaces: Complete Homeowner's Guide (Gas, Electric, Oil)" },
-  { slug: "cracked-heat-exchanger", title: "Cracked Heat Exchanger: 6 Symptoms & What to Do" },
-  { slug: "furnace-blowing-cold-air", title: "Furnace Blowing Cold Air: 7 Causes & Easy Fixes" },
-  { slug: "hvac-system-lifespan", title: "How Long Do Furnaces Last? (Replacement Signs)" },
-  { slug: "afue-rating-explained", title: "AFUE Rating for Furnaces: How to Calculate AFUE Savings" },
-]} />
+<RelatedArticles articles={frontmatter.relatedArticles} />
