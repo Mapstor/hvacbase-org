@@ -18,8 +18,8 @@ relatedArticles:
 externalLinks:
   - label: "U.S. EIA: Electric Power Monthly (Tables 5.6.A and 5.6.B)"
     url: "https://www.eia.gov/electricity/monthly/"
-  - label: "U.S. EIA: How much electricity does an American home use?"
-    url: "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3"
+  - label: "U.S. EIA: Electric Sales, Revenue, and Average Price, Table 5.a (2024 average monthly bill, residential)"
+    url: "https://www.eia.gov/electricity/sales_revenue_price/"
 ---
 
 import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
@@ -42,70 +42,70 @@ Your rate is on your bill, often split into supply (generation) and delivery cha
 
 ## Electricity prices by state
 
-Average residential prices from the EIA, in cents per kWh. The "Jan to Jul 2026" column averages out seasonal swings; July shows the latest month. The bill column multiplies each state's January-to-July average by 875 kWh, roughly what an average U.S. home uses in a month, so it isolates the effect of price: actual usage varies by state and season.
+Average residential prices from the EIA, in cents per kWh. The "Jan to Jul 2026" column averages out seasonal swings; July shows the latest month. The bill column multiplies each state's January-to-July average by 863 kWh, roughly what an average U.S. home uses in a month (EIA 2024 data), so it isolates the effect of price: actual usage varies by state and season.
 
-| State | Jan to Jul 2026 average | July 2026 | Monthly bill at 875 kWh |
+| State | Jan to Jul 2026 average | July 2026 | Monthly bill at 863 kWh |
 |---|---|---|---|
-| Alabama | 16.54¢ | 16.40¢ | $145 |
-| Alaska | 27.09¢ | 28.83¢ | $237 |
-| Arizona | 15.44¢ | 15.38¢ | $135 |
-| Arkansas | 13.61¢ | 14.33¢ | $119 |
-| California | 33.25¢ | 33.61¢ | $291 |
-| Colorado | 16.72¢ | 17.00¢ | $146 |
-| Connecticut | 27.97¢ | 24.16¢ | $245 |
-| Delaware | 17.86¢ | 18.48¢ | $156 |
-| District of Columbia | 24.66¢ | 25.21¢ | $216 |
-| Florida | 15.30¢ | 15.03¢ | $134 |
-| Georgia | 15.40¢ | 16.27¢ | $135 |
-| Hawaii | 46.28¢ | 48.00¢ | $405 |
-| Idaho | 12.96¢ | 13.73¢ | $113 |
-| Illinois | 19.22¢ | 19.22¢ | $168 |
-| Indiana | 17.04¢ | 16.73¢ | $149 |
-| Iowa | 14.20¢ | 15.99¢ | $124 |
-| Kansas | 15.21¢ | 15.27¢ | $133 |
-| Kentucky | 14.27¢ | 13.81¢ | $125 |
-| Louisiana | 13.35¢ | 12.72¢ | $117 |
-| Maine | 29.99¢ | 32.41¢ | $262 |
-| Maryland | 21.30¢ | 21.41¢ | $186 |
-| Massachusetts | 30.14¢ | 30.49¢ | $264 |
-| Michigan | 21.53¢ | 23.05¢ | $188 |
-| Minnesota | 16.25¢ | 17.45¢ | $142 |
-| Mississippi | 15.19¢ | 14.54¢ | $133 |
-| Missouri | 13.96¢ | 16.09¢ | $122 |
-| Montana | 13.95¢ | 14.99¢ | $122 |
-| Nebraska | 12.90¢ | 13.78¢ | $113 |
-| Nevada | 13.53¢ | 12.77¢ | $118 |
-| New Hampshire | 26.79¢ | 26.60¢ | $234 |
-| New Jersey | 23.98¢ | 25.19¢ | $210 |
-| New Mexico | 15.08¢ | 16.09¢ | $132 |
-| New York | 29.38¢ | 29.90¢ | $257 |
-| North Carolina | 14.94¢ | 15.16¢ | $131 |
-| North Dakota | 12.36¢ | 13.41¢ | $108 |
-| Ohio | 18.70¢ | 19.45¢ | $164 |
-| Oklahoma | 13.58¢ | 14.35¢ | $119 |
-| Oregon | 15.40¢ | 15.97¢ | $135 |
-| Pennsylvania | 21.04¢ | 21.72¢ | $184 |
-| Rhode Island | 29.22¢ | 28.29¢ | $256 |
-| South Carolina | 15.93¢ | 15.47¢ | $139 |
-| South Dakota | 14.50¢ | 15.37¢ | $127 |
-| Tennessee | 13.87¢ | 13.71¢ | $121 |
-| Texas | 16.06¢ | 15.88¢ | $141 |
-| Utah | 13.16¢ | 13.12¢ | $115 |
-| Vermont | 23.95¢ | 23.75¢ | $210 |
-| Virginia | 16.83¢ | 17.55¢ | $147 |
-| Washington | 14.40¢ | 14.71¢ | $126 |
-| West Virginia | 15.47¢ | 15.78¢ | $135 |
-| Wisconsin | 19.00¢ | 19.06¢ | $166 |
-| Wyoming | 13.95¢ | 14.36¢ | $122 |
-| **U.S. average** | **18.19¢** | **18.31¢** | **$159** |
+| Alabama | 16.54¢ | 16.40¢ | $143 |
+| Alaska | 27.09¢ | 28.83¢ | $234 |
+| Arizona | 15.44¢ | 15.38¢ | $133 |
+| Arkansas | 13.61¢ | 14.33¢ | $117 |
+| California | 33.25¢ | 33.61¢ | $287 |
+| Colorado | 16.72¢ | 17.00¢ | $144 |
+| Connecticut | 27.97¢ | 24.16¢ | $241 |
+| Delaware | 17.86¢ | 18.48¢ | $154 |
+| District of Columbia | 24.66¢ | 25.21¢ | $213 |
+| Florida | 15.30¢ | 15.03¢ | $132 |
+| Georgia | 15.40¢ | 16.27¢ | $133 |
+| Hawaii | 46.28¢ | 48.00¢ | $399 |
+| Idaho | 12.96¢ | 13.73¢ | $112 |
+| Illinois | 19.22¢ | 19.22¢ | $166 |
+| Indiana | 17.04¢ | 16.73¢ | $147 |
+| Iowa | 14.20¢ | 15.99¢ | $123 |
+| Kansas | 15.21¢ | 15.27¢ | $131 |
+| Kentucky | 14.27¢ | 13.81¢ | $123 |
+| Louisiana | 13.35¢ | 12.72¢ | $115 |
+| Maine | 29.99¢ | 32.41¢ | $259 |
+| Maryland | 21.30¢ | 21.41¢ | $184 |
+| Massachusetts | 30.14¢ | 30.49¢ | $260 |
+| Michigan | 21.53¢ | 23.05¢ | $186 |
+| Minnesota | 16.25¢ | 17.45¢ | $140 |
+| Mississippi | 15.19¢ | 14.54¢ | $131 |
+| Missouri | 13.96¢ | 16.09¢ | $120 |
+| Montana | 13.95¢ | 14.99¢ | $120 |
+| Nebraska | 12.90¢ | 13.78¢ | $111 |
+| Nevada | 13.53¢ | 12.77¢ | $117 |
+| New Hampshire | 26.79¢ | 26.60¢ | $231 |
+| New Jersey | 23.98¢ | 25.19¢ | $207 |
+| New Mexico | 15.08¢ | 16.09¢ | $130 |
+| New York | 29.38¢ | 29.90¢ | $254 |
+| North Carolina | 14.94¢ | 15.16¢ | $129 |
+| North Dakota | 12.36¢ | 13.41¢ | $107 |
+| Ohio | 18.70¢ | 19.45¢ | $161 |
+| Oklahoma | 13.58¢ | 14.35¢ | $117 |
+| Oregon | 15.40¢ | 15.97¢ | $133 |
+| Pennsylvania | 21.04¢ | 21.72¢ | $182 |
+| Rhode Island | 29.22¢ | 28.29¢ | $252 |
+| South Carolina | 15.93¢ | 15.47¢ | $137 |
+| South Dakota | 14.50¢ | 15.37¢ | $125 |
+| Tennessee | 13.87¢ | 13.71¢ | $120 |
+| Texas | 16.06¢ | 15.88¢ | $139 |
+| Utah | 13.16¢ | 13.12¢ | $114 |
+| Vermont | 23.95¢ | 23.75¢ | $207 |
+| Virginia | 16.83¢ | 17.55¢ | $145 |
+| Washington | 14.40¢ | 14.71¢ | $124 |
+| West Virginia | 15.47¢ | 15.78¢ | $134 |
+| Wisconsin | 19.00¢ | 19.06¢ | $164 |
+| Wyoming | 13.95¢ | 14.36¢ | $120 |
+| **U.S. average** | **18.19¢** | **18.31¢** | **$157** |
 
 Source: EIA Electric Power Monthly, Tables 5.6.A and 5.6.B, July 2026 data released September 24, 2026. The EIA's average price is total residential revenue divided by kilowatt-hours sold, so it includes fixed and delivery charges spread across usage. That's why it can differ from the energy-charge line on your bill.
 
 ## What's the average electric bill?
 
-An average U.S. home uses roughly 10,500 kWh a year, about 875 kWh a month (see [how many kWh per day is normal](/how-many-kwh-per-day-is-normal)). At the January-to-July 2026 national average of 18.19 cents, that's about **$159 a month**.
+An average U.S. home uses roughly 10,356 kWh a year, about 863 kWh a month (EIA 2024 data; see [how many kWh per day is normal](/how-many-kwh-per-day-is-normal)). At the January-to-July 2026 national average of 18.19 cents, that's about **$157 a month**.
 
-The same usage costs about $108 in North Dakota and $405 in Hawaii. Your bill depends on your own usage, which climbs with electric heating, central air, a pool pump or an electric vehicle.
+The same usage costs about $107 in North Dakota and $399 in Hawaii. Your bill depends on your own usage, which climbs with electric heating, central air, a pool pump or an electric vehicle.
 
 ## What common appliances cost to run
 
@@ -166,11 +166,11 @@ North Dakota, at 12.36 cents per kWh on average from January through July 2026, 
 
 ### How many kWh does a house use per month?
 
-About 875 kWh on average in the U.S., though it varies widely with climate, home size and whether heating and hot water are electric.
+About 863 kWh on average in the U.S. (EIA 2024 data), though it varies widely with climate, home size and whether heating and hot water are electric.
 
 <SourcesBox sources={[
   { title: "U.S. EIA: Electric Power Monthly, Tables 5.6.A and 5.6.B (average price by state)", url: "https://www.eia.gov/electricity/monthly/" },
-  { title: "U.S. EIA: How much electricity does an American home use?", url: "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3" },
+  { title: "U.S. EIA: Electric Sales, Revenue, and Average Price, Table 5.a (2024 average monthly bill, residential)", url: "https://www.eia.gov/electricity/sales_revenue_price/" },
   { title: "EPA: Greenhouse Gas Equivalencies Calculator, calculations and references", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" }
 ]} />
 
