@@ -1,164 +1,89 @@
 ---
 slug: "electric-heater-running-cost"
-title: "How Much Does It Cost to Run an Electric Heater? (Calculator)"
-description: "Calculate the exact cost to run your electric heater per hour, day, and month. Includes interactive calculator, cost tables by state, and worked cost scenarios for 2026 electricity rates."
+title: "Electric Heater Running Cost Calculator: Per Hour, Day and Month (2026)"
+description: "What an electric space heater costs to run per hour, day and month at your rate, why every resistance heater is equally efficient, how settings and room size change the cost, and safe use."
 cluster: "space-heaters-portable-heating"
 role: "hub"
 priority: "P1"
 contentType: "cost-guide"
 datePublished: "2026-02-06"
-dateModified: "2026-07-18"
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-02"
 relatedArticles:
   - "space-heater-guide"
+  - "kwh-cost-calculator"
+  - "heat-pump-running-cost-calculator"
+  - "heating-cost-calculator"
+  - "how-many-amps-does-a-house-use"
 externalLinks:
-  - title: "EIA: Average Retail Price of Electricity"
-    url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html"
+  - label: "U.S. EIA: Electric Power Monthly (residential prices by state)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "U.S. DOE: Energy Saver Guide (PDF)"
+    url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf"
 ---
 
-import { TableOfContents, FAQ, ComparisonTable, Callout, SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-# How Much Does It Cost to Run an Electric Heater? (2026 Calculator)
+# Electric Heater Running Cost
 
-**A 1,500-watt electric space heater costs between $0.12 and $0.36 per hour to run, depending on your local electricity rate.** At the 2026 U.S. national average of $0.18/kWh, that's roughly $0.27 per hour, about $2.16 per 8-hour day, or around $65 per month running 8 hours daily (illustrative — use the calculator for your exact figure). Your actual cost depends on three variables: wattage, electricity rate, and hours of use.
+An electric space heater's cost is simple physics: it turns electricity into heat one for one, so what it costs depends only on its wattage, how long it runs and your electricity rate. The calculator below does the math for your heater and rate.
 
-The formula is simple, but the devil is in the details — your state's electricity rate can make the same heater cost 3× more in one place than another.
+**A 1,500-watt heater uses 1.5 kWh an hour: 27 cents an hour at 18 cents per kWh, $2.16 for 8 hours, and about $65 a month at 8 hours a day. On its 750-watt setting, half that.**
 
-<TableOfContents />
+<CalcWrapper calculator="kwh-cost" />
 
-## The Electric Heater Cost Formula
+## The formula
 
-Every electric heater cost calculation uses this formula:
+**Cost = watts × hours ÷ 1,000 × your rate.** A 1,500-watt heater running 8 hours uses 12 kWh, $2.16 at 18 cents per kWh. Most heaters cycle on and off once the room is warm, so real use is often lower than full power for every hour.
 
-**Cost = (Watts ÷ 1,000) × Electricity Rate ($/kWh) × Hours of Use**
+| Setting | Per hour | 8 hours a day | 30 days at 8 hours |
+|---|---|---|---|
+| 1,500 W (high) | $0.27 | $2.16 | $64.80 |
+| 750 W (low) | $0.135 | $1.08 | $32.40 |
 
-That's it. There's no efficiency variable because all electric resistance heaters convert electricity to heat at ~100% efficiency. A cheap $30 heater and an expensive $150 heater both cost the same to run at the same wattage.
+## Your rate changes everything
 
-<Callout type="info">
-**Where to find your electricity rate:** Check your most recent utility bill. Look for "price per kWh" or "energy charge." It's typically listed in cents per kilowatt-hour (e.g., 18¢/kWh = $0.18/kWh). You can also find your state's average at the EIA's electricity data page.
-</Callout>
+The same 1,500-watt heater costs about 18.5 cents an hour at North Dakota's 12.36 cents per kWh, 27.3 cents at the U.S. average of 18.19, and 69.4 cents at Hawaii's 46.28, the lowest and highest state averages for January to July 2026 (EIA). Every state's rate is in our [kWh cost calculator](/kwh-cost-calculator).
 
-## Electric Heater Cost Tables
+## Every resistance heater is equally efficient
 
-### Cost by Wattage (illustrative estimates)
+Oil-filled, ceramic, fan-forced and infrared heaters all turn essentially every watt into heat in the room. Their differences are in how they deliver it: fans spread heat quickly, oil-filled radiators hold it longer, infrared warms people and objects directly. A claim that one resistance heater is "more efficient" than another at the same wattage is about comfort, not energy.
 
-<ComparisonTable
-  title="Electric Heater Running Cost (illustrative estimates — see the calculator for your exact rate)"
-  headers={["Wattage", "Cost/Hour", "Cost/4 Hours", "Cost/8 Hours", "Cost/Day (12hr)", "Cost/Month (8hr×30)"]}
-  rows={[
-    ["250W", "$0.04", "$0.17", "$0.34", "$0.50", "$10.08"],
-    ["400W", "$0.07", "$0.27", "$0.54", "$0.81", "$16.13"],
-    ["500W", "$0.08", "$0.34", "$0.67", "$1.01", "$20.16"],
-    ["750W", "$0.13", "$0.50", "$1.01", "$1.51", "$30.24"],
-    ["1,000W", "$0.17", "$0.67", "$1.34", "$2.02", "$40.32"],
-    ["1,200W", "$0.20", "$0.81", "$1.61", "$2.42", "$48.38"],
-    ["1,500W", "$0.25", "$1.01", "$2.02", "$3.02", "$60.48"],
-    ["2,000W (240V)", "$0.34", "$1.34", "$2.69", "$4.03", "$80.64"],
-    ["3,000W (240V)", "$0.50", "$2.02", "$4.03", "$6.05", "$120.96"],
-    ["5,000W (240V)", "$0.84", "$3.36", "$6.72", "$10.08", "$201.60"]
-  ]}
-/>
+## Space heater or heat pump?
 
-### Cost by State: How Location Changes Everything
+The DOE notes that heat pumps can cut electricity used for heating by about half compared with electric furnaces and baseboard heaters. For a room you heat every day, a ductless heat pump costs far less to run than a space heater; for occasional use, a space heater is cheaper to buy. See the [heat pump running cost calculator](/heat-pump-running-cost-calculator).
 
-Electricity rates vary enormously across the U.S. Running the exact same 1,500W heater for 8 hours costs $1.20 in Louisiana but $4.00+ in Massachusetts.
+## Lowering the cost
 
-<ComparisonTable
-  title="1,500W Heater Cost by State (8 Hours/Day, 2026 Rates)"
-  headers={["State", "Avg. Rate ($/kWh)", "Daily Cost (8hr)", "Monthly Cost (30 days)", "5-Month Winter Cost"]}
-  rows={[
-    ["Louisiana", "$0.10", "$1.20", "$36.00", "$180"],
-    ["Idaho", "$0.11", "$1.32", "$39.60", "$198"],
-    ["Texas", "$0.13", "$1.56", "$46.80", "$234"],
-    ["Florida", "$0.14", "$1.68", "$50.40", "$252"],
-    ["Ohio", "$0.15", "$1.80", "$54.00", "$270"],
-    ["U.S. Average", "$0.18", "$2.02", "$60.48", "$302"],
-    ["Colorado", "$0.15", "$1.80", "$54.00", "$270"],
-    ["Arizona", "$0.14", "$1.68", "$50.40", "$252"],
-    ["Michigan", "$0.19", "$2.28", "$68.40", "$342"],
-    ["New York", "$0.22", "$2.64", "$79.20", "$396"],
-    ["California", "$0.28", "$3.36", "$100.80", "$504"],
-    ["Connecticut", "$0.30", "$3.60", "$108.00", "$540"],
-    ["Massachusetts", "$0.33", "$3.96", "$118.80", "$594"],
-    ["Hawaii", "$0.43", "$5.16", "$154.80", "$774"]
-  ]}
-/>
+- **Heat the room you're in** and lower the central thermostat, so the heater replaces heating, rather than adding to it.
+- **Use the thermostat and low setting** instead of running on high continuously.
+- **Close the door** and keep drafts out.
 
-<Callout type="warning">
-**High-rate state alert:** If you live in California, Connecticut, Massachusetts, or Hawaii, a space heater is an expensive way to heat. At $0.30+/kWh, a 1,500W heater costs over $100/month for 8 hours/day. In these states, a heat pump or gas supplemental heating is almost always a better financial choice.
-</Callout>
+## Safe use
 
-## How ECO Mode and Thermostats Reduce Costs
+A 1,500-watt heater draws 12.5 amps, most of a standard 15-amp circuit. Plug it directly into a wall outlet, not an extension cord or power strip, and don't share the circuit with other large loads. Keep it at least 3 feet from anything that can burn, and choose a model with tip-over and overheat shutoff; see the [space heater guide](/space-heater-guide).
 
-The numbers above assume continuous, full-power operation. In practice, a heater with a thermostat or ECO mode draws significantly less power because it cycles on and off.
+## Frequently asked questions
 
-<ComparisonTable
-  title="Actual vs. Maximum Cost (1,500W Heater, 8 Hours, $0.18/kWh) (illustrative — see the calculator for exact figures)"
-  headers={["Operating Mode", "Avg. Power Draw", "8-Hour Cost", "Monthly Cost", "vs. Full Blast"]}
-  rows={[
-    ["Full blast (no thermostat)", "1,500W constant", "$2.02", "$60.48", "Baseline"],
-    ["Thermostat (well-insulated room)", "~900W average", "$1.21", "$36.29", "40% less"],
-    ["ECO mode (well-insulated)", "~700W average", "$0.94", "$28.22", "53% less"],
-    ["ECO mode (average insulation)", "~1,000W average", "$1.34", "$40.32", "33% less"],
-    ["ECO mode (poor insulation)", "~1,300W average", "$1.75", "$52.42", "13% less"],
-    ["750W setting (manual)", "750W constant", "$1.01", "$30.24", "50% less"]
-  ]}
-/>
+### How much does it cost to run a space heater for an hour?
 
-The message is clear: a heater with ECO mode in a well-insulated room can cost nearly half of one running full blast in a drafty room.
+27 cents for a 1,500-watt heater at 18 cents per kWh, or 13.5 cents on a 750-watt setting.
 
-## Cost Comparisons: Space Heater vs. Other Heating Methods
+### How much does a space heater add to an electric bill?
 
-<ComparisonTable
-  title="Cost per 100,000 BTU by Heating Method (2026) (illustrative — see the calculator for exact figures)"
-  headers={["Heating Method", "Fuel Cost Basis", "Cost per 100,000 BTU", "Relative Cost"]}
-  rows={[
-    ["Electric space heater", "$0.18/kWh", "$4.92", "Most expensive"],
-    ["Electric baseboard", "$0.18/kWh", "$4.92", "Same as space heater"],
-    ["Portable heat pump", "$0.18/kWh, COP 2.5", "$1.97", "60% cheaper than resistance"],
-    ["Mini-split heat pump", "$0.18/kWh, COP 3.5", "$1.41", "71% cheaper"],
-    ["Natural gas furnace (96%)", "$1.35/therm", "$1.25", "75% cheaper"],
-    ["Natural gas furnace (80%)", "$1.35/therm", "$1.50", "69% cheaper"],
-    ["Propane furnace (96%)", "$3.50/gallon", "$3.99", "19% cheaper"],
-    ["Fuel oil furnace (85%)", "$4.00/gallon", "$3.39", "31% cheaper"],
-    ["Wood pellet stove", "$250/ton", "$1.52", "69% cheaper"]
-  ]}
-/>
+About $65 a month for a 1,500-watt heater running 8 hours a day at 18 cents per kWh.
 
-Electric resistance heating (which includes all space heaters) is the most expensive common heating method per BTU. The only scenario where it's cost-effective is when you're heating a single small room while reducing central heat — the zone heating strategy.
+### Is it cheaper to run a space heater or central heat?
 
-## Tips to Lower Your Electric Heater Costs
+Heating one room with a space heater can cost less than heating the whole house, if you turn the central thermostat down. Heating the whole house with space heaters usually costs more.
 
-1. **Use ECO mode or a thermostat** — saves 20–50% vs. constant full power.
-2. **Right-size your wattage** — use 750W for small rooms, 1,000W for medium, 1,500W only for large spaces.
-3. **Set a timer** — avoid running while sleeping or away. Even 2 fewer hours/day saves $15–$30/month.
-4. **Seal the room** — close doors, use draft stoppers, apply window film. A sealed room needs less heater runtime.
-5. **Use infrared for personal heating** — a 400W infrared desk heater warms you directly at 1/4 the cost of a 1,500W room heater.
-6. **Check for time-of-use rates** — some utilities charge less for overnight electricity. Pair with an oil-filled radiator for thermal storage.
-7. **Consider a heat pump** — for regular use, a $400–$700 portable heat pump cuts costs by 50–70%.
+### Are oil-filled heaters cheaper to run?
 
-<Callout type="takeaway">
-**Key Takeaways:**
-- Formula: Cost = (Watts ÷ 1,000) × $/kWh × Hours. A 1,500W heater runs ≈$0.27/hour at ~$0.18/kWh (illustrative — use the calculator).
-- Monthly costs at 8 hrs/day range from $36 (Louisiana) to $155 (Hawaii) for a 1,500W heater.
-- ECO mode can cut costs by 30–50% in well-insulated rooms.
-- Electric resistance heating is the most expensive per BTU. It only saves money as a zone-heating supplement.
-- In high-rate states ($0.25+/kWh), a portable heat pump is a much cheaper heating option.
-- Always check your actual kWh rate on your utility bill — state averages may not reflect your plan.
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "Does a space heater use a lot of electricity?",
-    answer: "A 1,500W space heater running 8 hours/day uses 12 kWh daily — roughly the same as running a refrigerator, a TV, and 10 LED bulbs combined for 24 hours. Over a month at 8 hrs/day, it adds 360 kWh to your bill, costing $36–$155 depending on your state's rates. That's significant — about a 25–40% increase on the average monthly electric bill."
-  },
-  {
-    question: "Is a space heater more expensive than baseboard heating?",
-    answer: "They cost exactly the same per kWh because both use electric resistance. A 1,500W space heater and a 1,500W baseboard heater produce identical heat at identical cost. The advantage of a space heater is portability — you move it to where you are. Baseboards heat the whole room whether you're there or not."
-  }
-]} />
+Not per hour at the same wattage; all resistance heaters turn electricity into heat at about the same rate. Oil-filled models hold heat longer and cycle more gently.
 
 <SourcesBox sources={[
-  { title: "EIA: Average Retail Price of Electricity", url: "https://www.eia.gov/electricity/monthly/epm_table_5_6_a.html" },
-  { title: "EIA: State Electricity Profiles", url: "https://www.eia.gov/electricity/state/" }
+  { title: "U.S. EIA: Electric Power Monthly, residential prices by state (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "U.S. DOE: Energy Saver Guide (PDF), heat pumps vs. electric resistance heating", url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf" }
 ]} />
 
+<RelatedArticles articles={frontmatter.relatedArticles} />
