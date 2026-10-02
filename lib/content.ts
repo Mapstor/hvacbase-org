@@ -191,9 +191,15 @@ export function getAllSlugs(): string[] {
   return getAllArticles().map((a) => a.meta.slug);
 }
 
-/** Every <Diagram src="..."> in a page body, in document order. */
+/**
+ * Every rendered <Diagram src="..."> in a page body, in document order.
+ * Fenced + inline code is stripped first so a <Diagram> shown as a code example
+ * does not leak a bogus image URL into Article.image / the sitemap. `\ssrc=`
+ * (whitespace before src) avoids matching hyphenated attributes like data-src.
+ */
 export function extractDiagramSrcs(body: string): string[] {
-  return [...body.matchAll(/<Diagram\b[^>]*\bsrc=["']([^"']+)["']/g)].map((m) => m[1]);
+  const noCode = body.replace(/```[\s\S]*?```/g, ' ').replace(/`[^`]*`/g, ' ');
+  return [...noCode.matchAll(/<Diagram\b[^>]*\ssrc=["']([^"']+)["']/g)].map((m) => m[1]);
 }
 
 /** Each live slug with its diagram srcs (empty array when the page has none). */

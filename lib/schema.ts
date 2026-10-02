@@ -93,7 +93,7 @@ export function generateArticleSchema(meta: ArticleMeta, rawBody?: string) {
   const ogImage = `${SITE_URL}/${meta.slug}/opengraph-image`;
   const diagramSrcs = rawBody ? extractDiagramSrcs(rawBody) : [];
   const image = diagramSrcs.length
-    ? [ogImage, ...diagramSrcs.map((s) => (/^https?:\/\//.test(s) ? s : `${SITE_URL}${s}`))]
+    ? [ogImage, ...diagramSrcs.map((s) => (/^https?:\/\//.test(s) ? s : `${SITE_URL}${s.startsWith('/') ? s : `/${s}`}`))]
     : ogImage;
 
   return {
