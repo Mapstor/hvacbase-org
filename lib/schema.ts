@@ -1,4 +1,4 @@
-import { ArticleMeta } from './content';
+import { ArticleMeta, extractDiagramSrcs } from './content';
 
 const SITE_URL = 'https://www.hvacbase.org';
 const SITE_NAME = 'HVAC Base';
@@ -87,12 +87,21 @@ export function generateArticleSchema(meta: ArticleMeta, rawBody?: string) {
     ? countBodyWords(rawBody)
     : (meta.readingTime ? parseInt(meta.readingTime) * 200 : 1000);
 
+  // image: the OpenGraph image, plus the absolute URL of every <Diagram src>
+  // on the page in order. A page with no diagrams keeps the single string
+  // (unchanged), so its schema is byte-identical to before.
+  const ogImage = `${SITE_URL}/${meta.slug}/opengraph-image`;
+  const diagramSrcs = rawBody ? extractDiagramSrcs(rawBody) : [];
+  const image = diagramSrcs.length
+    ? [ogImage, ...diagramSrcs.map((s) => (/^https?:\/\//.test(s) ? s : `${SITE_URL}${s}`))]
+    : ogImage;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: meta.title,
     description: meta.description,
-    image: `${SITE_URL}/${meta.slug}/opengraph-image`,
+    image,
     author: {
       '@type': 'Person',
       '@id': `${AUTHOR_URL}#marko-visic`,

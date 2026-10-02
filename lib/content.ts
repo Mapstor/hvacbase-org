@@ -191,6 +191,11 @@ export function getAllSlugs(): string[] {
   return getAllArticles().map((a) => a.meta.slug);
 }
 
+/** Every <Diagram src="..."> in a page body, in document order. */
+export function extractDiagramSrcs(body: string): string[] {
+  return [...body.matchAll(/<Diagram\b[^>]*\bsrc=["']([^"']+)["']/g)].map((m) => m[1]);
+}
+
 export function getRelatedArticles(slug: string, limit = 5): ArticleMeta[] {
   const article = getArticleBySlug(slug);
   if (!article) return [];
