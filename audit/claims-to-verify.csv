@@ -2,16 +2,15 @@ slug,org,sentence
 ac-tonnage-calculator,ACCA,"Treat the result as a starting estimate: the industry standard is ACCA's Manual J load calculation, and for tight, modern homes it often lands lower than any square-footage method, this one included."
 air-conditioner-btu-calculator,ENERGY STAR,"**ENERGY STAR's sizing chart puts a 5,000 BTU unit in a 100 to 150 sq ft room, 12,000 BTU in 450 to 550 sq ft, and 18,000 BTU in 700 to 1,000 sq ft, before adjustments for sun, people and cooking.** The calculator below makes the same estim"
 air-conditioner-btu-calculator,ENERGY STAR,"ENERGY STAR notes that an oversized unit cools the room before it removes the humidity, leaving it damp and clammy, and it's less efficient."
-heat-pump-size-calculator,ENERGY STAR,"The 70% at 5°F is the minimum ENERGY STAR requires for its cold-climate designation, so the calculator uses the floor rather than a best case."
-heat-pump-size-calculator,ENERGY STAR,"## Efficiency tiers in the calculator | Tier | Ratings | What it means | |---|---|---| | Code minimum | 14.3 SEER2, 7.5 HSPF2 | Federal minimum for split heat pumps since 2023 | | ENERGY STAR | 15.2 SEER2, 7.8 HSPF2, 11.0 EER2 | ENERGY STAR"
+heat-pump-size-calculator,ENERGY STAR,"The 70% at 5°F is the minimum ENERGY STAR requires for its cold-climate designation, so the calculator uses the floor rather than a more optimistic figure."
+heat-pump-size-calculator,ENERGY STAR,"## Efficiency tiers in the calculator | Tier | Ratings | What it means | |---|---|---| | Code minimum | 14.3 SEER2, 7.5 HSPF2 | Federal requirement for split heat pumps since 2023 | | ENERGY STAR | 15.2 SEER2, 7.8 HSPF2, 11.0 EER2 | ENERGY "
 mini-split-sizing-calculator,ENERGY STAR,"As a cross-check, ENERGY STAR's room air conditioner chart runs from 5,000 BTU for 100 to 150 sq ft up to 18,000 BTU for 700 to 1,000 sq ft, and it notes that oversized units cool the room before they've removed the humidity."
 water-heater-sizing-calculator,EPA,"<CalcWrapper type=""water-heater-sizing"" /> ## How the calculator estimates hot water use The calculator adds up your daily hot water from these assumptions: | Use | Hot water assumed | |---|---| | Shower | 17 gallons | | Bath | 40 gallons |"
 what-size-generator-do-i-need,CPSC,"At least 20 feet, with the exhaust pointed away from the house, according to CPSC."
 what-size-generator-do-i-need,CPSC,"<SourcesBox sources={[   { title: ""CPSC: New report on CO fatalities from portable generators (2022)"", url: ""https://www.cpsc.gov/Newsroom/News-Releases/2022/CPSC-Releases-New-Report-on-Carbon-Monoxide-CO-Fatalities-Urges-Generator-Safety-i"
 ac-not-cooling,ATTR,Per the **U.S.
-ac-not-cooling,ENERGY STAR,"Leaky, poorly insulated ducts are a bigger thief than most people realize: **ENERGY STAR estimates that duct leaks can cut a system's efficiency by as much as 20%.** Check the accessible runs in your basement, attic, or crawlspace for obvio"
+ac-not-cooling,ENERGY STAR,"Leaky, poorly insulated ducts are a bigger thief than most people realize: **ENERGY STAR estimates that duct leaks can cut a system's efficiency by as much as 20%.** Check the accessible runs in your basement, attic or crawlspace for discon"
 ac-not-cooling,EPA,"But diagnosis and repair require an EPA Section 608 certified technician, refrigerant isn't a DIY fix, and low charge always means a leak that needs finding, not just topping off.""   },   {     question: ""Why does my AC cool sometimes but n"
-ac-not-cooling,COUNT-PROMISE,title promises 12; H2=17 H3=0 li=17 ol=3
 ac-troubleshooting-guide,ENERGY STAR,"- **Leaky ductwork.** According to ENERGY STAR, duct leaks can reduce a system's efficiency by **as much as 20%**, that's conditioned air you paid for, leaking into your attic or crawlspace."
 ac-troubleshooting-guide,DOE,"- **Thermostat habits.** Per the DOE, a programmable thermostat can save you **up to 10% a year on heating and cooling** by easing the temperature back while you're away, and each degree closer to the outdoor temperature saves energy."
 ac-troubleshooting-guide,DOE,And DOE notes cranking it colder than you need doesn't cool any faster; it just runs up the bill.
@@ -41,9 +40,8 @@ how-does-humidity-affect-temperature,EPA,"Indoors, the EPA recommends keeping hu
 how-does-humidity-affect-temperature,EPA,"## The range to aim for The EPA recommends 30% to 50% indoors, and below 60% to limit mold and dust mites."
 how-does-humidity-affect-temperature,ATTR,"At 90°F, the heat index rises from about 91°F at 40% humidity to 106°F at 70%, according to the NWS heat index equation."
 how-does-humidity-affect-temperature,EPA,"Between 30% and 50%, according to the EPA; in cold climates during winter, 30% to 40% avoids window condensation."
-ideal-indoor-humidity-level,EPA,"This page gives you the target the EPA actually recommends, why the edges of that range matter (mold on one side, dry-air health problems on the other), and exactly how to move your home's humidity in the right direction."
 ideal-indoor-humidity-level,EPA,"<DataChart   title=""Indoor Relative Humidity: The Safe Range""   desc=""Below 30% is too dry; 30 to 50 percent is the ideal range; 50 to 60 percent is rising risk; above 60 percent invites mold and dust mites.""   format=""number""   yLabel=""Rel"
-ideal-indoor-humidity-level,EPA,"Per the EPA, above about 70% humidity on a damp surface, mold can start growing within **one to two days**, which is exactly why the standard advice after any leak or flood is to dry everything out within 24 to 48 hours."
+ideal-indoor-humidity-level,EPA,"Per the EPA, above about 70% humidity on a damp surface, mold can start growing within **one to two days**, which is why the standard advice after any leak or flood is to dry everything out within 24 to 48 hours."
 ideal-indoor-humidity-level,EPA,"## Frequently asked questions **What is the ideal indoor humidity level?** Between 30% and 50% relative humidity, and always below 60%, per the EPA."
 ideal-indoor-humidity-level,EPA,"The EPA says to keep indoor humidity below 60%, because above that, mold, dust mites, and condensation all become significantly more likely."
 what-size-dehumidifier-do-i-need,ENERGY STAR,"## When a whole-home dehumidifier makes sense If you have central air and humidity stays above 55% throughout the house, ENERGY STAR notes a whole-home dehumidifier installed in the ductwork may be the better choice."
@@ -92,8 +90,8 @@ eer-chart-for-ac-units,ENERGY STAR,"About 11 or higher for a central system or h
 hspf-rating-explained,ENERGY STAR,"The federal minimum for split heat pumps is 7.5 HSPF2, and ENERGY STAR requires at least 7.8."
 hspf-rating-explained,ENERGY STAR,"For cold climates, look at a model's capacity and COP at 5°F, which ENERGY STAR's cold-climate criteria and NEEP's cold-climate list report; see [heat pumps in cold weather](/heat-pump-in-cold-weather)."
 merv-rating-chart,ASHRAE,"capture of 0.3-1.0 micron particles""   data={[     { label: ""MERV 8"", value: 0, note: ""not E1-rated"" },     { label: ""MERV 11"", value: 20 },     { label: ""MERV 13"", value: 50 },     { label: ""MERV 14"", value: 75 },     { label: ""MERV 16"", v"
-merv-rating-chart,EPA,"And you don't need to chase HEPA to get there: the EPA notes that filters with a MERV between 7 and 13 ""are nearly as effective as true HEPA filters at controlling most airborne indoor particles."" - **MERV 14–16:** hospital and clean-room t"
-merv-rating-chart,EPA,MERV 8 is a solid default; MERV 11 helps with pets and allergies; MERV 13 gives the best air quality (and is what the EPA recommends) if your system can handle it.
+merv-rating-chart,EPA,"It starts capturing bacteria and virus-carrying particles, and it's what the EPA recommends where the system can handle it; the EPA also notes that filters rated MERV 7 to 13 are nearly as effective as true HEPA filters for most airborne in"
+merv-rating-chart,EPA,"MERV 8 is a solid default; MERV 11 helps with pets and allergies; and MERV 13 gives the most filtration, and is what the EPA recommends, if your system can handle it."
 merv-rating-chart,EPA,"It's why the EPA recommends MERV 13 for better filtration, or as high as your system allows."
 cracked-heat-exchanger,CDC,The CDC reports that more than 400 people in the U.S.
 furnace-blowing-cold-air,DOE,- **The filter.** Replace it if it's dirty; the DOE recommends checking furnace filters monthly or as the maker recommends.
@@ -156,7 +154,7 @@ carbon-monoxide-detector-guide,CDC,"According to the CDC, unintentional, non-fir
 carbon-monoxide-detector-guide,UL,"<DataChart   title=""UL 2034 CO Alarm Response Thresholds""   desc=""At 70 ppm, a UL-listed alarm must sound within 60 to 240 minutes; at 150 ppm within 10 to 50 minutes; at 400 ppm within 4 to 15 minutes.""   format=""number""   yLabel=""CO conce"
 carbon-monoxide-detector-guide,UL,"Higher concentration = faster required response."" /> | CO level | What UL 2034 requires | What it means for you | |---|---|---| | Below 30 ppm | Alarm must **not** sound (for 30 days) | Considered background; but not necessarily harmless lo"
 carbon-monoxide-detector-guide,ATTR,"states (around 47) require carbon monoxide alarms in residential dwellings** through statute or building code, per the National Conference of State Legislatures (NCSL)."
-carbon-monoxide-detector-guide,CDC,The CDC and CPSC recommend them regardless of whether your state mandates them.
+carbon-monoxide-detector-guide,CDC,The CDC and CPSC recommend them whether or not your state requires them.
 how-to-improve-indoor-air-quality,EPA,"The EPA notes that Americans spend about 90% of their time indoors, where concentrations of some pollutants are often 2 to 5 times higher than outdoors."
 how-to-improve-indoor-air-quality,EPA,"Control humidity Keeping indoor humidity in the **40 to 50% range** (the EPA recommends staying between 30 and 50%, and below 60%) suppresses mold and dust mites, two of the most common indoor allergens."
 how-to-improve-indoor-air-quality,EPA,"Test and mitigate radon **Radon is a colorless, odorless radioactive gas and the second-leading cause of lung cancer** (per the EPA), and it's a problem an air purifier can't fix."

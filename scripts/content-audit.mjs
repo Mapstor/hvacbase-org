@@ -197,6 +197,7 @@ const externalUrls = new Map();   // url -> Set(slug); excludes schema.org + sel
 const attributionChecks = [];     // {slug, org, sentence, urls} — CITE-2 manual-review CSV
 const perDegreeFlags = [];        // {slug, sentence} — CITE-2 "% per degree" claims
 const longParas = [];             // {slug, author, sentences, first} — >3-sentence prose paras
+const selfLinks = [];             // {slug, kind, detail} — relatedArticles self-slug or body self-path link
 
 // ---------- per-mdx scan ----------
 function scanMdx(file) {
@@ -414,7 +415,10 @@ function scanMdx(file) {
   let over = 0;
   for (const o of OVERCLAIMS) {
     if (o === 'best') {
-      over += (noCode.match(/\bbest\b(?!\s+(?:for|practice|practices|way|ways))/gi) || []).length;
+      // FAQ questions phrased as real searches ("What MERV rating is best for a home?")
+      // are legitimate, not overclaims: drop bold question lines (**...?**) before counting.
+      const scan = noCode.split('\n').filter((l) => !/^\*\*.+\?\s*\*\*$/.test(l.trim())).join('\n');
+      over += (scan.match(/\bbest\b(?!\s+(?:for|practice|practices|way|ways))/gi) || []).length;
     } else {
       over += (noCode.toLowerCase().split(o.toLowerCase()).length - 1);
     }
@@ -554,6 +558,22 @@ function scanMdx(file) {
   }
   c.sourcesbox_no_url = sbNoUrl;
 
+  // (q2) SELF-LINKS (report-only) — a relatedArticles entry equal to this page's own
+  // slug, or a body link to this page's own path. Count both; list each corpus-wide.
+  let selfLinkCount = 0;
+  const esc = slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const fmBlock = raw.slice(0, raw.length - body.length);
+  if (new RegExp('^\\s*-\\s*["\']?' + esc + '["\']?\\s*$', 'm').test(fmBlock)) {
+    selfLinkCount++; selfLinks.push({ slug, kind: 'relatedArticles', detail: `self-slug "${slug}"` });
+  }
+  const selfPathRe = new RegExp('\\]\\(/' + esc + '(?:[/#)])|href=["\']/' + esc + '(?:[/#"\'])', 'g');
+  for (const m of body.matchAll(selfPathRe)) {
+    selfLinkCount++;
+    const ln = 1 + (raw.slice(0, (raw.length - body.length) + m.index).match(/\n/g) || []).length;
+    selfLinks.push({ slug, kind: 'body-link', detail: `line ${ln}` });
+  }
+  c.self_links = selfLinkCount;
+
   // (r) TITLE OVERCLAIM (report-only) — marketing superlatives in the title or H1.
   const h1text = (body.match(/^#\s+(.+?)\s*$/m) || [])[1] || '';
   const OVERCLAIM = /\b(Complete|Ultimate|Definitive|Proven|Best|That Actually Work|Everything You Need)\b|#1\b/i;
@@ -570,7 +590,7 @@ function scanMdx(file) {
   if (fm.description) (descMap[fm.description] = descMap[fm.description] || []).push(slug);
 
   // totals
-  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim']) bump(k, c[k]);
+  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim','self_links']) bump(k, c[k]);
 
   rows.push({
     slug, file: rel(file), cluster, page_type: pageType[slug] || fm.contentType || '',
@@ -636,7 +656,7 @@ const dupTitles = Object.entries(titleMap).filter(([, v]) => v.length > 1);
 const dupDescs = Object.entries(descMap).filter(([, v]) => v.length > 1);
 
 // ---------- WRITE side files ----------
-const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim','intro12'];
+const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim','self_links','intro12'];
 fs.writeFileSync(path.join(OUT, 'SITE-AUDIT.csv'),
   csvRow(colOrder) + '\n' + rows.map((r) => csvRow(colOrder.map((k) => r[k]))).join('\n') + '\n');
 
@@ -658,6 +678,15 @@ fs.writeFileSync(path.join(OUT, 'long-paragraphs.csv'),
   'slug,author,sentences,first_words\n' +
   longParas.map((p) => csvRow([p.slug, p.author, p.sentences, p.first])).join('\n') +
   (longParas.length ? '\n' : ''));
+
+// SELF-LINKS — relatedArticles entries that point at the page's own slug, or body
+// links to the page's own path. Report-only; every hit, corpus-wide.
+fs.writeFileSync(path.join(OUT, 'self-links.md'),
+  '# Self-links — relatedArticles self-slug or body link to the page\'s own path\n\n' +
+  'Report-only (not a deploy gate). Each row is one hit.\n\n' +
+  (selfLinks.length
+    ? '| slug | kind | detail |\n|---|---|---|\n' + selfLinks.map((s) => `| ${s.slug} | ${s.kind} | ${s.detail} |`).join('\n') + '\n'
+    : '- none\n'));
 
 // ---------- FINDINGS.md ----------
 const top30 = [...rows].sort((a, b) => b.score - a.score).slice(0, 30);
@@ -706,3 +735,4 @@ console.log('External URLs:', externalUrlList.length, '| Citation flags:', citat
 for (const c of citationFlags) console.log('  FLAG', c.reasons.join(','), '-', c.url);
 console.log('Manufacturer/retail links (live):', mfrFlagRows.length, '| attribution-check rows:', attributionChecks.length, '| "% per degree" claims:', perDegreeFlags.length);
 console.log('Long paragraphs (>3 sentences):', longParas.length, '| pages affected:', new Set(longParas.map((p) => p.slug)).size);
+console.log('Self-links:', selfLinks.length, '| pages affected:', new Set(selfLinks.map((s) => s.slug)).size, '(see self-links.md)');
