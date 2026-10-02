@@ -261,7 +261,9 @@ function scanMdx(file) {
     const val = parseFloat(m[1].replace(/,/g, ''));
     const unit = /therm/i.test(m[2]) ? 'therm' : 'gal';
     const context = ctx(body, m.index, 60);
-    const isNat = /(national|average|avg|typical|u\.?s\.?)/i.test(context);
+    // Match the U.S. abbreviation only as a standalone uppercase token, so it
+    // does not fire on the "us" inside words like "usually" or "because".
+    const isNat = /(national|average|avg|typical)/i.test(context) || /\bU\.?S\.?\b/.test(context);
     const canon = CANON[unit];
     if (isNat && Math.abs(val - canon) / canon > 0.02) {
       ratesOff++;
@@ -392,8 +394,13 @@ function scanMdx(file) {
   // brand + model code = a product mention (reported SEPARATELY from bare brand names)
   const modelRe = new RegExp('\\b(' + BRANDS.filter(b=>!/&/.test(b)).map((b) => b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\s+[A-Z0-9]{2,}[-A-Z0-9]*', 'g');
   // Same "New York" guard: "New York NYSERDA" must not read as a York model code.
+  // Serial-number decoder uses date-FORMAT placeholders like "Amana YYMM" and
+  // "Bryant WWYY" (year/month, week/year) that read as brand+code but are not
+  // product model numbers. Allowlist those format tokens on that page only.
+  const SERIAL_FMT = /^(YYMM|WWYY|YYWW|MMYY)$/;
   const models = [...new Set([...body.matchAll(modelRe)]
     .filter((m) => !(m[1] === 'York' && body.slice(Math.max(0, m.index - 4), m.index) === 'New '))
+    .filter((m) => !(slug === 'hvac-serial-number-decoder' && SERIAL_FMT.test(m[0].split(/\s+/).pop() || '')))
     .map((m) => m[0]))];
   // Decoding is brand-specific by nature — brand NAMES are benign context on the
   // serial-number decoder, so they don't count there (model codes still reported).

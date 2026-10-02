@@ -1,4 +1,3 @@
-/ideal-indoor-humidity-level
 https://ahamverifide.org/
 https://basc.pnnl.gov/resource-guides/high-merv-filters
 https://documents.dnrec.delaware.gov/energy/office/ira-home-rebates-overview.pdf
