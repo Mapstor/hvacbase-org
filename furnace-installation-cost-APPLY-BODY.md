@@ -1,0 +1,94 @@
+---
+slug: "furnace-installation-cost"
+title: "Furnace Installation Cost (2026): Gas, Electric, Oil and Dual Fuel"
+description: "Typical 2026 furnace installation costs by type and efficiency, what drives the price, the 2028 federal 95% AFUE rule, running-cost payback between 80% and 95% furnaces, and which rebates apply."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-02"
+relatedArticles:
+  - "afue-rating-explained"
+  - "furnace-sizing-calculator"
+  - "furnace-guide"
+  - "furnace-vs-heat-pump"
+  - "hvac-rebates-by-state"
+externalLinks:
+  - label: "U.S. DOE: Final energy efficiency standards for residential furnaces"
+    url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion"
+  - label: "DSIRE: State and utility incentives"
+    url: "https://www.dsireusa.org/"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Furnace Installation Cost
+
+A new furnace's price depends mostly on its type and efficiency, and on what the installation needs beyond the box: venting, a condensate drain, ductwork changes and permits. Efficiency also sets what it costs to run for the next 15 years or more.
+
+**Installed, a gas furnace typically runs about $3,000 to $5,500 at 80% AFUE and $4,500 to $7,500 at about 96%, an electric furnace $2,000 to $5,500, and an oil furnace $5,000 to $10,000. These are typical ranges from contractor pricing; get at least three itemized quotes. Non-weatherized gas furnaces made from December 18, 2028 must reach 95% AFUE.**
+
+## Typical costs by type
+
+| Furnace | Installed cost |
+|---|---|
+| Gas, 80% AFUE, single-stage | $3,000 to $5,500 |
+| Gas, about 96% AFUE, two-stage | $4,500 to $7,500 |
+| Gas, 98% AFUE and up, modulating | $6,500 to $10,000 or more |
+| Electric | $2,000 to $5,500 |
+| Oil | $5,000 to $10,000 |
+| Dual fuel (heat pump with gas furnace) | $8,000 to $16,000 |
+
+## What drives the price
+
+| Item | Typical cost | When it applies |
+|---|---|---|
+| Furnace equipment | $1,200 to $4,500 | Always; depends on efficiency and features |
+| Labor | $1,500 to $3,000 | Always |
+| Ductwork changes | $0 to $2,000 | New runs, resizing or repairs |
+| Venting change | $0 to $800 | Going from 80% (metal flue) to 90%+ (PVC) |
+| Condensate drain or pump | $0 to $400 | Condensing (90%+) furnaces |
+| Thermostat | $0 to $300 | New or smart thermostat |
+| Permits and inspection | $100 to $500 | Most jurisdictions |
+| Removal, gas and electrical work | $100 to $500 | Most replacements |
+
+## The 2028 federal rule
+
+Under the DOE's rule, non-weatherized gas furnaces, the standard indoor type, manufactured on or after December 18, 2028 must reach 95% AFUE. That effectively ends new 80% gas furnaces for most homes, and means planning for PVC venting and a condensate drain. See [AFUE explained](/afue-rating-explained).
+
+## Running cost and payback
+
+For a 2,000 sq ft home with average insulation and 4,500 heating degree days, an 80% furnace costs about $984 a year at $1.35 per therm and a 95% furnace about $829, a $155 difference. If the 95% furnace costs $1,500 more installed, it pays back in about 9.7 years; in colder climates, sooner. The [AFUE calculator](/afue-rating-explained) runs it for your home.
+
+## Rebates and credits
+
+- **The federal 25C tax credit ended** for furnaces installed after December 31, 2025.
+- **HEAR rebates don't cover gas furnaces**; they cover heat pumps and other electric upgrades. See [HVAC rebates by state](/hvac-rebates-by-state).
+- **Utility rebates** for high-efficiency furnaces exist in some areas; DSIRE lists them.
+
+## Furnace or heat pump?
+
+If your air conditioner also needs replacing, price a heat pump or a dual-fuel system alongside the furnace; see [furnace vs. heat pump](/furnace-vs-heat-pump).
+
+## Frequently asked questions
+
+### How much does it cost to replace a gas furnace?
+
+Typically $3,000 to $5,500 for an 80% furnace and $4,500 to $7,500 for a condensing furnace of about 96%, installed.
+
+### Is a 95% furnace worth the extra cost?
+
+Usually, especially in cold climates: in the example home it saves about $155 a year over an 80% furnace, and the 2028 rule will require it for new non-weatherized gas furnaces anyway.
+
+### Why does upgrading to a high-efficiency furnace cost more to install?
+
+Condensing furnaces need PVC venting and a condensate drain, and the old metal flue may need relining or capping.
+
+### Are there tax credits for furnaces in 2026?
+
+No. The federal 25C credit ended after 2025; check your utility for rebates.
+
+<SourcesBox sources={[
+  { title: "U.S. DOE: Final energy efficiency standards for residential furnaces (95% AFUE from Dec 18, 2028)", url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
+  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

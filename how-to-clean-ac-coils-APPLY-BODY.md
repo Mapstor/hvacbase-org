@@ -1,0 +1,117 @@
+Your AC is running but not cooling as well as it used to, or your energy bill has crept up, and dirty coils are one of the most common (and most fixable) reasons. Cleaning them is a genuinely effective DIY job, and this guide walks you through both coils step by step.
+
+The payoff is real: according to the U.S. Department of Energy, **a dirty condenser coil can increase the compressor's energy consumption by up to 30%**, so cleaning it can noticeably cut your cooling cost and extend the system's life. Cleaning the outdoor condenser coil is a straightforward 30-to-60-minute task costing under $20 in supplies; the indoor evaporator coil is a bit more involved but still manageable for most homeowners.
+
+**To clean your AC coils: shut off power at the disconnect and breaker, clear debris from the outdoor unit, spray the condenser coil with coil cleaner and rinse it (from the inside out, never with a pressure washer), and for the evaporator coil, use a no-rinse foaming cleaner that drips into the condensate drain.** Both coils are best cleaned once a year, ideally in spring before cooling season. Here's the full process.
+
+## Why clean coils matter
+
+Your AC works by moving heat, and the coils are where that heat transfer happens:
+
+- The **condenser coil** (outdoor unit) releases the heat your system pulls out of your home.
+- The **evaporator coil** (indoor unit) absorbs heat from your indoor air.
+
+When either coil is coated with dirt, dust, or grime, that layer acts as insulation and blocks heat transfer. The system has to run longer and work harder to reach the same temperature, which means:
+
+- **Higher energy bills**, the DOE figure above (up to 30% more compressor energy) shows how much a dirty condenser alone can cost.
+- **Reduced cooling capacity**, the AC struggles to keep up, especially on the hottest days.
+- **More wear and shorter lifespan**, the overworked compressor and motors fail sooner.
+- **Higher risk of a frozen evaporator coil**, dirty coils restrict airflow, which can drop the coil below freezing.
+
+Realistic savings from cleaning vary with how dirty the coils are and your climate, but for a neglected system the difference on your summer bills can add up to a few hundred dollars a year. It's one of the highest-return maintenance tasks you can do yourself.
+
+## Safety first (this part is not optional)
+
+Before you touch anything, two safety steps that genuinely matter:
+
+- **Shut off all power to the unit.** Turn off the disconnect switch near the outdoor unit AND the breaker in your main panel. The condenser has capacitors that store a dangerous charge, working on a live unit risks serious electric shock.
+- **Wear gloves and safety glasses.** Coil fins are razor-sharp and will cut you, and cleaning solution can splash.
+
+If you're ever unsure about the electrical side, stop and call a professional. No cleaning result is worth an electrical injury.
+
+## How to clean the condenser coil (outdoor unit)
+
+This is the easier of the two and the higher-impact one, since the outdoor coil gets the dirtiest.
+
+**What you'll need:**
+
+- A **garden hose** with a spray nozzle (medium pressure only, never a pressure washer, which bends the fins)
+- **Coil cleaner** (a commercial foaming condenser-coil cleaner, roughly $8 to $15 a can)
+- A **fin comb** (about $8 to $15) for straightening any bent fins
+- A **screwdriver** or nut driver to remove the top grille
+- **Work gloves and safety glasses**
+
+Total cost is roughly **$15 to $30** if you already have a hose and basic tools.
+
+**The steps:**
+
+1. **Shut off all power** (disconnect + breaker), as above.
+2. **Clear the area around the unit**, remove leaves, grass, and debris, and trim any plants back to give at least two feet of clearance.
+3. **Remove the top grille.** It's usually held by 4 to 6 screws. The fan is often attached to it, so lift carefully and support it without straining the wiring. Set it gently aside.
+4. **Remove loose debris from inside**, scoop out leaves, twigs, and any animal nests from the bottom.
+5. **Straighten bent fins** with the fin comb, bent fins block airflow just like dirt does.
+6. **Apply the coil cleaner** to the coil per the can's directions, and let it sit the specified time (usually 5 to 15 minutes) to break down the grime.
+7. **Rinse from the inside out.** Spray water through the coil from the inside of the unit outward, so you push dirt out the way it came in rather than deeper into the fins. Use medium pressure only.
+8. **Let it dry, reassemble, and restore power.**
+
+## How to clean the evaporator coil (indoor unit)
+
+The indoor coil is dirtier to access but usually needs cleaning less often. The key difference: it's not near a drain you can rinse to, so you use a **no-rinse foaming cleaner** that drips off into the condensate drain pan on its own.
+
+**What you'll need:**
+
+- A **no-rinse evaporator coil cleaner** (a self-rinsing foaming cleaner, roughly $8 to $15)
+- A **screwdriver set** for the access panels
+- A **flashlight or headlamp** (the coil area is dark)
+- **Foil tape** (HVAC-rated) to reseal the access panel
+- **Gloves and safety glasses**
+
+**The steps:**
+
+1. **Shut off power** to the air handler / furnace at the switch and breaker.
+2. **Locate and open the evaporator coil access panel**, usually on the furnace or air handler, held by screws or foil tape.
+3. **Inspect the coil.** If it's only lightly dusty, a soft brush or vacuum may be enough; for greasy or matted buildup, use the foaming cleaner.
+4. **Apply the no-rinse foaming cleaner** evenly across the coil. It foams, penetrates the dirt, and then liquefies and drips into the drain pan, no rinsing needed.
+5. **Let it work** the time the product specifies.
+6. **Check and clear the condensate drain** while you're in there, so the runoff drains freely.
+7. **Reseal the access panel** with foil tape (an unsealed panel leaks conditioned air), and restore power.
+
+## Choosing a coil cleaner
+
+Coil cleaners come in a few types. Match the cleaner to the job:
+
+- **Foaming no-rinse (alkaline):** best for **evaporator coils**, spray on and it drips off. Low corrosion risk.
+- **Foaming rinse-required (alkaline):** best for **condenser coils** with moderate-to-heavy dirt, spray, wait, and rinse. Low corrosion risk.
+- **Acid-based cleaners:** for heavily soiled condensers only, very effective but **can damage aluminum fins if left on too long**, so follow directions exactly and rinse thoroughly.
+- **Biodegradable / "green" cleaners:** the safest option, good for light maintenance cleaning.
+
+For most homeowners doing annual maintenance, a standard **foaming alkaline cleaner** (no-rinse for the indoor coil, rinse-type for the outdoor) handles the job without the risks of acid cleaners.
+
+## How often, and when to call a pro
+
+- **Clean the condenser coil** once a year, ideally in spring before cooling season, and more often if you're near trees, dust, or heavy pollen.
+- **Clean the evaporator coil** every one to two years, it gets dirty more slowly since it's behind the air filter.
+- **Keep up with the filter**, a clean filter (changed every 1 to 3 months) is what keeps the evaporator coil from getting dirty in the first place. See our [filter-change guide](/how-often-change-hvac-filter).
+
+**Call a professional if:** the coil has heavy biological growth or deep matted buildup, the fins are badly damaged, you find refrigerant leaks (oily residue on the coil), or you're not comfortable with the electrical disconnection. And any work involving the sealed refrigerant system requires an EPA-certified technician. Coil cleaning is often part of an [annual HVAC tune-up](/hvac-maintenance-checklist).
+
+## Frequently asked questions
+
+**How often should AC coils be cleaned?**
+Clean the outdoor condenser coil once a year (spring is ideal), more often if you're near trees or heavy dust. The indoor evaporator coil needs cleaning every one to two years since it's protected by the air filter. Keeping up with filter changes greatly slows how fast the evaporator coil gets dirty.
+
+**Can I clean AC coils myself?**
+Yes, for most homeowners. The outdoor condenser coil is a straightforward DIY job with a hose and coil cleaner; the indoor evaporator coil is a bit more involved but manageable with a no-rinse foaming cleaner. The critical step is shutting off all power first, the unit stores a dangerous electrical charge. Call a pro for heavy buildup, damaged fins, or refrigerant issues.
+
+**What can I use to clean AC coils?**
+A commercial coil cleaner is best, a foaming no-rinse cleaner for the indoor evaporator coil, and a rinse-type foaming cleaner for the outdoor condenser. For light dirt, a soft brush and gentle water spray can work. Avoid pressure washers (they bend the fins) and be cautious with acid-based cleaners, which can damage aluminum if misused.
+
+**Does cleaning AC coils really improve efficiency?**
+Yes. Dirty coils block heat transfer and force the system to work harder. The DOE notes a dirty condenser coil can raise compressor energy use by up to 30%, so cleaning restores lost efficiency, improves cooling, and extends the system's life. It's one of the most cost-effective maintenance tasks.
+
+**Is it safe to spray water on my AC unit?**
+Yes, on the outdoor condenser coil, once the power is off. Use a garden hose at medium pressure and rinse from the inside out. Never use a pressure washer, which bends the delicate fins. The indoor evaporator coil, by contrast, uses a no-rinse cleaner rather than water.
+
+## How we sourced this page
+
+The figure that a dirty condenser coil can increase compressor energy consumption by **up to 30%** is from the **U.S. Department of Energy**, widely cited in HVAC energy-efficiency guidance. The principle that fouled coils reduce heat transfer, raise energy use, and shorten equipment life reflects **DOE** and **EPA** maintenance guidance, and research from **ASHRAE** and building-science studies documents efficiency losses from coil fouling (with the magnitude depending on how dirty the coil is and the system's condition). Dollar-savings figures are estimates that vary by system, climate, and local electricity rate, not fixed values, and cleaner and tool prices are approximate ranges. We recommend no specific products; match the cleaner type (no-rinse foaming for evaporator coils, rinse-type for condensers) to the job.

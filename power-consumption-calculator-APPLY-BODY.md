@@ -1,0 +1,86 @@
+---
+slug: "power-consumption-calculator"
+title: "Power Consumption Calculator: Volts and Amps to Watts and kWh (2026)"
+description: "Calculate real power from volts, amps and power factor, single-phase or three-phase, then convert watts to kWh and cost. With worked examples and what power factor means."
+cluster: "electrical-wiring"
+role: "hub"
+priority: "P1"
+contentType: "calculator"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "kwh-cost-calculator"
+  - "how-many-kwh-per-day-is-normal"
+  - "3-phase-power-calculator"
+  - "wire-gauge-chart"
+  - "electrical-panel-upgrade-cost"
+externalLinks:
+  - label: "U.S. EIA: How much electricity does an American home use?"
+    url: "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3"
+  - label: "U.S. EIA: Electric Power Monthly (residential prices)"
+    url: "https://www.eia.gov/electricity/monthly/"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Power Consumption Calculator: Volts and Amps to Watts and kWh
+
+Appliance nameplates and meters often give volts and amps, while your bill charges for kilowatt-hours. This calculator bridges the two: it turns voltage, current and power factor into real power in watts, then into energy over time.
+
+**Real power in watts = volts × amps × power factor, and three-phase circuits multiply by √3, about 1.732. A 120-volt heater drawing 12.5 amps uses 1,500 watts; running continuously, that's 36 kWh a day.**
+
+<CalcWrapper type="power-consumption" />
+
+## The formulas
+
+- **Apparent power (VA)** = volts × amps, or × √3 for three-phase.
+- **Real power (W)** = apparent power × power factor. This is what your meter bills.
+- **Reactive power (VAR)** = the part that flows back and forth without doing work; it's the square root of apparent squared minus real squared.
+
+The calculator also converts real power to kilowatts and horsepower (746 watts per horsepower), and to energy for an hour, a day, 30 days and a year of continuous running.
+
+## What power factor means
+
+Resistive loads such as heaters and incandescent bulbs use all the current they draw, so their power factor is 1.0. Motors and some electronics draw current that's out of step with the voltage, so their real power is less than volts times amps. A power factor of 0.85 means only 85% of the apparent power does useful work.
+
+## Three examples
+
+- **A space heater:** 120 V × 12.5 A × 1.0 = **1,500 W**.
+- **A motor load:** 240 V × 10 A × 0.85 = **2,040 W**, not the 2,400 that volts times amps suggests.
+- **A three-phase unit:** 208 V × 20 A × 0.9 × 1.732 = **about 6,485 W**.
+
+## From watts to kWh and cost
+
+Energy is power times time: **kWh = watts × hours ÷ 1,000.** The calculator's figures assume the load runs nonstop, so the 1,500-watt heater shows 36 kWh a day and 13,140 kWh a year. Real appliances run fewer hours; for their cost, use our [kWh cost calculator](/kwh-cost-calculator) with your actual hours.
+
+For scale, an average U.S. home uses about 10,500 kWh a year, about 875 a month (EIA). At the January-to-July 2026 average of 18.19 cents per kWh, that's about $159 a month; see [how many kWh per day is normal](/how-many-kwh-per-day-is-normal).
+
+## Measuring your own loads
+
+A plug-in watt meter reads real power and energy directly for anything on a standard outlet. For hardwired loads, an electrician's clamp meter reads amps, which you multiply by the voltage and a realistic power factor.
+
+## Frequently asked questions
+
+### How do I calculate watts from volts and amps?
+
+Multiply volts by amps, then by the power factor: 1.0 for heaters and bulbs, lower for motors. For three-phase power, also multiply by 1.732.
+
+### What is power factor?
+
+The fraction of the current that does useful work. A heater's is 1.0; motors are often 0.8 to 0.9.
+
+### How many kWh does a 1,500-watt heater use?
+
+1.5 kWh per hour of running, or 36 kWh if it ran for a full day.
+
+### How much electricity does an average house use?
+
+About 10,500 kWh a year, or about 875 kWh a month, according to the EIA.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: How much electricity does an American home use?", url: "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3" },
+  { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

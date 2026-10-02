@@ -1,0 +1,90 @@
+---
+slug: "heat-pump-electricity-usage"
+title: "How Much Electricity Does a Heat Pump Use? (kWh per Month and Year, 2026)"
+description: "How many kWh a heat pump uses for heating and cooling by climate zone, per month and per year, what drives it, the cost at your rate, and how to read the efficiency ratings."
+cluster: "heat-pumps"
+role: "spoke"
+priority: "P1"
+contentType: "calculator"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-10-01"
+relatedArticles:
+  - "heat-pump-running-cost-calculator"
+  - "heat-pump-size-calculator"
+  - "coefficient-of-performance"
+  - "furnace-vs-heat-pump"
+  - "kwh-cost-calculator"
+externalLinks:
+  - label: "U.S. EIA: Electric Power Monthly (residential prices)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# How Much Electricity Does a Heat Pump Use?
+
+A heat pump's electricity use depends on how much heating and cooling your house needs and how efficiently the heat pump delivers it. Climate drives the first; the HSPF2 and SEER2 ratings drive the second.
+
+**For a 2,000 sq ft home with average insulation, the calculator estimates about 12,375 kWh a year in a mixed climate, an average of about 1,031 kWh a month: 7,112 for heating and 5,263 for cooling. That ranges from about 9,989 kWh a year in a very hot climate to 23,075 in a very cold one.**
+
+<CalcWrapper type="heat-pump-running-cost" />
+
+## Electricity use by climate zone
+
+The default home, a heat pump rated 8.2 HSPF2 and 17.1 SEER2, with lower assumed seasonal efficiency in cold zones (6.5 and 5.0):
+
+| Climate zone | Heating | Cooling | Total per year | Average per month |
+|---|---|---|---|---|
+| Very cold | 20,736 kWh | 2,339 kWh | 23,075 kWh | 1,923 kWh |
+| Cold | 12,960 kWh | 3,509 kWh | 16,469 kWh | 1,372 kWh |
+| Mixed | 7,112 kWh | 5,263 kWh | 12,375 kWh | 1,031 kWh |
+| Hot | 3,951 kWh | 7,310 kWh | 11,261 kWh | 938 kWh |
+| Very hot | 632 kWh | 9,357 kWh | 9,989 kWh | 832 kWh |
+
+Monthly use isn't even: it peaks in the coldest and hottest months and falls in spring and fall.
+
+## How the numbers are worked out
+
+- **Heating kWh** = the home's yearly heat loss ÷ (HSPF2 × 1,000). The heat loss comes from the same model as our [furnace size calculator](/furnace-sizing-calculator).
+- **Cooling kWh** = the yearly cooling load ÷ (SEER2 × 1,000).
+
+HSPF2 is rated for a moderate climate, which is why the calculator assumes lower seasonal efficiency in cold zones; a cold-climate model holds up better there. See [heat pumps in cold weather](/heat-pump-in-cold-weather).
+
+## What it costs
+
+At 18 cents per kWh, the mixed-climate home's 12,375 kWh cost about $2,228 a year. At the U.S. average of 18.19 cents for January to July 2026 (EIA), it's about $2,251; your state's rate is in our [kWh cost calculator](/kwh-cost-calculator), and the [heat pump running cost calculator](/heat-pump-running-cost-calculator) breaks it down.
+
+## What changes the usage
+
+- **Insulation and air sealing.** In the calculator, moving from average to good insulation cuts the heating load by about 30%.
+- **Ratings.** A higher HSPF2 and SEER2 use less electricity for the same heat and cooling. ENERGY STAR requires at least 7.8 HSPF2 and 15.2 SEER2 for split heat pumps.
+- **Backup heat.** Electric resistance strips deliver one unit of heat per unit of electricity, against about 2.4 for this heat pump over a season (8.2 HSPF2 ÷ 3.412), so a system that leans on them in cold weather uses much more.
+- **Thermostat habits.** Modest, steady setbacks work best; deep setbacks can trigger the backup strips.
+
+## Frequently asked questions
+
+### How many kWh does a heat pump use per month?
+
+About 1,031 kWh a month on average for a 2,000 sq ft home in a mixed climate, more in winter and summer and less in between.
+
+### How many kWh does a heat pump use per year?
+
+About 12,375 kWh in a mixed climate for the default home, from about 9,989 in a very hot climate to 23,075 in a very cold one.
+
+### Does a heat pump use more electricity than an air conditioner?
+
+For cooling, about the same as an air conditioner of the same SEER2. It uses more electricity overall because it also heats, replacing a gas or oil furnace's fuel.
+
+### Why is my heat pump using so much electricity in winter?
+
+Colder air lowers its efficiency, and the backup strips may be running. Check the thermostat settings and whether the backup heat comes on often.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (7.8 HSPF2, 15.2 SEER2)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

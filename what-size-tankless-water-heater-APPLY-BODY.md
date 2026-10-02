@@ -1,0 +1,117 @@
+---
+slug: "what-size-tankless-water-heater"
+title: "What Size Tankless Water Heater Do I Need? (2026 Sizing Guide)"
+description: "Size a tankless water heater from flow and temperature rise: fixture flow rates, a sizing chart in BTU and kW, what gas and electric units can deliver, and worked examples."
+cluster: "ac-sizing-selection"
+role: "spoke"
+priority: "P1"
+contentType: "calculator-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "water-heater-sizing-calculator"
+  - "water-heater-wire-size"
+  - "tankless-water-heater-cost"
+  - "heat-pump-water-heater-guide"
+  - "hvac-tax-credits-2026"
+externalLinks:
+  - label: "EPA WaterSense: Showerheads"
+    url: "https://www.epa.gov/watersense/showerheads"
+  - label: "eCFR: 10 CFR Part 430 (appliance standards and definitions)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# What Size Tankless Water Heater Do I Need?
+
+A tankless water heater never runs out, but it can run lukewarm. If two showers and the kitchen tap ask for more hot water than the burner or heating elements can warm at once, the water coming out gets cooler. Sizing one comes down to two numbers: how many gallons per minute you use at the same time, and how many degrees the heater has to warm the incoming water.
+
+**Add up the flow of the fixtures you run at once, then multiply by the temperature rise. Two showers at 2.0 gallons per minute, with 55°F water heated to 120°F, need about 130,000 BTU per hour of heat: roughly 148,000 BTU per hour of input from an 88%-efficient gas unit, or 38 kW from an electric one.** Colder water or more fixtures push that higher.
+
+## Step 1: How much flow you use at once
+
+Federal law and EPA's WaterSense program set these flow rates:
+
+| Fixture | Federal maximum | WaterSense labeled |
+|---|---|---|
+| Showerhead | 2.5 gpm | 2.0 gpm or less |
+| Bathroom faucet | 2.2 gpm | 1.5 gpm or less |
+| Kitchen faucet | 2.2 gpm | not labeled |
+
+Add the fixtures that realistically run together. A shower and a bathroom sink is about 3.5 to 4.7 gpm; two showers are 4 to 5 gpm. Dishwashers and washing machines fill briefly and seldom set the size.
+
+## Step 2: How much temperature rise you need
+
+Temperature rise is the difference between your incoming cold water and the hot water you want, usually about 120°F. Incoming water is coldest in late winter, and that's the temperature to size for. To measure yours, run the cold tap for a couple of minutes and check it with a kitchen thermometer.
+
+- **40°F incoming** (northern winters): an 80°F rise.
+- **55°F incoming**: a 65°F rise.
+- **70°F incoming** (warm climates): a 50°F rise.
+
+## Step 3: The power it takes
+
+**Heat needed (BTU per hour) = gallons per minute × temperature rise × 500.** The 500 comes from water's weight (8.33 pounds per gallon) times 60 minutes, since one BTU warms one pound of water by 1°F. For electric, divide by 3,412 to get kilowatts.
+
+| Flow | 40°F rise | 50°F rise | 60°F rise | 70°F rise | 80°F rise |
+|---|---|---|---|---|---|
+| 2 gpm | 40,000 BTU/hr, 11.7 kW | 50,000, 14.7 kW | 60,000, 17.6 kW | 70,000, 20.5 kW | 80,000, 23.4 kW |
+| 3 gpm | 60,000, 17.6 kW | 75,000, 22.0 kW | 90,000, 26.4 kW | 105,000, 30.8 kW | 120,000, 35.2 kW |
+| 4 gpm | 80,000, 23.4 kW | 100,000, 29.3 kW | 120,000, 35.2 kW | 140,000, 41.0 kW | 160,000, 46.9 kW |
+| 5 gpm | 100,000, 29.3 kW | 125,000, 36.6 kW | 150,000, 44.0 kW | 175,000, 51.3 kW | 200,000, 58.6 kW |
+| 6 gpm | 120,000, 35.2 kW | 150,000, 44.0 kW | 180,000, 52.8 kW | 210,000, 61.5 kW | 240,000, 70.3 kW |
+
+These are heat outputs. A gas unit's input rating has to be higher by its efficiency: at 88%, divide by 0.88.
+
+## What gas and electric units can deliver
+
+Residential gas tankless heaters are rated below 200,000 BTU per hour of input, the federal cutoff between consumer and commercial models. At 88% efficiency, a unit just under that limit delivers about 176,000 BTU per hour:
+
+| Temperature rise | 40°F | 50°F | 60°F | 70°F | 80°F |
+|---|---|---|---|---|---|
+| Gas, just under 200,000 BTU/hr input | 8.8 gpm | 7.0 gpm | 5.9 gpm | 5.0 gpm | 4.4 gpm |
+| Electric, 27 kW | 4.6 gpm | 3.7 gpm | 3.1 gpm | 2.6 gpm | 2.3 gpm |
+
+A 27 kW electric unit draws about 112 amps at 240 volts, usually on several dedicated circuits. That's why electric tankless works well in warm climates or for one or two fixtures, but struggles to supply a whole house where incoming water is cold. See [water heater wire and breaker sizing](/water-heater-wire-size) for the circuits.
+
+## Three examples
+
+**An apartment in a warm climate:** one shower (2.0 gpm) and a bathroom sink (1.5 gpm) at once, with 70°F water, a 50°F rise. That's 3.5 × 50 × 500 = **87,500 BTU per hour**, or 25.6 kW. A mid-size electric unit or a small gas unit covers it.
+
+**A family home with 55°F water:** two showers at once, 4.0 gpm at a 65°F rise. That's **130,000 BTU per hour** of heat, about 147,700 BTU per hour of gas input at 88% or 38.1 kW electric. A whole-house gas unit fits; electric would need a very large service.
+
+**A three-bath house in a cold climate:** two showers and a kitchen tap, 6.2 gpm with 40°F water, an 80°F rise. That's **248,000 BTU per hour**, more than one residential gas unit can deliver. The usual answer is two units linked together, or a tank or heat pump water heater instead.
+
+## Tankless or another type?
+
+A tankless heater saves the standby heat a tank loses, and never runs out. It costs more to install, gas models need venting and enough gas line capacity, and electric models need a lot of electrical capacity. Where incoming water is very cold, or for households that run several showers at once, a large tank or a heat pump water heater can be the simpler choice.
+
+For rebates, the federal 25C tax credit doesn't apply to water heaters installed after 2025. The HEAR program covers heat pump water heaters (up to $1,750 for eligible households), not tankless units; see [HVAC tax credits 2026](/hvac-tax-credits-2026).
+
+## Frequently asked questions
+
+### What size tankless water heater do I need for a family of four?
+
+For two showers at once, about 4 to 5 gpm. At a 65°F rise that's 130,000 to 162,500 BTU per hour of heat, which a whole-house gas unit can deliver.
+
+### How many gpm do I need for two showers?
+
+About 4 gpm with WaterSense showerheads (2.0 gpm each), or 5 gpm with standard ones (2.5 gpm).
+
+### Can an electric tankless water heater supply a whole house?
+
+In warm climates, often yes. With 40°F winter water, two showers need over 40 kW, beyond what most homes can supply on top of everything else.
+
+### What temperature rise should I use?
+
+The difference between 120°F and your coldest incoming water, usually in late winter. That's about 50°F in warm climates and up to 80°F in northern ones.
+
+<SourcesBox sources={[
+  { title: "EPA WaterSense: Showerheads (2.5 gpm standard, 2.0 gpm WaterSense)", url: "https://www.epa.gov/watersense/showerheads" },
+  { title: "eCFR: 10 CFR Part 430 (faucet flow standards; consumer water heater definitions)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
+  { title: "U.S. DOE: Home Energy Rebate Programs", url: "https://www.energy.gov/scep/home-energy-rebate-programs" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

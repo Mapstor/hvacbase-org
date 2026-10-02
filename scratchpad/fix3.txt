@@ -1,0 +1,3 @@
+content/mini-split-air-conditioners/what-is-a-mini-split.mdx
+content/energy-efficiency-ratings/merv-rating-chart.mdx
+content/mini-split-air-conditioners/mini-split-vs-central-air.mdx

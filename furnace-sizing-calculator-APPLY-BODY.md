@@ -1,0 +1,168 @@
+---
+slug: "furnace-sizing-calculator"
+title: "Furnace Size Calculator: What Size Furnace Do I Need? (2026)"
+description: "Estimate furnace size from your home's heat loss: square footage, insulation level, climate, ceilings, ducts and efficiency, with charts computed from the calculator's own model."
+cluster: "ac-sizing-selection"
+role: "hub"
+priority: "P1"
+contentType: "calculator-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-27"
+relatedArticles:
+  - "furnace-guide"
+  - "heat-pump-size-calculator"
+  - "air-conditioner-btu-calculator"
+  - "ac-tonnage-calculator"
+  - "what-size-generator-do-i-need"
+externalLinks:
+  - label: "ICC: 2021 International Energy Conservation Code"
+    url: "https://www.iccsafe.org/products-and-services/i-codes/2021-i-codes/iecc/"
+  - label: "ACCA: Manual J, Residential Load Calculation"
+    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Furnace Size Calculator: What Size Furnace Do I Need?
+
+Ask three contractors what size furnace a 2,000 sq ft house needs and you may hear 60,000, 80,000 and 100,000 BTU, often from a chart that multiplies square footage by a number between 30 and 60. Those charts assume a house that leaks heat like a drafty, barely insulated home from before 1970. Most houses lose far less.
+
+This calculator sizes a furnace from heat loss instead: how much heat your house loses per degree of temperature difference, times the difference between indoors and your coldest typical night. Every chart and example on this page comes from the same model, so the page and the calculator agree.
+
+**A 2,000 sq ft home with typical 1980s and 1990s insulation, in a climate with a 10°F design low (much of New York or Illinois), loses about 36,000 BTU per hour on the coldest night, so a 40,000 BTU furnace at 95% efficiency covers it.** A 30 to 60 BTU per sq ft rule of thumb would put the same house at 60,000 to 120,000 BTU. Use the result to check a quote, and ask the contractor for a Manual J load calculation before you buy.
+
+<CalcWrapper type="furnace-sizing" />
+
+## Input BTU vs. output BTU
+
+Furnaces are sold by **input** rating: how much fuel energy they burn per hour. What heats the house is the **output**, which is input times efficiency (AFUE). An 80,000 BTU furnace at 80% AFUE delivers 64,000 BTU per hour; the same input at 95% AFUE delivers 76,000. The calculator works out the output your house needs, then the input that delivers it at the efficiency you choose.
+
+## How the calculator works
+
+Design heat loss = **heat loss rate** × **square footage** × **adjustments** × **(70°F − your design low)**.
+
+The heat loss rate depends on how well the house is insulated and sealed. The calculator's four levels come from a 2,000 sq ft, one-story reference house with 8-foot ceilings and windows equal to 15% of the floor area:
+
+| Insulation level | What it represents | Heat loss rate (BTU/hr per °F per sq ft) |
+|---|---|---|
+| Excellent | Current code: the 2021 IECC's climate zone 4 insulation and window limits, tight construction, mechanical ventilation | 0.177 |
+| Good | 2000s construction: better walls and attic, double-pane low-E windows | 0.189 |
+| Average | 1980s and 1990s: R-13 walls, R-30 attic, double-pane windows | 0.270 |
+| Poor | Before 1970: little or no wall insulation, thin attic insulation, single-pane windows, drafty | 0.604 |
+
+The "Excellent" row uses the 2021 IECC's maximum U-factors for climate zone 4: windows 0.30, ceilings 0.024, walls 0.045, floors 0.047. The older rows are the calculator's assumptions for typical houses of those eras. The model also assumes tested air leakage of 3, 5, 8 and 15 air changes per hour at 50 pascals for the four levels, with actual leakage on a cold night at one fifteenth of that, and that a floor over an unheated basement or crawlspace sees half the indoor-outdoor difference.
+
+Adjustments then scale the result:
+
+- **Ceiling height:** 8 ft 1.00, 9 ft 1.06, 10 ft 1.13, 12 ft or more 1.25.
+- **Stories:** a two-story house of the same floor area loses slightly less (0.96), three stories 0.94.
+- **Windows:** plus 1.5% for each percentage point of window area above 15% of the floor.
+- **Ducts:** inside the heated space 1.00, insulated attic 1.10, crawlspace 1.18, uninsulated attic 1.28.
+- **Basement:** heated 1.10, slab 1.05, unheated 1.00.
+
+Sun exposure doesn't count: design heat loss is a nighttime number. The calculator divides the output by your furnace's AFUE and picks the smallest common size that covers it: 40,000, 60,000, 80,000, 100,000, 120,000 or 140,000 BTU input. When even a 40,000 BTU furnace delivers more than 1.4 times the load, it says so.
+
+## Furnace size chart for a 2,000 sq ft home
+
+Recommended furnace input at 95% AFUE, one story, 8-foot ceilings, ducts in an insulated attic, unheated basement:
+
+| Insulation | 40°F | 30°F | 20°F | 10°F | 0°F | −10°F | −30°F |
+|---|---|---|---|---|---|---|---|
+| Excellent | 40,000* | 40,000* | 40,000* | 40,000* | 40,000 | 40,000 | 60,000 |
+| Good | 40,000* | 40,000* | 40,000* | 40,000* | 40,000 | 40,000 | 60,000 |
+| Average | 40,000* | 40,000* | 40,000 | 40,000 | 60,000 | 60,000 | 80,000 |
+| Poor | 60,000 | 60,000 | 80,000 | 100,000 | 100,000 | 120,000 | 140,000 |
+
+Column headings are the design low temperature for your area. \* Even the smallest common furnace is more than 1.4 times the load; a two-stage or modulating model runs closer to what the house needs.
+
+### By home size
+
+Average insulation, 10°F design low, 95% AFUE:
+
+| Home size | Heat needed | Furnace input |
+|---|---|---|
+| 1,000 sq ft | 17,820 BTU/hr | 40,000* |
+| 1,500 sq ft | 26,730 BTU/hr | 40,000* |
+| 2,000 sq ft | 35,640 BTU/hr | 40,000 |
+| 2,500 sq ft | 44,550 BTU/hr | 60,000 |
+| 3,000 sq ft | 53,460 BTU/hr | 60,000 |
+| 3,500 sq ft | 62,370 BTU/hr | 80,000 |
+
+## Why per-square-foot charts oversize
+
+At a 10°F design low with ducts in an insulated attic, the model's heat loss works out to:
+
+- **About 12 BTU/hr per sq ft** for current-code and 2000s homes.
+- **About 18 BTU/hr per sq ft** for 1980s and 1990s homes.
+- **About 40 BTU/hr per sq ft** for a drafty pre-1970 house.
+
+The common 30 to 60 BTU per sq ft rule only fits that last case. Applied to an average house, it picks a furnace two to three times larger than the heat loss requires. An oversized furnace reaches the thermostat setting quickly and shuts off, which means more on-off cycles, bigger temperature swings, and louder air rushing through ducts sized for less.
+
+## Three worked examples
+
+**1. A 1,500 sq ft 1990s ranch where winter lows reach 0°F**, average insulation, ducts in an insulated attic:
+
+- 0.270 × 1,500 × 1.10 (ducts) × 70°F = **31,185 BTU/hr**
+- At 95% AFUE: 32,826 BTU input → **a 40,000 BTU furnace**
+- Estimated gas use: about 732 therms a year, or $988 at $1.35 per therm
+
+**2. A new 2,400 sq ft two-story home**, 9-foot ceilings, windows at 18% of the floor, ducts inside the heated space, 10°F design low:
+
+- 0.177 × 2,400 × 1.06 (ceilings) × 0.96 (two stories) × 1.045 (windows) × 60°F = **27,104 BTU/hr**
+- At 95% AFUE: 28,530 BTU input → **a 40,000 BTU furnace**, which is more than 1.4 times the load, so a modulating furnace fits this house best
+
+**3. An 1,800 sq ft 1950s bungalow where lows reach −10°F**, little insulation, ducts in an uninsulated attic:
+
+- 0.604 × 1,800 × 1.28 (ducts) × 80°F = **111,329 BTU/hr**
+- At 95% AFUE: 117,189 BTU input → **a 120,000 BTU furnace**
+
+Air seal and insulate the same bungalow to the "average" level and insulate its ducts, and the load falls to 42,768 BTU/hr: **a 60,000 BTU furnace**. Estimated gas use drops from about 2,813 to 1,080 therms a year. Weatherizing before replacing the furnace can shrink the furnace you need by half.
+
+## Efficiency changes the size you need
+
+Because the calculator sizes by output, a less efficient furnace needs a bigger input rating for the same house. The 2,000 sq ft average-insulation home at a 10°F design low:
+
+| AFUE | Furnace input | Gas per year | Cost at $1.35/therm |
+|---|---|---|---|
+| 80% | 60,000 | 891 therms | $1,203 |
+| 90% | 40,000 | 792 therms | $1,069 |
+| 95% | 40,000 | 750 therms | $1,013 |
+| 98% | 40,000 | 727 therms | $982 |
+
+Annual gas = heat loss rate × square footage × adjustments × heating degree days × 24 ÷ (AFUE × 100,000). This example uses 5,000 heating degree days. Under the Department of Energy's rule, gas furnaces made on or after December 18, 2028 must reach 95% AFUE; see our [furnace guide](/furnace-guide).
+
+## When to get a Manual J
+
+The calculator uses one reference house shape. Small homes lose a little more heat per square foot, large homes a little less, and your actual walls, windows and air leakage may not match any of the four levels. A Manual J load calculation measures them room by room, and ACCA's Manual S then matches equipment to that load. For a furnace replacement, ask the contractor for both, and compare their load with this estimate.
+
+## Frequently asked questions
+
+### What size furnace do I need for a 2,000 square foot house?
+
+With average 1980s or 1990s insulation, about 40,000 BTU input at 95% AFUE where design lows are 10°F or warmer, and 60,000 where they reach 0°F. A drafty, poorly insulated older house can need 100,000 or more.
+
+### What size furnace for a 1,500 square foot house?
+
+A 40,000 BTU furnace covers an average-insulation 1,500 sq ft house even at a 0°F design low. In a mild climate that's more than the house needs, so a two-stage or modulating model is the better match.
+
+### Is a bigger furnace better?
+
+No. An oversized furnace cycles on and off more, lets temperatures swing, and can be noisier through ducts that weren't sized for it. The goal is the smallest furnace that covers the coldest-night heat loss.
+
+### Should I replace my furnace with the same size?
+
+Not automatically. A furnace sized with a per-square-foot rule, or before you added insulation or new windows, is likely larger than the house needs now. Run the calculator and ask for a Manual J.
+
+### How many BTU per square foot do I need for heating?
+
+It depends on insulation more than climate. At a 10°F design low, about 12 BTU/hr per sq ft for a current-code home, about 18 for a 1980s or 1990s home, and about 40 for a drafty pre-1970 house.
+
+<SourcesBox sources={[
+  { title: "ICC: 2021 International Energy Conservation Code (Table R402.1.2 U-factors)", url: "https://www.iccsafe.org/products-and-services/i-codes/2021-i-codes/iecc/" },
+  { title: "U.S. DOE: Final energy efficiency standards for residential furnaces", url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion" },
+  { title: "ACCA: Manual J, Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+  { title: "ACCA: Manual S, Residential Equipment Selection", url: "https://www.acca.org/standards/technical-manuals/manual-s" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,81 @@
+---
+slug: "how-to-identify-mold"
+title: "How to Identify Mold in Your Home: Signs, Smells and What to Do (2026)"
+description: "How to recognize mold by sight and smell, where it grows in homes and HVAC systems, when testing is and isn't needed per the EPA, how much you can clean yourself, and how to stop it coming back."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-01"
+relatedArticles:
+  - "ideal-indoor-humidity-level"
+  - "dehumidifier-guide"
+  - "moisture-barrier-crawl-space"
+  - "air-duct-cleaning-worth-it"
+  - "indoor-air-quality-testing"
+externalLinks:
+  - label: "EPA: A Brief Guide to Mold, Moisture and Your Home"
+    url: "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# How to Identify Mold in Your Home
+
+Mold grows wherever moisture lingers on something it can feed on: drywall, wood, dust, fabric. Finding it is mostly a matter of finding the moisture, because where water collects, mold usually follows.
+
+**Mold shows up as fuzzy, slimy or speckled growth in black, green, white or other colors, often with a musty, earthy smell, usually where there's a leak, condensation or high humidity. If you can see or smell it, the EPA says testing usually isn't needed: clean it up and fix the moisture. For areas larger than about 10 square feet, the EPA suggests using its guidance or a professional.**
+
+## Signs of mold
+
+- **Visible growth:** spots or patches, fuzzy or slimy, in almost any color, often spreading from a corner, seam or stain.
+- **A musty smell**, especially in closed rooms, basements and when the HVAC starts.
+- **Water stains, peeling paint or warped materials**, signs of the moisture mold needs.
+- **Condensation** on windows, pipes or ducts that keeps coming back.
+
+## Where to look
+
+- **Bathrooms and kitchens:** around tubs, showers, sinks and under cabinets.
+- **Basements and crawl spaces:** walls, joists and anything stored against cold surfaces; see [crawl space moisture barriers](/moisture-barrier-crawl-space).
+- **Around leaks:** roofs, windows, plumbing and appliance hoses.
+- **HVAC systems:** the cooling coil, drain pan and nearby ductwork, which stay damp when the system cools.
+
+## Do you need a mold test?
+
+If you can see or smell mold, the EPA says sampling usually isn't necessary, and no federal standards exist for acceptable amounts of mold. Testing can help when you suspect hidden mold, but the result needs interpreting by someone experienced. Either way, the fix is the same: remove the mold and the moisture behind it.
+
+## Cleaning it up
+
+- **Small areas,** under about 10 square feet, are usually a do-it-yourself job, following the EPA's guide: scrub hard surfaces with detergent and water, and dry them completely.
+- **Larger areas, or mold from contaminated water or in the HVAC system,** call for the EPA's more detailed guidance or a professional.
+- **Porous materials** such as drywall, ceiling tiles and carpet that have grown mold usually need replacing.
+- **Protect yourself** with an N95 respirator, gloves and goggles.
+
+## Stopping it coming back
+
+- **Fix leaks** and dry water-damaged materials within 24 to 48 hours, as the EPA advises.
+- **Keep indoor humidity** below 60%, ideally between 30% and 50%; see the [ideal indoor humidity level](/ideal-indoor-humidity-level).
+- **Ventilate** bathrooms and kitchens with exhaust fans.
+- **Reduce condensation** by insulating cold surfaces such as pipes and exterior walls.
+
+## Frequently asked questions
+
+### How can I tell if it's mold or dirt?
+
+Mold usually grows in patches that spread and return after cleaning, often with a musty smell, in damp spots. Dirt wipes off and doesn't regrow.
+
+### Do I need to test for mold?
+
+Usually not, if you can see or smell it, according to the EPA. Clean it up and fix the moisture source.
+
+### Can I remove mold myself?
+
+For areas under about 10 square feet, generally yes, following the EPA's guidance. Larger or HVAC-related problems call for a professional.
+
+### What humidity prevents mold?
+
+Below 60%, and ideally 30% to 50%, according to the EPA.
+
+<SourcesBox sources={[
+  { title: "EPA: A Brief Guide to Mold, Moisture and Your Home (testing, cleanup under 10 sq ft, 24 to 48 hours)", url: "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home" },
+  { title: "EPA: Mold course, chapter 2 (indoor humidity)", url: "https://www.epa.gov/mold/mold-course-chapter-2" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,91 @@
+---
+slug: "portable-air-conditioners"
+title: "Portable Air Conditioners: Sizing, Venting, Efficiency and Costs (2026 Guide)"
+description: "How portable air conditioners work, single vs. dual hose, sizing by SACC, what CEER means, running costs, venting and draining, noise, and when a window unit is better."
+cluster: "portable-air-conditioners"
+role: "pillar"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-01-15"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "portable-ac-electricity-cost"
+  - "single-hose-vs-dual-hose-portable-ac"
+  - "how-to-vent-portable-ac-without-window"
+  - "portable-vs-window-ac"
+  - "how-to-drain-portable-ac"
+externalLinks:
+  - label: "eCFR: 10 CFR Part 430, Subpart B (portable air conditioner test procedure)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B"
+  - label: "ENERGY STAR: Room Air Conditioners"
+    url: "https://www.energystar.gov/products/room_air_conditioners"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Portable Air Conditioners
+
+A portable air conditioner sits on the floor and sends its heat outside through a hose. It's the cooling option for rooms where a window unit won't fit or isn't allowed, and it trades some efficiency for that flexibility.
+
+**Size a portable by its seasonally adjusted cooling capacity (SACC), not the bigger BTU number on older boxes; that's the rating that accounts for the heat a portable leaks back into the room. Dual-hose models lose less than single-hose ones, and a unit drawing 1,000 watts for 8 hours a day costs about $43 a month at 18 cents per kWh.**
+
+<CalcWrapper type="btu" />
+
+## How a portable works
+
+Everything, compressor included, sits inside the room. The unit cools room air across its cold coil, and pushes the heat it removes out through an exhaust hose to a window kit. Because the hot parts are indoors, some heat leaks back through the cabinet and hose.
+
+## Single hose vs. dual hose
+
+A single-hose unit uses room air to cool its condenser and blows it outside, which pulls warm outdoor air in through every gap in the house. A dual-hose unit draws its condenser air from outside through a second hose, so it doesn't depressurize the room. See [single-hose vs. dual-hose portable ACs](/single-hose-vs-dual-hose-portable-ac).
+
+## Sizing
+
+Portables are rated under a federal test that reports SACC, which accounts for the heat a portable adds back to the room. Compare that number with what the room needs; our BTU calculator above estimates the room's load from ENERGY STAR's sizing chart.
+
+## Efficiency: CEER
+
+The same federal test reports a combined energy efficiency ratio (CEER), cooling delivered per watt including standby. A higher CEER costs less to run for the same cooling.
+
+## Running cost
+
+Cost = watts × hours ÷ 1,000 × your rate. A 1,000-watt unit running 8 hours a day uses 240 kWh a month, about $43 at 18 cents per kWh. See [portable AC electricity cost](/portable-ac-electricity-cost) for more examples and a calculator.
+
+## Venting and draining
+
+The exhaust hose goes to a window kit sized for your window; keep it short and straight, and seal the gaps around the kit. For rooms without a usable window, see [how to vent a portable AC without a window](/how-to-vent-portable-ac-without-window). Most portables evaporate much of their condensate through the exhaust, but in humid weather many need draining; see [how to drain a portable AC](/how-to-drain-portable-ac).
+
+## Noise
+
+With the compressor in the room, portables are louder than window units at the same cooling. Check the unit's rated sound level if it's for a bedroom.
+
+## Portable or window unit?
+
+If a window unit fits your window, it usually cools better for the same power and runs quieter, because its hot side is outdoors. A portable makes sense for casement windows, rental rules or moving between rooms; see [portable vs. window AC](/portable-vs-window-ac).
+
+## Frequently asked questions
+
+### What size portable air conditioner do I need?
+
+Match the unit's SACC rating to the room's cooling load; the BTU calculator above estimates the load from ENERGY STAR's chart.
+
+### Are dual-hose portable ACs better?
+
+Usually, yes: they don't pull warm outdoor air into the room the way single-hose units do.
+
+### How much does a portable AC cost to run?
+
+About $43 a month for a 1,000-watt unit running 8 hours a day at 18 cents per kWh.
+
+### Do portable air conditioners need to be vented?
+
+Yes. The heat they remove has to leave the room through the exhaust hose; an unvented unit heats the room overall.
+
+<SourcesBox sources={[
+  { title: "eCFR: 10 CFR Part 430, Subpart B (portable air conditioner test procedure: SACC and CEER)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" },
+  { title: "ENERGY STAR: Room Air Conditioners (sizing chart)", url: "https://www.energystar.gov/products/room_air_conditioners" },
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

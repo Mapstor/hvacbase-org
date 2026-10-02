@@ -1,0 +1,74 @@
+---
+slug: "furnace-filter-direction"
+title: "Furnace Filter Direction: Which Way Does the Arrow Go?"
+description: "Which way the arrow on a furnace filter points, how to tell at a wall return, a furnace slot or a horizontal furnace, what happens if it's backwards, and how often to change it."
+cluster: "furnaces-heating"
+role: "spoke"
+priority: "P2"
+contentType: "how-to"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-01-28"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "how-often-change-hvac-filter"
+  - "merv-rating-chart"
+  - "hvac-maintenance-checklist"
+  - "furnace-guide"
+  - "hepa-filter-explained"
+externalLinks:
+  - label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
+    url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Furnace Filter Direction: Which Way Does the Arrow Go?
+
+Every pleated furnace filter has an arrow printed on its frame, and it matters which way you point it. The rule is the same in every house, even though the filter slot is in different places.
+
+**The arrow points in the direction the air flows: toward the furnace or air handler, away from the return grille. If you're looking into a return grille in the wall, the arrow points into the wall; at a filter slot on the furnace, it points into the furnace.**
+
+## Finding the airflow direction
+
+Air leaves the rooms through return grilles, travels through the return duct to the furnace, passes through the filter, then the blower pushes it through the heat exchanger or cooling coil and back out through the supply registers. The filter always sits on the return side, before the blower, so the air through it always heads toward the furnace.
+
+## By filter location
+
+- **Return grille in a wall or ceiling:** the arrow points into the wall or ceiling, toward the duct. In a ceiling grille, that means it points up.
+- **Slot beside the furnace, upflow furnace (air enters low, leaves at the top):** the arrow points toward the furnace, usually up.
+- **Downflow furnace (air enters at the top):** the arrow points down.
+- **Horizontal furnace in an attic or crawl space:** the arrow points toward the blower end of the unit.
+
+If you can't tell, turn the system on and hold a tissue near the filter slot: it's pulled in the direction the air is going.
+
+## What happens if it's backwards
+
+Pleated filters are built with their support on the downstream side, so the airflow presses the media against it. Reversed, the media can bow or pull away from the frame under the airflow, letting air bypass the filter and eventually letting it collapse. Flip it around at the next check; it's not an emergency, but it shouldn't stay that way.
+
+## How often to change it
+
+The DOE says clean filters can lower an air conditioner's energy use by 5 to 15%, because a clogged filter makes the blower work harder and moves less air. Check it monthly during heavy heating or cooling seasons and change it when it looks gray and loaded; see [how often to change your HVAC filter](/how-often-change-hvac-filter).
+
+## Frequently asked questions
+
+### Which way does the arrow go on a furnace filter?
+
+Toward the furnace, in the direction of airflow, and away from the return grille you're facing.
+
+### Which way does the arrow go on a ceiling return filter?
+
+Up, into the ceiling, because the air is pulled up through the grille into the duct.
+
+### What if my filter has no arrow?
+
+Some flat fiberglass filters work either way. For pleated filters with a wire or mesh backing, the backing faces the furnace.
+
+### Does filter direction affect the MERV rating?
+
+The rating assumes correct installation. A filter installed backwards can bow and let air bypass it, so it filters less than its rating.
+
+<SourcesBox sources={[
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), clean filters lower energy use 5 to 15%", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

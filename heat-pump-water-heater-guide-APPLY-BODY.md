@@ -1,0 +1,103 @@
+---
+slug: "heat-pump-water-heater-guide"
+title: "Heat Pump Water Heaters: Are They Worth It? (2026 Hybrid Water Heater Guide)"
+description: "How heat pump water heaters work, what they cost to run against electric and gas tanks, operating modes, installation needs, climate and noise, rebates, and who should skip one."
+cluster: "water-heaters"
+role: "spoke"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-06"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "water-heater-sizing-calculator"
+  - "electric-water-heating-cost"
+  - "water-heater-guide"
+  - "how-long-does-water-heater-last"
+  - "hvac-tax-credits-2026"
+externalLinks:
+  - label: "ENERGY STAR: Heat pump water heater fact sheet"
+    url: "https://www.energystar.gov/sites/default/files/asset/document/Heat_Pump_Water_Heater_fact_sheet_12-22-edit.pdf"
+  - label: "U.S. DOE: Home Energy Rebate Programs"
+    url: "https://www.energy.gov/scep/home-energy-rebate-programs"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Heat Pump Water Heaters: Are They Worth It?
+
+A heat pump water heater looks like an ordinary electric tank with a fan and compressor on top. Instead of heating water with an electric element, it pulls heat from the surrounding air and moves it into the water, which takes far less electricity.
+
+**ENERGY STAR says a certified heat pump water heater uses less than half the energy of a standard electric storage water heater. For a typical four-person household at 18 cents per kWh, our water heater calculator estimates about $334 a year against $1,271 for a standard electric tank and $467 for a gas tank.**
+
+## How it works
+
+A small heat pump, essentially a refrigerator in reverse, absorbs heat from the air around the tank and transfers it to the water. Backup electric elements take over when demand is high or the air is too cold. Because it moves heat instead of making it, it delivers several units of heat for each unit of electricity.
+
+## What it costs to run
+
+Annual energy cost for the default four-person household in our [water heater sizing calculator](/water-heater-sizing-calculator), at 18 cents per kWh and $1.35 per therm:
+
+| Water heater | Energy cost per year |
+|---|---|
+| Heat pump water heater | $334 |
+| Tankless, gas | $340 |
+| Tank, gas | $467 |
+| Tankless, electric | $1,193 |
+| Tank, electric | $1,271 |
+
+At the calculator's assumed efficiencies, a heat pump water heater uses about a quarter of the electricity of a resistance tank, comfortably inside ENERGY STAR's "less than half" claim. For costs by state, see [electric water heating cost](/electric-water-heating-cost).
+
+## Operating modes
+
+- **Heat pump only:** the most efficient, with the slowest recovery.
+- **Hybrid or auto:** uses the heat pump and switches on the elements when you draw a lot of hot water.
+- **Electric only:** works like a standard electric tank, for when the space is too cold or you need fast recovery.
+- **Vacation:** holds the water at a low temperature while you're away.
+
+## Installation requirements
+
+- **Room and airflow.** The heat pump needs a certain volume of surrounding air, or ducting; check the manufacturer's space requirements.
+- **A condensate drain**, because it removes moisture from the air as it works.
+- **Electrical supply.** Most models need a dedicated 240-volt circuit; some newer models plug into a standard 120-volt outlet.
+- **Height.** The heat pump on top makes these taller than standard tanks.
+
+## Climate, cooling and noise
+
+The heat pump cools and dehumidifies the space it sits in. In a warm garage or a damp basement that's a bonus; in a heated room in winter, your heating system makes up the difference. The compressor and fan make some noise, so a utility room or garage is a better spot than next to a bedroom.
+
+## Rebates
+
+The federal 25C tax credit ended for equipment installed after December 31, 2025. HEAR rebates, run by each state, cover up to $1,750 of a heat pump water heater for income-qualified households, and many utilities add their own; see [HVAC tax credits 2026](/hvac-tax-credits-2026).
+
+## Who should skip one
+
+- **No suitable space:** a small closet without enough air or ducting.
+- **Very cold installation spaces**, where it would run on its elements much of the time.
+- **Gas households** with low gas prices, where a gas tank or tankless heater costs about as much to run.
+
+## Frequently asked questions
+
+### Is a heat pump water heater worth it?
+
+For an all-electric home, usually: it cuts water heating energy by more than half compared with a standard electric tank. Against gas, running costs are close.
+
+### How much does a heat pump water heater save?
+
+In our calculator's four-person example, about $937 a year against a standard electric tank at 18 cents per kWh. Savings scale with hot water use and your rate.
+
+### Do heat pump water heaters work in cold climates?
+
+Yes, if installed in a space that stays reasonably warm, such as a basement. In a cold garage they rely more on their electric elements.
+
+### Are heat pump water heaters noisy?
+
+They make some compressor and fan noise, similar to a small appliance running. Put one in a utility room, basement or garage rather than near a bedroom.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Heat pump water heater fact sheet (less than half the energy of a standard electric storage water heater)", url: "https://www.energystar.gov/sites/default/files/asset/document/Heat_Pump_Water_Heater_fact_sheet_12-22-edit.pdf" },
+  { title: "U.S. DOE: Home Energy Rebate Programs", url: "https://www.energy.gov/scep/home-energy-rebate-programs" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

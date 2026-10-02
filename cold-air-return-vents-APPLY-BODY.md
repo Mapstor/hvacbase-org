@@ -1,0 +1,79 @@
+---
+slug: "cold-air-return-vents"
+title: "Cold Air Return Vents: How They Work, Placement and Sizing (2026)"
+description: "What cold air return vents do, why every room needs a path back to the system, placement high or low, filter grilles, sizing returns for airflow, and the mistakes that starve a system of air."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-01"
+relatedArticles:
+  - "hvac-ductwork-guide"
+  - "ductwork-sizing-calculator"
+  - "btucfm-ductwork-relationship"
+  - "furnace-filter-direction"
+  - "how-often-change-hvac-filter"
+externalLinks:
+  - label: "ACCA: Technical manuals (Manual D)"
+    url: "https://www.acca.org/standards/technical-manuals"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Cold Air Return Vents
+
+Every cubic foot of air your system blows into a room has to get back to the furnace or air handler. Return vents, often called cold air returns, are that path back, and when they're too small, blocked or missing, the whole system moves less air.
+
+**Return vents carry room air back to the system, through the filter, to be heated or cooled again. A system needs as much return airflow as supply: a 3-ton air conditioner moving about 1,200 CFM needs returns that can carry about 1,200 CFM back. Rooms with doors that close need their own return, a transfer grille or a jumper duct, or they pressurize and get less air.**
+
+## How returns work
+
+The blower pulls air from the return ducts and pushes it through the supply ducts. If returns can't deliver enough air, the blower moves less overall, which can reduce heating and cooling, freeze an AC coil or overheat a furnace's heat exchanger. Returns are sized for the system's total airflow, just as supply ducts are.
+
+## Every room needs a path back
+
+A bedroom with a supply register and a closed door has nowhere to send its air, so it pressurizes and the supply slows. Fixes include a return grille in the room, a transfer grille through the wall or door, or a jumper duct to the hallway. A gap under the door helps a little, but usually isn't enough for a larger supply.
+
+## High or low?
+
+- **Low returns** pick up the cooler, denser air near the floor, which suits heating-dominated homes.
+- **High returns** pick up the warm air that rises to the ceiling, which suits cooling-dominated homes.
+- **Both**, in some homes, with one closed seasonally.
+
+In practice, any properly sized, unblocked return works far better than a perfectly placed undersized one.
+
+## Filter grilles
+
+Many homes filter at a return grille instead of at the furnace. Point the filter's arrow toward the duct, in the direction of airflow, and change it on schedule; a clogged filter chokes the return. See [furnace filter direction](/furnace-filter-direction).
+
+## Sizing returns
+
+Size return ducts and grilles for the airflow they carry, typically about 400 CFM per ton of cooling. A 3-ton system's 1,200 CFM needs about a 16-inch round return duct, or its rectangular equivalent, at a typical friction rate; see the [ductwork sizing calculator](/ductwork-sizing-calculator). Grilles need enough free area to keep air speed, and noise, down; the manufacturer's tables give each grille's rated airflow.
+
+## Common mistakes
+
+- **Furniture or rugs blocking returns.**
+- **Closing returns** to "send more air" elsewhere.
+- **Too few returns** for the system's airflow.
+- **Leaky return ducts in attics or crawl spaces**, which pull in dusty, hot or cold air.
+
+## Frequently asked questions
+
+### Does every room need a cold air return?
+
+Every room needs a path back to the system: a return, a transfer grille or a jumper duct, especially rooms whose doors close.
+
+### Should return vents be high or low?
+
+Low for heating-dominated homes, high for cooling-dominated ones; correct size and keeping them unblocked matter more.
+
+### Can I block a return vent?
+
+No. Blocking returns reduces the system's airflow, which hurts comfort and can damage the equipment.
+
+### How big should my return air duct be?
+
+Sized for the system's airflow: about 1,200 CFM for a 3-ton system needs about a 16-inch round duct at a typical friction rate.
+
+<SourcesBox sources={[
+  { title: "ACCA: Technical manuals (Manual D, residential duct design)", url: "https://www.acca.org/standards/technical-manuals" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

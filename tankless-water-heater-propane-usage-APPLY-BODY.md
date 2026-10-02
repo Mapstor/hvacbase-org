@@ -1,0 +1,78 @@
+---
+slug: "tankless-water-heater-propane-usage"
+title: "How Much Propane Does a Tankless Water Heater Use? (2026)"
+description: "Propane use and cost for a tankless water heater per hour, day and year, compared with a propane tank and natural gas, plus how to size the propane tank and supply."
+cluster: "tankless-water-heaters"
+role: "spoke"
+priority: "P2"
+contentType: "reference"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "tankless-water-heater-guide"
+  - "what-size-tankless-water-heater"
+  - "propane-generator-usage-per-hour"
+  - "water-heater-sizing-calculator"
+  - "tankless-water-heater-cost"
+externalLinks:
+  - label: "U.S. EIA: British thermal units (fuel energy content)"
+    url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# How Much Propane Does a Tankless Water Heater Use?
+
+A propane tankless water heater only burns fuel while hot water flows, so its propane use follows how much hot water you use, not the size of its burner. The burner rating sets the most it can burn in an hour; your showers, dishes and laundry set what it actually burns.
+
+**A typical four-person household uses about 275 gallons of propane a year on a tankless heater, about 0.75 gallons a day, or roughly $826 a year at an example price of $3.00 a gallon. At full fire, a 199,000 BTU per hour unit burns about 2.2 gallons an hour.**
+
+## Propane use per hour
+
+A gallon of propane holds about 91,452 BTU (EIA). At full fire, gallons per hour = burner input in BTU per hour ÷ 91,452: a 199,000 BTU per hour unit burns about 2.18 gallons an hour. It reaches full fire only with several hot taps open on a cold day; most of the time it burns far less.
+
+## Propane use per year
+
+Our [water heater sizing calculator](/water-heater-sizing-calculator)'s four-person household uses about 112 gallons of hot water a day, which takes about 22.2 million BTU of heat a year. At an assumed efficiency of 0.88 for a tankless heater:
+
+| Water heater | Propane per year | Per day | Cost at $3.00 a gallon |
+|---|---|---|---|
+| Propane tankless (0.88) | about 275 gallons | about 0.75 | about $826 |
+| Propane tank (0.64) | about 379 gallons | about 1.04 | about $1,136 |
+
+The tankless heater saves the standby heat a tank loses. Check your model's Uniform Energy Factor; a higher one means less propane for the same hot water.
+
+## Propane vs. natural gas
+
+Propane at $3.00 a gallon costs about $3.28 per therm of energy, against an assumed $1.35 per therm for natural gas. So the same tankless heater on natural gas would cost about $340 a year for this household, as the [sizing calculator](/water-heater-sizing-calculator) shows. Propane prices vary by region and season; your supplier's price is the number to use.
+
+## Sizing the propane supply
+
+- **Tank size:** a large tankless heater draws propane quickly at full fire, and small cylinders can't vaporize enough gas in cold weather. The heater's installation manual and your propane supplier specify the minimum tank size.
+- **Regulator and line:** both must be sized for the heater's full input.
+- **Refills:** at about 275 gallons a year for water heating alone, a 500-gallon tank filled to 80% holds about 400 gallons, around 17 months of water heating.
+
+## Frequently asked questions
+
+### How much propane does a tankless water heater use per day?
+
+About 0.75 gallons a day for a typical four-person household, or roughly 275 gallons a year.
+
+### Is a propane tankless water heater cheaper than a propane tank?
+
+Yes. For the same hot water it uses about 27% less propane in this example: about 275 gallons a year against 379 for a tank.
+
+### Is propane or natural gas cheaper for a water heater?
+
+Natural gas, usually. At $3.00 a gallon, propane costs about $3.28 per therm, against an assumed $1.35 for natural gas.
+
+### What size propane tank do I need for a tankless water heater?
+
+Use the minimum in the heater's installation manual, and confirm with your propane supplier; large units and cold climates need bigger tanks.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: British thermal units (propane 91,452 BTU per gallon)", url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

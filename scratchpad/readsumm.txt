@@ -1,0 +1,8 @@
+1. Fake authority phrases: PASS (12 phrase matches, but all are hire-a-licensed/certified-pro ADVICE, questions to ask a contractor, or false positives — no fabricated first-party authority)
+2. External citations: extracted 260 unique URLs; bare-homepage citations: 72 (review)
+3. Author & schema: byline PASS · author Person+sameAs LinkedIn PASS · Article dateModified PASS · BreadcrumbList PASS · per-page og:image PASS · FAQPage FAIL (missing on all 101 FAQ pages)
+4. Privacy & consent: Consent Mode v2 default-deny FAIL (GA4 fires for all incl EEA/UK) · data-controller-in-privacy FAIL · ad-disclosure-vs-loaded FAIL (policy describes ads not served)
+5. Support pages: PASS (all 6 present)
+6. Layout: tables-wrapped PASS · shared header PASS · custom 404 FAIL (no app/not-found.tsx)
+7. Duplicates: dup titles PASS (0) · dup descriptions PASS (0) · H1 PASS (every page renders exactly one <h1> from the layout title; verified in rendered HTML)
+8. Dates: PASS (most common dateModified 2026-07-17 covers 41/141 pages)

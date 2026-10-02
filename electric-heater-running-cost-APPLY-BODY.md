@@ -1,0 +1,84 @@
+---
+slug: "electric-heater-running-cost"
+title: "Electric Heater Running Cost Calculator: Per Hour, Day and Month (2026)"
+description: "What an electric space heater costs to run per hour, day and month at your rate, why every resistance heater is equally efficient, how settings and room size change the cost, and safe use."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-02"
+relatedArticles:
+  - "space-heater-guide"
+  - "kwh-cost-calculator"
+  - "heat-pump-running-cost-calculator"
+  - "heating-cost-calculator"
+  - "how-many-amps-does-a-house-use"
+externalLinks:
+  - label: "U.S. EIA: Electric Power Monthly (residential prices by state)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "U.S. DOE: Energy Saver Guide (PDF)"
+    url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Electric Heater Running Cost
+
+An electric space heater's cost is simple physics: it turns electricity into heat one for one, so what it costs depends only on its wattage, how long it runs and your electricity rate. The calculator below does the math for your heater and rate.
+
+**A 1,500-watt heater uses 1.5 kWh an hour: 27 cents an hour at 18 cents per kWh, $2.16 for 8 hours, and about $65 a month at 8 hours a day. On its 750-watt setting, half that.**
+
+<CalcWrapper calculator="kwh-cost" />
+
+## The formula
+
+**Cost = watts × hours ÷ 1,000 × your rate.** A 1,500-watt heater running 8 hours uses 12 kWh, $2.16 at 18 cents per kWh. Most heaters cycle on and off once the room is warm, so real use is often lower than full power for every hour.
+
+| Setting | Per hour | 8 hours a day | 30 days at 8 hours |
+|---|---|---|---|
+| 1,500 W (high) | $0.27 | $2.16 | $64.80 |
+| 750 W (low) | $0.135 | $1.08 | $32.40 |
+
+## Your rate changes everything
+
+The same 1,500-watt heater costs about 18.5 cents an hour at North Dakota's 12.36 cents per kWh, 27.3 cents at the U.S. average of 18.19, and 69.4 cents at Hawaii's 46.28, the lowest and highest state averages for January to July 2026 (EIA). Every state's rate is in our [kWh cost calculator](/kwh-cost-calculator).
+
+## Every resistance heater is equally efficient
+
+Oil-filled, ceramic, fan-forced and infrared heaters all turn essentially every watt into heat in the room. Their differences are in how they deliver it: fans spread heat quickly, oil-filled radiators hold it longer, infrared warms people and objects directly. A claim that one resistance heater is "more efficient" than another at the same wattage is about comfort, not energy.
+
+## Space heater or heat pump?
+
+The DOE notes that heat pumps can cut electricity used for heating by about half compared with electric furnaces and baseboard heaters. For a room you heat every day, a ductless heat pump costs far less to run than a space heater; for occasional use, a space heater is cheaper to buy. See the [heat pump running cost calculator](/heat-pump-running-cost-calculator).
+
+## Lowering the cost
+
+- **Heat the room you're in** and lower the central thermostat, so the heater replaces heating, rather than adding to it.
+- **Use the thermostat and low setting** instead of running on high continuously.
+- **Close the door** and keep drafts out.
+
+## Safe use
+
+A 1,500-watt heater draws 12.5 amps, most of a standard 15-amp circuit. Plug it directly into a wall outlet, not an extension cord or power strip, and don't share the circuit with other large loads. Keep it at least 3 feet from anything that can burn, and choose a model with tip-over and overheat shutoff; see the [space heater guide](/space-heater-guide).
+
+## Frequently asked questions
+
+### How much does it cost to run a space heater for an hour?
+
+27 cents for a 1,500-watt heater at 18 cents per kWh, or 13.5 cents on a 750-watt setting.
+
+### How much does a space heater add to an electric bill?
+
+About $65 a month for a 1,500-watt heater running 8 hours a day at 18 cents per kWh.
+
+### Is it cheaper to run a space heater or central heat?
+
+Heating one room with a space heater can cost less than heating the whole house, if you turn the central thermostat down. Heating the whole house with space heaters usually costs more.
+
+### Are oil-filled heaters cheaper to run?
+
+Not per hour at the same wattage; all resistance heaters turn electricity into heat at about the same rate. Oil-filled models hold heat longer and cycle more gently.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: Electric Power Monthly, residential prices by state (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "U.S. DOE: Energy Saver Guide (PDF), heat pumps vs. electric resistance heating", url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

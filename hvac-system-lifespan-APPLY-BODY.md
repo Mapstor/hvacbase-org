@@ -1,0 +1,88 @@
+---
+slug: "hvac-system-lifespan"
+title: "How Long Do HVAC Systems Last? Lifespan and When to Replace (2026)"
+description: "How long air conditioners, heat pumps, furnaces, boilers and water heaters last according to the DOE and ENERGY STAR, the signs it's time to replace, and how to weigh a repair against a replacement."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-02"
+relatedArticles:
+  - "hvac-maintenance-cost"
+  - "central-ac-cost-to-install"
+  - "heat-pump-cost-to-install"
+  - "how-long-does-water-heater-last"
+  - "hvac-maintenance-checklist"
+externalLinks:
+  - label: "ENERGY STAR: When is it time to replace?"
+    url: "https://www.energystar.gov/saveathome/heating-cooling/replace"
+  - label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
+    url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# How Long Do HVAC Systems Last?
+
+Heating and cooling equipment rarely fails without warning, but it does wear out, and replacing it before a midwinter breakdown gives you time to choose well. How long it lasts depends on the type, how hard it works and how well it's maintained.
+
+**The DOE puts a central air conditioner's life at 15 to 20 years. ENERGY STAR suggests considering replacement when a heat pump or air conditioner is more than 10 years old, or a furnace or boiler more than 15, especially if it needs frequent repairs and your bills are rising.**
+
+<CalcWrapper calculator="hvac-lifespan" />
+
+## Lifespan and replacement signals
+
+| Equipment | What the sources say |
+|---|---|
+| Central air conditioner | Lasts 15 to 20 years (DOE); consider replacing after 10 (ENERGY STAR) |
+| Room air conditioner | Lasts 10 to 15 years (DOE) |
+| Heat pump | Consider replacing after 10 years (ENERGY STAR) |
+| Furnace or boiler | Consider replacing after 15 years (ENERGY STAR) |
+| Storage water heater | Lasts 10 to 15 years (DOE) |
+| Tankless water heater | About 20 years (DOE) |
+
+ENERGY STAR's age signals are prompts to compare options, not deadlines: a well-maintained system can run longer, and newer equipment is much more efficient. ENERGY STAR says an ENERGY STAR furnace is 15% more efficient than a conventional one, and an ENERGY STAR boiler 5% more efficient than a new standard model.
+
+## Signs it's time to replace
+
+ENERGY STAR lists these signals:
+
+- **Frequent repairs and rising energy bills.**
+- **Rooms that are too hot or too cold.**
+- **Humidity problems**, too dry in winter or too humid in summer.
+- **Excessive dust**, which can come from leaky ducts.
+- **A noisy system.**
+
+## Repair or replace?
+
+Compare a repair quote with a replacement quote for your home. A common contractor rule of thumb is to replace when a repair would cost more than about half the price of a new system, especially on older equipment; it's a rule of thumb, not a standard. Weigh in the equipment's age against the signals above, how efficient it is, and whether its refrigerant is still supported; see the [refrigerant phase-out](/hvac-refrigerant-phase-out).
+
+## Making equipment last
+
+- **Change filters** on schedule; clogged filters overwork the blower and can overheat a furnace.
+- **Keep the outdoor unit clear** and the coils clean.
+- **Get a pre-season tune-up**, the cooling system in spring and the heating system in fall, as ENERGY STAR recommends; see [HVAC maintenance cost](/hvac-maintenance-cost).
+- **Fix duct leaks**, which make the system run longer.
+
+## Frequently asked questions
+
+### How long does an air conditioner last?
+
+A central air conditioner lasts 15 to 20 years, according to the DOE, and a room unit 10 to 15.
+
+### When should I replace my furnace?
+
+ENERGY STAR suggests considering it when a furnace is more than 15 years old, needs frequent repairs, or your bills are rising.
+
+### Is it worth repairing a 15-year-old AC?
+
+For a minor, inexpensive repair, often yes. For a major one, compare it with a replacement quote; a new system is more efficient and comes with a fresh warranty.
+
+### How long do heat pumps last?
+
+ENERGY STAR suggests considering replacement after 10 years, since newer models are more efficient; many run longer with good maintenance.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: When is it time to replace? (10 and 15 years; replacement signals)", url: "https://www.energystar.gov/saveathome/heating-cooling/replace" },
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), central AC 15 to 20 years, room AC 10 to 15", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
+  { title: "U.S. DOE: Energy Saver Guide (PDF), water heater lifespans", url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,213 @@
+---
+slug: "ac-tonnage-calculator"
+title: "AC Tonnage Calculator Per Square Foot (+Sizing Chart) 2026"
+description: "Estimate AC tonnage by square footage, climate zone, insulation, ceilings, sun and windows, plus a sizing chart computed with the calculator's own model."
+cluster: "ac-sizing-selection"
+role: "hub"
+priority: "P1"
+contentType: "calculator-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-25"
+relatedArticles:
+  - "air-conditioner-btu-calculator"
+  - "heat-pump-size-calculator"
+  - "mini-split-sizing-calculator"
+  - "central-ac-cost-to-install"
+  - "minimum-seer-rating-by-state"
+  - "seer2-comparison-calculator"
+externalLinks:
+  - label: "ACCA: Manual J, Residential Load Calculation"
+    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+  - label: "ACCA: Manual S, Residential Equipment Selection"
+    url: "https://www.acca.org/standards/technical-manuals/manual-s"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# AC Tonnage Calculator Per Square Foot (+Sizing Chart)
+
+Two contractors walk through the same house and write down different numbers: one says 4 tons, the other 3.5. Neither shows the math. A central AC that's too big cools the house quickly and shuts off before much moisture drains off the coil, which leaves rooms cold and clammy. One that's too small runs flat out on the hottest afternoons.
+
+This page shows the math. The calculator below estimates tonnage from your square footage and six adjustments, and every chart and example on the page comes from that same formula, so the numbers agree with each other. Treat the result as a starting estimate: the industry standard is ACCA's Manual J load calculation, and for tight, modern homes it often lands lower than any square-footage method, this one included.
+
+**At average insulation and 8-foot ceilings, the calculator puts a 2,000 sq ft home at 3.5 tons in a mixed climate (Washington DC, Kansas City), 3 tons in cold climates, and 4 to 5 tons in hot ones.** One ton is 12,000 BTU per hour of cooling. Use the result to check a contractor's quote, then ask for a Manual J before you buy.
+
+<CalcWrapper type="ac-tonnage" />
+
+## How the calculator works
+
+The estimate starts at **20 BTU per hour per square foot**, a traditional rule-of-thumb baseline, and multiplies it by six factors:
+
+| Factor | Options and multipliers |
+|---|---|
+| Climate zone | Z1 very hot 1.40 · Z2 hot 1.20 · Z3 warm 1.10 · Z4 mixed 1.00 · Z5 cool 0.90 · Z6 cold 0.85 · Z7 very cold 0.80 |
+| Insulation | Poor 1.3 · Average 1.0 · Good 0.9 · Excellent 0.8 |
+| Ceiling height | 8 ft 1.0 · 9 ft 1.1 · 10 ft 1.2 · 12 ft+ 1.4 |
+| Sun exposure | Shaded 0.9 · Average 1.0 · Full sun 1.1 · Heavy sun 1.2 |
+| Windows | +1% per window above 15, −1% per window below |
+| Occupants | +2% per person above 2 |
+
+The total is divided by 12,000 to get tons, then rounded **up** to the next standard size: 1.5, 2, 2.5, 3, 3.5, 4, 4.5 or 5 tons. Above 5 tons, the calculator flags that one residential unit won't cover the load.
+
+Two limits to know before you trust the number:
+
+- **It sizes on the generous side.** The 20 BTU/sq ft baseline comes from traditional rules of thumb. SPEER, a regional energy-efficiency nonprofit, cites ACCA guidance that homes designed with Manuals J, D and S usually have at least 800 to 900 square feet per ton. At its defaults this calculator lands between 412 (Zone 1) and 721 (Zone 7) square feet per ton, so a newer, well-sealed home will usually need less than it shows.
+- **Worst-case inputs compound.** The factors multiply, so choosing several extremes at once can overstate the load. A 3,200 sq ft house with poor insulation, 10-foot ceilings, heavy sun and 25 windows in Zone 2 computes to 13.7 tons, about 51 BTU per square foot. That result means "get a Manual J," not "buy 14 tons."
+
+## AC tonnage chart by square footage
+
+Computed with the calculator's defaults: average insulation, 8-foot ceilings, average sun, 15 windows and 4 occupants. Each cell is the standard unit size the calculator recommends.
+
+| Home size | Z1 | Z2 | Z3 | Z4 | Z5 | Z6 | Z7 |
+|---|---|---|---|---|---|---|---|
+| 1,000 sq ft | 2.5 | 2.5 | 2 | 2 | 2 | 1.5 | 1.5 |
+| 1,200 sq ft | 3 | 2.5 | 2.5 | 2.5 | 2 | 2 | 2 |
+| 1,500 sq ft | 4 | 3.5 | 3 | 3 | 2.5 | 2.5 | 2.5 |
+| 1,800 sq ft | 4.5 | 4 | 3.5 | 3.5 | 3 | 3 | 2.5 |
+| 2,000 sq ft | 5 | 4.5 | 4 | 3.5 | 3.5 | 3 | 3 |
+| 2,200 sq ft | 2 systems | 5 | 4.5 | 4 | 3.5 | 3.5 | 3.5 |
+| 2,500 sq ft | 2 systems | 2 systems | 5 | 4.5 | 4 | 4 | 3.5 |
+| 2,800 sq ft | 2 systems | 2 systems | 2 systems | 5 | 4.5 | 4.5 | 4 |
+| 3,000 sq ft | 2 systems | 2 systems | 2 systems | 2 systems | 5 | 4.5 | 4.5 |
+| 3,500 sq ft | 2 systems | 2 systems | 2 systems | 2 systems | 2 systems | 2 systems | 5 |
+
+Zones as the calculator defines them: Z1 very hot (Miami, Houston), Z2 hot (Phoenix, Las Vegas), Z3 warm (Atlanta, Los Angeles), Z4 mixed (Washington DC, Kansas City), Z5 cool (Chicago, Boston), Z6 cold (Minneapolis, Denver), Z7 very cold (Fargo, Anchorage).
+
+"2 systems" means the estimate passes 5 tons (60,000 BTU/hr), the largest standard size for residential central AC. At the defaults that happens around 2,060 sq ft in Zone 1, 2,885 sq ft in Zone 4 and 3,606 sq ft in Zone 7.
+
+## What size AC for 1,000, 1,500, 2,000, 2,500 or 3,000 sq ft?
+
+Quick answers at the calculator's defaults. Better insulation moves each answer down and poor insulation moves it up, as the 1,500 sq ft answer shows.
+
+### What size AC for 1,000 sq ft?
+
+**2 tons in most climates:** 1.5 tons in cold zones (Z6, Z7) and 2.5 tons in the two hottest (Z1, Z2).
+
+### What size AC for 1,500 sq ft?
+
+**3 tons in a mixed or warm climate**, 2.5 tons in cool and cold zones, 3.5 to 4 tons in hot zones. Insulation matters as much as climate here: in Zone 4, the same 1,500 sq ft needs 3.5 tons with poor insulation and 2.5 tons with good or excellent insulation.
+
+### What size AC for 2,000 sq ft?
+
+**3.5 tons in a mixed climate**, 3 to 3.5 tons in cool and cold zones, 4 to 5 tons in hot zones.
+
+### What size AC for 2,500 sq ft?
+
+**4.5 tons in a mixed climate**, 3.5 to 4 tons in cool and cold zones, 5 tons in a warm zone. In the two hottest zones the estimate passes 5 tons at the defaults, which means two systems or a lower load from better insulation and shading.
+
+### What size AC for 3,000 sq ft?
+
+**4.5 to 5 tons in cool and cold zones.** In mixed, warm and hot zones the estimate passes 5 tons at the defaults, so homes this size there are usually split into two systems, often one per floor.
+
+## Three worked examples
+
+Each example runs the calculator's own formula with the inputs shown.
+
+**1. An 1,800 sq ft two-story in Atlanta (Zone 3)** with average insulation, 9-foot ceilings, full sun, 18 windows and 4 occupants:
+
+- 1,800 × 20 = 36,000 BTU/hr baseline
+- × 1.10 (Zone 3) × 1.1 (9-ft ceilings) × 1.1 (full sun) × 1.03 (18 windows) × 1.04 (4 people)
+- = **51,328 BTU/hr = 4.28 tons → a 4.5-ton unit**
+
+The tall ceilings and full sun add almost a ton compared with the chart's 3.5 tons for the same size and zone.
+
+**2. A 1,200 sq ft new condo in a mixed climate (Zone 4)** with excellent insulation, 8-foot ceilings, shade, 10 windows and 2 occupants:
+
+- 1,200 × 20 = 24,000 BTU/hr baseline
+- × 1.00 (Zone 4) × 0.8 (excellent insulation) × 0.9 (shaded) × 0.95 (10 windows)
+- = **16,416 BTU/hr = 1.37 tons → a 1.5-ton unit**
+
+A contractor using "one ton per 500 square feet" would quote 2.5 tons for the same condo, about 67% more capacity than the calculator estimates.
+
+**3. A 2,500 sq ft 1970s house in Chicago (Zone 5)** with poor insulation, 8-foot ceilings, average sun, 20 windows and 5 occupants:
+
+- 2,500 × 20 = 50,000 BTU/hr baseline
+- × 0.90 (Zone 5) × 1.3 (poor insulation) × 1.05 (20 windows) × 1.06 (5 people)
+- = **65,110 BTU/hr = 5.43 tons**, past the single-unit limit
+
+Run the same house with good insulation (0.9 instead of 1.3) and the estimate falls to 45,077 BTU/hr, or 3.76 tons: a single 4-ton unit. Air sealing and insulation before replacement can cost less than a second system.
+
+## When the estimate passes 5 tons
+
+Standard residential central AC tops out at 5 tons (60,000 BTU/hr). When the calculator shows more than that, you have three options:
+
+- **Two systems**, usually one per floor or wing, each sized to its own zone.
+- **A smaller load**: insulation, air sealing and window shading reduce the tonnage you need, as the Chicago example shows.
+- **A Manual J load calculation**, especially if you chose several worst-case inputs. The multiplier model overstates extreme combinations, and a room-by-room calculation often lands lower.
+
+## Tons to BTU
+
+| Tons | BTU per hour |
+|---|---|
+| 1.5 | 18,000 |
+| 2 | 24,000 |
+| 2.5 | 30,000 |
+| 3 | 36,000 |
+| 3.5 | 42,000 |
+| 4 | 48,000 |
+| 4.5 | 54,000 |
+| 5 | 60,000 |
+
+The "ton" comes from ice. Melting one short ton (2,000 lb) of ice absorbs about 2,000 × 144 = 288,000 BTU, and spreading that over 24 hours gives 12,000 BTU per hour.
+
+## Square feet per ton, by climate
+
+What the calculator's defaults imply, as a quick way to sanity-check a quote:
+
+| Zone | Sq ft per ton |
+|---|---|
+| Z1 very hot | 412 |
+| Z2 hot | 481 |
+| Z3 warm | 524 |
+| Z4 mixed | 577 |
+| Z5 cool | 641 |
+| Z6 cold | 679 |
+| Z7 very cold | 721 |
+
+A contractor's number well above these (more square feet per ton, so a smaller unit) isn't automatically wrong: a Manual J on a tight house often lands there. A number well below them deserves a question about how it was sized.
+
+## Does bigger tonnage cost more to run?
+
+Yes, roughly in proportion to capacity at the same efficiency. Annual cooling cost at 1,500 full-load cooling hours and $0.18 per kWh:
+
+| Size | SEER2 13.4 | SEER2 14.3 | SEER2 16 | SEER2 20 |
+|---|---|---|---|---|
+| 2 tons | $484 | $453 | $405 | $324 |
+| 3 tons | $725 | $680 | $608 | $486 |
+| 4 tons | $967 | $906 | $810 | $648 |
+| 5 tons | $1,209 | $1,133 | $1,012 | $810 |
+
+Cost = tons × 12,000 × 1,500 ÷ (SEER2 × 1,000) × $0.18. The 1,500 hours is an assumption for a mid-range summer; hot climates run far more. Federal minimums for split ACs are 13.4 SEER2 in the North; in the South and Southwest they're 14.3 below 45,000 BTU/hr and 13.8 at 45,000 and above (see [minimum SEER2 by state](/minimum-seer-rating-by-state)). The [SEER2 comparison calculator](/seer2-comparison-calculator) runs the same math with your own hours and rate.
+
+## Frequently asked questions
+
+### Is this calculator a Manual J?
+
+No. Manual J, published by ACCA, is a room-by-room load calculation that accounts for wall and window construction, orientation, air leakage and internal gains. This calculator is a simplified estimate from square footage and six adjustments. Use it to check whether a quote is in a sensible range, and ask the contractor for their Manual J before you sign.
+
+### What happens if my AC is half a ton too big?
+
+It short-cycles more: the house reaches the thermostat setting quickly and the system shuts off before running long enough to dehumidify well. With a single-stage compressor the effect is noticeable in humid climates; two-stage and variable-speed systems handle modest oversizing better because they can run at lower capacity.
+
+### How do I find my current AC's tonnage?
+
+Check the outdoor unit's data plate for the rated cooling capacity in BTU per hour and divide by 12,000. Many manufacturers also embed the nominal capacity in the model number as thousands of BTU: 18, 24, 30, 36, 42, 48 or 60 correspond to 1.5 through 5 tons.
+
+### Does a higher SEER2 rating mean I need a smaller AC?
+
+No. SEER2 measures efficiency, not capacity. A 3-ton unit delivers 36,000 BTU per hour of cooling at any SEER2 rating; the higher-rated unit uses less electricity to do it. Size first, then choose efficiency.
+
+### Why does the chart disagree with my contractor?
+
+The chart uses average inputs and a generous baseline. Your house has specific windows, orientation, duct locations and air leakage that a Manual J measures and this model doesn't. If the difference is more than half a ton, ask the contractor which loads drove their number.
+
+<SourcesBox sources={[
+  { title: "ACCA: Manual J, Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+  { title: "ACCA: Manual S, Residential Equipment Selection", url: "https://www.acca.org/standards/technical-manuals/manual-s" },
+  { title: "ENERGY STAR: Right-Sized Air Conditioners (fact sheet)", url: "https://www.energystar.gov/ia/home_improvement/home_sealing/RightSized_AirCondFS_2005.pdf" },
+  { title: "SPEER: HVAC Sizing Factsheet (citing ACCA sizing guidance)", url: "https://eepartnership.org/program-areas/energy-codes-2/energy-codes/houston-field-study/hvac-sizing-factsheet/" },
+  { title: "U.S. EIA: Electric Power Monthly (residential electricity prices)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

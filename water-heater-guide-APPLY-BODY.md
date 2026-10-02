@@ -1,0 +1,109 @@
+---
+slug: "water-heater-guide"
+title: "Water Heaters: Tank vs Tankless, Sizing and Efficiency (2026 Guide)"
+description: "The main water heater types compared on running cost, lifespan and installation, how to size one, what UEF ratings mean, rebates, and maintenance, with links to every tool."
+cluster: "water-heaters"
+role: "pillar"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-06"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "water-heater-sizing-calculator"
+  - "heat-pump-water-heater-guide"
+  - "tankless-water-heater-guide"
+  - "how-long-does-water-heater-last"
+  - "electric-water-heating-cost"
+externalLinks:
+  - label: "U.S. DOE: Which water heater is right for you?"
+    url: "https://www.energy.gov/node/1026276"
+  - label: "ENERGY STAR: Heat pump water heater fact sheet"
+    url: "https://www.energystar.gov/sites/default/files/asset/document/Heat_Pump_Water_Heater_fact_sheet_12-22-edit.pdf"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Water Heaters: Tank vs Tankless, Sizing and Efficiency
+
+Choosing a water heater comes down to four questions: which fuel you have, how much hot water you use at once, what it costs to run, and how long it lasts. This guide answers each one and points to the calculator or guide that goes deeper.
+
+**For a typical four-person household at 18 cents per kWh and $1.35 per therm, a heat pump water heater costs about $334 a year to run, a gas tankless $340, a gas tank $467 and a standard electric tank $1,271. Tanks last 10 to 15 years and tankless units about 20, according to the DOE.**
+
+## The main types
+
+| Type | How it works | Lifespan (DOE) |
+|---|---|---|
+| Storage tank, gas or electric | Keeps a tank of water hot | 10 to 15 years |
+| Tankless | Heats water as it flows | About 20 years |
+| Heat pump | Moves heat from the air into a tank | 10 to 15 years |
+| Solar | Collectors heat the water, with a backup | About 20 years |
+
+## Running costs
+
+From our [water heater sizing calculator](/water-heater-sizing-calculator), for the default four-person household:
+
+| Type | Energy cost per year |
+|---|---|
+| Heat pump water heater | $334 |
+| Tankless, gas | $340 |
+| Tank, gas | $467 |
+| Tankless, electric | $1,193 |
+| Tank, electric | $1,271 |
+
+ENERGY STAR says a certified heat pump water heater uses less than half the energy of a standard electric storage water heater. See [electric water heating cost](/electric-water-heating-cost) for costs by state.
+
+## Tank or tankless?
+
+A tank stores hot water and can run out; a tankless heater never runs out but can only heat so much flow at once. Tankless saves the standby heat a tank loses, which matters more for gas, and lasts longer, but costs more to install. See the [tankless guide](/tankless-water-heater-guide) and [tankless costs](/tankless-water-heater-cost).
+
+## Sizing
+
+- **Tanks** are sized by first-hour rating, the hot water they can deliver in your busiest hour.
+- **Tankless heaters** are sized by flow rate and temperature rise.
+
+Our [sizing calculator](/water-heater-sizing-calculator) estimates both, and [what size tankless water heater](/what-size-tankless-water-heater) covers flow and temperature rise in detail.
+
+## Efficiency ratings
+
+Water heaters are rated by Uniform Energy Factor (UEF), from a federal test: the higher the number, the less energy for the same hot water. Heat pump water heaters score far above 1, because they move heat rather than making it; electric resistance tanks score just under 1, and gas units range from well below that for standard tanks to close to it for condensing tankless models. Compare models of the same type and size class.
+
+## Installation
+
+- **Gas:** venting matched to the model, and a gas line sized for the burner.
+- **Electric:** a dedicated circuit; whole-house electric tankless units need very large ones. See [water heater wire size](/water-heater-wire-size).
+- **Heat pump:** enough surrounding air, a condensate drain and extra height.
+
+## Rebates
+
+The federal 25C tax credit ended after 2025. HEAR rebates cover up to $1,750 of a heat pump water heater for income-qualified households; see [HVAC tax credits 2026](/hvac-tax-credits-2026).
+
+## Maintenance and replacement
+
+Flush sediment and check the anode rod on the manufacturer's schedule, and descale tankless units, especially with hard water. ENERGY STAR advises replacing a tank proactively once it's over 10 years old; see [how long a water heater lasts](/how-long-does-water-heater-last).
+
+## Frequently asked questions
+
+### What is the most efficient type of water heater?
+
+A heat pump water heater, which ENERGY STAR says uses less than half the energy of a standard electric tank. For gas homes, a high-efficiency gas tankless heater is the most efficient gas option.
+
+### Is tankless better than a tank?
+
+It lasts longer and never runs out, but costs more to install and has a flow limit. For gas homes with high hot-water use, it often makes sense.
+
+### What size water heater do I need?
+
+Size a tank by first-hour rating and a tankless heater by flow and temperature rise. Our sizing calculator does both.
+
+### How long do water heaters last?
+
+10 to 15 years for tanks and heat pump water heaters, and about 20 for tankless and solar, according to the DOE.
+
+<SourcesBox sources={[
+  { title: "U.S. DOE: Which water heater is right for you? (types and lifespans)", url: "https://www.energy.gov/node/1026276" },
+  { title: "ENERGY STAR: Heat pump water heater fact sheet", url: "https://www.energystar.gov/sites/default/files/asset/document/Heat_Pump_Water_Heater_fact_sheet_12-22-edit.pdf" },
+  { title: "U.S. DOE: Home Energy Rebate Programs", url: "https://www.energy.gov/scep/home-energy-rebate-programs" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

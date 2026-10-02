@@ -1,0 +1,117 @@
+You're thinking about a home battery, to keep the lights on during outages, to store solar power, or to cut your electric bill, and you want to understand how they work and what they cost before talking to installers. This guide covers the fundamentals: how backup batteries work, how to size one, the chemistry that matters, and how they compare to a generator.
+
+The figures here are typical 2026 ranges, and costs vary significantly by your home and region, so always get itemized quotes. We focus on how to evaluate any battery system rather than recommending specific products, since the right choice depends on your energy use, whether you have solar, and your goals.
+
+**A home battery backup system stores 10 to 20 kWh of electricity and delivers 5 to 11.5 kW of continuous power, enough to run your essential circuits (refrigerator, lights, Wi-Fi, medical devices, and select HVAC) for 8 to 24 hours during an outage.** In 2026, popular residential batteries cost roughly $8,000 to $16,000 installed. The 30% federal tax credit that used to offset this expired at the end of 2025, so state and utility incentives are now the active pathways (details below).
+
+## Why home batteries are surging in popularity
+
+Several trends are driving demand:
+
+- **More frequent grid outages** from extreme weather and aging infrastructure.
+- **Eroding net-metering policies** that make storing your own solar power more valuable than exporting it.
+- **Falling battery costs** as the technology matures.
+- **Electrification** (heat pumps, EVs, induction cooking) raising the stakes on reliable power.
+
+The net-metering shift is a big one. California's **NEM 3.0** (the Net Billing Tariff, effective April 15, 2023) cut solar export credits from around **$0.30/kWh to roughly $0.05 to $0.08/kWh, about a 75% reduction**, while grid electricity still costs $0.30 or more per kWh at peak. That gap makes storing your solar power in a battery (to use at night) far more valuable than exporting it. Hawaii, Nevada, and other states have made similar changes, so battery storage increasingly pays for itself where net metering has weakened.
+
+## How home battery backup works
+
+A battery backup system has a few core components:
+
+- **The battery** stores DC electricity (measured in kWh of capacity).
+- **An inverter** converts between the battery's DC and your home's AC (some batteries have this built in).
+- **A gateway or automatic transfer switch** detects a grid outage and disconnects your home from the grid (so you don't backfeed the lines), then switches to battery power, usually within milliseconds.
+- **A backup subpanel** (in many installs) holds the essential circuits you want to keep running.
+
+When the grid goes down, the system automatically islands your home and powers your selected circuits from the battery. If you have solar, the battery can recharge from the panels during the day, potentially extending backup indefinitely in a long outage (as long as the sun keeps charging it faster than you drain it).
+
+## Two numbers that matter: capacity and output
+
+Every battery has two key specs, and confusing them is the most common sizing mistake:
+
+- **Capacity (kWh):** how much energy it stores, this determines *how long* it runs your loads. A 13.5 kWh battery holds 13.5 kilowatt-hours.
+- **Continuous power output (kW):** how much power it can deliver at once, this determines *what* you can run simultaneously. A battery with high capacity but low output can run a few things for a long time, but can't start a big load like a central AC.
+
+**Both matter, and for different reasons.** If you want to run a central air conditioner or a well pump (high startup surge), you need enough continuous kW output, not just capacity. If you just want to keep the fridge and lights going through a long outage, capacity matters more.
+
+## How to size a home battery
+
+Sizing depends on what you want to back up and for how long. A rough process:
+
+1. **Decide your backup goal:** essentials only (fridge, lights, Wi-Fi, phone charging, medical devices) or whole-home (everything, including HVAC).
+2. **Add up the loads** you want to run and estimate their daily energy use in kWh.
+3. **Match the capacity** to how many hours you want to cover.
+
+Rough guidance by goal:
+
+| Backup goal | Typical capacity needed | Notes |
+|---|---|---|
+| Essentials only (fridge, lights, Wi-Fi) | 5–10 kWh | One battery often covers 8–24 hrs |
+| Essentials + some HVAC | 10–20 kWh | May need higher continuous kW output |
+| Whole-home backup | 20–40+ kWh | Usually needs 2–3 batteries, or battery + solar |
+
+A typical U.S. home uses around 25 to 40 kWh per day, so a single 10-to-15 kWh battery running *everything* would last only hours, which is why whole-home backup usually means multiple batteries or a battery-plus-solar setup. For essentials-only backup, a single battery goes much further. Our [how many kWh per day is normal guide](/how-many-kwh-per-day-is-normal) helps you gauge your own usage.
+
+## Battery chemistry: LFP vs. NMC
+
+Most home batteries use one of two lithium-ion chemistries, and the difference matters for safety and lifespan:
+
+- **LFP (lithium iron phosphate):** the more common choice for home storage now. **More thermally stable (lower fire risk), longer cycle life, and no cobalt.** Slightly lower energy density (a bit larger for the same capacity), which rarely matters for a wall-mounted home battery.
+- **NMC (nickel manganese cobalt):** higher energy density (more compact), but less thermally stable and shorter cycle life than LFP.
+
+For home backup, **LFP has become the preferred chemistry** because safety and longevity matter more than compactness in a stationary application. When comparing batteries, check the chemistry, LFP is generally the safer, longer-lasting choice.
+
+Other specs worth comparing across any batteries:
+
+- **Usable capacity** (not just nominal, some capacity is held in reserve).
+- **Round-trip efficiency** (how much energy you get back out, typically 90%+).
+- **Warranty** (both years and throughput/cycles, longer is better).
+- **Stackability** (whether you can add units later to expand capacity).
+
+## Battery vs. generator for backup
+
+The two main backup options have real trade-offs:
+
+| | Home battery | Standby generator |
+|---|---|---|
+| Fuel | Stored electricity (+ solar) | Natural gas, propane, or diesel |
+| Runtime | Hours (longer with solar recharge) | Days (as long as fuel lasts) |
+| Noise | Silent | Loud |
+| Maintenance | Minimal | Regular (oil, fuel, testing) |
+| Emissions | None | Yes |
+| Instant switchover | Yes (milliseconds) | No (10–30 sec delay) |
+| Best for | Short/medium outages, solar homes, quiet operation | Long multi-day outages, whole-home high loads |
+
+The honest summary: **a battery is best for shorter outages, solar integration, silent operation, and daily bill management; a generator is better for long, multi-day outages** and running heavy whole-home loads without worrying about capacity. Some homes use both. For generator sizing, see our [generator guide](/generator-guide).
+
+## Cost and incentives in 2026
+
+Installed costs (battery, gateway, electrical work, permitting, labor) typically run **$8,000 to $16,000** for a popular residential battery, varying by capacity, your electrical panel's condition, and installer.
+
+On incentives, the rules changed:
+
+- **The 30% federal residential clean energy credit (Section 25D) expired for systems placed in service after December 31, 2025** under the OBBBA (PL 119-21). It previously applied to standalone batteries (they didn't need to be paired with solar). For 2026 installs, it no longer applies.
+- **Carryforward:** an unused pre-2026 25D credit (from a 2024 or 2025 install) can still be carried forward to future tax years.
+- **State and utility incentives** are now the active pathways, several states and utilities offer battery-storage rebates or bill-credit programs (like virtual power plant programs that pay you to share stored energy during grid peaks). Check the DSIRE database for your area.
+
+## Frequently asked questions
+
+**How long will a home battery power my house?**
+It depends on the battery's capacity and your loads. A single 10-to-15 kWh battery can run essentials (fridge, lights, Wi-Fi) for 8 to 24 hours, but only a few hours if you try to run everything including HVAC. Whole-home backup for a full day usually requires multiple batteries or a battery-plus-solar system that recharges during daylight.
+
+**How much does a home battery cost in 2026?**
+Popular residential batteries cost roughly $8,000 to $16,000 installed, depending on capacity, your electrical setup, and installer. The 30% federal tax credit that used to reduce this expired at the end of 2025, so state and utility incentives are now the way to offset the cost, check what your area offers.
+
+**Is a home battery better than a generator?**
+It depends on your needs. A battery is silent, maintenance-free, switches over instantly, and pairs with solar, best for shorter outages and daily bill management. A generator runs for days as long as it has fuel and handles heavy whole-home loads, best for long, multi-day outages. Some homeowners install both.
+
+**What battery chemistry is safest for home use?**
+LFP (lithium iron phosphate) is generally the safer choice for home storage, it's more thermally stable (lower fire risk) and lasts more cycles than NMC (nickel manganese cobalt), at the cost of being slightly larger for the same capacity. Most home batteries have shifted to LFP for exactly these reasons.
+
+**Can a home battery run my air conditioner?**
+It can, but you need enough continuous power output (kW), not just capacity (kWh), because a central AC has a high startup surge. A battery with high capacity but low output may not start a large AC. Check the battery's continuous and peak kW ratings against your AC's requirements, and expect a battery to run AC for a limited time unless it's large or solar-recharged.
+
+## How we sourced this page
+
+Battery capacity, output, and chemistry information reflects general lithium-ion home-storage technology (LFP and NMC characteristics, round-trip efficiency, and sizing based on household load), consistent with **U.S. Department of Energy** and **NREL** (National Renewable Energy Laboratory) energy-storage guidance. Household energy-use figures are from the **U.S. EIA**. The California NEM 3.0 export-credit figures (a roughly 75% reduction from about $0.30/kWh to $0.05 to $0.08/kWh, effective April 15, 2023) are documented by the CPUC and widely reported. The tax-credit information reflects current federal rules: the **IRS** Section 25D residential clean energy credit expired for systems placed in service after December 31, 2025 under the OBBBA, with carryforward of unused pre-2026 credit allowed; state and utility incentives (tracked in the **DSIRE** database) are the active pathways for 2026. Cost figures are typical ranges that vary by system and region, not fixed quotes. We recommend no specific brands or models; capacity, output, chemistry, and warranty matter more than brand for evaluating a home battery.

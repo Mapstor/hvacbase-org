@@ -1,0 +1,80 @@
+---
+slug: "radiant-floor-heating-pros-cons"
+title: "Radiant Floor Heating: Pros, Cons and What It Costs to Run (2026)"
+description: "Hydronic and electric radiant floor heating compared: comfort, efficiency in context, running cost, installation, flooring, response time, and when it's the right choice."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-01"
+relatedArticles:
+  - "boiler-vs-furnace"
+  - "heating-cost-calculator"
+  - "furnace-vs-heat-pump"
+  - "kwh-cost-calculator"
+  - "space-heater-guide"
+externalLinks:
+  - label: "U.S. EIA: Electric Power Monthly (residential prices)"
+    url: "https://www.eia.gov/electricity/monthly/"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Radiant Floor Heating: Pros and Cons
+
+Radiant floor heating warms the floor itself, which then warms people and objects in the room directly. It's one of the most comfortable ways to heat a space, but its cost, installation and slow response make it a better fit for some homes and rooms than others.
+
+**Radiant floors give even, quiet, draft-free heat with warm floors and no ducts. Hydronic systems circulate warm water from a boiler or heat pump, and suit whole homes; electric mats and cables suit single rooms. They cost more to install, respond slowly, and electric systems cost as much per unit of heat as any electric resistance heater: a 1,200-watt mat running 4 hours a day costs about $26 a month at 18 cents per kWh.**
+
+## Two kinds of radiant floors
+
+- **Hydronic:** tubing in or under the floor carries warm water from a boiler, water heater or heat pump. Higher installation cost, lower running cost with an efficient heat source; the usual choice for whole homes.
+- **Electric:** heating cables or mats under the floor covering. Cheap to install in one room, but every kWh delivers one kWh of heat, so they're best for bathrooms and small spaces.
+
+## Pros
+
+- **Comfort:** warm floors and even temperatures from floor to ceiling, with no drafts.
+- **Quiet and invisible:** no blowing air, vents or radiators.
+- **No ducts**, so no duct losses.
+- **Works well with low water temperatures**, which is where condensing boilers and heat pumps run most efficiently.
+
+## Cons
+
+- **Installation cost**, highest for hydronic retrofits under existing floors.
+- **Slow response:** concrete and thick floors take hours to warm and cool, so they suit steady temperatures more than deep setbacks.
+- **No cooling:** cooling needs a separate system, such as mini splits.
+- **Flooring limits:** thick carpet and pads insulate the floor and reduce output; tile and stone conduct heat well.
+- **Repairs** under a finished floor are harder to reach.
+
+## Running cost
+
+A radiant floor's cost depends on its heat source, not the floor. Hydronic heat from a 95% boiler costs about the same as a 95% furnace on the same fuel; see the [heating cost calculator](/heating-cost-calculator) and [boiler vs. furnace](/boiler-vs-furnace).
+
+Electric radiant is resistance heat: cost = watts × hours ÷ 1,000 × your rate. A 1,200-watt mat running 4 hours a day uses 144 kWh a month, about $26 at 18 cents per kWh.
+
+## When it's the right choice
+
+- **New construction or major renovation**, when the floor is open anyway.
+- **Cold-floor rooms:** bathrooms, basements and kitchens with tile.
+- **Homes with a boiler or heat pump** that can run at low water temperatures.
+
+## Frequently asked questions
+
+### Is radiant floor heating more efficient than forced air?
+
+It avoids duct losses and can let the room feel comfortable at a slightly lower air temperature, but its running cost depends mainly on the heat source. Electric radiant is resistance heat, the most expensive way to heat with electricity.
+
+### How much does it cost to run electric floor heating?
+
+A 1,200-watt mat running 4 hours a day costs about $26 a month at 18 cents per kWh.
+
+### Can radiant floors cool a house?
+
+Not in typical homes. Cooling needs a separate system such as mini splits or central air.
+
+### What flooring works best with radiant heat?
+
+Tile and stone, which conduct heat well. Thick carpet and pads reduce the heat that reaches the room.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,77 @@
+---
+slug: "air-changes-per-hour-calculator"
+title: "Air Changes per Hour (ACH) Calculator: CFM to ACH and Back (2026)"
+description: "Calculate air changes per hour from airflow and room size, see the difference between ventilation ACH and an air purifier's filtered ACH, and how ACH50 measures air leakage."
+cluster: "air-purifiers-air-quality"
+role: "spoke"
+priority: "P2"
+contentType: "calculator"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "air-purifier-sizing-guide"
+  - "whole-house-ventilation-systems"
+  - "how-to-improve-indoor-air-quality"
+  - "hepa-filter-explained"
+  - "duct-leakage-testing"
+externalLinks:
+  - label: "ASHRAE: Standards 62.1 and 62.2"
+    url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2"
+  - label: "AHAM Verifide: air cleaner ratings"
+    url: "https://ahamverifide.org/"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Air Changes per Hour (ACH) Calculator
+
+Air changes per hour is how many times a room's full volume of air is moved, replaced or filtered in an hour. It's a way of comparing airflow across rooms of different sizes, whether the air comes from outdoors, an exhaust fan or an air purifier.
+
+**ACH = airflow in cubic feet per minute × 60 ÷ room volume in cubic feet. A 12 × 15 foot room with an 8-foot ceiling holds 1,440 cubic feet, so 120 CFM moves its air 5 times an hour. Ventilation ACH (fresh outdoor air) and an air purifier's ACH (filtered room air) measure different things.**
+
+<CalcWrapper type="ach" />
+
+## The formula
+
+- **ACH = CFM × 60 ÷ volume.**
+- **CFM needed = volume × target ACH ÷ 60.**
+
+Volume is length × width × ceiling height. The 60 converts cubic feet per minute to cubic feet per hour.
+
+## Ventilation vs. filtration
+
+- **Ventilation** brings in outdoor air and exhausts indoor air. ASHRAE Standard 62.2 sets a home's continuous ventilation in cfm: 0.03 per square foot plus 7.5 per person, counted as bedrooms plus one. For a 2,000 sq ft, three-bedroom home that's 90 cfm, which in a 16,000-cubic-foot house is about 0.34 ACH. See [whole-house ventilation](/whole-house-ventilation-systems).
+- **Filtration** recirculates room air through a filter. AHAM's two-thirds rule for air purifiers, a smoke CADR of two-thirds of the floor area, works out to about 5 ACH of filtered air at an 8-foot ceiling. See the [air purifier sizing guide](/air-purifier-sizing-guide).
+
+The calculator's per-room targets are common rules of thumb for comparing rooms, not code requirements.
+
+## ACH50: measuring air leakage
+
+Energy auditors use a blower door to depressurize a house to 50 pascals and measure the airflow needed to hold it. That airflow × 60 ÷ the house volume is ACH50, a measure of how leaky the building is. The 2021 International Energy Conservation Code requires new homes to test at no more than 3 ACH50 in most climate zones, and 5 in the warmest.
+
+## Frequently asked questions
+
+### How do I calculate air changes per hour?
+
+Multiply the airflow in CFM by 60 and divide by the room's volume in cubic feet. 120 CFM in a 1,440-cubic-foot room is 5 ACH.
+
+### How many air changes per hour does a house need?
+
+For fresh air, ASHRAE 62.2 sets ventilation in cfm, not ACH: about 90 cfm for a 2,000 sq ft, three-bedroom home, roughly 0.34 ACH.
+
+### How many air changes per hour should an air purifier provide?
+
+AHAM's two-thirds rule works out to about 5 ACH of filtered air at an 8-foot ceiling. Aim higher for allergies or smoke.
+
+### What is ACH50?
+
+The air changes per hour measured with a blower door at 50 pascals of pressure, used to rate how airtight a house is.
+
+<SourcesBox sources={[
+  { title: "ASHRAE: Standards 62.1 and 62.2 (residential ventilation rates)", url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2" },
+  { title: "AHAM Verifide: certified air cleaner ratings (two-thirds rule)", url: "https://ahamverifide.org/" },
+  { title: "ICC: 2021 International Energy Conservation Code (air leakage testing)", url: "https://codes.iccsafe.org/content/IECC2021P2" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

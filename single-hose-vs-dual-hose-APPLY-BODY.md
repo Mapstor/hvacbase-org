@@ -1,0 +1,102 @@
+You're shopping for a portable AC and keep seeing "single-hose" and "dual-hose" without a clear explanation of which is better, or whether the price difference is worth it. This guide breaks down the real difference (it comes down to one bit of physics), when each is the right choice, and how much the efficiency gap actually matters for your situation.
+
+The efficiency figures here come from the physics of how these units work and the DOE's portable-AC test procedure, linked at the bottom. We don't recommend specific models, since the single-vs-dual-hose distinction matters more than any particular brand.
+
+**Dual-hose portable ACs are roughly 10 to 30% more efficient than single-hose units, because they don't create negative pressure in your room.** A dual-hose unit draws its condenser air from outside through a dedicated intake hose, while a single-hose unit exhausts room air, which forces warm unconditioned air to leak in through every gap, air the unit then has to cool all over again. That said, single-hose units cost less, are lighter and simpler, and make up the large majority of the market. Which is right for you depends on your room and how hard the AC has to work.
+
+## The core difference: where the condenser air comes from
+
+Both types cool the same way, but they handle the hot "condenser" air differently, and that one difference drives everything:
+
+- **Single-hose:** pulls air from your room, runs it across the hot condenser coil, and exhausts that hot air outside through one hose. The air it exhausts has to be replaced, so your room pulls in outside air through gaps.
+- **Dual-hose:** pulls condenser air from *outside* through a second intake hose, cools with it, and exhausts it back outside. Your room air stays in the room.
+
+That's the whole distinction, and it's why dual-hose units are more efficient.
+
+## Why single-hose units lose efficiency (the negative-pressure problem)
+
+Here's the physics that matters. A single-hose unit exhausts room air outside, and **every cubic foot of air it exhausts has to be replaced by a cubic foot of air from somewhere.** Your room becomes a slight low-pressure zone, and air rushes in to equalize it from wherever it can:
+
+- Under and around doors
+- Through window gaps
+- Around electrical outlets
+- From the attic, adjacent rooms, and cracks in the walls
+
+The problem is that **this replacement air is unconditioned**, it's the same temperature as whatever's on the other side of those gaps. On a 95°F day, a single-hose unit is pulling 95°F air into your room through every crack while simultaneously trying to cool the room down. It ends up fighting a constant stream of heat that its own design pulls in.
+
+### How much cooling this actually costs
+
+The DOE's portable-AC test procedure (10 CFR Part 430, Appendix CC) specifically measures this infiltration penalty. In testing, **single-hose units lose roughly 10 to 30% of their rated cooling capacity to infiltration**, with the exact amount depending on how air-tight your room is and the outdoor conditions:
+
+| Room type | Approx. capacity lost to infiltration |
+|---|---|
+| Well-sealed room (new, weatherstripped) | ~10–15% |
+| Average room (typical apartment or house) | ~15–22% |
+| Drafty room (older building, gaps under doors) | ~22–30% |
+| Windy day (positive outdoor pressure) | 25–35%+ |
+
+**Wind makes single-hose units noticeably worse.** When wind pushes on the exterior of your building, even more unconditioned air is forced through the gaps, so a single-hose unit facing into prevailing wind can lose the most efficiency exactly when you need cooling most.
+
+## Why dual-hose units are more efficient
+
+Because a dual-hose unit takes its condenser air from outside and returns it outside, **no room air leaves, so there's no negative pressure and no infiltration.** The unit doesn't waste any of its capacity re-cooling warm replacement air, so more of its rated BTUs go toward actually lowering your room temperature.
+
+The practical result:
+
+- **Faster cooling.** In comparisons of equivalently-rated units, dual-hose models cool a room faster, because they aren't fighting infiltration.
+- **Lower running cost.** The compressor doesn't have to run as long to hold a temperature, so a dual-hose unit generally uses less electricity for the same result, the efficiency edge is largest in hot weather, drafty rooms, and larger spaces.
+
+The efficiency gap is real but situational: in a small, well-sealed room on a mild day, the difference is minor; in a large or drafty room during a heat wave, it's substantial.
+
+## Single-hose vs. dual-hose: the trade-offs
+
+| | Single-hose | Dual-hose |
+|---|---|---|
+| Efficiency | Lower (10–30% lost to infiltration) | Higher (minimal infiltration) |
+| Cooling speed | Slower in hot/drafty rooms | Faster |
+| Running cost | Higher | Lower |
+| Purchase price | Lower | Higher |
+| Weight and size | Lighter, more compact | Heavier, bulkier |
+| Installation | Simpler (one hose) | Slightly more involved (two hoses) |
+| Availability | Most models | Fewer models |
+
+The pattern: **single-hose wins on price, weight, and simplicity; dual-hose wins on efficiency, cooling speed, and running cost.**
+
+## Which should you choose?
+
+Match the type to your situation:
+
+**A single-hose unit is fine if:**
+- Your room is **small and reasonably well-sealed**.
+- You'll use it **occasionally** (the efficiency difference matters less with light use).
+- **Upfront price, weight, or portability** is your priority.
+- Your climate is mild, or you only need to take the edge off.
+
+**A dual-hose unit is worth it if:**
+- Your room is **larger, drafty, or hard to cool**.
+- You'll run it **a lot** during a hot season (lower running cost adds up).
+- You're in a **hot climate** where the AC works hard.
+- Getting the room genuinely cold (not just slightly cooler) matters.
+
+A middle-ground tip: whichever type you get, **sealing the room helps a single-hose unit a lot**, weatherstrip doors and windows and seal obvious gaps to reduce how much unconditioned air gets pulled in. And size the unit properly for your room, our [portable AC and BTU calculator](/air-conditioner-btu-calculator) helps with that. For venting either type in a room without a standard window, see our [how to vent a portable AC](/how-to-vent-portable-ac-without-window) guide.
+
+## Frequently asked questions
+
+**Are dual-hose portable ACs really better?**
+Yes, they're more efficient, roughly 10 to 30% better, because they don't create the negative pressure that makes single-hose units pull in warm unconditioned air. The advantage is largest in hot weather, larger rooms, and drafty spaces. In a small, well-sealed room on a mild day, the real-world difference is smaller.
+
+**Why are single-hose portable ACs so common if they're less efficient?**
+Because they're cheaper, lighter, and simpler to set up, and for occasional use in a small room, the efficiency penalty is modest. They dominate the market on price and convenience, which is why most portable ACs sold are single-hose.
+
+**How much does a single-hose portable AC actually lose?**
+The DOE test procedure measures roughly a 10 to 30% loss of rated cooling capacity to infiltration, depending on your room's air-tightness and outdoor conditions. A drafty room or a windy day pushes toward the high end; a well-sealed room stays near the low end.
+
+**Can I make a single-hose unit more efficient?**
+Yes, sealing your room helps a lot. Weatherstrip doors and windows, seal gaps around the exhaust and any wall penetrations, and close off the room from unconditioned spaces. This reduces how much warm air gets pulled in to replace the exhausted air, recovering some of the lost efficiency.
+
+**Is a dual-hose unit worth the extra cost?**
+It depends on use. If you'll run it heavily in a hot climate or a large/drafty room, the lower running cost and better cooling usually justify the higher price. For light use in a small, sealed room, a single-hose unit is often the more sensible value.
+
+## How we sourced this page
+
+The physics of single-hose infiltration (a single-duct unit exhausts room air, creating negative pressure that draws unconditioned air in through gaps, reducing effective cooling) is established building science and is specifically measured by the **U.S. Department of Energy's** portable-AC test procedure (10 CFR Part 430, Appendix CC), which calculates the infiltration-air heat penalty for single-duct units. That procedure incorporates the **AHAM** ANSI/AHAM PAC-1 portable-AC test standard. The 10 to 30% capacity-loss range reflects the infiltration penalty's dependence on room air-tightness and outdoor conditions; independent testing and manufacturer lab data report figures in a similar range. Cooling-speed and running-cost comparisons follow directly from the infiltration difference. We recommend no specific models; the single-vs-dual-hose design distinction, and sizing the unit correctly for your room, matter more than brand.

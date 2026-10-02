@@ -1,0 +1,79 @@
+---
+slug: "hvac-energy-saving-tips"
+title: "HVAC Energy Saving Tips: 14 Ways to Cut Heating and Cooling Costs (2026)"
+description: "Fourteen ways to cut heating and cooling costs, each backed by DOE or ENERGY STAR figures: thermostat setbacks, air and duct sealing, filters, fans, windows, insulation, maintenance and replacement."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-02"
+relatedArticles:
+  - "smart-thermostat-savings"
+  - "duct-leakage-testing"
+  - "insulation-r-value-guide"
+  - "how-often-change-hvac-filter"
+  - "hvac-system-lifespan"
+externalLinks:
+  - label: "U.S. DOE: Energy Saver Guide (PDF)"
+    url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf"
+  - label: "ENERGY STAR: Duct sealing benefits"
+    url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing/benefits"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# HVAC Energy Saving Tips
+
+Heating and cooling are the largest energy users in most homes, about 32% of household energy use according to the DOE. The tips below are the ones the DOE and ENERGY STAR attach numbers to, roughly in order from free to bigger projects.
+
+**The biggest low-cost savings come from thermostat setbacks (as much as 10% a year, per the DOE), sealing air leaks (10% to 20% on heating and cooling bills) and clean filters (5% to 15% lower air conditioner energy use). Sealing leaky ducts, adding insulation and replacing old equipment save more but cost more.**
+
+## Free and quick
+
+1. **Set back the thermostat.** Turning it down 7 to 10°F for 8 hours a day in fall and winter can save as much as 10% a year, according to the DOE; with a heat pump, use a thermostat designed for heat pumps.
+2. **Use ceiling fans in summer.** The DOE says a ceiling fan lets you raise the thermostat about 4°F with no loss in comfort; turn fans off when you leave the room.
+3. **Use window coverings.** Close them on sunny summer days, and open south-facing ones on winter days to let in the sun's heat.
+4. **Set the fan to Auto.** The DOE recommends Auto rather than On, unless your system is set up to run continuously for air quality.
+5. **Turn off exhaust fans** within about 20 minutes after cooking or bathing, as the DOE suggests.
+
+## Low cost
+
+6. **Change filters.** The DOE says clean filters can lower an air conditioner's energy use by 5% to 15%; check them monthly in heavy-use seasons. See [how often to change your filter](/how-often-change-hvac-filter).
+7. **Seal air leaks.** Caulking and weatherstripping can save 10% to 20% on heating and cooling bills, according to the DOE.
+8. **Program it once.** A programmable or smart thermostat makes setbacks happen daily; see [smart thermostat savings](/smart-thermostat-savings).
+
+## Bigger projects
+
+9. **Seal and insulate ducts.** ENERGY STAR says leaky ducts can reduce heating and cooling efficiency by as much as 20%; see [duct leakage testing](/duct-leakage-testing).
+10. **Add insulation** to ENERGY STAR's recommended levels for your climate zone; see the [insulation R-value guide](/insulation-r-value-guide).
+11. **Add storm windows.** Low-e storm windows can save 10% to 30% on heating and cooling, depending on your existing windows, according to the DOE.
+12. **Get a pre-season tune-up**, the cooling system in spring and heating in fall, as ENERGY STAR recommends.
+
+## Replacing equipment
+
+13. **Know the replacement signals.** ENERGY STAR suggests considering replacement when a heat pump or air conditioner is more than 10 years old, or a furnace or boiler more than 15; see [HVAC system lifespan](/hvac-system-lifespan).
+14. **Choose efficient equipment.** ENERGY STAR says its certified furnaces are 15% more efficient than conventional models, and the DOE says heat pumps can cut heating electricity by about half compared with electric furnaces and baseboard heat.
+
+## Frequently asked questions
+
+### What is the easiest way to save on heating and cooling?
+
+Thermostat setbacks: the DOE says turning it down 7 to 10°F for 8 hours a day can save as much as 10% a year, at no cost.
+
+### Do ceiling fans save energy?
+
+Yes, if you raise the thermostat while they run; the DOE says about 4°F with no loss in comfort. A fan in an empty room only uses electricity.
+
+### How much can air sealing save?
+
+10% to 20% on heating and cooling bills, according to the DOE.
+
+### When should I replace my HVAC system?
+
+ENERGY STAR suggests considering it after 10 years for a heat pump or AC and 15 for a furnace or boiler, especially with frequent repairs and rising bills.
+
+<SourcesBox sources={[
+  { title: "U.S. DOE: Energy Saver Guide (PDF), thermostat, air sealing, fans, windows, storm windows", url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf" },
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), clean filters 5 to 15%", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
+  { title: "ENERGY STAR: Duct sealing benefits (as much as 20%)", url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing/benefits" },
+  { title: "ENERGY STAR: When is it time to replace?", url: "https://www.energystar.gov/saveathome/heating-cooling/replace" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,90 @@
+---
+slug: "air-source-vs-ground-source-heat-pump"
+title: "Air-Source vs Ground-Source Heat Pump: Which Is Right for You? (2026)"
+description: "Air-source and ground-source (geothermal) heat pumps compared: how each works, why the ground's steady temperature raises efficiency, running cost, installation, and which fits your home."
+cluster: "heat-pumps"
+role: "spoke"
+priority: "P2"
+contentType: "comparison"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-10-01"
+relatedArticles:
+  - "heat-pump-guide"
+  - "coefficient-of-performance"
+  - "heat-pump-running-cost-calculator"
+  - "heat-pump-in-cold-weather"
+  - "hvac-tax-credits-2026"
+externalLinks:
+  - label: "ENERGY STAR: Geothermal heat pumps"
+    url: "https://www.energystar.gov/products/geothermal_heat_pumps"
+  - label: "IRS: Residential Clean Energy Credit (25D)"
+    url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Air-Source vs Ground-Source Heat Pump
+
+Both are heat pumps: they move heat instead of making it. An air-source heat pump trades heat with the outdoor air; a ground-source, or geothermal, heat pump trades it with the ground through buried pipes. That one difference drives efficiency, installation cost and which homes each suits.
+
+**The ground stays at a fairly steady temperature year-round, far milder than winter air, so a ground-source heat pump works more efficiently in cold weather. For the same house, at an assumed seasonal heating COP of 3.5 against an air-source unit at 8.2 HSPF2, heating drops from about 7,112 kWh to 4,884 kWh a year, $1,280 to $879 at 18 cents per kWh. Installing the ground loop costs far more.**
+
+## How each works
+
+- **Air-source:** an outdoor unit with a fan exchanges heat with the outdoor air, like a central air conditioner that also runs in reverse.
+- **Ground-source:** a loop of buried pipe carries water or antifreeze through the ground, and an indoor unit exchanges heat with it. Loops run horizontally in trenches, vertically in boreholes, or through a pond, depending on the land.
+
+## Why the ground is more efficient
+
+A heat pump's efficiency falls as the gap between the heat source and the delivered air grows. Physics sets an upper limit: delivering 95°F air, the maximum possible COP is about 12.3 drawing from 50°F ground but 6.2 from 5°F outdoor air. Real heat pumps reach well below these limits, but the ground-source unit keeps its advantage when it's coldest.
+
+## Running cost
+
+For a 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days, the house needs about 58 million BTU of heat a year:
+
+| System | Assumption | Heating electricity | Cost at 18 cents per kWh |
+|---|---|---|---|
+| Air-source heat pump | 8.2 HSPF2, seasonal COP about 2.4 | 7,112 kWh | $1,280 |
+| Ground-source heat pump | Assumed seasonal COP 3.5 | 4,884 kWh | $879 |
+
+The ground-source figure uses an assumed seasonal COP for illustration; check the rated efficiency of the systems you're quoted. ENERGY STAR certifies geothermal heat pumps separately from air-source models.
+
+## Installation
+
+The ground loop is the big cost and the reason ground-source systems cost several times more to install. Horizontal loops need open land; vertical loops need drilling. An air-source heat pump installs like a central air conditioner, and a cold-climate model handles most U.S. climates; see [heat pumps in cold weather](/heat-pump-in-cold-weather).
+
+## Tax credits
+
+The federal Residential Clean Energy Credit (25D), which covered geothermal heat pumps, ended for expenditures made after December 31, 2025. HEAR rebates for heat pumps, where your state's program is open, may apply; see [HVAC tax credits 2026](/hvac-tax-credits-2026).
+
+## Which is right for you
+
+- **Ground-source:** new construction or major renovation, land or drilling access, very cold winters, and a long time in the home to recover the installation cost.
+- **Air-source:** most existing homes, especially in mild and mixed climates, and anyone who wants a far lower installed price.
+
+## Frequently asked questions
+
+### Is a geothermal heat pump better than an air-source heat pump?
+
+More efficient, especially in cold weather, but much more expensive to install. Whether it pays back depends on your climate, energy prices and how long you stay.
+
+### How much less electricity does a ground-source heat pump use?
+
+In the example here, about 31% less for heating: 4,884 kWh against 7,112, at an assumed seasonal COP of 3.5.
+
+### Is there still a tax credit for geothermal heat pumps?
+
+The federal 25D credit ended for expenditures after December 31, 2025. State and utility programs may still offer incentives.
+
+### Do air-source heat pumps work in cold climates?
+
+Yes, especially cold-climate models; ENERGY STAR's cold-climate criteria require at least 70% of rated capacity at 5°F.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Geothermal heat pumps", url: "https://www.energystar.gov/products/geothermal_heat_pumps" },
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (cold climate)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
+  { title: "IRS: Residential Clean Energy Credit (25D)", url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,81 @@
+---
+slug: "portable-generator-safety-tips"
+title: "Portable Generator Safety: Carbon Monoxide, Placement and Connection (2026)"
+description: "How to run a portable generator safely: carbon monoxide and the 20-foot rule, CO alarms and CO-shutoff generators, connecting to a house without backfeeding, cords, fueling and weather."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-02"
+relatedArticles:
+  - "generator-guide"
+  - "carbon-monoxide-detector-guide"
+  - "how-many-amps-does-generator-produce"
+  - "what-size-generator-do-i-need"
+  - "propane-generator-usage-per-hour"
+externalLinks:
+  - label: "CPSC: Generators safety"
+    url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Generators"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Portable Generator Safety
+
+A portable generator keeps essentials running in an outage, but its exhaust is one of the most dangerous things in a home during a storm. Almost every generator death is preventable with a few rules about where it runs and how it connects.
+
+**The CPSC reports about 85 deaths a year from carbon monoxide from portable generators. Run a generator outdoors only, at least 20 feet from the house, with the exhaust pointed away from doors, windows and vents; never in a garage, basement or crawl space, even with the door open. Keep battery-backed CO alarms working inside, and never plug a generator into a wall outlet.**
+
+## Carbon monoxide
+
+Generator exhaust contains carbon monoxide, a colorless, odorless gas that can kill within minutes at high concentrations. Opening doors or windows doesn't make an indoor or garage location safe. If you feel dizzy, sick or weak while a generator runs, get to fresh air immediately and call for help.
+
+## Placement
+
+- **Outdoors only, at least 20 feet from the house**, as the CPSC advises.
+- **Exhaust pointed away** from doors, windows and vents, including your neighbors'.
+- **Never in an enclosed or partly enclosed space**: a garage, basement, crawl space, shed or porch.
+
+## CO alarms and CO-shutoff generators
+
+Install battery-powered or battery-backup CO alarms on every level and outside sleeping areas, and test them before storm season; see the [carbon monoxide detector guide](/carbon-monoxide-detector-guide). Some generators shut themselves off when carbon monoxide builds up around them, or emit less of it; when buying, look for one certified to a CO safety standard.
+
+## Connecting to the house
+
+Never plug a generator into a household outlet to power the house. Backfeeding can energize utility lines, endangering line workers and neighbors, and can damage the generator and your wiring.
+
+Connect through a transfer switch or a listed interlock installed by an electrician. See [how many amps a generator produces](/how-many-amps-does-generator-produce) for outlet and cord ratings.
+
+## Cords
+
+Use heavy-duty outdoor extension cords rated for the load, without cuts or damaged plugs, and keep them out of water and away from where people walk or drive.
+
+## Fueling and storage
+
+Turn the generator off and let it cool before refueling; fuel spilled on hot engine parts can ignite. Store fuel in approved containers away from living areas and any flame.
+
+## Weather
+
+Keep the generator dry. Run it on a dry surface under an open, canopy-like cover, never in standing water, and dry your hands before touching it.
+
+## Frequently asked questions
+
+### How far should a generator be from the house?
+
+At least 20 feet, with the exhaust pointed away from doors, windows and vents, as the CPSC advises.
+
+### Can I run a generator in my garage with the door open?
+
+No. Carbon monoxide can build up to deadly levels in a garage even with the door open.
+
+### Can I plug my generator into a wall outlet?
+
+No. That backfeeds the house wiring and can energize utility lines. Use a transfer switch or interlock installed by an electrician.
+
+### Do I need a CO alarm if I use a generator?
+
+Yes. Battery-powered or battery-backup CO alarms inside the home are essential whenever a generator runs nearby.
+
+<SourcesBox sources={[
+  { title: "CPSC: Generators safety (carbon monoxide, 20 feet from the house)", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Generators" },
+  { title: "CPSC: Portable generator carbon monoxide deaths", url: "{{CPSC_CO_DEATHS_URL}}" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

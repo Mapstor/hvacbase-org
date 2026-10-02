@@ -1,0 +1,10 @@
+content/mini-split-air-conditioners/mini-split-vs-central-air.mdx
+content/hvac-brands/central-air-conditioner-guide.mdx
+content/ductwork/duct-leakage-testing.mdx
+content/_archived-merged/programmable-vs-smart-thermostat.mdx
+content/_archived-product-pages/evaporative-coolers/best-evaporative-coolers.mdx
+content/_archived-product-pages/dehumidifiers/best-whole-house-dehumidifiers.mdx
+content/mini-split-air-conditioners/mini-split-electricity-usage.mdx
+content/air-conditioners/ac-troubleshooting-guide.mdx
+content/furnaces-heating/thermostat-temperature-winter.mdx
+content/_archived-merged/what-is-seer-rating.mdx

@@ -1,0 +1,99 @@
+---
+slug: "tankless-water-heater-guide"
+title: "Tankless Water Heaters: Complete Guide (Gas vs Electric) | 2026"
+description: "How tankless water heaters work, gas vs electric, sizing, installation needs, running costs against a tank, maintenance, and the common misconceptions."
+cluster: "tankless-water-heaters"
+role: "pillar"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "what-size-tankless-water-heater"
+  - "tankless-water-heater-cost"
+  - "water-heater-sizing-calculator"
+  - "hot-water-recirculating-pump"
+  - "heat-pump-water-heater-guide"
+externalLinks:
+  - label: "EPA WaterSense: Showerheads"
+    url: "https://www.epa.gov/watersense/showerheads"
+  - label: "eCFR: 10 CFR Part 430 (appliance standards and definitions)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Tankless Water Heaters: Gas vs Electric
+
+A tankless water heater heats water only while a tap is open. There's no stored tank to keep hot, so it never runs out, but it can only heat so much flow at once. Whether one suits your house depends on how much hot water you use at the same time and how cold your incoming water gets.
+
+**A tankless heater is sized by flow and temperature rise, not tank size. Two showers at once with 55°F incoming water need about 130,000 BTU per hour of heat, which a whole-house gas unit can deliver; an electric unit would need about 38 kW.**
+
+## How a tankless water heater works
+
+When you open a hot tap, a flow sensor fires a gas burner or switches on electric elements. Water passes through a heat exchanger and leaves hot. When you close the tap, the heater shuts off, so there's no standby loss from a tank sitting at temperature.
+
+The limit is power. Heat needed = gallons per minute × temperature rise × 500, in BTU per hour, so colder incoming water or more open taps take more power. Past the heater's limit, the water just comes out cooler.
+
+## Gas vs. electric
+
+| | Gas | Electric |
+|---|---|---|
+| Heat available | Up to just under 200,000 BTU/hr input for residential models | Limited by your electrical service |
+| Two showers, 55°F water (4 gpm) | About 147,700 BTU/hr input at 88% efficiency | About 38 kW, roughly 160 amps at 240 V |
+| Installation | Gas line capacity, venting, condensate drain for condensing models | Several large dedicated circuits, often a panel upgrade |
+| Best fit | Whole-house use, colder climates | Warm climates, one or two fixtures, point-of-use |
+
+The 200,000 BTU per hour input limit is the federal cutoff between consumer and commercial gas water heaters. For flow rates by fixture and a full sizing chart, see [what size tankless water heater you need](/what-size-tankless-water-heater).
+
+## Running cost against a tank
+
+For a typical four-person household at $1.35 per therm and 18 cents per kWh, our [water heater sizing calculator](/water-heater-sizing-calculator) estimates:
+
+- **Gas tankless:** about $340 a year, against $467 for a gas tank.
+- **Electric tankless:** about $1,193 a year, against $1,271 for an electric tank.
+- **Heat pump water heater:** about $334 a year.
+
+Tankless saves by avoiding standby loss, which matters more for gas than electric. For an all-electric home, a heat pump water heater saves far more than going tankless.
+
+## Installation requirements
+
+- **Gas models** need a gas line that can supply the full burner input, and venting that matches the model: PVC for condensing units, stainless steel for most non-condensing ones. Condensing units also need a drain for the acidic condensate.
+- **Electric models** need dedicated 240-volt circuits sized to the heater's current, which for whole-house units often means a panel upgrade.
+- **Both** usually need a permit. Costs are covered in our [tankless water heater cost](/tankless-water-heater-cost) guide.
+
+## Maintenance
+
+Minerals in hard water build up scale inside the heat exchanger, which cuts output and efficiency. Manufacturers call for periodic flushing with a descaling solution and cleaning the inlet screen; follow the schedule in your model's manual, more often where water is hard.
+
+## Common misconceptions
+
+- **"Instant hot water."** The heater warms water immediately, but hot water still has to travel through the pipes to the tap. A [recirculating pump](/hot-water-recirculating-pump) addresses the wait.
+- **"Unlimited hot water."** Unlimited in duration, not in flow. Too many open taps at a cold incoming temperature exceed the heater's output.
+- **"Always cheaper."** For gas, it saves about $127 a year in the example above, so the higher installed cost takes years to recover.
+
+## Frequently asked questions
+
+### Is a tankless water heater better than a tank?
+
+It never runs out and saves standby energy, but it costs more to install and has a flow limit. For a gas home that uses a lot of hot water it often makes sense; for an all-electric home, a heat pump water heater usually saves more.
+
+### Should I get a gas or electric tankless water heater?
+
+Gas for whole-house use, especially where incoming water is cold. Electric suits warm climates, small households or single fixtures, and only if your electrical service can handle it.
+
+### How long does a tankless water heater last?
+
+It depends on water quality and maintenance. Check the heat exchanger warranty, and descale on the manufacturer's schedule to protect it.
+
+### Do tankless water heaters need maintenance?
+
+Yes. Periodic descaling and cleaning the inlet screen keep scale from reducing output, especially with hard water.
+
+<SourcesBox sources={[
+  { title: "EPA WaterSense: Showerheads (2.5 gpm standard, 2.0 gpm WaterSense)", url: "https://www.epa.gov/watersense/showerheads" },
+  { title: "eCFR: 10 CFR Part 430 (consumer water heater definitions)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

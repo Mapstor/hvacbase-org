@@ -1,0 +1,282 @@
+url,sessions_4wk,sessions_per_day,page_type,recommends_products,recommend_examples,unsourced_stat_est,thin,classification,note
+https://www.hvacbase.org/casement-window-air-conditioners,71,2.54,product-or-brand,Y,"Y:Soleus Air Exclusive,LG LP0823GSSM,Frigidaire FHWC084WB1",4,N,CUT-FABRICATED,ranked casement/vertical AC models with spec tables
+https://www.hvacbase.org/quietest-window-acs,53,1.89,product-or-brand,Y,"Y:Midea MAW06V1QWT,LG LW6023IVSM,LG LW8023IVSM",7,N,CUT-FABRICATED,dB-ranked model roundup; Midea recall noted
+https://www.hvacbase.org/coway-air-purifiers,53,1.89,product-or-brand,Y,"Y:Coway Airmega 400/250S/200M/150, AP-1512HH",46,N,CUT-FABRICATED,"5-model brand review, 4-stage, filter/5yr tables"
+https://www.hvacbase.org/mrcool-diy-mini-split-review,49,1.75,product-or-brand,Y,"Y:MrCool DIY 4th Gen, 3rd Gen, multi-zone",18,N,CUT-FABRICATED,Single-brand review with full spec tables
+https://www.hvacbase.org/levoit-air-purifiers,47,1.68,product-or-brand,Y,"Y:Levoit Core 600S/400S/300S/200S, EverestAir, Vital 200S",50,N,CUT-FABRICATED,"7-model hub, value framing, filter/5yr tables"
+https://www.hvacbase.org/smallest-window-acs,45,1.61,product-or-brand,Y,"Y:Frigidaire FFRE053WAE,Koldfront WAC6002WCO,Haier QHNG06AC",3,N,CUT-FABRICATED,dimension-ranked compact model roundup
+https://www.hvacbase.org/quietest-mini-splits,41,1.46,comparison,Y,"Y:Fujitsu RLS3H,Mitsubishi MSZ-FH,Daikin DERA,LG,Samsung",30,N,CUT-FABRICATED,"Ranks named models; dB framed manufacturer-published, prices unsourced"
+https://www.hvacbase.org/smallest-mini-splits,37,1.32,product-or-brand,Y,"Y:Mitsubishi MSZ-FH09, Daikin Aurora 09, Fujitsu RLS3H, LG, Senville",12,N,CUT-FABRICATED,Ranks smallest 6K-9K units
+https://www.hvacbase.org/honeywell-air-purifiers,32,1.14,product-or-brand,Y,Y:Honeywell HPA300/HPA250B/HPA200/HPA5300B/HPA100/HPA5150B/HPA020B,40,N,CUT-FABRICATED,"7-model review, no-smart critique, 5yr costs"
+https://www.hvacbase.org/most-energy-efficient-dehumidifiers,29,1.04,product-or-brand,Y,"Y:LG PuriCare, Midea, Frigidaire, GE, hOmeLabs, Tosot, SantaFe, AprilAire, Ultra-Aire, Honeywell",55,N,CUT-FABRICATED,IEF-ranked model tables across size classes
+https://www.hvacbase.org/winix-air-purifiers,27,0.96,product-or-brand,Y,Y:Winix 5500-2/C545/AM90/D360/5300-2/HR900,34,N,CUT-FABRICATED,"6-model review, PlasmaWave, washable carbon"
+https://www.hvacbase.org/dyson-air-purifiers,25,0.89,product-or-brand,Y,"Y:Dyson Big Quiet, Purifier Cool/Hot+Cool/Humidify+Cool lines",55,N,CUT-FABRICATED,"12-model hub, est. CADR flagged, 5yr costs"
+https://www.hvacbase.org/through-the-wall-air-conditioners,24,0.86,product-or-brand,Y,"Y:Friedrich WCT12A30A,Friedrich WET12A33A,LG LT1237HNR",7,N,CUT-FABRICATED,TTW model roundup + sleeve/install specs
+https://www.hvacbase.org/quietest-portable-air-conditioners,24,0.86,product-or-brand,Y,"Y:LG LP1419IVSM, Midea Duo, Midea MAP05R1BWT, Whynter Elite, GE APCA14YZLW",15,N,CUT-FABRICATED,Ranks quietest units by decibels
+https://www.hvacbase.org/iqair-healthpro-plus-review,23,0.82,product-or-brand,Y,Y:IQAir HealthPro Plus,32,N,CUT-FABRICATED,"Single-product deep review, HyperHEPA, 5yr costs"
+https://www.hvacbase.org/safest-space-heaters,22,0.79,product-or-brand,N,,12,N,CUT-FABRICATED,Ranks heater TYPES not models; NFPA/CPSC stats cited inline
+https://www.hvacbase.org/blueair-air-purifiers,22,0.79,product-or-brand,Y,"Y:Blueair HealthProtect 7470i, DustMagnet 5410i/5240i, Blue Pure 311i+/211i+/411i+",48,N,CUT-FABRICATED,"6-model brand review, HEPASilent, 5yr costs"
+https://www.hvacbase.org/quietest-dehumidifiers,21,0.75,product-or-brand,Y,"Y:LG PuriCare, Midea Cube, Frigidaire, GE, Tosot, hOmeLabs, SantaFe, Honeywell, Pro Breeze",40,N,CUT-FABRICATED,dB-ranked model tables by room
+https://www.hvacbase.org/biggest-window-acs,19,0.68,product-or-brand,Y,"Y:Friedrich CCF24A30A,LG LW2521ERSM,Frigidaire FFRA252WAE",6,N,CUT-FABRICATED,ranked roundup of large 18-25k BTU window ACs
+https://www.hvacbase.org/quietest-air-purifiers,18,0.64,product-or-brand,Y,"Y:Blueair 411a/411i Max, Dyson Big Quiet, IQAir HealthPro Plus, Coway Airmega 250/400, Rabbit Air A3, Levoit Core 400S",25,N,CUT-FABRICATED,Ranked roundup by dB + CADR/dB ratio
+https://www.hvacbase.org/cassette-ceiling-air-conditioners,17,0.61,product-or-brand,Y,"Y:Mitsubishi MLZ-KP, Daikin FFQ, Fujitsu, LG, Carrier/Midea",12,N,CUT-FABRICATED,Ranks 5 cassette models with prices/SEER2
+https://www.hvacbase.org/portable-ac-window-seal-kits,16,0.57,product-or-brand,Y,"Y:Gulrear, Brosyda, Forestchill, AC-Safe, custom plexiglass",12,N,CUT-FABRICATED,Ranks 5 seal kits with prices/CFM
+https://www.hvacbase.org/airdog-air-purifier-review,16,0.57,product-or-brand,Y,"Y:Airdog X5, X3, X5 FitAir, X8",35,N,CUT-FABRICATED,"Filterless TPA review, cost tables, ozone caveats"
+https://www.hvacbase.org/smallest-air-purifiers,16,0.57,product-or-brand,Y,"Y:Blueair 411i Max/411a, Levoit Core 300S/200S/Vital 100S, Coway AP-1019C, IQAir Atem Desk, Winix A230",22,N,CUT-FABRICATED,"Ranked compact roundup, CADR-density tables"
+https://www.hvacbase.org/battery-operated-heaters,15,0.54,product-or-brand,Y,"Y:Mr Heater Buddy,EcoFlow,Bluetti,Jackery,ORORO",18,N,CUT-FABRICATED,Debunk + recommends propane/power-station/heated-clothing products
+https://www.hvacbase.org/most-energy-efficient-window-acs,14,0.5,product-or-brand,Y,"Y:LG LW8023IVSM,Midea MAW06V1QWT,LG LW1023IVSM",15,N,CUT-FABRICATED,CEER-ranked model roundup; imports CalcWrapper but unused
+https://www.hvacbase.org/mini-split-line-set-covers,13,0.46,product-or-brand,Y,"Y:Rectorseal Slimduct, DiversiTech, Inaba Denko, MrCool, Pioneer",10,N,CUT-FABRICATED,Ranks 5 line-set cover kits with prices
+https://www.hvacbase.org/biggest-portable-acs,13,0.46,product-or-brand,Y,"Y:Midea Duo, Whynter Elite ARC-1230WNH, Honeywell MN14CHCSBB, Whynter ARC-14S, GE APCA14YZLW",20,N,CUT-FABRICATED,Roundup; embeds large-room calc
+https://www.hvacbase.org/smallest-portable-acs,13,0.46,product-or-brand,Y,"Y:SereneLife SLPAC805W, Honeywell MO08CESWK, Black+Decker BPACT08WT, Midea MAP05R1BWT, Tosot Aovia",25,N,CUT-FABRICATED,Compact roundup; embeds small-room calc; RV/dorm depth
+https://www.hvacbase.org/outdoor-portable-tankless-heaters,13,0.46,product-or-brand,Y,"Y:Eccotemp L10/CEL10, Fogatti InstaShower 8, Camplux, Camp Chef, Gasland, Rinnai, Takagi",35,N,CUT-FABRICATED,Ranks 8 portable models; empty externalLinks
+https://www.hvacbase.org/molekule-air-purifier-review,12,0.43,product-or-brand,Y,"Y:Molekule Air Pro, Air Mini+",24,N,CUT-FABRICATED,Skeptical PECO review; recommends only for niche
+https://www.hvacbase.org/smallest-tankless-water-heaters,12,0.43,product-or-brand,Y,"Y:Bosch Tronic 3000T, Stiebel DHC/Tempra, EcoSmart, Rheem RTEX, Rinnai V53DeN, Noritz, Takagi",40,N,CUT-FABRICATED,Compact models ranked by dimensions
+https://www.hvacbase.org/low-profile-window-acs,11,0.39,product-or-brand,Y,"Y:GE Profile PHC06LY,PHC08LY,PHC10LY",6,N,CUT-FABRICATED,GE ClearView low-profile model roundup
+https://www.hvacbase.org/mini-split-brands-ranked,11,0.39,product-or-brand,Y,"Y:Daikin Aurora 12K, Senville LETO SENL-12CD, Mitsubishi MSZ-FS12NA",6,N,CUT-FABRICATED,Most specs carry inline AHRI cert citations
+https://www.hvacbase.org/best-electric-furnace,11,0.39,product-or-brand,Y,"Y:Goodman,Rheem,Carrier,Lennox,York",15,N,CUT-FABRICATED,Ranks brands; long HDD/ECM worked examples labeled illustrative
+https://www.hvacbase.org/safest-heater-for-bedroom,10,0.36,product-or-brand,Y,"Y:De'Longhi,Pelonis,Cadet,Dreo,Lasko,Envi",14,N,CUT-FABRICATED,Ranks specific bedroom heater models; 53% NFPA cited
+https://www.hvacbase.org/smallest-acs-for-small-rooms,8,0.29,product-or-brand,Y,"Y:Midea MAW06V1QWT,Frigidaire FFRE053WAE,LG LW6023IVSM",8,N,CUT-FABRICATED,small-room BTU guide + model picks; embeds BTUCalculator
+https://www.hvacbase.org/wall-mounted-air-purifiers,8,0.29,product-or-brand,Y,"Y:Rabbit Air MinusA2/A3/BioGS 2.0, Blueair Protect 7470i, Airmega IconS",20,N,CUT-FABRICATED,Ranked roundup + mounting/NEC install guide
+https://www.hvacbase.org/cheapest-portable-air-conditioners,7,0.25,product-or-brand,Y,"Y:Tosot Shiny, Black+Decker BPACT08WT, SereneLife SLPAC805W, Honeywell MO08CESWK, Midea MAP05R1BWT",18,N,CUT-FABRICATED,Budget roundup with CEER/prices
+https://www.hvacbase.org/alen-breathesmart-air-purifiers,7,0.25,product-or-brand,Y,"Y:Alen BreatheSmart 75i, 45i, FLEX",45,N,CUT-FABRICATED,Brand hub; filter matrix + competitor + 5yr tables
+https://www.hvacbase.org/germguardian-air-purifiers,7,0.25,product-or-brand,Y,Y:GermGuardian AC5350B/AC5250PT/AC4825/AC4300/AC4100/AC4700,38,N,CUT-FABRICATED,"6-model review, UV-C focus, 5yr costs"
+https://www.hvacbase.org/lightweight-window-acs,5,0.18,product-or-brand,Y,"Y:Frigidaire FFRA051WAE,TCL 8W3E1-A,Frigidaire GHWQ103WC1",3,N,CUT-FABRICATED,weight-ranked model roundup + NIOSH lifting math
+https://www.hvacbase.org/mini-split-for-bedroom,5,0.18,product-or-brand,Y,"Y:Mitsubishi MSZ-FH, Daikin Aurora, Fujitsu RLS3H, LG, MrCool",12,N,CUT-FABRICATED,Ranks bedroom units by noise/SEER2
+https://www.hvacbase.org/window-ac-support-brackets,3,0.11,product-or-brand,Y,"Y:AC Safe AC-080,Jeacent Universal,AC Safe AC-160",4,N,CUT-FABRICATED,bracket model roundup + NDS/LL30 fastener engineering
+https://www.hvacbase.org/window-ac-with-heater,3,0.11,product-or-brand,Y,"Y:Friedrich CCW10B10A,LG LW1221HRSM,Frigidaire FHWH082WA1",10,N,CUT-FABRICATED,heat-combo model roundup + COP/climate-zone economics
+https://www.hvacbase.org/medify-air-purifiers,2,0.07,product-or-brand,Y,Y:Medify MA-112/MA-40/MA-25/MA-15/MA-14,35,N,CUT-FABRICATED,"5-model review, dual-intake H13, 5yr costs"
+https://www.hvacbase.org/ac-not-cooling,1790,63.93,troubleshooting,N,,24,N,KEEP-REWRITE,genuine 12-fix diagnostic steps; many uncited cost/efficiency prose stats
+https://www.hvacbase.org/refrigerant-types-explained,617,22.04,explainer,N,,55,N,KEEP-REWRITE,master refrigerant comparison table
+https://www.hvacbase.org/ideal-indoor-humidity-level,482,17.21,explainer,N,,35,N,KEEP-REWRITE,Seasonal RH targets; hygrometer brands in passing
+https://www.hvacbase.org/carbon-monoxide-detector-guide,387,13.82,explainer,Y,"Y:Kidde Nighthawk/Smart Detect, First Alert CO615/OneLink, Nest Protect, CO Experts 2022-LL, Defender CA6150, X-Sense SC08",35,N,KEEP-REWRITE,Best-detectors table with star ratings
+https://www.hvacbase.org/merv-rating-chart,345,12.32,explainer,N,,18,N,KEEP-REWRITE,no tax content; ScaleDiagram
+https://www.hvacbase.org/hvac-serial-number-decoder,343,12.25,other,N,,55,N,KEEP-REWRITE,multi-brand decoder reference
+https://www.hvacbase.org/ac-troubleshooting-guide,304,10.86,troubleshooting,N,,15,N,KEEP-REWRITE,"12 common problems, real step-by-step; uncited repair-cost/efficiency stats"
+https://www.hvacbase.org/wire-for-220-volt,285,10.18,explainer,N,,70,N,KEEP-REWRITE,220V master chart; heavy uncited NEC ampacity data
+https://www.hvacbase.org/what-size-generator-for-fridge,271,9.68,explainer,Y,"Y:Honda EU2200i, Micro-Air EasyStart",40,N,KEEP-REWRITE,Fridge sizing; recommends specific inverter + soft-start
+https://www.hvacbase.org/dry-mode-in-ac,254,9.07,explainer,N,,15,N,KEEP-REWRITE,Dry mode explainer; energy-savings tables uncited
+https://www.hvacbase.org/hvac-refrigerant-phase-out,254,9.07,explainer,N,,55,N,KEEP-REWRITE,GWP/dates/price projections; 25C expired framing correct
+https://www.hvacbase.org/how-often-change-hvac-filter,214,7.64,explainer,N,,30,N,KEEP-REWRITE,DOE inline once; Filtrete/FilterBuy brands in passing only
+https://www.hvacbase.org/mini-split-vs-central-air,204,7.29,comparison,N,,20,N,KEEP-REWRITE,8-difference comparison; brands in examples only
+https://www.hvacbase.org/how-to-reduce-hvac-noise,199,7.11,explainer,Y,"Y:Brinmar,Quiet Fence",30,N,KEEP-REWRITE,Names compressor-blanket products in options table
+https://www.hvacbase.org/wire-gauge-chart,162,5.79,explainer,N,,90,N,KEEP-REWRITE,AWG reference hub; large uncited Table 310.16 data
+https://www.hvacbase.org/mini-split-electricity-usage,159,5.68,explainer,N,,20,N,KEEP-REWRITE,Data-analysis; embeds kwh-cost calc; meters named in passing
+https://www.hvacbase.org/dehumidifier-guide,159,5.68,explainer,N,,55,N,KEEP-REWRITE,Pillar; brands (AprilAire/SantaFe) only in passing
+https://www.hvacbase.org/how-many-kwh-per-day-is-normal,151,5.39,explainer,N,,80,N,KEEP-REWRITE,"50-state kWh tables, RECS-based"
+https://www.hvacbase.org/how-to-vent-portable-ac-without-window,146,5.21,other,N,,12,N,KEEP-REWRITE,5 venting methods how-to with cost ranges
+https://www.hvacbase.org/minimum-seer-rating-by-state,146,5.21,explainer,N,,12,N,KEEP-REWRITE,no tax content
+https://www.hvacbase.org/hvac-noise-levels-explained,144,5.14,explainer,N,,25,N,KEEP-REWRITE,"Role=hub; branded model dB examples illustrative, not buying recs"
+https://www.hvacbase.org/heat-pump-cost-to-install,141,5.04,cost-guide,N,,70,N,KEEP-REWRITE,brand price tables; cheapest-model names incidental
+https://www.hvacbase.org/water-heater-wire-size,138,4.93,explainer,N,,50,N,KEEP-REWRITE,"Wire chart; tankless models as spec refs, IRA rebates"
+https://www.hvacbase.org/how-to-clean-ac-coils,128,4.57,explainer,Y,"Y:Nu-Calgon,Frost King,Web,ZEP,SpeedClean",20,N,KEEP-REWRITE,Branded coil-cleaner comparison table with ratings
+https://www.hvacbase.org/furnace-guide,121,4.32,explainer,N,,25,N,KEEP-REWRITE,Pillar; BTUCalculator (not CalcWrapper); market-share/cost stats
+https://www.hvacbase.org/mini-split-installation-cost,120,4.29,cost-guide,N,,26,N,KEEP-REWRITE,Cost breakdown + rebates; brands in examples only
+https://www.hvacbase.org/single-hose-vs-dual-hose-portable-ac,120,4.29,comparison,N,,18,N,KEEP-REWRITE,Single vs dual-hose; DOE-cited plus uncited cost figures
+https://www.hvacbase.org/electrical-panel-upgrade-cost,117,4.18,cost-guide,N,,60,N,KEEP-REWRITE,100-to-200A cost tables; Span/Lumin named in passing
+https://www.hvacbase.org/air-conditioner-types,116,4.14,category-hub,N,,12,N,KEEP-REWRITE,hub comparing 8 AC types; brands named only as passing examples
+https://www.hvacbase.org/electrical-wiring-guide,116,4.14,explainer,N,,70,N,KEEP-REWRITE,Pillar wiring guide; heavy uncited NEC/ampacity figures
+https://www.hvacbase.org/home-battery-backup-guide,112,4.0,comparison,Y,"Y:Tesla Powerwall 3, Enphase IQ 5P, Franklin WH, Sonnen",55,N,KEEP-REWRITE,Ranks home batteries w/ Best-For picks; OBBBA credit sourced
+https://www.hvacbase.org/how-to-improve-indoor-air-quality,107,3.82,explainer,Y,"Y:Levoit Core 300, Coway Airmega 200M/400, Aprilaire 5000, Trane CleanEffects, iWave, REME HALO, Lennox PureAir S, Aranet4",40,N,KEEP-REWRITE,"Ranked 10-method guide, named-model tables"
+https://www.hvacbase.org/water-heater-breaker-size,103,3.68,explainer,N,,40,N,KEEP-REWRITE,Breaker chart; uncited NEC 422.13 sizing figures
+https://www.hvacbase.org/coefficient-of-performance,102,3.64,explainer,N,,15,N,KEEP-REWRITE,no tax content; EfficiencyCurve chart
+https://www.hvacbase.org/hepa-filter-explained,93,3.32,explainer,N,,30,N,KEEP-REWRITE,Brands/models in passing; EN1822 class data
+https://www.hvacbase.org/dehumidifier-and-ac-same-time,91,3.25,explainer,N,,24,N,KEEP-REWRITE,AC+dehum decision logic; cost table est-footnoted
+https://www.hvacbase.org/portable-vs-window-ac,87,3.11,comparison,N,,25,N,KEEP-REWRITE,"type comparison, no named models; very stat-heavy uncited prose"
+https://www.hvacbase.org/ac-size-for-1500-sq-ft,87,3.11,explainer,N,,26,N,KEEP-REWRITE,"Sizing by zone/ductwork; cost tables, no brands"
+https://www.hvacbase.org/how-to-drain-portable-ac,87,3.11,other,N,,12,N,KEEP-REWRITE,Drainage how-to; condensate/humidity figures uncited
+https://www.hvacbase.org/furnace-leaking-water,86,3.07,troubleshooting,N,,14,N,KEEP-REWRITE,7-cause leak diagnosis
+https://www.hvacbase.org/r410a-vs-r32-refrigerant,85,3.04,comparison,N,,45,N,KEEP-REWRITE,GWP/spec/price tables uncited inline
+https://www.hvacbase.org/carrier-hvac-age-serial-number,84,3.0,other,N,,40,N,KEEP-REWRITE,"serial decoder reference, not product pick"
+https://www.hvacbase.org/furnace-filter-direction,82,2.93,explainer,N,,10,N,KEEP-REWRITE,How-to arrow direction guide
+https://www.hvacbase.org/how-many-mini-splits-do-i-need,77,2.75,explainer,N,,15,N,KEEP-REWRITE,"Zone-count guide; layouts+cost, no named models"
+https://www.hvacbase.org/voc-in-home-sources,77,2.75,explainer,Y,"Y:AirThings View/Wave Plus, Temtop M10i, uHoo, Lennox PureAir S",40,N,KEEP-REWRITE,VOC guide; monitor + carbon-filter tables
+https://www.hvacbase.org/what-wire-size-for-50-amp,74,2.64,explainer,N,,45,N,KEEP-REWRITE,"50A NEC guide; ChargePoint example, uncited figures"
+https://www.hvacbase.org/water-heater-wattage,73,2.61,explainer,N,,50,N,KEEP-REWRITE,Wattage guide; recovery/COP tables uncited
+https://www.hvacbase.org/air-purifier-placement,72,2.57,explainer,N,,15,N,KEEP-REWRITE,Placement guide; Austin Air named only in passing
+https://www.hvacbase.org/dehumidifier-electricity-usage,72,2.57,explainer,Y,"Y:LG UD501KOG5, AprilAire E100, Pro Breeze PB-02-US",45,N,KEEP-REWRITE,Models named in worked examples with specs
+https://www.hvacbase.org/propane-generator-usage-per-hour,71,2.54,explainer,N,,60,N,KEEP-REWRITE,Propane gal/hr + tank runtime; uncited consumption tables
+https://www.hvacbase.org/furnace-filter-merv-rating,70,2.5,explainer,N,,14,N,KEEP-REWRITE,MERV chart; EPA/ASHRAE cited inline
+https://www.hvacbase.org/how-do-portable-acs-work,68,2.43,explainer,N,,15,N,KEEP-REWRITE,Refrigeration-cycle explainer; energy-flow figures uncited
+https://www.hvacbase.org/flexible-vs-rigid-ductwork,66,2.36,comparison,N,,30,N,KEEP-REWRITE,Cost/airflow tables; FSEC 4.3x stat cited; no brand recs
+https://www.hvacbase.org/hspf2-rating-explained,65,2.32,explainer,Y,"Y:Mitsubishi Hyper-Heat, Fujitsu Halcyon XLTH, Daikin Fit, Carrier",20,N,KEEP-REWRITE,25C framed expired
+https://www.hvacbase.org/indoor-air-quality-testing,65,2.32,explainer,Y,"Y:Airthings Wave Plus, Temtop M2000/M10i, RadonEye RD200, TSI AeroTrak 9306, RAE MiniRAE 3000, GrayWolf DirectSense, Fluke 975",40,N,KEEP-REWRITE,Hub; broken relatedArticles/RelatedArticles slugs
+https://www.hvacbase.org/how-does-humidity-affect-temperature,64,2.29,explainer,N,,40,N,KEEP-REWRITE,Heat-index chart from NWS; no products
+https://www.hvacbase.org/hvac-maintenance-checklist,59,2.11,explainer,N,,20,N,KEEP-REWRITE,Seasonal DIY guide; Ecobee/Nest passing; R-454B AIM note
+https://www.hvacbase.org/can-you-use-portable-ac-without-hose,59,2.11,explainer,N,,12,N,KEEP-REWRITE,Thermodynamics + 4 hoseless alternatives
+https://www.hvacbase.org/ac-size-for-1000-sq-ft,58,2.07,explainer,N,,26,N,KEEP-REWRITE,"Sq-ft sizing guide; costs+SEER2, no named products"
+https://www.hvacbase.org/air-source-vs-ground-source-heat-pump,58,2.07,comparison,N,,55,N,KEEP-REWRITE,25C/25D expired framing correct
+https://www.hvacbase.org/how-to-tilt-window-ac,57,2.04,other,N,,4,N,KEEP-REWRITE,detailed how-to tilt + slinger-ring physics; models named informationally
+https://www.hvacbase.org/hvac-ductwork-guide,57,2.04,explainer,N,,25,N,KEEP-REWRITE,ENERGY STAR duct-loss inline; no product recs
+https://www.hvacbase.org/hvac-maintenance-cost,56,2.0,cost-guide,N,,45,N,KEEP-REWRITE,Tune-up/repair price tables; slug ends -cost; no product recs
+https://www.hvacbase.org/do-air-purifiers-really-work,55,1.96,explainer,N,,18,N,KEEP-REWRITE,Study table cited by author/year; products passing
+https://www.hvacbase.org/eer-chart-for-ac-units,54,1.93,explainer,Y,"Y:Lennox XC25, Carrier Infinity 24, Daikin DX20VC, Trane XV20i",18,N,KEEP-REWRITE,25C framed historical/expired
+https://www.hvacbase.org/water-heater-amps,54,1.93,explainer,N,,35,N,KEEP-REWRITE,Amp-draw reference; uncited amperage/breaker figures
+https://www.hvacbase.org/mini-split-air-conditioners,52,1.86,category-hub,Y,"Y:Mitsubishi, Daikin, Fujitsu, MrCool, Senville",30,N,KEEP-REWRITE,Pillar guide; embeds BTUCalculator; brand recs section
+https://www.hvacbase.org/ac-size-for-2000-sq-ft,51,1.82,explainer,N,,25,N,KEEP-REWRITE,Single vs two-story sizing; cost/SEER2 tables
+https://www.hvacbase.org/heat-pump-guide,51,1.82,explainer,N,,60,N,KEEP-REWRITE,pillar guide; 25C expired framing correct
+https://www.hvacbase.org/how-does-a-mini-split-work,50,1.79,explainer,N,,14,N,KEEP-REWRITE,Refrigeration-cycle explainer; temps/percentages uncited
+https://www.hvacbase.org/air-purifier-guide,50,1.79,explainer,Y,"Y:Blueair 211i Max, Coway Airmega 400, Winix 5500-2, Levoit Core 400S, Austin Air HealthMate, IQAir HealthPro Plus, Dyson Big Quiet, Molekule Air Pro",30,N,KEEP-REWRITE,Pillar guide with named-model cost/energy tables
+https://www.hvacbase.org/mini-split-amps,49,1.75,explainer,N,,15,N,KEEP-REWRITE,Amp/wire sizing guide; models in examples only
+https://www.hvacbase.org/indoor-air-quality-guide,47,1.68,explainer,Y,"Y:Aranet4, AirThings View Plus/Wave Plus, Temtop M10i, IQAir AirVisual Pro, uHoo, PurpleAir",40,N,KEEP-REWRITE,Pillar guide; monitor comparison table
+https://www.hvacbase.org/central-air-conditioner-guide,46,1.64,explainer,N,,70,N,KEEP-REWRITE,pillar; embeds BTUCalculator; R-454B 2026 transition
+https://www.hvacbase.org/seer2-to-seer-conversion,45,1.61,explainer,N,,14,N,KEEP-REWRITE,no CalcWrapper despite title; no tax content
+https://www.hvacbase.org/uv-light-hvac-systems,45,1.61,explainer,Y,"Y:Fresh-Aire UV, RGF REME, Steril-Aire, Lumalier, Atlantic UV, Philips/Osram lamps",45,N,KEEP-REWRITE,Dedicated brand-recommendations section
+https://www.hvacbase.org/portable-air-conditioners,44,1.57,category-hub,N,,22,N,KEEP-REWRITE,Pillar buyer's guide; brands in passing only
+https://www.hvacbase.org/tankless-water-heater-cost,43,1.54,cost-guide,Y,"Y:Navien, Rinnai, Noritz, Rheem, EcoSmart, Stiebel Eltron",55,N,KEEP-REWRITE,25C correctly flagged expired; HEAR/HOMES active
+https://www.hvacbase.org/heat-pump-water-heater-guide,43,1.54,other,Y,"Y:Rheem ProTerra, A.O. Smith HPTU, Bradford White AeroTherm, GE GeoSpring, Stiebel Accelera",50,N,KEEP-REWRITE,Guide; ranks HPWH models; 25C correctly expired
+https://www.hvacbase.org/pilot-light-gas-usage,42,1.5,explainer,N,,14,N,KEEP-REWRITE,Pilot cost math; EIA cited
+https://www.hvacbase.org/hspf-rating-explained,41,1.46,explainer,N,,16,N,KEEP-REWRITE,no tax content
+https://www.hvacbase.org/cracked-heat-exchanger,39,1.39,troubleshooting,N,,14,N,KEEP-REWRITE,CO safety; 400+ deaths and costs uncited
+https://www.hvacbase.org/how-many-amps-does-a-house-use,39,1.39,explainer,N,,50,N,KEEP-REWRITE,"Panel sizing; NEC 220 examples, mostly uncited stats"
+https://www.hvacbase.org/how-does-a-dehumidifier-work,38,1.36,explainer,N,,40,N,KEEP-REWRITE,Tech explainer; DampRid mentioned in passing
+https://www.hvacbase.org/ac-size-for-3000-sq-ft,37,1.32,explainer,N,,26,N,KEEP-REWRITE,Dual-system sizing; monthly cost tables
+https://www.hvacbase.org/hot-water-recirculating-pump,37,1.32,other,Y,"Y:Grundfos Comfort PM, Watts 500800, Taco 006-CT, Navien, Rinnai, Rheem, AquaMotion, Chilipepper",40,N,KEEP-REWRITE,"Guide; ranks pump models, Grundfos best-overall"
+https://www.hvacbase.org/disadvantages-of-heat-pumps,37,1.32,explainer,N,,55,N,KEEP-REWRITE,"brands appear as workarounds, not picks"
+https://www.hvacbase.org/do-window-acs-pull-air-from-outside,36,1.29,explainer,N,,7,N,KEEP-REWRITE,solid airflow/smoke explainer; Coway kit mentioned in passing
+https://www.hvacbase.org/pellet-stove-cost-to-run,35,1.25,cost-guide,N,,45,N,KEEP-REWRITE,25C correctly framed EXPIRED per OBBBA; Harman/Comfortbilt brands in passing
+https://www.hvacbase.org/moisture-barrier-crawl-space,35,1.25,explainer,Y,"Y:Stego Wrap, Americover, CleanSpace/Dura-Skrim, Santa Fe Compact 70/Classic, AprilAire E070/E100, AlorAir Sentinel HD55",35,N,KEEP-REWRITE,Material + dehumidifier comparison tables
+https://www.hvacbase.org/window-air-conditioners,34,1.21,category-hub,N,,18,N,KEEP-REWRITE,"pillar buyer's guide; brand-strength table, embeds BTUCalculator"
+https://www.hvacbase.org/smart-thermostat-savings,34,1.21,explainer,Y,"Y:Ecobee,Nest,Honeywell T9,Emerson Sensi,Mysa",25,N,KEEP-REWRITE,Branded savings-claim table; recommends Mysa for baseboard
+https://www.hvacbase.org/generator-cost-per-kwh,34,1.21,cost-guide,N,,45,N,KEEP-REWRITE,"Fuel cost/kWh; EIA-sourced box, table figures illustrative"
+https://www.hvacbase.org/heat-pump-in-cold-weather,34,1.21,explainer,N,,50,N,KEEP-REWRITE,performance-by-temp tables; model specs cited to spec sheets
+https://www.hvacbase.org/programmable-vs-smart-thermostat,33,1.18,comparison,N,,20,N,KEEP-REWRITE,Nest/Ecobee generic mentions; ENERGY STAR floors cited
+https://www.hvacbase.org/seer-vs-seer2,33,1.18,explainer,N,,15,N,KEEP-REWRITE,no tax content
+https://www.hvacbase.org/generator-guide,33,1.18,comparison,Y,"Y:Generac, Honda, Kohler",70,N,KEEP-REWRITE,"Pillar buying guide; ranks brands, embeds sizing calc"
+https://www.hvacbase.org/tankless-water-heater-wire-size,33,1.18,other,Y,"Y:EcoSmart ECO 11/27/36, Rheem RTEX-18",35,N,KEEP-REWRITE,Reference; imports CalcWrapper but not embedded
+https://www.hvacbase.org/how-to-read-electric-meter,33,1.18,explainer,N,,30,N,KEEP-REWRITE,meter reading guide; low stat density
+https://www.hvacbase.org/duct-leakage-testing,32,1.14,explainer,Y,Y:Aeroseal,30,N,KEEP-REWRITE,Recommends Aeroseal + Minneapolis Duct Blaster; 25C correctly framed expired per OBBBA
+https://www.hvacbase.org/do-portable-acs-pull-air-from-outside,32,1.14,explainer,N,,12,N,KEEP-REWRITE,Smoke/infiltration; equipment table generic categories
+https://www.hvacbase.org/tankless-water-heater-breaker-size,32,1.14,other,Y,"Y:EcoSmart, Rheem RTEX, Stiebel Eltron Tempra",40,N,KEEP-REWRITE,Reference; imports CalcWrapper but not embedded
+https://www.hvacbase.org/hvac-cost-california,31,1.11,cost-guide,N,,40,N,KEEP-REWRITE,25C correctly expired per OBBBA; Title24/rebate stack framed correctly
+https://www.hvacbase.org/air-duct-cleaning-worth-it,31,1.11,explainer,N,,20,N,KEEP-REWRITE,"EPA/ENERGY STAR inline citations; evidence-based, no product recs"
+https://www.hvacbase.org/tankless-water-heater-propane-usage,30,1.07,other,N,,40,N,KEEP-REWRITE,Propane usage guide; no named models in body
+https://www.hvacbase.org/heat-pump-cop-explained,30,1.07,explainer,N,,45,N,KEEP-REWRITE,COP tables; costs flagged illustrative
+https://www.hvacbase.org/saddle-u-shaped-air-conditioners,29,1.04,explainer,Y,"Y:Midea MAW06V1QWT,MAW14V1QWT",5,N,KEEP-REWRITE,U-shaped design explainer + Midea model table; CPSC recall notice
+https://www.hvacbase.org/tankless-water-heater-guide,29,1.04,other,Y,"Y:Rinnai RU199iN, EcoSmart ECO 27",50,N,KEEP-REWRITE,Pillar; imports CalcWrapper/BTU but not embedded
+https://www.hvacbase.org/water-heater-guide,29,1.04,other,N,,50,N,KEEP-REWRITE,Pillar; imports BTUCalculator but not embedded; 25C expired
+https://www.hvacbase.org/5000-btu-air-conditioner-room-size,28,1.0,explainer,Y,"Y:Midea MAW05M1BWT, GE AHQ05LZ, LG LW5024, Frigidaire, Haier ESAQ405T",32,N,KEEP-REWRITE,Ranks top 5 window AC models; pricing/operating-cost tables
+https://www.hvacbase.org/whole-house-ventilation-systems,28,1.0,comparison,Y,"Y:Broan AI ERV200/HRV200, Panasonic Intelli-Balance 100/200, Renewaire EV200, Zehnder ComfoAir Q350/Q450, Lifebreath 155/195 MAX",40,N,KEEP-REWRITE,ERV vs HRV; top-models spec tables
+https://www.hvacbase.org/how-to-identify-mold,27,0.96,explainer,N,,30,N,KEEP-REWRITE,Test kits named only as passing e.g. list
+https://www.hvacbase.org/boiler-vs-furnace,26,0.93,comparison,N,,30,N,KEEP-REWRITE,Dense uncited cost/efficiency/lifespan bullet lists; generic
+https://www.hvacbase.org/cold-air-return-vents,26,0.93,explainer,N,,12,N,KEEP-REWRITE,Return-air sizing guide; ACCA cited inline in places
+https://www.hvacbase.org/natural-gas-generator-running-cost,26,0.93,cost-guide,N,,60,N,KEEP-REWRITE,"NG hourly cost; EIA-sourced, CFH tables illustrative"
+https://www.hvacbase.org/what-size-generator-for-5-ton-ac,26,0.93,explainer,Y,"Y:Generac Guardian 22/24kW,Kohler 20RCAL,Briggs&Stratton,Cummins,5-2-1/Supco/Rectorseal kits",50,N,KEEP-REWRITE,recommends specific generator + hard-start models
+https://www.hvacbase.org/window-ac-installation-guide,25,0.89,other,N,,6,N,KEEP-REWRITE,"step-by-step DIY install how-to, no product picks"
+https://www.hvacbase.org/how-many-btu-per-square-foot,25,0.89,explainer,N,,16,N,KEEP-REWRITE,BTU/sqft by zone; heating+cooling+commercial tables
+https://www.hvacbase.org/what-size-mini-split-for-garage,25,0.89,explainer,Y,"Y:Mitsubishi MSZ-GL24NA/GL12NA, Fujitsu 12RLS3Y, MrCool, Pioneer",15,N,KEEP-REWRITE,Garage sizing by car-count/insulation; names models
+https://www.hvacbase.org/eer-rating-explained,25,0.89,explainer,N,,15,N,KEEP-REWRITE,no active tax claim
+https://www.hvacbase.org/evaporative-cooler-vs-ac,24,0.86,comparison,N,,35,N,KEEP-REWRITE,Many unsourced $/dB/temp tables; illustrative rate noted
+https://www.hvacbase.org/what-wire-size-for-30-amp,24,0.86,explainer,N,,45,N,KEEP-REWRITE,30A NEC guide; uncited ampacity/voltage-drop tables
+https://www.hvacbase.org/ac-size-for-2500-sq-ft,23,0.82,explainer,N,,27,N,KEEP-REWRITE,"Single vs dual system; cost tables, no brands"
+https://www.hvacbase.org/ac-dry-mode-vs-dehumidifier,23,0.82,comparison,N,,18,N,KEEP-REWRITE,"Dry mode vs dehumidifier; EPA/AHRI cited generically, most stats uncited"
+https://www.hvacbase.org/portable-ac-vs-window-ac,23,0.82,comparison,N,,20,N,KEEP-REWRITE,Efficiency/cost/noise comparison; TCO tables uncited
+https://www.hvacbase.org/radiant-floor-heating-pros-cons,23,0.82,explainer,N,,22,N,KEEP-REWRITE,Long but generic AI filler; uncited efficiency/cost claims
+https://www.hvacbase.org/how-long-do-generators-last,23,0.82,explainer,Y,"Y:Honda, Kohler",45,N,KEEP-REWRITE,Lifespan-hours guide; ranks engine brands by reputation
+https://www.hvacbase.org/is-it-ok-to-oversize-mini-split,22,0.79,explainer,N,,15,N,KEEP-REWRITE,Oversizing problems; Mitsubishi i-see in passing only
+https://www.hvacbase.org/portable-generator-safety-tips,22,0.79,explainer,N,,30,N,KEEP-REWRITE,"CO safety guide; CPSC stats cited, ppm tables"
+https://www.hvacbase.org/central-ac-cost-to-install,22,0.79,cost-guide,N,,60,N,KEEP-REWRITE,embeds BTUCalculator; 25C expired framing correct
+https://www.hvacbase.org/hvac-system-lifespan,22,0.79,explainer,N,,65,N,KEEP-REWRITE,embeds hvac-lifespan calc; ASHRAE lifespan data
+https://www.hvacbase.org/is-higher-seer-worth-it,21,0.75,comparison,N,,24,N,KEEP-REWRITE,no CalcWrapper despite import; 25C framed expired
+https://www.hvacbase.org/what-is-seer-rating,20,0.71,explainer,N,,16,N,KEEP-REWRITE,no tax content
+https://www.hvacbase.org/electric-heater-running-cost,20,0.71,cost-guide,N,,10,N,KEEP-REWRITE,Imports CalcWrapper but no embed; cost tables labeled illustrative
+https://www.hvacbase.org/what-is-a-mini-split,17,0.61,explainer,N,,15,N,KEEP-REWRITE,Beginner explainer; comparison table stats uncited
+https://www.hvacbase.org/eer-vs-seer,17,0.61,explainer,N,,12,N,KEEP-REWRITE,no tax content
+https://www.hvacbase.org/hvac-efficiency-texas,17,0.61,cost-guide,N,,22,N,KEEP-REWRITE,25C framed expired
+https://www.hvacbase.org/10-2-or-10-3-wire-for-ac,17,0.61,explainer,N,,35,N,KEEP-REWRITE,AC wire reference; NEC figures uncited; Carrier example
+https://www.hvacbase.org/space-heater-guide,16,0.57,explainer,N,,16,N,KEEP-REWRITE,Pillar buyer's guide; Dr. Infrared named in passing; NFPA cited
+https://www.hvacbase.org/mold-prevention-guide,16,0.57,explainer,Y,"Y:Panasonic WhisperGreen, Govee H5075/H5054, Ecobee Premium, Temp Stick, Zinsser, DensArmor Plus",30,N,KEEP-REWRITE,Hub guide; named-product monitoring/materials tables
+https://www.hvacbase.org/central-ac-vs-mini-split-vs-window,16,0.57,comparison,N,,65,N,KEEP-REWRITE,embeds BTUCalculator; dollar figures not rate-recomputed
+https://www.hvacbase.org/ieer-explained,15,0.54,explainer,N,,16,N,KEEP-REWRITE,commercial; no tax content
+https://www.hvacbase.org/electricity-cost-by-state,15,0.54,cost-guide,N,,90,N,KEEP-REWRITE,"rate tables; note duplicate ""2026"" rows in trend table"
+https://www.hvacbase.org/heat-pump-vs-ac,15,0.54,comparison,N,,45,N,KEEP-REWRITE,25C shown expired; costs illustrative
+https://www.hvacbase.org/cadr-rating-explained,14,0.5,explainer,Y,"Y:Coway Airmega 400, Blueair 211+, Honeywell HPA300, Levoit",15,N,KEEP-REWRITE,no tax content; AHAM-sourced
+https://www.hvacbase.org/ceer-rating-explained,14,0.5,explainer,Y,"Y:Midea U-Shaped, LG LW8023IVSM, Frigidaire, GE Profile",18,N,KEEP-REWRITE,no tax content
+https://www.hvacbase.org/energy-costs-guide,14,0.5,cost-guide,N,,70,N,KEEP-REWRITE,pillar; fuel prices illustrative; 25C/25D expired framing OK
+https://www.hvacbase.org/hvac-efficiency-ratings-compared,13,0.46,explainer,N,,16,N,KEEP-REWRITE,no active tax claim
+https://www.hvacbase.org/thermostat-temperature-winter,13,0.46,explainer,Y,"Y:Nest,Ecobee,Honeywell T9,Amazon,Emerson Sensi",16,N,KEEP-REWRITE,Ranks smart thermostats w/ prices; WHO/AAP cited
+https://www.hvacbase.org/how-long-generator-on-5-gallons,13,0.46,explainer,N,,40,N,KEEP-REWRITE,Runtime chart; Honda/Champion as spec examples
+https://www.hvacbase.org/tankless-water-heater-electricity,13,0.46,explainer,N,,30,N,KEEP-REWRITE,Many kWh/cost figures explicitly marked illustrative
+https://www.hvacbase.org/water-heater-cost-to-install,13,0.46,cost-guide,N,,45,N,KEEP-REWRITE,25C/25D correctly flagged expired; generic types
+https://www.hvacbase.org/window-too-small-for-ac,12,0.43,explainer,N,,7,N,KEEP-REWRITE,alternatives guide (TTW vs portable); discusses types not model picks
+https://www.hvacbase.org/hvac-cost-by-state,12,0.43,cost-guide,N,,60,N,KEEP-REWRITE,"50-state table; 25C correctly expired, IRA HEAR/HOMES active"
+https://www.hvacbase.org/furnace-maintenance,12,0.43,explainer,N,,25,N,KEEP-REWRITE,"15-task guide; heavy uncited %/cost claims, generic"
+https://www.hvacbase.org/dehumidifier-vs-air-purifier,12,0.43,comparison,N,,18,N,KEEP-REWRITE,Function comparison; generic product specs only
+https://www.hvacbase.org/goodman-ac-age-serial-number,12,0.43,other,N,,40,N,KEEP-REWRITE,"YYMM serial decoder reference, not product pick"
+https://www.hvacbase.org/insulation-r-value-guide,11,0.39,explainer,N,,40,N,KEEP-REWRITE,25C correctly framed expired per OBBBA; IECC/DOE sourced
+https://www.hvacbase.org/mini-split-maintenance-guide,10,0.36,other,N,,15,N,KEEP-REWRITE,Maintenance/how-to + refrigerant-leak decision tree
+https://www.hvacbase.org/eer2-rating-explained,10,0.36,explainer,Y,"Y:Lennox XC25, Carrier Infinity 24, Daikin DX20VC, Trane XV20i",16,N,KEEP-REWRITE,25C framed historical/expired
+https://www.hvacbase.org/how-long-do-furnaces-last,10,0.36,explainer,N,,16,N,KEEP-REWRITE,Lifespan + replace thresholds
+https://www.hvacbase.org/allergen-control-guide,10,0.36,explainer,N,,45,N,KEEP-REWRITE,Generic MERV/HEPA/ERV only; heavy uncited stats
+https://www.hvacbase.org/mold-remediation-cost,10,0.36,cost-guide,Y,"Y:Concrobium Mold Control, Zinsser Mold Killing Primer",40,N,KEEP-REWRITE,Cost guide; named products in DIY-supply table
+https://www.hvacbase.org/hvac-energy-saving-tips,9,0.32,explainer,N,,45,N,KEEP-REWRITE,25C correctly framed expired in FAQ; DOE/ENERGY STAR in box only
+https://www.hvacbase.org/14-seer-vs-16-seer-vs-20-seer,9,0.32,comparison,N,,22,N,KEEP-REWRITE,25C framed expired; brand table lists no models
+https://www.hvacbase.org/dirty-furnace-filter-photos,9,0.32,explainer,N,,16,N,KEEP-REWRITE,Filter-stage visual guide; many uncited cost/% claims
+https://www.hvacbase.org/basement-dehumidifier-setting,9,0.32,explainer,N,,22,N,KEEP-REWRITE,RH setpoint guidance; no products; no lingering active credit
+https://www.hvacbase.org/does-dehumidifier-cool-a-room,9,0.32,explainer,N,,22,N,KEEP-REWRITE,Heat-index/waste-heat physics; no products
+https://www.hvacbase.org/time-of-use-rates-explained,9,0.32,explainer,N,,45,N,KEEP-REWRITE,utility TOU rate examples uncited inline
+https://www.hvacbase.org/hvac-cost-illinois,8,0.29,cost-guide,N,,35,N,KEEP-REWRITE,25C correctly framed expired per OBBBA; dual-fuel focus
+https://www.hvacbase.org/furnace-flame-sensor,8,0.29,troubleshooting,N,,12,N,KEEP-REWRITE,DIY clean/replace guide
+https://www.hvacbase.org/tankless-vs-tank-water-heater,8,0.29,comparison,Y,"Y:Rinnai RU160iN, Navien NPE-2 240S, EcoSmart ECO 27/36",55,N,KEEP-REWRITE,20-yr TCO; 25C correctly flagged expired
+https://www.hvacbase.org/average-electric-bill-by-state,8,0.29,cost-guide,N,,90,N,KEEP-REWRITE,50-state bill tables; 25C correctly shown expired
+https://www.hvacbase.org/window-ac-vs-mini-split,7,0.25,comparison,N,,18,N,KEEP-REWRITE,"type comparison, no named models; heavy uncited cost/COP prose"
+https://www.hvacbase.org/do-furnaces-have-pilot-lights,7,0.25,explainer,N,,18,N,KEEP-REWRITE,Ignition types; deep igniter/DSI technical detail
+https://www.hvacbase.org/solar-panel-cost-by-state,7,0.25,cost-guide,N,,90,N,KEEP-REWRITE,50-state pricing tables; OBBBA credit sourced inline
+https://www.hvacbase.org/electric-water-heating-cost-by-state,7,0.25,cost-guide,N,,85,N,KEEP-REWRITE,25C expired framing correct; heavy state tables
+https://www.hvacbase.org/hvac-cost-new-york,5,0.18,cost-guide,N,,40,N,KEEP-REWRITE,25C correctly framed expired; NYSERDA/IRA HEAR active
+https://www.hvacbase.org/ac-size-for-500-sq-ft,5,0.18,explainer,N,,30,N,KEEP-REWRITE,"Studio sizing; window/mini/portable costs, no models"
+https://www.hvacbase.org/hvac-cost-florida,4,0.14,cost-guide,N,,35,N,KEEP-REWRITE,25C correctly framed expired Dec 31 2025 per OBBBA
+https://www.hvacbase.org/eseer-explained,4,0.14,explainer,N,,15,N,KEEP-REWRITE,European; no tax content
+https://www.hvacbase.org/furnace-installation-cost,4,0.14,cost-guide,N,,22,N,KEEP-REWRITE,Brand pricing table (not a buy rec); tax-credit facts cited
+https://www.hvacbase.org/thermostat-heat-on-but-no-heat,4,0.14,troubleshooting,N,,12,N,KEEP-REWRITE,14-cause no-heat guide
+https://www.hvacbase.org/upflow-vs-downflow-furnace,4,0.14,comparison,N,,8,N,KEEP-REWRITE,Orientation guide; low stat density
+https://www.hvacbase.org/furnace-blowing-cold-air,3,0.11,troubleshooting,N,,12,N,KEEP-REWRITE,7-cause fix list
+https://www.hvacbase.org/space-heater-vs-central-heat,3,0.11,comparison,N,,14,N,KEEP-REWRITE,Break-even scenarios; per-BTU labeled illustrative; DOE cited
+https://www.hvacbase.org/home-energy-audit-diy,3,0.11,explainer,N,,55,N,KEEP-REWRITE,DIY audit checklist; 25C audit credit expired noted
+https://www.hvacbase.org/electric-fireplace-cost-to-run,2,0.07,cost-guide,N,,45,N,KEEP-REWRITE,State rate table unsourced inline (EIA in box); no 25C claim
+https://www.hvacbase.org/hvac-cost-texas,1,0.04,cost-guide,N,,35,N,KEEP-REWRITE,25C correctly framed expired per OBBBA; DSIRE referenced
+https://www.hvacbase.org/ac-tonnage-calculator,1019,36.39,calculator,Y,Y:Carrier/Trane/Goodman/Lennox/Rheem model lines,24,N,KEEP-GOOD,CalcWrapper; lists specific brand model lines per ton
+https://www.hvacbase.org/air-conditioner-btu-calculator,901,32.18,calculator,N,,20,N,KEEP-GOOD,CalcWrapper+BTUCalculator; 12-factor Manual J guide
+https://www.hvacbase.org/mini-split-sizing-calculator,624,22.29,calculator,Y,"Y:Mitsubishi MSZ-GL09NA/MXZ-4C36NAHZ, Fujitsu 9RLS3Y, LG Multi F",18,N,KEEP-GOOD,CalcWrapper; names models+recommends brands in FAQ
+https://www.hvacbase.org/what-size-generator-do-i-need,592,21.14,calculator,Y,"Y:EasyStart 368, Hyper Engineering Micro-Air soft-start",20,N,KEEP-GOOD,CalcWrapper; wattage tables; CPSC 70/yr cited inline
+https://www.hvacbase.org/furnace-sizing-calculator,558,19.93,calculator,N,,15,N,KEEP-GOOD,CalcWrapper; gas-cost table flagged illustrative
+https://www.hvacbase.org/ductwork-sizing-calculator,436,15.57,calculator,N,,25,N,KEEP-GOOD,Embeds CalcWrapper; ACCA Manual D; no product recs
+https://www.hvacbase.org/heat-pump-size-calculator,357,12.75,calculator,Y,"Y:Mitsubishi H2i, Carrier Greenspeed, Bosch IDS, Daikin, Fujitsu XLTH, LG Red",18,N,KEEP-GOOD,CalcWrapper; cold-climate models w/specs; 25C cited inline
+https://www.hvacbase.org/what-size-tankless-water-heater,305,10.89,calculator,Y,"Y:Rinnai RU130iN/RU199iN, EcoSmart ECO 24/18, Navien NPE-240A, Stiebel Eltron Tempra",16,N,KEEP-GOOD,CalcWrapper; GPM/temp-rise; DOE savings cited inline
+https://www.hvacbase.org/3-phase-power-calculator,299,10.68,calculator,N,,80,N,KEEP-GOOD,"kW/amp conversion; some NEC 430.250 cited, most uncited"
+https://www.hvacbase.org/kwh-cost-calculator,285,10.18,calculator,N,,55,N,KEEP-GOOD,embeds CalcWrapper kwh-cost; $0.18 flagged illustrative
+https://www.hvacbase.org/what-size-dehumidifier-do-i-need,186,6.64,calculator,Y,Y:Santa Fe Compact70,45,N,KEEP-GOOD,CalcWrapper dehumidifier-sizing + DataChart; AHAM chart
+https://www.hvacbase.org/seer2-comparison-calculator,173,6.18,calculator,N,,18,N,KEEP-GOOD,scenario tables cite $600 credit without expiry caveat
+https://www.hvacbase.org/hvac-tax-credits-2026,169,6.04,explainer,N,,12,N,KEEP-GOOD,Correctly frames both 25C and 25D expired per OBBBA; historical DataChart labeled
+https://www.hvacbase.org/gas-vs-electric-heating-cost,109,3.89,calculator,N,,15,N,KEEP-GOOD,Embeds CalcWrapper; per-MMBtu labeled illustrative; eGRID cited
+https://www.hvacbase.org/heat-pump-tax-credits-2026,98,3.5,explainer,N,,30,N,KEEP-GOOD,tax-credit guide; 25C/25D expired framing correct
+https://www.hvacbase.org/water-heater-sizing-calculator,85,3.04,calculator,N,,18,N,KEEP-GOOD,"CalcWrapper; tank vs tankless vs HPWH, no named models"
+https://www.hvacbase.org/dehumidifier-running-cost,85,3.04,calculator,Y,"Y:hOmeLabs, Frigidaire, GE, LG, Midea, Tosot, AprilAire, SantaFe",50,N,KEEP-GOOD,CalcWrapper dehumidifier-cost; popular-models cost table
+https://www.hvacbase.org/heating-cost-calculator,72,2.57,calculator,N,,45,N,KEEP-GOOD,embeds CalcWrapper gas-vs-electric; many illustrative
+https://www.hvacbase.org/seer2-rating-explained,68,2.43,calculator,Y,"Y:Carrier Infinity 24, Trane XV20i, Lennox XC25, Amana AVXC20",22,N,KEEP-GOOD,pillar; CalcWrapper=seer2; 25C framed expired
+https://www.hvacbase.org/how-much-does-mini-split-cost-to-run,63,2.25,calculator,N,,26,N,KEEP-GOOD,Embeds kwh-cost calc; brands named only in examples
+https://www.hvacbase.org/power-consumption-calculator,60,2.14,calculator,N,,90,N,KEEP-GOOD,"Bill estimator; massive wattage/rate tables, $0.18 illustrative"
+https://www.hvacbase.org/heat-pump-electricity-usage,59,2.11,calculator,N,,50,N,KEEP-GOOD,embeds CalcWrapper/BTUCalculator; hub role
+https://www.hvacbase.org/how-many-watts-in-12v-battery,55,1.96,calculator,Y,"Y:Renogy, SOK, Battle Born, Victron",60,N,KEEP-GOOD,12V watt guide; pricing table + best-value brand pick
+https://www.hvacbase.org/how-long-does-water-heater-last,55,1.96,calculator,N,,45,N,KEEP-GOOD,CalcWrapper water-heater-lifespan; lifespan/hardness data
+https://www.hvacbase.org/air-changes-per-hour-calculator,51,1.82,calculator,N,,18,N,KEEP-GOOD,Models named only in illustrative worked examples
+https://www.hvacbase.org/air-purifier-sizing-guide,49,1.75,calculator,Y,"Y:Levoit Core 300S, Coway AP-1512HH/Airmega 400, Blueair 211i Max, Winix 5500-2, Dyson Big Quiet",22,N,KEEP-GOOD,Named-model claims-critique table (not buy-rec)
+https://www.hvacbase.org/energy-star-tax-credits,41,1.46,explainer,N,,15,N,KEEP-GOOD,Correctly frames 25C expired Dec 31 2025 per OBBBA; state rebates now primary
+https://www.hvacbase.org/good-seer-rating-for-ac,41,1.46,calculator,N,,20,N,KEEP-GOOD,CalcWrapper=seer2; 25C framed expired
+https://www.hvacbase.org/heat-pump-running-cost-calculator,39,1.39,calculator,N,,30,N,KEEP-GOOD,embeds CalcWrapper; most tables labeled illustrative
+https://www.hvacbase.org/portable-ac-electricity-cost,38,1.36,calculator,N,,30,N,KEEP-GOOD,Embeds calc; 50-state rate table labeled approximate
+https://www.hvacbase.org/solar-panel-calculator,30,1.07,calculator,N,,55,N,KEEP-GOOD,Panel-count calc; brands named in passing only
+https://www.hvacbase.org/how-many-amps-does-generator-produce,27,0.96,calculator,N,,60,N,KEEP-GOOD,"Amps=W÷V chart; embeds calc, uncited amp tables"
+https://www.hvacbase.org/hvac-rebates-by-state,26,0.93,explainer,N,,15,N,KEEP-GOOD,Correctly frames 25C AND 25D expired per OBBBA; HOMES/HEAR active
+https://www.hvacbase.org/how-to-calculate-seer,26,0.93,calculator,N,,12,N,KEEP-GOOD,CalcWrapper=seer2; 25C framed expired
+https://www.hvacbase.org/battery-watt-hours,24,0.86,calculator,N,,60,N,KEEP-GOOD,"Wh=V×Ah guide, huge spec/conversion tables, sourced box"
+https://www.hvacbase.org/seer2-savings-calculator,23,0.82,calculator,N,,18,N,KEEP-GOOD,CalcWrapper=seer2; 25C framed expired
+https://www.hvacbase.org/specific-heat-capacity-calculator,23,0.82,calculator,N,,35,N,KEEP-GOOD,embeds CalcWrapper specific-heat; costs illustrative
+https://www.hvacbase.org/furnace-efficiency-explained,20,0.71,calculator,N,,12,N,KEEP-GOOD,Embeds CalcWrapper afue; AFUE cost table footnoted illustrative
+https://www.hvacbase.org/furnace-vs-heat-pump,19,0.68,calculator,N,,20,N,KEEP-GOOD,Embeds CalcWrapper; COP tables footnoted illustrative; models named as examples
+https://www.hvacbase.org/btucfm-ductwork-relationship,15,0.54,calculator,N,,25,N,KEEP-GOOD,Embeds CalcWrapper; ACCA/ASHRAE sourced; brands (Carrier/Trane/Mitsubishi) in passing only
+https://www.hvacbase.org/25c-tax-credit-explained,15,0.54,explainer,N,,10,N,KEEP-GOOD,Correctly frames 25C TERMINATED Dec 31 2025 per OBBBA; IRS-sourced
+https://www.hvacbase.org/afue-rating-explained,13,0.46,calculator,Y,"Y:Lennox SL298NV, Carrier 59MN7A, Trane S9V2-VS, Bryant 987MA",22,N,KEEP-GOOD,CalcWrapper=afue; 25C framed expired
+https://www.hvacbase.org/electric-water-heating-cost,11,0.39,calculator,Y,Y:Rheem ProTerra XE80,60,N,KEEP-GOOD,CalcWrapper water-heating-cost; 50-state table; 25C/25D expired-flagged
+https://www.hvacbase.org/seer-rating-tax-credits,7,0.25,cost-guide,Y,"Y:Carrier Infinity 24, Trane XV20i, Lennox XC25, Mitsubishi Hyper-Heat",22,N,KEEP-GOOD,25C thoroughly framed expired; no active 30% claim
+https://www.hvacbase.org/gas-furnace-wattage,6,0.21,calculator,N,,14,N,KEEP-GOOD,Embeds CalcWrapper furnace-electrical; wattage/generator sizing
+https://www.hvacbase.org/is-tankless-water-heater-worth-it,4,0.14,calculator,N,,40,N,KEEP-GOOD,CalcWrapper ROI; 25C correctly flagged expired

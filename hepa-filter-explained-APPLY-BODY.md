@@ -1,0 +1,89 @@
+---
+slug: "hepa-filter-explained"
+title: "HEPA Filter Explained: H11 vs H13 vs H14 (What Actually Matters)"
+description: "What makes a filter HEPA, what the H13 and H14 classes mean, why 0.3 microns is the test size, 'HEPA-type' marketing, and HEPA vs. MERV for home HVAC systems."
+cluster: "air-purifiers-air-quality"
+role: "spoke"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-01-18"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "air-purifier-guide"
+  - "air-purifier-sizing-guide"
+  - "merv-rating-chart"
+  - "how-to-improve-indoor-air-quality"
+  - "how-often-change-hvac-filter"
+externalLinks:
+  - label: "EPA: What is a HEPA filter?"
+    url: "https://www.epa.gov/indoor-air-quality-iaq/what-hepa-filter"
+  - label: "EPA: Guide to Air Cleaners in the Home"
+    url: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# HEPA Filter Explained
+
+"HEPA" is one of the few air-filter terms with a real definition behind it. The labels around it, from "HEPA-type" to "H13", mean less or something different, and knowing which is which saves you from paying for a word.
+
+**A true HEPA filter removes at least 99.97% of airborne particles 0.3 microns in size, the U.S. Department of Energy's definition as cited by the EPA. H13 and H14 are classes from the European standard EN 1822, capturing at least 99.95% and 99.995% at each filter's most penetrating particle size; for a home air purifier, a true HEPA or H13 filter is enough, and airflow matters more than the class.**
+
+## What makes a filter HEPA
+
+HEPA stands for high-efficiency particulate air. The EPA describes it as a pleated mechanical filter that can remove at least 99.97% of dust, pollen, mold, bacteria and other airborne particles 0.3 microns in size. A filter that meets that test can be called HEPA; one that merely resembles it cannot.
+
+## Why 0.3 microns
+
+A filter doesn't work like a sieve. Large particles slam into fibers because they can't follow the airflow around them, and the smallest ones drift into fibers as they bounce around in the air. Particles around 0.3 microns are too small for the first effect and too large for the second, so they're the hardest to catch; a filter that stops 99.97% of them stops even more of the particles above and below that size.
+
+## H11, H13 and H14
+
+These labels come from the European standard EN 1822, which rates filters at their most penetrating particle size:
+
+| Class | Minimum efficiency at the most penetrating particle size |
+|---|---|
+| E11 (older editions: H11) | 95% |
+| E12 (older editions: H12) | 99.5% |
+| H13 | 99.95% |
+| H14 | 99.995% |
+
+H11 and H12 were renamed E11 and E12 in later editions, so a filter sold as "H11" meets the lower, 95% class, not HEPA. H14 matters in cleanrooms and hospitals; in a home, the difference between H13 and H14 is far smaller than the difference good airflow and proper sizing make.
+
+## "HEPA-type" and "HEPA-like"
+
+These terms have no standard behind them. A "HEPA-type" filter can capture far less than 99.97% of fine particles. Look for "true HEPA" with a stated efficiency at 0.3 microns, or an EN 1822 class of H13 or higher.
+
+## Airflow matters as much as the filter
+
+A perfect filter cleans only the air that passes through it. For an air purifier, the clean air delivery rate (CADR) combines filter efficiency and airflow, and it's the number to compare between models; see our [air purifier sizing guide](/air-purifier-sizing-guide). The EPA recommends choosing an air cleaner sized for the room you use it in.
+
+## HEPA in a home HVAC system
+
+Most home furnaces and air handlers can't push enough air through a true HEPA filter, which is dense and restricts flow. Central systems use MERV-rated filters instead, and a higher MERV catches more fine particles as long as the system can handle the added resistance; see the [MERV rating chart](/merv-rating-chart). Whole-house HEPA systems exist, but they use their own fan.
+
+## Frequently asked questions
+
+### What does a HEPA filter remove?
+
+At least 99.97% of airborne particles 0.3 microns in size, including dust, pollen, mold spores and bacteria, and even more of larger and smaller particles. It doesn't remove gases or odors; that takes activated carbon.
+
+### Is H13 better than true HEPA?
+
+They're close. H13 requires at least 99.95% at the most penetrating particle size under EN 1822; true HEPA requires 99.97% at 0.3 microns under the U.S. definition. Either is enough for a home.
+
+### Is H14 worth it for a home air purifier?
+
+Rarely. The gain over H13 is tiny next to the effect of airflow and room size.
+
+### Can I put a HEPA filter in my furnace?
+
+Usually not. Most home systems can't move enough air through one; a high-MERV filter the system can handle is the practical choice.
+
+<SourcesBox sources={[
+  { title: "EPA: What is a HEPA filter?", url: "https://www.epa.gov/indoor-air-quality-iaq/what-hepa-filter" },
+  { title: "EPA: Guide to Air Cleaners in the Home", url: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

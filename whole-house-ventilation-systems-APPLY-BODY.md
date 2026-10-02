@@ -1,0 +1,81 @@
+---
+slug: "whole-house-ventilation-systems"
+title: "Whole-House Ventilation Systems: ERV vs HRV Explained (2026)"
+description: "How whole-house ventilation works: exhaust, supply and balanced systems, HRV vs. ERV, how much fresh air a home needs under ASHRAE 62.2, and which system suits your climate."
+cluster: "indoor-air-quality"
+role: "spoke"
+priority: "P2"
+contentType: "comparison"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "how-to-improve-indoor-air-quality"
+  - "indoor-air-quality-testing"
+  - "voc-in-home-sources"
+  - "ideal-indoor-humidity-level"
+  - "air-changes-per-hour-calculator"
+externalLinks:
+  - label: "ASHRAE: Standards 62.1 and 62.2"
+    url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2"
+  - label: "EPA: Improving indoor air quality"
+    url: "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Whole-House Ventilation Systems
+
+Tightly built homes save energy, but they also trap moisture, odors and pollutants from cooking, cleaning and people. A whole-house ventilation system replaces stale indoor air with outdoor air at a steady, controlled rate, instead of relying on leaks.
+
+**ASHRAE Standard 62.2 sets a home's continuous ventilation at 0.03 cfm per square foot plus 7.5 cfm per person, counted as bedrooms plus one: about 90 cfm for a 2,000 sq ft, three-bedroom home. A balanced system with heat recovery (an HRV or ERV) delivers that fresh air while recovering much of the heat or coolness of the air it exhausts.**
+
+## Why ventilate
+
+The EPA lists ventilation as one of three ways to improve indoor air, alongside controlling pollutant sources and cleaning the air. Diluting indoor air with outdoor air lowers moisture, carbon dioxide and pollutants such as VOCs; see [VOCs in your home](/voc-in-home-sources).
+
+## How much ventilation a home needs
+
+ASHRAE 62.2 total ventilation = 0.03 × floor area + 7.5 × (bedrooms + 1), in cubic feet per minute. A 2,000 sq ft home with three bedrooms needs about 90 cfm; a 1,500 sq ft, two-bedroom home about 67.5 cfm. The standard allows credit for a home's measured air leakage, so a leakier home may need less mechanical ventilation.
+
+## Three kinds of systems
+
+- **Exhaust-only:** a quiet, continuously running bath or utility fan pulls air out, and outdoor air leaks in. Simple and cheap, but the incoming air is unconditioned and its path uncontrolled.
+- **Supply-only:** a fan, often tied into the furnace or air handler, brings filtered outdoor air in, slightly pressurizing the house.
+- **Balanced:** separate fans bring in and exhaust equal amounts, usually through a heat or energy recovery ventilator.
+
+## HRV vs. ERV
+
+Both pass the outgoing and incoming air streams through a core that transfers heat between them, so winter's fresh air arrives prewarmed and summer's precooled.
+
+- **HRV (heat recovery ventilator):** transfers heat only. It suits cold, drier climates, where removing indoor winter moisture is welcome.
+- **ERV (energy recovery ventilator):** transfers heat and some moisture. It suits humid summers, where it limits the humidity brought in, and very dry winters, where it keeps some moisture indoors.
+
+## Installation and upkeep
+
+Balanced systems need ducts to bring air in and out, ideally supplying bedrooms and living areas and exhausting from kitchens and bathrooms. They need commissioning to balance the airflows, and their filters and core need regular cleaning.
+
+## Frequently asked questions
+
+### How much fresh air does my house need?
+
+Under ASHRAE 62.2: 0.03 cfm per square foot plus 7.5 cfm per person, counted as bedrooms plus one. About 90 cfm for a 2,000 sq ft, three-bedroom home.
+
+### Should I get an HRV or an ERV?
+
+An HRV for cold climates with dry winters; an ERV for humid summers or very dry winters, where managing indoor humidity matters.
+
+### Do I need mechanical ventilation?
+
+New, tightly built homes usually do, and many energy codes require it. Older, leakier homes often get enough air through leaks, though not always where or when it's needed.
+
+### Is a bathroom fan enough?
+
+A quiet fan running continuously can provide exhaust-only ventilation for a small home. It doesn't recover heat or control where fresh air enters.
+
+<SourcesBox sources={[
+  { title: "ASHRAE: Standards 62.1 and 62.2 (residential ventilation)", url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2" },
+  { title: "EPA: Improving indoor air quality (source control, ventilation, air cleaners)", url: "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

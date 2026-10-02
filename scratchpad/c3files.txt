@@ -1,0 +1,12 @@
+content/mini-split-air-conditioners/how-does-a-mini-split-work.mdx
+content/mini-split-air-conditioners/what-is-a-mini-split.mdx
+content/mini-split-air-conditioners/mini-split-air-conditioners.mdx
+content/mini-split-air-conditioners/mini-split-vs-central-air.mdx
+content/mini-split-air-conditioners/dry-mode-in-ac.mdx
+content/air-quality/air-purifier-guide.mdx
+content/indoor-air-quality/how-to-improve-indoor-air-quality.mdx
+content/dehumidifiers/dehumidifier-guide.mdx
+content/energy-efficiency-ratings/merv-rating-chart.mdx
+content/heat-pumps/heat-pump-guide.mdx
+content/hvac-maintenance/how-often-change-hvac-filter.mdx
+content/hvac-maintenance/hvac-maintenance-checklist.mdx

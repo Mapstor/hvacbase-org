@@ -1,0 +1,2 @@
+content/energy-efficiency-ratings/eer-chart-for-ac-units.mdx
+content/energy-efficiency-ratings/seer2-rating-explained.mdx

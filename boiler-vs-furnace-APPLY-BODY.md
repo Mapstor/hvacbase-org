@@ -1,0 +1,93 @@
+---
+slug: "boiler-vs-furnace"
+title: "Boiler vs Furnace: Which Heating System Is Better? (2026 Comparison)"
+description: "Boilers and furnaces compared: how each heats, comfort, efficiency ratings and federal minimums, running cost on the same fuel, cooling and ductwork, and which fits your home."
+cluster: "furnaces-heating"
+role: "spoke"
+priority: "P2"
+contentType: "comparison"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-10-01"
+relatedArticles:
+  - "furnace-guide"
+  - "afue-rating-explained"
+  - "heating-cost-calculator"
+  - "furnace-vs-heat-pump"
+  - "radiant-floor-heating-pros-cons"
+externalLinks:
+  - label: "eCFR: 10 CFR 430.32 (furnace and boiler standards)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430"
+  - label: "U.S. DOE: Final energy efficiency standards for residential furnaces"
+    url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Boiler vs Furnace
+
+A furnace heats air and blows it through ducts; a boiler heats water and circulates it to radiators, baseboards or floor tubing. Both burn the same fuels and are rated the same way, so the choice is less about cost and more about comfort, ducts and cooling.
+
+**On the same fuel and efficiency, a boiler and a furnace cost about the same to run: heating a 2,000 sq ft home with average insulation takes about 58 million BTU a year, roughly $829 with either at 95% efficiency and $1.35 per therm. Boilers give quiet, even radiant heat without ducts; furnaces share ducts with central air.**
+
+## How they heat
+
+- **Furnace (forced air):** burns fuel to heat air, which a blower pushes through supply ducts; return ducts bring it back.
+- **Boiler (hydronic):** heats water, which a pump circulates through radiators, baseboard convectors or tubing in the floor, then back to the boiler. Steam boilers, common in older buildings, send steam instead.
+
+## Efficiency and federal minimums
+
+Both are rated by AFUE, the share of fuel that becomes heat over a year. Gas furnaces must meet 80% AFUE today, and non-weatherized gas furnaces made from December 18, 2028 must reach 95%.
+
+Gas-fired hot-water boilers must meet 84% AFUE. Condensing models of both reach 90% and above; condensing boilers do best with low water temperatures, such as radiant floors.
+
+## Running cost
+
+Heat delivered is what costs money, so at the same efficiency and fuel price the bills match. For the example home's 58 million BTU a year at $1.35 per therm:
+
+| System | AFUE | Heating cost per year |
+|---|---|---|
+| Condensing boiler or furnace | 95% | $829 |
+| Standard gas boiler | 84% | $937 |
+| Standard gas furnace | 80% | $984 |
+
+See the [heating cost calculator](/heating-cost-calculator) for other fuels.
+
+## Comfort
+
+Boilers heat by radiation and gentle convection, so rooms feel even, with no drafts or blowing dust; they're also quieter. Furnaces heat faster and can filter and humidify the air through the ducts. Radiant floors, in particular, keep floors warm; see [radiant floor heating pros and cons](/radiant-floor-heating-pros-cons).
+
+## Cooling and ductwork
+
+A furnace's ducts also serve central air, so one duct system does both. A boiler has no ducts, so cooling needs a separate system, often ductless mini splits. Adding ducts to a boiler-heated house is usually a major job.
+
+## Which fits your home
+
+- **Boiler:** you already have one, want radiant comfort, or are building with radiant floors; plan separate cooling.
+- **Furnace:** you have ducts or want central air, want filtration, or want faster heat-up.
+- **Neither:** a heat pump heats and cools without combustion; see [furnace vs. heat pump](/furnace-vs-heat-pump).
+
+## Frequently asked questions
+
+### Is a boiler more efficient than a furnace?
+
+Not inherently. Both are rated by AFUE, and condensing models of each reach 90% and above. On the same fuel and AFUE, they cost the same to run.
+
+### Which is cheaper to run, a boiler or a furnace?
+
+At equal efficiency and fuel price, about the same. In the example home, a 95% model of either costs about $829 a year at $1.35 per therm.
+
+### Can I switch from a boiler to a furnace?
+
+Yes, but it means installing ductwork, which is usually the largest part of the cost. Ductless heat pumps are a common alternative.
+
+### Do boilers provide air conditioning?
+
+No. A boiler only heats; cooling needs a separate system such as mini splits or central air with ducts.
+
+<SourcesBox sources={[
+  { title: "eCFR: 10 CFR 430.32 (energy conservation standards for furnaces and boilers)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
+  { title: "U.S. DOE: Final energy efficiency standards for residential furnaces (95% AFUE from Dec 18, 2028)", url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

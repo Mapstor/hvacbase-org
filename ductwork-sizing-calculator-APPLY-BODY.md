@@ -1,0 +1,98 @@
+---
+slug: "ductwork-sizing-calculator"
+title: "Ductwork Sizing Calculator: CFM to Duct Size Chart (2026 Guide)"
+description: "Size round and rectangular ducts from airflow and friction rate. The calculator uses duct-flow physics; with a CFM-to-duct-size chart, rectangular equivalents and trunk vs. branch sizing."
+cluster: "ductwork-ventilation"
+role: "hub"
+priority: "P1"
+contentType: "calculator-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "flexible-vs-rigid-ductwork"
+  - "duct-leakage-testing"
+  - "ac-tonnage-calculator"
+  - "hvac-noise-levels-explained"
+  - "air-conditioner-btu-calculator"
+externalLinks:
+  - label: "ACCA: Technical manuals (Manual D, residential duct design)"
+    url: "https://www.acca.org/standards/technical-manuals"
+  - label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
+    url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Ductwork Sizing Calculator
+
+A duct has to carry the air your system moves without too much friction, which wastes fan energy, or too much speed, which makes noise. Size it from two numbers: how much air it carries, in cubic feet per minute (CFM), and how much pressure you can afford to lose per 100 feet of duct.
+
+**At a common design friction rate of 0.08 inches of water per 100 feet, 400 CFM (roughly one ton of cooling) needs a round duct about 10.1 inches across, and 1,000 CFM needs about 14.3 inches. Round up to the next standard size, then check the air speed.**
+
+<CalcWrapper type="duct-sizing" />
+
+## How the calculator works
+
+1. **Airflow.** Enter CFM, or tons of cooling at a typical design airflow of about 400 CFM per ton.
+2. **Friction rate.** The pressure loss you design for, in inches of water per 100 feet; 0.08 is a common starting point, and the right value comes from the system's available fan pressure.
+3. **Duct physics.** For smooth galvanized steel duct and standard air, the calculator finds the diameter that produces that friction rate, using the Darcy-Weisbach equation with the Swamee-Jain friction factor. It then rounds up to the next standard size and reports the actual speed and friction.
+
+## CFM to round duct size chart
+
+At a friction rate of 0.08 inches of water per 100 feet:
+
+| Airflow | Exact diameter | Next standard size | Air speed at that size |
+|---|---|---|---|
+| 100 CFM | 6.05 in | 7 in | 374 fpm |
+| 200 CFM | 7.83 in | 8 in | 573 fpm |
+| 400 CFM | 10.14 in | 12 in | 509 fpm |
+| 800 CFM | 13.14 in | 14 in | 748 fpm |
+| 1,000 CFM | 14.29 in | 16 in | 716 fpm |
+| 1,200 CFM | 15.30 in | 16 in | 859 fpm |
+| 1,600 CFM | 17.05 in | 18 in | 905 fpm |
+
+The calculator flags speeds above 900 feet per minute, which can be noisy in homes. Where a size falls just over a standard size, as 6.05 inches does, a designer may accept the smaller size and slightly higher friction.
+
+## Round to rectangular
+
+A rectangular duct carries the same air with the same friction as a round duct of its equivalent diameter, by the Huebscher formula: De = 1.30 × (a × b)^0.625 ÷ (a + b)^0.25, with sides a and b in inches.
+
+| Rectangular duct | Equivalent round diameter |
+|---|---|
+| 8 × 10 in | 9.76 in |
+| 8 × 14 in | 11.46 in |
+| 10 × 12 in | 11.96 in |
+
+The calculator lists the smallest rectangular sizes, at heights of 6, 8, 10 and 12 inches, that match the round size you need.
+
+## Trunk lines and branch ducts
+
+The main trunk carries the system's total airflow, and each branch carries one room's share. Room airflow comes from a room-by-room load calculation; the ACCA's Manual D is the industry method for designing the whole duct system, including fittings, which add friction of their own. Use this calculator to size individual runs once you know their airflow.
+
+Flexible duct has more friction than smooth sheet metal, so size it larger. Leaky ducts also waste energy: the DOE puts duct air losses at about 30% of a cooling system's energy; see [duct leakage testing](/duct-leakage-testing).
+
+## Frequently asked questions
+
+### What size duct do I need for 400 CFM?
+
+About 10.1 inches round at 0.08 inches of water per 100 feet, so a 12-inch duct among the calculator's standard sizes. A 10-inch duct would run slightly above that friction rate.
+
+### How many CFM per ton?
+
+About 400 CFM per ton is a typical design airflow; humid climates often use less and dry climates more. The equipment's specifications give the exact range.
+
+### How do I convert round duct to rectangular?
+
+Use the Huebscher formula above, or the calculator's rectangular list: for example, a 10 × 12 inch duct is equivalent to about a 12-inch round duct (11.96 inches).
+
+### What friction rate should I use?
+
+It depends on the pressure your fan can supply after filters, coils and grilles take their share. 0.08 inches of water per 100 feet is a common residential starting point; Manual D sets it for a specific system.
+
+<SourcesBox sources={[
+  { title: "ACCA: Technical manuals (Manual D, residential duct systems)", url: "https://www.acca.org/standards/technical-manuals" },
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), duct losses", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,162 @@
+[
+  {
+    "file": "content/mini-split-air-conditioners/mini-split-electricity-usage.mdx",
+    "note": "DOE fm -> PDF"
+  },
+  {
+    "file": "content/mini-split-air-conditioners/mini-split-electricity-usage.mdx",
+    "note": "per-degree -> qualitative (body)"
+  },
+  {
+    "file": "content/mini-split-air-conditioners/mini-split-electricity-usage.mdx",
+    "note": "duct 20-30 -> about 30% (body)"
+  },
+  {
+    "file": "content/mini-split-air-conditioners/mini-split-electricity-usage.mdx",
+    "note": "duct 20-30 -> about 30% (methodology)"
+  },
+  {
+    "file": "content/mini-split-air-conditioners/mini-split-electricity-usage.mdx",
+    "note": "DOE source -> PDF"
+  },
+  {
+    "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+    "note": "DOE programmable fm -> PDF"
+  },
+  {
+    "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+    "note": "remove duplicate DOE maintaining fm entry (dedup)"
+  },
+  {
+    "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+    "note": "setback+per-degree claim rewrite (body) part 1"
+  },
+  {
+    "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+    "note": "setback+per-degree claim rewrite (body) part 2"
+  },
+  {
+    "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+    "note": "methodology: drop 7-10F/8hr detail (label)"
+  },
+  {
+    "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+    "note": "methodology: drop 7-10F/8hr detail (value)"
+  },
+  {
+    "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+    "note": "DOE programmable source -> PDF"
+  },
+  {
+    "file": "content/air-conditioners/ac-troubleshooting-guide.mdx",
+    "note": "remove duplicate DOE maintaining source entry (dedup)"
+  },
+  {
+    "file": "content/air-conditioners/air-conditioner-types.mdx",
+    "note": "DOE central-ac fm -> PDF"
+  },
+  {
+    "file": "content/air-conditioners/air-conditioner-types.mdx",
+    "note": "duct 20-30 -> about 30% (Cons bullet)"
+  },
+  {
+    "file": "content/air-conditioners/air-conditioner-types.mdx",
+    "note": "duct 20-30 -> about 30% (methodology)"
+  },
+  {
+    "file": "content/air-conditioners/air-conditioner-types.mdx",
+    "note": "DOE central-ac source -> PDF"
+  },
+  {
+    "file": "content/hvac-maintenance/how-to-clean-ac-coils.mdx",
+    "note": "DOE fm -> PDF (url-first block)"
+  },
+  {
+    "file": "content/hvac-maintenance/how-to-clean-ac-coils.mdx",
+    "note": "DOE source -> PDF"
+  },
+  {
+    "file": "content/hvac-maintenance/how-often-change-hvac-filter.mdx",
+    "note": "DOE fm -> PDF"
+  },
+  {
+    "file": "content/hvac-maintenance/how-often-change-hvac-filter.mdx",
+    "note": "DOE source -> PDF"
+  },
+  {
+    "file": "content/hvac-maintenance/hvac-maintenance-checklist.mdx",
+    "note": "DOE fm -> PDF"
+  },
+  {
+    "file": "content/hvac-maintenance/hvac-maintenance-checklist.mdx",
+    "note": "DOE source -> PDF"
+  },
+  {
+    "file": "content/air-conditioners/ac-not-cooling.mdx",
+    "note": "DOE markdown link -> PDF"
+  },
+  {
+    "file": "content/smart-thermostats/smart-thermostat-savings.mdx",
+    "note": "DOE setback claim rewrite (body)"
+  },
+  {
+    "file": "content/smart-thermostats/smart-thermostat-savings.mdx",
+    "note": "remove Google Nest (store.google) source; drop EIA comma"
+  },
+  {
+    "file": "content/mold-prevention/how-to-identify-mold.mdx",
+    "note": "remove dead AIHA mold link (target EPA brief-guide already cited above -> dedup)"
+  },
+  {
+    "file": "content/space-heaters/space-heater-guide.mdx",
+    "note": "remove dead UL heater link (NFPA heating already cited -> dedup); drop CDC comma"
+  },
+  {
+    "file": "content/_archived-product-pages/space-heaters/safest-space-heaters.mdx",
+    "note": "remove dead UL portable-heaters link (NFPA heating already cited -> dedup)"
+  },
+  {
+    "file": "content/_archived-product-pages/space-heaters/best-small-heaters.mdx",
+    "note": "remove dead UL heater link (NFPA heating already cited -> dedup)"
+  },
+  {
+    "file": "content/ductwork/flexible-vs-rigid-ductwork.mdx",
+    "note": "remove SMACNA fm externalLink"
+  },
+  {
+    "file": "content/ductwork/flexible-vs-rigid-ductwork.mdx",
+    "note": "remove SMACNA source entry"
+  },
+  {
+    "file": "content/ductwork/ductwork-sizing-calculator.mdx",
+    "note": "remove SMACNA source entry; drop ASHRAE comma"
+  },
+  {
+    "file": "content/indoor-air-quality/voc-in-home-sources.mdx",
+    "note": "remove CARB composite-wood source entry (in-text CARB Phase 2 mention kept)"
+  },
+  {
+    "file": "content/battery-backup/solar-panel-calculator.mdx",
+    "note": "remove SEIA 2026-q4 (impossible) + EnergySage (commercial); drop EIA comma"
+  },
+  {
+    "file": "content/generators/generator-guide.mdx",
+    "note": "remove Generac source entry"
+  },
+  {
+    "file": "content/generators/propane-generator-usage-per-hour.mdx",
+    "note": "remove Generac + Kohler source entries; drop EIA comma"
+  },
+  {
+    "file": "content/tankless-water-heaters/tankless-water-heater-propane-usage.mdx",
+    "note": "remove Rinnai source entry; drop EIA comma"
+  },
+  {
+    "file": "content/tankless-water-heaters/tankless-water-heater-guide.mdx",
+    "note": "remove Rinnai source entry"
+  },
+  {
+    "file": "content/ductwork/btucfm-ductwork-relationship.mdx",
+    "note": "remove Carrier Engineering Newsletter source; drop ASHRAE comma"
+  }
+]

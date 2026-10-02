@@ -1,0 +1,309 @@
+==================== A1: DOE energysaver ====================
+content/mini-split-air-conditioners/mini-split-electricity-usage.mdx:19:    url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner"
+content/mini-split-air-conditioners/mini-split-electricity-usage.mdx:144:  { title: "U.S. Department of Energy: Maintaining Your Air Conditioner (dirty filter raises energy use 5-15%)", url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner" },
+content/air-conditioners/ac-not-cooling.mdx:249:- [U.S. Department of Energy, Maintaining Your Air Conditioner](https://www.energy.gov/energysaver/maintaining-your-air-conditioner), filter energy impact (5–15%), coil cleaning, refrigerant charge, seasonal maintenance
+content/air-conditioners/ac-troubleshooting-guide.mdx:19:    url: "https://www.energy.gov/energysaver/programmable-thermostats"
+content/air-conditioners/ac-troubleshooting-guide.mdx:23:    url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner"
+content/air-conditioners/ac-troubleshooting-guide.mdx:165:  { title: "U.S. Department of Energy: Programmable Thermostats (setback savings)", url: "https://www.energy.gov/energysaver/programmable-thermostats" },
+content/air-conditioners/ac-troubleshooting-guide.mdx:167:  { title: "U.S. Department of Energy: Maintaining Your Air Conditioner", url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner" },
+content/air-conditioners/air-conditioner-types.mdx:17:    url: "https://www.energy.gov/energysaver/central-air-conditioning"
+content/air-conditioners/air-conditioner-types.mdx:155:  { title: "U.S. DOE: Central Air Conditioning (Energy Saver)", url: "https://www.energy.gov/energysaver/central-air-conditioning" },
+content/hvac-maintenance/how-to-clean-ac-coils.mdx:19:  - url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner"
+content/hvac-maintenance/how-to-clean-ac-coils.mdx:145:  { label: "U.S. Department of Energy: Maintaining Your Air Conditioner", url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner" }
+content/hvac-maintenance/how-often-change-hvac-filter.mdx:21:    url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner"
+content/hvac-maintenance/how-often-change-hvac-filter.mdx:104:  { title: "U.S. Department of Energy: Maintaining Your Air Conditioner (dirty filter raises energy use 5–15%)", url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner" }
+content/hvac-maintenance/hvac-maintenance-checklist.mdx:22:    url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner"
+content/hvac-maintenance/hvac-maintenance-checklist.mdx:114:  { title: "U.S. Department of Energy: Maintaining Your Air Conditioner (dirty filter raises energy use 5–15%)", url: "https://www.energy.gov/energysaver/maintaining-your-air-conditioner" },
+
+==================== A2: ACCA (all) ====================
+content/energy-costs/specific-heat-capacity-calculator.mdx:274:  { title: "ACCA Manual J - Residential Load Calculation", url: "https://www.acca.org/standards/manual-j" }
+content/ductwork/flexible-vs-rigid-ductwork.mdx:20:  - url: "https://www.acca.org/standards/manual-d"
+content/ductwork/flexible-vs-rigid-ductwork.mdx:331:  { name: "ACCA Manual D", url: "https://www.acca.org/standards/manual-d", description: "Residential Duct Systems — friction rate tables for flex and rigid" },
+content/tankless-water-heaters/tankless-water-heater-guide.mdx:269:  { label: "ACCA — Manual J Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+content/generators/generator-guide.mdx:371:  { label: "ACCA Manual J — Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+content/ductwork/btucfm-ductwork-relationship.mdx:18:  - url: "https://www.acca.org/standards/manual-j"
+content/ductwork/btucfm-ductwork-relationship.mdx:20:  - url: "https://www.acca.org/standards/manual-d"
+content/ductwork/btucfm-ductwork-relationship.mdx:369:  { name: "ACCA Manual J", url: "https://www.acca.org/standards/manual-j", description: "Residential Load Calculation — the industry standard for determining room-by-room BTU requirements" },
+content/ductwork/btucfm-ductwork-relationship.mdx:370:  { name: "ACCA Manual D", url: "https://www.acca.org/standards/manual-d", description: "Residential Duct Systems — translating CFM to duct sizes" },
+content/hvac-brands/central-air-conditioner-guide.mdx:18:  - url: "https://www.acca.org/standards/manual-j"
+content/hvac-brands/central-air-conditioner-guide.mdx:331:  - [ACCA Manual J](https://www.acca.org/standards/manual-j) — Residential load calculation standard
+content/ductwork/duct-leakage-testing.mdx:279:  { name: "ACCA", url: "https://www.acca.org/standards", description: "Manual D duct design and quality installation standards" }
+content/dehumidifiers/dehumidifier-and-ac-same-time.mdx:178:  { label: "ACCA — Manual J Residential Load Calculation", url: "https://www.acca.org/standards/manuals" }
+content/hvac-brands/central-ac-cost-to-install.mdx:154:  { title: "ACCA: Manual J, Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" }
+content/ductwork/ductwork-sizing-calculator.mdx:18:  - url: "https://www.acca.org/standards/manual-d"
+content/ductwork/ductwork-sizing-calculator.mdx:320:  { name: "ACCA Manual D", url: "https://www.acca.org/standards/manual-d", description: "Residential Duct Systems — the industry standard for duct design" },
+content/hvac-brands/hvac-system-lifespan.mdx:279:  - [ACCA Quality Installation Standards](https://www.acca.org/standards) -- Installation impact on equipment life
+content/ac-sizing-selection/furnace-sizing-calculator.mdx:19:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/ac-sizing-selection/furnace-sizing-calculator.mdx:265:  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+content/_archived-merged/ac-size-for-1000-sq-ft.mdx:21:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/_archived-merged/ac-size-for-1000-sq-ft.mdx:168:  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+content/ac-sizing-selection/heat-pump-size-calculator.mdx:256:  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+content/portable-air-conditioners/portable-air-conditioners.mdx:250:  { label: "ACCA Manual J — Residential Load Calculation", url: "https://www.acca.org/standards/manualj" },
+content/mini-split-air-conditioners/mini-split-installation-cost.mdx:21:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/mini-split-air-conditioners/mini-split-installation-cost.mdx:142:  { title: "ACCA Manual J: Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" }
+content/furnaces-heating/cold-air-return-vents.mdx:16:  - url: "https://www.acca.org/standards/manuals/manual-d"
+content/furnaces-heating/cold-air-return-vents.mdx:154:  { title: "ACCA Manual D — Residential Duct Design", url: "https://www.acca.org/standards/manuals/manual-d" }
+content/ac-sizing-selection/mini-split-sizing-calculator.mdx:25:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/ac-sizing-selection/mini-split-sizing-calculator.mdx:167:  { title: "ACCA: Manual J, Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" }
+content/mini-split-air-conditioners/mini-split-air-conditioners.mdx:23:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/mini-split-air-conditioners/mini-split-air-conditioners.mdx:172:  { title: "ACCA: Manual J Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+content/furnaces-heating/furnace-leaking-water.mdx:188:  { title: "ACCA — Residential HVAC Maintenance", url: "https://www.acca.org/standards" }
+content/furnaces-heating/furnace-installation-cost.mdx:194:  { title: "ACCA — Quality Installation Standards", url: "https://www.acca.org/standards/quality-installation" }
+content/ac-sizing-selection/how-many-mini-splits-do-i-need.mdx:18:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/ac-sizing-selection/how-many-mini-splits-do-i-need.mdx:212:  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+content/ac-sizing-selection/ac-tonnage-calculator.mdx:21:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/ac-sizing-selection/ac-tonnage-calculator.mdx:23:    url: "https://www.acca.org/standards/technical-manuals/manual-s"
+content/ac-sizing-selection/ac-tonnage-calculator.mdx:206:  { title: "ACCA: Manual J, Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+content/ac-sizing-selection/ac-tonnage-calculator.mdx:207:  { title: "ACCA: Manual S, Residential Equipment Selection", url: "https://www.acca.org/standards/technical-manuals/manual-s" },
+content/ac-sizing-selection/air-conditioner-btu-calculator.mdx:22:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/ac-sizing-selection/air-conditioner-btu-calculator.mdx:169:  { title: "ACCA: Manual J, Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" }
+content/_archived-merged/what-is-seer-rating.mdx:176:  { label: "ACCA - Quality Installation Standards", url: "https://www.acca.org" },
+content/furnaces-heating/furnace-guide.mdx:21:  - url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/furnaces-heating/furnace-guide.mdx:180:  { title: "ACCA Manual J: Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+content/_archived-merged/how-many-btu-per-square-foot.mdx:21:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/_archived-merged/how-many-btu-per-square-foot.mdx:283:  - [ACCA Manual J – Residential Load Calculation (8th Edition)](https://www.acca.org/standards/technical-manuals/manual-j)
+content/_archived-merged/upflow-vs-downflow-furnace.mdx:139:  { title: "ACCA — Residential HVAC Installation Standards", url: "https://www.acca.org/standards" },
+content/heat-pumps/heat-pump-cost-to-install.mdx:21:    url: "https://www.acca.org/contractors"
+content/heat-pumps/heat-pump-cost-to-install.mdx:147:  { title: "ACCA: Find a Contractor (Manual J load calculation, qualified installers)", url: "https://www.acca.org/contractors" },
+content/_archived-merged/tankless-vs-tank-water-heater.mdx:230:  { label: "ACCA — Residential Water Heating Load Calculations", url: "https://www.acca.org" },
+content/heat-pumps/disadvantages-of-heat-pumps.mdx:233:  - [ACCA — Manual J Residential Load Calculation](https://www.acca.org/standards/manual-j)
+content/_archived-merged/ac-size-for-1500-sq-ft.mdx:21:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/_archived-merged/ac-size-for-1500-sq-ft.mdx:168:  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+content/_archived-merged/ac-size-for-2000-sq-ft.mdx:21:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/_archived-merged/ac-size-for-2000-sq-ft.mdx:161:  - [ACCA Manual J & Manual D](https://www.acca.org/standards/technical-manuals)
+content/_archived-merged/natural-gas-generator-running-cost.mdx:234:    { label: "ACCA — Gas Line Sizing", url: "https://www.acca.org/" },
+content/_archived-product-pages/dehumidifiers/best-whole-house-dehumidifiers.mdx:22:    url: "https://www.acca.org/standards/manuals"
+content/_archived-product-pages/dehumidifiers/best-whole-house-dehumidifiers.mdx:193:  { label: "ACCA — Manual D Residential Duct Design", url: "https://www.acca.org/standards/manuals" },
+content/_archived-product-pages/smart-thermostats/best-thermostat-for-heat-pump.mdx:289:    { label: "ACCA Manual J — Residential Load Calculation", url: "https://www.acca.org/standards/manuals/manual-j" },
+content/_archived-merged/ac-size-for-2500-sq-ft.mdx:20:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/_archived-merged/ac-size-for-2500-sq-ft.mdx:160:  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+content/_archived-product-pages/smart-thermostats/best-smart-thermostats.mdx:281:    { label: "ACCA — HVAC System Standards", url: "https://www.acca.org/standards" },
+content/_archived-merged/good-seer-rating-for-ac.mdx:216:  { label: "ACCA – Quality Installation Standards", url: "https://www.acca.org" },
+content/_archived-merged/what-size-mini-split-for-garage.mdx:187:  - [ACCA Manual J – Residential Load Calculation](https://www.acca.org/standards/technical-manuals/manual-j)
+content/_archived-merged/ac-size-for-3000-sq-ft.mdx:20:    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+content/_archived-merged/ac-size-for-3000-sq-ft.mdx:161:  - [ACCA Manual J & D – Load Calculation and Duct Design](https://www.acca.org/standards/technical-manuals)
+content/_archived-merged/is-it-ok-to-oversize-mini-split.mdx:18:    url: "https://www.acca.org/standards/technical-manuals"
+content/_archived-merged/is-it-ok-to-oversize-mini-split.mdx:194:  - [ACCA Manual S – Residential Equipment Selection](https://www.acca.org/standards/technical-manuals)
+content/_archived-product-pages/energy-efficiency-ratings/16-seer-vs-14-seer.mdx:306:  { label: "ACCA — Manual J Residential Load Calculation", url: "https://www.acca.org/standards/manual-j" },
+content/_archived-merged/programmable-vs-smart-thermostat.mdx:265:    { label: "ACCA — Residential HVAC Standards", url: "https://www.acca.org/standards" },
+content/_archived-product-pages/energy-efficiency-ratings/16-seer-vs-20-seer.mdx:363:  { label: "ACCA — Manual S Equipment Selection", url: "https://www.acca.org/standards" },
+content/_archived-merged/central-ac-vs-mini-split-vs-window.mdx:257:  - [ACCA Manual J](https://www.acca.org/standards/manual-j) — Residential load calculations
+content/_archived-merged/14-seer-vs-16-seer-vs-20-seer.mdx:312:  { label: "ACCA — Manual J and Manual S Standards", url: "https://www.acca.org/standards" },
+content/_archived-merged/seer-vs-seer2.mdx:164:  { label: "ACCA - Industry Update on SEER2 Transition", url: "https://www.acca.org" }
+content/_archived-product-pages/energy-efficiency-ratings/14-3-seer2-vs-16-seer.mdx:294:  { label: "ACCA — Residential Equipment Selection (Manual S)", url: "https://www.acca.org/standards" }
+content/_archived-product-pages/air-conditioners/smallest-acs-for-small-rooms.mdx:21:    url: "https://www.acca.org/standards/manualj"
+content/_archived-product-pages/air-conditioners/smallest-acs-for-small-rooms.mdx:228:  { label: "ACCA Manual J Residential Load Calculation", url: "https://www.acca.org/standards/manualj" },
+content/_archived-merged/water-heater-cost-to-install.mdx:260:  { label: "ACCA – Contractor Standards", url: "https://www.acca.org" },
+content/_archived-merged/is-higher-seer-worth-it.mdx:286:  { label: "ACCA — Quality Installation Standards", url: "https://www.acca.org/standards" },
+content/air-conditioners/window-air-conditioners.mdx:359:  { label: "ACCA Manual J Residential Load Calculation", url: "https://www.acca.org/standards/manualj" }
+content/air-conditioners/ac-not-cooling.mdx:18:    url: "https://www.acca.org/standards/technical-manuals/manual-s"
+content/air-conditioners/ac-not-cooling.mdx:252:- [ACCA, Manual S Equipment Selection](https://www.acca.org/standards/technical-manuals/manual-s), load calculation and equipment sizing
+content/air-conditioners/ac-troubleshooting-guide.mdx:27:    url: "https://www.acca.org/standards/technical-manuals/manual-s"
+content/air-conditioners/ac-troubleshooting-guide.mdx:169:  { title: "ACCA: Manual S / Manual J (system sizing)", url: "https://www.acca.org/standards/technical-manuals/manual-s" }
+content/_archived-product-pages/hvac-brands/best-hvac-brands-ranked.mdx:253:  - [ACCA Quality Installation Standards](https://www.acca.org/standards) — Installation quality benchmarks
+content/_archived-merged/furnace-maintenance.mdx:18:    url: "https://www.acca.org/standards"
+content/_archived-merged/indoor-air-quality-guide.mdx:414:  { name: "ACCA — Residential Air Quality Standards", url: "https://www.acca.org/" },
+content/_archived-product-pages/space-heaters/best-space-heaters-for-large-rooms.mdx:199:  { title: "ACCA: Manual J Heat Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" }
+content/_archived-product-pages/heat-pumps/heat-pump-vs-mini-split.mdx:483:      url: "https://www.acca.org/standards/manual-j",
+content/_archived-product-pages/evaporative-coolers/best-evaporative-coolers.mdx:309:  { title: "ACCA – Residential Equipment Selection (Manual S)", url: "https://www.acca.org/standards/manuals" }
+content/_archived-product-pages/portable-air-conditioners/biggest-portable-acs.mdx:230:  { label: "ACCA Manual J — Load Calculation", url: "https://www.acca.org/standards/manualj" }
+content/_archived-product-pages/brand-reviews/trane-vs-carrier.mdx:18:    url: "https://www.acca.org/find-a-contractor"
+content/_archived-product-pages/portable-air-conditioners/portable-ac-window-seal-kits.mdx:206:  { label: "ACCA — Residential Equipment Standards", url: "https://www.acca.org" },
+
+==================== A3: AHAM ====================
+content/indoor-air-quality/how-to-improve-indoor-air-quality.mdx:155:  { title: "AHAM Verifide: Air Cleaner CADR Ratings", url: "https://www.ahamverifide.org/" }
+scripts/content-audit.mjs:70:const STD_DOMAINS = /(\.gov|\.edu|ashrae\.org|nfpa\.org|acca\.org|ahrinet\.org|ahridirectory\.org|ahamverifide\.org|ul\.com|esfi\.org|nrel\.gov|energystar\.gov|iso\.org|ansi\.org|nadca\.com|dsireusa\.org|ecfr\.gov)/i;
+content/_archived-product-pages/air-purifier-reviews/airdog-air-purifier-review.mdx:163:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" }
+content/_archived-product-pages/air-purifier-reviews/alen-breathesmart-air-purifiers.mdx:20:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/alen-breathesmart-air-purifiers.mdx:190:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-product-pages/air-purifier-reviews/winix-air-purifiers.mdx:19:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/winix-air-purifiers.mdx:162:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-product-pages/air-purifier-reviews/coway-air-purifiers.mdx:19:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/coway-air-purifiers.mdx:183:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-product-pages/air-purifier-reviews/medify-air-purifiers.mdx:20:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/medify-air-purifiers.mdx:158:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-merged/dehumidifier-vs-air-purifier.mdx:242:  { label: "AHAM — Room Air Cleaner Certification (CADR)", url: "https://www.aham.org" },
+content/_archived-merged/cadr-rating-explained.mdx:19:  - url: "https://www.aham.org/AHAM/AHAM/ConnectWithUs/CADR/CADR.aspx"
+content/_archived-merged/cadr-rating-explained.mdx:185:  { label: "AHAM - Clean Air Delivery Rate (CADR) Certification", url: "https://www.aham.org" },
+content/_archived-product-pages/air-purifier-reviews/dyson-air-purifiers.mdx:23:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/dyson-air-purifiers.mdx:242:    { name: "AHAM – Verifide Certified Products Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-product-pages/air-purifier-reviews/honeywell-air-purifiers.mdx:18:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/honeywell-air-purifiers.mdx:160:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-product-pages/air-purifier-reviews/blueair-air-purifiers.mdx:19:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/blueair-air-purifiers.mdx:164:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-product-pages/air-purifier-reviews/germguardian-air-purifiers.mdx:19:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/germguardian-air-purifiers.mdx:144:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-merged/5000-btu-air-conditioner-room-size.mdx:200:  - [AHAM – Room Air Conditioner Standards](https://www.aham.org)
+content/_archived-product-pages/air-purifier-reviews/dyson-vs-levoit-vs-coway.mdx:26:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/dyson-vs-levoit-vs-coway.mdx:277:    { name: "AHAM – Verifide Certified Products", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-merged/how-does-a-dehumidifier-work.mdx:284:  { label: "AHAM — Dehumidifier Test Standards", url: "https://www.aham.org" },
+content/_archived-product-pages/air-purifier-reviews/levoit-air-purifiers.mdx:20:  - url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx"
+content/_archived-product-pages/air-purifier-reviews/levoit-air-purifiers.mdx:226:    { name: "AHAM – Verifide Directory", url: "https://www.aham.org/AHAM/AHAM/AHAM-Verifide.aspx" },
+content/_archived-merged/ceer-rating-explained.mdx:211:  { label: "AHAM - Room Air Conditioner Standards", url: "https://www.aham.org" },
+content/air-conditioners/window-air-conditioners.mdx:19:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/air-conditioners/window-air-conditioners.mdx:356:  { label: "AHAM Room Air Conditioner Certification Program", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/air-conditioners/portable-vs-window-ac.mdx:16:    url: "https://www.aham.org/Standards/Room-Air-Conditioners"
+content/_archived-merged/dehumidifier-electricity-usage.mdx:242:  { label: "AHAM — Dehumidifier Energy Efficiency Ratings", url: "https://www.aham.org" },
+content/_archived-merged/window-too-small-for-ac.mdx:241:  { label: "AHAM Certified Product Directory", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" }
+content/_archived-product-pages/dehumidifiers/best-humidifiers-for-large-rooms.mdx:20:    url: "https://www.aham.org"
+content/_archived-product-pages/dehumidifiers/best-humidifiers-for-large-rooms.mdx:169:  { label: "AHAM — Humidifier Standards and Testing", url: "https://www.aham.org" },
+content/_archived-merged/ac-size-for-500-sq-ft.mdx:182:  - [AHAM – Room Air Conditioner Standards](https://www.aham.org)
+content/_archived-product-pages/dehumidifiers/best-basement-dehumidifiers.mdx:22:    url: "https://www.aham.org/AHAM/Certification"
+content/_archived-product-pages/dehumidifiers/best-basement-dehumidifiers.mdx:231:  { label: "AHAM — Verified Dehumidifier Ratings", url: "https://www.aham.org/AHAM/Certification" },
+content/air-quality/air-changes-per-hour-calculator.mdx:257:  { label: "AHAM Verifide: CADR Testing and Standards", url: "https://ahamverifide.org/" }
+content/_archived-product-pages/air-conditioners/lightweight-window-acs.mdx:178:  { label: "AHAM Room AC Directory", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" }
+content/_archived-merged/saddle-u-shaped-air-conditioners.mdx:163:  { label: "AHAM Room AC Certification", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" }
+content/_archived-product-pages/dehumidifiers/most-energy-efficient-dehumidifiers.mdx:19:    url: "https://www.aham.org/AHAM/Certification/AHAM_Certified_Products.aspx"
+content/_archived-product-pages/dehumidifiers/most-energy-efficient-dehumidifiers.mdx:231:  { label: "AHAM — Certified Dehumidifier Directory", url: "https://www.aham.org/AHAM/Certification/AHAM_Certified_Products.aspx" },
+content/air-quality/air-purifier-sizing-guide.mdx:17:    url: "https://ahamverifide.org/"
+content/air-quality/air-purifier-sizing-guide.mdx:253:  { label: "AHAM Verifide Certification & Room Size Guidelines", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-conditioners/best-window-air-conditioners.mdx:23:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/_archived-product-pages/air-conditioners/best-window-air-conditioners.mdx:240:  { label: "AHAM Verified Room Air Conditioner Directory", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/_archived-product-pages/dehumidifiers/quietest-dehumidifiers.mdx:161:  { label: "AHAM — Dehumidifier Testing Standards", url: "https://www.aham.org" }
+content/air-quality/air-purifier-placement.mdx:141:  { label: "AHAM: Air Cleaner Placement Recommendations", url: "https://ahamverifide.org/" }
+content/air-quality/air-purifier-guide.mdx:22:    url: "https://ahamverifide.org/"
+content/air-quality/air-purifier-guide.mdx:168:  { title: "AHAM Verifide: CADR-Certified Room Air Cleaners", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-conditioners/most-energy-efficient-window-acs.mdx:21:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/_archived-product-pages/air-conditioners/most-energy-efficient-window-acs.mdx:239:  { label: "AHAM Certified Room Air Conditioner Directory", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/_archived-product-pages/dehumidifiers/best-commercial-dehumidifiers.mdx:18:    url: "https://www.aham.org"
+content/_archived-product-pages/dehumidifiers/best-commercial-dehumidifiers.mdx:227:  { label: "AHAM — Dehumidifier Standards", url: "https://www.aham.org" },
+content/_archived-product-pages/air-conditioners/best-12000-btu-air-conditioners.mdx:22:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/_archived-product-pages/air-conditioners/best-12000-btu-air-conditioners.mdx:149:  { label: "AHAM Verified Room AC Directory", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/_archived-product-pages/air-conditioners/low-profile-window-acs.mdx:125:  { label: "AHAM Room AC Certification", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" }
+content/_archived-product-pages/dehumidifiers/best-small-dehumidifiers.mdx:21:    url: "https://www.aham.org"
+content/_archived-product-pages/dehumidifiers/best-small-dehumidifiers.mdx:195:  { label: "AHAM — Dehumidifier Directory", url: "https://www.aham.org" },
+content/dehumidifiers/what-size-dehumidifier-do-i-need.mdx:16:    url: "https://www.aham.org/AHAM/Certification"
+content/dehumidifiers/what-size-dehumidifier-do-i-need.mdx:266:  { label: "AHAM — Dehumidifier Certification and Sizing Standards", url: "https://www.aham.org/AHAM/Certification" },
+content/_archived-product-pages/air-conditioners/quietest-window-acs.mdx:19:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/_archived-product-pages/air-conditioners/quietest-window-acs.mdx:188:  { label: "AHAM Verified Room AC Noise Testing", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/_archived-product-pages/air-conditioners/casement-window-air-conditioners.mdx:20:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/_archived-product-pages/air-conditioners/casement-window-air-conditioners.mdx:158:  { label: "AHAM Room AC Certification", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/_archived-product-pages/air-conditioners/smallest-window-acs.mdx:21:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/_archived-product-pages/air-conditioners/smallest-window-acs.mdx:145:  { label: "AHAM Room AC Directory", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/_archived-product-pages/air-conditioners/best-10000-btu-air-conditioners.mdx:21:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/_archived-product-pages/air-conditioners/best-10000-btu-air-conditioners.mdx:153:  { label: "AHAM Room AC Certification", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/_archived-product-pages/air-conditioners/through-the-wall-air-conditioners.mdx:20:    url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners"
+content/_archived-product-pages/air-conditioners/through-the-wall-air-conditioners.mdx:143:  { label: "AHAM Room AC Certification", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" },
+content/_archived-product-pages/air-conditioners/smallest-acs-for-small-rooms.mdx:230:  { label: "AHAM Room AC Certification Directory", url: "https://www.aham.org/AHAM/Certification/Room_Air_Conditioners" }
+content/_archived-product-pages/air-quality/best-air-purifier-humidifier-combo.mdx:21:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/best-air-purifier-humidifier-combo.mdx:174:  { label: "AHAM Verifide: Humidifier Testing", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-quality/wall-mounted-air-purifiers.mdx:17:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/wall-mounted-air-purifiers.mdx:135:  { label: "AHAM Verifide Certified Products", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-quality/quietest-air-purifiers.mdx:19:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/quietest-air-purifiers.mdx:181:  { label: "AHAM Verifide Certified Products", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-quality/best-bedroom-air-purifiers.mdx:20:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/best-bedroom-air-purifiers.mdx:141:  { label: "AHAM Verifide Certified Products", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-quality/best-air-purifiers.mdx:23:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/best-air-purifiers.mdx:165:  { label: "AHAM Verifide Certified Products", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-quality/best-air-purifiers-for-dust.mdx:20:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/best-air-purifiers-for-dust.mdx:136:  { label: "AHAM Verifide: CADR Testing Standards", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-quality/best-air-purifiers-for-allergies.mdx:22:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/best-air-purifiers-for-allergies.mdx:168:  { label: "AHAM Verifide Certified Products", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-quality/best-large-room-air-purifiers.mdx:20:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/best-large-room-air-purifiers.mdx:212:  { label: "AHAM Verifide Certified Products Directory", url: "https://ahamverifide.org/" },
+content/_archived-product-pages/air-quality/smallest-air-purifiers.mdx:17:    url: "https://ahamverifide.org/"
+content/_archived-product-pages/air-quality/smallest-air-purifiers.mdx:198:  { label: "AHAM Verifide Certified Products", url: "https://ahamverifide.org/" },
+
+==================== A4: AIHA ====================
+content/mold-prevention/how-to-identify-mold.mdx:332:  { title: "AIHA - Facts About Mold", url: "https://www.aiha.org/public-resources/consumer-resources/topics-of-interest/mold" },
+
+==================== A5: UL ====================
+content/space-heaters/space-heater-guide.mdx:270:  { title: "UL: Portable Electric Heater Standards", url: "https://www.ul.com/resources/portable-electric-heaters" }
+content/_archived-product-pages/space-heaters/best-infrared-heaters.mdx:169:  { title: "UL: Portable Electric Heater Standards", url: "https://www.ul.com/" },
+content/_archived-product-pages/space-heaters/safest-space-heaters.mdx:20:    url: "https://www.ul.com/"
+content/_archived-product-pages/space-heaters/safest-space-heaters.mdx:133:3. Visit UL's Product iQ database (iq.ul.com) and search the file number.
+content/_archived-product-pages/space-heaters/safest-space-heaters.mdx:237:  { title: "UL Product Safety: Portable Heaters", url: "https://www.ul.com/resources/portable-electric-heaters" },
+content/_archived-product-pages/space-heaters/safest-space-heaters.mdx:238:  { title: "UL Product iQ Certification Database", url: "https://iq.ul.com/" },
+content/_archived-product-pages/space-heaters/best-small-heaters.mdx:19:    url: "https://www.ul.com/"
+content/_archived-product-pages/space-heaters/best-small-heaters.mdx:178:  { title: "UL: Portable Heater Safety", url: "https://www.ul.com/resources/portable-electric-heaters" },
+content/_archived-product-pages/space-heaters/safest-heater-for-bedroom.mdx:219:  { title: "UL: Portable Heater Standards", url: "https://www.ul.com/" }
+content/_archived-product-pages/generators/best-portable-generators.mdx:219:    { label: "UL 2201 — Portable Generator Safety Standard", url: "https://www.ul.com/" },
+content/_archived-product-pages/electric-fireplaces/best-electric-fireplaces.mdx:19:  - url: "https://www.ul.com/resources/ul-electric-heaters"
+content/_archived-product-pages/electric-fireplaces/best-electric-fireplaces.mdx:312:    { label: "UL 1278 – Standard for Movable Electric Room Heaters", url: "https://www.ul.com/resources/ul-electric-heaters" },
+content/_archived-product-pages/electric-fireplaces/best-wall-mount-electric-fireplaces.mdx:242:    { label: "UL 1278 – Standard for Movable Electric Room Heaters", url: "https://www.ul.com/resources/ul-electric-heaters" },
+
+==================== A6: CARB arb.ca.gov ====================
+content/_archived-product-pages/air-purifier-reviews/airdog-air-purifier-review.mdx:161:    { name: "CARB – Air Cleaning Devices", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" },
+content/_archived-product-pages/air-purifier-reviews/winix-air-purifiers.mdx:163:    { name: "CARB – Air Cleaning Devices", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" },
+content/_archived-merged/cadr-rating-explained.mdx:186:  { label: "California Air Resources Board - Air Cleaning Devices", url: "https://ww2.arb.ca.gov/our-work/programs/air-cleaning-devices" },
+content/_archived-product-pages/air-purifier-reviews/coway-air-purifiers.mdx:185:    { name: "CARB – Certified Air Cleaning Devices", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" }
+content/_archived-product-pages/air-purifier-reviews/medify-air-purifiers.mdx:159:    { name: "CARB – Air Cleaning Devices", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" },
+content/indoor-air-quality/voc-in-home-sources.mdx:343:  { name: "California Air Resources Board (CARB) — Formaldehyde Airborne Toxic Control Measure", url: "https://ww2.arb.ca.gov/resources/documents/composite-wood-products-airborne-toxic-control-measure" },
+content/_archived-product-pages/air-purifier-reviews/blueair-air-purifiers.mdx:165:    { name: "CARB – Air Cleaning Devices", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" },
+content/_archived-product-pages/air-purifier-reviews/levoit-air-purifiers.mdx:229:    { name: "CARB – Certification for Air Cleaning Devices", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" }
+content/portable-air-conditioners/do-portable-acs-pull-air-from-outside.mdx:17:    url: "https://ww2.arb.ca.gov/protecting-yourself-wildfire-smoke"
+content/portable-air-conditioners/do-portable-acs-pull-air-from-outside.mdx:150:  { label: "CARB — Wildfire Smoke Protection", url: "https://ww2.arb.ca.gov/protecting-yourself-wildfire-smoke" },
+content/air-quality/air-purifier-guide.mdx:24:    url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices"
+content/air-quality/air-purifier-guide.mdx:169:  { title: "CARB: Certified Air Cleaning Devices (ozone-safe list)", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" },
+content/_archived-product-pages/air-quality/best-air-purifiers-for-smoke.mdx:20:    url: "https://ww2.arb.ca.gov/"
+content/_archived-product-pages/air-quality/best-air-purifiers-for-smoke.mdx:167:  { label: "California Air Resources Board: Air Cleaning Devices", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" },
+
+==================== A7: SMACNA ====================
+content/ductwork/flexible-vs-rigid-ductwork.mdx:18:  - url: "https://www.smacna.org/technical/standards"
+content/ductwork/flexible-vs-rigid-ductwork.mdx:332:  { name: "SMACNA", url: "https://www.smacna.org/technical/standards", description: "HVAC Duct Construction Standards — Metal and Flexible" },
+content/ductwork/ductwork-sizing-calculator.mdx:322:  { name: "SMACNA", url: "https://www.smacna.org/technical/standards", description: "HVAC Duct Construction Standards — Metal and Flexible" }
+
+==================== A8: CDC CO ====================
+content/furnaces-heating/cracked-heat-exchanger.mdx:185:  { title: "CDC — Carbon Monoxide Poisoning", url: "https://www.cdc.gov/co/default.htm" }
+content/generators/portable-generator-safety-tips.mdx:20:    url: "https://www.cdc.gov/co-poisoning/"
+content/generators/portable-generator-safety-tips.mdx:304:  { label: "CDC — Carbon Monoxide Poisoning", url: "https://www.cdc.gov/co-poisoning/" },
+content/air-quality/air-changes-per-hour-calculator.mdx:20:    url: "https://www.cdc.gov/coronavirus/2019-ncov/community/ventilation.html"
+content/air-quality/air-changes-per-hour-calculator.mdx:255:  { label: "CDC: Ventilation in Buildings", url: "https://www.cdc.gov/coronavirus/2019-ncov/community/ventilation.html" },
+content/_archived-product-pages/space-heaters/best-ventless-propane-heaters.mdx:19:    url: "https://www.cdc.gov/co/default.htm"
+content/_archived-product-pages/space-heaters/best-ventless-propane-heaters.mdx:209:  { title: "CDC: Carbon Monoxide Prevention", url: "https://www.cdc.gov/co/default.htm" },
+content/_archived-product-pages/space-heaters/safest-space-heaters.mdx:239:  { title: "CDC: Carbon Monoxide Poisoning Prevention", url: "https://www.cdc.gov/co/default.htm" }
+content/_archived-merged/do-air-purifiers-really-work.mdx:201:  { label: "CDC: Ventilation in Buildings", url: "https://www.cdc.gov/coronavirus/2019-ncov/community/ventilation.html" },
+content/space-heaters/space-heater-guide.mdx:269:  { title: "CDC: Carbon Monoxide Poisoning", url: "https://www.cdc.gov/co/default.htm" },
+
+==================== A9: SEIA ====================
+content/_archived-merged/solar-panel-cost-by-state.mdx:21:  - url: "https://www.seia.org/states-map"
+content/_archived-merged/solar-panel-cost-by-state.mdx:314:  { title: "SEIA/Wood Mackenzie Solar Market Insight Report", url: "https://www.seia.org/solar-industry-research-data" },
+content/battery-backup/solar-panel-calculator.mdx:335:  { title: "SEIA Solar Market Insight Report 2026", url: "https://www.seia.org/research-resources/solar-market-insight-report-2026-q4" },
+
+==================== A10: store.google.com ====================
+content/smart-thermostats/smart-thermostat-savings.mdx:286:  { label: "Google Nest Savings White Paper", url: "https://store.google.com/us/category/thermostats" }
+content/_archived-product-pages/smart-thermostats/nest-vs-ecobee-vs-honeywell.mdx:280:    { label: "Google Nest Learning Thermostat Specs", url: "https://store.google.com/us/product/nest_learning_thermostat_4th_gen" },
+content/_archived-product-pages/smart-thermostats/best-smart-thermostats.mdx:279:    { label: "Google Nest Savings Data", url: "https://store.google.com/us/category/thermostats" },
+
+==================== A11: carrier.com ====================
+content/hvac-brands/hvac-serial-number-decoder.mdx:18:    url: "https://www.carrier.com/us/en/residential/homeowner-resources/warranty-lookup/"
+content/hvac-brands/hvac-serial-number-decoder.mdx:124:- **[Carrier, Warranty Lookup](https://www.carrier.com/us/en/residential/homeowner-resources/warranty-lookup/)**, check coverage and confirm a Carrier, Bryant, or Payne unit by its serial number.
+content/ductwork/btucfm-ductwork-relationship.mdx:372:  { name: "Carrier Engineering Newsletter", url: "https://www.carrier.com/residential/en/us/", description: "Technical guidance on airflow per ton adjustments by climate" }
+content/_archived-merged/carrier-hvac-age-serial-number.mdx:286:    Yes. Visit carrier.com/residential/en/us/for-owners/ or call 1-800-CARRIER (1-800-227-7437). You can also look up the unit in the AHRI directory at ahridirectory.org. However, the serial number format in this guide lets you decode the age instantly without waiting for a response.
+content/_archived-merged/carrier-hvac-age-serial-number.mdx:292:  - [Carrier Product Catalog](https://www.carrier.com/residential/en/us/products/air-conditioners/) — Current model specifications
+content/_archived-product-pages/furnaces-heating/best-gas-furnace-brands.mdx:291:  { title: "Carrier — Furnace Product Line", url: "https://www.carrier.com/residential/en/us/products/furnaces/" },
+content/_archived-product-pages/energy-efficiency-ratings/16-seer-vs-20-seer.mdx:364:  { label: "Carrier — Infinity 24VNA0 Product Specifications", url: "https://www.carrier.com/residential/en/us/products/air-conditioners/" },
+content/_archived-product-pages/hvac-brands/best-hvac-brands-ranked.mdx:142:**Where to buy:** Carrier Factory Authorized Dealers nationwide. Find one at carrier.com/dealer.
+content/_archived-product-pages/hvac-brands/best-central-ac-brands.mdx:291:  - [Carrier Residential Products](https://www.carrier.com/residential/en/us/products/air-conditioners/) — Carrier product specifications
+
+==================== A12: generac.com ====================
+content/generators/generator-guide.mdx:370:  { label: "Generac Technical Specifications", url: "https://www.generac.com/all-products/generators" },
+content/generators/propane-generator-usage-per-hour.mdx:225:  { label: "Generac — LP Generator Specifications", url: "https://www.generac.com/all-products/generators/home-backup-generators" },
+content/_archived-product-pages/generators/generator-vs-solar-battery-backup.mdx:266:    { label: "Generac — PWRcell Battery", url: "https://www.generac.com/all-products/clean-energy/pwrcell" },
+content/_archived-product-pages/generators/best-whole-house-generators.mdx:21:    url: "https://www.generac.com/"
+content/_archived-product-pages/generators/best-whole-house-generators.mdx:259:    { label: "Generac — Home Backup Generators", url: "https://www.generac.com/all-products/generators/home-backup-generators" },
+content/_archived-merged/generator-cost-per-kwh.mdx:210:    { label: "Generac — Fuel Consumption Charts", url: "https://www.generac.com/" },
+content/_archived-merged/natural-gas-generator-running-cost.mdx:232:    { label: "Generac — Generator Specifications", url: "https://www.generac.com/all-products/generators/home-backup-generators" },
+content/_archived-merged/how-long-do-generators-last.mdx:17:    url: "https://www.generac.com/"
+content/_archived-merged/how-long-do-generators-last.mdx:205:    { label: "Generac — Maintenance Guides", url: "https://www.generac.com/service-support/product-support-lookup" },
+content/_archived-merged/what-size-generator-for-5-ton-ac.mdx:16:  - url: "https://www.generac.com/be-prepared/generator-sizing"
+content/_archived-merged/what-size-generator-for-5-ton-ac.mdx:224:  - [Generac Generator Sizing](https://www.generac.com/be-prepared/generator-sizing) — Official sizing tool
+
+==================== A13: kohlerpower.com ====================
+content/generators/propane-generator-usage-per-hour.mdx:226:  { label: "Kohler — Generator Fuel Consumption Data", url: "https://www.kohlerpower.com/na/en/residential/generators.html" }
+content/_archived-product-pages/generators/best-whole-house-generators.mdx:23:    url: "https://www.kohlerpower.com/"
+content/_archived-product-pages/generators/best-whole-house-generators.mdx:260:    { label: "Kohler — Residential Generators", url: "https://www.kohlerpower.com/na/en/residential/generators.html" },
+content/_archived-merged/what-size-generator-for-5-ton-ac.mdx:225:  - [Kohler Generators](https://www.kohlerpower.com/na/en/residential/generators.html) — Standby generator specifications
+content/_archived-merged/how-long-do-generators-last.mdx:208:    { label: "Kohler — Service Intervals", url: "https://www.kohlerpower.com/" },
+
+==================== A14: rinnai.us ====================
+content/tankless-water-heaters/tankless-water-heater-propane-usage.mdx:180:  { label: "Rinnai — LP Product Specifications", url: "https://www.rinnai.us/residential/tankless-water-heaters" }
+content/tankless-water-heaters/tankless-water-heater-guide.mdx:270:  { label: "Rinnai — Product Specifications", url: "https://www.rinnai.us/residential/tankless-water-heaters" },
+content/_archived-product-pages/water-heaters/best-water-heaters.mdx:262:  { label: "Rinnai – RU Model Series", url: "https://www.rinnai.us/tankless-water-heater" },
+content/_archived-product-pages/tankless-water-heaters/smallest-tankless-water-heaters.mdx:181:  { label: "Rinnai — V Series Compact Models", url: "https://www.rinnai.us/residential/tankless-water-heaters" },
+content/_archived-product-pages/tankless-water-heaters/best-tankless-gas-water-heaters.mdx:256:  { label: "Rinnai — RU & V Series Product Data", url: "https://www.rinnai.us/residential/tankless-water-heaters" },
+content/_archived-product-pages/tankless-water-heaters/best-tankless-water-heaters.mdx:268:  { label: "Rinnai — Product Catalog", url: "https://www.rinnai.us/residential/tankless-water-heaters" },
+
+==================== A15: energysage.com ====================
+content/battery-backup/solar-panel-calculator.mdx:336:  { title: "EnergySage Solar Panel Buyer's Guide", url: "https://www.energysage.com/solar-panels/" }
+content/_archived-merged/solar-panel-cost-by-state.mdx:318:  { title: "EnergySage Solar Marketplace Intel Report", url: "https://www.energysage.com/data/" },

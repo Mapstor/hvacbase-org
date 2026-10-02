@@ -18,9 +18,8 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 //   heat-pump-size, afue, dehumidifier-sizing, water-heater-sizing,
 //   heat-pump-vs-furnace, gas-vs-electric, ach, seer2, kwh-cost,
 //   power-consumption, specific-heat, solar-panel, air-purifier-sizing,
-//   generator-sizing, ac-generator, dehumidifier-cost, hvac-lifespan,
-//   water-heater-lifespan, water-heating-cost, large-room-portable-ac,
-//   small-room-portable-ac, duct-sizing
+//   generator-sizing, dehumidifier-cost, hvac-lifespan,
+//   water-heater-lifespan, water-heating-cost, duct-sizing
 //
 // GATE EMPTY: every calc has passed primary-source verification. The legacy
 // <SEERCalculator> component was retired (its content now uses
@@ -33,7 +32,6 @@ const UNVERIFIED_TYPES = new Set<string>([]);
 // types just show the base notice.
 const SIBLING_HINT: Record<string, { slug: string; label: string }> = {
   'generator-sizing': { slug: '/how-many-amps-does-generator-produce', label: 'Generator Amps Calculator' },
-  'ac-generator':     { slug: '/how-many-amps-does-generator-produce', label: 'Generator Amps Calculator' },
 };
 
 // Dynamically import calculators with SSR enabled for better SEO
@@ -98,10 +96,7 @@ const calculators = {
   'generator-sizing': dynamic(() => import('./GeneratorSizingCalculator'), { 
     loading: () => <LoadingCalculator />
   }),
-  'ac-generator': dynamic(() => import('./ACGeneratorCalculator'), { 
-    loading: () => <LoadingCalculator />
-  }),
-  'generator-amps': dynamic(() => import('./GeneratorAmpsCalculator'), { 
+  'generator-amps': dynamic(() => import('./GeneratorAmpsCalculator'), {
     loading: () => <LoadingCalculator />
   }),
   'hvac-lifespan': dynamic(() => import('./HVACLifespanCalculator'), { 
@@ -117,12 +112,6 @@ const calculators = {
     loading: () => <LoadingCalculator />
   }),
   'water-heating-cost': dynamic(() => import('./WaterHeatingCostCalculator'), { 
-    loading: () => <LoadingCalculator />
-  }),
-  'large-room-portable-ac': dynamic(() => import('./LargeRoomPortableACCalculator'), { 
-    loading: () => <LoadingCalculator />
-  }),
-  'small-room-portable-ac': dynamic(() => import('./SmallRoomPortableACCalculator'), { 
     loading: () => <LoadingCalculator />
   }),
   'heat-pump-vs-furnace': dynamic(() => import('./HeatPumpVsFurnaceCalculator'), {

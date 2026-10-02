@@ -1,0 +1,100 @@
+---
+slug: "gas-vs-electric-heating-cost"
+title: "Gas vs Electric Heating: Which Is Cheaper? (2026 Cost Calculator)"
+description: "Gas vs electric heating compared for the same heat delivered: cost per million BTU, when a heat pump beats gas, and the calculator's results for furnaces, water heaters and dryers."
+cluster: "furnaces-heating"
+role: "hub"
+priority: "P1"
+contentType: "comparison"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-01-10"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "heat-pump-guide"
+  - "furnace-sizing-calculator"
+  - "heat-pump-size-calculator"
+  - "kwh-cost-calculator"
+  - "furnace-guide"
+externalLinks:
+  - label: "U.S. EIA: Electric Power Monthly (residential prices)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "EPA: Greenhouse Gas Equivalencies, calculations and references"
+    url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Gas vs Electric Heating: Which Is Cheaper?
+
+Gas and electricity are sold in different units, at different prices, and turned into heat at very different efficiencies. Comparing the bills of two neighbors tells you little. The fair comparison is what each costs to deliver the same heat.
+
+**At U.S. average prices, heat from gas costs about $14 to $15 per million BTU delivered, electric resistance heat about $53, and a heat pump about $18 at a COP of 3. Gas beats resistance heating by a wide margin, and a heat pump roughly ties gas: it needs to average a COP of about 3.75 to beat a 95% gas furnace at 18.19 cents per kWh and $1.35 per therm.**
+
+<CalcWrapper type="gas-vs-electric" />
+
+## Cost per million BTU of heat
+
+| Heat source | Cost per million BTU delivered |
+|---|---|
+| Electric resistance (baseboard, electric furnace, standard water heater) | $53.31 |
+| Heat pump, COP 3 | $17.77 |
+| Heat pump, COP 3.5 | $15.23 |
+| Gas furnace, 90% efficient | $15.00 |
+| Gas furnace, 95% efficient | $14.21 |
+
+One million BTU is 293 kWh of electricity or 10 therms of gas. At 18.19 cents per kWh, the U.S. residential average for January to July 2026 (EIA), resistance heat costs $53.31. A heat pump divides that by its COP, and gas divides $13.50 by the furnace's efficiency, using an assumed $1.35 per therm.
+
+## What the calculator compares
+
+The calculator takes a gas appliance's input rating, hours of use and efficiency, works out the heat it delivers, then asks what the same heat costs from electricity. For furnaces and water heaters you can choose standard electric (resistance) or a heat pump, which the calculator assumes delivers 3 units of heat per unit of electricity for space heating and 3.5 for water heating. The gas price is an assumption; your bill shows your rate.
+
+At the defaults ($1.35 per therm, 18 cents per kWh):
+
+| Appliance | Gas per year | Electric per year | Cheaper |
+|---|---|---|---|
+| Water heater, resistance | $729 | $2,549 | Gas, by $1,820 |
+| Water heater, heat pump | $729 | $692 | Electric, by $37 |
+| Furnace, resistance | $3,110 | $11,163 | Gas, by $8,052 |
+| Furnace, heat pump | $3,110 | $3,646 | Gas, by $536 |
+| Clothes dryer | $107 | $334 | Gas, by $227 |
+| Cooking range | $219 | $553 | Gas, by $334 |
+| Fireplace | $778 | $2,279 | Gas, by $1,501 |
+
+The furnace rows use the calculator's default of 8 hours a day at 80,000 BTU, a heavy load meant for comparison, not a typical annual bill. What matters is the ratio: resistance electric costs about 3.6 times as much as gas, and a heat pump comes within about 17%.
+
+## When electric heat wins
+
+- **Cheap electricity.** At North Dakota's 12.36 cents per kWh, a COP-3 heat pump costs about $12.07 per million BTU, less than gas at $14.21.
+- **A heat pump that averages a high COP**, typical in mild climates where it rarely works in deep cold.
+- **Expensive gas, or no gas line**, where the connection cost alone can tip the decision.
+
+Gas wins where electricity is expensive. At Massachusetts's 30.14 cents per kWh, the same heat pump costs about $29.44 per million BTU, twice the cost of gas. Our [kWh cost calculator](/kwh-cost-calculator) has every state's average rate.
+
+## Carbon
+
+The calculator also compares carbon dioxide, using the U.S. grid average of 0.823 lb per kWh (EPA eGRID2022) and about 117 lb per million BTU for natural gas (U.S. EIA emission coefficient). For the default furnace load, resistance heat emits about 51,000 lb a year against 27,000 for gas, while a heat pump emits about 16,700. Grids with more hydro, nuclear or renewable power do better than the average; coal-heavy grids do worse.
+
+## Frequently asked questions
+
+### Is gas or electric heat cheaper?
+
+Gas is much cheaper than electric resistance heat, about $14 to $15 per million BTU against $53 at U.S. average prices. Against a heat pump it's close, and local electricity and gas prices decide it.
+
+### Is a heat pump cheaper to run than a gas furnace?
+
+At U.S. average prices, only if it averages a COP above about 3.75 against a 95% furnace. With cheaper electricity or pricier gas, the break-even COP falls; see our [heat pump guide](/heat-pump-guide).
+
+### Is a gas water heater cheaper than electric?
+
+Than a standard electric tank, yes, by a wide margin. A heat pump water heater costs about the same as gas, slightly less at the calculator's defaults.
+
+### Which is better for the environment?
+
+At the U.S. grid average, a heat pump emits less carbon than gas heat for the same warmth, and resistance heat emits the most. Where the grid is cleaner, the heat pump's advantage grows.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "EPA: Greenhouse Gas Equivalencies Calculator, calculations and references (eGRID2022)", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

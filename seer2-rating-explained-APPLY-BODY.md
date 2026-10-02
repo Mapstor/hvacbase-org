@@ -1,0 +1,99 @@
+---
+slug: "seer2-rating-explained"
+title: "SEER2 Explained: What the AC Efficiency Rating Means (2026)"
+description: "What SEER2 measures, why it replaced SEER in 2023, the federal minimums by region, what each rating costs to run, and the myths to ignore."
+cluster: "energy-efficiency-ratings"
+role: "pillar"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "seer2-comparison-calculator"
+  - "minimum-seer-rating-by-state"
+  - "seer2-to-seer-conversion"
+  - "central-ac-cost-to-install"
+  - "ac-tonnage-calculator"
+externalLinks:
+  - label: "eCFR: 10 CFR Part 430 (efficiency standards and test procedures)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430"
+  - label: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# SEER2 Explained: What the AC Efficiency Rating Means
+
+SEER2 is the number on every new central air conditioner and heat pump that tells you how much cooling you get per unit of electricity. It replaced the older SEER rating in 2023, which is why the same equipment now shows a smaller number than it used to.
+
+**SEER2 is a season's cooling output in BTU divided by the electricity used in watt-hours. Higher is more efficient: a 3-ton system at 14.3 SEER2 costs about $680 a year to run at 1,500 full-load hours and 18 cents per kWh, and one at 20 SEER2 about $486.** The federal minimum for split air conditioners is 13.4 SEER2 in the North and 14.3 in the South and Southwest.
+
+## What SEER2 measures
+
+SEER2 stands for Seasonal Energy Efficiency Ratio 2. It's measured in a federal test that runs the system at several outdoor temperatures and loads, then weights the results to represent a cooling season. A higher number means more cooling for the same electricity.
+
+## Why SEER2 replaced SEER
+
+Starting January 1, 2023, the federal test procedure changed to use higher external static pressure, closer to the resistance of real ductwork. Because the equipment works harder in the test, the same system scores lower: SEER2 reads roughly 5% below the old SEER for ducted split systems. Compare ratings in the same system; our [SEER to SEER2 conversion](/seer2-to-seer-conversion) covers the details.
+
+## Federal minimums
+
+- **Split air conditioners:** 13.4 SEER2 in the North. In the South and Southwest, 14.3 SEER2 below 45,000 BTU per hour and 13.8 at 45,000 and above. The Southwest also sets a minimum EER2, a rating at a single hot test condition.
+- **Split heat pumps:** 14.3 SEER2 and 7.5 HSPF2 nationally.
+- **ENERGY STAR split heat pumps:** at least 15.2 SEER2, 7.8 HSPF2 and 11.0 EER2.
+
+See [minimum SEER2 by state](/minimum-seer-rating-by-state) for which states fall in each region.
+
+## What each rating costs to run
+
+A 3-ton system at 1,500 full-load cooling hours and 18 cents per kWh:
+
+| SEER2 | Cost per year |
+|---|---|
+| 13.4 | $725 |
+| 14.3 | $680 |
+| 16 | $608 |
+| 20 | $486 |
+
+Annual cost = tons × 12,000 × hours ÷ (SEER2 × 1,000) × rate. Each step up saves less than the last, so the right rating depends on your climate's cooling hours and the price difference; the calculator below and our [SEER2 comparison calculator](/seer2-comparison-calculator) run it with your numbers.
+
+<CalcWrapper calculator="seer2" />
+
+## Where high ratings come from
+
+The highest SEER2 ratings usually come from variable-speed or two-stage compressors and fans. They run at low speed most of the time, which is more efficient than cycling on and off at full power, and removes more humidity along the way. They cost more up front, which is the trade-off the payback math weighs.
+
+## Myths to ignore
+
+- **"A higher SEER2 means a smaller unit."** No. SEER2 is efficiency; tonnage is capacity. Size the system first, then choose the rating.
+- **"SEER and SEER2 are the same."** They come from different tests. An old 16 SEER unit is about 15.2 SEER2.
+- **"The rating guarantees the savings."** Installation and ducts matter. The DOE puts duct air losses at about 30% of a cooling system's energy, and a poorly installed system won't reach its rating.
+
+## Frequently asked questions
+
+### What is a good SEER2 rating?
+
+Anything at or above the minimum works; 15 to 17 SEER2 is a common middle ground. Higher ratings pay back faster in hot climates with long cooling seasons.
+
+### What is the minimum SEER2 in 2026?
+
+13.4 SEER2 for split air conditioners in the North, and 14.3 in the South and Southwest for systems below 45,000 BTU per hour (13.8 at 45,000 and above).
+
+### How do I convert SEER to SEER2?
+
+Roughly multiply by 0.95 for a ducted split system. A 14 SEER unit is about 13.3 SEER2.
+
+### Does SEER2 apply to heat pumps?
+
+Yes, for cooling. Heat pumps also carry an HSPF2 rating for heating.
+
+<SourcesBox sources={[
+  { title: "eCFR: 10 CFR Part 430 (energy conservation standards and test procedures)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), duct losses", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

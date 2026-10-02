@@ -1,0 +1,89 @@
+---
+slug: "how-many-amps-does-generator-produce"
+title: "How Many Amps Does a Generator Produce? (Calculator + Chart, 2026)"
+description: "Convert generator watts to amps at 120 and 240 volts, what each outlet type can carry, running vs. starting watts, connecting to a house safely, and carbon monoxide safety."
+cluster: "generators"
+role: "spoke"
+priority: "P2"
+contentType: "calculator"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "what-size-generator-do-i-need"
+  - "propane-generator-usage-per-hour"
+  - "power-consumption-calculator"
+  - "wire-gauge-chart"
+  - "home-battery-backup-guide"
+externalLinks:
+  - label: "CPSC: Generators safety"
+    url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Generators"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# How Many Amps Does a Generator Produce?
+
+A generator's rating is in watts, but outlets, cords and transfer switches are rated in amps. Converting between them tells you what you can plug in and how to connect the generator safely.
+
+**Amps = watts ÷ volts. A 2,200-watt generator supplies about 18.3 amps at 120 volts; a 7,500-watt generator about 31.3 amps at 240 volts. Use the running (continuous) watts, not the higher starting watts, for what it can carry steadily.**
+
+<CalcWrapper type="generator-amps" />
+
+## Watts to amps
+
+| Running watts | At 120 V | At 240 V |
+|---|---|---|
+| 2,200 W | 18.3 A | 9.2 A |
+| 3,500 W | 29.2 A | 14.6 A |
+| 7,500 W | 62.5 A | 31.3 A |
+| 12,000 W | 100 A | 50 A |
+
+On a 120/240-volt generator, the 240-volt figure is what each of the two legs carries when the load is balanced between them.
+
+## What each outlet can carry
+
+| Outlet | Rating | Most power through it |
+|---|---|---|
+| 5-20R household | 20 A, 120 V | 2,400 W |
+| L5-30R twist-lock | 30 A, 120 V | 3,600 W |
+| L14-30R twist-lock | 30 A, 120/240 V | 7,200 W |
+| 14-50R | 50 A, 120/240 V | 12,000 W |
+
+Most power = amps × volts. The generator's breaker and running watts also limit what any one outlet can deliver.
+
+## Running vs. starting watts
+
+Motors such as refrigerator and well-pump compressors briefly draw several times their running current to start. A generator's starting (surge) rating covers those moments; its running rating is what it can supply continuously. Size for the running load plus the largest motor's start; see [what size generator you need](/what-size-generator-do-i-need).
+
+## Connecting to a house
+
+Never plug a generator into a household outlet to backfeed the house. It can energize utility lines and endanger line workers and neighbors. Connect through a transfer switch or a listed interlock kit installed by an electrician, under the National Electrical Code's rules for optional standby systems.
+
+## Carbon monoxide
+
+The CPSC warns that generator exhaust contains deadly carbon monoxide. Run generators outdoors only, at least 20 feet from the house, with the exhaust pointed away from doors, windows and vents, and keep CO alarms working inside.
+
+## Frequently asked questions
+
+### How many amps does a 7,500-watt generator produce?
+
+About 31.3 amps at 240 volts, or 62.5 amps total at 120 volts across both legs, from its running watts.
+
+### How many amps is a 2,200-watt generator?
+
+About 18.3 amps at 120 volts.
+
+### What size cord do I need for my generator?
+
+One rated for the outlet's amps, and as short as practical; long, thin cords drop voltage. See our [wire gauge chart](/wire-gauge-chart).
+
+### Can I plug a generator into my dryer outlet?
+
+No. Backfeeding through an outlet is dangerous and illegal in most places; use a transfer switch or interlock installed by an electrician.
+
+<SourcesBox sources={[
+  { title: "CPSC: Generators safety (carbon monoxide, 20 feet from the house)", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Generators" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

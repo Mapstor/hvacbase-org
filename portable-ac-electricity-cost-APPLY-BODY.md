@@ -1,0 +1,94 @@
+---
+slug: "portable-ac-electricity-cost"
+title: "How Much Electricity Does a Portable AC Use? (Cost Calc)"
+description: "What a portable air conditioner costs to run, from its wattage and hours, with a built-in cost calculator, time-of-use math and how its ratings compare."
+cluster: "portable-air-conditioners"
+role: "spoke"
+priority: "P2"
+contentType: "calculator"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-01"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "single-hose-vs-dual-hose-portable-ac"
+  - "how-to-vent-portable-ac-without-window"
+  - "portable-air-conditioners"
+  - "kwh-cost-calculator"
+  - "air-conditioner-btu-calculator"
+externalLinks:
+  - label: "U.S. EIA: Electric Power Monthly (residential prices)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "eCFR: 10 CFR Part 430, Subpart B (test procedures)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# How Much Electricity Does a Portable AC Use?
+
+A portable air conditioner is easy to set up and easy to forget about, which is how it ends up running eight hours a day all summer. Its cost is simple to work out once you know its wattage.
+
+**A portable air conditioner drawing 1,000 watts, running 8 hours a day, uses 8 kWh a day and 240 kWh a month: about $43 a month at 18 cents per kWh.** Your unit's label or manual lists its watts; enter them below with your hours and your rate.
+
+<CalcWrapper calculator="kwh-cost" />
+
+## The formula
+
+**Cost = watts × hours ÷ 1,000 × price per kWh.** At 1,000 watts, one hour uses 1 kWh, which costs 18 cents at the U.S. average rate.
+
+If the label lists only amps, multiply by the voltage: a 120-volt unit drawing 8.5 amps uses about 1,020 watts.
+
+## Monthly cost by wattage
+
+At 8 hours a day, 30 days a month and 18 cents per kWh:
+
+| Unit draw | kWh per month | Cost per month |
+|---|---|---|
+| 800 W | 192 | $34.56 |
+| 1,000 W | 240 | $43.20 |
+| 1,200 W | 288 | $51.84 |
+| 1,400 W | 336 | $60.48 |
+
+The same 240 kWh a month costs about $30 at North Dakota's 12.36 cents per kWh and about $111 at Hawaii's 46.28, the lowest and highest state averages for January to July 2026 (EIA). Check your state in the [kWh cost calculator](/kwh-cost-calculator).
+
+## Reading the ratings
+
+Portable air conditioners are rated under a federal test that reports a seasonally adjusted cooling capacity (SACC) and a combined energy efficiency ratio (CEER). A higher CEER means more cooling per watt. The SACC is usually well below the BTU number printed on older boxes, because the test accounts for the heat a portable leaks back into the room.
+
+Hose design matters too. A single-hose unit pulls room air out through its exhaust, which draws warm outside air in through gaps; a dual-hose unit avoids most of that. See [single-hose vs. dual-hose portable ACs](/single-hose-vs-dual-hose-portable-ac).
+
+## Time-of-use rates
+
+On a time-of-use plan, running the same unit in peak hours can cost more than twice as much. With made-up rates of 40 cents peak and 15 cents off-peak, 240 kWh a month costs $96 on peak and $36 off-peak. Cooling the room before the peak window starts, then easing off, cuts the bill.
+
+## How to cut the cost
+
+- **Size it for the room**, with our [BTU calculator](/air-conditioner-btu-calculator); a unit that's too small runs nonstop.
+- **Seal the window kit** and any gaps around the exhaust hose.
+- **Keep the hose short and straight**, and insulate it if it feels hot.
+- **Close the room's door and blinds**, so it cools one space, not the house.
+
+## Frequently asked questions
+
+### How much does it cost to run a portable AC for 8 hours?
+
+About $1.44 at 1,000 watts and 18 cents per kWh (8 kWh). Multiply by your own wattage and rate for your unit.
+
+### How many watts does a portable air conditioner use?
+
+It depends on the unit; check the label or manual. The examples here use 800 to 1,400 watts.
+
+### Is a portable AC more expensive to run than a window AC?
+
+Often, for the same cooling. Portables lose some cooling through their hose and cabinet, and single-hose models pull warm air into the room, so they tend to deliver less cooling per watt.
+
+### Does a portable AC use a lot of electricity?
+
+It's one of the bigger loads in a home while it runs, and it often runs for hours. Running it only in the rooms and hours you need keeps the cost down.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "eCFR: 10 CFR Part 430, Subpart B (portable air conditioner test procedure)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

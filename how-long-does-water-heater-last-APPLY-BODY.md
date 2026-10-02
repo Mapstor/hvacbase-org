@@ -1,0 +1,98 @@
+---
+slug: "how-long-does-water-heater-last"
+title: "How Long Does a Water Heater Last? Lifespan by Type & Replacement Signs (2026)"
+description: "How long tank, tankless, heat pump and solar water heaters last according to the DOE and ENERGY STAR, the signs a water heater is failing, and when to replace one."
+cluster: "water-heaters"
+role: "spoke"
+priority: "P2"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-06"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "water-heater-guide"
+  - "heat-pump-water-heater-guide"
+  - "tankless-water-heater-cost"
+  - "water-heater-sizing-calculator"
+  - "tankless-water-heater-guide"
+externalLinks:
+  - label: "U.S. DOE: Which water heater is right for you?"
+    url: "https://www.energy.gov/node/1026276"
+  - label: "ENERGY STAR: Gas tankless water heaters"
+    url: "https://www.energystar.gov/node/5771"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# How Long Does a Water Heater Last?
+
+A water heater usually gives little warning before it fails, and a tank that lets go can flood a basement. Knowing how long your type typically lasts tells you when to start planning a replacement instead of waiting for the leak.
+
+**According to the DOE, a storage tank water heater lasts 10 to 15 years, a tankless one about 20, a heat pump water heater 10 to 15 and a solar system about 20. ENERGY STAR advises replacing a tank water heater proactively once it's over 10 years old, before it fails.**
+
+<CalcWrapper calculator="water-heater-lifespan" />
+
+## Lifespan by type
+
+| Type | Typical lifespan (DOE) |
+|---|---|
+| Storage tank, gas or electric | 10 to 15 years |
+| Tankless (on-demand) | About 20 years |
+| Heat pump water heater | 10 to 15 years |
+| Solar | About 20 years |
+
+ENERGY STAR also gives tankless water heaters a life expectancy of 20 years, and notes that without a tank, there's no tank to leak. Enter your unit's type and age in the calculator to see where it falls in its range.
+
+## Finding your water heater's age
+
+The manufacture date is usually encoded in the serial number on the rating plate, often as a letter or digits for the month and year. The manufacturer's website or support line can decode it.
+
+## Signs a water heater is failing
+
+- **Water leaking from the tank itself**, not a fitting or valve. A corroded tank can't be repaired.
+- **Rusty or discolored hot water**, which can mean the tank is corroding inside.
+- **Rumbling or popping** as it heats, from sediment built up on the bottom of the tank.
+- **Less hot water, or water that won't stay hot**, from a failing element, thermostat, burner or sediment.
+- **Its age:** past the top of its range, it's on borrowed time.
+
+## Repair or replace?
+
+Parts such as elements, thermostats, igniters and valves can be replaced, and for a younger unit that's usually worth it. A leaking tank means replacement. For a tank past about 10 years, ENERGY STAR's advice is to plan the replacement before it fails, which gives you time to choose the right type and size instead of taking whatever is in stock.
+
+## How to help it last
+
+- **Flush sediment** on the manufacturer's schedule, more often where water is hard.
+- **Check the anode rod**, which corrodes in place of the tank; replacing it when it's used up protects the tank.
+- **Test the temperature and pressure relief valve** as the manual directs.
+- **Descale tankless units** on schedule, especially with hard water.
+
+## Planning the replacement
+
+Replacing before failure lets you compare options. A heat pump water heater uses less than half the energy of a standard electric storage water heater, according to ENERGY STAR, and income-qualified households may get a HEAR rebate of up to $1,750. See our [water heater guide](/water-heater-guide), the [sizing calculator](/water-heater-sizing-calculator) and [tankless costs](/tankless-water-heater-cost).
+
+## Frequently asked questions
+
+### How long does a water heater last?
+
+A storage tank lasts 10 to 15 years, a tankless unit about 20, and a heat pump water heater 10 to 15, according to the DOE.
+
+### Should I replace a 10-year-old water heater?
+
+ENERGY STAR advises replacing a water heater proactively once it's over 10 years old, before it fails. A tankless unit typically lasts longer.
+
+### Do tankless water heaters last longer than tanks?
+
+Yes. The DOE puts tankless units at about 20 years against 10 to 15 for storage tanks.
+
+### What shortens a water heater's life?
+
+Sediment and hard water, a used-up anode rod, high water pressure and skipped maintenance. Following the manufacturer's maintenance schedule helps it reach the upper end of its range.
+
+<SourcesBox sources={[
+  { title: "U.S. DOE: Which water heater is right for you? (lifespans by type)", url: "https://www.energy.gov/node/1026276" },
+  { title: "ENERGY STAR: Gas tankless water heaters (life expectancy of 20 years)", url: "https://www.energystar.gov/node/5771" },
+  { title: "ENERGY STAR: Heat pump water heater fact sheet (replace when over 10 years old)", url: "https://www.energystar.gov/sites/default/files/asset/document/Heat_Pump_Water_Heater_fact_sheet_12-22-edit.pdf" },
+  { title: "U.S. DOE: Home Energy Rebate Programs", url: "https://www.energy.gov/scep/home-energy-rebate-programs" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

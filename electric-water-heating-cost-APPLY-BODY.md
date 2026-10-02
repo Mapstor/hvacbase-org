@@ -1,0 +1,109 @@
+---
+slug: "electric-water-heating-cost"
+title: "Electric Water Heating Cost & kWh Usage: State-by-State Analysis (2026)"
+description: "What an electric water heater costs to run by household size, tank type and state, using EIA's 2026 rates, plus how a heat pump water heater and time-of-use rates change it."
+cluster: "water-heaters"
+role: "spoke"
+priority: "P2"
+contentType: "analysis"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-06"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "water-heater-sizing-calculator"
+  - "heat-pump-water-heater-guide"
+  - "kwh-cost-calculator"
+  - "water-heater-wire-size"
+  - "tankless-water-heater-guide"
+externalLinks:
+  - label: "U.S. EIA: Electric Power Monthly (residential prices by state)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "EPA WaterSense: Showerheads"
+    url: "https://www.epa.gov/watersense/showerheads"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Electric Water Heating Cost and kWh Usage by State
+
+Water heating is one of the largest electric loads in a home without gas, and its cost moves with two things you can see: how much hot water you use and what you pay per kWh. The calculator below turns your household and state into a monthly cost.
+
+**A 50-gallon electric tank heating water for three people uses about 12.8 kWh a day, roughly 389 kWh a month: about $70 a month at 18 cents per kWh. A heat pump water heater does the same job for about $19.** Where electricity costs more, the gap grows.
+
+<CalcWrapper calculator="water-heating-cost" />
+
+## How the calculator estimates it
+
+- **Hot water:** 20 gallons per person per day, times 0.75 for light use or 1.5 for heavy use.
+- **Heat:** gallons × 8.34 pounds per gallon × a 70°F temperature rise, converted to kWh at 3,412 BTU per kWh.
+- **Efficiency:** 0.90 for electric resistance tanks, 0.98 for electric tankless, and 3.5 for a heat pump water heater.
+- **Standby loss:** 1.2, 1.4 and 1.8 kWh a day for 40-, 50- and 80-gallon tanks, 0.5 for a heat pump tank, none for tankless.
+- **Rates:** pick your state to use its EIA average for January to July 2026, or enter the rate from your bill.
+
+These are the calculator's assumptions for a typical household; your usage and your heater's rating decide the real number.
+
+## By household size
+
+A 50-gallon resistance tank against a heat pump water heater, at 18 cents per kWh:
+
+| Household | Hot water per day | Resistance tank | Heat pump water heater |
+|---|---|---|---|
+| 1 person | 20 gallons | $28.47 a month | $8.09 a month |
+| 2 people | 40 gallons | $49.27 | $13.44 |
+| 3 people | 60 gallons | $70.08 | $18.79 |
+| 4 people | 80 gallons | $90.88 | $24.14 |
+| 5 people | 100 gallons | $111.69 | $29.49 |
+| 6 people | 120 gallons | $132.50 | $34.84 |
+
+## By heater type
+
+For three people at 18 cents per kWh: a 40-gallon tank costs about $68.98 a month, a 50-gallon $70.08, an 80-gallon $72.27, an electric tankless heater $57.32, and a heat pump water heater $18.79. Bigger tanks cost a little more mainly because they lose more heat standing by. The heat pump's advantage comes from moving heat out of the surrounding air rather than making it from electricity.
+
+## By state
+
+Electricity prices vary more than water use does. The same three-person household with a 50-gallon tank, at EIA's January-to-July 2026 state averages:
+
+| State | Average rate | Per month | Per year |
+|---|---|---|---|
+| North Dakota (lowest) | 12.36 cents | $48.12 | $578 |
+| U.S. average | 18.19 cents | $70.82 | $850 |
+| California | 33.25 cents | $129.45 | $1,554 |
+| Hawaii (highest) | 46.28 cents | $180.18 | $2,163 |
+
+Every state's average is in our [kWh cost calculator](/kwh-cost-calculator).
+
+## Time-of-use rates
+
+A tank water heater stores heat, so on a time-of-use plan it can do most of its heating off-peak and coast through the expensive hours. A timer or a utility program that controls the heater does this automatically. Tankless heaters can't, because they heat only while water flows.
+
+## How to cut the cost
+
+- **Switch to a heat pump water heater**, which uses roughly a quarter of the electricity of a resistance tank.
+- **Use efficient fixtures.** WaterSense showerheads use 2.0 gallons per minute or less, against 2.5 for standard ones.
+- **Lower the thermostat to about 120°F** if yours is set higher.
+- **Insulate the first few feet of hot water pipe** and fix dripping hot taps.
+
+## Frequently asked questions
+
+### How much does it cost to run an electric water heater per month?
+
+About $70 a month for a three-person household with a 50-gallon tank at 18 cents per kWh. It ranges from about $28 for one person to $133 for six.
+
+### How many kWh does an electric water heater use per day?
+
+About 12.8 kWh a day for three people with a 50-gallon tank, in the calculator's model. A heat pump water heater uses about 3.4 kWh for the same hot water.
+
+### Is a heat pump water heater worth it?
+
+For an all-electric home, usually. It cuts water heating cost by roughly three quarters, about $51 a month for a three-person household at 18 cents per kWh.
+
+### Is electric or gas water heating cheaper?
+
+At average prices, gas is cheaper than an electric resistance tank, and a heat pump water heater is about even with gas. See [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: Electric Power Monthly, residential prices by state (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "EPA WaterSense: Showerheads (2.5 gpm standard, 2.0 gpm WaterSense)", url: "https://www.epa.gov/watersense/showerheads" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,94 @@
+---
+slug: "indoor-air-quality-testing"
+title: "Indoor Air Quality Testing: What to Test, How, and What the Results Mean (2026)"
+description: "Which indoor air tests matter (radon, carbon monoxide, particles, humidity, VOCs, mold), the EPA's guidance and action levels, home monitors vs. lab tests, and what to do with results."
+cluster: "indoor-air-quality"
+role: "spoke"
+priority: "P2"
+contentType: "explainer"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "how-to-improve-indoor-air-quality"
+  - "carbon-monoxide-detector-guide"
+  - "voc-in-home-sources"
+  - "ideal-indoor-humidity-level"
+  - "air-purifier-guide"
+externalLinks:
+  - label: "EPA: A Citizen's Guide to Radon"
+    url: "https://www.epa.gov/radon/citizens-guide-radon-guide-protecting-yourself-and-your-family-radon"
+  - label: "EPA: A Brief Guide to Mold, Moisture and Your Home"
+    url: "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Indoor Air Quality Testing
+
+"Testing indoor air quality" covers several very different tests. Some, like radon and carbon monoxide, are about specific dangers with clear action levels; others, like particles and VOCs, tell you how well your home is ventilated and filtered.
+
+**Start with the two the EPA and CPSC treat as essential: a radon test, with action recommended at 4 picocuries per liter or higher, and carbon monoxide alarms on every level. Then a monitor for particles and humidity, kept between 30% and 50%, shows how your ventilation, filtration and moisture control are working.**
+
+## Radon
+
+Radon is a radioactive gas from the ground that you can't see or smell. The EPA recommends testing every home, and fixing it when the level is 4 picocuries per liter (pCi/L) or more.
+
+Short-term test kits are inexpensive; a long-term test gives a better picture of the year-round average. If a test comes back high, a certified radon mitigation contractor can install a venting system.
+
+## Carbon monoxide
+
+Carbon monoxide comes from fuel-burning appliances, attached garages and generators. It needs an alarm, not a one-time test: install CO alarms on every level and outside sleeping areas. See our [carbon monoxide detector guide](/carbon-monoxide-detector-guide).
+
+## Particles
+
+Fine particles (PM2.5) come from cooking, smoke, candles and outdoor pollution. Home monitors with laser particle sensors show them in micrograms per cubic meter and react within minutes. For outdoor air, the EPA's annual standard for PM2.5 is 9.0 micrograms per cubic meter; indoors, a monitor is most useful for spotting spikes and checking whether filtration brings them down.
+
+## Humidity
+
+Humidity is the easiest thing to measure and one of the most useful. The EPA recommends keeping indoor humidity between 30% and 50%, and below 60%, to limit mold and dust mites. An inexpensive hygrometer is enough; see the [ideal indoor humidity level](/ideal-indoor-humidity-level).
+
+## VOCs and formaldehyde
+
+Consumer monitors report total VOCs as a relative reading, useful for seeing when cleaning or painting raises levels, but they don't identify compounds. Laboratory tests, with a sample collected on a sorbent tube or badge, measure specific compounds such as formaldehyde. See [VOCs in your home](/voc-in-home-sources).
+
+## Mold
+
+If you can see or smell mold, the EPA says testing usually isn't necessary: clean it up and fix the moisture that caused it. Sampling can help when you suspect hidden mold, but results are hard to interpret without a professional. Moisture is the real target.
+
+## Home monitors vs. professional testing
+
+- **Home monitors** track particles, humidity, temperature, CO2 and total VOCs continuously, and are best for spotting trends and spikes.
+- **Professional tests** measure specific pollutants to a laboratory standard, and are worth it for radon, formaldehyde or a health concern.
+
+## What to do with the results
+
+The EPA's three strategies, in order: control the source, improve ventilation, then clean the air. Fix moisture, ventilate when cooking and cleaning, use exhaust fans, and add filtration; see [how to improve indoor air quality](/how-to-improve-indoor-air-quality).
+
+## Frequently asked questions
+
+### How do I test the air quality in my home?
+
+Test for radon with a kit, install carbon monoxide alarms, and use a monitor for particles and humidity. Use laboratory tests for specific pollutants such as formaldehyde.
+
+### What radon level is dangerous?
+
+The EPA recommends fixing your home if radon is 4 pCi/L or higher, and considering it between 2 and 4.
+
+### Should I test for mold?
+
+Usually not, if you can see or smell it; the EPA advises cleaning it up and fixing the moisture source.
+
+### What indoor humidity is best?
+
+Between 30% and 50%, and below 60%, according to the EPA.
+
+<SourcesBox sources={[
+  { title: "EPA: A Citizen's Guide to Radon (test every home; fix at 4 pCi/L or more)", url: "https://www.epa.gov/radon/citizens-guide-radon-guide-protecting-yourself-and-your-family-radon" },
+  { title: "EPA: A Brief Guide to Mold, Moisture and Your Home", url: "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home" },
+  { title: "CPSC: Carbon monoxide alarms", url: "{{CPSC_CO_URL}}" },
+  { title: "EPA: Mold course, chapter 2 (indoor humidity)", url: "https://www.epa.gov/mold/mold-course-chapter-2" },
+  { title: "EPA: National Ambient Air Quality Standards for particulate matter", url: "https://www.epa.gov/pm-pollution/national-ambient-air-quality-standards-naaqs-pm" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

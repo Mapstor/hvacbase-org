@@ -1,0 +1,86 @@
+---
+slug: "evaporative-cooler-vs-ac"
+title: "Evaporative Cooler vs AC: Which Works Where? (2026 Comparison)"
+description: "Evaporative (swamp) coolers vs. air conditioners: how cool each gets air in dry and humid climates, running cost, water use, humidity, and which to choose for your climate."
+cluster: "evaporative-coolers-fans"
+role: "spoke"
+priority: "P2"
+contentType: "comparison"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "air-conditioner-types"
+  - "kwh-cost-calculator"
+  - "ideal-indoor-humidity-level"
+  - "central-air-conditioner-guide"
+  - "how-does-humidity-affect-temperature"
+externalLinks:
+  - label: "Stull (2011): Wet-bulb temperature from relative humidity and air temperature"
+    url: "https://doi.org/10.1175/JAMC-D-11-0143.1"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Evaporative Cooler vs AC: Which Works Where?
+
+An evaporative cooler, or swamp cooler, blows outdoor air through wet pads; water evaporating from the pads cools the air. An air conditioner moves heat out with a refrigerant cycle. The cooler uses a fraction of the electricity, but how well it cools depends almost entirely on how dry the air is.
+
+**An evaporative cooler can only bring air close to its wet-bulb temperature. In dry heat, 105°F at 10% humidity, a cooler about 80% effective delivers air near 74°F; in humid heat, 90°F at 65% humidity, only about 82°F. So evaporative coolers suit dry climates, and air conditioners work everywhere.**
+
+## How cool each gets the air
+
+Evaporation can cool air down toward its wet-bulb temperature, which falls as the air gets drier. Leaving air ≈ outdoor temperature − effectiveness × (outdoor temperature − wet-bulb temperature). With an assumed 80% effectiveness and wet-bulb temperatures from Stull's formula:
+
+| Conditions | Wet-bulb | Air leaving the cooler |
+|---|---|---|
+| Dry heat: 105°F, 10% humidity | 65.9°F | about 73.7°F |
+| High, dry summer: 90°F, 15% humidity | 60.5°F | about 66.4°F |
+| Humid heat: 90°F, 65% humidity | 80.3°F | about 82.3°F |
+
+An air conditioner cools to its set point in any of these, and removes humidity as it does.
+
+## Running cost
+
+A cooler's main load is its fan and water pump. An example cooler drawing 400 watts for 8 hours a day uses 96 kWh a month, about $17 at 18 cents per kWh.
+
+A 3-ton central air conditioner at 14.3 SEER2 averages about 2.5 kW while it runs, about 604 kWh and $109 over the same hours. Use your unit's wattage and your rate in our [kWh cost calculator](/kwh-cost-calculator).
+
+## Water use
+
+Every BTU of cooling evaporates water. Cooling 3,000 cubic feet of air a minute by 25°F takes about 81,000 BTU per hour, which evaporates about 77 pounds of water an hour, around 9 gallons. Over 8 hours that's about 74 gallons a day, plus any water the cooler bleeds off to limit mineral buildup.
+
+## Humidity and fresh air
+
+A cooler adds moisture and needs open windows or vents so humid air can leave; in a closed house it soon stops cooling. In dry climates the added humidity can be welcome. An air conditioner recirculates indoor air and dries it, which is what you want where summers are humid; see the [ideal indoor humidity level](/ideal-indoor-humidity-level).
+
+## Which to choose
+
+- **Evaporative cooler:** hot, dry climates where afternoon humidity stays low; low running cost matters; you can keep windows cracked.
+- **Air conditioner:** humid climates, homes kept closed, or anyone who needs precise temperature and humidity control.
+- **Both:** some dry-climate homes use a cooler most of the season and an air conditioner during humid monsoon weeks.
+
+## Frequently asked questions
+
+### Do evaporative coolers work in humid climates?
+
+Poorly. At 90°F and 65% humidity, a cooler can only bring air down to about 82°F, and it adds moisture.
+
+### Is an evaporative cooler cheaper to run than an AC?
+
+Yes, by a wide margin: an example 400-watt cooler costs about $17 a month for 8 hours a day, against about $109 for a 3-ton central AC at 14.3 SEER2.
+
+### How much water does a swamp cooler use?
+
+Depends on size and conditions; a cooler moving 3,000 CFM and cooling it 25°F evaporates around 9 gallons an hour.
+
+### Can an evaporative cooler replace an air conditioner?
+
+In hot, dry climates, often for most of the summer. Where humidity is high, it can't.
+
+<SourcesBox sources={[
+  { title: "Stull (2011), Journal of Applied Meteorology and Climatology: wet-bulb temperature from relative humidity and air temperature", url: "https://doi.org/10.1175/JAMC-D-11-0143.1" },
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,40 @@
+## The Physics: Why More Zones Isn't Strictly Better
+
+### Capacity derating and combination ratio
+
+Multi-zone outdoor units are sold with more indoor capacity than the outdoor is rated for. A 36,000 BTU (3-ton) multi-zone outdoor typically supports 24,000–48,000 BTU of connected indoor capacity — meaning you can hang four 12K heads (48K total) on a 36K nameplate outdoor. Manufacturers call this the combination ratio or connectable capacity ratio.
+
+The design assumption is diversity. In most homes, all rooms don't peak at the same time — the sunny living room peaks at 3 PM, the master bedroom peaks at 10 PM, the office peaks at 11 AM. The outdoor unit is sized for the diversity-weighted sum of loads, not the worst-case simultaneous peak.
+
+Consequence — at design conditions with all zones calling, the heads won't all deliver nameplate. If four 12K heads each demand a full 12K on the hottest afternoon of the year, a 36K outdoor can only deliver 36K total split across them — roughly 9K per head, or 75% of each head's rating. This constraint is invisible on the spec sheet, which lists "48K of connected capacity" as if that were all available at once. For most residential use the diversity assumption holds and this doesn't matter. When it fails — large gathering, extreme heat wave, kitchen and living room both drawing hard — you feel it.
+
+### The turndown problem
+
+The more consequential physics issue is what happens at the opposite end of the load curve — one small zone calling on a much larger outdoor unit.
+
+The outdoor unit has a minimum output it cannot drop below. Inverter compressors modulate, but they don't scale to arbitrarily small demands. A 48,000 BTU outdoor unit's minimum output might be 15,000–20,000 BTU. It cannot serve a 4,000 BTU demand at a matched rate; the smallest it can produce is far more than a single small bedroom needs.
+
+Consider a 5-zone system with 5 × 9K indoor heads on a 48K outdoor. At 2 AM only one bedroom calls — say 4,000 BTU of demand. The outdoor's minimum output exceeds that demand by roughly 4×. What happens:
+
+  - Compressor runs at its minimum, overshoots the bedroom's setpoint within a few minutes.
+  - Setpoint satisfied, compressor shuts off.
+  - Bedroom slowly warms, calls again, compressor restarts.
+  - Repeat all night — this is short-cycling.
+
+Three consequences of short-cycling:
+
+  - Poor latent removal (humidity). Dehumidification requires sustained coil-below-dewpoint runtime — the coil has to stay cold long enough to condense water out of the air. On/off cycles remove very little moisture. The room feels clammy at the "correct" temperature.
+  - Setpoint swing. The room overshoots on each pulse, then drifts warm before the next call. On a good night the swing is 2–3 °F; on a bad night it's 4–5 °F, which reads as "the AC isn't quite working right."
+  - Higher wear and lower efficiency. Every compressor start is high-inrush and low-COP; frequent cycling accelerates wear and drops seasonal efficiency below what the SEER2 label predicts.
+
+Zone count amplifies this risk. The more independent heads, the more hours where only one of them calls at low load and forces the compressor into cycling.
+
+### How the physics shows up in real-world efficiency
+
+Both effects compound at higher zone counts, and this is why the harvested SEER2 ratings drop step-by-step as zones increase — Mitsubishi MXZ + MSZ-FH goes 28 SEER2 at 2-zone → 27 → 26 → 25 at 5-zone, and every other brand in the table below shows the same 3-point pattern. That spread is not a manufacturing accident. It reflects real system behavior:
+
+  - Longer line-set runs from a single outdoor unit to widely-separated heads add refrigerant pressure drop and require a larger refrigerant charge, both of which reduce compressor efficiency at partial load.
+  - More heads mean more small-demand hours where the compressor operates below its efficient modulation band (the turndown problem above).
+  - Combination ratio pushed toward the high end (more connected than nameplate) forces the compressor to overwork at simultaneous-peak hours.
+
+The 5-zone system on paper reads as "one outdoor + 5 rooms controlled independently, at a discount vs. five separate units." The physics reads as "one compressor forced to serve five very different demand profiles across a wider load range than any single compressor is efficient across." Both descriptions are true. Which one matters to you depends on the home.

@@ -1,0 +1,95 @@
+---
+slug: "pellet-stove-cost-to-run"
+title: "Pellet Stove Cost to Run: Per Hour, Day and Season (2026)"
+description: "What a pellet stove costs to run, from pellet energy content and stove efficiency: cost per million BTU against gas, heat pumps, propane and oil, tons per season, and electricity use."
+cluster: "fireplaces-stoves"
+role: "spoke"
+priority: "P2"
+contentType: "cost-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "gas-vs-electric-heating-cost"
+  - "heat-pump-running-cost-calculator"
+  - "furnace-sizing-calculator"
+  - "space-heater-guide"
+  - "hvac-tax-credits-2026"
+externalLinks:
+  - label: "New Hampshire Department of Energy: Wood pellet prices and heating value"
+    url: "https://energy.nh.gov/energy-information/nh-fuel-prices/wood-pellet-prices"
+  - label: "EPA: Burn Wise"
+    url: "https://www.epa.gov/burnwise"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Pellet Stove Cost to Run
+
+A pellet stove burns compressed wood pellets fed by an auger, with fans to move the heat. Its running cost comes down to the price of a ton of pellets, how much heat a ton holds, and how efficiently the stove burns it.
+
+**A ton of quality pellets holds about 16.5 million BTU, and an EPA-certified pellet stove is about 78% efficient. At an example $300 a ton, that's heat for about $23.31 per million BTU: less than propane, oil or electric resistance, about the same as a heat pump, and more than natural gas.**
+
+## Cost per million BTU of heat
+
+Cost per million BTU = price per ton ÷ 16.5 ÷ 0.78:
+
+| Pellet price | Cost per million BTU of heat |
+|---|---|
+| $250 a ton | $19.43 |
+| $300 a ton | $23.31 |
+| $350 a ton | $27.20 |
+
+The 16.5 million BTU per ton and 78% efficiency are the values in the U.S. EIA's Heating Fuel Comparison Calculator, as published by New York's energy authority; New Hampshire's energy department gives the same heating value for pellets at 5 to 10% moisture.
+
+## Against other fuels
+
+| Heat source | Assumption | Cost per million BTU |
+|---|---|---|
+| Natural gas furnace, 95% | $1.35 per therm | $14.21 |
+| Pellet stove, 78% | Example: $300 a ton | $23.31 |
+| Heat pump, HSPF2 8.2 | 18 cents per kWh | $21.95 |
+| Oil furnace, 85% | Example: $4.00 a gallon | $33.98 |
+| Propane furnace, 95% | Example: $3.00 a gallon | $34.53 |
+| Electric resistance | 18.19 cents per kWh | $53.31 |
+
+Pellets beat oil, propane and electric resistance at these prices, roughly tie a heat pump, and cost more than natural gas. See [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
+
+## How many tons per season?
+
+A 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days needs about 58 million BTU of heat a year, from the same heat-loss model as our [furnace size calculator](/furnace-sizing-calculator). Heating all of it with pellets would take about 4.5 tons, roughly $1,359 at $300 a ton. Most pellet stoves heat part of a house, so a stove heating half the space would use about 2.3 tons.
+
+## Electricity
+
+A pellet stove needs electricity for its auger, fans and igniter, and it stops in a power outage unless it has battery backup. As an example, a stove averaging 100 watts around the clock for 150 days uses 360 kWh, about $65 at 18 cents per kWh. Check your model's rated power.
+
+## Tax credits
+
+The federal 25C credit for biomass stoves, 30% up to $2,000, ended for equipment installed after December 31, 2025. See [HVAC tax credits 2026](/hvac-tax-credits-2026).
+
+## Frequently asked questions
+
+### How much does it cost to run a pellet stove?
+
+At an example $300 a ton, about $23 per million BTU of heat. Heating a typical 2,000 sq ft home entirely with pellets would take about 4.5 tons a season, around $1,359.
+
+### Is a pellet stove cheaper than a gas furnace?
+
+Usually not. At $1.35 per therm, gas heat costs about $14.21 per million BTU against about $23 for pellets at $300 a ton.
+
+### Is a pellet stove cheaper than electric heat?
+
+Than electric resistance heat, yes, by more than half. Against a heat pump, it's about even.
+
+### How long does a ton of pellets last?
+
+It depends on how much heat you need. Spread over an assumed five-month heating season, the 4.5 tons for a typical 2,000 sq ft home work out to about 0.9 tons a month, more in the coldest months; a stove heating part of the house goes further.
+
+<SourcesBox sources={[
+  { title: "New Hampshire Department of Energy: Wood pellet prices (16.5 million BTU per ton)", url: "https://energy.nh.gov/energy-information/nh-fuel-prices/wood-pellet-prices" },
+  { title: "NYSERDA: Compare heating fuels (from the U.S. EIA Heating Fuel Comparison Calculator)", url: "https://nyserda.ny.gov/-/media/Project/Climate/Files/2022-Comments/Compare-Heating-Fuels" },
+  { title: "EPA: Burn Wise (EPA-certified wood and pellet heaters)", url: "https://www.epa.gov/burnwise" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

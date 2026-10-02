@@ -1,0 +1,73 @@
+---
+slug: "thermostat-temperature-winter"
+title: "What Temperature Should I Set My Thermostat in Winter? (2026)"
+description: "How to set your thermostat in winter: the DOE's setback savings, comfort and humidity, sleeping and away settings, heat pump cautions, and how a programmable or smart thermostat helps."
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-02"
+relatedArticles:
+  - "smart-thermostat-savings"
+  - "heating-cost-calculator"
+  - "ideal-indoor-humidity-level"
+  - "heat-pump-in-cold-weather"
+  - "furnace-guide"
+externalLinks:
+  - label: "U.S. DOE: Energy Saver Guide (PDF)"
+    url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# What Temperature Should I Set My Thermostat in Winter?
+
+The best winter setting is the lowest one that keeps you comfortable while you're home and awake, with a lower setting while you sleep or are away. Heat loss depends on the difference between indoor and outdoor temperature, so every degree lower saves energy.
+
+**The DOE says you can save as much as 10% a year on heating and cooling by turning your thermostat down 7 to 10°F for 8 hours a day in fall and winter. For a home spending about $829 a year on gas heat, that's up to about $83; with a heat pump, the DOE advises doing this only with a thermostat designed for heat pumps.**
+
+## How setbacks save energy
+
+A house loses heat faster the warmer it is inside compared with outside. While the temperature is set back, the house loses heat more slowly, and that saving outweighs the energy used to warm it back up. The longer and deeper the setback, the larger the saving.
+
+## Suggested settings
+
+- **Home and awake:** the lowest temperature you're comfortable at.
+- **Asleep:** several degrees lower; many people sleep better in a cooler room.
+- **Away for the day:** set back 7 to 10°F, as the DOE suggests for the largest savings.
+- **Away for days:** lower still, but keep the house warm enough to protect pipes.
+
+## Comfort and humidity
+
+Dry winter air can make a room feel colder than its temperature. ENERGY STAR suggests 30% to 40% indoor humidity in cold climates during the heating season, enough for comfort without window condensation; see the [ideal indoor humidity level](/ideal-indoor-humidity-level). Sealing drafts also makes a lower setting feel warmer.
+
+## Heat pumps need gentler setbacks
+
+With a heat pump, a deep setback can trigger the electric backup strips when the thermostat calls for a big rise, which costs far more than the heat pump itself. The DOE advises setting back a heat pump only with a smart or programmable thermostat designed for heat pumps, which recovers gradually; see [heat pumps in cold weather](/heat-pump-in-cold-weather).
+
+## Let a thermostat do it
+
+A programmable or smart thermostat makes setbacks happen every day without you remembering. ENERGY STAR certified smart thermostats are certified on field data to deliver savings; see [smart thermostat savings](/smart-thermostat-savings).
+
+## Frequently asked questions
+
+### What is a good thermostat setting for winter?
+
+The lowest temperature you're comfortable at while home and awake, set back 7 to 10°F while you sleep or are away.
+
+### How much can I save by turning down the thermostat?
+
+As much as 10% a year on heating and cooling, according to the DOE, by setting it back 7 to 10°F for 8 hours a day.
+
+### Is it cheaper to leave the heat at one temperature?
+
+No. A house loses heat more slowly when it's cooler inside, so setbacks save more than the energy used to warm back up, according to the DOE.
+
+### Should I set back a heat pump?
+
+Only modestly, or with a thermostat designed for heat pumps, so the electric backup heat doesn't come on during recovery.
+
+<SourcesBox sources={[
+  { title: "U.S. DOE: Energy Saver Guide (PDF), thermostat setbacks up to 10%; heat pump caution", url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf" },
+  { title: "ENERGY STAR: Dehumidifiers (30 to 40% winter humidity in cold climates)", url: "https://www.energystar.gov/products/dehumidifiers" },
+  { title: "ENERGY STAR: Smart thermostats", url: "https://www.energystar.gov/products/smart_thermostats" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

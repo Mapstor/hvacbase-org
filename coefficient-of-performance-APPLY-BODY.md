@@ -1,0 +1,99 @@
+---
+slug: "coefficient-of-performance"
+title: "COP Explained: Coefficient of Performance of Heat Pumps"
+description: "What a heat pump's COP means, how it changes with outdoor temperature, how it relates to HSPF2, SEER2 and EER2, the physical limit, and what COP means for your heating bill."
+cluster: "energy-efficiency-ratings"
+role: "hub"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "heat-pump-in-cold-weather"
+  - "gas-vs-electric-heating-cost"
+  - "seer2-rating-explained"
+  - "heat-pump-guide"
+  - "hspf-rating-explained"
+externalLinks:
+  - label: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+  - label: "ENERGY STAR: Air-Source Heat Pumps"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# COP Explained: Coefficient of Performance of Heat Pumps
+
+A heat pump moves heat instead of making it, so it can deliver more heat than the electricity it uses. The coefficient of performance (COP) measures that ratio, and it's the number that decides what a heat pump costs to run.
+
+**COP = heat delivered ÷ electricity used, in the same units. Electric resistance heat has a COP of 1; ENERGY STAR's cold-climate heat pumps must reach at least 1.75 at 5°F. A heat pump's HSPF2 rating converts to a seasonal COP by dividing by 3.412, so 7.8 HSPF2 is a seasonal COP of about 2.29.**
+
+## The formula
+
+COP = heat output ÷ electrical input. A heat pump using 1 kW of electricity to deliver 3 kW of heat has a COP of 3. ENERGY STAR describes heat pumps as delivering up to three times more heat energy than the electricity they consume.
+
+For cooling, COP is the heat removed divided by the electricity used. EER and SEER express the same idea in BTU per watt-hour, which is why dividing by 3.412 converts them to COP.
+
+## How temperature changes COP
+
+COP falls as the outdoor air gets colder, because the heat pump has to lift heat across a bigger temperature gap. Physics sets an upper limit, the Carnot limit: COP max = T hot ÷ (T hot − T cold), with temperatures in kelvin.
+
+| Outdoor temperature | Maximum possible COP, delivering 95°F air |
+|---|---|
+| 47°F | 11.56 |
+| 17°F | 7.11 |
+| 5°F | 6.16 |
+
+Real heat pumps reach well below these limits, but follow the same trend: the colder it is, the lower the COP. That's why ENERGY STAR tests cold-climate models at 5°F; see [heat pumps in cold weather](/heat-pump-in-cold-weather).
+
+## COP and other ratings
+
+| Rating | What it measures | Converting to COP |
+|---|---|---|
+| HSPF2 | Seasonal heating efficiency, BTU per watt-hour | ÷ 3.412: 7.8 HSPF2 is a seasonal COP of 2.29 |
+| SEER2 | Seasonal cooling efficiency | ÷ 3.412: 15.2 SEER2 is 4.45 |
+| EER2 | Cooling efficiency at one hot condition | ÷ 3.412: 11.0 EER2 is 3.22 |
+
+Single-point COP figures in marketing, often 3 to 4, are measured in mild conditions. HSPF2 averages a whole heating season for a moderate climate, which is why it converts to a lower COP.
+
+## What COP means for your bill
+
+Cost of heat per million BTU = 293.07 kWh × your electricity rate ÷ COP. At 18.19 cents per kWh, the U.S. average for January to July 2026 (EIA):
+
+| COP | Cost per million BTU of heat |
+|---|---|
+| 1.0 (resistance) | $53.31 |
+| 1.75 | $30.46 |
+| 2.5 | $21.32 |
+| 3.0 | $17.77 |
+| 4.0 | $13.33 |
+
+A 95% gas furnace at $1.35 per therm delivers heat for about $14.21 per million BTU, so at average prices a heat pump needs a seasonal COP of about 3.75 to beat it; see [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
+
+## Frequently asked questions
+
+### What is a good COP for a heat pump?
+
+A COP of 3 or more in mild weather is common; at 5°F, ENERGY STAR's cold-climate minimum is 1.75. Seasonal COP, from HSPF2, is usually 2.2 to 3.
+
+### How do I convert HSPF2 to COP?
+
+Divide by 3.412. 8.1 HSPF2 is a seasonal COP of about 2.37.
+
+### Can COP be less than 1?
+
+Not in normal heating operation: the compressor's own energy ends up as heat indoors, on top of the heat drawn from outside. Defrost cycles and the outdoor fan's power pull the effective figure down in deep cold.
+
+### Why is my heat pump's COP lower in winter?
+
+It has to move heat across a larger temperature difference, which takes more electricity for each unit of heat.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (cold-climate COP at 5°F)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
+  { title: "ENERGY STAR: Air-Source Heat Pumps", url: "https://www.energystar.gov/products/air_source_heat_pumps" },
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

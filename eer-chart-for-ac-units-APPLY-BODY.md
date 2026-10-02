@@ -1,0 +1,95 @@
+---
+slug: "eer-chart-for-ac-units"
+title: "EER Chart for Air Conditioners (Good, Average, Excellent)"
+description: "What EER and EER2 mean, a chart of watts per ton and hourly running cost at every EER, where central, window, mini split and portable ratings differ, and where your unit falls."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P2"
+contentType: "reference"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "seer2-rating-explained"
+  - "seer2-comparison-calculator"
+  - "minimum-seer-rating-by-state"
+  - "single-hose-vs-dual-hose-portable-ac"
+  - "kwh-cost-calculator"
+externalLinks:
+  - label: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+  - label: "AHRI: Directory of Certified Product Performance"
+    url: "https://www.ahridirectory.org/"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# EER Chart for Air Conditioners
+
+EER tells you how efficiently an air conditioner cools on a hot day. Where SEER2 averages a whole season, EER measures one hot test condition, which is why it matters most in places where the hottest afternoons drive the bill.
+
+**EER is cooling output in BTU per hour divided by the power drawn in watts, at 95°F outdoors. At EER 11, the ENERGY STAR minimum EER2 for split heat pumps, a 3-ton system draws about 3.3 kW; at EER 8 it draws 4.5 kW, about 81 cents an hour at 18 cents per kWh against 59.**
+
+## EER chart: watts per ton and cost per hour
+
+| EER | Watts per ton | 3-ton system draws | Cost per hour at 18 cents |
+|---|---|---|---|
+| 8 | 1,500 | 4.50 kW | $0.81 |
+| 9 | 1,333 | 4.00 kW | $0.72 |
+| 10 | 1,200 | 3.60 kW | $0.65 |
+| 11 | 1,091 | 3.27 kW | $0.59 |
+| 12 | 1,000 | 3.00 kW | $0.54 |
+| 13 | 923 | 2.77 kW | $0.50 |
+| 14 | 857 | 2.57 kW | $0.46 |
+
+Watts per ton = 12,000 ÷ EER, because one ton is 12,000 BTU per hour. The cost per hour applies while the system runs at full output on a hot day.
+
+## Good, average and excellent
+
+- **Below 10:** typical of older or basic equipment. It works, but costs more on the hottest days.
+- **Around 11:** the level ENERGY STAR requires for split heat pumps (at least 11.0 EER2).
+- **12 and above:** high efficiency at peak heat, worth paying for where long, hot afternoons dominate cooling.
+
+These bands are a reading guide anchored on the ENERGY STAR threshold, not an official rating scale.
+
+## EER, EER2 and SEER2
+
+- **EER** is a single-point rating at 95°F outdoors.
+- **EER2** is the same idea under the federal test procedure used since 2023, which applies higher airflow resistance, so it reads lower than the old EER for the same equipment.
+- **SEER2** averages efficiency across a range of outdoor temperatures and loads, so it's usually higher than EER2 for the same unit.
+
+A variable-speed system can have a very high SEER2 but a more modest EER2, because its advantage shows at part load, not at full output on the hottest day. See [SEER2 explained](/seer2-rating-explained).
+
+## By type of air conditioner
+
+- **Central air and heat pumps:** EER2 appears in the AHRI Directory for each certified combination of outdoor and indoor unit.
+- **Window units:** rated by CEER, which also counts the power used in standby.
+- **Mini splits:** rated by SEER2 and EER2 like central systems; their high SEER2 comes mostly from running at low speed.
+- **Portable units:** rated by CEER against a seasonally adjusted capacity (SACC). Single-hose models pull warm air into the room, which lowers their effective efficiency; see [single-hose vs. dual-hose portable ACs](/single-hose-vs-dual-hose-portable-ac).
+
+## Frequently asked questions
+
+### What is a good EER rating?
+
+About 11 or higher for a central system or heat pump, the level ENERGY STAR requires for split heat pumps. Where summers are long and hot, 12 or above pays off.
+
+### How do I find my air conditioner's EER?
+
+Look up the outdoor and indoor unit model numbers in the AHRI Directory, which lists certified EER2 and SEER2 for each combination. Window and portable units list CEER on their EnergyGuide label.
+
+### What's the difference between EER and SEER?
+
+EER is efficiency at one hot condition, 95°F outdoors. SEER averages a whole cooling season, so it's usually higher.
+
+### Does EER matter more in hot climates?
+
+Yes. When a system spends many hours at full output on hot afternoons, its efficiency at that condition, which is what EER measures, drives most of the bill.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (EER2 11.0 for split systems)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
+  { title: "eCFR: 10 CFR Part 430, Subpart B (test procedures)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" },
+  { title: "AHRI: Directory of Certified Product Performance", url: "https://www.ahridirectory.org/" },
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

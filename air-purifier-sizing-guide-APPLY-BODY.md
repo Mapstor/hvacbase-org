@@ -1,0 +1,86 @@
+---
+slug: "air-purifier-sizing-guide"
+title: "What Size Air Purifier Do I Need? (Room Size Calculator)"
+description: "Size an air purifier with AHAM's two-thirds rule: the smoke CADR your room needs by floor area and ceiling height, when to aim higher, and how to read CADR and coverage labels."
+cluster: "air-purifiers-air-quality"
+role: "spoke"
+priority: "P1"
+contentType: "calculator"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-01-20"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "air-purifier-guide"
+  - "hepa-filter-explained"
+  - "air-changes-per-hour-calculator"
+  - "how-to-improve-indoor-air-quality"
+  - "voc-in-home-sources"
+externalLinks:
+  - label: "AHAM Verifide: certified air cleaner ratings"
+    url: "https://ahamverifide.org/"
+  - label: "EPA: Guide to Air Cleaners in the Home"
+    url: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# What Size Air Purifier Do I Need?
+
+An air purifier only cleans the air it moves, so the right size depends on how much air it moves through its filter compared with the size of your room. The number that captures this is the clean air delivery rate (CADR), and there's a simple rule for matching it to a room.
+
+**Use AHAM's two-thirds rule: the purifier's smoke CADR should be at least two-thirds of the room's floor area in square feet, for an 8-foot ceiling. A 15 × 20 foot room (300 sq ft) needs a smoke CADR of at least 200; with a 10-foot ceiling, 250.**
+
+<CalcWrapper type="air-purifier-sizing" />
+
+## The two-thirds rule
+
+AHAM, the appliance manufacturers' association that runs the CADR test program, recommends a smoke CADR of at least two-thirds of the room's area. For an 8-foot ceiling, that filters the room's air about 5 times an hour. Taller ceilings mean more air, so the calculator scales the CADR up by ceiling height ÷ 8.
+
+| Room | Floor area | Minimum smoke CADR (8-ft ceiling) |
+|---|---|---|
+| 10 × 12 ft | 120 sq ft | 80 |
+| 12 × 15 ft | 180 sq ft | 120 |
+| 15 × 20 ft | 300 sq ft | 200 |
+| 20 × 25 ft | 500 sq ft | about 333 |
+
+## When to aim higher
+
+The two-thirds rule is a minimum. For allergies, a smoker in the home or wildfire smoke, you may want the air filtered more often. Enter a higher target in air changes per hour, and the calculator gives the CADR it takes: volume × air changes per hour ÷ 60, in cubic feet per minute.
+
+## Reading CADR and coverage labels
+
+- **CADR comes in three numbers:** for smoke, dust and pollen. The two-thirds rule uses the smoke CADR, the smallest particles and usually the lowest of the three.
+- **The coverage area printed on the box is set by the manufacturer.** Check it against the smoke CADR; the two-thirds rule lets you compare models on the same basis.
+- **CADR is measured at the highest fan setting.** If you'll run it on a quieter setting most of the time, size up.
+- **Look for AHAM Verifide ratings**, which are independently tested.
+
+CADR covers particles. For odors and gases such as VOCs, a purifier needs activated carbon; see [VOCs in your home](/voc-in-home-sources) and [HEPA filters explained](/hepa-filter-explained).
+
+## Placement and use
+
+The EPA recommends choosing an air cleaner sized for the room you use it in. Put it where air can reach it from all sides, close the room's doors and windows while it runs, and keep it running; a purifier switched on now and then does little. Replace filters on the maker's schedule, because a loaded filter delivers less clean air.
+
+## Frequently asked questions
+
+### What size air purifier do I need for a 300 sq ft room?
+
+A smoke CADR of at least 200, with an 8-foot ceiling. Aim higher for allergies or smoke.
+
+### How do I calculate CADR for a room?
+
+Multiply the floor area by two-thirds, then by your ceiling height divided by 8. For a higher target, use room volume × air changes per hour ÷ 60.
+
+### Is a bigger air purifier better?
+
+A higher CADR cleans the air faster and can run on a quieter setting for the same result. Past what your room needs, it mainly adds cost and size.
+
+### Can one air purifier clean a whole house?
+
+Not effectively. Each purifier cleans the room it's in; for a whole home, use one per main room or a higher-MERV filter in the central system.
+
+<SourcesBox sources={[
+  { title: "AHAM Verifide: certified air cleaner ratings (CADR, two-thirds rule)", url: "https://ahamverifide.org/" },
+  { title: "EPA: Guide to Air Cleaners in the Home", url: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,97 @@
+---
+slug: "seer2-to-seer-conversion"
+title: "SEER2 to SEER Conversion: Chart and Formula (2026)"
+description: "Convert SEER to SEER2 and HSPF to HSPF2 with the approximate factors, the DOE's official equivalent minimums, a conversion chart, and why the new ratings read lower."
+cluster: "energy-efficiency-ratings"
+role: "spoke"
+priority: "P2"
+contentType: "explainer"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "seer2-rating-explained"
+  - "minimum-seer-rating-by-state"
+  - "seer2-comparison-calculator"
+  - "hspf-rating-explained"
+  - "eer-chart-for-ac-units"
+externalLinks:
+  - label: "eCFR: 10 CFR 430.32 (energy conservation standards)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430"
+  - label: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# SEER2 to SEER Conversion
+
+Since January 1, 2023, air conditioners and heat pumps are rated in SEER2 and HSPF2 instead of SEER and HSPF. The equipment didn't get worse; the test got tougher, so the same system now reads a lower number.
+
+**For ducted split systems, SEER2 is roughly SEER × 0.95, and HSPF2 roughly HSPF × 0.85. The federal minimums show it: when the standard changed, 14 SEER became 13.4 SEER2, 15 SEER became 14.3 SEER2, and 8.8 HSPF became 7.5 HSPF2.**
+
+## Why SEER2 reads lower
+
+The SEER2 test, which took effect January 1, 2023, runs equipment against higher external static pressure, closer to the airflow resistance of real ductwork. Because the blower works harder, the same system uses more electricity in the test and scores lower. SEER2 is the more realistic number, but you can't compare a SEER rating directly with a SEER2 rating.
+
+## The DOE's equivalent minimums
+
+When the DOE moved to the new ratings, it restated the minimums in SEER2:
+
+| Equipment | Old rating | New rating | Ratio |
+|---|---|---|---|
+| Split air conditioner, North | 14 SEER | 13.4 SEER2 | 0.957 |
+| Split air conditioner, South and Southwest, under 45,000 BTU/hr | 15 SEER | 14.3 SEER2 | 0.953 |
+| Split air conditioner, South and Southwest, 45,000 BTU/hr and up | 14.5 SEER | 13.8 SEER2 | 0.952 |
+| Split heat pump, heating | 8.8 HSPF | 7.5 HSPF2 | 0.852 |
+
+These pairs put the SEER-to-SEER2 ratio at about 0.95 to 0.96, and HSPF to HSPF2 at about 0.85.
+
+## Conversion chart
+
+Approximate, for ducted split systems (SEER × 0.95):
+
+| SEER | SEER2 |
+|---|---|
+| 13 | 12.3 |
+| 14 | 13.3 |
+| 15 | 14.2 |
+| 16 | 15.2 |
+| 17 | 16.1 |
+| 18 | 17.1 |
+| 20 | 19.0 |
+| 22 | 20.9 |
+
+And HSPF × 0.85: 8.2 HSPF is about 7.0 HSPF2, 9 is about 7.6, 10 is about 8.5, and 12 is about 10.2. The ratio differs slightly by equipment type, so for a precise comparison, use each system's SEER2 rating from the AHRI Directory.
+
+## What it means when you shop
+
+Compare SEER2 with SEER2. A quote listing an old SEER number for new equipment, or comparing it with your old system's SEER, mixes two scales.
+
+ENERGY STAR's threshold for split heat pumps, 15.2 SEER2, corresponds to the old 16 SEER on the chart above. See [SEER2 explained](/seer2-rating-explained) and the [minimum SEER2 by state](/minimum-seer-rating-by-state).
+
+## Frequently asked questions
+
+### How do I convert SEER to SEER2?
+
+Multiply by about 0.95 for a ducted split system. A 16 SEER system is about 15.2 SEER2.
+
+### Is 14 SEER the same as 13.4 SEER2?
+
+Yes, in the DOE's minimum standards: the old 14 SEER minimum for the North was restated as 13.4 SEER2.
+
+### How do I convert HSPF to HSPF2?
+
+Multiply by about 0.85. The old 8.8 HSPF heat pump minimum became 7.5 HSPF2.
+
+### Why is my new AC's SEER2 lower than my old AC's SEER?
+
+The ratings come from different tests. Convert one to the other's scale before comparing; the new system is likely more efficient than the numbers suggest.
+
+<SourcesBox sources={[
+  { title: "eCFR: 10 CFR 430.32 (central air conditioner and heat pump standards in SEER2 and HSPF2)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
+  { title: "eCFR: 10 CFR Part 430, Subpart B (SEER2 test procedure)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" },
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (15.2 SEER2)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

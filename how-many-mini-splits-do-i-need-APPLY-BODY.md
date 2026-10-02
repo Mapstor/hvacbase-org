@@ -1,0 +1,97 @@
+---
+slug: "how-many-mini-splits-do-i-need"
+title: "How Many Mini Splits Do I Need? (Rooms, Zones, BTUs) 2026"
+description: "How to count mini split zones for your home: one head per closed room or open area, sizing each head, single-zone vs. multi-zone outdoor units, and mistakes that cost comfort."
+cluster: "ac-sizing-selection"
+role: "spoke"
+priority: "P2"
+contentType: "data-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "mini-split-sizing-calculator"
+  - "mini-split-installation-cost"
+  - "mini-split-vs-central-air"
+  - "how-much-does-mini-split-cost-to-run"
+  - "what-is-a-mini-split"
+externalLinks:
+  - label: "ENERGY STAR: Room Air Conditioners (sizing chart)"
+    url: "https://www.energystar.gov/products/room_air_conditioners"
+  - label: "ENERGY STAR: Ductless Heating & Cooling"
+    url: "https://www.energystar.gov/products/ductless_heating_cooling"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# How Many Mini Splits Do I Need?
+
+A mini split's indoor head heats and cools the space it's in, and not much beyond it. Air doesn't travel well through doorways and down hallways, so the number of heads you need follows the layout of your home more than its total square footage.
+
+**Plan on one indoor head for each room you close off or want to control separately, plus one for each large open area. A three-bedroom home with an open living and kitchen area typically needs four or five heads, served by one multi-zone outdoor unit or several single-zone systems.**
+
+## What counts as a zone
+
+- **A closed room**, such as a bedroom or office, is its own zone. A head in the hallway won't keep a bedroom with a closed door comfortable.
+- **An open area**, such as a combined living room, dining room and kitchen, can be one zone if one head can reach it, or two if it's long or L-shaped.
+- **Small rooms with little load**, such as bathrooms, laundry rooms and closets, usually go without a head.
+
+## Sizing each head
+
+Size every head for its own room, not the house. ENERGY STAR's room air conditioner chart is a useful reference for a single room's cooling:
+
+| Room area | Cooling capacity |
+|---|---|
+| 100 to 150 sq ft | 5,000 BTU/hr |
+| 150 to 250 sq ft | 6,000 BTU/hr |
+| 250 to 300 sq ft | 7,000 BTU/hr |
+| 300 to 350 sq ft | 8,000 BTU/hr |
+| 350 to 400 sq ft | 9,000 BTU/hr |
+| 400 to 450 sq ft | 10,000 BTU/hr |
+| 450 to 550 sq ft | 12,000 BTU/hr |
+| 550 to 700 sq ft | 14,000 BTU/hr |
+| 700 to 1,000 sq ft | 18,000 BTU/hr |
+
+ENERGY STAR adjusts these for conditions: 10% less for a heavily shaded room, 10% more for a very sunny one, 600 BTU per hour for each regular occupant beyond two, and 4,000 more for a kitchen. Our [mini split sizing calculator](/mini-split-sizing-calculator) does this per room, and for heating as well.
+
+## One multi-zone outdoor unit or several single-zone systems?
+
+- **Multi-zone:** one outdoor unit feeds several indoor heads. It takes one spot outside and one electrical circuit, but if it fails, every zone loses heating and cooling.
+- **Single-zone:** each head has its own outdoor unit. More equipment outside, but each system works independently and is matched to its room, which often gives the best efficiency ratings.
+
+Many homes mix both: a single-zone system for the main living area and a multi-zone unit for the bedrooms.
+
+## Common mistakes
+
+- **Oversizing heads.** A head much bigger than its room's load cycles on and off, which wastes energy and removes less humidity.
+- **One big head for several rooms.** It overcools the room it's in and leaves the others warm.
+- **Ignoring heating.** In cold climates, size for the heating load too; see [heat pumps in cold weather](/heat-pump-in-cold-weather).
+
+## Adding mini splits to a home with central air
+
+A single mini split is a common fix for a room the central system doesn't reach well, such as a bonus room over the garage, an addition or a sunroom. Size it for that room alone.
+
+## Frequently asked questions
+
+### How many mini split heads do I need for a 3-bedroom house?
+
+Typically four or five: one for each bedroom and one or two for the living areas, depending on how open the layout is.
+
+### Can one mini split cool a whole house?
+
+Only a small, open one. In a house with closed-off rooms, one head can't move air through the doorways well enough.
+
+### How many BTU do I need per room?
+
+Use ENERGY STAR's chart above as a starting point: about 6,000 BTU per hour for a 150 to 250 sq ft bedroom, adjusted for sun, occupants and kitchens.
+
+### Is a multi-zone or single-zone mini split better?
+
+Single-zone systems work independently and are matched to one room; multi-zone saves outdoor space. The best choice depends on how many rooms and where the outdoor unit can go.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Room Air Conditioners (sizing chart and adjustments)", url: "https://www.energystar.gov/products/room_air_conditioners" },
+  { title: "ENERGY STAR: Ductless Heating & Cooling", url: "https://www.energystar.gov/products/ductless_heating_cooling" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

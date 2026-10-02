@@ -1,0 +1,96 @@
+---
+slug: "heating-cost-calculator"
+title: "Heating Cost Calculator: Compare Gas vs Electric vs Heat Pump Costs"
+description: "Compare what it costs to heat the same home with gas, a heat pump, pellets, oil, propane or electric resistance, per million BTU and per year, with a calculator for your home."
+cluster: "energy-costs"
+role: "spoke"
+priority: "P1"
+contentType: "calculator"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-04-06"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "gas-vs-electric-heating-cost"
+  - "furnace-vs-heat-pump"
+  - "heat-pump-running-cost-calculator"
+  - "afue-rating-explained"
+  - "pellet-stove-cost-to-run"
+externalLinks:
+  - label: "U.S. EIA: Electric Power Monthly (residential prices)"
+    url: "https://www.eia.gov/electricity/monthly/"
+  - label: "U.S. EIA: British thermal units (fuel energy content)"
+    url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Heating Cost Calculator
+
+Fuels are sold in different units, at different prices, and burned or converted at different efficiencies. The fair comparison is what each costs to deliver the same heat to the same house.
+
+**For a 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days, the yearly heating bill comes to about $829 with a 95% gas furnace, $1,280 with a heat pump, $1,359 with a pellet stove, $1,982 with oil, $2,014 with propane and $3,077 with electric resistance heat, at the prices below.**
+
+<CalcWrapper type="heat-pump-vs-furnace" />
+
+The calculator above compares a heat pump with a new furnace and air conditioner for your home, with natural gas, propane or oil as the furnace fuel; it shows heating and cooling together. The tables below compare heating alone.
+
+## Yearly heating cost by fuel
+
+The same house needs about 58 million BTU of heat a year, from the heat-loss model our [furnace size calculator](/furnace-sizing-calculator) uses. Delivering it with each fuel:
+
+| Heat source | Assumptions | Heating cost per year |
+|---|---|---|
+| Gas furnace, 95% | $1.35 per therm | $829 |
+| Gas furnace, 80% | $1.35 per therm | $984 |
+| Heat pump | HSPF2 8.2, 18 cents per kWh | $1,280 |
+| Pellet stove, 78% | Example: $300 a ton | $1,359 |
+| Oil furnace, 85% | Example: $4.00 a gallon | $1,982 |
+| Propane furnace, 95% | Example: $3.00 a gallon | $2,014 |
+| Electric resistance | 18 cents per kWh | $3,077 |
+
+Gas is $1.35 per therm assumed; electricity is the site's default of 18 cents, close to the U.S. average of 18.19 cents for January to July 2026 (EIA). Change either and the order can change.
+
+## Cost per million BTU of heat
+
+| Heat source | Cost per million BTU |
+|---|---|
+| Gas furnace, 95% | $14.21 |
+| Heat pump, HSPF2 8.2 | $21.95 |
+| Pellet stove, 78% | $23.31 |
+| Oil furnace, 85% | $33.98 |
+| Propane furnace, 95% | $34.53 |
+| Electric resistance | $52.75 |
+
+Energy content comes from the EIA: 91,452 BTU per gallon of propane, 138,500 per gallon of heating oil, and 3,412 per kWh. Pellets hold about 16.5 million BTU per ton.
+
+## What changes the answer
+
+- **Your prices.** Cheap electricity favors heat pumps; cheap gas favors gas. See [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
+- **Your climate.** Colder zones need more heat, and heat pumps work less efficiently there; see [heat pumps in cold weather](/heat-pump-in-cold-weather).
+- **Your house.** Insulation and air sealing change the heat needed more than the choice of fuel.
+
+## Frequently asked questions
+
+### What is the cheapest way to heat a house?
+
+At typical prices, a high-efficiency natural gas furnace, if you have gas. Without gas, a heat pump is usually cheapest.
+
+### Is a heat pump cheaper than oil or propane?
+
+Yes, at the prices here: about $1,280 a year for the example home, against roughly $2,000 for oil or propane.
+
+### How much does it cost to heat a 2,000 sq ft house?
+
+About $829 a year with a 95% gas furnace and up to about $3,077 with electric resistance heat, for average insulation in a moderate climate.
+
+### Why is electric heat so expensive?
+
+Electric resistance heat turns one kWh into 3,412 BTU, so at 18 cents per kWh a million BTU costs about $53. A heat pump delivers more heat per kWh, which is why it costs far less.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "U.S. EIA: British thermal units (propane, heating oil, electricity)", url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php" },
+  { title: "New Hampshire Department of Energy: Wood pellet heating value", url: "https://energy.nh.gov/energy-information/nh-fuel-prices/wood-pellet-prices" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

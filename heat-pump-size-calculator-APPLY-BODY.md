@@ -1,0 +1,153 @@
+---
+slug: "heat-pump-size-calculator"
+title: "Heat Pump Size Calculator: What Size Heat Pump Do I Need? (2026)"
+description: "Size a heat pump for both seasons: heating load from your home's heat loss, cooling load by climate, cold-weather capacity, balance point and backup heat."
+cluster: "ac-sizing-selection"
+role: "hub"
+priority: "P1"
+contentType: "calculator-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-27"
+relatedArticles:
+  - "heat-pump-guide"
+  - "furnace-sizing-calculator"
+  - "ac-tonnage-calculator"
+  - "mini-split-sizing-calculator"
+  - "heat-pump-cost-to-install"
+externalLinks:
+  - label: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+  - label: "NEEP: Cold Climate Air Source Heat Pump List"
+    url: "https://neep.org/ashp"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Heat Pump Size Calculator: What Size Heat Pump Do I Need?
+
+A heat pump has two jobs, and they pull the size in different directions. In summer it's an air conditioner and should be sized to the cooling load. In winter its heating output falls as the outdoor temperature drops, just when the house needs the most heat. Where winters are mild, cooling decides the size. Where they're cold, heating does, and the question becomes how much backup heat covers the coldest hours.
+
+The calculator below handles both seasons. Its heating side uses the same heat-loss model as our [furnace size calculator](/furnace-sizing-calculator), and every example on this page comes from the calculator itself.
+
+**A 2,000 sq ft two-story home with 1980s and 1990s insulation in a mixed climate like Virginia or North Carolina (15°F design low) loses about 28,500 BTU per hour on the coldest night and needs about 3.5 tons of cooling.** A standard 3.5-ton heat pump heats that house on its own down to about 18°F, and roughly 1.5 kW of backup heat covers the rest. In a cold climate, a cold-climate model sized to the heating load keeps the backup small.
+
+<CalcWrapper type="heat-pump-size" />
+
+## How the calculator sizes a heat pump
+
+**Heating load** = heat loss rate × square footage × adjustments × (70°F − your design low). The heat loss rate depends on the home's age and insulation:
+
+| Home built | Heat loss rate (BTU/hr per °F per sq ft) |
+|---|---|
+| 2020 or later | 0.177 |
+| 2000 to 2019 | 0.189 |
+| 1980 to 1999 | 0.270 |
+| 1960 to 1979 | 0.45 |
+| Before 1960 | 0.604 |
+
+The newest level uses the 2021 IECC's insulation and window limits for climate zone 4. The older levels are the calculator's assumptions for typical houses of those eras, explained on the [furnace calculator page](/furnace-sizing-calculator). Two stories of the same floor area lose slightly less heat (0.96), three stories 0.94, and more window area adds to the load.
+
+**Cooling load** uses per-square-foot rates by climate, adjusted for home age, stories and windows, the same approach as our [AC tonnage calculator](/ac-tonnage-calculator).
+
+**Size:** standard, ENERGY STAR and premium heat pumps are sized to the cooling load. A cold-climate heat pump is sized to the heating load, but to no more than 1.25 times the cooling load, so it doesn't end up oversized for summer.
+
+**Design lows by region**, as the calculator sets them:
+
+| Region | Examples | Design low |
+|---|---|---|
+| Hot-humid | FL, GA, AL | 30°F |
+| Hot-dry | AZ, NV, NM | 30°F |
+| Marine | WA, OR | 25°F |
+| Mixed-humid | VA, NC, KY | 15°F |
+| Mixed-dry | OK, KS, NE | 15°F |
+| Cold | NY, MI, OH | 0°F |
+| Very cold | MN, ND, WI | −10°F |
+
+## Heating capacity in cold weather
+
+A heat pump's rated heating capacity is measured at 47°F outdoors. It produces less as it gets colder, and the calculator models that drop:
+
+- **Standard heat pumps:** about 60% of rated capacity at 17°F and 40% at 5°F.
+- **Cold-climate heat pumps:** about 79% at 17°F and 70% at 5°F. The 70% at 5°F is the minimum ENERGY STAR requires for its cold-climate designation, so the calculator uses the floor rather than a best case.
+
+## Balance point and backup heat
+
+The **balance point** is the outdoor temperature where the heat pump's falling capacity meets the house's rising heat loss. Above it, the heat pump heats the house alone. Below it, something else has to add heat: electric resistance strips in the air handler, or a gas furnace in a dual-fuel system.
+
+The calculator finds the balance point from the two lines and sizes backup heat to the gap at your design low, plus a 10% margin for cold snaps. Its balance point is an estimate; the real one can shift by about 10°F depending on the house and the specific model.
+
+## Three examples from the calculator
+
+Each uses a 2,000 sq ft two-story home built between 1980 and 1999, with average windows.
+
+**1. Mixed-humid climate (15°F design low), ENERGY STAR heat pump:**
+
+- Heating load: 0.270 × 2,000 × 0.96 × 55°F = **28,512 BTU/hr**
+- Size: **3.5 tons**, set by cooling
+- Balance point about **18.5°F**; backup at design about **1.5 kW**
+- Estimated annual heating and cooling cost: **$1,823** at $0.18/kWh
+
+**2. Cold climate (0°F design low), cold-climate heat pump:**
+
+- Heating load: 0.270 × 2,000 × 0.96 × 70°F = **36,288 BTU/hr**
+- Size: **3.5 tons**
+- Balance point about **9.5°F**; backup at design about **2.7 kW**
+- Estimated annual cost: **$2,249**
+
+**3. Very cold climate (−10°F design low), cold-climate heat pump:**
+
+- Heating load: 0.270 × 2,000 × 0.96 × 80°F = **41,472 BTU/hr**
+- Size: **3.5 tons**, capped at 1.25 times the cooling load
+- Balance point about **9°F**; backup at design about **5.4 kW**
+- Estimated annual cost: **$3,134**
+
+Even in the very cold case, a cold-climate heat pump carries the house alone down to single digits. Backup heat only runs on the coldest days.
+
+## Efficiency tiers in the calculator
+
+| Tier | Ratings | What it means |
+|---|---|---|
+| Code minimum | 14.3 SEER2, 7.5 HSPF2 | Federal minimum for split heat pumps since 2023 |
+| ENERGY STAR | 15.2 SEER2, 7.8 HSPF2, 11.0 EER2 | ENERGY STAR minimum for split systems |
+| Premium inverter | 18 SEER2, 9.5 HSPF2 | Variable-speed compressor |
+| Cold climate | 16 SEER2, 10.0 HSPF2 | Tested for low-temperature performance |
+
+ENERGY STAR's cold-climate designation requires a COP of at least 1.75 at 5°F, at least 70% of rated heating capacity at 5°F, and at least 8.1 HSPF2 for ducted split systems (8.5 for ductless). NEEP's cold-climate heat pump list publishes each model's capacity and efficiency at 5°F, 17°F and 47°F, which is the best place to compare specific units.
+
+## When to get a Manual J
+
+Like any square-footage calculator, this one uses typical houses. A Manual J load calculation measures your walls, windows and air leakage room by room, and ACCA's Manual S matches the equipment to that load. ENERGY STAR advises having the contractor verify the size with a Manual J. For a heat pump in a cold climate, also ask for the model's capacity at your design low, not just its rated tonnage.
+
+## Frequently asked questions
+
+### What size heat pump do I need for a 2,000 square foot house?
+
+In a mixed or warm climate, about 3.5 tons, sized for cooling. In a cold climate the heating load decides, and a 1980s or 1990s house of that size loses about 36,000 to 41,000 BTU/hr at 0°F to −10°F. A cold-climate model around 3.5 tons with a few kW of backup covers it.
+
+### Should a heat pump be sized for heating or cooling?
+
+For cooling where winters are mild, since the heating load there is small. For heating where winters are cold, within a limit: a unit much bigger than the cooling load runs short, inefficient cycles in summer.
+
+### How much backup heat does a heat pump need?
+
+Enough to cover the gap between the heat pump's output and the house's heat loss at your design low. In the examples above, that's about 1.5 kW in a mixed climate and 2.7 to 5.4 kW in cold climates with a cold-climate heat pump.
+
+### Do heat pumps work in cold weather?
+
+Yes, with the right model. ENERGY STAR tests cold-climate heat pumps down to 5°F, and they keep working below that. Pairing one with backup heat covers the coldest hours efficiently.
+
+### What is a heat pump balance point?
+
+The outdoor temperature where the heat pump's output exactly matches the house's heat loss. Below it, backup heat makes up the difference.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (incl. cold climate)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
+  { title: "ENERGY STAR: Air-Source Heat Pumps", url: "https://www.energystar.gov/products/air_source_heat_pumps" },
+  { title: "NEEP: Cold Climate Air Source Heat Pump List", url: "https://neep.org/ashp" },
+  { title: "ICC: 2021 International Energy Conservation Code", url: "https://www.iccsafe.org/products-and-services/i-codes/2021-i-codes/iecc/" },
+  { title: "ACCA: Manual J, Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" },
+  { title: "ACCA: Manual S, Residential Equipment Selection", url: "https://www.acca.org/standards/technical-manuals/manual-s" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

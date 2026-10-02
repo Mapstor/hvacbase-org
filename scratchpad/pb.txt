@@ -1,0 +1,3 @@
+content/hvac-brands/central-air-conditioner-guide.mdx
+content/furnaces-heating/thermostat-temperature-winter.mdx
+content/smart-thermostats/smart-thermostat-savings.mdx

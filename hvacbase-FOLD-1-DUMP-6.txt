@@ -1,0 +1,54 @@
+FOLD-1 + DUMP-6. Part A commits once; Part B is read-only. Do not push.
+
+PART A - finish consolidation: add three short sections, then merge the three remaining DEFER-FOLD pages (97/97).
+Insert each section as a new block before the page's FAQ section (or before SourcesBox if there's no FAQ). Bump dateModified to 2026-09-28 on the three target pages. Follow CLAUDE.md's paragraph rule (max 3 sentences).
+
+ A1. content: heat-pump-guide. New section:
+---
+## Downsides of heat pumps
+
+Heat pumps aren't the right answer for every house. The main trade-offs:
+
+- **Higher upfront cost** than a furnace or central AC alone; see [heat pump installation cost](/heat-pump-cost-to-install).
+- **Less heat when it's coldest.** Output falls as the outdoor temperature drops. ENERGY STAR's cold-climate models must still deliver at least 70% of their rated capacity at 5°F, but standard models drop further, so cold climates need a cold-climate model, backup heat, or both. Our [heat pump size calculator](/heat-pump-size-calculator) estimates the backup you'd need.
+- **Running cost depends on local prices.** At the U.S. average of 18.19 cents per kWh (EIA, January to July 2026) and an assumed $1.35 per therm of gas, a heat pump averaging a COP of 3 costs about $17.77 per million BTU of heat, against $14.21 for a 95% gas furnace. Where electricity is cheap or gas is expensive, the heat pump comes out ahead; check your state's rate in the [kWh cost calculator](/kwh-cost-calculator).
+- **Defrost cycles.** In cold, damp weather, frost builds on the outdoor coil, and the unit reverses for a few minutes at a time to melt it, briefly pausing heat.
+- **Electrical capacity.** A heat pump with electric backup strips can need a bigger circuit or a [panel upgrade](/electrical-panel-upgrade-cost).
+---
+ Add to its SourcesBox and externalLinks if missing: { title: "ENERGY STAR: Heat Pump Key Product Criteria", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" } and { title: "U.S. EIA: Electric Power Monthly", url: "https://www.eia.gov/electricity/monthly/" }.
+
+ A2. content: mini-split-electricity-usage. New FAQ entry (match the page's existing FAQ format):
+---
+### How many amps does a mini split use?
+
+Amps = watts ÷ volts. Most mini splits run on 230 or 240 volts, so a unit drawing 1,200 watts pulls about 5 amps and one drawing 2,400 watts about 10 amps; some small units run on 115 volts, which doubles the amps for the same watts.
+
+For wiring, the running draw isn't the number to use. The outdoor unit's nameplate lists the minimum circuit ampacity (MCA) for sizing the wire and the maximum overcurrent protection (MOP) for the breaker; see [wire size for 220-volt circuits](/wire-for-220-volt).
+---
+
+ A3. content: air-purifier-guide. New section:
+---
+## Where to put an air purifier
+
+A portable air purifier cleans the air in the room it's in, so placement matters as much as size:
+
+- **In the room you use most**, usually the bedroom, with the door closed so it isn't trying to clean the whole house.
+- **With open space around it.** Walls, furniture and curtains block the intake and outlet; follow the clearance in the manual.
+- **Out of corners**, where air circulates poorly.
+- **Near the main source when there is one**, such as a pet's sleeping area.
+- **Sized for the room.** Match the purifier's CADR to the room size; see our [air purifier sizing guide](/air-purifier-sizing-guide).
+---
+
+ A4. Merge the three DEFER-FOLD rows from CONSOLIDATION-DEFERRED.csv with the wave-1 mechanics (archive to content/_archived-merged/, 308 in next.config, swap every internal link and relatedArticles entry, resolve chains, confirm gone from sitemap and listings):
+  - disadvantages-of-heat-pumps -> heat-pump-guide
+  - mini-split-amps -> mini-split-electricity-usage
+  - air-purifier-placement -> air-purifier-guide
+ Verify: the new sections render; 0 em dashes; audit clean on the three pages; route count drops by 3 (141 -> 138); no link or sitemap entry points at a merged slug; no chains.
+ Commit: "consolidation: fold heat pump downsides, mini-split amps and purifier placement; merge the last 3 pages (97/97)"
+
+PART B - read-only
+ B1. Print to CC-OUTPUT.md, verbatim, every content rule in CLAUDE.md that applies to page prose (paragraph length, formatting, banned words or patterns, required sections, anything marked non-negotiable).
+ B2. Write to /workspace/CURRENT-PAGE-SOURCE.md, in this order: seer2-comparison-calculator, water-heater-sizing-calculator, what-size-tankless-water-heater, heat-pump-tax-credits-2026, hvac-tax-credits-2026. For each: one-line header with slug + GA4 sessions; full MDX; for calculators, the embedded calculator's calculation logic only (pure functions + every constant/factor table, no JSX) plus every user-visible string that states a spec, price, rate or regulation.
+ B3. In CC-OUTPUT.md, list the 20 live pages not yet rewritten with the highest audit weighted score (slug, score, sessions, main issues).
+
+VERIFY: npx tsc --noEmit clean; node scripts/audit.mjs --skip-build clean. Write results to /workspace/CC-OUTPUT.md (overwrite). Do not push.

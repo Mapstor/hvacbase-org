@@ -1,0 +1,7 @@
+from_slug,to_slug,status,why_deferred
+what-size-mini-split-for-garage,mini-split-sizing-calculator,DEFER-WITH-TARGET-REWRITE,target calculator page is being rewritten next batch
+is-it-ok-to-oversize-mini-split,mini-split-sizing-calculator,DEFER-WITH-TARGET-REWRITE,target calculator page is being rewritten next batch
+what-size-generator-for-5-ton-ac,what-size-generator-do-i-need,DEFER-WITH-TARGET-REWRITE,target calculator page is being rewritten next batch
+disadvantages-of-heat-pumps,heat-pump-guide,DEFER-FOLD,needs a downsides section in heat-pump-guide first
+mini-split-amps,mini-split-electricity-usage,DEFER-FOLD,needs an amps FAQ in mini-split-electricity-usage first
+air-purifier-placement,air-purifier-guide,DEFER-FOLD,needs a placement section in air-purifier-guide first

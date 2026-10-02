@@ -1,0 +1,97 @@
+---
+slug: "duct-leakage-testing"
+title: "Duct Leakage Testing: Why It Matters and How to Fix Leaky Ducts (2026)"
+description: "How much air leaky ducts waste, how a duct leakage test works, when codes require one, where ducts leak, how to seal them, and typical 2026 costs for testing and sealing."
+cluster: "ductwork-ventilation"
+role: "spoke"
+priority: "P2"
+contentType: "explainer"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "flexible-vs-rigid-ductwork"
+  - "ductwork-sizing-calculator"
+  - "hvac-ductwork-guide"
+  - "ac-not-cooling"
+  - "hvac-maintenance-cost"
+externalLinks:
+  - label: "ENERGY STAR: Duct sealing"
+    url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing"
+  - label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
+    url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Duct Leakage Testing
+
+Ducts usually run through attics, crawl spaces and wall cavities you never see, so their leaks go unnoticed. Every leak on the supply side sends heated or cooled air into those spaces, and every leak on the return side pulls dusty, hot or cold air back in.
+
+**ENERGY STAR says that in a typical house, about 20 to 30% of the air moving through the ducts is lost to leaks, holes and poorly connected ducts, and the DOE puts duct air losses at about 30% of a cooling system's energy. A duct leakage test measures your system's leakage in about half an hour, and sealing the worst leaks is usually the fix.**
+
+## Why duct leakage matters
+
+- **Wasted energy:** the system runs longer to deliver the heat or cooling that leaks away. ENERGY STAR says leaky ducts can reduce heating and cooling efficiency by as much as 20%.
+- **Uneven rooms:** rooms at the end of leaky runs get too little air.
+- **Indoor air:** return leaks in an attic, crawl space or garage can pull dust, humidity and fumes into the system.
+
+## How a duct leakage test works
+
+A technician seals every supply register and return grille, connects a calibrated fan to the system, and pressurizes the ducts to a standard 25 pascals. The airflow needed to hold that pressure is the leakage, reported in cubic feet per minute at 25 pascals (CFM25).
+
+- **Total leakage** measures every leak, including those into conditioned space.
+- **Leakage to the outside** is measured with the house also pressurized by a blower door, so only leaks to the attic, crawl space and outdoors count; it's the number that matters most for energy.
+
+The test follows a standard procedure (ANSI/RESNET/ICC 380). It takes about half an hour, and typical prices for a standalone test run about $150 to $350.
+
+## When a test is required
+
+The International Energy Conservation Code requires duct leakage testing in new construction when ducts run outside the conditioned space, and many jurisdictions apply it to major replacements too. Utility programs and energy audits often include a test. Your local building department sets the requirement and the limit.
+
+## Where ducts leak
+
+- **Connections** between duct sections, and between ducts and the air handler.
+- **Boots**, where ducts meet registers at the floor, wall or ceiling.
+- **Return plenums and panned joist returns**, which are often barely sealed.
+- **Disconnected or crushed flex runs** in attics and crawl spaces.
+
+## How to seal them
+
+- **Mastic** brushed over joints and seams is durable and seals irregular gaps.
+- **Foil tape listed to UL 181** works on clean, smooth metal joints. Ordinary cloth duct tape fails.
+- **Seal boots to the drywall or floor** with caulk or mastic.
+- **Aerosol duct sealing** blows sealant particles through the system from inside, reaching ducts hidden in walls; it's done by specialized contractors, typically for about $1,500 to $3,000.
+- **Replacement** makes sense where ducts are crushed, disconnected or badly deteriorated; it typically runs $3,000 to $10,000 or more.
+
+Insulate ducts in unconditioned spaces after sealing them. See [flexible vs. rigid ductwork](/flexible-vs-rigid-ductwork) for installation that prevents new leaks.
+
+## Is it worth it?
+
+If your ducts run through an attic, crawl space or garage, and you have uneven rooms, high bills or dusty air, testing and sealing are usually worthwhile. A test before and after sealing shows how much it improved.
+
+## Frequently asked questions
+
+### How much air do leaky ducts lose?
+
+About 20 to 30% of the air moving through the ducts in a typical house, according to ENERGY STAR.
+
+### How much does a duct leakage test cost?
+
+Typically about $150 to $350 for a standalone test, often less as part of an energy audit or HVAC service.
+
+### Can I seal my own ducts?
+
+Accessible joints, yes: use mastic or UL 181 foil tape, not cloth duct tape. Ducts inside walls need professional aerosol sealing or access work.
+
+### What is CFM25?
+
+The airflow in cubic feet per minute that leaks from the ducts when they're held at 25 pascals of pressure, the standard test condition.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Duct sealing (20 to 30% of air lost in a typical house)", url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing" },
+  { title: "ENERGY STAR: Duct sealing benefits (efficiency reduced by as much as 20%)", url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing/benefits" },
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), duct losses about 30%", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

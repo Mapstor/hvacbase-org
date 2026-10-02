@@ -1,0 +1,83 @@
+---
+slug: "hot-water-recirculating-pump"
+title: "Hot Water Recirculating Pumps Explained (+ How They Work With Tankless)"
+description: "How hot water recirculating pumps work, dedicated-line vs. crossover systems, timer and on-demand controls, the water they save, what they cost to run, and using one with a tankless heater."
+cluster: "tankless-water-heaters"
+role: "spoke"
+priority: "P2"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "tankless-water-heater-guide"
+  - "what-size-tankless-water-heater"
+  - "water-heater-sizing-calculator"
+  - "kwh-cost-calculator"
+  - "electric-water-heating-cost"
+externalLinks:
+  - label: "EPA WaterSense: Showerheads"
+    url: "https://www.epa.gov/watersense/showerheads"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Hot Water Recirculating Pumps Explained
+
+Waiting for hot water at a far bathroom wastes both time and water: everything sitting in the pipe has cooled and goes down the drain first. A recirculating pump keeps hot water close to the taps, or brings it there on request, so it arrives in seconds.
+
+**A recirculating pump moves water from the far end of the hot water line back to the heater, so the line stays warm. The pump itself uses little electricity; the real cost is heat lost from pipes kept hot, which timer and on-demand controls cut sharply.**
+
+## How recirculating pumps work
+
+There are two common setups:
+
+- **Dedicated return line:** a third pipe runs from the farthest fixture back to the water heater, and the pump circulates hot water through the loop. It's the cleanest design, and the easiest in new construction.
+- **Crossover valve:** a valve under the farthest sink connects the hot and cold lines, and the pump pushes cooled water from the hot line back through the cold line. No new pipe is needed, but the cold tap at that sink can run lukewarm for a moment.
+
+## Controls make the difference
+
+- **Continuous:** keeps the loop hot around the clock, the most convenient and the most heat lost.
+- **Timer:** runs during set hours, such as mornings and evenings.
+- **Temperature-controlled:** switches off once the loop reaches a set temperature.
+- **On-demand:** a button, motion sensor or app starts the pump just before you need hot water, then stops. This wastes the least energy.
+
+## How much water it saves
+
+The water you waste is roughly what's in the pipe between heater and tap. As an example, waiting 30 seconds at a 2.0 gallon-per-minute WaterSense showerhead sends 1 gallon down the drain. Four waits like that a day add up to about 1,460 gallons a year.
+
+## What it costs to run
+
+A small circulating pump drawing 25 watts, running around the clock, uses 0.6 kWh a day or 219 kWh a year: about $39 a year at 18 cents per kWh. On a timer for four hours a day, the same pump costs under $7 a year.
+
+The larger cost is heat. A continuously circulating loop keeps the whole line hot, and pipes shed that heat all day, which the water heater has to replace. Insulating the hot water pipes and using a timer or on-demand control keep that loss small.
+
+## Recirculation with a tankless water heater
+
+A tankless heater only fires when water flows above a minimum rate, so a recirculating loop has to move enough water to trigger it. Some tankless models have a built-in pump and recirculation modes; others need a compatible external pump and control.
+
+On-demand control suits tankless best, because constant recirculation would keep firing the burner. Follow the heater manufacturer's recirculation instructions, which can affect the warranty.
+
+## Frequently asked questions
+
+### Do hot water recirculating pumps save money?
+
+They save water, and on-demand or timer-controlled pumps keep the energy cost low. A pump running continuously on an uninsulated loop can cost more in lost heat than it saves in water.
+
+### How much electricity does a recirculating pump use?
+
+A small 25-watt pump running nonstop uses about 219 kWh a year, about $39 at 18 cents per kWh. On a timer it's a few dollars a year.
+
+### Can you use a recirculating pump with a tankless water heater?
+
+Yes, if the heater supports it. Use a model with built-in recirculation or a compatible pump and control, preferably on-demand.
+
+### Is a dedicated return line better than a crossover valve?
+
+It performs better and keeps the cold line cold, but it needs a new pipe. A crossover valve is the practical retrofit when adding a pipe isn't possible.
+
+<SourcesBox sources={[
+  { title: "EPA WaterSense: Showerheads (2.0 gpm WaterSense flow)", url: "https://www.epa.gov/watersense/showerheads" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

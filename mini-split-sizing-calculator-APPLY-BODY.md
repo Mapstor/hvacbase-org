@@ -1,0 +1,170 @@
+---
+slug: "mini-split-sizing-calculator"
+title: "Mini Split Sizing Calculator: What BTU Mini Split Do I Need? (2026)"
+description: "Estimate mini split head sizes room by room from square footage, room type, climate, insulation and sun, with a sizing chart computed from the calculator's own model."
+cluster: "ac-sizing-selection"
+role: "hub"
+priority: "P1"
+contentType: "calculator-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-25"
+relatedArticles:
+  - "air-conditioner-btu-calculator"
+  - "how-many-mini-splits-do-i-need"
+  - "mini-split-installation-cost"
+  - "mini-split-air-conditioners"
+  - "ac-tonnage-calculator"
+  - "heat-pump-size-calculator"
+externalLinks:
+  - label: "ENERGY STAR: Room Air Conditioner Sizing"
+    url: "https://www.energystar.gov/products/room_air_conditioners"
+  - label: "NEEP: Cold Climate Air Source Heat Pump List"
+    url: "https://neep.org/ashp"
+  - label: "ACCA: Manual J, Residential Load Calculation"
+    url: "https://www.acca.org/standards/technical-manuals/manual-j"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# Mini Split Sizing Calculator: What BTU Mini Split Do I Need?
+
+Mini splits are sized room by room, not for the whole house, which is why three installers can quote three different setups for the same home. Get a head too big and it cools the room fast, shuts off and leaves the air damp. Get it too small and it runs flat out through every hot afternoon without catching up.
+
+The calculator below sizes each room from its square footage, what the room is used for, your climate, insulation and sun exposure. Every chart and example on this page comes from the same formula, so the numbers match what the calculator shows you. It's an estimate to check quotes against; an installer's Manual J load calculation is the standard for the final choice.
+
+**Size each head to its room: the calculator uses about 20 BTU per square foot for bedrooms and offices, 25 for living rooms and kitchens (plus 4,000 BTU for cooking), 18 for basements and 30 for sunrooms, then adjusts for climate, insulation and sun.** A 400 sq ft living room in a moderate climate comes to 10,000 BTU per hour, which rounds up to a 12,000 BTU head.
+
+<CalcWrapper type="mini-split" />
+
+## How the calculator sizes each room
+
+Each room's load is its square footage times a base rate for the room type, multiplied by three adjustments:
+
+| Input | Values |
+|---|---|
+| Room type (BTU per sq ft) | Bedroom 20 · Office 20 · Basement 18 · Living room 25 · Kitchen 25 · Sunroom 30 |
+| Climate | Hot (South, Southwest) 1.2 · Moderate (Mid-Atlantic, mixed) 1.0 · Cold (northern states) 0.9 |
+| Insulation | Poor 1.2 · Average 1.0 · Good 0.9 |
+| Sun on that room | Shaded 0.9 · Moderate 1.0 · Full sun 1.15 |
+
+Three more rules finish the number:
+
+- **Kitchens add 4,000 BTU** after the multipliers, for the heat from cooking. That's the adjustment ENERGY STAR gives for room air conditioners used in kitchens.
+- **No room goes below 6,000 BTU**, because that's the smallest common indoor head.
+- **Each room rounds up** to the next 3,000 BTU step: 6,000, 9,000, 12,000 and so on.
+
+As a cross-check, ENERGY STAR's room air conditioner chart runs from 5,000 BTU for 100 to 150 sq ft up to 18,000 BTU for 700 to 1,000 sq ft, and it notes that oversized units cool the room before they've removed the humidity. The calculator's base rates sit in the same range for mid-size rooms. Two ENERGY STAR adjustments it handles differently: it adds 15% for full sun where ENERGY STAR adds 10%, and it doesn't include ENERGY STAR's extra 600 BTU for each regular occupant beyond two. Add that yourself for a room that's often crowded.
+
+## Mini split size chart by room
+
+Computed at the calculator's middle settings: moderate climate, average insulation, moderate sun. Each cell is the head size in BTU per hour.
+
+| Room size | Bedroom / office | Living room | Kitchen | Basement | Sunroom |
+|---|---|---|---|---|---|
+| 150 sq ft | 6,000 | 6,000 | 9,000 | 6,000 | 6,000 |
+| 200 sq ft | 6,000 | 6,000 | 9,000 | 6,000 | 6,000 |
+| 250 sq ft | 6,000 | 9,000 | 12,000 | 6,000 | 9,000 |
+| 300 sq ft | 6,000 | 9,000 | 12,000 | 6,000 | 9,000 |
+| 350 sq ft | 9,000 | 9,000 | 15,000 | 9,000 | 12,000 |
+| 400 sq ft | 9,000 | 12,000 | 15,000 | 9,000 | 12,000 |
+| 500 sq ft | 12,000 | 15,000 | 18,000 | 9,000 | 15,000 |
+| 600 sq ft | 12,000 | 15,000 | 21,000 | 12,000 | 18,000 |
+| 750 sq ft | 15,000 | 21,000 | 24,000 | 15,000 | 24,000 |
+| 1,000 sq ft | 21,000 | 27,000 | 30,000 | 18,000 | 30,000 |
+
+Heads are sold in fixed sizes, commonly 6,000, 9,000, 12,000, 15,000, 18,000 and 24,000 BTU and up. Sizes like 21,000 or 27,000 are uncommon, so when the calculator lands there, compare the two neighboring sizes with your installer.
+
+### How many square feet does each head size cover?
+
+The largest room each head covers at the same middle settings, plus a hot, sunny living room for contrast:
+
+| Head size | Bedroom / office | Living room | Living room, hot climate + full sun |
+|---|---|---|---|
+| 6,000 BTU | 300 sq ft | 240 sq ft | 174 sq ft |
+| 9,000 BTU | 450 sq ft | 360 sq ft | 261 sq ft |
+| 12,000 BTU | 600 sq ft | 480 sq ft | 348 sq ft |
+| 15,000 BTU | 750 sq ft | 600 sq ft | 435 sq ft |
+| 18,000 BTU | 900 sq ft | 720 sq ft | 522 sq ft |
+| 24,000 BTU | 1,200 sq ft | 960 sq ft | 696 sq ft |
+
+## Three worked examples
+
+**1. A 200 sq ft bedroom, shaded, moderate climate, average insulation:** 200 × 20 × 0.9 (shade) = **3,600 BTU/hr**, which the 6,000 BTU minimum lifts to **a 6,000 BTU head**. The head has plenty of headroom; an inverter compressor throttles down to match the smaller load.
+
+**2. A 400 sq ft living room, hot climate, average insulation, full sun:** 400 × 25 × 1.2 (hot) × 1.15 (full sun) = **13,800 BTU/hr → a 15,000 BTU head.** The same room in a moderate climate with moderate sun needs 12,000.
+
+**3. A 250 sq ft kitchen, moderate climate, average insulation, moderate sun:** 250 × 25 = 6,250, plus 4,000 for cooking = **10,250 BTU/hr → a 12,000 BTU head.**
+
+## What size mini split for a garage?
+
+The calculator has no garage setting. For an uninsulated garage, the closest match is **Living room** (25 BTU per sq ft) with **Poor** insulation, and **Full sun** if the big door faces the sun:
+
+- **One-car garage, 260 sq ft, moderate climate:** 8,970 BTU/hr → a 9,000 BTU head.
+- **Two-car garage, 480 sq ft, hot climate:** 19,872 BTU/hr → 21,000, which falls between the common 18,000 and 24,000 sizes.
+- **The same two-car garage with the door and walls insulated** (rerun at Average): 16,560 BTU/hr → an 18,000 BTU head.
+
+The garage door is the biggest lever. Insulating and weatherstripping it dropped the two-car example by a full size. Two things the calculator can't see: a concrete slab that soaks up heat all day, and a door that opens often. If you'll work with the door open, no head size will keep up.
+
+## Is it OK to oversize a mini split?
+
+A little, but less than people assume:
+
+- **The calculator already rounds up** to the next 3,000 BTU step. Don't add another size on top of its answer.
+- **Inverter heads throttle down**, so modest oversizing hurts less than with a single-speed air conditioner.
+- **The limit is the head's minimum output.** On a mild day, if even the head's lowest setting delivers more cooling than the room needs, it cycles on and off and pulls less moisture out of the air. Spec sheets list a minimum capacity; compare it with the room's load.
+- **In cold climates, size for heating first** (see the next section). A head that's big enough for winter is often more than the summer load needs, and that's the right trade.
+
+## Cold climates: check the heating capacity
+
+The calculator sizes for cooling. Most mini splits are heat pumps, and in cold climates the heating need is often the larger number, while a head's heating output falls as the outdoor temperature drops. For cold-climate models, NEEP's cold-climate heat pump list reports each system's heating capacity at 5°F, 17°F and 47°F. Compare the 5°F figure with what the room needs on your coldest days before settling on a size, and see our [heat pump size calculator](/heat-pump-size-calculator) for the heating side.
+
+## Multi-zone systems
+
+A multi-zone system runs several indoor heads from one outdoor unit. Here's a five-room layout at the calculator's middle settings:
+
+| Room | Room load | Head |
+|---|---|---|
+| Bedroom, 140 sq ft | 2,800 BTU/hr | 6,000 |
+| Bedroom, 160 sq ft | 3,200 BTU/hr | 6,000 |
+| Bedroom, 220 sq ft | 4,400 BTU/hr | 6,000 |
+| Living room, 420 sq ft | 10,500 BTU/hr | 12,000 |
+| Kitchen, 180 sq ft | 8,500 BTU/hr | 9,000 |
+| **Total** | **29,400 BTU/hr** | **39,000** |
+
+Two things stand out:
+
+- **The heads add up to far more than the rooms need.** Each small bedroom needs 3,000 to 4,000 BTU but gets the smallest common head, 6,000. A small ducted unit serving two or three small bedrooms can replace several oversized wall heads.
+- **The outdoor unit is sized to the combined load, not the sum of the heads.** Rooms rarely peak at the same moment, and manufacturers publish combination tables listing which heads each outdoor unit can carry. Your installer picks from that table.
+
+A single-zone system is simpler: the indoor head and outdoor unit are sold as a matched pair of the same size. For how many heads a home needs and when to choose ductless over ducted, see [how many mini splits do I need](/how-many-mini-splits-do-i-need). For installed prices, see our [mini split installation cost](/mini-split-installation-cost) guide.
+
+## Frequently asked questions
+
+### What size mini split do I need for a 500 sq ft room?
+
+At the calculator's middle settings: 12,000 BTU for a bedroom or office, 15,000 BTU for a living room, and 18,000 BTU for a kitchen. A hot climate, poor insulation or full sun can push each answer up a size.
+
+### How many square feet does a 12,000 BTU mini split cool?
+
+Up to about 600 sq ft for a bedroom or office and 480 sq ft for a living room in a moderate climate with average insulation. In a hot climate with full sun, a living room tops out around 350 sq ft.
+
+### Can one mini split cool a whole house?
+
+Only an open floor plan. A wall head cools the room it's in; walls and closed doors block the air from reaching the rest. Separate rooms need their own heads or a ducted unit.
+
+### Should I size a mini split for heating or cooling?
+
+For whichever load is larger. In warm climates that's cooling, which is what this calculator estimates. In cold climates it's usually heating, so check the unit's heating capacity at low outdoor temperatures before you buy.
+
+### Is a bigger mini split better?
+
+No. The calculator already builds in headroom by rounding up. Beyond that, a larger head cycles more on mild days and removes less moisture, and it costs more to buy.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Room Air Conditioners (sizing chart and adjustments)", url: "https://www.energystar.gov/products/room_air_conditioners" },
+  { title: "NEEP: Cold Climate Air Source Heat Pump Product List", url: "https://neep.org/ashp" },
+  { title: "ACCA: Manual J, Residential Load Calculation", url: "https://www.acca.org/standards/technical-manuals/manual-j" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,93 @@
+---
+slug: "afue-rating-explained"
+title: "AFUE Rating for Furnaces: How to Calculate AFUE Savings"
+description: "What AFUE measures, condensing vs. non-condensing furnaces, what each rating costs to run on the shared heat-loss model, payback on the price difference, and the 2028 federal minimum."
+cluster: "energy-efficiency-ratings"
+role: "hub"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "furnace-sizing-calculator"
+  - "furnace-guide"
+  - "gas-vs-electric-heating-cost"
+  - "hvac-tax-credits-2026"
+  - "heat-pump-guide"
+externalLinks:
+  - label: "U.S. DOE: Final energy efficiency standards for residential furnaces"
+    url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion"
+  - label: "EPA: Greenhouse Gas Equivalencies, calculations and references"
+    url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# AFUE Rating for Furnaces: How to Calculate AFUE Savings
+
+AFUE is the number that tells you how much of the gas you pay for ends up as heat in your home. The rest goes up the flue. Knowing it lets you put a dollar figure on replacing an old furnace.
+
+**AFUE is the share of a furnace's fuel that becomes heat over a year: a 95% AFUE furnace turns 95 cents of every gas dollar into heat. For a 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days, going from an old 70% furnace to a 95% one cuts the gas bill from about $1,125 to $829 a year at $1.35 per therm.**
+
+<CalcWrapper type="afue" />
+
+## What AFUE measures
+
+AFUE stands for Annual Fuel Utilization Efficiency. It comes from a federal test that accounts for a furnace's losses over a heating season, including start-up and cool-down cycles, not just its efficiency while running. An 80% furnace loses 20% of its fuel's energy, mostly as hot exhaust.
+
+## Condensing vs. non-condensing
+
+- **Non-condensing furnaces** (around 80% AFUE) send hot exhaust up a metal vent.
+- **Condensing furnaces** (90% and above) have a second heat exchanger that cools the exhaust until its water vapor condenses, recovering that heat. The exhaust is cool enough for PVC venting, and they need a drain for the acidic condensate.
+
+## What each rating costs to run
+
+The calculator uses the same heat-loss model as our [furnace size calculator](/furnace-sizing-calculator): heat loss rate × square footage × heating degree days × 24 gives the heat the house needs in a year. Gas used = that heat ÷ (AFUE × 100,000 BTU per therm). For 2,000 sq ft with average insulation and 4,500 heating degree days, the house needs about 583 therms of delivered heat:
+
+| AFUE | Gas used per year | Cost at $1.35 per therm |
+|---|---|---|
+| 60% | 972 therms | $1,312 |
+| 70% | 833 therms | $1,125 |
+| 80% | 729 therms | $984 |
+| 90% | 648 therms | $875 |
+| 95% | 614 therms | $829 |
+| 98% | 595 therms | $803 |
+
+Insulation matters as much as the furnace. The same 95% furnace costs about $1,854 a year in a poorly insulated, drafty house, $829 with average insulation, $580 with good and $543 in a current-code house.
+
+## Savings and payback
+
+Going from 70% to 95% saves about $296 a year in this example; from 80% to 95%, about $155. Payback is the price difference between the two furnaces divided by the yearly savings. A $1,500 difference between an 80% and a 95% furnace pays back in about 9.7 years; enter your own quotes in the calculator.
+
+The carbon saved follows the gas: burning a therm of natural gas emits about 11.7 lb of carbon dioxide (EPA), so going from 70% to 95% here avoids about 2,565 lb a year.
+
+## Federal minimums
+
+Gas furnaces sold today must meet at least 80% AFUE. Under the Department of Energy's rule, gas furnaces manufactured on or after December 18, 2028 must reach 95%, so condensing furnaces will become the standard. The federal 25C tax credit for high-efficiency furnaces ended for equipment installed after December 31, 2025; see [HVAC tax credits 2026](/hvac-tax-credits-2026).
+
+## Frequently asked questions
+
+### What is a good AFUE rating?
+
+95% or higher, which is the federal minimum for gas furnaces made from December 18, 2028. Older furnaces often run 60% to 80%.
+
+### How much will a high-efficiency furnace save?
+
+In the example above, going from 80% to 95% saves about $155 a year, and from 70% to 95% about $296. Colder climates and bigger or leakier houses save more.
+
+### Is a 95% AFUE furnace worth it over 80%?
+
+Usually, in cold climates, where the savings are larger and the 2028 rule is coming anyway. The payback is the price difference divided by the yearly savings.
+
+### Does AFUE include duct losses?
+
+No. AFUE measures the furnace alone. Leaky ducts in unheated spaces waste heat after it leaves the furnace.
+
+<SourcesBox sources={[
+  { title: "U.S. DOE: Final energy efficiency standards for residential furnaces (95% AFUE from Dec 18, 2028)", url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion" },
+  { title: "EPA: Greenhouse Gas Equivalencies, calculations and references (natural gas CO2 per therm)", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

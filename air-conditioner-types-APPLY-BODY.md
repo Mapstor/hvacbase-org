@@ -1,0 +1,126 @@
+You need to cool your home (or a room) and you're trying to figure out which type of air conditioner actually fits your situation, without wading through jargon or getting pushed toward whatever's most expensive. There are eight main types, and the right one depends on your space, budget, and whether you're cooling one room or a whole house.
+
+This guide compares them all, how each works, what it costs, its efficiency, and who it's best for, so you can match the type to your needs. Efficiency figures are sourced to the DOE, ENERGY STAR, and AHRI, linked at the bottom, and we recommend no specific brands.
+
+**The main air conditioner types are window units, portable units, ductless mini splits, central air, through-the-wall, PTAC, evaporative coolers, and hybrid systems.** For a single room on a budget, a window unit is usually best; for whole-home cooling with existing ducts, central air; and for efficient, ductless, room-by-room control, a mini split. The rest fill specific niches.
+
+## Quick comparison of all AC types
+
+Here's every type at a glance:
+
+| Type | Capacity | Typical cost | Efficiency | Install |
+|---|---|---|---|---|
+| Window AC | 5,000–25,000 BTU | $150–$700 | CEER 10–15+ | DIY |
+| Portable AC | 6,000–14,000 BTU | $250–$700 | CEER 8–11 | DIY |
+| Ductless mini split | 9,000–48,000 BTU | $1,500–$5,000+ | SEER2 15–35 | Professional |
+| Central air (split) | 18,000–60,000 BTU | $3,500–$12,000 | SEER2 14.3–26+ | Professional |
+| Through-the-wall | 8,000–14,000 BTU | $400–$800 | CEER 10–13 | Professional |
+| PTAC | 7,000–15,000 BTU | $600–$1,200 | EER 9–13 | Professional |
+| Evaporative cooler | CFM-rated | $100–$3,000 | (dry climates only) | DIY or Pro |
+| Hybrid / dual-fuel | 18,000–60,000 BTU | $5,000–$15,000 | SEER2 16–22 | Professional |
+
+A note on the efficiency metrics: **window, portable, and through-the-wall units use CEER or EER** (a single-condition efficiency measure), while **mini splits and central systems use SEER2** (a seasonal measure). They're not directly comparable across the two groups, but higher is better within each.
+
+## Window air conditioners
+
+**The most popular and affordable option for cooling a single room.** A window unit is a self-contained box that sits in a window opening, exhausting heat outside directly.
+
+Window ACs now come in several form factors: standard, U-shaped/saddle (which wraps around the window sash, leaving it partially open and cutting noise), low-profile designs that block far less of the window, and casement/vertical versions for crank windows.
+
+- **Pros:** lowest upfront cost of any AC type, DIY installation in about 30 minutes, no professional needed, good efficiency for the price (CEER 10–15+).
+- **Cons:** blocks the window, can be noisy (38–56 dB), cools one room only, and needs removal or covering in winter.
+- **Best for:** cooling a single room on a budget, renters, apartments, and supplementing central air in a hot room.
+
+## Portable air conditioners
+
+**A freestanding unit on wheels that vents hot air through a hose to a window.** The main appeal is flexibility, you can move it room to room, and it works where a window unit won't fit.
+
+- **Pros:** portable, no permanent installation, works with sliding or casement windows (with a kit), and easy setup.
+- **Cons:** the least efficient common AC type (roughly **20–30% less efficient than a window unit** at the same BTU, largely due to how single-hose models pull in warm replacement air), noisy (48–58 dB), takes up floor space, and needs the condensate managed.
+- **Best for:** rooms where a window unit can't be installed, temporary cooling, and renters who can't modify windows.
+
+For the efficiency detail, see our [single-hose vs. dual-hose guide](/single-hose-vs-dual-hose-portable-ac), and for venting without a standard window, our [portable AC venting guide](/how-to-vent-portable-ac-without-window).
+
+## Ductless mini splits
+
+**The most efficient AC type, with no ductwork and room-by-room temperature control.** A mini split pairs an outdoor unit with one or more indoor "heads" via a refrigerant line, and most are heat pumps that both heat and cool.
+
+- **Pros:** the **best efficiency of any AC type** (SEER2 ranges up to about 35 on premium models), no duct losses, very quiet indoor units (as low as 19 dB), zoned control, and heating plus cooling in one system.
+- **Cons:** higher upfront cost than window or portable units, requires professional installation, the indoor heads are visible on walls, and annual professional maintenance is recommended.
+- **Best for:** homes without ductwork, room additions, zoned comfort, and anyone prioritizing efficiency and quiet operation.
+
+See our [complete mini split guide](/mini-split-air-conditioners) and [mini split vs. central air comparison](/mini-split-vs-central-air) for the full picture.
+
+## Central air conditioning
+
+**Whole-home cooling delivered through ductwork from one system.** Central air is the standard for cooling an entire house evenly, and it's what most homes with ducts use.
+
+- **Pros:** cools the whole home evenly and quietly (the compressor is outside), hidden from view (just vents indoors), and increasingly efficient (SEER2 14.3–26+).
+- **Cons:** the highest upfront cost ($3,500–$12,000, more with new ductwork), requires professional installation and ductwork, and **duct losses can reduce efficiency 20–30% if ducts are poorly sealed** (per the DOE).
+- **Best for:** homeowners with existing ductwork who want whole-home cooling, new construction, and homes where consistent temperature throughout matters.
+
+## Through-the-wall air conditioners
+
+**Similar to a window unit but installed through a wall sleeve**, so it doesn't block a window and seals better. It uses a metal sleeve permanently mounted in an exterior wall.
+
+- **Pros:** doesn't occupy a window, a more permanent and better-sealed installation than a window unit, and a standardized sleeve makes future replacement easy.
+- **Cons:** requires cutting a wall opening (professional install), cools one room, and the sleeve is a separate purchase.
+- **Best for:** rooms without a suitable window, and a cleaner permanent look than a window unit.
+
+## PTAC units
+
+**Packaged Terminal Air Conditioners, the self-contained units you see in hotels and apartments.** A PTAC is a single through-the-wall unit that often provides both heating and cooling.
+
+- **Pros:** self-contained heating and cooling, independent room control, and commercial-grade durability.
+- **Cons:** less efficient than mini splits, can be noisy, and the utilitarian look suits commercial settings more than homes.
+- **Best for:** hotels, additions, in-law suites, and multi-unit buildings where independent room control matters.
+
+## Evaporative (swamp) coolers
+
+**A fundamentally different approach that cools by evaporating water, effective only in dry climates.** Instead of refrigerant, an evaporative cooler pulls air through water-saturated pads.
+
+- **Pros:** very low energy use (a fraction of a refrigerant AC), inexpensive to run, adds humidity (a plus in arid air), and uses no refrigerants.
+- **Cons:** **only works in hot, dry climates** (it does little in humid conditions), adds moisture (a problem where humidity is already high), uses water, and needs regular pad maintenance.
+- **Best for:** the arid Southwest and other dry climates. See our [evaporative cooler vs. AC comparison](/evaporative-cooler-vs-ac) for whether it fits your area.
+
+## Hybrid / dual-fuel systems
+
+**A central system that pairs a heat pump with a gas furnace**, switching between them for the most economical heating, while providing standard central cooling.
+
+- **Pros:** optimizes heating cost by using the heat pump in mild weather and gas in extreme cold, efficient cooling (SEER2 16–22), and one integrated system.
+- **Cons:** the highest upfront cost, complex installation, and it only makes financial sense in climates with meaningful heating needs.
+- **Best for:** cold climates where you want heat pump efficiency most of the year with gas backup for the coldest days. See our [heat pump guide](/heat-pump-guide).
+
+## How to choose the right type
+
+Match the type to your primary need:
+
+- **Cooling one room on a budget:** a **window unit** (or through-the-wall for a permanent look).
+- **A room where a window unit won't fit:** a **portable unit** or through-the-wall.
+- **Whole home, existing ductwork:** **central air**.
+- **Whole home or specific rooms, no ductwork, max efficiency:** a **ductless mini split**.
+- **Hot, dry climate, low running cost:** an **evaporative cooler**.
+- **Cold climate, efficient heating + cooling in one:** a **hybrid/dual-fuel** or heat pump system.
+
+Whatever type you choose, **sizing it correctly matters more than the type or brand**, an oversized unit short-cycles and an undersized one can't keep up. Use our [BTU calculator](/air-conditioner-btu-calculator) to size any of these to your space.
+
+## Frequently asked questions
+
+**What is the most efficient type of air conditioner?**
+Ductless mini splits are the most efficient, with SEER2 ratings reaching about 35 on premium models, because they avoid duct losses and use variable-speed inverter compressors. Central air is efficient for whole-home cooling but loses some efficiency to ductwork. Window and portable units are less efficient but far cheaper upfront.
+
+**What's the cheapest type of air conditioner?**
+Window units have the lowest upfront cost ($150–$700) and are DIY-installable. Portable units are similar in price but less efficient (so they cost more to run). For whole-home cooling, central air and mini splits cost far more upfront but cool more effectively and efficiently.
+
+**What's the difference between a mini split and central air?**
+Central air uses ductwork to cool the whole house from one system; a mini split delivers air directly from indoor heads with no ducts and offers room-by-room control. Mini splits are more efficient (no duct losses) and easier to add to a home without ducts, while central air is often cheaper if good ductwork already exists. See our full comparison for details.
+
+**Do portable ACs work as well as window units?**
+Generally no. Portable units are roughly 20–30% less efficient than window units at the same BTU rating, largely because single-hose models pull warm replacement air into the room. They're more flexible and work where window units can't, but for a window that can fit one, a window unit cools better for less.
+
+**What type of AC is best for a house without ductwork?**
+A ductless mini split is usually the best choice. Adding ductwork for central air to a home that lacks it is expensive and disruptive, while a mini split delivers efficient cooling (and heating) without ducts and adds zoned control. Window or portable units are cheaper per-room alternatives for cooling specific spaces.
+
+## How we sourced this page
+
+Efficiency ratings and the metrics behind them (SEER2 for central and ductless systems, CEER/EER for room units, all updated under the DOE's testing standards) follow **U.S. Department of Energy** and **ENERGY STAR** guidance, with equipment certification data available through **AHRI**. The figure that ducts can lose 20–30% of conditioning energy is from the **DOE**. The highest current ductless SEER2 ratings reach about 35 on premium models (note that older "SEER" figures run a few percent higher than the equivalent SEER2). Cost ranges are typical 2026 figures that vary by capacity, efficiency, and region, they're estimates, not fixed quotes. We recommend no specific brands; correct sizing for your space matters more than the brand for any AC type's real-world performance.

@@ -1,0 +1,122 @@
+---
+slug: "seer2-comparison-calculator"
+title: "SEER2 Comparison Calculator: Compare Any Two Ratings (2026)"
+description: "Compare any two SEER2 ratings: annual kWh and cost, yearly savings, and payback on the price difference you enter. Includes the cooling cost at every common rating."
+cluster: "seer-comparisons"
+role: "spoke"
+priority: "P1"
+contentType: "tool"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-01"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "seer2-to-seer-conversion"
+  - "minimum-seer-rating-by-state"
+  - "central-ac-cost-to-install"
+  - "ac-tonnage-calculator"
+  - "kwh-cost-calculator"
+externalLinks:
+  - label: "eCFR: 10 CFR Part 430, Subpart B (test procedures)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B"
+  - label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
+    url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
+---
+
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
+
+# SEER2 Comparison Calculator: Compare Any Two Ratings
+
+Two quotes for the same house often differ mainly in efficiency: one at 14.3 SEER2, one at 17, with a gap of a thousand dollars or more. The higher rating always uses less electricity. The question is whether it saves enough, fast enough, to cover the difference.
+
+**Each SEER2 point is worth less than the one before. On a 3-ton air conditioner running 1,500 full-load hours a year at 18 cents per kWh, going from 14.3 to 16 SEER2 saves about $72 a year, and going from 16 to 20 saves another $122.** Whether that pays off depends on the price difference and how many hours your system runs.
+
+<CalcWrapper calculator="seer2" />
+
+## How the calculator works
+
+**Annual kWh = tons × 12,000 × cooling hours ÷ (SEER2 × 1,000).** A 3-ton system is 36,000 BTU per hour, and SEER2 is BTU of cooling per watt-hour, so dividing by SEER2 and by 1,000 gives kilowatt-hours. The calculator does this for both ratings, then multiplies the difference by your electricity rate.
+
+Cooling hours are full-load hours: the hours your system would run at full capacity to deliver a year's cooling. The presets are rough figures, from 600 hours in a very cool climate to 2,800 in a very hot one. Your real number depends on your summers and your thermostat.
+
+Enter the price difference between the two units to see the payback, which is that difference divided by the yearly savings. The calculator also shows the carbon dioxide saved, at the U.S. grid average of 0.823 lb per kWh (EPA eGRID2022).
+
+## Annual cooling cost by SEER2
+
+A 3-ton system at 1,500 full-load hours and 18 cents per kWh:
+
+| SEER2 | kWh per year | Cost per year |
+|---|---|---|
+| 13.4 | 4,030 | $725 |
+| 14.3 | 3,776 | $680 |
+| 15.2 | 3,553 | $639 |
+| 16 | 3,375 | $608 |
+| 17 | 3,176 | $572 |
+| 18 | 3,000 | $540 |
+| 20 | 2,700 | $486 |
+| 22 | 2,455 | $442 |
+
+## Why each point is worth less
+
+Energy use falls with the inverse of the rating, so the savings shrink as the rating climbs. Going from 13.4 to 14.3 saves $45 a year in the table above. Going from 20 to 22, more than twice the rating change, saves $44.
+
+This is why the jump from an old, low-efficiency system matters far more than the difference between two good new ones. It's also why the best rating on paper isn't automatically the best buy.
+
+## Payback on the price difference
+
+Say the 16 SEER2 unit costs $1,000 more than the 14.3. At 1,500 full-load hours it saves $72 a year, so the extra $1,000 pays back in about 13.8 years. At 2,500 hours, as in a hot climate, it saves $120 a year and pays back in about 8.3 years.
+
+The DOE puts the life of a central air conditioner at 15 to 20 years. A payback well inside that window is a good bet; one near the end of it is close to breaking even.
+
+## Your climate matters more than the rating
+
+The same upgrade, from 14.3 to 16 SEER2 on a 3-ton system at 18 cents per kWh, saves very different amounts depending on how much the system runs:
+
+| Full-load cooling hours | Savings per year |
+|---|---|
+| 600 (very cool) | $29 |
+| 1,200 (moderate) | $58 |
+| 1,500 (warm) | $72 |
+| 2,100 (hot) | $101 |
+| 2,800 (very hot) | $135 |
+
+## Comparing an old SEER unit with a new SEER2 one
+
+Systems made before 2023 were rated in SEER. SEER2 uses a tougher federal test with higher airflow resistance, so the same equipment scores roughly 5% lower in SEER2. Enter both ratings in the same system: an old 10 SEER unit is about 9.5 SEER2.
+
+The difference shows up in the savings. Entered as 10 against 16, the calculator's defaults show 2,025 kWh and $364.50 saved a year. Entered as 9.5 against 16, the savings rise to 2,309 kWh and about $416; see our [SEER to SEER2 conversion](/seer2-to-seer-conversion) for more.
+
+## Federal minimums
+
+New split-system air conditioners must reach 13.4 SEER2 in the North. In the South and Southwest the minimum is 14.3 SEER2 below 45,000 BTU per hour and 13.8 at 45,000 and above. See [minimum SEER2 by state](/minimum-seer-rating-by-state) for which states fall where.
+
+## Frequently asked questions
+
+### Is a 16 SEER2 air conditioner worth it over 14.3?
+
+It depends on the price difference and your climate. For a 3-ton system at 18 cents per kWh, the upgrade saves about $72 a year at 1,500 full-load hours and $120 at 2,500. A $1,000 premium pays back in roughly 8 to 14 years.
+
+### How much does a higher SEER2 rating save?
+
+Less with each step. On a 3-ton system at 1,500 hours and 18 cents per kWh, the yearly cost falls from $725 at 13.4 SEER2 to $608 at 16 and $486 at 20.
+
+### Is SEER the same as SEER2?
+
+No. SEER2 comes from a newer federal test with higher airflow resistance, and it reads roughly 5% lower for the same equipment. Compare ratings in the same system.
+
+### What is the minimum SEER2 in 2026?
+
+13.4 SEER2 for split air conditioners in the North, and 14.3 in the South and Southwest for systems below 45,000 BTU per hour (13.8 at 45,000 and above).
+
+### How long does a central air conditioner last?
+
+The DOE puts it at 15 to 20 years. That's the window any efficiency premium has to pay back within.
+
+<SourcesBox sources={[
+  { title: "eCFR: 10 CFR Part 430, Subpart B (efficiency test procedures)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" },
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), equipment lifespans", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "EPA: Greenhouse Gas Equivalencies Calculator, calculations and references", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" },
+  { title: "AHRI: Directory of Certified Product Performance", url: "https://www.ahridirectory.org/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

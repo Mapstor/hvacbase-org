@@ -1,0 +1,106 @@
+---
+slug: "heat-pump-tax-credits-2026"
+title: "Heat Pump Tax Credits & Rebates 2026: What Changed After Section 25C Expired"
+description: "No federal tax credit applies to heat pumps installed in 2026. What you can still claim for a 2025 install, how the HEAR rebate works for heat pumps, and what utilities pay."
+cluster: "heat-pumps"
+role: "spoke"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "hvac-tax-credits-2026"
+  - "heat-pump-cost-to-install"
+  - "heat-pump-guide"
+  - "heat-pump-size-calculator"
+  - "hvac-rebates-by-state"
+externalLinks:
+  - label: "IRS: Energy Efficient Home Improvement Credit (25C)"
+    url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit"
+  - label: "U.S. DOE: Home Energy Rebate Programs"
+    url: "https://www.energy.gov/scep/home-energy-rebate-programs"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Heat Pump Tax Credits & Rebates 2026: What Changed After Section 25C Expired
+
+Until the end of 2025, a new heat pump came with a federal tax credit of 30% of its cost, up to $2,000. That credit doesn't apply to heat pumps installed in 2026. The help that remains comes as rebates, mainly the HEAR program and utility incentives.
+
+**There is no federal tax credit for a heat pump placed in service in 2026. Income-qualified households can get up to $8,000 off a heat pump through HEAR, at the point of sale, where their state has launched the program.** A heat pump installed in 2025 can still be claimed on your 2025 tax return.
+
+## What changed
+
+The One Big Beautiful Bill Act, signed July 4, 2025, ended the Section 25C credit for property placed in service after December 31, 2025. It also ended the Section 25D credit, which covered geothermal heat pumps, for expenditures made after that date. Our [HVAC tax credits 2026](/hvac-tax-credits-2026) guide covers the full picture for all equipment.
+
+Some pages, including ENERGY STAR's own heat pump product pages, still say the credit runs through 2032. The IRS guidance is what applies.
+
+## If you installed a heat pump in 2025
+
+Claim 25C on your 2025 federal return with Form 5695. The credit was 30% of the cost, up to $2,000 a year, for an air-source heat pump or heat pump water heater that met the Consortium for Energy Efficiency's highest efficiency tier, not counting its advanced tier.
+
+Keep the invoice showing the installation date, the model numbers and the manufacturer's statement that the unit qualifies. A geothermal heat pump paid for in 2025 is claimed under 25D instead, at 30% of the cost with no dollar cap.
+
+## HEAR rebates for heat pumps
+
+The Home Electrification and Appliance Rebates program, called HEEHRA in some states, is funded by the Inflation Reduction Act and run by each state. For a heat pump, it works like this:
+
+- **Up to $8,000** for a heat pump for space heating and cooling.
+- **Income limits:** households at or below 80% of area median income can have up to 100% of the cost covered; households between 80% and 150% up to 50%.
+- **Usually paid at the point of sale** through participating contractors, rather than claimed afterward.
+- **A contractor home assessment** is required before a heat pump is installed.
+- **Replacing an existing heat pump doesn't qualify** under DOE guidance; the rebate is for switching from other heating or adding a heat pump.
+
+Heat pump projects often need electrical work too, and HEAR covers that separately: up to $4,000 for a panel upgrade and $2,500 for wiring, within a $14,000 household total.
+
+### What that can look like
+
+For a $15,000 heat pump installation:
+
+- **A household at 70% of area median income** qualifies for up to 100% of the cost, capped at $8,000, and pays $7,000.
+- **A household at 120% of area median income** qualifies for 50% of the cost, $7,500, which is under the cap, and pays $7,500.
+
+The 25C credit in 2025 would have been worth at most $2,000 on the same install. Funding is limited and each state sets its own launch date, so check the DOE's Home Energy Rebate Programs page and your state energy office first.
+
+## HOMES rebates
+
+The Home Efficiency Rebates program pays for whole-home upgrades by the energy they save, at least 20%, with larger rebates at 35% or more. A heat pump can be part of a HOMES project together with insulation and air sealing. A home generally can't get both HEAR and HOMES for the same upgrade.
+
+## Utility and state rebates
+
+Many electric utilities pay their own heat pump rebates, and some states add programs of their own. These often set efficiency requirements, sometimes including a cold-climate rating, so check the model before you buy. The DSIRE database lists programs by state and utility.
+
+## Frequently asked questions
+
+### Is there a heat pump tax credit in 2026?
+
+No. The federal 25C credit doesn't apply to heat pumps placed in service after December 31, 2025. Rebates are the remaining federal help.
+
+### Can I still claim a heat pump installed in 2025?
+
+Yes, on your 2025 return using Form 5695: 30% of the cost, up to $2,000, if the unit met the qualifying efficiency tier.
+
+### How much is the HEAR rebate for a heat pump?
+
+Up to $8,000, covering up to 100% of the cost for households at or below 80% of area median income and up to 50% for households between 80% and 150%.
+
+### Does replacing an old heat pump qualify for HEAR?
+
+No. DOE guidance excludes replacing an existing heat pump, even with a more efficient one.
+
+### Is there still a credit for geothermal heat pumps?
+
+Not for 2026. The 25D credit ended for expenditures made after December 31, 2025.
+
+<SourcesBox sources={[
+  { title: "IRS: FAQs on the 25C and 25D changes under Public Law 119-21", url: "https://www.irs.gov/newsroom/faqs-for-modification-of-sections-25c-25d-25e-30c-30d-45l-45w-and-179d-under-public-law-119-21-139-stat-72-july-4-2025-commonly-known-as-the-one-big-beautiful-bill-obbb" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
+  { title: "IRS: Residential Clean Energy Credit (25D)", url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit" },
+  { title: "U.S. DOE: Home Energy Rebate Programs", url: "https://www.energy.gov/scep/home-energy-rebate-programs" },
+  { title: "Delaware DNREC: IRA Home Energy Rebates overview (HEAR amounts and assessment requirement)", url: "https://documents.dnrec.delaware.gov/energy/office/ira-home-rebates-overview.pdf" },
+  { title: "South Carolina Energy Office: Home Energy Rebates (DOE eligibility guidance)", url: "https://energy.sc.gov/rebates" },
+  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

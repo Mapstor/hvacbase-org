@@ -1,0 +1,119 @@
+Whether you're planning a project, trying to understand an electrician's quote, or just want to know how your home's wiring works, this guide covers the essentials: wire sizes, breakers, circuit types, and the code rules that keep it all safe. Understanding the basics helps you make good decisions and communicate with your electrician, even though most of this work legally requires a licensed pro.
+
+One thing to be clear about throughout: **electrical wiring is safety-critical work, and most of it requires a licensed electrician, a permit, and inspection.** Getting wire and breaker sizing wrong is a genuine fire hazard, according to the Electrical Safety Foundation International (ESFI), home electrical fires account for an estimated **51,000 fires a year**, causing nearly 500 deaths and $1.3 billion in property damage. This guide is here to help you understand the system, not to substitute for a qualified electrician.
+
+**Most U.S. homes use 14 AWG wire on 15-amp circuits for lighting and 12 AWG wire on 20-amp circuits for outlets, while HVAC equipment, water heaters, and EV chargers need dedicated circuits with heavier wire.** The core principle behind all of it: the wire has to be sized to safely carry the current, and the breaker has to be sized to protect the wire. When those match, the system is safe; when they don't, wires overheat.
+
+## How home electrical wiring works
+
+Your home's power flows through a simple chain:
+
+- **Power enters** through the utility service and meter.
+- **The main breaker panel** distributes it across individual circuits.
+- **Each circuit** has a breaker sized to match its wire gauge, feeding outlets, lights, or a specific appliance.
+
+Every component in this chain has to be sized correctly. **An undersized wire carrying too much current overheats**, and **an oversized breaker fails to trip before the wire reaches dangerous temperatures.** The National Electrical Code (NEC) exists specifically to prevent these mismatches, which is why code compliance isn't bureaucracy, it's fire prevention.
+
+## Wire gauges and ampacity
+
+The American Wire Gauge (AWG) system measures wire thickness, and it runs backwards from what you'd expect: **smaller AWG numbers mean thicker wire that carries more current.** A 14 AWG wire is thin (15-amp circuits); a 4/0 AWG wire is thick (200-amp service).
+
+Here are the common copper wire sizes and their ampacities. **Important:** the ampacity depends on the wire's insulation temperature rating, and the values below are for **75°C-rated wire** (like THHN in conduit). Standard **NM-B (Romex) cable must be sized using the lower 60°C column** (NEC 334.80), so its safe ampacity is lower for the same gauge.
+
+| Gauge | 75°C ampacity (THHN, conduit) | 60°C ampacity (NM-B/Romex) | Common use |
+|---|---|---|---|
+| 14 AWG | 20A | 15A | Lighting circuits |
+| 12 AWG | 25A | 20A | General outlets |
+| 10 AWG | 35A | 30A | Dryers, small AC |
+| 8 AWG | 50A | 40A | Ranges, sub-panels |
+| 6 AWG | 65A | 55A | Large AC, sub-panels |
+| 4 AWG | 85A | 70A | Sub-panels, feeders |
+| 2 AWG | 115A | 95A | Service entrance |
+| 1/0 AWG | 150A | 125A | 150A service |
+| 2/0 AWG | 175A | 145A | 200A service |
+| 4/0 AWG | 230A | 195A | 200A service (long runs) |
+
+A few critical rules that govern which number actually applies:
+
+- **NEC Table 310.16** is the authoritative source for these ampacities.
+- **The small-conductor cap (NEC 240.4(D)):** regardless of insulation rating, 14 AWG is capped at a 15A breaker, 12 AWG at 20A, and 10 AWG at 30A for branch circuits.
+- **The termination rule (NEC 110.14(C)):** you must use the temperature column of the lowest-rated component, usually the 75°C breaker terminals, and NM-B is held to 60°C.
+- **Aluminum wire** carries less current than copper, so it needs to be sized up about two AWG for the same job.
+
+Because getting the temperature column and terminations right is exactly where wire-sizing mistakes happen, for the full breakdown by wire type see our [wire gauge chart](/wire-gauge-chart), and for 240V circuits specifically, our [wire for 220V guide](/wire-for-220-volt).
+
+## Breaker sizing: protect the wire, not the appliance
+
+Here's the single most misunderstood concept in residential wiring: **the breaker is sized to protect the wire, not the appliance.**
+
+**NEC 240.4** states that the overcurrent device (breaker) must not exceed the ampacity of the conductor it protects. In plain terms: **the breaker amp rating must be equal to or less than what the wire can safely carry.** A common and dangerous mistake is putting a bigger breaker on a circuit to stop "nuisance tripping", that defeats the wire's protection and creates a fire risk.
+
+The standard pairings for NM-B cable:
+
+- **15A breaker → 14 AWG wire** (lighting).
+- **20A breaker → 12 AWG wire** (outlets).
+- **30A breaker → 10 AWG wire** (dryer, small AC).
+- **40A breaker → 8 AWG wire** (range).
+- **50A breaker → 6 AWG wire** (large AC, EV charger, sub-panel).
+
+**The continuous-load rule:** for a load running 3+ hours (like an EV charger or electric heater), the circuit must be sized to 125% of the load, so a 40-amp continuous load needs a 50-amp breaker and the wire to match. This catches many people, especially with EV chargers.
+
+## Common residential circuit types
+
+Homes use a mix of circuit types for different jobs:
+
+- **General lighting circuits:** 15A, 14 AWG, serving ceiling lights and some outlets.
+- **General outlet circuits:** 20A, 12 AWG, for most receptacles.
+- **Kitchen small-appliance circuits:** at least two dedicated 20A circuits are required by code for kitchen counters.
+- **Dedicated appliance circuits:** individual circuits for the fridge, microwave, dishwasher, and disposal.
+- **240V circuits:** for the dryer, range, water heater, AC/heat pump, and EV charger, sized to each appliance.
+
+## Required protection: GFCI and AFCI
+
+Modern code requires two types of advanced protection in specific locations:
+
+- **GFCI (Ground-Fault Circuit Interrupter):** protects people from shock by cutting power when current leaks to ground. **Required (NEC 210.8)** in bathrooms, kitchens, garages, outdoors, basements, and near water.
+- **AFCI (Arc-Fault Circuit Interrupter):** prevents fires by detecting dangerous arcing. **Required (NEC 210.12)** in most living areas, bedrooms, and living rooms.
+
+These requirements apply to new work and renovations, but an electrician can retrofit both into an older home to improve safety, ESFI specifically recommends it for homes over 40 years old.
+
+## Wiring for HVAC and major appliances
+
+HVAC and other large loads need dedicated circuits sized to the equipment's nameplate:
+
+- **Central AC / heat pump:** a 240V dedicated circuit sized to the unit's Minimum Circuit Ampacity (MCA) and Maximum Overcurrent Protection (MOP) on its nameplate, typically 20 to 60A. See our [wire for 220V guide](/wire-for-220-volt).
+- **Electric water heater:** typically 10 AWG on a 30A double-pole breaker for a standard 4,500W tank. See our [water heater wire size guide](/water-heater-wire-size).
+- **EV charger:** often 40 to 50+ amps continuous, which (with the 125% rule) means a 50 to 60A circuit, and frequently an electrical panel upgrade. See our [panel upgrade cost guide](/electrical-panel-upgrade-cost).
+
+The nameplate always has the final word: size the circuit to the equipment's actual MCA/MOP ratings, not a general assumption.
+
+## When to call an electrician (which is most of the time)
+
+Some very limited tasks (like replacing a light fixture or a receptacle on a known circuit) are within reach of a careful DIYer, but the honest reality is that **most electrical work should be done by a licensed electrician**, and much of it legally must be:
+
+- **Anything involving the panel or service entrance** (new circuits, panel upgrades), always a licensed electrician with a permit.
+- **New circuits, especially 240V** (HVAC, EV chargers, water heaters), permit and inspection required.
+- **Any work where you're unsure**, the failure mode here is fire or electrocution, not an inconvenience.
+
+A new or modified circuit almost always requires a permit and inspection, and the inspection exists precisely because a wiring error is a serious hazard. The cost of doing it right is small next to the risk.
+
+## Frequently asked questions
+
+**What wire gauge do I need for a circuit?**
+It depends on the circuit's amperage and the wire type. For standard NM-B (Romex): 14 AWG for 15-amp lighting circuits, 12 AWG for 20-amp outlet circuits, 10 AWG for 30-amp circuits (dryers, small AC), and heavier wire for larger loads. NM-B is sized using the 60°C ampacity column. Always confirm against the appliance nameplate and have an electrician verify.
+
+**How do I size a breaker?**
+The breaker protects the wire, so it must not exceed the wire's ampacity. Standard pairings: 15A with 14 AWG, 20A with 12 AWG, 30A with 10 AWG, 50A with 6 AWG. Never install a larger breaker to stop nuisance tripping, that removes the wire's protection and creates a fire hazard. For continuous loads (3+ hours), size to 125% of the load.
+
+**Can I do my own electrical wiring?**
+Very limited tasks (swapping a fixture or receptacle on a known circuit) may be DIY for a careful homeowner, but most electrical work should be done by a licensed electrician, and new circuits, panel work, and 240V circuits legally require a permit and inspection. The fire and shock risks make this a poor area to guess in.
+
+**What's the difference between GFCI and AFCI?**
+GFCI (ground-fault) protects people from shock by cutting power when current leaks to ground, required in bathrooms, kitchens, garages, and near water. AFCI (arc-fault) prevents fires by detecting dangerous arcing, required in most living spaces and bedrooms. They protect against different hazards, and modern code requires both in their respective locations.
+
+**Why does my wire need to match my breaker?**
+Because the breaker's job is to trip before the wire overheats. If the breaker is rated higher than the wire can safely carry, the wire can reach dangerous temperatures without the breaker tripping, which is how electrical fires start. This is why NEC 240.4 requires the breaker to be sized to protect the conductor, not the appliance.
+
+## How we sourced this page
+
+The home electrical fire statistics (an estimated 51,000 home electrical fires annually, causing nearly 500 deaths and $1.3 billion in property damage) are from the **Electrical Safety Foundation International (ESFI)**, drawing on National Fire Protection Association data. Wire ampacities and sizing rules follow the **National Electrical Code (NEC / NFPA 70)**, specifically Table 310.16 (ampacity), 240.4 and 240.4(D) (overcurrent protection and small-conductor caps), 110.14(C) (termination temperature), 334.80 (NM-B 60°C sizing), 210.8 and 210.12 (GFCI and AFCI). Safety-device guidance references **UL** standards and **ESFI** recommendations. Because conductor sizing depends on wire type, terminations, and installation conditions, these are references, confirm against equipment nameplates and local code, and have electrical work done or verified by a licensed electrician. NFPA 70 is the authoritative U.S. electrical standard, adopted (sometimes with amendments) by your local jurisdiction.

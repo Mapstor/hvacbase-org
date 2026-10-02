@@ -1,0 +1,98 @@
+---
+slug: "heat-pump-in-cold-weather"
+title: "Do Heat Pumps Work in Cold Weather? (Below Freezing Guide)"
+description: "How heat pumps perform below freezing: capacity and efficiency at 17°F and 5°F, what ENERGY STAR's cold-climate label requires, defrost, balance points and backup heat."
+cluster: "heat-pumps"
+role: "spoke"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "heat-pump-guide"
+  - "heat-pump-size-calculator"
+  - "heat-pump-cost-to-install"
+  - "gas-vs-electric-heating-cost"
+  - "heat-pump-tax-credits-2026"
+externalLinks:
+  - label: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+  - label: "NEEP: Cold Climate Air Source Heat Pump List"
+    url: "https://neep.org/ashp"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Do Heat Pumps Work in Cold Weather?
+
+A heat pump pulls heat out of outdoor air, which sounds impossible in January. But air at 0°F still holds heat; it's just harder to extract. The question is not whether a heat pump works in the cold, but how much heat it delivers when it's coldest, and what covers the gap.
+
+**Yes. Heat pumps keep heating well below freezing, but their output and efficiency fall as it gets colder. ENERGY STAR's cold-climate models must still deliver at least 70% of their rated capacity and a COP of at least 1.75 at 5°F, and they keep running below that, usually with backup heat for the coldest hours.**
+
+## Why output falls in the cold
+
+A heat pump moves heat instead of making it, which is why it can deliver more heat than the electricity it uses. As the outdoor air gets colder, there's a bigger temperature gap to pump heat across, so each unit of electricity moves less heat. Capacity drops, and so does efficiency.
+
+Even so, a COP of 1.75 at 5°F still means 1.75 units of heat for each unit of electricity, 75% more than an electric resistance heater gets from the same power.
+
+## Standard vs. cold-climate heat pumps
+
+Rated heating capacity is measured at 47°F. Our [heat pump size calculator](/heat-pump-size-calculator) models how it falls:
+
+| Outdoor temperature | Standard heat pump | Cold-climate heat pump |
+|---|---|---|
+| 47°F | 100% | 100% |
+| 17°F | about 60% | about 79% |
+| 5°F | about 40% | at least 70% |
+
+The standard-unit figures are the calculator's assumptions. The cold-climate 70% at 5°F is ENERGY STAR's minimum, and 79% at 17°F falls on a straight line between the two.
+
+Cold-climate models must also reach at least 8.1 HSPF2 for ducted systems or 8.5 for ductless. NEEP's cold-climate heat pump list publishes each model's measured capacity and efficiency at 5°F, 17°F and 47°F.
+
+## Defrost
+
+In cold, damp weather, frost builds on the outdoor coil. The heat pump periodically reverses for a few minutes to melt it, and indoor air may feel cooler or backup heat may switch on briefly. That's normal.
+
+Keep the outdoor unit raised above the snow line and make sure defrost water can drain away without refreezing.
+
+## Balance point and backup heat
+
+The balance point is the outdoor temperature where the heat pump's output meets the house's heat loss. Below it, backup heat makes up the difference: electric strips in the air handler, or a gas furnace in a dual-fuel system.
+
+For a 2,000 sq ft two-story home built between 1980 and 1999, with a cold-climate heat pump, the calculator estimates:
+
+- **Cold climate, 0°F design low:** balance point about 9.5°F, about 2.7 kW of backup at the design low.
+- **Very cold climate, −10°F design low:** balance point about 9°F, about 5.4 kW of backup.
+
+In both cases the heat pump carries the house alone down to single digits, so backup heat runs only on the coldest days.
+
+## Sizing for cold climates
+
+In cold climates the heating load usually decides the size. A cold-climate heat pump sized to the heating load, rather than the cooling load, keeps backup heat small. The [heat pump size calculator](/heat-pump-size-calculator) sizes for both seasons and estimates the balance point and backup for your home.
+
+## Frequently asked questions
+
+### At what temperature do heat pumps stop working?
+
+It depends on the model. ENERGY STAR notes heat pumps keep running below 5°F, and cold-climate models are designed for it. Check each model's rated low-temperature limit and its capacity at 5°F on NEEP's list.
+
+### Is a heat pump worth it in a cold climate?
+
+With a cold-climate model sized to the heating load, usually yes. Whether it costs less to run than gas depends on local prices; see [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
+
+### Do heat pumps need backup heat?
+
+In cold climates, usually a small amount for the coldest hours. A well-sized cold-climate heat pump keeps it to a few kilowatts in the examples above.
+
+### Why does my heat pump blow cooler air in winter?
+
+A heat pump delivers a steady stream of warm air rather than the short blasts of hot air a furnace gives, and during defrost the air can feel cool for a few minutes. Both are normal.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (cold climate)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
+  { title: "ENERGY STAR: Air-Source Heat Pumps", url: "https://www.energystar.gov/products/air_source_heat_pumps" },
+  { title: "NEEP: Cold Climate Air Source Heat Pump List", url: "https://neep.org/ashp" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

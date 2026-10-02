@@ -1,0 +1,123 @@
+Your indoor air is likely more polluted than you think, the EPA notes indoor air is often several times more polluted than outdoor air, and you spend about 90% of your time inside. If someone in your home has allergies or asthma, or you just want cleaner air, the good news is that the most effective steps are also among the cheapest.
+
+This guide ranks the ten most effective ways to improve indoor air quality, from a $20 filter upgrade to whole-house systems, with honest guidance on what each actually does. We name no specific products, since the right approach depends on your home and your particular air-quality concern.
+
+**The single most impactful, and cheapest, step is upgrading your HVAC filter to MERV 13, which costs about $15 to $30 per filter and substantially reduces fine-particle (PM2.5) levels in most homes.** The second most impactful step is increasing ventilation (mechanical or strategic window opening), which cuts CO2, VOCs, and moisture at the same time. Everything else builds on those two.
+
+## The 10 methods, ranked by impact and value
+
+Here's the overview, ordered roughly from highest-value to most specialized:
+
+| # | Method | Targets | Cost | Difficulty |
+|---|---|---|---|---|
+| 1 | Upgrade HVAC filter to MERV 13 | Fine particles (PM2.5) | $15–$30/filter | Easy |
+| 2 | Increase mechanical ventilation (ERV/HRV) | CO2, VOCs, moisture | $1,500–$4,000 installed | Professional |
+| 3 | Use a range hood when cooking | Cooking particles + fumes | $0 (existing) | Easy |
+| 4 | Add a portable HEPA air purifier | Room particles | $100–$600/unit | Easy |
+| 5 | Control humidity (40–50% RH) | Mold, dust mites | $0–$1,500 | Easy–Moderate |
+| 6 | Test and mitigate radon | Radon gas | $800–$2,500 | Professional |
+| 7 | Eliminate source pollutants | VOCs, various | $0–$500 | Easy |
+| 8 | Seal and clean ductwork | Particle recirculation | $500–$2,000 | Professional |
+| 9 | UV-C or PCO in HVAC (supplemental) | Some biologicals | $500–$1,500 | Professional |
+| 10 | Whole-house air purification | Whole-home particles | $800–$3,500 | Professional |
+
+The percentages you'll see quoted for each method vary enormously by home, so we describe what each does and its relative effectiveness rather than promising exact numbers that wouldn't hold for your situation.
+
+## 1. Upgrade your HVAC filter to MERV 13 (the biggest bang for the buck)
+
+**Cost: $15 to $30 per filter | Difficulty: easy (a 5-minute swap) | Impact: the highest per dollar.**
+
+Your HVAC system circulates your home's entire air volume several times a day, so **the filter is the single most leveraged point for particle removal**, every cubic foot of air passes through it. Most builder-grade systems ship with a MERV 4 to 6 filter that only catches large particles. Upgrading to **MERV 13 captures a high share of fine PM2.5 particles** (the size range that includes smoke, bacteria, and virus-carrying droplets), which meaningfully cleans the air throughout the house.
+
+Two important cautions:
+
+- **Check your system can handle MERV 13 airflow.** A higher-MERV filter is more restrictive, and depth matters more than the number, a 4-inch MERV 13 restricts far less than a 1-inch one. If you only have a 1-inch slot, consider having an HVAC tech add a 4-inch filter cabinet ($150 to $300), which runs MERV 13 with much lower pressure drop and longer filter life.
+- **Change it on schedule.** A clogged filter of any rating restricts airflow. See our [MERV rating guide](/merv-rating-chart) for choosing the right filter and our [filter-change guide](/how-often-change-hvac-filter) for timing.
+
+## 2. Increase ventilation (dilutes everything at once)
+
+Ventilation is uniquely powerful because it addresses **CO2, VOCs, and excess moisture simultaneously** by replacing stale indoor air with fresh outdoor air. Options, from simplest to most involved:
+
+- **Strategic window opening:** free, and effective when outdoor air is clean and the weather cooperates. Cross-ventilation (windows on opposite sides) works best.
+- **Exhaust fans:** run bathroom and kitchen fans during and after moisture- or fume-generating activities.
+- **A balanced mechanical system (ERV or HRV):** the best solution for tight, modern homes, it brings in fresh air continuously while recovering most of the heating or cooling energy from the outgoing air (so you're not just throwing away conditioned air).
+
+**ERV vs. HRV in brief:** an **ERV (energy recovery ventilator)** transfers both heat and moisture, better for hot-humid and mixed climates; an **HRV (heat recovery ventilator)** transfers only heat, better for cold climates where you want to expel excess indoor humidity. Both recover the large majority of the energy that would otherwise be lost.
+
+## 3. Use your range hood when cooking
+
+Cooking is one of the biggest indoor sources of fine particles and fumes, and a range hood is the fix, if it vents outside.
+
+- **A vented range hood** (ducted to the outdoors) removes cooking particles and fumes effectively, and the higher its airflow (CFM), the more it captures.
+- **A recirculating hood** (no outdoor duct, just a charcoal filter) does very little for particles, it mostly just filters odors and returns the air to the room.
+
+If your hood vents outside, **use it every time you cook** (especially on gas), and run it a few minutes after. If it's recirculating, it's not doing much for air quality, venting it outside is a worthwhile upgrade.
+
+## 4. Add a portable HEPA air purifier
+
+For targeted cleaning in a specific room (a bedroom, a nursery, a home office), a **portable True HEPA purifier** captures fine particles effectively. The key is matching its CADR (Clean Air Delivery Rate) to the room size, our [air purifier guide](/air-purifier-guide) and [sizing guide](/air-purifier-sizing-guide) walk through that. A purifier complements whole-home HVAC filtration; it doesn't replace it.
+
+## 5. Control humidity
+
+Keeping indoor humidity in the **40 to 50% range** (the EPA recommends staying between 30 and 50%, and below 60%) suppresses mold and dust mites, two of the most common indoor allergens. Too humid breeds mold; too dry irritates airways. Use a dehumidifier in damp spaces and a humidifier in dry ones. See our [ideal humidity guide](/ideal-indoor-humidity-level).
+
+## 6. Test and mitigate radon
+
+**Radon is a colorless, odorless radioactive gas and the second-leading cause of lung cancer** (per the EPA), and it's a problem an air purifier can't fix. It seeps up from the ground into homes. The only way to know your level is to **test** (inexpensive DIY kits or a professional test), and if it's elevated (the EPA action level is 4 pCi/L), a radon mitigation system vents it safely away. This is worth doing regardless of other air-quality steps, it's a genuine health risk that's invisible without testing.
+
+## 7. Eliminate source pollutants
+
+The most efficient air-quality strategy is removing pollutants at the source rather than filtering them after the fact:
+
+- Choose **low-VOC or zero-VOC paints, finishes, and furniture** (new furniture and materials off-gas VOCs).
+- **Avoid indoor smoking** entirely.
+- Use **fragrance-free or low-chemical cleaning products** where possible.
+- Store paints, solvents, and chemicals in a garage or shed, not living space.
+
+Source control is often free or cheap and prevents pollutants from ever entering your air.
+
+## 8. Seal and clean ductwork
+
+Leaky ducts pull in dust, and dirty ducts recirculate it. Sealing accessible duct leaks (per ENERGY STAR, ducts can lose a meaningful share of conditioned air) improves both efficiency and air quality. Professional duct cleaning can help if there's documented heavy buildup, mold, or a pest issue, though for most homes a good filter matters more than routine duct cleaning.
+
+## 9. UV-C or PCO systems (supplemental only)
+
+In-HVAC UV-C or photocatalytic (PCO) systems are marketed for killing biologicals, but the honest assessment is that they're **supplemental at best, not a primary air-quality solution.** Air often moves past the UV lamp too fast for a strong effect, and some devices can produce trace ozone (a lung irritant). If you use one, treat it as an add-on to good filtration and ventilation, not a replacement, and choose ozone-free (CARB-certified) equipment.
+
+## 10. Whole-house air purification
+
+A whole-house system integrated into your HVAC (a high-capacity media filter or an electronic air cleaner) treats all the air in your home rather than one room. It's a bigger investment than a portable unit but provides consistent whole-home filtration. For most homes, though, **a MERV 13 filter plus good ventilation delivers most of the benefit at a fraction of the cost**, so consider whole-house purification an upgrade for households with serious air-quality needs.
+
+## Putting it together: a sensible order
+
+If you're starting from scratch, this sequence gets the most improvement for the least money:
+
+1. **Upgrade to a MERV 13 filter** (or add a 4-inch cabinet), the cheapest high-impact step.
+2. **Improve ventilation**, use exhaust fans and your range hood, open windows when outdoor air is good, and consider an ERV/HRV for a tight home.
+3. **Control humidity** to 40 to 50%.
+4. **Test for radon** (a one-time check that could matter a lot).
+5. **Add a portable HEPA unit** in the room that needs it most.
+6. **Practice source control** ongoing.
+
+That covers the fundamentals. The professional systems (whole-house purification, UV-C) are worth considering only after the basics are in place.
+
+## Frequently asked questions
+
+**What's the most effective way to improve indoor air quality?**
+Upgrading your HVAC filter to MERV 13 is the highest-impact, lowest-cost step, it filters fine particles from all the air circulating through your system. Pair it with good ventilation (exhaust fans, range hood, open windows, or an ERV/HRV), which dilutes CO2, VOCs, and moisture. Those two steps deliver most of the benefit for most homes.
+
+**Do air purifiers really improve indoor air quality?**
+Yes, for particles, a True HEPA purifier effectively removes fine airborne particles in the room it's in, and it's a valuable layer for allergies, smoke, or a specific room. But it works best combined with whole-home HVAC filtration, ventilation, and source control, not as a standalone fix, and it can't address gases like radon or CO.
+
+**Is opening windows good for air quality?**
+Often yes, it's the simplest form of ventilation, diluting indoor CO2, VOCs, and moisture with fresh outdoor air. It works best when outdoor air is clean (not during high pollen, wildfire smoke, or heavy pollution) and when weather permits. Cross-ventilation, opening windows on opposite sides, is most effective.
+
+**What indoor air pollutants should I worry about most?**
+The main ones are fine particles (PM2.5, from cooking, smoke, and outdoor infiltration), VOCs (from paints, furniture, and cleaning products), excess CO2 (from poor ventilation), moisture (which breeds mold), and radon (a radioactive soil gas and the second-leading cause of lung cancer). Filtration handles particles; ventilation handles gases and moisture; radon needs its own testing and mitigation.
+
+**How do I know if my indoor air quality is bad?**
+Signs include worse allergy or asthma symptoms indoors than out, persistent stuffiness or odors, visible mold or condensation, and dust buildup. An inexpensive indoor air-quality monitor can track particulates, CO2, and humidity. And regardless of symptoms, testing for radon is worthwhile since it's undetectable without a test.
+
+## How we sourced this page
+
+The guidance here follows established indoor-air-quality science and public-health guidance. The EPA notes that indoor air is often more polluted than outdoor air and that Americans spend about 90% of their time indoors, and identifies **radon as the second-leading cause of lung cancer** with an action level of 4 pCi/L. Filter-efficiency guidance (MERV 13 for fine-particle capture) follows **ASHRAE Standard 52.2** and **EPA** recommendations; portable-purifier effectiveness is measured by **AHAM's** CADR. The recommended 30 to 50% humidity range and ventilation guidance are per **EPA** and ASHRAE. Because real-world improvement depends heavily on your home, its systems, and your specific pollutants, we describe what each method does and its relative effectiveness rather than promising fixed percentages, and cost figures are approximate ranges, not fixed quotes. We recommend no specific products.

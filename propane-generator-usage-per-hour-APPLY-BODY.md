@@ -1,0 +1,98 @@
+---
+slug: "propane-generator-usage-per-hour"
+title: "How Much Propane Does a Generator Use per Hour? (Charts + Tank Runtime)"
+description: "How much propane a generator burns per hour at different loads, how long 20-lb, 100-lb, 500 and 1,000-gallon tanks last, what it costs per day, and cold-weather limits."
+cluster: "generators"
+role: "spoke"
+priority: "P1"
+contentType: "reference"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-05"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "what-size-generator-do-i-need"
+  - "what-size-generator-for-fridge"
+  - "home-battery-backup-guide"
+  - "power-consumption-calculator"
+  - "kwh-cost-calculator"
+externalLinks:
+  - label: "U.S. EIA: British thermal units (energy content of fuels)"
+    url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# How Much Propane Does a Generator Use per Hour?
+
+A generator's propane use depends on how much power you're drawing from it, not on its maximum rating. A 20 kW standby generator running a fridge and a few lights burns far less than it would at full load. So the first number to know is your actual load.
+
+**A gallon of propane holds about 91,452 BTU (EIA). If a generator turns about 20% of that into electricity, a 5 kW load burns about 0.93 gallons an hour, about 22 gallons a day; a 20 kW load burns about 3.7 gallons an hour. Your generator's spec sheet lists its actual consumption at half and full load, which is the better number to use.**
+
+## Propane use by load
+
+Gallons per hour = load in kW × 3,412 BTU per kWh ÷ (91,452 BTU per gallon × generator efficiency). The table assumes 20% efficiency, a typical figure for small engine generators; small generators running far below their rating are often less efficient than that.
+
+| Load | Gallons per hour | Gallons per day |
+|---|---|---|
+| 2 kW | 0.37 | 9.0 |
+| 5 kW | 0.93 | 22.4 |
+| 7.5 kW | 1.40 | 33.6 |
+| 10 kW | 1.87 | 44.8 |
+| 15 kW | 2.80 | 67.2 |
+| 20 kW | 3.73 | 89.5 |
+
+Your load is what's running: a fridge, a furnace blower, lights and a sump pump might total 2 to 5 kW. Our [generator sizing calculator](/what-size-generator-do-i-need) adds up appliances for you.
+
+## How long a propane tank lasts
+
+Propane weighs about 4.2 pounds per gallon, and large tanks are filled to about 80% to leave room for expansion. At a 5 kW load:
+
+| Tank | Propane | Runtime at 5 kW |
+|---|---|---|
+| 20-lb cylinder | about 4.7 gallons | about 5 hours |
+| 100-lb cylinder | about 23.6 gallons | about 25 hours |
+| 500-gallon tank, filled to 80% | 400 gallons | about 18 days |
+| 1,000-gallon tank, filled to 80% | 800 gallons | about 36 days |
+
+Runtime = gallons ÷ gallons per hour. Halve the load and the runtime roughly doubles.
+
+## What it costs to run
+
+Cost per hour = gallons per hour × your propane price. At an example price of $3.00 a gallon, a 5 kW load costs about $2.80 an hour, or $67 a day. Propane prices vary by region and season; your supplier's quote is the number to use.
+
+## Cold weather
+
+Propane leaves a tank as vapor, and in cold weather a small cylinder can't vaporize it fast enough for a large generator. The tank pressure drops and the generator can lose power even with propane left. Large tanks hold more liquid surface and cope better; for cold climates, size the tank for winter loads.
+
+## Propane vs. other fuels
+
+Gallon for gallon, propane holds less energy than gasoline (about 120,000 BTU) or diesel (about 137,000 BTU), so a generator burns more gallons of propane for the same output: about 1.3 gallons of propane for each gallon of gasoline, and 1.5 for each gallon of diesel. Propane stores for years without going stale, which is why many standby generators use it. Natural gas generators draw from the utility line instead; a gallon of propane equals about 88 cubic feet of natural gas.
+
+## Safety
+
+Run portable generators outdoors only, at least 20 feet from the house, with the exhaust pointed away from doors and windows, as the CPSC advises; generator exhaust carries deadly carbon monoxide. Have standby generators installed with their required clearances.
+
+## Frequently asked questions
+
+### How much propane does a generator use per hour?
+
+About 0.9 gallons an hour at a 5 kW load and about 3.7 at 20 kW, assuming 20% efficiency. Check your generator's spec sheet for its figures at half and full load.
+
+### How long will a 500-gallon propane tank run a generator?
+
+About 18 days at a steady 5 kW load, from a tank filled to 80% (400 gallons). A heavier load shortens that.
+
+### How long does a 20-lb propane tank last on a generator?
+
+About 5 hours at a 5 kW load, and longer at lighter loads.
+
+### Is propane more expensive than gasoline for a generator?
+
+Per hour it often is, because a generator burns about 1.3 gallons of propane for each gallon of gasoline. Propane's advantages are long storage life and cleaner running.
+
+<SourcesBox sources={[
+  { title: "U.S. EIA: British thermal units (energy content of propane, gasoline, diesel, natural gas)", url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php" },
+  { title: "CPSC: Portable generator safety", url: "{{CPSC_URL}}" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

@@ -1,0 +1,78 @@
+---
+slug: "dehumidifier-and-ac-same-time"
+title: "Can You Run a Dehumidifier and AC at the Same Time? (2026)"
+description: "Whether to run a dehumidifier and air conditioner together: how each removes moisture, the heat a dehumidifier adds, when running both helps, and better options for humid homes."
+cluster: "dehumidifiers-humidity"
+role: "spoke"
+priority: "P2"
+contentType: "explainer"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "dehumidifier-guide"
+  - "dry-mode-in-ac"
+  - "ideal-indoor-humidity-level"
+  - "dehumidifier-running-cost"
+  - "what-size-dehumidifier-do-i-need"
+externalLinks:
+  - label: "ENERGY STAR: Dehumidifiers"
+    url: "https://www.energystar.gov/products/dehumidifiers"
+  - label: "EPA: Mold course, chapter 2 (indoor humidity)"
+    url: "https://www.epa.gov/mold/mold-course-chapter-2"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Can You Run a Dehumidifier and AC at the Same Time?
+
+Yes, and sometimes it's the right call. An air conditioner removes moisture as it cools, but not always enough, and a dehumidifier removes moisture without cooling. Running both makes sense when the air conditioner can't keep humidity in range on its own.
+
+**You can safely run both. An air conditioner dehumidifies as a side effect of cooling, so in most homes it keeps humidity in the EPA's 30 to 50% range by itself. A dehumidifier helps where it can't: mild, humid days when the AC barely runs, oversized systems that short-cycle, and basements; but it adds heat, about 2,000 BTU per hour from a 590-watt unit's electricity.**
+
+## How each removes moisture
+
+An air conditioner's indoor coil is colder than the dew point of the room air, so water condenses on it and drains away. A dehumidifier works the same way, but then reheats the dried air with its own condenser coil, so it removes moisture without lowering the temperature. ENERGY STAR notes that a dehumidifier slightly warms the space around it.
+
+## The heat a dehumidifier adds
+
+All the electricity a dehumidifier uses ends up as heat in the room, plus the heat released as water vapor condenses. A 590-watt unit adds about 2,000 BTU per hour from its electricity alone (590 × 3.412), which your air conditioner then has to remove. That's why running both costs more than either alone.
+
+## When running both helps
+
+- **Mild, humid days**, when it's not hot enough for the AC to run long enough to dry the air.
+- **An oversized air conditioner** that cools quickly and shuts off before removing much moisture.
+- **Basements**, which stay cool and damp and often get little conditioned air.
+- **After water damage**, when a space needs drying fast.
+
+## Better options for whole-house humidity
+
+- **Dry mode** on many ACs and mini splits runs the fan slowly to remove more moisture per hour; see [dry mode](/dry-mode-in-ac).
+- **A whole-home dehumidifier** tied into the ductwork, which ENERGY STAR suggests for homes with central air where humidity stays above 55% throughout.
+- **A properly sized AC**, which runs longer cycles and dehumidifies better than an oversized one.
+- **An AC vent in the humid space**, which ENERGY STAR suggests so the central system can help dry it.
+
+## Frequently asked questions
+
+### Is it bad to run a dehumidifier and AC together?
+
+No. It's safe; the only cost is the extra electricity, including the heat the dehumidifier adds for the AC to remove.
+
+### Does an air conditioner dehumidify?
+
+Yes. Its cold indoor coil condenses moisture from the air as it cools, which is usually enough to keep humidity in range during hot weather.
+
+### Should I put the dehumidifier in the same room as the AC?
+
+Put it where the humidity problem is, often a basement or a closed room the AC doesn't reach well.
+
+### What humidity should I aim for?
+
+Between 30% and 50%, and below 60%, according to the EPA and ENERGY STAR.
+
+<SourcesBox sources={[
+  { title: "ENERGY STAR: Dehumidifiers (warming effect, whole-home and AC vent guidance)", url: "https://www.energystar.gov/products/dehumidifiers" },
+  { title: "EPA: Mold course, chapter 2 (indoor humidity 30 to 50%, below 60%)", url: "https://www.epa.gov/mold/mold-course-chapter-2" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

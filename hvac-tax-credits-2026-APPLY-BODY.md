@@ -1,0 +1,115 @@
+---
+slug: "hvac-tax-credits-2026"
+title: "HVAC Tax Credits 2026: What Ended and Which Rebates Are Left"
+description: "The federal 25C and 25D credits ended for 2026 installs. How to still claim a 2025 install, what the HEAR and HOMES rebates pay, and where state and utility rebates come in."
+cluster: "tax-credits"
+role: "pillar"
+priority: "P1"
+contentType: "guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "heat-pump-tax-credits-2026"
+  - "hvac-rebates-by-state"
+  - "heat-pump-cost-to-install"
+  - "central-ac-cost-to-install"
+  - "furnace-guide"
+externalLinks:
+  - label: "IRS: FAQs on the 25C and 25D changes under Public Law 119-21"
+    url: "https://www.irs.gov/newsroom/faqs-for-modification-of-sections-25c-25d-25e-30c-30d-45l-45w-and-179d-under-public-law-119-21-139-stat-72-july-4-2025-commonly-known-as-the-one-big-beautiful-bill-obbb"
+  - label: "U.S. DOE: Home Energy Rebate Programs"
+    url: "https://www.energy.gov/scep/home-energy-rebate-programs"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# HVAC Tax Credits 2026: What Ended and Which Rebates Are Left
+
+The federal tax credits that paid up to $2,000 toward a heat pump and up to $600 toward a central air conditioner or furnace are gone for equipment installed in 2026. The One Big Beautiful Bill Act, signed July 4, 2025, ended them after December 31, 2025. What's left are rebates, and they work differently from tax credits.
+
+**If your HVAC system is installed in 2026, there is no federal tax credit for it. Income-qualified households may get up to $8,000 toward a heat pump through the HEAR rebate program where their state has launched it, and state and utility rebates still apply.** If you installed in 2025, you can still claim the 25C credit on your 2025 tax return.
+
+## What ended, and when
+
+- **Section 25C, the Energy Efficient Home Improvement Credit**, doesn't apply to property placed in service after December 31, 2025. It covered heat pumps, central air, furnaces, boilers, heat pump water heaters, panels, insulation and home energy audits.
+- **Section 25D, the Residential Clean Energy Credit**, doesn't apply to expenditures made after December 31, 2025. It covered geothermal heat pumps, solar and battery storage.
+
+Both dates come from the IRS's own FAQ on the law's changes. Some pages, including ENERGY STAR's own heat pump product pages, still describe the credit as running through 2032; the IRS guidance is what applies.
+
+## Still claiming a 2025 install
+
+If the equipment was placed in service by December 31, 2025, you claim 25C on your 2025 federal return with Form 5695. For 2025, the credit was 30% of the cost:
+
+- **Up to $2,000 a year** for heat pumps, heat pump water heaters and biomass stoves or boilers.
+- **Up to $1,200 a year** for other improvements, with sub-limits such as **$600** for a central air conditioner, a gas furnace or boiler, or an electrical panel upgrade, and **$150** for a home energy audit.
+
+The two limits add up, so a single year could reach $3,200. Keep the manufacturer's certificate or product details, the invoice showing the installation date, and the product's qualifying efficiency.
+
+## Rebates that still exist in 2026
+
+The Inflation Reduction Act also funded two rebate programs that the 2025 law did not end. States run them, so availability depends on where you live, and money is available until it's spent or until September 30, 2031.
+
+### HEAR: electrification rebates
+
+The Home Electrification and Appliance Rebates program, which some states call HEEHRA, pays at the point of sale for specific electric upgrades. Households at or below 80% of area median income can have up to 100% of costs covered, and households between 80% and 150% up to 50%. Each item has a cap, and a household can receive up to $14,000 in total:
+
+| Upgrade | Maximum rebate |
+|---|---|
+| Heat pump for heating and cooling | $8,000 |
+| Electrical panel upgrade | $4,000 |
+| Electrical wiring | $2,500 |
+| Heat pump water heater | $1,750 |
+| Insulation, air sealing and ventilation | $1,600 |
+| Electric stove or cooktop | $840 |
+| Heat pump clothes dryer | $840 |
+
+Central air conditioners and gas furnaces aren't on the list. Replacing an existing heat pump with a new one doesn't qualify under DOE guidance, as South Carolina's energy office notes in its program rules.
+
+### HOMES: whole-home savings rebates
+
+The Home Efficiency Rebates program pays based on how much energy a whole-home upgrade saves, measured by an energy model before the work or by utility bills after it. Projects need to save at least 20%, with larger rebates at 35% or more. It usually starts with a home energy assessment, so it suits bigger projects that combine insulation, air sealing and equipment.
+
+### Where your state stands
+
+Each state launches on its own schedule, and funding is limited. Check the DOE's Home Energy Rebate Programs page and your state energy office before you commit to equipment.
+
+## State and utility rebates
+
+Many utilities pay their own rebates for heat pumps, efficient AC, smart thermostats and insulation. Several states also run their own programs, separate from HEAR and HOMES. The DSIRE database lists incentives by state and utility; see also our [HVAC rebates by state](/hvac-rebates-by-state) guide.
+
+## Common mistakes
+
+- **Assuming the credit still applies because a website says so.** Check the installation date against the IRS rules above.
+- **Buying before checking HEAR.** HEAR rebates are applied at the point of sale through participating contractors, so they usually can't be claimed afterward.
+- **Missing stacking rules.** A home generally can't get both HEAR and HOMES for the same upgrade, though state and utility rebates can often be combined with either.
+
+## Frequently asked questions
+
+### Is there a federal tax credit for a new HVAC system in 2026?
+
+No. The 25C credit doesn't apply to equipment placed in service after December 31, 2025. Rebates such as HEAR and utility programs are the remaining help.
+
+### Can I still claim a heat pump I installed in 2025?
+
+Yes. File Form 5695 with your 2025 return; the credit is 30% of the cost, up to $2,000 for a heat pump.
+
+### How much is the HEAR heat pump rebate?
+
+Up to $8,000 for a heat pump for heating and cooling, for households at or below 150% of area median income, where the state has launched the program. Lower-income households can have up to 100% of costs covered, moderate-income households up to 50%.
+
+### Does a new central air conditioner qualify for any rebate?
+
+Not for HEAR, which covers heat pumps but not central AC. Some utilities rebate efficient air conditioners, so check your utility and DSIRE.
+
+<SourcesBox sources={[
+  { title: "IRS: FAQs on the 25C and 25D changes under Public Law 119-21", url: "https://www.irs.gov/newsroom/faqs-for-modification-of-sections-25c-25d-25e-30c-30d-45l-45w-and-179d-under-public-law-119-21-139-stat-72-july-4-2025-commonly-known-as-the-one-big-beautiful-bill-obbb" },
+  { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
+  { title: "IRS: Residential Clean Energy Credit (25D)", url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit" },
+  { title: "IRS: About Form 5695", url: "https://www.irs.gov/forms-pubs/about-form-5695" },
+  { title: "U.S. DOE: Home Energy Rebate Programs", url: "https://www.energy.gov/scep/home-energy-rebate-programs" },
+  { title: "South Carolina Energy Office: Home Energy Rebates (DOE eligibility guidance)", url: "https://energy.sc.gov/rebates" },
+  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org/" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />

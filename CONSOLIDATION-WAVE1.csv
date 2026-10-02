@@ -1,0 +1,92 @@
+from_slug,to_slug,group,reason
+what-is-seer-rating,seer2-rating-explained,efficiency,same intent
+good-seer-rating-for-ac,seer2-rating-explained,efficiency,"same intent, 2 calcs"
+how-to-calculate-seer,seer2-rating-explained,efficiency,"low traffic, same topic"
+hvac-efficiency-ratings-compared,seer2-rating-explained,efficiency,hub dup
+seer-vs-seer2,seer2-to-seer-conversion,efficiency,same relationship
+seer2-savings-calculator,seer2-comparison-calculator,efficiency,"duplicate tool, 0 Bing"
+is-higher-seer-worth-it,seer2-comparison-calculator,efficiency,answered by tool
+14-seer-vs-16-seer-vs-20-seer,seer2-comparison-calculator,efficiency,answered by tool
+eer-rating-explained,eer-chart-for-ac-units,efficiency,same metric
+eer2-rating-explained,eer-chart-for-ac-units,efficiency,"same metric, 0 Bing"
+eer-vs-seer,eer-chart-for-ac-units,efficiency,comparison section
+ceer-rating-explained,eer-chart-for-ac-units,efficiency,room-AC section
+ieer-explained,eer-chart-for-ac-units,efficiency,commercial niche
+eseer-explained,eer-chart-for-ac-units,efficiency,"EU niche, 0 Bing"
+hspf2-rating-explained,hspf-rating-explained,efficiency,same metric
+heat-pump-cop-explained,coefficient-of-performance,efficiency,duplicate COP page
+hvac-efficiency-texas,minimum-seer-rating-by-state,efficiency,state variant
+ac-size-for-1000-sq-ft,ac-tonnage-calculator,ac-sizing,sq-ft variant; tool chart covers it
+ac-size-for-1500-sq-ft,ac-tonnage-calculator,ac-sizing,sq-ft variant
+ac-size-for-2000-sq-ft,ac-tonnage-calculator,ac-sizing,sq-ft variant
+ac-size-for-2500-sq-ft,ac-tonnage-calculator,ac-sizing,sq-ft variant
+ac-size-for-3000-sq-ft,ac-tonnage-calculator,ac-sizing,sq-ft variant
+ac-size-for-500-sq-ft,air-conditioner-btu-calculator,ac-sizing,room-size variant
+5000-btu-air-conditioner-room-size,air-conditioner-btu-calculator,ac-sizing,room-size variant
+how-many-btu-per-square-foot,air-conditioner-btu-calculator,ac-sizing,answered by tool
+hvac-cost-california,hvac-cost-by-state,state-costs,state variant
+hvac-cost-illinois,hvac-cost-by-state,state-costs,state variant
+hvac-cost-new-york,hvac-cost-by-state,state-costs,"state variant, 57 brands"
+hvac-cost-florida,hvac-cost-by-state,state-costs,state variant
+hvac-cost-texas,hvac-cost-by-state,state-costs,state variant
+electricity-cost-by-state,kwh-cost-calculator,state-costs,rates live in tool
+average-electric-bill-by-state,kwh-cost-calculator,state-costs,stale-886 cascade
+energy-costs-guide,kwh-cost-calculator,state-costs,0 Bing
+time-of-use-rates-explained,kwh-cost-calculator,state-costs,rate topic
+electric-water-heating-cost-by-state,electric-water-heating-cost,state-costs,0 Bing
+solar-panel-cost-by-state,solar-panel-calculator,state-costs,0 Bing
+energy-star-tax-credits,hvac-tax-credits-2026,tax,same expired credits
+seer-rating-tax-credits,hvac-tax-credits-2026,tax,"same, brand models"
+25c-tax-credit-explained,hvac-tax-credits-2026,tax,25C expired
+carrier-hvac-age-serial-number,hvac-serial-number-decoder,serial,brand variant
+goodman-ac-age-serial-number,hvac-serial-number-decoder,serial,brand variant
+water-heater-breaker-size,water-heater-wire-size,water-heater,same wattage->amps->breaker chain
+water-heater-amps,water-heater-wire-size,water-heater,same chain
+water-heater-wattage,water-heater-wire-size,water-heater,same chain
+tankless-water-heater-breaker-size,water-heater-wire-size,water-heater,tankless section exists
+tankless-water-heater-wire-size,water-heater-wire-size,water-heater,tankless section exists
+tankless-water-heater-electricity,water-heater-wire-size,water-heater,tankless section exists
+tankless-vs-tank-water-heater,tankless-water-heater-guide,water-heater,comparison section
+water-heater-cost-to-install,tankless-water-heater-cost,water-heater,one cost page
+what-wire-size-for-50-amp,wire-for-220-volt,wire,covered: 30/40/50A
+what-wire-size-for-30-amp,wire-for-220-volt,wire,covered
+10-2-or-10-3-wire-for-ac,wire-for-220-volt,wire,0 Bing
+portable-ac-vs-window-ac,portable-vs-window-ac,portable-window,literal duplicate
+do-window-acs-pull-air-from-outside,do-portable-acs-pull-air-from-outside,portable-window,pair
+how-do-portable-acs-work,portable-air-conditioners,portable-window,hub covers it
+can-you-use-portable-ac-without-hose,how-to-vent-portable-ac-without-window,portable-window,venting intent
+window-ac-installation-guide,how-to-tilt-window-ac,portable-window,install intent
+window-ac-vs-mini-split,mini-split-vs-central-air,portable-window,comparison exists
+central-ac-vs-mini-split-vs-window,mini-split-vs-central-air,portable-window,comparison exists
+saddle-u-shaped-air-conditioners,window-air-conditioners,portable-window,"product roundup, 27 brands"
+window-too-small-for-ac,window-air-conditioners,portable-window,fit section
+programmable-vs-smart-thermostat,smart-thermostat-savings,thermostat,same decision
+thermostat-heat-on-but-no-heat,furnace-blowing-cold-air,furnace,troubleshooting
+furnace-flame-sensor,furnace-blowing-cold-air,furnace,troubleshooting
+furnace-filter-merv-rating,merv-rating-chart,furnace,MERV page exists
+dirty-furnace-filter-photos,how-often-change-hvac-filter,furnace,filter page exists
+furnace-maintenance,hvac-maintenance-checklist,furnace,checklist has furnace items
+how-long-do-furnaces-last,hvac-system-lifespan,furnace,lifespan hub
+do-furnaces-have-pilot-lights,pilot-light-gas-usage,furnace,same topic
+upflow-vs-downflow-furnace,furnace-guide,furnace,4 sessions
+heat-pump-vs-ac,heat-pump-guide,heat-pump,covered
+generator-cost-per-kwh,propane-generator-usage-per-hour,generator,one fuel/runtime page
+natural-gas-generator-running-cost,propane-generator-usage-per-hour,generator,one fuel/runtime page
+how-long-generator-on-5-gallons,propane-generator-usage-per-hour,generator,one fuel/runtime page
+how-long-do-generators-last,generator-guide,generator,hub section
+mini-split-maintenance-guide,mini-split-air-conditioners,mini-split,maintenance section exists
+dehumidifier-electricity-usage,dehumidifier-running-cost,dehumidifier,tool covers it
+how-does-a-dehumidifier-work,dehumidifier-guide,dehumidifier,covered
+ac-dry-mode-vs-dehumidifier,dry-mode-in-ac,dehumidifier,covered
+does-dehumidifier-cool-a-room,dehumidifier-guide,dehumidifier,FAQ
+basement-dehumidifier-setting,dehumidifier-guide,dehumidifier,FAQ
+dehumidifier-vs-air-purifier,dehumidifier-guide,dehumidifier,comparison section
+indoor-air-quality-guide,how-to-improve-indoor-air-quality,iaq,near-duplicate
+cadr-rating-explained,air-purifier-sizing-guide,iaq,CADR in tool
+do-air-purifiers-really-work,air-purifier-guide,iaq,covered
+allergen-control-guide,how-to-improve-indoor-air-quality,iaq,covered
+mold-prevention-guide,how-to-identify-mold,iaq,one mold page
+mold-remediation-cost,how-to-identify-mold,iaq,one mold page
+electric-fireplace-cost-to-run,space-heater-guide,misc,2 sessions
+space-heater-vs-central-heat,space-heater-guide,misc,3 sessions
+home-energy-audit-diy,hvac-energy-saving-tips,misc,3 sessions

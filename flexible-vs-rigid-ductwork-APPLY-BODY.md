@@ -1,0 +1,88 @@
+---
+slug: "flexible-vs-rigid-ductwork"
+title: "Flexible vs Rigid Ductwork: Pros, Cons, and When to Use Each (2026)"
+description: "Flexible and rigid ductwork compared on airflow, leakage, durability and installation, why flex duct must be pulled tight, where each belongs, and how to size both."
+cluster: "ductwork-ventilation"
+role: "spoke"
+priority: 2
+contentType: "comparison-guide"
+author: "Marko Visic, BSc Physics"
+datePublished: "2026-02-07"
+dateModified: "2026-09-28"
+relatedArticles:
+  - "ductwork-sizing-calculator"
+  - "duct-leakage-testing"
+  - "hvac-ductwork-guide"
+  - "hvac-noise-levels-explained"
+  - "ac-not-cooling"
+externalLinks:
+  - label: "ENERGY STAR: Duct sealing"
+    url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing"
+  - label: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
+    url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
+---
+
+import { SourcesBox, RelatedArticles } from '@/components'
+
+# Flexible vs Rigid Ductwork
+
+Flexible duct is a wire coil wrapped in a plastic liner and insulation; rigid duct is sheet metal or duct board. Both move air, but the way flex duct is installed decides whether it moves enough, which makes the comparison as much about workmanship as material.
+
+**Rigid sheet metal moves air with the least friction and lasts longest, so it belongs on trunk lines and long runs. Flexible duct is cheaper and faster to install for short branch connections, but only if it's pulled tight and well supported; sagging or compressed flex duct can choke airflow to a room.**
+
+## How they compare
+
+| | Rigid (sheet metal) | Flexible |
+|---|---|---|
+| Airflow resistance | Lowest, smooth interior | Higher, from the ribbed liner; much higher if compressed or sagging |
+| Installation | Slower, needs fittings and sealing at every joint | Fast, bends around obstacles |
+| Durability | Long-lived, hard to damage | Liner and jacket can tear or be crushed |
+| Leakage | Seams must be sealed with mastic or tape | Fewer joints, but connections must be clamped and sealed |
+| Insulation | Wrapped separately where needed | Usually comes insulated |
+| Best use | Trunks, long runs, returns | Short branch runs to registers |
+
+## Why flex duct has to be pulled tight
+
+The inside of a flex duct is a corrugated liner over a wire coil. Stretched straight, it still has more friction than smooth metal. Bunched up, sagging between supports or bent sharply, the corrugations deepen and the duct's resistance rises sharply, so the room at the end of the run gets far less air than designed.
+
+Good flex installation means pulling the duct to its full length, supporting it so it can't sag, using long gentle bends instead of sharp ones, and cutting off the excess instead of coiling it. Flexible duct and connectors are listed to UL 181, and the manufacturer's installation instructions set the support spacing.
+
+## Sizing
+
+Both are sized from the airflow each run carries and the friction rate the system can afford. Our [ductwork sizing calculator](/ductwork-sizing-calculator) sizes smooth sheet-metal duct; flex duct has more friction for the same airflow, so size it larger. The industry method for the whole system, including fittings, is ACCA's Manual D.
+
+## Leakage
+
+Leaks matter more than material. The DOE puts duct air losses at about 30% of a cooling system's energy, and ENERGY STAR says leaky ducts can reduce heating and cooling efficiency by as much as 20%. Seal every rigid seam and every flex connection with mastic or approved tape, and clamp flex to its fittings; see [duct leakage testing](/duct-leakage-testing).
+
+## When to use each
+
+- **Rigid:** main trunks, long straight runs, return ducts, and anywhere the duct could be stepped on or crushed.
+- **Flexible:** short connections from the trunk to ceiling or floor registers, especially in attics where routing around framing is hard.
+- **Both:** most good systems use rigid trunks with short flex branches.
+
+## Frequently asked questions
+
+### Is flexible duct as good as rigid?
+
+For short, straight, well-supported branch runs, it works well. For long runs, or installed with sags and kinks, it delivers noticeably less air.
+
+### How long can a flex duct run be?
+
+Keep flex runs short and straight. Long runs add friction and invite sagging; the system design (Manual D) and the manufacturer's instructions set the limits.
+
+### Why is one room colder or hotter than the rest?
+
+A crushed, kinked or disconnected flex run is a common cause, along with undersized ducts and leaks. Check the runs in the attic or crawl space first.
+
+### Does flex duct need to be insulated?
+
+In unconditioned spaces such as attics, yes. Most flex duct comes with insulation built in; check that it meets your local code.
+
+<SourcesBox sources={[
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), duct losses about 30%", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
+  { title: "ENERGY STAR: Duct sealing (leaky ducts reduce efficiency up to 20%)", url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing" },
+  { title: "ACCA: Technical manuals (Manual D)", url: "https://www.acca.org/standards/technical-manuals" }
+]} />
+
+<RelatedArticles articles={frontmatter.relatedArticles} />
