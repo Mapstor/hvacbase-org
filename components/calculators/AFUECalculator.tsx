@@ -72,7 +72,7 @@ const DEFAULTS = {
   currentAfue: 'old-70',
   newAfue: 'high-95',
   homeSize: '2000',
-  gasPrice: '1.35',           // EIA 2026 US heating-season national midpoint
+  gasPrice: '1.35',           // assumed national example, not an EIA figure
   climate: 'average',         // DC/KC ~4,500 HDD
   insulation: 'average',      // 1980s–90s envelope, UA 0.270
   priceDifference: '',        // optional; payback only shows when provided
@@ -239,7 +239,7 @@ export default function AFUECalculator() {
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               Natural gas price ($/therm)
               <InfoTip label="gas price">
-                Check your latest bill. EIA 2026 US heating-season national average is about $1.35/therm. Regional spread: Northeast ~$1.60, West ~$1.35, Midwest ~$1.15, South ~$1.05.
+                Assumed national example; enter the rate from your gas bill. The $1.35/therm default is an assumption, not an official figure, and gas prices vary a lot by region and season.
               </InfoTip>
             </label>
             <NumberInput
