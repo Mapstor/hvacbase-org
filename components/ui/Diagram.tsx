@@ -9,8 +9,12 @@ interface DiagramProps {
   caption: string;
   /** Intrinsic width in px; must equal the SVG viewBox width. Default 800. */
   width?: number;
-  /** Intrinsic height in px; must equal the SVG viewBox height. */
-  height?: number;
+  /**
+   * Intrinsic height in px; must equal the SVG viewBox height. Required: the
+   * width+height attribute pair is what reserves the box and keeps the figure
+   * CLS-safe, so a Diagram can never render without a height.
+   */
+  height: number;
   /** Above-the-fold diagram: eager-load and fetchPriority="high". Default false. */
   priority?: boolean;
 }
@@ -45,7 +49,7 @@ export default function Diagram({
         decoding="async"
         {...(priority ? { fetchPriority: 'high' as const } : {})}
         style={imgStyle}
-        className="mx-auto"
+        className="block mx-auto"
       />
       <figcaption className="mt-2 text-sm text-gray-500">{caption}</figcaption>
     </figure>
