@@ -63,6 +63,14 @@ export function generatePersonSchema() {
   };
 }
 
+// A bare "YYYY-MM-DD" becomes a full ISO 8601 datetime with a UTC offset
+// (schema.org / Google prefer a time + timezone). Values that already carry a
+// time are passed through unchanged.
+function toIsoDateTime(d?: string): string | undefined {
+  if (!d) return d;
+  return /\dT\d/.test(d) ? d : `${d}T00:00:00+00:00`;
+}
+
 export function generateArticleSchema(meta: ArticleMeta) {
   // Calculate word count from reading time (assuming ~200 words per minute)
   const wordCount = meta.readingTime ? parseInt(meta.readingTime) * 200 : 1000;
@@ -82,8 +90,8 @@ export function generateArticleSchema(meta: ArticleMeta) {
       sameAs: [AUTHOR_LINKEDIN],
     },
     publisher: { '@id': ORGANIZATION_ID },
-    datePublished: meta.datePublished,
-    dateModified: meta.dateModified,
+    datePublished: toIsoDateTime(meta.datePublished),
+    dateModified: toIsoDateTime(meta.dateModified || meta.datePublished),
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/${meta.slug}`,
