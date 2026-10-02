@@ -105,6 +105,54 @@ export function getArticleBySlug(slug: string): Article | null {
   return null;
 }
 
+function stripFaqMd(s: string): string {
+  return s
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') // markdown link -> its text
+    .replace(/[*_`#>]/g, '')                  // bold/italic/code/heading/quote marks
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Pull Q&A pairs out of a markdown "## Frequently asked questions" section so the
+ * article page can emit FAQPage JSON-LD. Questions are bold-only lines
+ * (`**...?**`) or H3-H6 headings ending in "?"; the answer is the text up to the
+ * next question, the next "## " section, or a JSX component block. Pages that use
+ * the <FAQ> component (which emits its own FAQPage) have no such markdown heading,
+ * so this returns [] for them and nothing is double-emitted.
+ */
+export function extractFaqFromMarkdown(content: string): { question: string; answer: string }[] {
+  const m = content.match(/^##\s+Frequently asked questions\s*$/im);
+  if (!m || m.index === undefined) return [];
+  let section = content.slice(m.index + m[0].length);
+  const end = section.match(/^##\s+|^<[A-Z]/m);
+  if (end && end.index !== undefined) section = section.slice(0, end.index);
+
+  const items: { question: string; answer: string }[] = [];
+  let question: string | null = null;
+  let buf: string[] = [];
+  const flush = () => {
+    if (question) {
+      const answer = stripFaqMd(buf.join(' '));
+      if (answer) items.push({ question, answer });
+    }
+    buf = [];
+  };
+  for (const line of section.split('\n')) {
+    const t = line.trim();
+    const mb = t.match(/^\*\*(.+?\?)\*\*$/);
+    const mh = t.match(/^#{3,6}\s+(.+\?)\s*$/);
+    if (mb || mh) {
+      flush();
+      question = (mb ? mb[1] : mh![1]).trim();
+    } else if (question) {
+      buf.push(t);
+    }
+  }
+  flush();
+  return items;
+}
+
 export function getAllArticles(): Article[] {
   const files = getAllMdxFiles(contentDir);
   return files

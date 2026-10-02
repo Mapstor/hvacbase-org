@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
-import { getArticleBySlug, getAllSlugs, getRelatedArticles } from '@/lib/content';
+import { getArticleBySlug, getAllSlugs, getRelatedArticles, extractFaqFromMarkdown } from '@/lib/content';
 import ArticleLayout from '@/components/layout/ArticleLayout';
 import RelatedArticles from '@/components/ui/RelatedArticles';
-import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schema';
+import { generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema';
 import { mdxComponents } from '@/lib/mdx-components';
 import { getClusterRoute, getClusterDisplayName } from '@/lib/cluster-mapping';
 import type { Metadata } from 'next';
@@ -56,7 +56,7 @@ export default function ArticlePage({ params }: PageProps) {
   const related = getRelatedArticles(params.slug, 4);
   const clusterRoute = getClusterRoute(article.meta.cluster);
   const clusterName = getClusterDisplayName(article.meta.cluster);
-  const schemas = [
+  const schemas: object[] = [
     generateArticleSchema(article.meta, article.rawContent),
     generateBreadcrumbSchema([
       { name: 'Home', url: '/' },
@@ -64,6 +64,10 @@ export default function ArticlePage({ params }: PageProps) {
       { name: article.meta.title, url: `/${article.meta.slug}` },
     ]),
   ];
+  // FAQPage: pages using the <FAQ> component emit it themselves; pages that
+  // author FAQs as a markdown "## Frequently asked questions" section get it here.
+  const faqItems = extractFaqFromMarkdown(article.content);
+  if (faqItems.length) schemas.push(generateFAQSchema(faqItems));
 
   return (
     <>
