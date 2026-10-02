@@ -71,9 +71,21 @@ function toIsoDateTime(d?: string): string | undefined {
   return /\dT\d/.test(d) ? d : `${d}T00:00:00+00:00`;
 }
 
-export function generateArticleSchema(meta: ArticleMeta) {
-  // Calculate word count from reading time (assuming ~200 words per minute)
-  const wordCount = meta.readingTime ? parseInt(meta.readingTime) * 200 : 1000;
+// Body word count, the same method as scripts/content-audit.mjs and the READY
+// scan: strip frontmatter, fenced + inline code, then markdown punctuation.
+// Pass the raw file contents (frontmatter included); it is stripped here.
+export function countBodyWords(raw: string): number {
+  const body = raw.replace(/^---\n[\s\S]*?\n---/, '');
+  const noCode = body.replace(/```[\s\S]*?```/g, ' ').replace(/`[^`]*`/g, ' ');
+  return noCode.replace(/[#*_>|`\-]/g, ' ').split(/\s+/).filter(Boolean).length;
+}
+
+export function generateArticleSchema(meta: ArticleMeta, rawBody?: string) {
+  // wordCount from the actual body when available; fall back to the reading-time
+  // estimate only if no body was passed.
+  const wordCount = rawBody
+    ? countBodyWords(rawBody)
+    : (meta.readingTime ? parseInt(meta.readingTime) * 200 : 1000);
 
   return {
     '@context': 'https://schema.org',

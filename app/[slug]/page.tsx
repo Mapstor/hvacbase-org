@@ -57,7 +57,7 @@ export default function ArticlePage({ params }: PageProps) {
   const clusterRoute = getClusterRoute(article.meta.cluster);
   const clusterName = getClusterDisplayName(article.meta.cluster);
   const schemas = [
-    generateArticleSchema(article.meta),
+    generateArticleSchema(article.meta, article.rawContent),
     generateBreadcrumbSchema([
       { name: 'Home', url: '/' },
       { name: clusterName, url: `/${clusterRoute}` },
