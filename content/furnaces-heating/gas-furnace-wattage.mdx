@@ -1,164 +1,79 @@
 ---
 slug: "gas-furnace-wattage"
-title: "How Many Watts Does a Gas Furnace Use? (Blower Motor Power)"
-description: "A gas furnace uses 300-800 watts during operation, mostly from the blower motor. Variable-speed blowers use 75-200W on low; single-speed use 400-700W. Full breakdown with generator sizing guide."
+title: "How Many Watts Does a Gas Furnace Use? (Blower Motor Power, 2026)"
+description: "How much electricity a gas furnace uses for its blower, inducer, igniter and controls, how to find your furnace's watts, what it costs to run, and what it means for generators and batteries."
 cluster: "furnaces-heating"
 role: "spoke"
 priority: "P2"
 contentType: "guide"
 datePublished: "2026-02-02"
-dateModified: "2026-07-17"
+author: "Marko Visic, BSc Physics"
+dateModified: "2026-10-02"
 relatedArticles:
   - "furnace-guide"
-  - "gas-vs-electric-heating-cost"
+  - "what-size-generator-do-i-need"
+  - "home-battery-backup-guide"
+  - "kwh-cost-calculator"
   - "afue-rating-explained"
 externalLinks:
+  - label: "eCFR: 10 CFR Part 430 (furnace fan standards)"
+    url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430"
 ---
 
-import TableOfContents from '@/components/TableOfContents'
-import FAQ from '@/components/FAQ'
-import ComparisonTable from '@/components/ComparisonTable'
-import Callout from '@/components/Callout'
-import SourcesBox from '@/components/SourcesBox'
-import RelatedArticles from '@/components/RelatedArticles'
-import CalcWrapper from '@/components/calculators/CalcWrapper'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-# How Many Watts Does a Gas Furnace Use? (Blower Motor Power)
+# How Many Watts Does a Gas Furnace Use?
 
-A gas furnace typically uses **300 to 800 watts** of electricity during a heating cycle — far less than the 10,000–24,000 watts an electric furnace consumes. About 80–90% of that electricity goes to the blower motor, with the rest powering the gas valve, inducer motor, control board, and igniter. A variable-speed (ECM) blower uses 75–200 watts on low speed versus 400–700 watts for a single-speed motor — saving $50–$150/year in electricity.
+A gas furnace burns gas for heat, but it still needs electricity to run: mostly for the blower that pushes air through the ducts, plus a small draft inducer, the igniter and the controls. That electricity matters for your bill, and even more if you want to run the furnace from a generator or battery in an outage.
 
-This matters for sizing a backup generator, understanding your electricity bill, and recognizing the hidden electrical operating cost beyond just gas.
-
-<TableOfContents />
+**Most of a gas furnace's electricity goes to its blower. Find your furnace's draw from its rating plate (amps × 120 volts); as an example, a blower drawing 500 watts for 8 hours a day uses 120 kWh a month, about $22 at 18 cents per kWh. Newer furnaces use more efficient blower motors, under a DOE furnace fan standard.**
 
 <CalcWrapper calculator="furnace-electrical" />
 
-## Wattage Breakdown by Component
+## Where the electricity goes
 
-<ComparisonTable
-  title="Gas Furnace Electrical Components — Power Draw"
-  headers={["Component", "Watts", "When It Runs", "Run Time Per Cycle"]}
-  rows={[
-    ["Blower motor (single-speed PSC)", "400–700W", "During heating + 1-2 min after", "8–15 min per cycle"],
-    ["Blower motor (variable-speed ECM)", "75–500W (varies)", "During heating + 1-2 min after", "Longer cycles at lower speed"],
-    ["Inducer motor", "50–150W", "Before, during, and after combustion", "10–18 min per cycle"],
-    ["Hot surface igniter", "80–200W", "During ignition only", "30–60 seconds"],
-    ["Gas valve", "5–10W", "During combustion", "8–15 min per cycle"],
-    ["Control board", "5–15W", "Continuous standby", "24/7"],
-    ["**Total during heating**", "**300–800W**", "—", "—"],
-    ["**Standby (off)**", "**5–20W**", "—", "24/7"],
-  ]}
-/>
+- **Blower motor:** moves air through the ducts, and runs the whole time the furnace heats; it's the largest load.
+- **Draft inducer:** a small fan that vents combustion gases before and during each cycle.
+- **Igniter:** a hot-surface igniter draws power for a short time at the start of each cycle.
+- **Controls:** the control board and thermostat use very little.
 
-## Annual Electricity Cost
+## Finding your furnace's watts
 
-<ComparisonTable
-  title="Gas Furnace Electricity Cost — 2026"
-  headers={["Blower Type", "Avg Watts", "Monthly Cost*", "Heating Season Cost*"]}
-  rows={[
-    ["Single-speed (PSC)", "550W avg", "$21–$32", "$126–$190"],
-    ["Multi-speed", "350–500W avg", "$13–$29", "$80–$173"],
-    ["Variable-speed (ECM)", "150–350W avg", "$7–$27", "$43–$161"],
-  ]}
-  footnote="*Based on 8-12 hours/day runtime, $0.18/kWh national average, 6-month heating season."
-/>
+The rating plate inside the furnace door lists the electrical rating, often as amps at 120 volts; watts ≈ amps × 120. The blower motor has its own label with its amps. The calculator above estimates typical draws by motor type; your furnace's labels give its actual figures.
 
-Variable-speed ECM blowers save $50–$150/year in electricity versus single-speed motors. They also deliver better comfort and quieter operation. The $400–$800 upgrade cost pays back in 3–8 years from electricity savings alone — plus the comfort benefits.
+## What it costs to run
 
-## Generator Sizing for a Gas Furnace
+Cost = watts × hours ÷ 1,000 × your rate. A 500-watt blower running 8 hours a day for 30 days uses 120 kWh, about $21.60 at 18 cents per kWh. Many furnaces run the blower at lower speeds for much of the time, which uses less.
 
-A gas furnace needs electricity for the blower, controls, and igniter — so it won't work during a power outage without a generator or battery backup.
+## Blower motor types
 
-<ComparisonTable
-  title="Generator Sizing for Gas Furnaces"
-  headers={["Furnace Type", "Running Watts", "Startup Surge Watts*", "Minimum Generator Size"]}
-  rows={[
-    ["Small furnace (single-speed)", "500W", "1,500–2,000W", "2,000W"],
-    ["Medium furnace (single-speed)", "700W", "2,000–2,500W", "3,000W"],
-    ["Large furnace (single-speed)", "800W", "2,500–3,000W", "3,500W"],
-    ["Any furnace (variable-speed ECM)", "200–500W", "500–1,000W*", "1,500–2,000W"],
-  ]}
-  footnote="*Single-speed PSC motors have high startup surge (3-4x running watts). ECM variable-speed motors have soft-start capability with minimal surge. Always size generator for surge watts, not running watts."
-/>
+Older furnaces typically use single-speed or multi-speed PSC (permanent split capacitor) motors. Newer furnaces use electronically commutated (ECM) or similar variable-speed motors, which draw much less at the low speeds they spend most of their time at. The DOE's energy conservation standard for furnace fans, in effect since 2019, pushed new furnaces toward these more efficient motors.
 
-<Callout type="tip">
-**A 3,500–5,000 watt portable generator** is sufficient to run most gas furnaces plus a few essentials (lights, refrigerator, phone charging). If you have a variable-speed furnace, you can get by with a smaller 2,000W generator. Always run the generator outdoors and at least 20 feet from windows and doors to prevent carbon monoxide poisoning.
-</Callout>
+## Generators and batteries
 
-## Gas Furnace vs. Electric Furnace Wattage
+A gas furnace can run from a generator or a battery during an outage, as long as it's connected safely through a transfer switch or interlock. Size the generator or battery for the furnace's running watts plus the blower's start-up surge; see the [generator sizing guide](/what-size-generator-do-i-need) and the [home battery backup guide](/home-battery-backup-guide).
 
-<ComparisonTable
-  title="Electricity Usage: Gas vs. Electric Furnace"
-  headers={["Specification", "Gas Furnace", "Electric Furnace"]}
-  rows={[
-    ["Operating wattage", "300–800W", "10,000–24,000W"],
-    ["Monthly electricity (winter)", "$15–$35", "$250–$550"],
-    ["Can run on portable generator?", "Yes (2,000–5,000W)", "No (needs 30,000W+)"],
-    ["Works during power outage (with generator)?", "Yes — easily", "Impractical"],
-  ]}
-/>
+## Frequently asked questions
 
-This massive wattage difference is why gas furnaces remain practical during power outages with a modest generator, while electric furnaces are essentially useless without grid power.
+### How many watts does a gas furnace use?
 
-## Measuring Your Furnace's Actual Watt Draw
+Mostly its blower; check the rating plate (amps × 120 volts). Older single-speed blowers draw more than newer variable-speed motors.
 
-Nameplate wattage on a gas furnace covers the blower motor and controls only — the natural-gas or propane burner obviously doesn't draw electricity. Actual electrical draw during operation varies with blower stage (PSC vs ECM, low vs high stage) and inducer-motor cycles, so a direct measurement gives a more accurate number than any manufacturer estimate.
+### Can a generator run a gas furnace?
 
-To measure directly, use a clamp-on ammeter around one of the two hot conductors at the furnace's dedicated 120 V circuit:
+Yes, through a transfer switch or interlock, if it covers the furnace's running watts and the blower's start-up surge.
 
-1. **Turn off the furnace at the disconnect switch** or breaker before opening any electrical compartment.
-2. **Open the wiring compartment** and identify the incoming hot conductor. (If your furnace is 240 V, both hot legs must be considered — but most residential gas furnaces run on a dedicated 120 V circuit.)
-3. **Clamp the ammeter around ONE hot conductor** — never both, since the two would cancel to zero.
-4. **Restore power.** Wait for the furnace to cycle through startup: inducer motor draws first, then ignition, then main blower comes on after a delay.
-5. **Read the amperage** at each stage. Multiply by voltage (120 V for the blower + controls circuit) to get watts.
+### How much does it cost to run a furnace blower?
 
-Typical readings for a mid-size residential gas furnace:
+About $21.60 a month for a 500-watt blower running 8 hours a day at 18 cents per kWh.
 
-- Standby (electronics only): a few watts
-- Inducer motor running: 60–120 W depending on inducer size
-- Blower motor on low: PSC blowers roughly 250–400 W; ECM blowers often 100–200 W
-- Blower motor on high: PSC 400–600 W; ECM 200–400 W
+### Does a gas furnace work without electricity?
 
-If the reading is dramatically higher than expected (say 800+ W for a small residential furnace), suspect a bearing issue on the blower or a failing run capacitor causing high current draw. This is a useful early diagnostic — a failing blower motor draws more amperage months before it makes noise or fails outright.
+No. Without power, the blower, inducer, igniter and controls can't run, so the furnace won't heat.
 
-## Battery Backup Sizing for a Gas Furnace
-
-Because the burner runs on gas but the blower runs on electricity, a small battery backup can keep the furnace circulating heat through a grid outage — much cheaper than a whole-house generator sized for total home load.
-
-Sizing math is straightforward:
-
-1. **Furnace peak wattage** — take the highest-stage blower + inducer figure. Add 30% safety margin for startup surge. For a typical 500 W PSC-blower furnace: 500 × 1.3 = 650 W peak draw.
-2. **Battery continuous output** — must exceed peak draw. A 1,000 W continuous / 2,000 W peak battery covers a 650 W furnace comfortably.
-3. **Battery capacity for runtime** — capacity in Wh ÷ average draw in W = hours. A 1,000 Wh battery at 400 W average blower draw (blower cycles on/off with thermostat calls) delivers 2.5 hours of continuous fan runtime, or roughly 5–8 hours of intermittent operation matching typical thermostat cycling in cold weather.
-
-For multi-day outages, larger battery packs (2,000–5,000 Wh) or a battery + small inverter-generator combo covers the furnace while limiting fuel consumption. Whole-home battery systems (13.5 kWh class) handle a gas furnace easily plus dozens of hours of other essential loads.
-
-The wiring side matters: batteries connected via a simple manual transfer switch feed the furnace only; interlocked automatic transfer switches feed the whole panel. For a furnace-only backup, the manual approach is simpler and cheaper. Consult a licensed electrician for any transfer-switch install — improper wiring can back-feed the utility grid and injure line workers.
-
-## Key Takeaways
-
-<Callout type="takeaway">
-- A gas furnace uses **300–800 watts** — mostly from the blower motor. This is tiny compared to an electric furnace (10,000–24,000W).
-- **Variable-speed ECM blowers** use 60–75% less electricity than single-speed PSC motors, saving $50–$150/year.
-- A **3,500–5,000W portable generator** can power a gas furnace during outages. Electric furnaces cannot practically run on generators.
-- The **startup surge** from single-speed motors is 3–4× the running watts — size your generator for surge, not running watts.
-- **Annual electricity cost** for a gas furnace blower: $43–$190 depending on motor type and runtime. A small but real addition to your heating costs.
-</Callout>
-
-<FAQ questions={[
-  {
-    question: "Does a gas furnace work without electricity?",
-    answer: "No. Even though the fuel is gas, a gas furnace requires electricity for the blower motor, control board, gas valve, igniter, and inducer motor. Without electricity, the furnace cannot operate. You need either grid power, a generator, or a battery backup system."
-  },
-  {
-    question: "What size UPS or battery backup do I need for a gas furnace?",
-    answer: "For short outages (1-4 hours), a 1,500-2,000W UPS with a large battery bank can keep a furnace running. For extended outages, a generator is more practical. Some homeowners install a dedicated battery backup (like a Tesla Powerwall at 13.5 kWh) that can run a gas furnace for 15-40+ hours depending on duty cycle."
-  },
-  {
-    question: "What is an ECM blower motor?",
-    answer: "ECM stands for Electronically Commutated Motor — a brushless DC motor that adjusts its speed based on demand. Unlike a single-speed PSC motor that runs at one speed (full blast), an ECM motor can run at any speed from very low to full capacity. Benefits include 60-75% less electricity use, quieter operation, better humidity control, and more even temperatures. ECM motors are standard on mid-range and premium furnaces."
-  }
+<SourcesBox sources={[
+  { title: "eCFR: 10 CFR Part 430 (energy conservation standards, including furnace fans)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
 ]} />
 
-## Related Articles
-
+<RelatedArticles articles={frontmatter.relatedArticles} />
