@@ -16,7 +16,6 @@ import {
   CalcShell,
   SectionHeader,
   CardChoice,
-  Segmented,
   NumberInput,
   InfoTip,
   ResultHero,
@@ -26,6 +25,7 @@ import {
   CalculateResetBar,
   useCalculatorSubmit,
 } from './_shared';
+import residentialRates from '@/data/eia/residential-rates.json';
 
 const ACCENT = 'orange' as const;
 
@@ -50,18 +50,33 @@ const heatingHoursOptions = [
   { value: '2000', name: 'Very cold', sub: '2000 hrs' },
 ];
 
-const electricRateOptions = [
-  { value: '0.10', name: 'Low', sub: '$0.10/kWh' },
-  { value: '0.14', name: 'Average', sub: '$0.14/kWh' },
-  { value: '0.20', name: 'High', sub: '$0.20/kWh' },
-  { value: '0.30', name: 'Very high', sub: '$0.30/kWh' },
-];
+// State residential prices from the EIA Electric Power Monthly dataset
+// (year-to-date average, January to July 2026). Optional quick-fill picker.
+const NAME_TO_CODE: Record<string, string> = {
+  Alabama: 'AL', Alaska: 'AK', Arizona: 'AZ', Arkansas: 'AR', California: 'CA', Colorado: 'CO',
+  Connecticut: 'CT', Delaware: 'DE', Florida: 'FL', Georgia: 'GA', Hawaii: 'HI', Idaho: 'ID',
+  Illinois: 'IL', Indiana: 'IN', Iowa: 'IA', Kansas: 'KS', Kentucky: 'KY', Louisiana: 'LA',
+  Maine: 'ME', Maryland: 'MD', Massachusetts: 'MA', Michigan: 'MI', Minnesota: 'MN', Mississippi: 'MS',
+  Missouri: 'MO', Montana: 'MT', Nebraska: 'NE', Nevada: 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ',
+  'New Mexico': 'NM', 'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', Ohio: 'OH', Oklahoma: 'OK',
+  Oregon: 'OR', Pennsylvania: 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC', 'South Dakota': 'SD', Tennessee: 'TN',
+  Texas: 'TX', Utah: 'UT', Vermont: 'VT', Virginia: 'VA', Washington: 'WA', 'West Virginia': 'WV',
+  Wisconsin: 'WI', Wyoming: 'WY', 'District of Columbia': 'DC',
+};
+const rateData = residentialRates.rates as Record<string, { yearToDateCentsPerKwh: number }>;
+const stateRates: Record<string, { rate: number; name: string }> = Object.fromEntries(
+  Object.entries(NAME_TO_CODE)
+    .filter(([name]) => rateData[name])
+    .map(([name, code]) => [code, { rate: rateData[name].yearToDateCentsPerKwh, name }]),
+);
+const stateList = Object.entries(stateRates).sort((a, b) => a[1].name.localeCompare(b[1].name));
 
 const DEFAULTS = {
   furnaceSize: '80000',
   blowerType: 'psc',
   runHours: '1200',
-  electricRate: '0.14',
+  electricRate: '0.18', // EIA 2026 US residential average
+  state: '',
   fanOnlyHours: '500',
 };
 
@@ -70,11 +85,18 @@ export default function FurnaceElectricalCalculator() {
   const [blowerType, setBlowerType] = useState(DEFAULTS.blowerType);
   const [runHours, setRunHours] = useState(DEFAULTS.runHours);
   const [electricRate, setElectricRate] = useState(DEFAULTS.electricRate);
+  const [state, setState] = useState(DEFAULTS.state);
   const [fanOnlyHours, setFanOnlyHours] = useState(DEFAULTS.fanOnlyHours);
 
   const { src, hasResult, dirty, calculate, clear } = useCalculatorSubmit({
-    furnaceSize, blowerType, runHours, electricRate, fanOnlyHours,
+    furnaceSize, blowerType, runHours, electricRate, state, fanOnlyHours,
   });
+
+  // Picking a state quick-fills the editable rate (cents -> $); user can override.
+  const applyStateRate = (code: string) => {
+    setState(code);
+    if (stateRates[code]) setElectricRate((stateRates[code].rate / 100).toFixed(4).replace(/0+$/, '').replace(/\.$/, ''));
+  };
 
   const specs = furnaceSizes.find((f) => f.value === src.furnaceSize)!;
   const blower = blowerTypes.find((b) => b.value === src.blowerType)!;
@@ -87,6 +109,7 @@ export default function FurnaceElectricalCalculator() {
     setBlowerType(DEFAULTS.blowerType);
     setRunHours(DEFAULTS.runHours);
     setElectricRate(DEFAULTS.electricRate);
+    setState(DEFAULTS.state);
     setFanOnlyHours(DEFAULTS.fanOnlyHours);
     clear();
   };
@@ -131,7 +154,7 @@ export default function FurnaceElectricalCalculator() {
     calc.totalKwh === 0 ? { tone: 'warn' as const, text: 'Enter runtime hours' } :
     calc.annualCost < 50 ? { tone: 'good' as const, text: 'Trivial annual electric cost' } :
     calc.annualCost < 120 ? { tone: 'good' as const, text: 'Modest annual electric cost' } :
-                            { tone: 'ok' as const, text: 'Notable cost, ECM upgrade pays back' };
+                            { tone: 'ok' as const, text: 'Notable annual electric cost' };
 
   return (
     <CalcShell
@@ -174,9 +197,28 @@ export default function FurnaceElectricalCalculator() {
               <NumberInput value={fanOnlyHours} onChange={setFanOnlyHours} min={0} max={8760} suffix="hrs" ariaLabel="Fan-only hours" accent={ACCENT} />
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-700 mb-2 block">Electric rate</label>
-              <Segmented value={electricRate} onChange={setElectricRate} options={electricRateOptions} ariaLabel="Electric rate" accent={ACCENT} />
+              <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                Electric rate
+                <InfoTip label="electric rate">Check your latest bill. The default $0.18/kWh is the EIA U.S. residential average, January to July 2026. Pick a state below to quick-fill that state&rsquo;s EIA average.</InfoTip>
+              </label>
+              <NumberInput value={electricRate} onChange={setElectricRate} min={0.05} max={0.6} suffix="$/kWh" ariaLabel="Electric rate" accent={ACCENT} />
             </div>
+          </div>
+          <div>
+            <label className="text-sm font-medium text-gray-700 mb-2 block">
+              State quick-fill <span className="text-xs font-normal text-gray-500">(EIA average, Jan-Jul 2026)</span>
+            </label>
+            <select
+              value={state}
+              onChange={(e) => applyStateRate(e.target.value)}
+              aria-label="State electricity rate"
+              className="w-full max-w-sm px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
+            >
+              <option value="">Select a state (optional)</option>
+              {stateList.map(([code, { name, rate }]) => (
+                <option key={code} value={code}>{name}, {rate.toFixed(2)}&cent;/kWh</option>
+              ))}
+            </select>
           </div>
         </div>
       </section>
@@ -234,6 +276,7 @@ export default function FurnaceElectricalCalculator() {
                 { label: 'Total annual kWh', value: `${fmt(Math.round(calc.totalKwh))} kWh`, valueClass: 'text-orange-700' },
               ]}
             />
+            <p className="text-[11px] text-gray-600 mt-3 leading-snug">Wattages are typical; check your furnace&rsquo;s rating plate (amps x 120 V) for its exact draw.</p>
           </div>
 
           {/* CIRCUIT / WIRING PANEL — reframed as CONFIRMING that the furnace
@@ -300,8 +343,8 @@ export default function FurnaceElectricalCalculator() {
               <p className="text-xs text-gray-700 leading-relaxed">
                 Your PSC blower pulls <strong>{specs.blowerWatts}W</strong>. An ECM swap drops that to roughly{' '}
                 <strong>{Math.round(specs.blowerWatts * 0.5)}W</strong>, saving <strong>${fmtMoney(calc.ecmSavings)}/yr</strong>.
-                ECM motors also run variable-speed for better comfort and 50% quieter operation. Upgrade typically costs $800–$1,200, payback in {calc.ecmSavings > 0 ? `${(1000 / calc.ecmSavings).toFixed(1)} years` : ', '}.
-                Some state/utility programs (check DSIRE for your area) offset part of the swap cost.
+                ECM motors also run variable-speed for better comfort and 50% quieter operation.
+                Some state/utility programs (check DSIRE for your area) may offset part of the cost.
               </p>
             </div>
           )}
