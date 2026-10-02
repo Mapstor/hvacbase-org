@@ -366,7 +366,7 @@ export default function AFUECalculator() {
               </p>
             </div>
             <p className="text-[11px] text-gray-500 mt-3 leading-snug">
-              Assumes stable gas prices. Natural gas has averaged about 3%/yr over the last 20 years, so real savings are likely higher.
+              Assumes stable gas prices.
             </p>
           </div>
         </div>
