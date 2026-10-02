@@ -76,7 +76,7 @@ function jaccard(a, b) {
 }
 
 // ---------- config lists ----------
-const BRANDS = ['Carrier','Trane','Lennox','Goodman','Rheem','Ruud','Bryant','Amana','Daikin','Mitsubishi','Fujitsu','LG','Samsung','Gree','Midea','MrCool','Senville','Pioneer','Cooper & Hunter','Bosch','York','Honeywell','Nest','Ecobee','Emerson','Frigidaire','GE','Whynter','hOmeLabs','Santa Fe','AprilAire','Blueair','Coway','Levoit','Winix','Dyson','Rinnai','Navien','EcoSmart','Stiebel Eltron','Generac','Honda','Champion','Westinghouse','Tesla','Powerwall','Enphase','Renogy','Battle Born','Victron','Aranet','Qingping','Airthings','Temtop','Awair','uHoo','Kaiterra','PurpleAir','IQAir','Aeroseal','Sensi','A.O. Smith','Bradford White','Noritz','Takagi','Kohler','Briggs & Stratton','Haier','Toshiba','Heil','Tempstar','Fresh-Aire','RGF','Steril-Aire','Lumalier','UVGI Solutions','Atlantic Ultraviolet','Philips','Osram','Sylvania','Light Sources','WaterFurnace','ClimateMaster','Span','Lumin','AirGradient'];
+const BRANDS = ['Carrier','Trane','Lennox','Goodman','Rheem','Ruud','Bryant','Amana','Daikin','Mitsubishi','Fujitsu','LG','Samsung','Gree','Midea','MrCool','Senville','Pioneer','Cooper & Hunter','Bosch','York','Honeywell','Nest','Ecobee','Emerson','Frigidaire','GE','Whynter','hOmeLabs','Santa Fe','AprilAire','Blueair','Coway','Levoit','Winix','Dyson','Rinnai','Navien','EcoSmart','Stiebel Eltron','Generac','Honda','Champion','Westinghouse','Tesla','Powerwall','Enphase','Renogy','Battle Born','Victron','Aranet','Qingping','Airthings','Temtop','Awair','uHoo','Kaiterra','PurpleAir','IQAir','Aeroseal','Sensi','A.O. Smith','Bradford White','Noritz','Takagi','Kohler','Briggs & Stratton','Haier','Toshiba','Heil','Tempstar','Fresh-Aire','RGF','Steril-Aire','Lumalier','UVGI Solutions','Atlantic Ultraviolet','Philips','Osram','Sylvania','Light Sources','WaterFurnace','ClimateMaster','Span','Lumin','AirGradient','Pro-Lab','HomeBiotics','ImmunoLytics','Warmboard','Uponor','Nuheat','Schluter'];
 const ORGS = ['EPA','DOE','ENERGY STAR','EIA','ASHRAE','ACCA','AHRI','NFPA','NEC','CDC','CPSC','FDA','IRS','NREL','ESFI','UL'];
 const OVERCLAIMS = ['exact','most comprehensive','best','top-rated','#1','guaranteed','Manual J based','Manual J methodology','AHRI Certified','every number'];
 const OLD_TELLS = ['Time Required','Difficulty:','Step 1:','Key Takeaways','Pro Tip','Good to Know','Real-World Example'];
@@ -525,6 +525,19 @@ function scanMdx(file) {
     if (PER_DEGREE_RE.test(s)) perDegreeFlags.push({ slug, sentence: clean(s).slice(0, 300) });
   }
 
+  // (q) STRUCTURE CHECKS — RelatedArticles prop, missing H1, URL-less SourcesBox
+  // <RelatedArticles slugs={...}> is broken: the component takes `articles`, not `slugs`.
+  c.related_slugs_prop = (body.match(/<RelatedArticles\b[^>]*\bslugs\s*=/gi) || []).length;
+  // Every page should have a markdown "# " H1 heading.
+  c.missing_h1 = /^#\s+\S/m.test(body) ? 0 : 1;
+  // Children-form <SourcesBox>…</SourcesBox> (no sources= prop) with no URL inside = uncited.
+  let sbNoUrl = 0;
+  for (const m of body.matchAll(/<SourcesBox\b([^>]*)>([\s\S]*?)<\/SourcesBox>/gi)) {
+    if (/\bsources\s*=/.test(m[1])) continue;        // prop form, parsed elsewhere
+    if (!/https?:\/\//.test(m[2])) sbNoUrl++;         // children form with no link
+  }
+  c.sourcesbox_no_url = sbNoUrl;
+
   // score
   const score = c.model_codes * 5 + c.phantom_credit * 5 + c.rates_offrate * 3 + c.recompute_fail * 3 + c.overclaims * 2 + c.old_tells * 1;
   scoreBySlug[slug] = score;
@@ -536,7 +549,7 @@ function scanMdx(file) {
   if (fm.description) (descMap[fm.description] = descMap[fm.description] || []).push(slug);
 
   // totals
-  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath']) bump(k, c[k]);
+  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','related_slugs_prop','missing_h1','sourcesbox_no_url']) bump(k, c[k]);
 
   rows.push({
     slug, file: rel(file), cluster, page_type: pageType[slug] || fm.contentType || '',
@@ -602,7 +615,7 @@ const dupTitles = Object.entries(titleMap).filter(([, v]) => v.length > 1);
 const dupDescs = Object.entries(descMap).filter(([, v]) => v.length > 1);
 
 // ---------- WRITE side files ----------
-const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','intro12'];
+const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','related_slugs_prop','missing_h1','sourcesbox_no_url','intro12'];
 fs.writeFileSync(path.join(OUT, 'SITE-AUDIT.csv'),
   csvRow(colOrder) + '\n' + rows.map((r) => csvRow(colOrder.map((k) => r[k]))).join('\n') + '\n');
 
