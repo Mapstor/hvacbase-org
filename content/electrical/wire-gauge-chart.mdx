@@ -1,7 +1,7 @@
 ---
 slug: wire-gauge-chart
-title: "Wire Gauge Chart: AWG Wire Sizes & Ampacity (Complete 2026 Reference)"
-description: "Complete AWG wire gauge and ampacity reference for copper and aluminum conductors, based on NEC Table 310.16, with the three temperature-rating columns, derating factors, and voltage-drop guidance."
+title: "Wire Gauge Chart: AWG Wire Sizes and Ampacity (2026)"
+description: "AWG wire gauge and ampacity reference for copper and aluminum conductors, based on NEC Table 310.16, with the three temperature-rating columns, derating factors, and voltage-drop guidance."
 author: "Marko Visic, BSc Physics"
 cluster: "electrical-wiring"
 role: "hub"
@@ -21,7 +21,7 @@ externalLinks:
 
 import { SourcesBox, RelatedArticles } from '@/components'
 
-# Wire Gauge Chart: AWG Wire Sizes & Ampacity (Complete 2026 Reference)
+# Wire Gauge Chart: AWG Wire Sizes and Ampacity
 
 You need to know what size wire a circuit calls for, whether you're planning a project, checking an existing installation, or just trying to understand what the electrician quoted. And the stakes are real: undersized wire on a circuit that draws more than it's rated for overheats, and that's a fire risk. So the numbers here need to be right, and they're taken directly from the National Electrical Code.
 
@@ -125,7 +125,7 @@ The ampacity values above assume standard conditions. Two factors require you to
 | 7–9 | 70% |
 | 10–20 | 50% |
 
-**Ambient temperature (NEC Table 310.15(B)(1)), when it's hotter than 30°C (86°F):** the ampacity drops as temperature rises, and the effect is **severe in hot attics**. For example, a 12 AWG copper NM-B conductor (20A at 30°C using the 60°C column) drops significantly in a 50°C (122°F) attic. This is exactly why HVAC wiring run through hot attics often needs to be upsized, and it's one of the trickier parts of sizing to get right, another reason it's worth having an electrician verify.
+**Ambient temperature (NEC Table 310.15(B)(1)), when it's hotter than 30°C (86°F):** ampacity drops as temperature rises, and the effect is **severe in hot attics**. For example, a 12 AWG copper NM-B conductor (20A at 30°C using the 60°C column) loses a significant share of its ampacity in a 50°C (122°F) attic. That's why HVAC wiring run through hot attics often needs to be upsized, and it's one of the trickier parts of sizing, another reason to have an electrician verify it.
 
 ## Wire sizing by application (reference)
 
@@ -159,7 +159,7 @@ The scale runs from 40 AWG (fine electronics wire) down to 1 AWG, then continues
 ## Frequently asked questions
 
 **What amperage can each wire gauge handle?**
-Per NEC Table 310.16, copper wire handles: 14 AWG up to 15A, 12 AWG up to 20A, 10 AWG up to 30A (branch-circuit caps per 240.4(D)); then 8 AWG 40–55A, 6 AWG 55–75A, and so on depending on the insulation temperature column. The exact figure depends on the wire type and your terminations, and NM-B (Romex) uses the more conservative 60°C column.
+Per NEC Table 310.16, copper wire handles: 14 AWG up to 15A, 12 AWG up to 20A, 10 AWG up to 30A (branch-circuit caps per 240.4(D)); then 8 AWG 40–55A, 6 AWG 55–75A, and so on depending on the insulation temperature column. The figure for your circuit depends on the wire type and your terminations, and NM-B (Romex) uses the more conservative 60°C column.
 
 **Why does the same wire show different amperages?**
 Because the ampacity depends on the insulation's temperature rating (the 60°C, 75°C, or 90°C column). But you can't always use the highest number, NEC 110.14(C) requires using the column matching your lowest-rated component (usually 75°C breakers), and NM-B cable must use the 60°C column per NEC 334.80.
@@ -173,7 +173,7 @@ Aluminum is standard and code-permitted for service-entrance and feeder conducto
 **Do I need an electrician, or can I do this myself?**
 The ampacity table helps you understand and plan, but a new or modified circuit almost always requires a permit and inspection, and the fire risk from undersized or improperly terminated wire makes this work most people should have a licensed electrician do or verify. Wire sizing depends on conditions (temperature, run length, load type, terminations) that a general chart can't fully capture for your specific install.
 
-## How we sourced this page
+## About these figures
 
 The ampacity values (copper and aluminum, 60°C/75°C/90°C columns) are from **NEC Table 310.16** (National Electrical Code, NFPA 70), and the sizing rules are the corresponding NEC articles: the small-conductor caps (240.4(D)), the termination temperature rule (110.14(C)), the NM-B 60°C requirement (334.80), conduit-fill and ambient-temperature derating (310.15(C)(1) and 310.15(B)(1)), and voltage-drop recommendations (210.19). Wire dimensions and resistance are standard AWG engineering values.
 
