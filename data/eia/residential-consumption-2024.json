@@ -1,0 +1,372 @@
+{
+  "source": "U.S. EIA, Electric Sales, Revenue, and Average Price, Table 5.a: 2024 Average Monthly Bill - Residential",
+  "sourceUrl": "https://www.eia.gov/electricity/sales_revenue_price/",
+  "dataYear": 2024,
+  "released": "2025-10-07",
+  "us": {
+    "avgMonthlyKwh": 863,
+    "avgPriceCentsPerKwh": 16.48,
+    "avgMonthlyBill": 142.26,
+    "avgDailyKwh": 28.4,
+    "avgAnnualKwh": 10356
+  },
+  "states": [
+    {
+      "state": "Alabama",
+      "avgMonthlyKwh": 1143,
+      "avgPriceCentsPerKwh": 15.18,
+      "avgMonthlyBill": 173.5,
+      "avgDailyKwh": 37.6
+    },
+    {
+      "state": "Alaska",
+      "avgMonthlyKwh": 578,
+      "avgPriceCentsPerKwh": 24.82,
+      "avgMonthlyBill": 143.54,
+      "avgDailyKwh": 19.0
+    },
+    {
+      "state": "Arizona",
+      "avgMonthlyKwh": 1075,
+      "avgPriceCentsPerKwh": 14.91,
+      "avgMonthlyBill": 160.24,
+      "avgDailyKwh": 35.3
+    },
+    {
+      "state": "Arkansas",
+      "avgMonthlyKwh": 1048,
+      "avgPriceCentsPerKwh": 12.32,
+      "avgMonthlyBill": 129.13,
+      "avgDailyKwh": 34.5
+    },
+    {
+      "state": "California",
+      "avgMonthlyKwh": 503,
+      "avgPriceCentsPerKwh": 31.97,
+      "avgMonthlyBill": 160.86,
+      "avgDailyKwh": 16.5
+    },
+    {
+      "state": "Colorado",
+      "avgMonthlyKwh": 674,
+      "avgPriceCentsPerKwh": 14.92,
+      "avgMonthlyBill": 100.57,
+      "avgDailyKwh": 22.2
+    },
+    {
+      "state": "Connecticut",
+      "avgMonthlyKwh": 695,
+      "avgPriceCentsPerKwh": 28.75,
+      "avgMonthlyBill": 199.66,
+      "avgDailyKwh": 22.8
+    },
+    {
+      "state": "Delaware",
+      "avgMonthlyKwh": 911,
+      "avgPriceCentsPerKwh": 16.57,
+      "avgMonthlyBill": 150.87,
+      "avgDailyKwh": 30.0
+    },
+    {
+      "state": "District of Columbia",
+      "avgMonthlyKwh": 639,
+      "avgPriceCentsPerKwh": 17.71,
+      "avgMonthlyBill": 113.23,
+      "avgDailyKwh": 21.0
+    },
+    {
+      "state": "Florida",
+      "avgMonthlyKwh": 1104,
+      "avgPriceCentsPerKwh": 14.14,
+      "avgMonthlyBill": 156.09,
+      "avgDailyKwh": 36.3
+    },
+    {
+      "state": "Georgia",
+      "avgMonthlyKwh": 1074,
+      "avgPriceCentsPerKwh": 14.08,
+      "avgMonthlyBill": 151.25,
+      "avgDailyKwh": 35.3
+    },
+    {
+      "state": "Hawaii",
+      "avgMonthlyKwh": 495,
+      "avgPriceCentsPerKwh": 42.86,
+      "avgMonthlyBill": 212.12,
+      "avgDailyKwh": 16.3
+    },
+    {
+      "state": "Idaho",
+      "avgMonthlyKwh": 944,
+      "avgPriceCentsPerKwh": 11.52,
+      "avgMonthlyBill": 108.73,
+      "avgDailyKwh": 31.0
+    },
+    {
+      "state": "Illinois",
+      "avgMonthlyKwh": 693,
+      "avgPriceCentsPerKwh": 15.87,
+      "avgMonthlyBill": 109.99,
+      "avgDailyKwh": 22.8
+    },
+    {
+      "state": "Indiana",
+      "avgMonthlyKwh": 901,
+      "avgPriceCentsPerKwh": 14.77,
+      "avgMonthlyBill": 133.06,
+      "avgDailyKwh": 29.6
+    },
+    {
+      "state": "Iowa",
+      "avgMonthlyKwh": 832,
+      "avgPriceCentsPerKwh": 13.4,
+      "avgMonthlyBill": 111.54,
+      "avgDailyKwh": 27.4
+    },
+    {
+      "state": "Kansas",
+      "avgMonthlyKwh": 876,
+      "avgPriceCentsPerKwh": 14.15,
+      "avgMonthlyBill": 123.9,
+      "avgDailyKwh": 28.8
+    },
+    {
+      "state": "Kentucky",
+      "avgMonthlyKwh": 1047,
+      "avgPriceCentsPerKwh": 12.79,
+      "avgMonthlyBill": 133.81,
+      "avgDailyKwh": 34.4
+    },
+    {
+      "state": "Louisiana",
+      "avgMonthlyKwh": 1202,
+      "avgPriceCentsPerKwh": 11.73,
+      "avgMonthlyBill": 140.96,
+      "avgDailyKwh": 39.5
+    },
+    {
+      "state": "Maine",
+      "avgMonthlyKwh": 550,
+      "avgPriceCentsPerKwh": 24.29,
+      "avgMonthlyBill": 133.6,
+      "avgDailyKwh": 18.1
+    },
+    {
+      "state": "Maryland",
+      "avgMonthlyKwh": 929,
+      "avgPriceCentsPerKwh": 17.86,
+      "avgMonthlyBill": 165.87,
+      "avgDailyKwh": 30.5
+    },
+    {
+      "state": "Massachusetts",
+      "avgMonthlyKwh": 570,
+      "avgPriceCentsPerKwh": 29.35,
+      "avgMonthlyBill": 167.2,
+      "avgDailyKwh": 18.7
+    },
+    {
+      "state": "Michigan",
+      "avgMonthlyKwh": 618,
+      "avgPriceCentsPerKwh": 19.3,
+      "avgMonthlyBill": 119.31,
+      "avgDailyKwh": 20.3
+    },
+    {
+      "state": "Minnesota",
+      "avgMonthlyKwh": 712,
+      "avgPriceCentsPerKwh": 15.45,
+      "avgMonthlyBill": 110.06,
+      "avgDailyKwh": 23.4
+    },
+    {
+      "state": "Mississippi",
+      "avgMonthlyKwh": 1156,
+      "avgPriceCentsPerKwh": 13.39,
+      "avgMonthlyBill": 154.83,
+      "avgDailyKwh": 38.0
+    },
+    {
+      "state": "Missouri",
+      "avgMonthlyKwh": 1001,
+      "avgPriceCentsPerKwh": 12.91,
+      "avgMonthlyBill": 129.18,
+      "avgDailyKwh": 32.9
+    },
+    {
+      "state": "Montana",
+      "avgMonthlyKwh": 852,
+      "avgPriceCentsPerKwh": 12.66,
+      "avgMonthlyBill": 107.91,
+      "avgDailyKwh": 28.0
+    },
+    {
+      "state": "Nebraska",
+      "avgMonthlyKwh": 956,
+      "avgPriceCentsPerKwh": 11.53,
+      "avgMonthlyBill": 110.28,
+      "avgDailyKwh": 31.4
+    },
+    {
+      "state": "Nevada",
+      "avgMonthlyKwh": 930,
+      "avgPriceCentsPerKwh": 15.0,
+      "avgMonthlyBill": 139.39,
+      "avgDailyKwh": 30.6
+    },
+    {
+      "state": "New Hampshire",
+      "avgMonthlyKwh": 619,
+      "avgPriceCentsPerKwh": 23.4,
+      "avgMonthlyBill": 144.87,
+      "avgDailyKwh": 20.4
+    },
+    {
+      "state": "New Jersey",
+      "avgMonthlyKwh": 662,
+      "avgPriceCentsPerKwh": 19.34,
+      "avgMonthlyBill": 128.13,
+      "avgDailyKwh": 21.8
+    },
+    {
+      "state": "New Mexico",
+      "avgMonthlyKwh": 654,
+      "avgPriceCentsPerKwh": 14.2,
+      "avgMonthlyBill": 92.88,
+      "avgDailyKwh": 21.5
+    },
+    {
+      "state": "New York",
+      "avgMonthlyKwh": 571,
+      "avgPriceCentsPerKwh": 24.43,
+      "avgMonthlyBill": 139.53,
+      "avgDailyKwh": 18.8
+    },
+    {
+      "state": "North Carolina",
+      "avgMonthlyKwh": 1015,
+      "avgPriceCentsPerKwh": 14.13,
+      "avgMonthlyBill": 143.5,
+      "avgDailyKwh": 33.4
+    },
+    {
+      "state": "North Dakota",
+      "avgMonthlyKwh": 1029,
+      "avgPriceCentsPerKwh": 11.51,
+      "avgMonthlyBill": 118.38,
+      "avgDailyKwh": 33.8
+    },
+    {
+      "state": "Ohio",
+      "avgMonthlyKwh": 846,
+      "avgPriceCentsPerKwh": 15.99,
+      "avgMonthlyBill": 135.16,
+      "avgDailyKwh": 27.8
+    },
+    {
+      "state": "Oklahoma",
+      "avgMonthlyKwh": 1079,
+      "avgPriceCentsPerKwh": 12.24,
+      "avgMonthlyBill": 132.05,
+      "avgDailyKwh": 35.5
+    },
+    {
+      "state": "Oregon",
+      "avgMonthlyKwh": 882,
+      "avgPriceCentsPerKwh": 14.7,
+      "avgMonthlyBill": 129.62,
+      "avgDailyKwh": 29.0
+    },
+    {
+      "state": "Pennsylvania",
+      "avgMonthlyKwh": 817,
+      "avgPriceCentsPerKwh": 17.77,
+      "avgMonthlyBill": 145.17,
+      "avgDailyKwh": 26.9
+    },
+    {
+      "state": "Rhode Island",
+      "avgMonthlyKwh": 567,
+      "avgPriceCentsPerKwh": 28.65,
+      "avgMonthlyBill": 162.4,
+      "avgDailyKwh": 18.6
+    },
+    {
+      "state": "South Carolina",
+      "avgMonthlyKwh": 1050,
+      "avgPriceCentsPerKwh": 14.23,
+      "avgMonthlyBill": 149.51,
+      "avgDailyKwh": 34.5
+    },
+    {
+      "state": "South Dakota",
+      "avgMonthlyKwh": 994,
+      "avgPriceCentsPerKwh": 12.86,
+      "avgMonthlyBill": 127.81,
+      "avgDailyKwh": 32.7
+    },
+    {
+      "state": "Tennessee",
+      "avgMonthlyKwh": 1154,
+      "avgPriceCentsPerKwh": 12.42,
+      "avgMonthlyBill": 143.32,
+      "avgDailyKwh": 37.9
+    },
+    {
+      "state": "Texas",
+      "avgMonthlyKwh": 1096,
+      "avgPriceCentsPerKwh": 14.94,
+      "avgMonthlyBill": 163.72,
+      "avgDailyKwh": 36.0
+    },
+    {
+      "state": "Utah",
+      "avgMonthlyKwh": 774,
+      "avgPriceCentsPerKwh": 12.22,
+      "avgMonthlyBill": 94.57,
+      "avgDailyKwh": 25.4
+    },
+    {
+      "state": "Vermont",
+      "avgMonthlyKwh": 574,
+      "avgPriceCentsPerKwh": 21.9,
+      "avgMonthlyBill": 125.66,
+      "avgDailyKwh": 18.9
+    },
+    {
+      "state": "Virginia",
+      "avgMonthlyKwh": 1032,
+      "avgPriceCentsPerKwh": 14.41,
+      "avgMonthlyBill": 148.77,
+      "avgDailyKwh": 33.9
+    },
+    {
+      "state": "Washington",
+      "avgMonthlyKwh": 955,
+      "avgPriceCentsPerKwh": 11.9,
+      "avgMonthlyBill": 113.68,
+      "avgDailyKwh": 31.4
+    },
+    {
+      "state": "West Virginia",
+      "avgMonthlyKwh": 1027,
+      "avgPriceCentsPerKwh": 15.07,
+      "avgMonthlyBill": 154.76,
+      "avgDailyKwh": 33.8
+    },
+    {
+      "state": "Wisconsin",
+      "avgMonthlyKwh": 645,
+      "avgPriceCentsPerKwh": 17.18,
+      "avgMonthlyBill": 110.87,
+      "avgDailyKwh": 21.2
+    },
+    {
+      "state": "Wyoming",
+      "avgMonthlyKwh": 863,
+      "avgPriceCentsPerKwh": 12.47,
+      "avgMonthlyBill": 107.65,
+      "avgDailyKwh": 28.4
+    }
+  ]
+}
