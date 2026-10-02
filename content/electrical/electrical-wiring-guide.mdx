@@ -50,9 +50,9 @@ Here are the common copper wire sizes and their ampacities. **Important:** the a
 
 | Gauge | 75°C ampacity (THHN, conduit) | 60°C ampacity (NM-B/Romex) | Common use |
 |---|---|---|---|
-| 14 AWG | 20A | 15A | Lighting circuits |
-| 12 AWG | 25A | 20A | General outlets |
-| 10 AWG | 35A | 30A | Dryers, small AC |
+| 14 AWG | 20A (15A max breaker) | 15A | Lighting circuits |
+| 12 AWG | 25A (20A max breaker) | 20A | General outlets |
+| 10 AWG | 35A (30A max breaker) | 30A | Dryers, small AC |
 | 8 AWG | 50A | 40A | Ranges, sub-panels |
 | 6 AWG | 65A | 55A | Large AC, sub-panels |
 | 4 AWG | 85A | 70A | Sub-panels, feeders |
@@ -61,6 +61,8 @@ Here are the common copper wire sizes and their ampacities. **Important:** the a
 | 2/0 AWG | 175A | 145A | 200A service |
 | 4/0 AWG | 230A | 195A | 200A service (long runs) |
 
+Under NEC 240.4(D), the breaker for 14, 12 and 10 AWG copper is capped at 15, 20 and 30 amps, whatever the column.
+
 A few critical rules that govern which number actually applies:
 
 - **NEC Table 310.16** is the authoritative source for these ampacities.
@@ -68,7 +70,7 @@ A few critical rules that govern which number actually applies:
 - **The termination rule (NEC 110.14(C)):** you must use the temperature column of the lowest-rated component, usually the 75°C breaker terminals, and NM-B is held to 60°C.
 - **Aluminum wire** carries less current than copper, so it needs to be sized up about two AWG for the same job.
 
-Because getting the temperature column and terminations right is exactly where wire-sizing mistakes happen, for the full breakdown by wire type see our [wire gauge chart](/wire-gauge-chart), and for 240V circuits specifically, our [wire for 220V guide](/wire-for-220-volt).
+Getting the temperature column and terminations right is where wire-sizing mistakes happen; for the full breakdown by wire type see our [wire gauge chart](/wire-gauge-chart), and for 240V circuits, our [wire for 220V guide](/wire-for-220-volt).
 
 ## Breaker sizing: protect the wire, not the appliance
 
@@ -117,7 +119,7 @@ The nameplate always has the final word: size the circuit to the equipment's act
 
 ## When to call an electrician (which is most of the time)
 
-Some very limited tasks (like replacing a light fixture or a receptacle on a known circuit) are within reach of a careful DIYer, but the honest reality is that **most electrical work should be done by a licensed electrician**, and much of it legally must be:
+Some limited tasks (like replacing a light fixture or a receptacle on a known circuit) are within reach of a careful DIYer, but **most electrical work should be done by a licensed electrician**, and much of it legally must be:
 
 - **Anything involving the panel or service entrance** (new circuits, panel upgrades), always a licensed electrician with a permit.
 - **New circuits, especially 240V** (HVAC, EV chargers, water heaters), permit and inspection required.
@@ -146,7 +148,7 @@ GFCI (ground-fault) protects people from shock by cutting power when current lea
 **Why does my wire need to match my breaker?**
 Because the breaker's job is to trip before the wire overheats. If the breaker is rated higher than the wire can safely carry, the wire can reach dangerous temperatures without the breaker tripping, which is how electrical fires start. This is why NEC 240.4 requires the breaker to be sized to protect the conductor, not the appliance.
 
-## How we sourced this page
+## About these figures
 
 The home electrical fire statistics (an estimated 51,000 home electrical fires annually, causing nearly 500 deaths and $1.3 billion in property damage) are from the **Electrical Safety Foundation International (ESFI)**, drawing on National Fire Protection Association data. Wire ampacities and sizing rules follow the **National Electrical Code (NEC / NFPA 70)**, specifically Table 310.16 (ampacity), 240.4 and 240.4(D) (overcurrent protection and small-conductor caps), 110.14(C) (termination temperature), 334.80 (NM-B 60°C sizing), 210.8 and 210.12 (GFCI and AFCI). Safety-device guidance references **UL** standards and **ESFI** recommendations.
 
