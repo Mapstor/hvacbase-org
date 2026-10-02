@@ -5,6 +5,7 @@ export { default as ComparisonTable } from './ui/ComparisonTable';
 export { default as Callout } from './ui/Callout';
 export { default as SourcesBox } from './ui/SourceLink';
 export { default as RelatedArticles } from './ui/RelatedArticles';
+export { default as Diagram } from './ui/Diagram';
 
 // Tools/Calculators
 // CalcWrapper is the type-dispatching wrapper from calculators/ (routes

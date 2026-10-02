@@ -14,6 +14,7 @@ import RefrigerationCycle from '@/components/diagrams/RefrigerationCycle';
 import CarbonMonoxideDetectorPlacement from '@/components/diagrams/CarbonMonoxideDetectorPlacement';
 import DryModeVsCoolMode from '@/components/diagrams/DryModeVsCoolMode';
 import BatteryRuntimeByLoad from '@/components/diagrams/BatteryRuntimeByLoad';
+import Diagram from '@/components/ui/Diagram';
 
 // Define SourcesBox component
 const SourcesBox = ({
@@ -161,6 +162,7 @@ export const mdxComponents = {
   CarbonMonoxideDetectorPlacement,
   DryModeVsCoolMode,
   BatteryRuntimeByLoad,
+  Diagram,
   // Add default HTML elements with Tailwind classes and IDs
   h1: (props: any) => {
     const id = props.children?.toString()?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
