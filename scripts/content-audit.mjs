@@ -530,13 +530,27 @@ function scanMdx(file) {
   c.related_slugs_prop = (body.match(/<RelatedArticles\b[^>]*\bslugs\s*=/gi) || []).length;
   // Every page should have a markdown "# " H1 heading.
   c.missing_h1 = /^#\s+\S/m.test(body) ? 0 : 1;
-  // Children-form <SourcesBox>…</SourcesBox> (no sources= prop) with no URL inside = uncited.
+  // URL-less SourcesBox entries. Array form: any `sources={[{...}]}` object missing a
+  // non-empty url:. Children form (<SourcesBox>...</SourcesBox>, no sources= prop): any
+  // markdown list item (or the whole block) without an http(s) URL.
   let sbNoUrl = 0;
+  for (const m of body.matchAll(/<SourcesBox\b[^>]*\bsources=\{\[([\s\S]*?)\]\}/gi)) {
+    for (const o of (m[1].match(/\{[^{}]*\}/g) || [])) {
+      if (!/\burl\s*:\s*["']https?:\/\/[^"']+["']/.test(o)) sbNoUrl++;   // no url or empty/non-http url
+    }
+  }
   for (const m of body.matchAll(/<SourcesBox\b([^>]*)>([\s\S]*?)<\/SourcesBox>/gi)) {
-    if (/\bsources\s*=/.test(m[1])) continue;        // prop form, parsed elsewhere
-    if (!/https?:\/\//.test(m[2])) sbNoUrl++;         // children form with no link
+    if (/\bsources\s*=/.test(m[1])) continue;           // array form, handled above
+    const items = m[2].split('\n').map((s) => s.trim()).filter((s) => /^[-*]\s/.test(s));
+    if (items.length) { for (const it of items) if (!/https?:\/\//.test(it)) sbNoUrl++; }
+    else if (m[2].trim() && !/https?:\/\//.test(m[2])) sbNoUrl++;         // children box, no list, no url
   }
   c.sourcesbox_no_url = sbNoUrl;
+
+  // (r) TITLE OVERCLAIM (report-only) — marketing superlatives in the title or H1.
+  const h1text = (body.match(/^#\s+(.+?)\s*$/m) || [])[1] || '';
+  const OVERCLAIM = /\b(Complete|Ultimate|Definitive|Proven|Best|That Actually Work|Everything You Need)\b|#1\b/i;
+  c.title_overclaim = (OVERCLAIM.test(title) || OVERCLAIM.test(h1text)) ? 1 : 0;
 
   // score
   const score = c.model_codes * 5 + c.phantom_credit * 5 + c.rates_offrate * 3 + c.recompute_fail * 3 + c.overclaims * 2 + c.old_tells * 1;
@@ -549,7 +563,7 @@ function scanMdx(file) {
   if (fm.description) (descMap[fm.description] = descMap[fm.description] || []).push(slug);
 
   // totals
-  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','related_slugs_prop','missing_h1','sourcesbox_no_url']) bump(k, c[k]);
+  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim']) bump(k, c[k]);
 
   rows.push({
     slug, file: rel(file), cluster, page_type: pageType[slug] || fm.contentType || '',
@@ -615,7 +629,7 @@ const dupTitles = Object.entries(titleMap).filter(([, v]) => v.length > 1);
 const dupDescs = Object.entries(descMap).filter(([, v]) => v.length > 1);
 
 // ---------- WRITE side files ----------
-const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','related_slugs_prop','missing_h1','sourcesbox_no_url','intro12'];
+const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim','intro12'];
 fs.writeFileSync(path.join(OUT, 'SITE-AUDIT.csv'),
   csvRow(colOrder) + '\n' + rows.map((r) => csvRow(colOrder.map((k) => r[k]))).join('\n') + '\n');
 
