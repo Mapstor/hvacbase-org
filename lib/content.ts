@@ -196,6 +196,14 @@ export function extractDiagramSrcs(body: string): string[] {
   return [...body.matchAll(/<Diagram\b[^>]*\bsrc=["']([^"']+)["']/g)].map((m) => m[1]);
 }
 
+/** Each live slug with its diagram srcs (empty array when the page has none). */
+export function getAllSlugDiagrams(): { slug: string; diagrams: string[] }[] {
+  return getAllArticles().map((a) => ({
+    slug: a.meta.slug,
+    diagrams: extractDiagramSrcs(a.rawContent),
+  }));
+}
+
 export function getRelatedArticles(slug: string, limit = 5): ArticleMeta[] {
   const article = getArticleBySlug(slug);
   if (!article) return [];

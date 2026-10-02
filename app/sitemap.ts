@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getAllSlugs } from '@/lib/content';
+import { getAllSlugs, getAllSlugDiagrams } from '@/lib/content';
 
 const SITE_URL = 'https://www.hvacbase.org';
 
@@ -38,14 +38,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: r.priority,
   }));
 
+  // Per-page diagram srcs -> absolute image URLs, attached to the page's sitemap
+  // entry via Next's `images` field (image:image sitemap extension). Pages with
+  // no diagram get no `images` key, so their entry is unchanged.
+  const diagramsBySlug = new Map(getAllSlugDiagrams().map((d) => [d.slug, d.diagrams]));
+
   const articleEntries = getAllSlugs()
     .filter((slug): slug is string => typeof slug === 'string' && slug.length > 0)
-    .map((slug) => ({
-      url: `${SITE_URL}/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    }));
+    .map((slug) => {
+      const diagrams = diagramsBySlug.get(slug) ?? [];
+      const images = diagrams.map((s) => (/^https?:\/\//.test(s) ? s : `${SITE_URL}${s}`));
+      return {
+        url: `${SITE_URL}/${slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly' as const,
+        priority: 0.5,
+        ...(images.length ? { images } : {}),
+      };
+    });
 
   return [...staticEntries, ...articleEntries];
 }
