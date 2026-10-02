@@ -14,11 +14,10 @@ ac-not-cooling,EPA,"But diagnosis and repair require an EPA Section 608 certifie
 ac-troubleshooting-guide,ENERGY STAR,"- **Leaky ductwork.** According to ENERGY STAR, duct leaks can reduce a system's efficiency by **as much as 20%**, that's conditioned air you paid for, leaking into your attic or crawlspace."
 ac-troubleshooting-guide,DOE,"- **Thermostat habits.** Per the DOE, a programmable thermostat can save you **up to 10% a year on heating and cooling** by easing the temperature back while you're away, and each degree closer to the outdoor temperature saves energy."
 ac-troubleshooting-guide,DOE,And DOE notes cranking it colder than you need doesn't cool any faster; it just runs up the bill.
-air-conditioner-types,DOE,"Efficiency figures are sourced to the DOE, ENERGY STAR, and AHRI, linked at the bottom, and we recommend no specific brands."
 air-conditioner-types,DOE,"- **Cons:** the highest upfront cost ($3,500–$12,000, more with new ductwork), requires professional installation and ductwork, and **poorly sealed ducts waste energy, with the DOE putting duct air losses at about 30% of a cooling system's "
 air-purifier-guide,EPA,"According to the EPA, Americans spend about 90% of their time indoors, where concentrations of some pollutants are often 2 to 5 times higher than outdoors, so cleaning that air is worth understanding."
 air-purifier-guide,EPA,"The EPA says portable HEPA air cleaners can help reduce airborne virus concentrations as part of a layered approach, not as a standalone solution, but a valuable added layer."
-air-purifier-guide,EPA,"## How we sourced this page The filtration facts (HEPA capturing 99.97% at 0.3 microns, the physics of the Most Penetrating Particle Size) and the ""Americans spend about 90% of their time indoors, where some pollutant concentrations run 2 t"
+air-purifier-guide,EPA,"## About these figures The filtration facts (HEPA capturing 99.97% at 0.3 microns, the physics of the Most Penetrating Particle Size) and the ""Americans spend about 90% of their time indoors, where some pollutant concentrations run 2 to 5 t"
 air-purifier-guide,ENERGY STAR,"Energy-efficiency certification is per **ENERGY STAR.** We deliberately do not recommend specific products or list model prices, which change constantly, the right unit depends on your room size and primary concern, which the CADR and techn"
 air-purifier-guide,EPA,"<SourcesBox sources={[   { title: ""EPA: Guide to Air Cleaners in the Home (HEPA, CADR, ozone-generating devices)"", url: ""https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home"" },   { title: ""EPA: Report on the Environment, Indo"
 air-purifier-sizing-guide,EPA,## Placement and use The EPA recommends choosing an air cleaner sized for the room you use it in.
@@ -31,7 +30,6 @@ solar-panel-calculator,NREL,"For your address, roof angle and direction, NREL's 
 solar-panel-calculator,NREL,"<SourcesBox sources={[   { title: ""NREL: PVWatts calculator (location-specific production estimates)"", url: ""https://pvwatts.nrel.gov/"" },   { title: ""IRS: Residential Clean Energy Credit (25D)"", url: ""https://www.irs.gov/credits-deductions"
 dehumidifier-and-ac-same-time,ENERGY STAR,ENERGY STAR notes that a dehumidifier slightly warms the space around it.
 dehumidifier-and-ac-same-time,EPA,"Between 30% and 50%, and below 60%, according to the EPA and ENERGY STAR."
-dehumidifier-guide,EPA,"Every figure here is sourced to the EPA, AHAM, the DOE, or ENERGY STAR, linked at the bottom, and we recommend no specific brands."
 dehumidifier-guide,EPA,"**A dehumidifier removes excess moisture from indoor air, and the right one depends on your room size, how damp the space is, and whether you need portable or whole-house coverage.** The EPA recommends keeping indoor humidity between 30 and"
 dehumidifier-guide,EPA,"## Why excess humidity matters The EPA recommends keeping indoor relative humidity between 30 and 50%, and always below 60%."
 dehumidifier-guide,DOE,"*(Note: these pint ratings are on the current DOE/AHAM test standard, which changed in 2019 to a cooler, more realistic test condition."
@@ -108,7 +106,6 @@ what-size-generator-for-fridge,FDA,"**How long does food stay safe if I can't ru
 air-source-vs-ground-source-heat-pump,ENERGY STAR,"Yes, especially cold-climate models; ENERGY STAR's cold-climate criteria require at least 70% of rated capacity at 5°F."
 heat-pump-electricity-usage,ENERGY STAR,ENERGY STAR requires at least 7.8 HSPF2 and 15.2 SEER2 for split heat pumps.
 heat-pump-electricity-usage,PRECISION,"About 1,031 kWh a month on average for a 2,000 sq ft home in a mixed climate, more in winter and summer and less in between."
-heat-pump-guide,DOE,"Every figure is sourced to the DOE, ENERGY STAR, the IRS, or AHRI, linked at the bottom, and we recommend no specific brands."
 heat-pump-guide,DOE,## Maintenance Heat pumps need modest but real maintenance: - **Check and replace air filters every 1 to 3 months.** A clogged filter restricts airflow and cuts efficiency (the DOE says clean filters can lower an air conditioner's energy us
 heat-pump-in-cold-weather,ENERGY STAR,"ENERGY STAR notes heat pumps keep running below 5°F, and cold-climate models are designed for it."
 heat-pump-running-cost-calculator,DOE,- **Keep filters and coils clean.** The DOE says clean filters can lower an air conditioner's energy use by 5 to 15%.
@@ -175,10 +172,9 @@ insulation-r-value-guide,DOE,"## Seal air leaks first The DOE calls air sealing 
 insulation-r-value-guide,ENERGY STAR,"ENERGY STAR recommends R-60 for an uninsulated attic in zones 4 through 8, R-49 to R-60 in zones 2 and 3, and R-30 to R-49 in zone 1."
 insulation-r-value-guide,DOE,The DOE recommends air sealing first; it can save 10% to 20% on heating and cooling bills on its own.
 dry-mode-in-ac,EPA,"And if you want to know what humidity level you should actually be targeting, our [ideal indoor humidity guide](/ideal-indoor-humidity-level) covers the 30–50% range the EPA recommends."
-how-does-a-mini-split-work,DOE,"This does two things: it saves energy (no wasteful hard restarts), and it keeps the temperature steadier and quieter, no big swings between ""too cold"" and ""too warm."" Together, the inverter compressor and zero duct loss are why, per the DOE"
+how-does-a-mini-split-work,DOE,"Together, the inverter compressor and zero duct loss are why, per the DOE, mini splits reach SEER2 efficiency ratings **up to about 35**, well beyond what most ducted systems achieve."
 how-much-does-mini-split-cost-to-run,DOE,## How to lower the cost - **Clean the filters.** The DOE says clean filters can lower an air conditioner's energy use by 5 to 15%.
 how-much-does-mini-split-cost-to-run,PRECISION,"About 600 watts on average at 20 SEER2 (12,000 ÷ 20)."
-mini-split-air-conditioners,AHRI,"Every figure here is sourced to AHRI, ACCA, EIA, the IRS, or the DOE, linked at the bottom, and we recommend zero specific brands or models, because the right unit depends on your home and needs."
 mini-split-air-conditioners,EPA,"It involves handling refrigerant (which legally requires EPA Section 608 certification), electrical work (which may need a licensed electrician), and proper commissioning (vacuuming the lines, verifying the charge, testing airflow)."
 mini-split-air-conditioners,ACCA,"Our [mini split sizing calculator](/mini-split-sizing-calculator) estimates it, and for any install, insist on a proper Manual J load calculation (per ACCA) rather than a rough guess."
 mini-split-electricity-usage,ATTR,"## How to cut your mini split's electricity use These practical steps genuinely reduce consumption: **Set the temperature sensibly.** Per the Department of Energy, each degree you let the thermostat settle closer to the outdoor temperature "
@@ -194,7 +190,6 @@ how-to-identify-mold,EPA,"Usually not, if you can see or smell it, according to 
 how-to-identify-mold,EPA,"Below 60%, and ideally 30% to 50%, according to the EPA."
 moisture-barrier-crawl-space,EPA,"A basic 6-mil ground cover costs about $60 to $115 in material for 1,000 sq ft; a full encapsulation, with a heavier liner up the walls, sealed vents and usually a dehumidifier, runs into the thousands.** ## Why a crawl space needs one The "
 moisture-barrier-crawl-space,EPA,"Keeping humidity below 60%, as the EPA recommends, keeps it that way."
-how-to-vent-portable-ac-without-window,COUNT-PROMISE,title promises 5; H2=9 H3=0 li=10 ol=0
 portable-air-conditioners,ENERGY STAR,Compare that number with what the room needs; our BTU calculator above estimates the room's load from ENERGY STAR's sizing chart.
 portable-air-conditioners,ENERGY STAR,Match the unit's SACC rating to the room's cooling load; the BTU calculator above estimates the load from ENERGY STAR's chart.
 hvac-refrigerant-phase-out,EPA,"## Why this is happening (the short version) Refrigerants like R-410A are potent greenhouse gases, R-410A traps roughly **2,088 times as much heat as CO₂** over 100 years (that's its GWP, per the EPA)."

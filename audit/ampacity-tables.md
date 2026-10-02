@@ -5,9 +5,9 @@
 
 | Gauge | 75°C ampacity (THHN, conduit) | 60°C ampacity (NM-B/Romex) | Common use |
 |---|---|---|---|
-| 14 AWG | 20A | 15A | Lighting circuits |
-| 12 AWG | 25A | 20A | General outlets |
-| 10 AWG | 35A | 30A | Dryers, small AC |
+| 14 AWG | 20A (15A max breaker) | 15A | Lighting circuits |
+| 12 AWG | 25A (20A max breaker) | 20A | General outlets |
+| 10 AWG | 35A (30A max breaker) | 30A | Dryers, small AC |
 | 8 AWG | 50A | 40A | Ranges, sub-panels |
 | 6 AWG | 65A | 55A | Large AC, sub-panels |
 | 4 AWG | 85A | 70A | Sub-panels, feeders |

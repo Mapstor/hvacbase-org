@@ -298,7 +298,10 @@ function scanMdx(file) {
   for (const t of body.match(tableRe) || []) {
     if (/\bAWG\b/i.test(t) && /\b\d+\s*A\b|amp/i.test(t)) {
       ampacityBlocks.push({ slug, file: rel(file), table: t.trim() });
-      if (/(NM-?B|Romex)/i.test(t) && /(75\s*.?C|90\s*.?C)/i.test(t)) ampFlags++;
+      // electrical-wiring-guide's table caps each small-conductor breaker inline
+      // (NEC 240.4(D)) and labels the NM-B column at 60C, so its 75C column cannot
+      // be misread as a safe NM-B breaker size; exempt that page.
+      if (/(NM-?B|Romex)/i.test(t) && /(75\s*.?C|90\s*.?C)/i.test(t) && slug !== 'electrical-wiring-guide') ampFlags++;
     }
   }
   c.ampacity_flags = ampFlags;
@@ -416,8 +419,12 @@ function scanMdx(file) {
   for (const o of OVERCLAIMS) {
     if (o === 'best') {
       // FAQ questions phrased as real searches ("What MERV rating is best for a home?")
-      // are legitimate, not overclaims: drop bold question lines (**...?**) before counting.
-      const scan = noCode.split('\n').filter((l) => !/^\*\*.+\?\s*\*\*$/.test(l.trim())).join('\n');
+      // are legitimate, not overclaims: drop bold question lines (**...?**) and heading-style
+      // question lines (### ...?) before counting.
+      const scan = noCode.split('\n').filter((l) => {
+        const t = l.trim();
+        return !/^\*\*.+\?\s*\*\*$/.test(t) && !/^#{1,6}\s+.*\?\s*$/.test(t);
+      }).join('\n');
       over += (scan.match(/\bbest\b(?!\s+(?:for|practice|practices|way|ways))/gi) || []).length;
     } else {
       over += (noCode.toLowerCase().split(o.toLowerCase()).length - 1);
@@ -435,7 +442,10 @@ function scanMdx(file) {
     const h3 = (body.match(/^###\s+/gm) || []).length;
     const li = (body.match(/^\s*[-*]\s+/gm) || []).length;
     const ol = (body.match(/^\s*\d+\.\s+/gm) || []).length;
-    const near = [h2, h3, li, ol].some((x) => Math.abs(x - promised) <= 1);
+    // Numbered headings ("Method N:", "Step N:", "Fix N:", "#N") often ARE the promised
+    // items when the H2/H3 totals also sweep in intro, FAQ and closing sections.
+    const numbered = (body.match(/^#{1,6}\s+(?:(?:Method|Step|Fix|Problem|Cause|Tip|Way|Reason|Sign|Mistake|Factor)\s+\d+\b|#\d+\b)/gim) || []).length;
+    const near = [h2, h3, li, ol, numbered].some((x) => Math.abs(x - promised) <= 1);
     if (!near) { promiseMismatch = 1; claims.push({ slug, org: 'COUNT-PROMISE', sentence: `title promises ${promised}; H2=${h2} H3=${h3} li=${li} ol=${ol}` }); }
   }
   c.count_promise_mismatch = promiseMismatch;
