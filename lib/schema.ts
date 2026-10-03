@@ -12,7 +12,7 @@ export const AUTHOR_URL = `${SITE_URL}/about`;
 export const AUTHOR_IMAGE = `${SITE_URL}/authors/marko-visic.jpg`;
 export const AUTHOR_JOB_TITLE = 'Founder & Author';
 export const AUTHOR_DESCRIPTION =
-  'Physicist (BSc, University of Ljubljana) specializing in thermodynamics and heat transfer; founder of HVACBase, a physics-first HVAC education site sourced from manufacturer and AHRI-certified specifications.';
+  'Physicist (BSc, University of Ljubljana) specializing in thermodynamics and heat transfer; founder of HVACBase, a physics-first HVAC education site sourced from primary data and published standards.';
 export const AUTHOR_ALUMNI = 'Faculty of Mathematics and Physics, University of Ljubljana';
 export const AUTHOR_LINKEDIN = 'https://www.linkedin.com/in/marko-visic/';
 

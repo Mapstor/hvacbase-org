@@ -37,7 +37,7 @@ export default function EditorialPolicyPage() {
             site&apos;s sole author and editor. He is a physicist specializing in
             thermodynamics and heat transfer, <strong>not a licensed HVAC contractor</strong>,
             and the site reflects that: clear, physics-grounded explanation built on
-            verified manufacturer and certification data.
+            verified data from primary sources and published standards.
           </p>
 
           <h2>How pages are written</h2>
