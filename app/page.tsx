@@ -947,8 +947,9 @@ export default async function HomePage() {
               How We Source Our Content
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide HVAC information based on manufacturer data,
-              industry standards, and AHRI-certified efficiency ratings, no affiliate links or paid product placements.
+              Figures come from primary sources such as the DOE, EIA, ENERGY STAR
+              and the EPA, recalculated and linked on every page. No affiliate links
+              or paid placements.
             </p>
           </div>
           
@@ -959,7 +960,7 @@ export default async function HomePage() {
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Data-Driven Content</h3>
               <p className="text-sm text-gray-600">
-                Guides reference AHRI certifications, DOE data, and ACCA Manual J methods where applicable
+                Guides cite DOE, EIA, ENERGY STAR and EPA data, and the calculators use the same published formulas.
               </p>
             </div>
 
@@ -977,7 +978,7 @@ export default async function HomePage() {
               <div className="bg-purple-100 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <Clock className="w-8 h-8 text-purple-700" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Reviewed and Updated Regularly</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Updated as Standards Change</h3>
               <p className="text-sm text-gray-600">
                 Content is refreshed as standards, tax law, and equipment specifications change
               </p>
