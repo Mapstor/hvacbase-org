@@ -5,7 +5,7 @@ import { generatePersonSchema, AUTHOR_LINKEDIN } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'About HVACBase',
   description:
-    'HVACBase is written by Marko Visic, a physicist (BSc, University of Ljubljana) specializing in thermodynamics and heat transfer. The site explains HVAC from first principles, using manufacturer documentation and AHRI-certified specifications. Published by Moving Data Systems d.o.o., Slovenia.',
+    'HVACBase is written by Marko Visic, a physicist (BSc, University of Ljubljana) specializing in thermodynamics and heat transfer. The site explains HVAC from first principles, backed by primary-sourced data. Published by Moving Data Systems d.o.o., Slovenia.',
   alternates: { canonical: 'https://www.hvacbase.org/about' },
   openGraph: {
     title: 'About HVACBase',
@@ -69,6 +69,15 @@ export default function AboutPage() {
             HVAC decisions, backed by primary-sourced specifications.
           </p>
 
+          <p>
+            Pages are drafted with the help of AI writing tools, then fact-checked
+            against primary sources, recalculated and edited by Marko; the{' '}
+            <a href="/editorial-policy" className="text-brand-600 hover:underline">
+              editorial policy
+            </a>{' '}
+            explains the process.
+          </p>
+
           <h2>Why this site exists</h2>
           <p>
             Most HVAC information online tells you <em>which</em> unit to buy. HVACBase
@@ -82,11 +91,12 @@ export default function AboutPage() {
 
           <h2>How we source</h2>
           <p>
-            Every specification on this site comes from manufacturer documentation,
-            the <strong>AHRI Directory</strong>, or <strong>ENERGY STAR</strong>. Where
-            a number can&apos;t be verified against a primary source, it isn&apos;t
-            published. We don&apos;t run a testing lab and we don&apos;t claim to,
-            our value is clear explanation of verified data, not invented measurements.
+            Every figure on this site comes from a primary source: U.S. Department
+            of Energy standards and guidance, the U.S. Energy Information
+            Administration, <strong>ENERGY STAR</strong>, and the EPA. Where a number
+            can&apos;t be verified against a primary source, it isn&apos;t published.
+            We don&apos;t run a testing lab and we don&apos;t claim to, our value is
+            clear explanation of verified data, not invented measurements.
           </p>
 
           <h2>What this site is not</h2>
