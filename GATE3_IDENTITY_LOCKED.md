@@ -4,6 +4,8 @@
 **Person:** Marko Visic — real owner/author. **Do NOT** add licensed-contractor / NATE / mechanical-engineer claims. The honest positioning (physicist explaining HVAC from first principles, primary-sourced) is what passes review.
 **Confirmed settings:** byline = "Marko Visic, BSc Physics" · LinkedIn visible on page + in schema · public email = info@hvacbase.org · photo source = repo-root `1516504244885.jpeg` → `public/authors/marko-visic.jpg`.
 
+**Amendment (2026-10-03, EDIT-1 sourcing update):** the sourcing story moved off "manufacturer documentation / AHRI-certified specifications" to primary sources (DOE, EIA, ENERGY STAR, EPA, IRS, NEC/ASHRAE) plus disclosed AI-assisted drafting. The author bio below is updated to match. The About and Editorial Policy pages were revised directly in that pass; the live pages now supersede the section 2 and section 3 copy below.
+
 ---
 
 ## 1. AUTHOR BOX (article cards + article footer) — replace every `{{TODO-IDENTITY}}`
@@ -11,7 +13,7 @@
 **Byline (visible):** Marko Visic, BSc Physics
 **Photo:** `/authors/marko-visic.jpg` (alt: "Marko Visic, founder of HVACBase")
 **Short bio (visible under byline):**
-> Marko Visic holds a BSc in Physics from the Faculty of Mathematics and Physics, University of Ljubljana, where he focused on thermodynamics and heat transfer — the physics behind how heat pumps, air conditioners, insulation, and airflow actually work. He founded HVACBase to explain HVAC from first principles, using manufacturer documentation and AHRI-certified specifications.
+> Marko Visic holds a BSc in Physics from the Faculty of Mathematics and Physics, University of Ljubljana, where he focused on thermodynamics and heat transfer, the physics behind how heat pumps, air conditioners, insulation, and airflow actually work. He founded HVACBase to explain HVAC from first principles, grounded in primary sources and published standards.
 
 **Links in the author box (both visible):**
 - "More about the author →" → `/about`
