@@ -22,12 +22,19 @@
  *                               wraps-h2 anti-pattern; e.g. "## Key Takeaways" inside
  *                               <Callout type="takeaway">. Renders as a heading stuck inside
  *                               the decorative box instead of as its own standalone section.)
+ *   9. SVG lint + Diagram       (scripts/svg-lint.mjs: every public/diagrams SVG passes the
+ *                               ported lint — title/desc/role/viewBox, no script/foreignObject/
+ *                               external href, reduced-motion, no text-anchor, no text/line/shape
+ *                               overlaps, nothing off-canvas, under 60 KB — and every <Diagram>
+ *                               has an existing src, alt >= 80 chars, a caption, and width/height
+ *                               equal to the SVG viewBox.)
  */
 
 import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import matter from 'gray-matter';
+import { checkSvgLint } from './svg-lint.mjs';
 
 // ────────────────────────────────────────────────────────────────
 // CONFIG
@@ -49,7 +56,7 @@ const GLOBAL_COMPONENTS = new Set([
   'CalcWrapper', 'SEERCalculator', 'BTUCalculator',
   'DataChart', 'EfficiencyCurve', 'ComparisonChart',
   'ScaleDiagram', 'RefrigerationCycle', 'CarbonMonoxideDetectorPlacement',
-  'DryModeVsCoolMode', 'BatteryRuntimeByLoad',
+  'DryModeVsCoolMode', 'BatteryRuntimeByLoad', 'Diagram',
 ]);
 
 // Common English stopwords + boilerplate — filtered from Jaccard word sets.
@@ -476,6 +483,7 @@ function main() {
   findings.push(...checkWrongYear(files));
   findings.push(...checkMissingImports(files));
   findings.push(...checkHeadingInCallout(files));
+  findings.push(...checkSvgLint(files));
   let buildInfo = { pageInfo: '(skipped)', exitCode: null };
   if (!skipBuild) {
     const b = checkCompile();
