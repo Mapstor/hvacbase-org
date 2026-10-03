@@ -4,7 +4,7 @@ import { AUTHOR_LINKEDIN } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'Editorial Policy | HVACBase',
   description:
-    'How HVACBase sources specifications (AHRI Directory, ENERGY STAR, manufacturer documentation), the verified-or-omitted rule, what we do not do (no testing lab, no first-person measurements, no affiliate links), and the corrections process.',
+    'How HVACBase pages are written and fact-checked: figures come from primary sources (DOE, EIA, ENERGY STAR, EPA, IRS, and the governing codes and standards), the verified-or-omitted rule, what we do not do (no testing lab, no affiliate links, no brand recommendations), and the corrections process.',
   alternates: { canonical: 'https://www.hvacbase.org/editorial-policy' },
   openGraph: {
     title: 'Editorial Policy | HVACBase',
@@ -40,34 +40,40 @@ export default function EditorialPolicyPage() {
             verified manufacturer and certification data.
           </p>
 
-          <h2>How we source specifications</h2>
+          <h2>How pages are written</h2>
           <p>
-            All efficiency ratings and technical specifications are taken from primary
-            sources: the <strong>AHRI Directory</strong> (ahridirectory.org),{' '}
-            <strong>ENERGY STAR</strong>, and manufacturer documentation. Where relevant
-            we cite the AHRI Certified Reference Number.{' '}
-            <strong>
-              If a figure cannot be verified against a primary source, we do not publish it.
-            </strong>{' '}
-            When we lack the certified data to make a claim, we say so plainly rather
-            than estimate.
+            Pages are drafted with the help of AI writing tools, then checked:
+            every figure is traced to its primary source and linked on the page,
+            every calculation is recomputed, and anything that can&apos;t be
+            verified is removed or labeled as an assumption. Marko reviews and
+            edits the pages, starting with the most-read guides, and corrects
+            errors as soon as they&apos;re reported.
+          </p>
+
+          <h2>Where the numbers come from</h2>
+          <p>
+            Figures come from primary sources: U.S. Department of Energy
+            efficiency standards and guidance, the U.S. Energy Information
+            Administration, ENERGY STAR, the EPA, the IRS, and the codes and
+            standards that govern HVAC and electrical work, such as the National
+            Electrical Code and ASHRAE standards. Calculators use the same
+            published formulas and data the guides cite. Cost ranges are typical
+            contractor pricing and are labeled as estimates.
           </p>
 
           <h2>What we don&apos;t do</h2>
           <p>
             We do not run a testing laboratory, and we never claim first-hand testing
-            or measurements we didn&apos;t perform. We do not accept payment for reviews
-            or rankings, and the site carries <strong>no affiliate links</strong>,
-            recommendations are based only on verified specifications and the
-            underlying physics.
+            or measurements we didn&apos;t perform. We don&apos;t name or recommend
+            brands, accept payment for coverage, or use affiliate links.
           </p>
 
           <p>
             The site may display third-party programmatic advertisements. When such
             advertisements appear, they are served by ad networks and placed by those
-            networks, not by us. Advertising does not influence what we cover, how we
-            rank products, or which specifications we cite. Data processing associated
-            with advertising is described in the{' '}
+            networks, not by us. Advertising does not influence what we cover or what
+            the pages say. Data processing associated with advertising is described in
+            the{' '}
             <a href="/privacy" className="text-brand-600 hover:underline">
               privacy policy
             </a>
@@ -86,7 +92,7 @@ export default function EditorialPolicyPage() {
           </p>
 
           <p className="text-sm text-gray-500 mt-12">
-            <em>Last updated: June 26, 2026.</em> · Author:{' '}
+            <em>Last updated: October 3, 2026.</em> · Author:{' '}
             <a
               href={AUTHOR_LINKEDIN}
               target="_blank"
