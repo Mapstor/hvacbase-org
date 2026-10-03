@@ -160,11 +160,13 @@ function attr(tag, name) {
 
 /** All <Diagram .../> tags in a body, code-masked so examples are skipped. */
 function findDiagramTags(body) {
-  // Mask fenced + inline code with equal-length whitespace so byte offsets (and
-  // therefore line numbers) stay correct while code examples are excluded.
+  // Blank out fenced + inline code but keep newlines, so both byte offsets AND
+  // line counts stay correct (replacing newlines with spaces would under-count
+  // the line of any <Diagram> that follows a multi-line code block).
+  const blank = (m) => m.replace(/[^\n]/g, ' ');
   const masked = body
-    .replace(/```[\s\S]*?```/g, (m) => ' '.repeat(m.length))
-    .replace(/`[^`]*`/g, (m) => ' '.repeat(m.length));
+    .replace(/```[\s\S]*?```/g, blank)
+    .replace(/`[^`]*`/g, blank);
   const tags = [];
   for (const m of masked.matchAll(/<Diagram\b[\s\S]*?\/>/g)) {
     tags.push({ tag: m[0], line: masked.slice(0, m.index).split('\n').length });
