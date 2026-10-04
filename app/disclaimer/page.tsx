@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function Disclaimer() {
-  const lastUpdated = 'February 12, 2026';
+  const lastUpdated = 'October 4, 2026';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -132,7 +132,7 @@ export default function Disclaimer() {
                   <h3 className="font-semibold text-gray-900 mb-2">We Do NOT Provide:</h3>
                   <ul className="space-y-2 text-sm text-gray-700">
                     <li>❌ System design services</li>
-                    <li>❌ Load calculations</li>
+                    <li>❌ Professional load calculations (ACCA Manual J)</li>
                     <li>❌ Permit assistance</li>
                     <li>❌ Code compliance verification</li>
                     <li>❌ Installation instructions</li>
@@ -213,7 +213,7 @@ export default function Disclaimer() {
                     All cost information is based on national or regional averages and may not reflect your local market.
                   </p>
                   <ul className="space-y-1 text-sm text-gray-700">
-                    <li>• Prices vary by location (50-200% variation)</li>
+                    <li>• Prices vary by location</li>
                     <li>• Labor costs differ significantly by region</li>
                     <li>• Material costs fluctuate with market conditions</li>
                     <li>• Additional work may be required (electrical, ductwork, permits)</li>
@@ -456,7 +456,7 @@ export default function Disclaimer() {
                 If you have questions about this disclaimer or concerns about content accuracy:
               </p>
               <div className="space-y-2 text-gray-700">
-                <p>Email: <a href="mailto:legal@hvacbase.org" className="text-brand-600 hover:text-brand-700">legal@hvacbase.org</a></p>
+                <p>Email: <a href="mailto:info@hvacbase.org" className="text-brand-600 hover:text-brand-700">info@hvacbase.org</a></p>
                 <p>Response Time: 2-3 business days</p>
               </div>
               
