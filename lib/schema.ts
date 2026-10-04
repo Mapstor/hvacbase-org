@@ -66,9 +66,15 @@ export function generatePersonSchema() {
 // A bare "YYYY-MM-DD" becomes a full ISO 8601 datetime with a UTC offset
 // (schema.org / Google prefer a time + timezone). Values that already carry a
 // time are passed through unchanged.
-function toIsoDateTime(d?: string): string | undefined {
-  if (!d) return d;
-  return /\dT\d/.test(d) ? d : `${d}T00:00:00+00:00`;
+function toIsoDateTime(d?: string | Date): string | undefined {
+  if (!d) return undefined;
+  // gray-matter parses an unquoted YAML date (e.g. `reviewedOn: 2026-10-04`) into a
+  // Date, not a string, and the `as ArticleMeta` cast hides that from the type system.
+  // Normalize any Date back to a "YYYY-MM-DD" string before building the datetime, so
+  // reviewedOn/datePublished/dateModified never leak a "Sun Oct 04 2026 ..." string
+  // into the schema.
+  const s = d instanceof Date ? d.toISOString().slice(0, 10) : d;
+  return /\dT\d/.test(s) ? s : `${s}T00:00:00+00:00`;
 }
 
 // Body word count, the same method as scripts/content-audit.mjs and the READY
