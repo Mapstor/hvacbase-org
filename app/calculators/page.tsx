@@ -191,7 +191,7 @@ export default function CalculatorsHub() {
               </div>
               <div className="flex items-center gap-1">
                 <Gauge className="w-4 h-4" />
-                <span>Accurate sizing</span>
+                <span>Standard sizing methods</span>
               </div>
             </div>
           </div>
