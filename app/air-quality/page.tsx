@@ -69,7 +69,7 @@ const categoryInfo = {
   },
   'air-purifier-reviews': {
     title: 'Air Purifier Reviews',
-    description: 'Best air purifiers, HEPA filters, and air cleaning device reviews',
+    description: 'Guides to air purifiers, HEPA filters, and air-cleaning devices',
     icon: Wind
   },
   'dehumidifiers': {
