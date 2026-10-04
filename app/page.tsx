@@ -1039,7 +1039,7 @@ export default async function HomePage() {
             Start With Our Most Popular Calculator
           </h2>
           <p className="text-xl text-brand-100 mb-8">
-            Size your AC correctly and avoid the #1 HVAC mistake: oversizing.
+            Size your AC correctly and avoid a common, costly mistake: oversizing.
             Our calculator gives a simplified load estimate; a contractor&apos;s Manual J should confirm the final size before you buy.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
