@@ -12,7 +12,7 @@ export const AUTHOR_URL = `${SITE_URL}/about`;
 export const AUTHOR_IMAGE = `${SITE_URL}/authors/marko-visic.jpg`;
 export const AUTHOR_JOB_TITLE = 'Founder & Author';
 export const AUTHOR_DESCRIPTION =
-  'Physicist (BSc, University of Ljubljana) specializing in thermodynamics and heat transfer; founder of HVACBase, a physics-first HVAC education site sourced from primary data and published standards.';
+  'Physicist (BSc, University of Ljubljana) especially interested in thermodynamics and heat transfer; founder of HVACBase, a physics-first HVAC education site sourced from primary data and published standards.';
 export const AUTHOR_ALUMNI = 'Faculty of Mathematics and Physics, University of Ljubljana';
 export const AUTHOR_LINKEDIN = 'https://www.linkedin.com/in/marko-visic/';
 
@@ -116,6 +116,12 @@ export function generateArticleSchema(meta: ArticleMeta, rawBody?: string) {
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/${meta.slug}`,
+      // Human-review trail: present only when the page sets `reviewedOn`, so pages
+      // without it keep a byte-identical schema.
+      ...(meta.reviewedOn && {
+        lastReviewed: toIsoDateTime(meta.reviewedOn),
+        reviewedBy: { '@id': `${AUTHOR_URL}#marko-visic` },
+      }),
     },
     articleSection: meta.cluster,
     keywords: meta.cluster.replace(/-/g, ' ') + ', hvac, ' + (meta.contentType || ''),

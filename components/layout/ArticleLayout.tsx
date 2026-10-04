@@ -65,7 +65,7 @@ export default function ArticleLayout({ meta, children }: ArticleLayoutProps) {
       </article>
 
       {/* Author footer card */}
-      <AuthorBox variant="card" />
+      <AuthorBox variant="card" reviewedOn={meta.reviewedOn} />
     </div>
   );
 }

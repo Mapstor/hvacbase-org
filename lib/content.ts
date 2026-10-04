@@ -16,6 +16,9 @@ export interface ArticleMeta {
   datePublished: string;
   dateModified?: string;
   dateUpdated?: string;
+  /** Optional human review date ("YYYY-MM-DD"). Drives the AuthorBox review line
+   *  and the WebPage schema's lastReviewed/reviewedBy. Absent on most pages. */
+  reviewedOn?: string;
   author?: string;
   readingTime: string;
   tableOfContents?: boolean;

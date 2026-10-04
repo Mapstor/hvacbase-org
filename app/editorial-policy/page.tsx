@@ -34,7 +34,7 @@ export default function EditorialPolicyPage() {
           <p>
             HVACBase is researched and written by <strong>Marko Visic, BSc Physics</strong>{' '}
             (Faculty of Mathematics and Physics, University of Ljubljana). He is the
-            site&apos;s sole author and editor. He is a physicist specializing in
+            site&apos;s sole author and editor. He is a physicist especially interested in
             thermodynamics and heat transfer, <strong>not a licensed HVAC contractor</strong>,
             and the site reflects that: clear, physics-grounded explanation built on
             verified data from primary sources and published standards.

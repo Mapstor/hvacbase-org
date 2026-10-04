@@ -13,7 +13,7 @@
 **Byline (visible):** Marko Visic, BSc Physics
 **Photo:** `/authors/marko-visic.jpg` (alt: "Marko Visic, founder of HVACBase")
 **Short bio (visible under byline):**
-> Marko Visic holds a BSc in Physics from the Faculty of Mathematics and Physics, University of Ljubljana, where he focused on thermodynamics and heat transfer, the physics behind how heat pumps, air conditioners, insulation, and airflow actually work. He founded HVACBase to explain HVAC from first principles, grounded in primary sources and published standards.
+> Marko Visic holds a BSc in Physics from the Faculty of Mathematics and Physics, University of Ljubljana, and is especially interested in thermodynamics and heat transfer, the physics behind how heat pumps, air conditioners, insulation, and airflow actually work. He founded HVACBase to explain HVAC from first principles, grounded in primary sources and published standards.
 
 **Links in the author box (both visible):**
 - "More about the author →" → `/about`
@@ -48,7 +48,7 @@ Apply this single author component to all articles (replace the `{{TODO-IDENTITY
 > ## Editorial Policy
 >
 > ### Who writes HVACBase
-> HVACBase is researched and written by **Marko Visic, BSc Physics** (Faculty of Mathematics and Physics, University of Ljubljana). He is the site's sole author and editor. He is a physicist specializing in thermodynamics and heat transfer — **not a licensed HVAC contractor** — and the site reflects that: clear, physics-grounded explanation built on verified manufacturer and certification data.
+> HVACBase is researched and written by **Marko Visic, BSc Physics** (Faculty of Mathematics and Physics, University of Ljubljana). He is the site's sole author and editor. He is a physicist especially interested in thermodynamics and heat transfer — **not a licensed HVAC contractor** — and the site reflects that: clear, physics-grounded explanation built on verified manufacturer and certification data.
 >
 > ### How we source specifications
 > All efficiency ratings and technical specifications are taken from primary sources: the **AHRI Directory** (ahridirectory.org), **ENERGY STAR**, and manufacturer documentation. Where relevant we cite the AHRI Certified Reference Number. **If a figure cannot be verified against a primary source, we do not publish it.** When we lack the certified data to make a claim, we say so plainly rather than estimate.
@@ -85,7 +85,7 @@ Apply this single author component to all articles (replace the `{{TODO-IDENTITY
   "url": "https://www.hvacbase.org/about",
   "image": "https://www.hvacbase.org/authors/marko-visic.jpg",
   "jobTitle": "Founder & Author",
-  "description": "Physicist (BSc, University of Ljubljana) specializing in thermodynamics and heat transfer; founder of HVACBase, a physics-first HVAC education site sourced from manufacturer and AHRI-certified specifications.",
+  "description": "Physicist (BSc, University of Ljubljana) especially interested in thermodynamics and heat transfer; founder of HVACBase, a physics-first HVAC education site sourced from manufacturer and AHRI-certified specifications.",
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "Faculty of Mathematics and Physics, University of Ljubljana"
