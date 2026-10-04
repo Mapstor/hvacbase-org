@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 396" width="800" height="396" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">ASHRAE Standard 34 refrigerant safety classes</title>
+  <desc id="d">A grid of toxicity (A lower, B higher) against flammability (1 no flame spread, 2L lower, 2 flammable, 3 higher). R-22 and R-410A are A1; R-32 and R-454B are A2L; R-290, propane, is A3. 2L means a slow, hard-to-ignite flame: R-32 burns slower than 10 centimeters per second and only ignites at about 14.4 percent concentration in air.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="396" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">ASHRAE Standard 34 safety classes</text>
+  <text class="num" x="160" y="68">1</text>
+  <text class="cap" x="160" y="88">No flame spread</text>
+  <text class="num" x="310" y="68">2L</text>
+  <text class="cap" x="310" y="88">Lower flammability</text>
+  <text class="num" x="460" y="68">2</text>
+  <text class="cap" x="460" y="88">Flammable</text>
+  <text class="num" x="610" y="68">3</text>
+  <text class="cap" x="610" y="88">Higher flammability</text>
+  <text class="big" x="32" y="144">A</text>
+  <text class="cap" x="52" y="144">Lower</text>
+  <text class="cap" x="52" y="160">toxicity</text>
+  <rect x="150" y="104" width="142" height="88" rx="8" fill="#f7f9fb" stroke="#d4e0ea"/>
+  <rect x="300" y="104" width="142" height="88" rx="8" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <rect x="450" y="104" width="142" height="88" rx="8" fill="#f7f9fb" stroke="#d4e0ea"/>
+  <rect x="600" y="104" width="142" height="88" rx="8" fill="#f7f9fb" stroke="#d4e0ea"/>
+  <text class="big" x="32" y="240">B</text>
+  <text class="cap" x="52" y="240">Higher</text>
+  <text class="cap" x="52" y="256">toxicity</text>
+  <rect x="150" y="200" width="142" height="88" rx="8" fill="#f7f9fb" stroke="#d4e0ea"/>
+  <rect x="300" y="200" width="142" height="88" rx="8" fill="#f7f9fb" stroke="#d4e0ea"/>
+  <rect x="450" y="200" width="142" height="88" rx="8" fill="#f7f9fb" stroke="#d4e0ea"/>
+  <rect x="600" y="200" width="142" height="88" rx="8" fill="#f7f9fb" stroke="#d4e0ea"/>
+  <text class="num" x="164" y="138">R-22</text>
+  <text class="num" x="164" y="160">R-410A</text>
+  <text class="num" x="314" y="138">R-32</text>
+  <text class="num" x="314" y="160">R-454B</text>
+  <text class="num" x="614" y="138">R-290</text>
+  <text class="cap" x="614" y="160">(propane)</text>
+  <rect x="32" y="312" width="736" height="62" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="cap" x="48" y="338">2L means a slow, hard-to-ignite flame: R-32 burns slower than 10 cm/s</text>
+  <text class="cap" x="48" y="356">and only ignites at about 14.4% concentration in air.</text>
+</svg>

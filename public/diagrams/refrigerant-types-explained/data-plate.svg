@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 366" width="800" height="366" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Where to find your refrigerant on the outdoor unit data plate</title>
+  <desc id="d">An example outdoor unit data plate with the refrigerant line, here R-410A, and the factory charge highlighted. If the plate says R-22, the system was installed about 1995 to 2010; R-410A about 2006 to 2024; R-32 or R-454B from 2024 on.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="366" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Where to find your refrigerant</text>
+  <rect x="32" y="62" width="380" height="250" rx="8" fill="#eef1f4" stroke="#8a99a8" stroke-width="2"/>
+  <text class="zone" x="48" y="88">EXAMPLE OUTDOOR UNIT DATA PLATE</text>
+  <text class="cap" x="56" y="118">MODEL NO.</text>
+  <text class="cap" x="220" y="118">█████████████</text>
+  <text class="cap" x="56" y="154">SERIAL NO.</text>
+  <text class="cap" x="220" y="154">█████████████</text>
+  <text class="cap" x="56" y="190">VOLTS / PHASE / HZ</text>
+  <text class="cap" x="220" y="190">208/230 · 1 · 60</text>
+  <rect x="44" y="209" width="356" height="26" rx="4" fill="#fde9d9" stroke="#e07a2f"/>
+  <text class="cap" x="56" y="226">REFRIGERANT</text>
+  <text class="num" x="220" y="226">R-410A</text>
+  <rect x="44" y="245" width="356" height="26" rx="4" fill="#fde9d9" stroke="#e07a2f"/>
+  <text class="cap" x="56" y="262">FACTORY CHARGE</text>
+  <text class="num" x="220" y="262">6 LB 4 OZ</text>
+  <path d="M404 227 H444" stroke="#c2410c" stroke-width="2" fill="none"/>
+  <path d="M443 221 L450 227 L443 233 Z" fill="#c2410c"/>
+  <path d="M404 263 H444" stroke="#c2410c" stroke-width="2" fill="none"/>
+  <path d="M443 257 L450 263 L443 269 Z" fill="#c2410c"/>
+  <text class="num" x="458" y="231">The refrigerant type</text>
+  <text class="lbl" x="458" y="267">How much the system holds</text>
+  <rect x="458" y="62" width="310" height="124" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="474" y="88">If the plate says</text>
+  <text class="cap" x="474" y="110">R-22 → installed about 1995–2010</text>
+  <text class="cap" x="474" y="128">R-410A → about 2006–2024</text>
+  <text class="cap" x="474" y="146">R-32 or R-454B → 2024 on</text>
+  <text class="cap" x="32" y="344">The plate is on the side or back of the outdoor unit, or just inside its access panel.</text>
+</svg>
