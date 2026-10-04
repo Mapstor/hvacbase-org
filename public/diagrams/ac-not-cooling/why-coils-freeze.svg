@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 410" width="800" height="410" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Why an air conditioner's indoor coil freezes</title>
+  <desc id="d">Two causes make the indoor coil too cold: too little airflow, from a clogged filter, a dirty indoor coil or more than about 20 percent of vents closed, and low refrigerant from a leak. The coil drops below freezing and moisture freezes on it; the ice blocks more airflow, which makes the coil colder still. The fix: turn cooling off and run the fan until the ice is fully thawed, never chip the ice, clear the airflow problem, and call a technician if it refreezes quickly.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .air{stroke-dasharray:7 6;animation:flow 1.2s linear infinite}
+    @keyframes flow{to{stroke-dashoffset:-26}}
+    @media (prefers-reduced-motion: reduce){.air{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="410" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Why an AC's indoor coil freezes</text>
+
+  <rect x="32" y="62" width="330" height="112" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="88">Too little airflow</text>
+  <text class="lbl" x="48" y="114">• Clogged filter</text>
+  <text class="lbl" x="48" y="136">• Dirty indoor coil</text>
+  <text class="lbl" x="48" y="158">• More than about 20% of vents closed</text>
+
+  <rect x="438" y="62" width="330" height="112" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="454" y="88">Low refrigerant</text>
+  <text class="lbl" x="454" y="114">• A leak lowers the charge</text>
+  <text class="lbl" x="454" y="136">• Finding and fixing it takes a</text>
+  <text class="lbl" x="466" y="158">licensed technician</text>
+
+  <path d="M197 176 L306 208" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M300 200 L310 210 L296 211 Z" fill="#6b7f91"/>
+  <path d="M603 176 L494 208" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M500 200 L490 210 L504 211 Z" fill="#6b7f91"/>
+
+  <rect x="250" y="212" width="300" height="70" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="num" x="266" y="238">The coil drops below freezing</text>
+  <text class="lbl" x="266" y="262">and moisture in the air freezes on it</text>
+
+  <path d="M400 282 V306" stroke="#2b7bb9" stroke-width="2" fill="none"/>
+  <path d="M394 302 L400 312 L406 302 Z" fill="#2b7bb9"/>
+
+  <rect x="250" y="314" width="300" height="70" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="num" x="266" y="340">Ice blocks even more airflow</text>
+  <text class="lbl" x="266" y="364">so the coil gets colder still</text>
+
+  <path class="air" d="M248 349 H110 V178" stroke="#c2410c" stroke-width="2.5" fill="none"/>
+  <path d="M104 186 L110 176 L116 186 Z" fill="#c2410c"/>
+  <text class="cap" x="122" y="300">The loop feeds itself</text>
+
+  <rect x="570" y="212" width="198" height="172" rx="10" fill="#f2f8f2" stroke="#9cc59c"/>
+  <text class="num" x="586" y="238">The fix</text>
+  <text class="cap" x="586" y="262">Cooling off, fan on until</text>
+  <text class="cap" x="586" y="280">the ice is fully thawed</text>
+  <text class="cap" x="586" y="304">Never chip the ice</text>
+  <text class="cap" x="586" y="328">Then clear the airflow</text>
+  <text class="cap" x="586" y="346">problem</text>
+  <text class="cap" x="586" y="370">Refreezes fast? Call a pro</text>
+</svg>
