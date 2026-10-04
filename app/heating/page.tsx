@@ -4,14 +4,14 @@ import { getAllArticles } from '@/lib/content';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Heating Systems Guides, Calculators & Reviews',
+  title: 'Heating Systems Guides & Calculators',
   description: 'Comprehensive heating resource center: furnace sizing, space heater guides, energy efficiency ratings, and troubleshooting help, educational tools and primary-sourced guidance.',
   alternates: {
     canonical: 'https://www.hvacbase.org/heating',
   },
   openGraph: {
     title: 'Heating Systems Guides & Resources',
-    description: 'In-depth heating guides, sizing calculators, and manufacturer-spec efficiency comparisons.',
+    description: 'In-depth heating guides, sizing calculators, and primary-sourced efficiency comparisons.',
     url: 'https://www.hvacbase.org/heating',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Base | Heating Systems' }],
