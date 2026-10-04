@@ -28,6 +28,13 @@
  *                               overlaps, nothing off-canvas, under 60 KB — and every <Diagram>
  *                               has an existing src, alt >= 80 chars, a caption, and width/height
  *                               equal to the SVG viewBox.)
+ *  10. Static routes            (scripts/static-routes.mjs: the 18 hand-written non-MDX routes
+ *                               — homepage, resource/cluster hubs, /hvac-dictionary, the six
+ *                               informational pages — get the same content checks articles get
+ *                               (em dashes, brands, model codes, overclaims, template tells,
+ *                               phantom tax credits, off-rate kWh/therm/gal, stale EIA, long
+ *                               paragraphs, broken internal links), read from each route's built
+ *                               HTML. Built-HTML mode: skipped under --skip-build, with a note.)
  */
 
 import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
@@ -35,6 +42,7 @@ import { join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { checkSvgLint } from './svg-lint.mjs';
+import { checkStaticRoutes } from './static-routes.mjs';
 
 // ────────────────────────────────────────────────────────────────
 // CONFIG
@@ -491,6 +499,11 @@ function main() {
     buildInfo = { pageInfo: b.pageInfo, exitCode: b.exitCode };
   }
 
+  // Check 10: Static (non-MDX) routes, from built HTML. Skips cleanly under --skip-build
+  // (adds no findings; the note below records that the check did not run).
+  const staticResult = checkStaticRoutes({ skipBuild });
+  findings.push(...staticResult.findings);
+
   // Group + count
   const counts = { blocker: 0, high: 0, medium: 0, low: 0 };
   const byCheck = {};
@@ -502,6 +515,7 @@ function main() {
   const summary = {
     corpus_size: files.length,
     build: buildInfo,
+    static_routes: { skipped: staticResult.skipped, routes_checked: staticResult.routesChecked, note: staticResult.note },
     total_findings: findings.length,
     counts_by_severity: counts,
     counts_by_check: byCheck,
@@ -517,6 +531,7 @@ function main() {
     console.log(`\n═══ DETERMINISTIC AUDIT — ${new Date().toISOString().split('T')[0]} ═══`);
     console.log(`Corpus:               ${files.length} MDX files`);
     console.log(`Build:                ${buildInfo.pageInfo} · exit ${buildInfo.exitCode ?? '(skipped)'}`);
+    console.log(`Static routes:        ${staticResult.skipped ? 'skipped (' + staticResult.note + ')' : staticResult.routesChecked + ' routes checked from built HTML'}`);
     console.log(`Total findings:       ${findings.length}`);
     console.log(`  blocker: ${counts.blocker}   high: ${counts.high}   medium: ${counts.medium}   low: ${counts.low}`);
     console.log(`By check:`);
