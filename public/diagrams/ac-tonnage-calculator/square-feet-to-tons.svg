@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 352" width="800" height="352" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How the AC tonnage calculator turns square feet into tons</title>
+  <desc id="d">Four steps: floor area times 20 BTU per hour per square foot; times six factors (climate 0.80 to 1.40, insulation 0.8 to 1.3, ceiling height 1.0 to 1.4, sun 0.9 to 1.2, plus or minus 1 percent per window compared with 15, and plus 2 percent per person above two); divide by 12,000 BTU per hour per ton; round up to a standard size from 1.5 to 5 tons. Example: a 2,000 square foot home in Zone 4 at the defaults comes to 41,600 BTU per hour, 3.47 tons, so a 3.5-ton unit.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+  </style>
+  <rect x="0" y="0" width="800" height="352" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">From square feet to tons</text>
+
+  <rect x="32" y="62" width="169" height="196" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="48" y="92">1</text>
+  <text class="num" x="48" y="118">Floor area</text>
+  <text class="cap" x="48" y="142">× 20 BTU per hour</text>
+  <text class="cap" x="48" y="160">per square foot</text>
+  <text class="cap" x="48" y="184">A rule-of-thumb</text>
+  <text class="cap" x="48" y="202">baseline</text>
+
+  <path d="M203 160 H215" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M213 154 L220 160 L213 166 Z" fill="#6b7f91"/>
+
+  <rect x="221" y="62" width="169" height="196" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="237" y="92">2</text>
+  <text class="num" x="237" y="118">× six factors</text>
+  <text class="cap" x="237" y="140">Climate 0.80 to 1.40</text>
+  <text class="cap" x="237" y="158">Insulation 0.8 to 1.3</text>
+  <text class="cap" x="237" y="176">Ceiling 1.0 to 1.4</text>
+  <text class="cap" x="237" y="194">Sun 0.9 to 1.2</text>
+  <text class="cap" x="237" y="212">Windows ±1% vs 15</text>
+  <text class="cap" x="237" y="228">People +2% above 2</text>
+
+  <path d="M392 160 H404" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M402 154 L409 160 L402 166 Z" fill="#6b7f91"/>
+
+  <rect x="410" y="62" width="169" height="196" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="426" y="92">3</text>
+  <text class="num" x="426" y="118">÷ 12,000</text>
+  <text class="cap" x="426" y="142">One ton of cooling</text>
+  <text class="cap" x="426" y="160">is 12,000 BTU/hr</text>
+
+  <path d="M581 160 H593" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M591 154 L598 160 L591 166 Z" fill="#6b7f91"/>
+
+  <rect x="599" y="62" width="169" height="196" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="big" x="615" y="92">4</text>
+  <text class="num" x="615" y="118">Round up</text>
+  <text class="cap" x="615" y="142">to a standard size,</text>
+  <text class="cap" x="615" y="160">1.5 to 5 tons in</text>
+  <text class="cap" x="615" y="178">half-ton steps</text>
+  <text class="cap" x="615" y="202">Over 5 tons:</text>
+  <text class="cap" x="615" y="220">two systems</text>
+
+  <text class="num" x="32" y="294">Example: 2,000 sq ft, Zone 4, calculator defaults</text>
+  <text class="lbl" x="32" y="320">2,000 × 20 = 40,000 BTU/hr × 1.04 (4 people) = 41,600 BTU/hr ÷ 12,000 = 3.47 tons → a 3.5-ton unit</text>
+</svg>

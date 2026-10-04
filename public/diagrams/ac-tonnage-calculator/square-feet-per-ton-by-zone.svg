@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" width="800" height="350" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Square feet one ton of AC covers, by climate zone</title>
+  <desc id="d">At the AC tonnage calculator's defaults, one ton of cooling covers about 412 square feet in Zone 1 (very hot), 481 in Zone 2, 524 in Zone 3, 577 in Zone 4 (mixed), 641 in Zone 5, 679 in Zone 6 and 721 in Zone 7 (very cold). Hotter climates need more cooling per square foot.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .9s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="350" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Square feet one ton covers, by climate zone</text>
+  <g class="bars">
+  <rect class="solid" x="170" y="74" width="255" height="22" rx="3" fill="#2b7bb9" style="animation-delay:0.00s"/>
+  <text class="lbl" x="32" y="90">Z1 very hot</text>
+  <text class="num" x="435" y="90">412 sq ft</text>
+  <rect class="solid" x="170" y="108" width="298" height="22" rx="3" fill="#2b7bb9" style="animation-delay:0.08s"/>
+  <text class="lbl" x="32" y="124">Z2 hot</text>
+  <text class="num" x="478" y="124">481 sq ft</text>
+  <rect class="solid" x="170" y="142" width="325" height="22" rx="3" fill="#2b7bb9" style="animation-delay:0.16s"/>
+  <text class="lbl" x="32" y="158">Z3 warm</text>
+  <text class="num" x="505" y="158">524 sq ft</text>
+  <rect class="solid" x="170" y="176" width="358" height="22" rx="3" fill="#2b7bb9" style="animation-delay:0.24s"/>
+  <text class="lbl" x="32" y="192">Z4 mixed</text>
+  <text class="num" x="538" y="192">577 sq ft</text>
+  <rect class="solid" x="170" y="210" width="397" height="22" rx="3" fill="#2b7bb9" style="animation-delay:0.32s"/>
+  <text class="lbl" x="32" y="226">Z5 cool</text>
+  <text class="num" x="577" y="226">641 sq ft</text>
+  <rect class="solid" x="170" y="244" width="421" height="22" rx="3" fill="#2b7bb9" style="animation-delay:0.40s"/>
+  <text class="lbl" x="32" y="260">Z6 cold</text>
+  <text class="num" x="601" y="260">679 sq ft</text>
+  <rect class="solid" x="170" y="278" width="447" height="22" rx="3" fill="#2b7bb9" style="animation-delay:0.48s"/>
+  <text class="lbl" x="32" y="294">Z7 very cold</text>
+  <text class="num" x="627" y="294">721 sq ft</text>
+  </g>
+  <text class="cap" x="32" y="324">At the calculator's defaults: average insulation, 8-ft ceilings, average sun, 15 windows, 4 people.</text>
+</svg>
