@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 344" width="800" height="344" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How the mini split calculator sizes each room</title>
+  <desc id="d">Four steps: room area times a base rate by room type (bedroom or office 20, basement 18, living room or kitchen 25, sunroom 30 BTU per square foot); times climate, insulation and sun adjustments; kitchens add 4,000 BTU and no room goes below 6,000 BTU; then round up to the next 3,000 BTU step. Example: a 400 square foot living room in a hot climate with full sun needs 13,800 BTU per hour, a 15,000 BTU head.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="344" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">How the calculator sizes a mini split head</text>
+  <rect x="32" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="48" y="88">1</text>
+  <text class="num" x="48" y="114">Room area ×</text>
+  <text class="cap" x="48" y="136">BTU per sq ft:</text>
+  <text class="cap" x="48" y="154">Bedroom, office 20</text>
+  <text class="cap" x="48" y="172">Basement 18</text>
+  <text class="cap" x="48" y="190">Living, kitchen 25</text>
+  <text class="cap" x="48" y="208">Sunroom 30</text>
+  <rect x="221" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="237" y="88">2</text>
+  <text class="num" x="237" y="114">× adjustments</text>
+  <text class="cap" x="237" y="136">Climate 0.9 to 1.2</text>
+  <text class="cap" x="237" y="154">Insulation 0.9 to 1.2</text>
+  <text class="cap" x="237" y="172">Sun 0.9 to 1.15</text>
+  <rect x="410" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="426" y="88">3</text>
+  <text class="num" x="426" y="114">Fixed rules</text>
+  <text class="cap" x="426" y="136">Kitchen: +4,000 BTU</text>
+  <text class="cap" x="426" y="154">for cooking</text>
+  <text class="cap" x="426" y="178">Minimum 6,000 BTU,</text>
+  <text class="cap" x="426" y="196">the smallest head</text>
+  <rect x="599" y="62" width="169" height="200" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="big" x="615" y="88">4</text>
+  <text class="num" x="615" y="114">Round up</text>
+  <text class="cap" x="615" y="136">to the next 3,000</text>
+  <text class="cap" x="615" y="154">BTU step:</text>
+  <text class="cap" x="615" y="172">6,000, 9,000, 12,000</text>
+  <path d="M203 162 H213" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M212 156 L219 162 L212 168 Z" fill="#6b7f91"/>
+  <path d="M392 162 H402" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M401 156 L408 162 L401 168 Z" fill="#6b7f91"/>
+  <path d="M581 162 H591" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M590 156 L597 162 L590 168 Z" fill="#6b7f91"/>
+  <text class="num" x="32" y="298">Example: a 400 sq ft living room, hot climate, full sun</text>
+  <text class="lbl" x="32" y="322">400 × 25 × 1.2 (hot) × 1.15 (full sun) = 13,800 BTU/hr → a 15,000 BTU head</text>
+</svg>

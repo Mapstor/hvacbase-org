@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 396" width="800" height="396" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Largest room each mini split head size covers</title>
+  <desc id="d">At the calculator's middle settings a bedroom or office head covers about 300 square feet at 6,000 BTU, 450 at 9,000, 600 at 12,000, 750 at 15,000, 900 at 18,000 and 1,200 at 24,000. A living room in a hot climate with full sun covers much less: 173, 260, 347, 434, 521 and 695 square feet.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .8s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="396" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="36">Largest room each mini split head covers</text>
+  <rect x="32" y="56" width="14" height="14" rx="3" fill="#2b7bb9"/>
+  <text class="cap" x="52" y="68">Bedroom or office, middle settings</text>
+  <rect x="300" y="56" width="14" height="14" rx="3" fill="#e07a2f"/>
+  <text class="cap" x="320" y="68">Living room, hot climate and full sun</text>
+  <g class="bars">
+    <rect class="solid" x="150" y="96" width="114" height="14" rx="3" fill="#2b7bb9" style="animation-delay:0.00s"/>
+    <rect class="solid" x="150" y="114" width="66" height="14" rx="3" fill="#e07a2f" style="animation-delay:0.03s"/>
+    <rect class="solid" x="150" y="140" width="171" height="14" rx="3" fill="#2b7bb9" style="animation-delay:0.06s"/>
+    <rect class="solid" x="150" y="158" width="99" height="14" rx="3" fill="#e07a2f" style="animation-delay:0.09s"/>
+    <rect class="solid" x="150" y="184" width="228" height="14" rx="3" fill="#2b7bb9" style="animation-delay:0.12s"/>
+    <rect class="solid" x="150" y="202" width="132" height="14" rx="3" fill="#e07a2f" style="animation-delay:0.15s"/>
+    <rect class="solid" x="150" y="228" width="285" height="14" rx="3" fill="#2b7bb9" style="animation-delay:0.18s"/>
+    <rect class="solid" x="150" y="246" width="165" height="14" rx="3" fill="#e07a2f" style="animation-delay:0.21s"/>
+    <rect class="solid" x="150" y="272" width="342" height="14" rx="3" fill="#2b7bb9" style="animation-delay:0.24s"/>
+    <rect class="solid" x="150" y="290" width="198" height="14" rx="3" fill="#e07a2f" style="animation-delay:0.27s"/>
+    <rect class="solid" x="150" y="316" width="456" height="14" rx="3" fill="#2b7bb9" style="animation-delay:0.30s"/>
+    <rect class="solid" x="150" y="334" width="264" height="14" rx="3" fill="#e07a2f" style="animation-delay:0.33s"/>
+  </g>
+  <text class="num" x="32" y="117">6,000 BTU</text>
+  <text class="cap" x="272" y="108">300 sq ft</text>
+  <text class="cap" x="224" y="126">173 sq ft</text>
+  <text class="num" x="32" y="161">9,000 BTU</text>
+  <text class="cap" x="329" y="152">450 sq ft</text>
+  <text class="cap" x="257" y="170">260 sq ft</text>
+  <text class="num" x="32" y="205">12,000 BTU</text>
+  <text class="cap" x="386" y="196">600 sq ft</text>
+  <text class="cap" x="290" y="214">347 sq ft</text>
+  <text class="num" x="32" y="249">15,000 BTU</text>
+  <text class="cap" x="443" y="240">750 sq ft</text>
+  <text class="cap" x="323" y="258">434 sq ft</text>
+  <text class="num" x="32" y="293">18,000 BTU</text>
+  <text class="cap" x="500" y="284">900 sq ft</text>
+  <text class="cap" x="356" y="302">521 sq ft</text>
+  <text class="num" x="32" y="337">24,000 BTU</text>
+  <text class="cap" x="614" y="328">1,200 sq ft</text>
+  <text class="cap" x="422" y="346">695 sq ft</text>
+  <text class="cap" x="32" y="376">Middle settings: moderate climate, average insulation, moderate sun.</text>
+</svg>
