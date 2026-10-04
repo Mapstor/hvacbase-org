@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Heat Pump Guides, Calculators & Reviews',
-  description: 'Complete heat pump resource center: sizing calculators, installation guides, efficiency comparisons, and troubleshooting help, educational tools and primary-sourced guidance.',
+  description: 'Heat pump resource center: sizing calculators, installation guides, efficiency comparisons, and troubleshooting help, educational tools and primary-sourced guidance.',
   alternates: {
     canonical: 'https://www.hvacbase.org/heat-pumps',
   },
@@ -188,7 +188,7 @@ export default async function HeatPumpsHub() {
                     </div>
                     <div className="ml-auto">
                       <span className="text-xs bg-gray-100 px-2 py-1 rounded-full">
-                        {topicArticles.length} guides
+                        {topicArticles.length} {topicArticles.length === 1 ? 'guide' : 'guides'}
                       </span>
                     </div>
                   </div>
