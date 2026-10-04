@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 410" width="800" height="410" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Running watts versus starting watts for a refrigerator</title>
+  <desc id="d">A standard refrigerator draws about 1,200 watts for a moment as its compressor starts, then settles at about 150 watts running. Size a generator for the running total plus the largest single starting surge, then add 20 percent headroom.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .trace{stroke-dasharray:1200;stroke-dashoffset:0;animation:draw 1.6s ease-out}
+    @keyframes draw{from{stroke-dashoffset:1200}to{stroke-dashoffset:0}}
+    @media (prefers-reduced-motion: reduce){.trace{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="410" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Why a refrigerator needs more generator than it uses</text>
+  <path d="M90 290 H730" stroke="#9fb3c4" stroke-width="1" fill="none"/>
+  <path d="M90 70 V290" stroke="#9fb3c4" stroke-width="1" fill="none"/>
+  <polyline class="trace" points="90,290 240,290 240,87 258,87 295,265 730,265" fill="none" stroke="#2b7bb9" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M260 87 H350" stroke="#c2410c" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <text class="num" x="358" y="91">Starting: about 1,200 W for a moment</text>
+  <path d="M510 265 V225" stroke="#2b7bb9" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <text class="num" x="518" y="219">Running: about 150 W</text>
+  <text class="cap" x="32" y="294">0 W</text>
+  <text class="cap" x="32" y="91">1,200</text>
+  <text class="cap" x="200" y="312">Compressor starts</text>
+  <text class="cap" x="690" y="312">Time</text>
+  <rect x="32" y="326" width="736" height="62" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="cap" x="48" y="352">Size the generator for the running total plus the largest single starting surge,</text>
+  <text class="cap" x="48" y="370">then add 20% headroom. Bring loads on one at a time after an outage.</text>
+</svg>

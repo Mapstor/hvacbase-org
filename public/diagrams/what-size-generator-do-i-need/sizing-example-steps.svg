@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 424" width="800" height="424" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Generator sizing example: refrigerator, freezer, lights and electronics</title>
+  <desc id="d">Running loads add to 475 watts: a refrigerator 150, a chest freezer 150, ten LED bulbs 100, a modem and router 50 and phone chargers 25. The largest starting surge, the refrigerator at 1,050 watts, brings the peak to 1,525 watts; 20 percent headroom makes 1,830 watts, which rounds up to a 2,000 watt generator.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:center bottom;animation:rise .6s ease-out both}
+    @keyframes rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="424" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Sizing example: food cold, lights on (watts)</text>
+  <path d="M32 330 H768" stroke="#9fb3c4" stroke-width="1" fill="none"/>
+  <g class="bars">
+    <rect class="solid" x="40" y="312.8" width="70" height="17.2" rx="3" fill="#2b7bb9" style="animation-delay:0.00s"/>
+    <rect class="solid" x="128" y="295.5" width="70" height="17.2" rx="3" fill="#2b7bb9" style="animation-delay:0.12s"/>
+    <rect class="solid" x="216" y="284.0" width="70" height="11.5" rx="3" fill="#2b7bb9" style="animation-delay:0.24s"/>
+    <rect class="solid" x="304" y="278.2" width="70" height="5.8" rx="3" fill="#2b7bb9" style="animation-delay:0.36s"/>
+    <rect class="solid" x="392" y="275.4" width="70" height="2.9" rx="3" fill="#2b7bb9" style="animation-delay:0.48s"/>
+    <rect class="solid" x="480" y="154.6" width="70" height="120.8" rx="3" fill="#e07a2f" style="animation-delay:0.60s"/>
+    <rect class="solid" x="568" y="119.5" width="70" height="35.1" rx="3" fill="#e07a2f" style="animation-delay:0.72s"/>
+    <rect class="solid" x="656" y="100.0" width="70" height="230.0" rx="3" fill="#1d2b38" style="animation-delay:0.84s"/>
+  </g>
+  <text class="num" x="44" y="304.8">150</text>
+  <text class="cap" x="44" y="350">Fridge</text>
+  <text class="cap" x="44" y="366">running</text>
+  <text class="num" x="132" y="287.5">+150</text>
+  <text class="cap" x="132" y="350">Chest</text>
+  <text class="cap" x="132" y="366">freezer</text>
+  <text class="num" x="220" y="276.0">+100</text>
+  <text class="cap" x="220" y="350">10 LED</text>
+  <text class="cap" x="220" y="366">bulbs</text>
+  <text class="num" x="308" y="270.2">+50</text>
+  <text class="cap" x="308" y="350">Modem,</text>
+  <text class="cap" x="308" y="366">router</text>
+  <text class="num" x="396" y="267.4">+25</text>
+  <text class="cap" x="396" y="350">Phone</text>
+  <text class="cap" x="396" y="366">chargers</text>
+  <text class="num" x="484" y="146.6">+1,050</text>
+  <text class="cap" x="484" y="350">Fridge</text>
+  <text class="cap" x="484" y="366">surge</text>
+  <text class="num" x="572" y="111.5">+305</text>
+  <text class="cap" x="572" y="350">20%</text>
+  <text class="cap" x="572" y="366">headroom</text>
+  <text class="num" x="660" y="92.0">2,000</text>
+  <text class="cap" x="660" y="350">Generator</text>
+  <text class="cap" x="660" y="366">size</text>
+  <text class="cap" x="32" y="404">Running 475 W + largest surge 1,050 W = 1,525 W peak; × 1.2 = 1,830 W → a 2,000 W generator.</text>
+</svg>
