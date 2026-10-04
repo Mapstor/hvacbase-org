@@ -118,6 +118,28 @@ function lintSvg(path) {
     }
     if (t[1] < 0 || t[3] > W || t[2] < 0 || t[4] > H) bad.push(`off-canvas: ${t[0]}`);
   }
+
+  // ── Panel fit ─────────────────────────────────────────────────────────────
+  // Panel rects: every <rect> (optionally class-qualified) EXCEPT the full-canvas
+  // background rect (top-left at 0,0). A text whose start point (left edge, near
+  // the baseline) sits inside the smallest enclosing panel must fit within it
+  // with 6px side and 4px top/bottom padding.
+  const R = [];
+  for (const m of s.matchAll(/<rect(?: class="[^"]*")? x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)"/g)) {
+    const x = parseFloat(m[1]);
+    const y = parseFloat(m[2]);
+    R.push([x, y, x + parseFloat(m[3]), y + parseFloat(m[4])]);
+  }
+  for (const t of T) {
+    const tx = t[1];
+    const ty = t[4] - 2;
+    const inside = R.filter((r) => r[0] <= tx && tx <= r[2] && r[1] <= ty && ty <= r[3] && !(r[0] === 0 && r[1] === 0));
+    if (inside.length) {
+      const r = inside.reduce((a, b) => ((b[2] - b[0]) * (b[3] - b[1]) < (a[2] - a[0]) * (a[3] - a[1]) ? b : a));
+      if (t[1] < r[0] + 6 || t[3] > r[2] - 6 || t[2] < r[1] + 4 || t[4] > r[3] - 4) bad.push(`text overflows its panel: ${t[0]}`);
+    }
+  }
+
   for (const o of S) {
     for (const l of L) {
       if (overlaps(o, l, 3)) bad.push(`line crosses shape: ${o[0]}`);

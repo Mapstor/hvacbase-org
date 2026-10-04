@@ -25,6 +25,15 @@ def lint(path):
         for o in S+L:
             if ov(t,o): bad.append(f"text/{o[0][:5]}: {t[0]}")
         if t[1]<0 or t[3]>W or t[2]<0 or t[4]>H: bad.append(f"off-canvas: {t[0]}")
+
+    R=[(float(m.group(1)),float(m.group(2)),float(m.group(1))+float(m.group(3)),float(m.group(2))+float(m.group(4)))
+       for m in re.finditer(r'<rect(?: class="[^"]*")? x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)"',s)]
+    for t in T:
+        tx,ty=t[1],t[4]-2
+        inside=[r for r in R if r[0]<=tx<=r[2] and r[1]<=ty<=r[3] and not (r[0]==0 and r[1]==0)]
+        if inside:
+            r=min(inside,key=lambda r:(r[2]-r[0])*(r[3]-r[1]))
+            if t[1]<r[0]+6 or t[3]>r[2]-6 or t[2]<r[1]+4 or t[4]>r[3]-4: bad.append(f"text overflows its panel: {t[0]}")
     for o in S:
         for l in L:
             if ov(o,l,3): bad.append(f"line crosses shape: {o[0]}")
