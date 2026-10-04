@@ -144,7 +144,7 @@ export default function TroubleshootingPage() {
               HVAC Troubleshooting Center
             </h1>
             <p className="text-xl text-red-100 max-w-3xl mx-auto mb-8">
-              Diagnose and fix common HVAC problems with our comprehensive troubleshooting guides
+              Diagnose and fix common HVAC problems with our troubleshooting guides
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
@@ -354,7 +354,7 @@ export default function TroubleshootingPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Can't Find Your Problem?</h2>
           <p className="text-xl text-red-100 mb-8">
-            Use our comprehensive diagnostic guide or get expert help
+            Use our diagnostic guide or get expert help
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
