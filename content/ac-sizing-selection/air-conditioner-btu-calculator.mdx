@@ -22,7 +22,7 @@ externalLinks:
     url: "https://www.acca.org/standards/technical-manuals/manual-j"
 ---
 
-import { SourcesBox, RelatedArticles, BTUCalculator, CalcWrapper } from '@/components'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 # Air Conditioner BTU Calculator: What Size AC Do You Need?
 
@@ -34,9 +34,9 @@ This calculator sizes a single room. For a whole house on central air, use the [
 
 **ENERGY STAR's sizing chart puts a 5,000 BTU unit in a 100 to 150 sq ft room, 12,000 BTU in 450 to 550 sq ft, and 18,000 BTU in 700 to 1,000 sq ft, before adjustments for sun, people and cooking.** The calculator below makes the same estimate with more inputs. At its default settings, a 15 × 12 ft living room in a mixed climate needs about 5,400 BTU per hour, so a 6,000 BTU unit.
 
-<CalcWrapper>
-  <BTUCalculator />
-</CalcWrapper>
+<CalcWrapper type="btu" />
+
+<Diagram src="/diagrams/air-conditioner-btu-calculator/energy-star-room-sizing.svg" width={800} height={380} priority alt="Bar chart of ENERGY STAR's room air conditioner sizing, from 5,000 BTU per hour for 100 to 150 sq ft to 18,000 BTU per hour for 700 to 1,000 sq ft, with its four adjustments for shade, sun, people and kitchens." caption="ENERGY STAR's sizing chart and the four adjustments it applies." />
 
 ## ENERGY STAR's room sizing chart
 
@@ -84,6 +84,8 @@ Then it adds three flat amounts that don't depend on the room's size or insulati
 - **400 BTU for each appliance you list**, such as a TV, computer or game console.
 
 It rounds the total up to the next common size: 5,000, 6,000, 8,000, 10,000, 12,000, 14,000, 18,000, 24,000, 30,000 or 36,000 BTU. Above 36,000, one room unit won't cover it.
+
+<Diagram src="/diagrams/air-conditioner-btu-calculator/kitchen-example-steps.svg" width={800} height={400} alt="Step chart of the kitchen example: 168 sq ft times 30 is 5,040 BTU per hour, plus 135 for window area, 4,000 for cooking, 600 for a third person and 800 for two appliances, totaling 10,575 and rounding up to a 12,000 BTU unit." caption="Example 3 below, step by step: the cooking allowance is most of the extra load." />
 
 ## Three worked examples
 

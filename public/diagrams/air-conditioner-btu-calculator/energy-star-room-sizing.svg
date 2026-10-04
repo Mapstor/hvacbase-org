@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">ENERGY STAR room air conditioner sizing, with its four adjustments</title>
+  <desc id="d">ENERGY STAR's chart sizes a room air conditioner by floor area: 5,000 BTU per hour for 100 to 150 square feet, rising through 6,000, 7,000, 8,000, 9,000, 10,000, 12,000 and 14,000 to 18,000 BTU per hour for 700 to 1,000 square feet. Its four adjustments: reduce 10 percent for a heavily shaded room, add 10 percent for a very sunny room, add 600 BTU for each person beyond two, and add 4,000 BTU for a kitchen.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .cap{font-size:12px;fill:#33475b}
+    .lbl{font-size:13px;fill:#33475b}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .8s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="380" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Room AC sizing by floor area (ENERGY STAR)</text>
+  <g class="bars">
+    <rect class="solid" x="168" y="66" width="83" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.00s"/>
+    <text class="cap" x="32" y="81">100 to 150 sq ft</text>
+    <text class="num" x="259" y="81">5,000 BTU/hr</text>
+    <rect class="solid" x="168" y="96" width="100" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.06s"/>
+    <text class="cap" x="32" y="111">150 to 250 sq ft</text>
+    <text class="num" x="276" y="111">6,000 BTU/hr</text>
+    <rect class="solid" x="168" y="126" width="117" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.12s"/>
+    <text class="cap" x="32" y="141">250 to 300 sq ft</text>
+    <text class="num" x="293" y="141">7,000 BTU/hr</text>
+    <rect class="solid" x="168" y="156" width="133" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.18s"/>
+    <text class="cap" x="32" y="171">300 to 350 sq ft</text>
+    <text class="num" x="309" y="171">8,000 BTU/hr</text>
+    <rect class="solid" x="168" y="186" width="150" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.24s"/>
+    <text class="cap" x="32" y="201">350 to 400 sq ft</text>
+    <text class="num" x="326" y="201">9,000 BTU/hr</text>
+    <rect class="solid" x="168" y="216" width="167" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.30s"/>
+    <text class="cap" x="32" y="231">400 to 450 sq ft</text>
+    <text class="num" x="343" y="231">10,000 BTU/hr</text>
+    <rect class="solid" x="168" y="246" width="200" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.36s"/>
+    <text class="cap" x="32" y="261">450 to 550 sq ft</text>
+    <text class="num" x="376" y="261">12,000 BTU/hr</text>
+    <rect class="solid" x="168" y="276" width="233" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.42s"/>
+    <text class="cap" x="32" y="291">550 to 700 sq ft</text>
+    <text class="num" x="409" y="291">14,000 BTU/hr</text>
+    <rect class="solid" x="168" y="306" width="300" height="20" rx="3" fill="#2b7bb9" style="animation-delay:0.48s"/>
+    <text class="cap" x="32" y="321">700 to 1,000 sq ft</text>
+    <text class="num" x="476" y="321">18,000 BTU/hr</text>
+  </g>
+  <rect x="580" y="66" width="188" height="170" rx="10" fill="#fdf5ec" stroke="#eedcc7"/>
+  <text class="num" x="596" y="92">Then adjust</text>
+  <text class="cap" x="596" y="118">Heavily shaded: −10%</text>
+  <text class="cap" x="596" y="142">Very sunny: +10%</text>
+  <text class="cap" x="596" y="166">Each person beyond</text>
+  <text class="cap" x="596" y="184">two: +600 BTU</text>
+  <text class="cap" x="596" y="208">Kitchen: +4,000 BTU</text>
+  <text class="cap" x="32" y="356">Above 1,000 sq ft you're sizing a whole floor or house: use the tonnage calculator.</text>
+</svg>

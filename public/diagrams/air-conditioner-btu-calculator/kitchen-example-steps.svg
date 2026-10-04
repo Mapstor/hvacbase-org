@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How the BTU calculator sizes a 14 by 12 foot kitchen</title>
+  <desc id="d">Worked example from the BTU calculator: a 168 square foot kitchen in a hot-humid climate starts at 168 times 30, or 5,040 BTU per hour; window area adds 135, to 5,175; the cooking allowance adds 4,000; a third person adds 600; two appliances add 800; the load totals 10,575 BTU per hour, which rounds up to a 12,000 BTU unit.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .cap{font-size:12px;fill:#33475b}
+    .bars rect{transform-box:fill-box;transform-origin:center bottom;animation:rise .6s ease-out both}
+    @keyframes rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="400" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">The kitchen example, step by step (BTU per hour)</text>
+  <path d="M40 300 H756" stroke="#9fb3c4" stroke-width="1" fill="none"/>
+  <g class="bars">
+    <rect class="solid" x="48" y="211.8" width="72" height="88.2" rx="3" fill="#2b7bb9" style="animation-delay:0.00s"/>
+    <rect class="solid" x="146" y="209.4" width="72" height="2.5" rx="3" fill="#2b7bb9" style="animation-delay:0.15s"/>
+    <rect class="solid" x="244" y="139.4" width="72" height="70.0" rx="3" fill="#2b7bb9" style="animation-delay:0.30s"/>
+    <rect class="solid" x="342" y="128.9" width="72" height="10.5" rx="3" fill="#2b7bb9" style="animation-delay:0.45s"/>
+    <rect class="solid" x="440" y="114.9" width="72" height="14.0" rx="3" fill="#2b7bb9" style="animation-delay:0.60s"/>
+    <rect class="solid" x="538" y="114.9" width="72" height="185.1" rx="3" fill="#1d2b38" style="animation-delay:0.75s"/>
+    <rect class="solid" x="636" y="90.0" width="72" height="210.0" rx="3" fill="#c2410c" style="animation-delay:0.90s"/>
+  </g>
+  <text class="num" x="52" y="203.8">5,040</text>
+  <text class="cap" x="52" y="320">168 sq ft</text>
+  <text class="cap" x="52" y="336">× 30 BTU</text>
+  <text class="num" x="150" y="201.4">+135</text>
+  <text class="cap" x="150" y="320">Window</text>
+  <text class="cap" x="150" y="336">area ×1.027</text>
+  <text class="num" x="248" y="131.4">+4,000</text>
+  <text class="cap" x="248" y="320">Cooking</text>
+  <text class="cap" x="248" y="336">allowance</text>
+  <text class="num" x="346" y="120.9">+600</text>
+  <text class="cap" x="346" y="320">Third</text>
+  <text class="cap" x="346" y="336">person</text>
+  <text class="num" x="444" y="106.9">+800</text>
+  <text class="cap" x="444" y="320">Two</text>
+  <text class="cap" x="444" y="336">appliances</text>
+  <text class="num" x="542" y="106.9">10,575</text>
+  <text class="cap" x="542" y="320">Load</text>
+  <text class="cap" x="542" y="336">total</text>
+  <text class="num" x="640" y="82.0">12,000</text>
+  <text class="cap" x="640" y="320">Unit</text>
+  <text class="cap" x="640" y="336">size</text>
+  <text class="cap" x="32" y="380">14 × 12 ft kitchen, hot-humid climate, 15 sq ft of windows, three people, two appliances.</text>
+</svg>
