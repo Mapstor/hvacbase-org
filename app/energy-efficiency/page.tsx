@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Energy Efficiency Guides, Calculators & Resources',
-  description: 'Comprehensive energy efficiency resource center. SEER ratings, tax credits, rebates, smart thermostats, and cost-saving strategies for HVAC systems.',
+  description: 'Energy efficiency resource center: SEER ratings, tax credits, rebates, smart thermostats, and cost-saving strategies for HVAC systems.',
   alternates: {
     canonical: 'https://www.hvacbase.org/energy-efficiency',
   },
