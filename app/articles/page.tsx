@@ -150,7 +150,7 @@ export default async function ArticlesPage() {
             <Link href="#featured" className="bg-white rounded-lg p-6 border hover:shadow-md transition-shadow">
               <TrendingUp className="w-8 h-8 text-green-600 mb-3" />
               <h2 className="text-xl font-semibold mb-2">Featured Guides</h2>
-              <p className="text-gray-600 text-sm">Our most comprehensive pillar content</p>
+              <p className="text-gray-600 text-sm">Our in-depth pillar guides</p>
             </Link>
             <Link href="#recent" className="bg-white rounded-lg p-6 border hover:shadow-md transition-shadow">
               <Clock className="w-8 h-8 text-blue-600 mb-3" />
@@ -225,7 +225,7 @@ export default async function ArticlesPage() {
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="bg-white px-3 py-1 rounded-full text-sm font-medium">
-                            {clusterArticles.length} articles
+                            {clusterArticles.length} {clusterArticles.length === 1 ? 'article' : 'articles'}
                           </span>
                         </div>
                       </div>
