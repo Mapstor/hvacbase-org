@@ -5,11 +5,11 @@ import { ChevronRight, DollarSign, TrendingUp, Calculator, PiggyBank, CreditCard
 
 export const metadata: Metadata = {
   title: 'HVAC Cost Guide 2026: Installation, Repair & Maintenance Pricing',
-  description: 'Complete HVAC cost guide with detailed pricing for installation, repairs, and maintenance. Get accurate estimates, financing options, and money-saving tips.',
+  description: 'HVAC cost guide covering installation, repairs, maintenance, and operating costs. Learn what drives each price, how to read a quote, and where the real savings are.',
   alternates: { canonical: 'https://www.hvacbase.org/cost-guides' },
   openGraph: {
     title: 'HVAC Cost Guide | Installation & Repair Pricing',
-    description: 'Comprehensive pricing guide for all HVAC services. Installation costs, repair estimates, and maintenance pricing.',
+    description: 'Guides to HVAC installation, repair, maintenance, and operating costs, with the factors that drive each price.',
     url: 'https://www.hvacbase.org/cost-guides',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Cost Guide' }],
@@ -17,42 +17,41 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HVAC Cost Guide | Installation & Repair Pricing',
-    description: 'Comprehensive pricing guide for all HVAC services.',
+    description: 'Guides to HVAC installation, repair, maintenance, and operating costs.',
     images: ['/opengraph-image'],
   },
 }
 
+// Hub cards describe each guide and link to it. Specific prices live in the
+// linked articles (labeled estimates there), not on this hub — so no dollar
+// figures appear in the card data or the prose below.
 const costCategories = {
   'Installation Costs': {
     icon: <Home className="w-6 h-6 text-blue-600" />,
     description: 'Complete system installation pricing and factors',
-    prose: `Installation is where the widest price spread lives, and most of it comes down to things that have nothing to do with the equipment itself. Two identical 3-ton systems can land $4,000 apart based on ductwork condition, electrical upgrades, permit costs in your municipality, and whether the crew is working in an easy basement or a cramped attic in July. The equipment is often less than half the total, labor, materials, and site conditions make up the rest. A legitimate quote itemizes these: equipment, labor, permits, and any modifications (new line sets, electrical, ductwork) as separate lines. If a contractor gives you a single lump sum and won't break it down, that's a signal to get another quote. A realistic range for a straightforward central AC install is roughly $4,000–$8,000; quotes far above that should come with a specific reason you can see on the itemized bid.`,
+    prose: `Installation is where the widest price spread lives, and most of it has nothing to do with the equipment itself. Ductwork condition, electrical upgrades, permit costs, and whether the crew works in an easy basement or a cramped attic often matter more than the unit. Insist on an itemized quote that separates equipment, labor, permits, and any modifications, so you can see what you are paying for.`,
     guides: [
       {
         title: 'Central AC Installation Cost',
         href: '/central-ac-cost-to-install',
-        priceRange: '$3,500 - $7,500',
         factors: ['System size', 'SEER rating', 'Ductwork', 'Labor'],
         savings: 'Off-season pricing often available'
       },
       {
         title: 'Furnace Installation Cost',
         href: '/furnace-installation-cost',
-        priceRange: '$2,500 - $6,500',
         factors: ['Fuel type', 'AFUE rating', 'Venting', 'Permits'],
         savings: 'Federal, state, and utility rebates vary by location'
       },
       {
         title: 'Mini Split Installation Cost',
         href: '/mini-split-installation-cost',
-        priceRange: '$3,000 - $10,000',
         factors: ['Zones', 'BTUs', 'Line sets', 'Electrical'],
         savings: 'Significant labor savings for DIY-eligible installs'
       },
       {
         title: 'Ductwork Installation Cost',
         href: '/hvac-ductwork-guide',
-        priceRange: '$3,000 - $7,500',
         factors: ['Home size', 'Accessibility', 'Materials', 'Insulation'],
         savings: 'Reduces air leakage and improves comfort'
       }
@@ -61,33 +60,29 @@ const costCategories = {
   'Repair Costs': {
     icon: <DollarSign className="w-6 h-6 text-green-600" />,
     description: 'Common repair pricing and diagnostic fees',
-    prose: `The hard question with any repair isn't "how much", it's "is this worth it, or am I putting money into a system I'll replace in two years?" The rule of thumb professionals use: if the repair costs more than about half the price of a new system and the unit is past two-thirds of its expected lifespan, replacement usually wins. A $600 capacitor on a 6-year-old system is an easy yes. A $2,500 compressor on a 14-year-old unit rarely is, you're paying half a new system's cost to keep an old one limping. Watch for the upsell pattern where a minor fix becomes a "you really should replace the whole thing" conversation; get the specific failed part named and priced before agreeing to anything larger. Common repairs run $150–$600; anything quoted above $1,500 is in "should I just replace it?" territory and deserves a second opinion.`,
+    prose: `The real question with a repair is not "how much", it is whether you are fixing the system or feeding a unit you will replace soon. A common rule: if the repair approaches half the price of a new system and the unit is past two-thirds of its expected life, replacement usually wins. Get the specific failed part named and priced before agreeing to anything larger, and watch for a minor fix that turns into a "replace the whole thing" pitch.`,
     guides: [
       {
         title: 'Emergency Repair Pricing',
         href: '/hvac-maintenance-cost',
-        priceRange: '$200 - $2,000+',
-        commonRepairs: ['After hours', 'Weekend rates', 'Holiday pricing', 'Rush service'],
-        avgCost: '1.5-2x normal rates'
+        commonRepairs: ['After hours', 'Weekend rates', 'Holiday pricing', 'Rush service']
       }
     ]
   },
   'Maintenance Costs': {
     icon: <TrendingUp className="w-6 h-6 text-purple-600" />,
     description: 'Annual service contracts and tune-up pricing',
-    prose: `Maintenance is the cheapest money you'll spend on HVAC, and skipping it is how the expensive problems start. A tune-up runs $75–$200 and mostly buys you two things: catching small failures before they cascade (a $20 capacitor replaced now versus a $600 compressor it takes out later), and keeping the system at rated efficiency, a dirty coil or clogged filter can quietly add 15% to your energy bill. In practice, you don't need a "membership plan" with quarterly visits for a residential system. One professional tune-up a year (spring for AC, fall for heating) plus filter changes you do yourself covers the vast majority of the benefit. Be wary of maintenance plans that bundle in vague "priority service" and "discounts" that mostly pay for visits you don't need. What you're actually paying for is the inspection and cleaning, anything beyond that is margin.`,
+    prose: `Maintenance is the cheapest money you will spend on HVAC, and skipping it is how the expensive problems start. One professional tune-up a year, spring for AC and fall for heating, plus filter changes you do yourself, covers most of the benefit. Be wary of plans that bundle vague "priority service" and "discounts" into visits you do not need.`,
     guides: [
       {
         title: 'Annual Maintenance Cost',
         href: '/hvac-maintenance-cost',
-        priceRange: '$150 - $500/year',
         includes: ['Spring AC tune-up', 'Fall heating check', 'Filter changes', 'Priority service'],
         savings: 'Catches issues before they become failures'
       },
       {
         title: 'Service Contract Comparison',
         href: '/hvac-maintenance-cost',
-        priceRange: '$200 - $600/year',
         includes: ['Basic vs premium', 'Coverage details', 'Exclusions', 'Value analysis'],
         savings: 'Discounted repair pricing for members'
       }
@@ -96,33 +91,23 @@ const costCategories = {
   'Replacement Costs': {
     icon: <Calculator className="w-6 h-6 text-orange-600" />,
     description: 'Component replacement and upgrade pricing',
-    prose: `Replacing a system is the biggest HVAC decision you'll make, and timing changes the math more than most people realize. A system replaced on an emergency basis in the middle of a July heat wave costs more, you have no leverage, no time to get competing quotes, and you're taking whatever's in stock. Planning a replacement for the shoulder seasons (spring or fall) routinely saves 10–20% on the same equipment, because contractors are slower and more willing to negotiate. The other lever is sizing: an oversized system, which contractors sometimes default to "just to be safe," short-cycles, controls humidity poorly, and wears out faster. Insist on a Manual J load calculation rather than a rule-of-thumb "your house needs 4 tons." A right-sized system installed off-season is the difference between a good outcome and overpaying for equipment that runs worse. Expect $5,000–$12,000 installed depending on system type and home.`,
+    prose: `Replacing a system is the biggest HVAC decision you will make, and timing changes the math. Planning for the shoulder seasons, rather than an emergency swap mid-heat-wave, routinely lowers the price on the same equipment. Insist on a Manual J load calculation rather than a rule-of-thumb size, because an oversized system short-cycles, controls humidity poorly, and wears out faster.`,
     guides: [
-      {
-        title: 'Compressor Replacement Cost',
-        href: '/central-ac-cost-to-install',
-        priceRange: '$1,500 - $2,800',
-        factors: ['Type', 'Size', 'Brand', 'Warranty'],
-        consideration: 'Consider full system if >10 years'
-      },
       {
         title: 'Heat Exchanger Replacement',
         href: '/cracked-heat-exchanger',
-        priceRange: '$1,500 - $3,500',
         factors: ['Material', 'Warranty', 'Labor', 'Permits'],
         consideration: 'Often better to replace furnace'
       },
       {
         title: 'Blower Motor Replacement',
         href: '/furnace-installation-cost',
-        priceRange: '$450 - $1,200',
         factors: ['Type', 'ECM vs PSC', 'Horsepower', 'Speed'],
         consideration: 'Upgrade to variable speed'
       },
       {
         title: 'Thermostat Replacement Cost',
         href: '/smart-thermostat-savings',
-        priceRange: '$150 - $500',
         factors: ['Smart features', 'Wiring', 'Zoning', 'Installation'],
         consideration: 'Smart features enable easier scheduling'
       }
@@ -131,33 +116,29 @@ const costCategories = {
   'Operating Costs': {
     icon: <PiggyBank className="w-6 h-6 text-cyan-600" />,
     description: 'Monthly and annual energy cost calculators',
-    prose: `Operating cost is the number that shows up every month, and it's driven by three things you can actually influence: your equipment's efficiency rating, your local energy price, and how well your home holds conditioned air. The efficiency piece has real but diminishing returns, jumping from an old 10-SEER unit to a 16-SEER is a large saving; going from 18 to 22 SEER often isn't worth the price premium unless you're in a hot climate running the system constantly. Before assuming you need higher-efficiency equipment, the cheapest kWh is the one you don't use: sealing duct leaks, adding attic insulation, and a programmable thermostat frequently save more than an efficiency upgrade, for a fraction of the cost. Use the operating-cost calculators to run your actual rates and hours before deciding, the practical answer is often "fix the envelope first, upgrade the equipment later."`,
+    prose: `Operating cost is driven by three things you can influence: your equipment's efficiency rating, your local energy price, and how well your home holds conditioned air. Efficiency upgrades have real but diminishing returns, so the cheapest kWh is the one you do not use. Seal duct leaks, add attic insulation, and use a programmable thermostat before assuming you need higher-efficiency equipment.`,
     guides: [
       {
         title: 'AC Operating Cost Calculator',
         href: '/kwh-cost-calculator',
-        monthlyRange: '$50 - $300',
         factors: ['SEER rating', 'Runtime', 'Electric rates', 'Home size'],
         tool: 'Interactive calculator'
       },
       {
         title: 'Heating Cost Comparison',
         href: '/heating-cost-calculator',
-        monthlyRange: '$80 - $400',
         factors: ['Fuel type', 'Efficiency', 'Climate', 'Insulation'],
         tool: 'Compare all fuel types'
       },
       {
         title: 'Heat Pump vs Gas Cost',
         href: '/furnace-vs-heat-pump',
-        monthlyRange: 'Varies by region',
         factors: ['Electric vs gas rates', 'COP', 'Climate zone', 'Usage'],
         tool: 'Regional comparison'
       },
       {
         title: 'Energy Savings Calculator',
         href: '/seer2-comparison-calculator',
-        savingsRange: '$200 - $1,000/year',
         factors: ['Current system', 'New efficiency', 'Usage patterns', 'Rates'],
         tool: 'ROI calculator'
       }
@@ -166,58 +147,25 @@ const costCategories = {
   'Financing & Incentives': {
     icon: <CreditCard className="w-6 h-6 text-indigo-600" />,
     description: 'Payment options, rebates, and tax credits',
-    prose: `Financing an HVAC system is sometimes the right move and sometimes an expensive habit dressed up as convenience. The genuinely good options: many utilities and states offer rebates and low- or zero-interest loans for high-efficiency equipment and heat pumps, and federal tax credits can offset a meaningful chunk of a qualifying system. Those are real money, check what your utility and state offer before you sign anything. Where to be careful is contractor-arranged financing with a rate buried in the paperwork; a "low monthly payment" over ten years can hide an interest cost that rivals the equipment price. If you finance, know the actual APR and total cost, not just the monthly figure. And always separate the two questions, "what system do I need" and "how do I pay for it", because financing pressure is a common way an oversized or overpriced system gets sold. Decide the equipment first, then the payment.`,
+    prose: `Financing an HVAC system is sometimes the right move and sometimes an expensive habit dressed up as convenience. Utility, state, and federal programs offer real money, so check what yours offer before you sign anything. Always separate "what system do I need" from "how do I pay for it", and know the actual APR and total cost, not just the monthly figure.`,
     guides: [
-      {
-        title: 'HVAC Financing Options',
-        href: '/heating-cost-calculator',
-        options: ['0% APR', 'Home equity', 'Personal loans', 'Manufacturer financing'],
-        terms: '6-120 months',
-        tips: 'Compare rates and terms'
-      },
       {
         title: 'Utility Rebates by State',
         href: '/hvac-rebates-by-state',
-        amount: 'Varies by state and utility',
         programs: ['Equipment rebates', 'Efficiency upgrades', 'Smart thermostats', 'Tune-ups'],
         finder: 'State-by-state database'
-      },
-      {
-        title: 'Lease vs Buy Analysis',
-        href: '/heating-cost-calculator',
-        comparison: ['Monthly costs', 'Total cost', 'Maintenance', 'Flexibility'],
-        recommendation: 'Best for each situation'
       }
     ]
   }
-}
-
-const priceRanges = {
-  'System Installation': [
-    { type: 'Central AC', low: 3500, high: 7500, avg: 5500 },
-    { type: 'Gas Furnace', low: 2500, high: 6500, avg: 4500 },
-    { type: 'Heat Pump', low: 4000, high: 8500, avg: 6200 },
-    { type: 'Mini Split', low: 3000, high: 10000, avg: 5500 },
-    { type: 'Boiler', low: 3500, high: 8000, avg: 5800 },
-    { type: 'Dual System', low: 6000, high: 12000, avg: 9000 }
-  ],
-  'Common Repairs': [
-    { type: 'Capacitor', low: 150, high: 450, avg: 300 },
-    { type: 'Refrigerant', low: 200, high: 800, avg: 500 },
-    { type: 'Blower Motor', low: 450, high: 1200, avg: 800 },
-    { type: 'Ignitor', low: 150, high: 350, avg: 250 },
-    { type: 'Control Board', low: 400, high: 800, avg: 600 },
-    { type: 'Compressor', low: 1500, high: 2800, avg: 2100 }
-  ]
 }
 
 const moneySavingTips = [
   'Get 3+ quotes for major work, installer pricing varies widely',
   'Schedule installation in the off-season for lower pricing',
   'Regular maintenance catches most issues before they cause a failure',
-  'Upgrade during replacement for best efficiency ROI',
+  'Upgrade during replacement for better efficiency ROI',
   'Check federal, state, and utility rebates before purchasing.',
-  'Consider financing for 0% APR promotional periods'
+  'Separate the equipment decision from how you pay for it'
 ]
 
 export default function CostGuidesPage() {
@@ -232,7 +180,7 @@ export default function CostGuidesPage() {
               HVAC Cost Guide 2026
             </h1>
             <p className="text-xl text-green-100 max-w-3xl mx-auto mb-8">
-              Complete pricing guide for installation, repairs, maintenance, and operating costs with money-saving tips
+              Guides to installation, repair, maintenance, and operating costs, with the factors that drive each price
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
@@ -241,80 +189,6 @@ export default function CostGuidesPage() {
               >
                 💰 Cost Calculator
               </Link>
-              {/* Removed rebate and financing links - pages don't exist */}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Price Ranges */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Quick Price Reference</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">System Installation Costs</h3>
-              <div className="space-y-3">
-                {priceRanges['System Installation'].map((item) => (
-                  <div key={item.type} className="bg-gray-50 rounded-lg p-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-gray-900">{item.type}</span>
-                      <span className="text-green-600 font-semibold">${item.avg.toLocaleString()} avg</span>
-                    </div>
-                    <div className="relative h-2 bg-gray-200 rounded-full">
-                      <div 
-                        className="absolute h-2 bg-gradient-to-r from-green-400 to-green-600 rounded-full"
-                        style={{
-                          left: `${(item.low / 12000) * 100}%`,
-                          width: `${((item.high - item.low) / 12000) * 100}%`
-                        }}
-                      />
-                      <div 
-                        className="absolute h-2 w-2 bg-green-700 rounded-full -mt-0"
-                        style={{
-                          left: `${(item.avg / 12000) * 100}%`
-                        }}
-                      />
-                    </div>
-                    <div className="flex justify-between text-xs text-gray-500 mt-1">
-                      <span>${item.low.toLocaleString()}</span>
-                      <span>${item.high.toLocaleString()}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Common Repair Costs</h3>
-              <div className="space-y-3">
-                {priceRanges['Common Repairs'].map((item) => (
-                  <div key={item.type} className="bg-gray-50 rounded-lg p-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-gray-900">{item.type}</span>
-                      <span className="text-blue-600 font-semibold">${item.avg.toLocaleString()} avg</span>
-                    </div>
-                    <div className="relative h-2 bg-gray-200 rounded-full">
-                      <div 
-                        className="absolute h-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
-                        style={{
-                          left: `${(item.low / 3000) * 100}%`,
-                          width: `${((item.high - item.low) / 3000) * 100}%`
-                        }}
-                      />
-                      <div 
-                        className="absolute h-2 w-2 bg-blue-700 rounded-full"
-                        style={{
-                          left: `${(item.avg / 3000) * 100}%`
-                        }}
-                      />
-                    </div>
-                    <div className="flex justify-between text-xs text-gray-500 mt-1">
-                      <span>${item.low.toLocaleString()}</span>
-                      <span>${item.high.toLocaleString()}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -348,14 +222,7 @@ export default function CostGuidesPage() {
                             {guide.title}
                           </Link>
                         </h4>
-                        <div className="text-2xl font-bold text-green-600 mb-3">
-                          {'priceRange' in guide ? guide.priceRange : 
-                           'monthlyRange' in guide ? guide.monthlyRange :
-                           'amount' in guide ? guide.amount :
-                           'savingsRange' in guide ? guide.savingsRange :
-                           'options' in guide ? guide.options?.[0] : ''}
-                        </div>
-                        
+
                         {'factors' in guide && (
                           <div className="mb-3">
                             <span className="text-xs font-medium text-gray-500">Price Factors:</span>
@@ -368,7 +235,7 @@ export default function CostGuidesPage() {
                             </div>
                           </div>
                         )}
-                        
+
                         {'commonRepairs' in guide && (
                           <div className="mb-3">
                             <span className="text-xs font-medium text-gray-500">Common Issues:</span>
@@ -377,7 +244,7 @@ export default function CostGuidesPage() {
                             </div>
                           </div>
                         )}
-                        
+
                         {'includes' in guide && (
                           <div className="mb-3">
                             <span className="text-xs font-medium text-gray-500">Includes:</span>
@@ -386,31 +253,40 @@ export default function CostGuidesPage() {
                             </div>
                           </div>
                         )}
-                        
+
+                        {'programs' in guide && (
+                          <div className="mb-3">
+                            <span className="text-xs font-medium text-gray-500">Programs:</span>
+                            <div className="text-sm text-gray-600 mt-1">
+                              {guide.programs.slice(0, 2).join(' • ')}
+                            </div>
+                          </div>
+                        )}
+
                         {'savings' in guide && guide.savings && (
                           <div className="text-sm font-medium text-emerald-600 mb-2">
                             💰 {guide.savings}
                           </div>
                         )}
-                        
-                        {'avgCost' in guide && guide.avgCost && (
-                          <div className="text-sm text-gray-600 mb-2">
-                            Average: <span className="font-semibold">{guide.avgCost}</span>
-                          </div>
-                        )}
-                        
+
                         {'consideration' in guide && guide.consideration && (
                           <div className="text-xs text-gray-500 italic mb-2">
                             💡 {guide.consideration}
                           </div>
                         )}
-                        
+
                         {'tool' in guide && guide.tool && (
                           <div className="text-sm font-medium text-blue-600 mb-2">
                             🔧 {guide.tool}
                           </div>
                         )}
-                        
+
+                        {'finder' in guide && guide.finder && (
+                          <div className="text-sm font-medium text-blue-600 mb-2">
+                            🔧 {guide.finder}
+                          </div>
+                        )}
+
                         <Link
                           href={guide.href}
                           className="inline-flex items-center text-green-600 hover:text-green-700 text-sm font-medium mt-2"
