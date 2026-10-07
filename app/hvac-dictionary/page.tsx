@@ -5,11 +5,11 @@ import { Search, BookOpen, ChevronRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'HVAC Dictionary: Complete Glossary of Terms & Definitions',
-  description: 'Comprehensive HVAC dictionary with 500+ terms, acronyms, and technical definitions. Learn heating, cooling, and ventilation terminology explained in simple language.',
+  description: 'HVAC dictionary with clear definitions of heating, cooling, and ventilation terms and acronyms, explained in simple language.',
   alternates: { canonical: 'https://www.hvacbase.org/hvac-dictionary' },
   openGraph: {
     title: 'HVAC Dictionary | Complete Glossary of Terms',
-    description: 'Master HVAC terminology with our comprehensive dictionary. 500+ terms explained clearly.',
+    description: 'Master HVAC terminology with clear definitions of heating, cooling, and ventilation terms and acronyms.',
     url: 'https://www.hvacbase.org/hvac-dictionary',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'HVAC Dictionary' }],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HVAC Dictionary | Complete Glossary of Terms',
-    description: 'Master HVAC terminology with 500+ terms explained clearly.',
+    description: 'Master HVAC terminology with clear definitions explained simply.',
     images: ['/opengraph-image'],
   },
 }
@@ -190,7 +190,7 @@ const hvacTerms = {
     },
     {
       term: 'HEPA',
-      definition: 'High-Efficiency Particulate Air - Filter that removes 99.97% of particles 0.3 microns or larger.',
+      definition: 'High-Efficiency Particulate Air - Filter that captures at least 99.97% of particles 0.3 microns in diameter (the hardest size to catch), and more of both larger and smaller particles.',
       relatedTerms: ['Filter', 'MERV', 'Air Quality']
     },
     {
@@ -236,7 +236,7 @@ const hvacTerms = {
   'M': [
     {
       term: 'MERV',
-      definition: 'Minimum Efficiency Reporting Value - Rating system for air filter effectiveness (1-20).',
+      definition: 'Minimum Efficiency Reporting Value - Rating system for air filter effectiveness, on the ASHRAE Standard 52.2 scale of 1 to 16.',
       relatedTerms: ['Filter', 'HEPA', 'Air Quality']
     },
     {
@@ -422,6 +422,11 @@ const commonAcronyms = [
   { acronym: 'VRF', meaning: 'Variable Refrigerant Flow' }
 ]
 
+// Counts computed from the data above at build time (never hardcoded), so the
+// hero stats always match the glossary that actually renders.
+const termCount = Object.values(hvacTerms).reduce((n, list) => n + list.length, 0);
+const acronymCount = commonAcronyms.length;
+
 export default function HVACDictionaryPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -453,22 +458,18 @@ export default function HVACDictionaryPage() {
       {/* Quick Stats */}
       <section className="py-8 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div className="text-3xl font-bold text-gray-900">500+</div>
+              <div className="text-3xl font-bold text-gray-900">{termCount}</div>
               <div className="text-sm text-gray-600">Terms Defined</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-gray-900">100+</div>
+              <div className="text-3xl font-bold text-gray-900">{acronymCount}</div>
               <div className="text-sm text-gray-600">Acronyms</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-gray-900">A-Z</div>
-              <div className="text-sm text-gray-600">Complete Coverage</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-gray-900">2024</div>
-              <div className="text-sm text-gray-600">Updated Terms</div>
+              <div className="text-sm text-gray-600">Alphabetical</div>
             </div>
           </div>
         </div>
