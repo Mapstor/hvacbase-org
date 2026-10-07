@@ -286,6 +286,7 @@ const nextConfig = {
       { source: '/what-is-a-mini-split', destination: '/how-does-a-mini-split-work', permanent: true },
       { source: '/do-portable-acs-pull-air-from-outside', destination: '/single-hose-vs-dual-hose-portable-ac', permanent: true },
       { source: '/btucfm-ductwork-relationship', destination: '/ductwork-sizing-calculator', permanent: true },
+      { source: '/battery-watt-hours', destination: '/how-many-watts-in-12v-battery', permanent: true },
       // ============ end archived product pages ============
     ];
   },

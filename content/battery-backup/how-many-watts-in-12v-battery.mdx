@@ -1,19 +1,19 @@
 ---
 slug: "how-many-watts-in-12v-battery"
 title: "How Many Watts in a 12V Battery? (Calculator + Chart)"
-description: "Watt-hours in a 12V battery from its amp-hours, how much of it you can actually use for lithium and lead-acid, how long it runs common loads, and how long it takes to recharge."
+description: "Watt-hours in a 12V battery from amp-hours, how much you can use for lithium and lead-acid, runtimes for common loads, plus watt-hours for any battery."
 cluster: "batteries-solar"
 role: "spoke"
 priority: 2
 contentType: "calculator-guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-01"
+dateModified: "2026-10-07"
 relatedArticles:
   - "home-battery-backup-guide"
   - "power-consumption-calculator"
   - "wire-gauge-chart"
-  - "kwh-cost-calculator"
+  - "solar-panel-calculator"
   - "what-size-generator-do-i-need"
 externalLinks:
   - label: "U.S. EIA: Units and calculators explained"
@@ -35,6 +35,7 @@ A battery's label gives amp-hours, but what you want to know is how long it will
 - **Watts** measure power: how fast a device uses energy right now. Watts = volts × amps.
 - **Watt-hours** measure energy: a 100-watt load for 1 hour uses 100 Wh.
 - **Amp-hours** measure charge: 100 Ah can supply 1 amp for 100 hours, or 10 amps for 10 hours, in theory.
+- **Milliamp-hours (mAh)** are amp-hours ÷ 1,000, so a 20,000 mAh pack is 20 Ah; **kilowatt-hours (kWh)** are watt-hours ÷ 1,000.
 
 The calculator uses 12 volts. A lithium iron phosphate battery's nominal voltage is closer to 12.8, so its true energy is a few percent higher.
 
@@ -80,6 +81,41 @@ Charge at the rate your battery's maker specifies. The calculator's charge-time 
 
 At 12 volts, power means high current: 300 watts draws 25 amps. Size wires and fuses for that current under the NEC for buildings or ABYC E-11 for boats; see our [wire gauge chart](/wire-gauge-chart).
 
+## Watt-hours for any battery
+
+The same formula, watt-hours = volts × amp-hours, works for any battery once you use its nominal voltage. The calculator below converts volts and amp-hours, or milliamp-hours, to watt-hours for any chemistry, from an AA cell to a home battery bank.
+
+<CalcWrapper type="battery-wh" />
+
+### Nominal voltage by chemistry
+
+Use the battery's nominal voltage, its average during discharge, not the higher voltage when fully charged:
+
+| Chemistry | Nominal voltage per cell | Common packs |
+|---|---|---|
+| Alkaline | 1.5 V | AA, AAA, C, D |
+| Nickel-metal hydride | 1.2 V | Rechargeable AA, AAA |
+| Lithium-ion | 3.6 to 3.85 V | Phones, laptops, power banks |
+| Lithium iron phosphate | 3.2 V | 4 cells = 12.8 V |
+| Lead-acid | 2.0 V | 6 cells = 12 V |
+
+### Examples
+
+| Battery | Voltage × capacity | Watt-hours |
+|---|---|---|
+| AA alkaline | 1.5 V × 2.5 Ah | 3.75 Wh |
+| Phone | 3.85 V × 4.5 Ah | 17.3 Wh |
+| Power bank, 20,000 mAh | 3.7 V × 20 Ah | 74 Wh |
+| Lead-acid, 12 V, 100 Ah | 12 V × 100 Ah | 1,200 Wh |
+| Lithium iron phosphate, 100 Ah | 12.8 V × 100 Ah | 1,280 Wh |
+| Home battery bank, 200 Ah | 51.2 V × 200 Ah | 10,240 Wh (10.2 kWh) |
+
+A power bank's mAh rating is at its internal cells' voltage, about 3.7 volts, not the 5 volts it delivers over USB; converting it to watt-hours avoids that confusion.
+
+## Airline watt-hour limits
+
+The FAA allows spare lithium-ion batteries of up to 100 Wh in carry-on bags, and 101 to 160 Wh with airline approval; spares aren't allowed in checked bags. A 74 Wh power bank is under the limit, so check the Wh on the label, or work it out from mAh and voltage.
+
 ## Frequently asked questions
 
 ### How many watts is a 100Ah 12V battery?
@@ -98,8 +134,13 @@ Divide its watts by 12. A 60-watt pump draws 5 amps; a 300-watt inverter load ab
 
 Discharging lead-acid below about 50% shortens its life sharply, so 50% is the usual working limit. Lithium iron phosphate tolerates much deeper discharge.
 
+### How many watt-hours can I take on a plane?
+
+Spare lithium-ion batteries up to 100 Wh in carry-on bags, and 101 to 160 Wh with the airline's approval, according to the FAA. Spares aren't allowed in checked bags.
+
 <SourcesBox sources={[
-  { title: "U.S. EIA: Units and calculators explained (watts, watt-hours, kilowatt-hours)", url: "https://www.eia.gov/energyexplained/units-and-calculators/" }
+  { title: "U.S. EIA: Units and calculators explained (watts, watt-hours, kilowatt-hours)", url: "https://www.eia.gov/energyexplained/units-and-calculators/" },
+  { title: "FAA: PackSafe, lithium batteries (100 Wh and 160 Wh limits)", url: "https://www.faa.gov/hazmat/packsafe/lithium-batteries" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />

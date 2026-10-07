@@ -13,7 +13,7 @@ import UnverifiedCalcNotice from './UnverifiedCalcNotice';
 // its type key from this Set and it goes live on the next deploy.
 //
 // Verified live (NOT in this Set — render normally):
-//   mini-split, battery-12v-watts, battery-watt-hours, three-phase-power,
+//   mini-split, battery-12v-watts, battery-wh, three-phase-power,
 //   generator-amps, furnace-electrical, btu, ac-tonnage, furnace-sizing,
 //   heat-pump-size, afue, dehumidifier-sizing, water-heater-sizing,
 //   heat-pump-vs-furnace, gas-vs-electric, ach, seer2, kwh-cost,
@@ -72,7 +72,7 @@ const calculators = {
   'solar-panel': dynamic(() => import('./SolarPanelCalculator'), { 
     loading: () => <LoadingCalculator />
   }),
-  'battery-watt-hours': dynamic(() => import('./BatteryWattHoursCalculator'), { 
+  'battery-wh': dynamic(() => import('./BatteryWattHoursCalculator'), {
     loading: () => <LoadingCalculator />
   }),
   'battery-12v-watts': dynamic(() => import('./Battery12VWattsCalculator'), { 
