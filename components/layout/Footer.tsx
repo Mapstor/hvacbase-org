@@ -25,7 +25,7 @@ const footerLinks = {
     { label: 'Wire Gauge Calculator', href: '/wire-gauge-chart' },
   ],
   'Air Conditioning': [
-    { label: 'Mini Split Guide', href: '/what-is-a-mini-split' },
+    { label: 'Mini Split Guide', href: '/how-does-a-mini-split-work' },
     { label: 'Mini Split Sizing', href: '/mini-split-sizing-calculator' },
     { label: 'Window AC Units', href: '/window-air-conditioners' },
     { label: 'Portable AC Guide', href: '/portable-air-conditioners' },

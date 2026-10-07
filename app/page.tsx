@@ -343,7 +343,7 @@ export default async function HomePage() {
               
               <div className="space-y-3">
                 <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Mini Splits</h4>
-                <Link href="/what-is-a-mini-split" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/how-does-a-mini-split-work" className="block text-gray-600 hover:text-brand-600 py-1">
                   Complete Mini Split Guide
                 </Link>
                 <Link href="/mini-split-sizing-calculator" className="block text-gray-600 hover:text-brand-600 py-1">

@@ -283,6 +283,7 @@ const nextConfig = {
       { source: '/heat-pump-running-cost-calculator', destination: '/heat-pump-electricity-usage', permanent: true },
       { source: '/hvac-rebates-by-state', destination: '/hvac-tax-credits-2026', permanent: true },
       { source: '/how-much-does-mini-split-cost-to-run', destination: '/mini-split-electricity-usage', permanent: true },
+      { source: '/what-is-a-mini-split', destination: '/how-does-a-mini-split-work', permanent: true },
       // ============ end archived product pages ============
     ];
   },
