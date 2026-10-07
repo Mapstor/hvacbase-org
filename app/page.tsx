@@ -540,7 +540,7 @@ export default async function HomePage() {
                 <Link href="/heat-pump-tax-credits-2026" className="block text-gray-600 hover:text-brand-600 py-1">
                   Heat Pump Credits
                 </Link>
-                <Link href="/hvac-rebates-by-state" className="block text-gray-600 hover:text-brand-600 py-1">
+                <Link href="/hvac-tax-credits-2026" className="block text-gray-600 hover:text-brand-600 py-1">
                   State Rebates Map
                 </Link>
               </div>

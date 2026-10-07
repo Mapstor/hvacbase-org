@@ -151,7 +151,7 @@ const costCategories = {
     guides: [
       {
         title: 'Utility Rebates by State',
-        href: '/hvac-rebates-by-state',
+        href: '/hvac-tax-credits-2026',
         programs: ['Equipment rebates', 'Efficiency upgrades', 'Smart thermostats', 'Tune-ups'],
         finder: 'State-by-state database'
       }

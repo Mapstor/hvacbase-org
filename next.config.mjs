@@ -281,6 +281,7 @@ const nextConfig = {
       { source: '/furnace-efficiency-explained', destination: '/afue-rating-explained', permanent: true },
       // CONSOLIDATE-2: 7 folds (permanent, no chains)
       { source: '/heat-pump-running-cost-calculator', destination: '/heat-pump-electricity-usage', permanent: true },
+      { source: '/hvac-rebates-by-state', destination: '/hvac-tax-credits-2026', permanent: true },
       // ============ end archived product pages ============
     ];
   },

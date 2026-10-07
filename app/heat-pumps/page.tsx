@@ -157,7 +157,7 @@ export default async function HeatPumpsHub() {
               <h3 className="font-medium text-gray-900 group-hover:text-green-600">vs Furnace</h3>
               <p className="text-sm text-gray-600">Cost comparison</p>
             </Link>
-            <Link href="/hvac-rebates-by-state" className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group">
+            <Link href="/hvac-tax-credits-2026" className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group">
               <TrendingUp className="w-6 h-6 text-green-600 mb-2" />
               <h3 className="font-medium text-gray-900 group-hover:text-green-600">Rebates</h3>
               <p className="text-sm text-gray-600">HEAR rebates of up to $8,000 for income-qualified households, where your state's program is open</p>
