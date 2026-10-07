@@ -233,7 +233,7 @@ const nextConfig = {
       { source: '/what-wire-size-for-30-amp', destination: '/wire-for-220-volt', permanent: true },
       { source: '/10-2-or-10-3-wire-for-ac', destination: '/wire-for-220-volt', permanent: true },
       { source: '/portable-ac-vs-window-ac', destination: '/portable-vs-window-ac', permanent: true },
-      { source: '/do-window-acs-pull-air-from-outside', destination: '/do-portable-acs-pull-air-from-outside', permanent: true },
+      { source: '/do-window-acs-pull-air-from-outside', destination: '/single-hose-vs-dual-hose-portable-ac', permanent: true },
       { source: '/how-do-portable-acs-work', destination: '/portable-air-conditioners', permanent: true },
       { source: '/can-you-use-portable-ac-without-hose', destination: '/how-to-vent-portable-ac-without-window', permanent: true },
       { source: '/window-ac-installation-guide', destination: '/how-to-tilt-window-ac', permanent: true },
