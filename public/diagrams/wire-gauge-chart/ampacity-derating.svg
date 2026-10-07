@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 364" width="800" height="364" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Ampacity adjustment for conductors sharing a raceway, and heat derating</title>
+  <desc id="d">When more than three current-carrying conductors share a raceway, ampacity is reduced: 100 percent of the table value for 1 to 3 conductors, 80 percent for 4 to 6, 70 percent for 7 to 9 and 50 percent for 10 to 20. Ambient temperature above 30 degrees C also reduces ampacity, severely in hot attics.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .8s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="364" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">When ampacity has to be reduced</text>
+  <g class="bars">
+  <rect class="solid" x="210" y="74" width="360" height="24" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.00s"/>
+  <rect class="solid" x="210" y="116" width="288" height="24" rx="3" fill="#e07a2f" stroke="none" style="animation-delay:0.08s"/>
+  <rect class="solid" x="210" y="158" width="252" height="24" rx="3" fill="#e07a2f" stroke="none" style="animation-delay:0.16s"/>
+  <rect class="solid" x="210" y="200" width="180" height="24" rx="3" fill="#e07a2f" stroke="none" style="animation-delay:0.24s"/>
+  </g>
+  <text class="lbl" x="32" y="91">1 to 3 conductors</text>
+  <text class="num" x="578" y="91">100% of table ampacity</text>
+  <text class="lbl" x="32" y="133">4 to 6</text>
+  <text class="num" x="506" y="133">80% of table ampacity</text>
+  <text class="lbl" x="32" y="175">7 to 9</text>
+  <text class="num" x="470" y="175">70% of table ampacity</text>
+  <text class="lbl" x="32" y="217">10 to 20</text>
+  <text class="num" x="398" y="217">50% of table ampacity</text>
+  <text class="cap" x="32" y="268">Current-carrying conductors sharing one raceway (NEC 310.15(C)(1)).</text>
+  <rect x="32" y="288" width="736" height="58" rx="10" fill="#fdf5ec" stroke="#eedcc7"/>
+  <text class="cap" x="48" y="314">Heat derates too: above 30°C (86°F), ampacity falls as temperature rises, and the effect</text>
+  <text class="cap" x="48" y="332">is severe in hot attics (NEC Table 310.15(B)(1)).</text>
+</svg>

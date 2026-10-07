@@ -29,6 +29,8 @@ Below is the complete AWG wire gauge and ampacity reference, the NEC Table 310.1
 
 **The core residential ampacities: 14 AWG copper is good for 15 amps, 12 AWG for 20 amps, and 10 AWG for 30 amps, on standard branch circuits.** These caps come from NEC 240.4(D) and are fixed regardless of insulation type. Larger wire follows NEC Table 310.16, but the number that applies depends on the wire's temperature rating and your terminations, explained below.
 
+<Diagram src="/diagrams/wire-gauge-chart/awg-sizes-to-scale.svg" width={800} height={330} priority alt="Copper conductors drawn to scale from 14 AWG at 1.628 mm to 1/0 at 8.252 mm, showing that a smaller AWG number is a thicker wire and that every 6 steps doubles the diameter and every 3 steps doubles the cross-section." caption="Physical sizes from the dimensions table below." />
+
 ## The NEC Table 310.16 ampacity chart (copper)
 
 These are the allowable ampacities from NEC Table 310.16 for copper conductors, based on no more than three current-carrying conductors in a raceway or cable at an ambient temperature of 30°C (86°F). The three columns correspond to the wire's insulation temperature rating.
@@ -111,6 +113,8 @@ Resistance determines voltage drop over distance, which matters on long runs to 
 | 4/0 | 0.0608 | 0.100 |
 
 The voltage-drop formula: **VD = (2 × L × I × R) / 1000**, where L is the one-way run length in feet, I is the current in amps, and R is the resistance above. The NEC recommends keeping voltage drop **under 3% on a branch circuit** (under 5% total including the feeder). On any run over about 50 feet, this can require going up a wire size even when the ampacity table says the smaller wire is fine.
+
+<Diagram src="/diagrams/wire-gauge-chart/ampacity-derating.svg" width={800} height={364} alt="Bar chart of ampacity adjustment for conductors sharing a raceway: 100% for 1 to 3 current-carrying conductors, 80% for 4 to 6, 70% for 7 to 9 and 50% for 10 to 20, plus a note that heat above 30°C also reduces ampacity." caption="Both adjustments can push you to a larger wire." />
 
 ## The two adjustments that change the numbers
 
