@@ -36,6 +36,8 @@ The calculator below handles both seasons. Its heating side uses the same heat-l
 
 <CalcWrapper type="heat-pump-size" />
 
+<Diagram src="/diagrams/heat-pump-size-calculator/capacity-in-the-cold.svg" width={800} height={340} priority alt="Line chart of heat pump capacity as a share of its rating: a standard heat pump keeps about 60% at 17°F and 40% at 5°F, while a cold-climate model keeps about 79% at 17°F and 70% at 5°F, the ENERGY STAR cold-climate minimum." caption="Rated capacity is measured at 47°F; cold weather takes a big share of it." />
+
 ## How the calculator sizes a heat pump
 
 **Heating load** = heat loss rate × square footage × adjustments × (70°F − your design low). The heat loss rate depends on the home's age and insulation:
@@ -78,6 +80,8 @@ A heat pump's rated heating capacity is measured at 47°F outdoors. It produces 
 The **balance point** is the outdoor temperature where the heat pump's falling capacity meets the house's rising heat loss. Above it, the heat pump heats the house alone. Below it, something else has to add heat: electric resistance strips in the air handler, or a gas furnace in a dual-fuel system.
 
 The calculator finds the balance point from the two lines and sizes backup heat to the gap at your design low, plus a 10% margin for cold snaps. Its balance point is an estimate; the real one can shift by about 10°F depending on the house and the specific model.
+
+<Diagram src="/diagrams/heat-pump-size-calculator/balance-point.svg" width={800} height={382} alt="Diagram of a heat pump balance point: as it gets colder the house loses heat faster while the heat pump delivers less, the lines cross at the balance point, and backup heat covers the gap below it down to the design low." caption="Each example below gives its own balance point and backup size." />
 
 ## Three examples from the calculator
 

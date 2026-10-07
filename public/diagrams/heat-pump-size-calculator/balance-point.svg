@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 382" width="800" height="382" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Heat pump balance point and backup heat</title>
+  <desc id="d">As outdoor temperature falls, a house loses heat faster while a heat pump delivers less. The lines cross at the balance point. Below it, backup heat covers the gap, which the calculator sizes at your design low plus a 10 percent margin.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .trace{stroke-dasharray:1400;stroke-dashoffset:0;animation:draw 1.8s ease-out}
+    @keyframes draw{from{stroke-dashoffset:1400}to{stroke-dashoffset:0}}
+    @media (prefers-reduced-motion: reduce){.trace{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="382" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">The balance point: where backup heat starts</text>
+  <rect x="32" y="56" width="14" height="4" rx="1" fill="#c2410c" stroke="none"/>
+  <text class="cap" x="52" y="62">House heat loss</text>
+  <rect x="190" y="56" width="14" height="4" rx="1" fill="#2b7bb9" stroke="none"/>
+  <text class="cap" x="210" y="62">Heat pump output</text>
+  <path d="M80 304 H680" stroke="#9fb3c4" stroke-width="1" fill="none"/>
+  <path d="M80 84 V304" stroke="#9fb3c4" stroke-width="1" fill="none"/>
+  <path d="M170 130 L380 189 L170 234 Z" fill="#fde9d9"/>
+  <polyline class="trace" points="80,104 680,274" fill="none" stroke="#c2410c" stroke-width="3"/>
+  <polyline class="trace" points="80,254 680,124" fill="none" stroke="#2b7bb9" stroke-width="3"/>
+  <circle cx="380" cy="189" r="6" fill="#1d2b38"/>
+  <path d="M170 84 L170 304" stroke="#9fb3c4" stroke-width="1" fill="none" stroke-dasharray="4 3"/>
+  <text class="cap" x="176" y="296">Design low</text>
+  <text class="num" x="450" y="194">Balance point</text>
+  <text class="num" x="184" y="186">Backup heat</text>
+  <text class="cap" x="80" y="326">Colder</text>
+  <text class="cap" x="636" y="326">Warmer</text>
+  <text class="cap" x="32" y="346">Below the balance point, backup heat covers the gap.</text>
+  <text class="cap" x="32" y="364">The calculator sizes it to the gap at your design low, plus a 10% margin.</text>
+</svg>
