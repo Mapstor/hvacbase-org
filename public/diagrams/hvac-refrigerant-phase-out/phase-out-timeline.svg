@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 304" width="800" height="304" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 322" width="800" height="322" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
   <title id="t">Timeline of the HVAC refrigerant phase-out under the AIM Act</title>
-  <desc id="d">In 2020 the AIM Act became law, directing an 85 percent phasedown of HFC production by 2036. From January 1, 2025, new home AC and heat pump equipment can't be made or imported with R-410A. Pre-2025 R-410A stock can be installed through about 2026. R-410A remains available for repairs while supply tightens. No date makes an existing system illegal.</desc>
+  <desc id="d">In 2020 the AIM Act became law, directing an 85 percent phasedown of HFC production by 2036. From January 1, 2025, new home AC and heat pump equipment can't be made or imported with R-410A. An EPA rule effective July 27, 2026 removed the installation deadline for pre-2025 R-410A stock, except in New York, which kept its January 1, 2026 deadline. R-410A remains available for repairs while supply tightens.</desc>
   <style>
     .head{font-size:19px;font-weight:700;fill:#1d2b38}
     .num{font-size:13px;font-weight:700;fill:#1d2b38}
@@ -10,7 +10,7 @@
     .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
 
   </style>
-  <rect x="0" y="0" width="800" height="304" rx="14" fill="#ffffff"/>
+  <rect x="0" y="0" width="800" height="322" rx="14" fill="#ffffff"/>
   <text class="head" x="32" y="40">The refrigerant phase-out, step by step</text>
   <path d="M40 120 H760" stroke="#9fb3c4" stroke-width="3" fill="none"/>
   <circle cx="60" cy="120" r="8" fill="#2b7bb9"/>
@@ -24,16 +24,17 @@
   <text class="cap" x="240" y="170">equipment made</text>
   <text class="cap" x="240" y="188">or imported</text>
   <circle cx="436" cy="120" r="8" fill="#2b7bb9"/>
-  <text class="num" x="428" y="96">Through ~2026</text>
-  <text class="cap" x="428" y="152">Pre-2025 R-410A</text>
-  <text class="cap" x="428" y="170">stock can still</text>
-  <text class="cap" x="428" y="188">be installed</text>
+  <text class="num" x="428" y="96">Jul 27, 2026</text>
+  <text class="cap" x="428" y="152">EPA rule removes the</text>
+  <text class="cap" x="428" y="170">install deadline for</text>
+  <text class="cap" x="428" y="188">pre-2025 stock</text>
   <circle cx="624" cy="120" r="8" fill="#2b7bb9"/>
   <text class="num" x="616" y="96">Ongoing</text>
   <text class="cap" x="616" y="152">R-410A stays for</text>
   <text class="cap" x="616" y="170">repairs; supply</text>
   <text class="cap" x="616" y="188">tightens</text>
-  <rect x="32" y="222" width="736" height="62" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
-  <text class="cap" x="48" y="248">January 2025 changed what gets manufactured, not what you're allowed to use. No date makes</text>
-  <text class="cap" x="48" y="266">an existing system illegal or unserviceable. New systems use R-32 or R-454B.</text>
+  <rect x="32" y="222" width="736" height="80" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="cap" x="48" y="248">January 2025 changed what gets manufactured, not what you're allowed to use. Pre-2025 R-410A</text>
+  <text class="cap" x="48" y="266">stock can now be installed until it runs out, except in New York, which kept its January 1, 2026</text>
+  <text class="cap" x="48" y="284">deadline. New systems use R-32 or R-454B.</text>
 </svg>
