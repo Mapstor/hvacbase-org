@@ -32,8 +32,7 @@ const troubleshootingCategories = {
         href: '/ac-not-cooling',
         symptoms: ['Warm air from vents', 'No temperature change', 'Running but not cooling'],
         commonCauses: ['Dirty filter', 'Low refrigerant', 'Frozen coils'],
-        difficulty: 'Easy to Medium',
-        avgCost: '$0-500'
+        difficulty: 'Easy to Medium'
       }
     ]
   },
@@ -46,8 +45,7 @@ const troubleshootingCategories = {
         href: '/furnace-leaking-water',
         symptoms: ['Puddles near furnace', 'Rust spots', 'Water damage'],
         commonCauses: ['Condensate issues', 'Humidifier leak', 'Heat exchanger'],
-        difficulty: 'Medium to Hard',
-        avgCost: '$100-3000'
+        difficulty: 'Medium to Hard'
       }
     ]
   },
@@ -56,42 +54,18 @@ const troubleshootingCategories = {
     description: 'Furnace, ignition, and no-heat issues',
     problems: [
       {
-        title: 'Furnace Flame Sensor',
-        href: '/furnace-blowing-cold-air',
-        symptoms: ['Burner lights then shuts off in 3-10 seconds', 'Lockout after failed ignition attempts', 'Flame failure error code'],
-        commonCauses: ['Carbon buildup on sensor rod', 'Oxidation coating', 'Sensor position drift'],
-        difficulty: 'Easy',
-        avgCost: '$0-200'
-      },
-      {
         title: 'Furnace Blowing Cold Air',
         href: '/furnace-blowing-cold-air',
         symptoms: ['Cold air from vents', 'Furnace runs but no heat', 'Cycling between warm and cold'],
         commonCauses: ['Thermostat fan set to ON', 'Dirty filter (high-limit trip)', 'Pilot or flame sensor issue'],
-        difficulty: 'Easy to Medium',
-        avgCost: '$0-1000'
+        difficulty: 'Easy to Medium'
       },
       {
         title: 'Cracked Heat Exchanger',
         href: '/cracked-heat-exchanger',
         symptoms: ['Yellow or flickering flame', 'CO detector alarms', 'Headaches or nausea when furnace runs'],
         commonCauses: ['Furnace age (>15 years)', 'Thermal stress and cycling', 'Metal fatigue and corrosion'],
-        difficulty: 'Hard',
-        avgCost: '$1,500-$8,500'
-      }
-    ]
-  },
-  'Electrical & Control Issues': {
-    icon: <Zap className="w-6 h-6 text-yellow-500" />,
-    description: 'Power, thermostat, and control problems',
-    problems: [
-      {
-        title: 'Thermostat Heat On But No Heat',
-        href: '/furnace-blowing-cold-air',
-        symptoms: ['Thermostat shows heating but house stays cold', 'Blower runs but no warm air', 'Furnace short-cycles or locks out'],
-        commonCauses: ['Wrong thermostat settings', 'Tripped breaker or dead batteries', 'Dirty flame sensor or clogged filter'],
-        difficulty: 'Easy to Medium',
-        avgCost: '$0-600'
+        difficulty: 'Hard'
       }
     ]
   }
@@ -264,10 +238,6 @@ export default function TroubleshootingPage() {
                             'bg-red-100 text-red-700'
                           }`}>
                             {problem.difficulty}
-                          </span>
-                          <span className="flex items-center">
-                            <DollarSign className="w-3 h-3 mr-1" />
-                            {problem.avgCost}
                           </span>
                         </div>
 
