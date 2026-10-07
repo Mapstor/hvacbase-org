@@ -34,7 +34,7 @@ const footerLinks = {
     { label: 'Portable vs Window AC', href: '/portable-vs-window-ac' },
     { label: 'AC Maintenance', href: '/hvac-maintenance-checklist' },
     { label: 'Mini Split vs Central', href: '/mini-split-vs-central-air' },
-    { label: 'AC Running Costs', href: '/how-much-does-mini-split-cost-to-run' },
+    { label: 'AC Running Costs', href: '/mini-split-electricity-usage' },
   ],
   'Heating Systems': [
     { label: 'Furnace Guide', href: '/furnace-guide' },

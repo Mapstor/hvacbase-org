@@ -1,18 +1,18 @@
 ---
 slug: "mini-split-electricity-usage"
-title: "How Much Electricity Does a Mini Split Use? (Watts, kWh & Cost)"
-description: "How much electricity a mini split uses by size: watts, kWh per day and month, the factors that change it, a per-state rate table, and how to cut consumption. Sourced to DOE, ENERGY STAR, and EIA."
+title: "How Much Electricity Does a Mini Split Use? (Watts, kWh & Cost to Run)"
+description: "How much electricity a mini split uses and what it costs to run: watts, kWh per month, cost by size, the low and high state rates, and how to cut both."
 author: "Marko Visic, BSc Physics"
 cluster: "mini-split-air-conditioners"
 role: "spoke"
 priority: "P1"
 contentType: "data-analysis"
 datePublished: "2026-01-15"
-dateModified: "2026-10-02"
+dateModified: "2026-10-07"
 relatedArticles:
-  - how-much-does-mini-split-cost-to-run
   - mini-split-air-conditioners
   - mini-split-vs-central-air
+  - mini-split-sizing-calculator
 externalLinks:
   - title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)"
     url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf"
@@ -22,15 +22,19 @@ externalLinks:
     url: "https://www.eia.gov/electricity/monthly/"
 ---
 
-import { SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-# How Much Electricity Does a Mini Split Use?
+# How Much Electricity Does a Mini Split Use (and Cost to Run)?
 
 You want to know what a mini split costs to run before you commit, or your electric bill went up and you're wondering if it's the culprit. Mini splits are among the most efficient ways to heat and cool, but the number depends on your unit's size, your climate, how you use it and your local electricity rate.
 
 This guide breaks down how much electricity a mini split really uses, in watts, kWh, and dollars, plus the factors that push the number up or down and the practical steps that lower it. The wattage figures are typical ranges (your unit's rated draw is on its nameplate), and cost figures use current electricity-rate data. Use the calculator to get a number for your specific situation.
 
 **A typical 12,000 BTU mini split draws roughly 400 to 1,200 watts depending on how hard the compressor is working, which comes to about 3 to 10 kWh per day at 8 hours of use, or roughly 500 to 900 kWh over a cooling season.** Mini splits are efficient because their inverter compressors modulate speed: once a room reaches temperature, the unit throttles down and draws far less than its maximum. Your cost is that energy use times your local electricity rate; the calculator below works it out.
+
+<CalcWrapper type="kwh-cost" />
+
+Enter your unit's average draw in watts, which is its capacity divided by its SEER2 rating: a 12,000 BTU unit at 20 SEER2 averages about 600 watts while cooling. The worked cost figures are in [what a mini split costs to run](#what-a-mini-split-costs-to-run) below.
 
 <DataChart
   data={[
@@ -102,27 +106,36 @@ These practical steps genuinely reduce consumption:
 
 **Keep up with maintenance.** Clean coils and an annual check keep the system running at its rated efficiency; a neglected unit drifts toward the higher end of the usage ranges.
 
-## Electricity cost by state
+## What a mini split costs to run
 
-Your running cost is your energy use times your local rate, and rates vary enormously by state. Here's a sample of average residential electricity rates (per kWh) alongside rough cooling-season and heating-season hours, to show how much location matters:
+Your running cost is the electricity the unit uses times your rate. The energy use follows from the unit's capacity and its efficiency rating:
 
-| State | Avg. rate ($/kWh) | Cooling hrs (approx.) | Heating hrs (approx.) |
-|-------|-------------------|----------------------|----------------------|
-| Hawaii | ~0.37 | 650 | 200 |
-| Connecticut | ~0.30 | 550 | 700 |
-| Massachusetts | ~0.28 | 500 | 800 |
-| California | ~0.27 | 600 | 350 |
-| New York | ~0.24 | 550 | 750 |
-| National average | ~0.18 | 600 | 600 |
-| Florida | ~0.15 | 900 | 200 |
-| Texas | ~0.14 | 850 | 400 |
-| Georgia | ~0.14 | 800 | 450 |
-| Louisiana | ~0.10 | 900 | 300 |
-| Idaho | ~0.10 | 400 | 700 |
+- **Cooling kWh per year = BTU × full-load hours ÷ (SEER2 × 1,000).**
+- **Heating kWh per year = BTU × full-load hours ÷ (HSPF2 × 1,000).**
 
-*(State rates are approximate averages from EIA data and shift over time; use your actual rate from your utility bill for a precise figure.)*
+Full-load hours are the hours the unit would run at full capacity to deliver a season's cooling or heating. A mild summer might be 600, a hot one 2,000 or more; the 1,500 hours below is an example assumption, not a fixed figure.
 
-The takeaway: the same mini split can cost more than twice as much to run in a high-rate state as in a low-rate one. That's why a generic dollar figure isn't very useful, plug your own rate and usage into the [mini split cost-to-run calculator](/how-much-does-mini-split-cost-to-run) for a real number.
+### Cost by size
+
+At 20 SEER2, 1,500 full-load cooling hours and 18 cents per kWh:
+
+| Size | kWh per year | Cost per year | Per month over 5 months |
+|---|---|---|---|
+| 9,000 BTU | 675 | $122 | $24 |
+| 12,000 BTU | 900 | $162 | $32 |
+| 18,000 BTU | 1,350 | $243 | $49 |
+| 24,000 BTU | 1,800 | $324 | $65 |
+| 36,000 BTU | 2,700 | $486 | $97 |
+
+Efficiency matters as much as size. A 12,000 BTU unit at 16 SEER2 uses about 1,125 kWh a year ($203), and one at 25 SEER2 about 720 kWh ($130).
+
+### Your electricity rate
+
+The same 900 kWh costs about $111 a year at North Dakota's 12.36 cents per kWh and about $417 at Hawaii's 46.28, the lowest and highest state averages for January to July 2026 (EIA). The same mini split can cost close to four times as much to run in the priciest state as in the cheapest. Our [kWh cost calculator](/kwh-cost-calculator) lists every state.
+
+### Against central air
+
+For the same 12,000 BTU of cooling over 1,500 hours, a central air conditioner at the 14.3 SEER2 federal minimum would use about 1,259 kWh, about $227 a year. So a 20 SEER2 mini split uses about 29% less electricity for the same cooling, and a ductless system also avoids the duct losses that push a central system's running cost higher still.
 
 ## Frequently asked questions
 
@@ -148,16 +161,23 @@ Amps = watts ÷ volts. Most mini splits run on 230 or 240 volts, so a unit drawi
 
 For wiring, the running draw isn't the number to use. The outdoor unit's nameplate lists the minimum circuit ampacity (MCA) for sizing the wire and the maximum overcurrent protection (MOP) for the breaker; see [wire size for 220-volt circuits](/wire-for-220-volt).
 
+**How much does a mini split cost to run per month?**
+A 12,000 BTU unit at 20 SEER2 costs about $32 a month over a five-month cooling season at 18 cents per kWh. Larger units, lower ratings, hotter climates and higher rates raise it.
+
+**How many watts does a 12,000 BTU mini split use?**
+About 600 watts on average at 20 SEER2 (12,000 ÷ 20). It draws more at full speed and less when it throttles down, so the average sits well below the rated maximum.
+
 ## About these figures
 
-The efficiency figures, that inverter compressors modulate rather than running at full power, that a dirty filter can increase energy use by 5 to 15%, that thermostat setback saves energy, and that ducts lose about 30% of conditioning energy (relevant to the mini-split-vs-central comparison), reflect **U.S. Department of Energy** and **ENERGY STAR** guidance. State electricity rates are approximate averages based on **EIA** (U.S. Energy Information Administration) data and change over time. Mini split wattage figures are typical ranges, not fixed values, your unit's rated draw is on its nameplate, and actual consumption depends on size, climate, usage, and efficiency.
+The efficiency figures, that inverter compressors modulate rather than running at full power, that a dirty filter can increase energy use by 5 to 15%, that thermostat setback saves energy, and that ducts lose about 30% of conditioning energy (relevant to the mini-split-vs-central comparison), reflect **U.S. Department of Energy** and **ENERGY STAR** guidance. The SEER2 and HSPF2 cost formulas follow the federal test procedures in 10 CFR Part 430. State electricity rates are **EIA** averages for January to July 2026 and change over time. Mini split wattage figures are typical ranges, not fixed values, your unit's rated draw is on its nameplate, and actual consumption depends on size, climate, usage, and efficiency.
 
-For a cost estimate at your rate, use the calculator and our dedicated cost-to-run guide.
+For a cost estimate at your rate, use the calculator above.
 
 <SourcesBox sources={[
   { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF)", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
   { title: "ENERGY STAR: Ductless Heating & Cooling (inverter efficiency)", url: "https://www.energystar.gov/products/ductless_heating_cooling" },
-  { title: "EIA: Electricity Monthly (average residential retail rates by state)", url: "https://www.eia.gov/electricity/monthly/" }
+  { title: "EIA: Electric Power Monthly, residential prices by state (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "eCFR: 10 CFR Part 430, Subpart B (SEER2 and HSPF2 test procedures)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />

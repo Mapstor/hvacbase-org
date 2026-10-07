@@ -453,7 +453,7 @@ export default function MiniSplitCalculator() {
             <p className="text-xs text-gray-700 leading-snug">
               Running cost depends on your local electricity rate, run hours and climate, not just capacity,
               so a per-ton rule of thumb misleads. See our{' '}
-              <a href="/how-much-does-mini-split-cost-to-run" className="text-amber-800 underline">mini split running cost guide</a>{' '}
+              <a href="/mini-split-electricity-usage" className="text-amber-800 underline">mini split running cost guide</a>{' '}
               to estimate it from your own rate.
             </p>
           </div>

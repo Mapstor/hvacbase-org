@@ -282,6 +282,7 @@ const nextConfig = {
       // CONSOLIDATE-2: 7 folds (permanent, no chains)
       { source: '/heat-pump-running-cost-calculator', destination: '/heat-pump-electricity-usage', permanent: true },
       { source: '/hvac-rebates-by-state', destination: '/hvac-tax-credits-2026', permanent: true },
+      { source: '/how-much-does-mini-split-cost-to-run', destination: '/mini-split-electricity-usage', permanent: true },
       // ============ end archived product pages ============
     ];
   },
