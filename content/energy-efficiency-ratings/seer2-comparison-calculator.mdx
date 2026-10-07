@@ -32,6 +32,8 @@ Two quotes for the same house often differ mainly in efficiency: one at 14.3 SEE
 
 <CalcWrapper calculator="seer2" />
 
+<Diagram src="/diagrams/seer2-comparison-calculator/how-the-calculator-works.svg" width={800} height={266} priority alt="Four-step diagram of the SEER2 calculator: tons times 12,000, times full-load cooling hours, divided by SEER2 times 1,000, times your rate; a 3-ton system at 1,500 hours and 15.2 SEER2 uses 3,553 kWh, or $639 a year at 18 cents." caption="The calculator's method, with a row from the table below." />
+
 ## How the calculator works
 
 **Annual kWh = tons × 12,000 × cooling hours ÷ (SEER2 × 1,000).** A 3-ton system is 36,000 BTU per hour, and SEER2 is BTU of cooling per watt-hour, so dividing by SEER2 and by 1,000 gives kilowatt-hours. The calculator does this for both ratings, then multiplies the difference by your electricity rate.
@@ -54,6 +56,8 @@ A 3-ton system at 1,500 full-load hours and 18 cents per kWh:
 | 18 | 3,000 | $540 |
 | 20 | 2,700 | $486 |
 | 22 | 2,455 | $442 |
+
+<Diagram src="/diagrams/seer2-comparison-calculator/diminishing-returns.svg" width={800} height={354} alt="Line chart of annual cooling cost falling from $725 at 13.4 SEER2 to $572 at 17 and $442 at 22, showing that 13.4 to 14.3 saves $45 a year while 20 to 22, more than twice the step, saves $44." caption="Energy use falls with the inverse of the rating." />
 
 ## Why each point is worth less
 

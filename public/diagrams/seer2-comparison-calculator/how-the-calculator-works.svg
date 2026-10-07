@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 266" width="800" height="266" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How the SEER2 comparison calculator works out annual cooling cost</title>
+  <desc id="d">Annual kWh equals tons times 12,000 times full-load cooling hours, divided by SEER2 times 1,000; multiply by your rate for the cost. Example: a 3-ton system at 1,500 hours and 15.2 SEER2 uses 3,553 kWh a year, $639 at 18 cents per kWh.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="266" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">How the SEER2 calculator works</text>
+  <rect x="32" y="62" width="169" height="124" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="88">Tons × 12,000</text>
+  <text class="cap" x="48" y="110">BTU per hour of</text>
+  <text class="cap" x="48" y="128">cooling: 3 tons is</text>
+  <text class="cap" x="48" y="146">36,000</text>
+  <rect x="221" y="62" width="169" height="124" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="237" y="88">× cooling hours</text>
+  <text class="cap" x="237" y="110">Full-load hours a</text>
+  <text class="cap" x="237" y="128">year: 600 to 2,800</text>
+  <text class="cap" x="237" y="146">by climate</text>
+  <rect x="410" y="62" width="169" height="124" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="426" y="88">÷ (SEER2 × 1,000)</text>
+  <text class="cap" x="426" y="110">SEER2 is BTU per</text>
+  <text class="cap" x="426" y="128">watt-hour, so this</text>
+  <text class="cap" x="426" y="146">gives kWh a year</text>
+  <rect x="599" y="62" width="169" height="124" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="num" x="615" y="88">× your rate</text>
+  <text class="cap" x="615" y="110">= cooling cost</text>
+  <text class="cap" x="615" y="128">per year</text>
+  <path d="M203 124 H213" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M212 118 L219 124 L212 130 Z" fill="#6b7f91"/>
+  <path d="M392 124 H402" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M401 118 L408 124 L401 130 Z" fill="#6b7f91"/>
+  <path d="M581 124 H591" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M590 118 L597 124 L590 130 Z" fill="#6b7f91"/>
+  <text class="num" x="32" y="222">Example: 3 tons, 1,500 full-load hours, 15.2 SEER2, 18 cents per kWh</text>
+  <text class="lbl" x="32" y="246">3 × 12,000 × 1,500 ÷ 15,200 = 3,553 kWh a year → $639</text>
+</svg>
