@@ -85,6 +85,8 @@ export default async function ArticlesPage() {
   const articles = await getAllArticles();
   const { byCluster, byRole } = organizeArticles(articles);
   const totalArticles = articles.length;
+  // Computed at build time from the content taxonomy, never hardcoded.
+  const calculatorCount = articles.filter((a) => a.meta.contentType === 'calculator').length;
   
   // Get featured articles (pillars and hubs)
   const featuredArticles = articles.filter(a => ['pillar', 'hub'].includes(a.meta.role)).slice(0, 6);
@@ -131,7 +133,7 @@ export default async function ArticlesPage() {
               <div className="text-sm text-gray-600">Hub Pages</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600">9</div>
+              <div className="text-2xl font-bold text-orange-600">{calculatorCount}</div>
               <div className="text-sm text-gray-600">Calculators</div>
             </div>
           </div>
