@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 344" width="800" height="344" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How the duct sizing calculator solves for duct size</title>
+  <desc id="d">Four steps: start from the airflow in CFM and a friction rate, 0.08 inches of water per 100 feet by default; solve for the duct diameter that gives that friction; round up to the next standard size; check that air speed stays under about 900 feet per minute. Example: 400 CFM needs 10.14 inches, so a 12 inch duct at about 509 feet per minute.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="344" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">How the calculator sizes a duct</text>
+  <rect x="32" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="48" y="88">1</text>
+  <text class="num" x="48" y="114">Airflow</text>
+  <text class="cap" x="48" y="136">CFM the run carries,</text>
+  <text class="cap" x="48" y="154">about 400 per ton</text>
+  <text class="cap" x="48" y="172">of cooling</text>
+  <rect x="221" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="237" y="88">2</text>
+  <text class="num" x="237" y="114">Friction rate</text>
+  <text class="cap" x="237" y="136">Default 0.08 inches</text>
+  <text class="cap" x="237" y="154">of water per 100 ft</text>
+  <rect x="410" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="426" y="88">3</text>
+  <text class="num" x="426" y="114">Solve, round up</text>
+  <text class="cap" x="426" y="136">Diameter that gives</text>
+  <text class="cap" x="426" y="154">that friction, then</text>
+  <text class="cap" x="426" y="172">rounded to a standard</text>
+  <text class="cap" x="426" y="190">size</text>
+  <rect x="599" y="62" width="169" height="200" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="big" x="615" y="88">4</text>
+  <text class="num" x="615" y="114">Check air speed</text>
+  <text class="cap" x="615" y="136">Above about 900 fpm</text>
+  <text class="cap" x="615" y="154">gets noisy: go one</text>
+  <text class="cap" x="615" y="172">size bigger</text>
+  <path d="M203 162 H213" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M212 156 L219 162 L212 168 Z" fill="#6b7f91"/>
+  <path d="M392 162 H402" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M401 156 L408 162 L401 168 Z" fill="#6b7f91"/>
+  <path d="M581 162 H591" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M590 156 L597 162 L590 168 Z" fill="#6b7f91"/>
+  <text class="num" x="32" y="298">Example: 400 CFM at 0.08</text>
+  <text class="lbl" x="32" y="322">Calculated 10.14 in → next standard size 12 in → air speed about 509 fpm</text>
+</svg>

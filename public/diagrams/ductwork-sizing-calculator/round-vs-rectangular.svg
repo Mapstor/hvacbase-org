@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="800" height="340" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Rectangular ducts and their equivalent round diameters, drawn to scale</title>
+  <desc id="d">Three rectangular ducts beside their round equivalents, to scale: 8 by 10 inches equals a 9.76 inch round duct, 8 by 14 equals 11.46 inches, and 10 by 12 equals 11.96 inches, by the Huebscher formula.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="340" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Rectangular ducts and their round equivalents</text>
+  <rect x="40" y="104" width="80" height="64" rx="2" fill="#f3f7fb" stroke="#2b7bb9"/>
+  <circle cx="177.0" cy="136" r="39.0" fill="#fdf5ec" stroke="#e07a2f" stroke-width="1.5"/>
+  <text class="num" x="40" y="214">8 × 10 in</text>
+  <text class="lbl" x="40" y="234">= 9.76 in round</text>
+  <rect x="246" y="104" width="112" height="64" rx="2" fill="#f3f7fb" stroke="#2b7bb9"/>
+  <circle cx="421.8" cy="136" r="45.8" fill="#fdf5ec" stroke="#e07a2f" stroke-width="1.5"/>
+  <text class="num" x="246" y="214">8 × 14 in</text>
+  <text class="lbl" x="246" y="234">= 11.46 in round</text>
+  <rect x="498" y="96" width="96" height="80" rx="2" fill="#f3f7fb" stroke="#2b7bb9"/>
+  <circle cx="659.8" cy="136" r="47.8" fill="#fdf5ec" stroke="#e07a2f" stroke-width="1.5"/>
+  <text class="num" x="498" y="214">10 × 12 in</text>
+  <text class="lbl" x="498" y="234">= 11.96 in round</text>
+  <text class="cap" x="32" y="292">Same airflow, same friction. Equivalent diameter by the Huebscher formula:</text>
+  <text class="cap" x="32" y="312">De = 1.30 × (a × b)^0.625 ÷ (a + b)^0.25. Drawn to scale.</text>
+</svg>

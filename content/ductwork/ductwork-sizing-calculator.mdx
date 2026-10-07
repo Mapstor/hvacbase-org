@@ -32,6 +32,8 @@ A duct has to carry the air your system moves without too much friction, which w
 
 <CalcWrapper type="duct-sizing" />
 
+<Diagram src="/diagrams/ductwork-sizing-calculator/how-duct-size-is-solved.svg" width={800} height={344} priority alt="Four-step diagram of the duct calculator: airflow in CFM, a friction rate of 0.08 inches of water per 100 feet, solve the diameter and round up to a standard size, then check air speed; 400 CFM needs 10.14 inches, so a 12-inch duct at about 509 fpm." caption="The calculator's method, using the 400 CFM row from the chart below." />
+
 ## How the calculator works
 
 1. **Airflow.** Enter CFM, or tons of cooling at a typical design airflow of about 400 CFM per ton.
@@ -53,6 +55,8 @@ At a friction rate of 0.08 inches of water per 100 feet:
 | 1,600 CFM | 17.05 in | 18 in | 905 fpm |
 
 The calculator flags speeds above 900 feet per minute, which can be noisy in homes. Where a size falls just over a standard size, as 6.05 inches does, a designer may accept the smaller size and slightly higher friction.
+
+<Diagram src="/diagrams/ductwork-sizing-calculator/round-vs-rectangular.svg" width={800} height={340} alt="Three rectangular ducts drawn to scale beside their round equivalents: 8 by 10 inches equals 9.76 inches round, 8 by 14 equals 11.46 inches, and 10 by 12 equals 11.96 inches, by the Huebscher formula." caption="Each pair carries the same air at the same friction." />
 
 ## Round to rectangular
 
