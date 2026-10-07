@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 326" width="800" height="326" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Six ways to cut a mini split's electricity use</title>
+  <desc id="d">Six ways to cut a mini split's electricity use: set the temperature closer to outdoors, clean the filters (a clogged filter can raise energy use 5 to 15 percent per the DOE), use dry mode in humid but not hot weather, shade the outdoor unit while keeping clearances, improve the room's insulation, and keep up maintenance.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="326" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Six ways to cut a mini split's electricity use</text>
+  <rect x="32" y="62" width="232" height="96" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="88">Set it sensibly</text>
+  <text class="cap" x="48" y="110">Closer to the outdoor</text>
+  <text class="cap" x="48" y="128">temperature saves energy</text>
+  <rect x="280" y="62" width="232" height="96" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="296" y="88">Clean the filters</text>
+  <text class="cap" x="296" y="110">A clogged filter can raise</text>
+  <text class="cap" x="296" y="128">energy use 5-15% (DOE)</text>
+  <rect x="528" y="62" width="232" height="96" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="544" y="88">Use dry mode</text>
+  <text class="cap" x="544" y="110">In humid but not hot weather,</text>
+  <text class="cap" x="544" y="128">it runs at low speed</text>
+  <rect x="32" y="174" width="232" height="96" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="200">Shade the outdoor unit</text>
+  <text class="cap" x="48" y="222">Keep the required clearances</text>
+  <text class="cap" x="48" y="240">around it</text>
+  <rect x="280" y="174" width="232" height="96" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="296" y="200">Improve the room</text>
+  <text class="cap" x="296" y="222">Weatherstripping, window film</text>
+  <text class="cap" x="296" y="240">or thermal curtains</text>
+  <rect x="528" y="174" width="232" height="96" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="544" y="200">Keep up maintenance</text>
+  <text class="cap" x="544" y="222">Clean coils and an annual</text>
+  <text class="cap" x="544" y="240">check hold efficiency</text>
+  <text class="cap" x="32" y="306">Small changes add up because a mini split runs for many hours a season.</text>
+</svg>

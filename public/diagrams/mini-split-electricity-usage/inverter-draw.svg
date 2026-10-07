@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 342" width="800" height="342" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How an inverter mini split's power draw falls below its rated watts</title>
+  <desc id="d">An inverter mini split starts at full speed, near its rated maximum watts, then throttles down once the room reaches the set temperature, typically running at 30 to 70 percent of capacity, so its average draw is well below the rating.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .trace{stroke-dasharray:1400;stroke-dashoffset:0;animation:draw 1.8s ease-out}
+    @keyframes draw{from{stroke-dashoffset:1400}to{stroke-dashoffset:0}}
+    @media (prefers-reduced-motion: reduce){.trace{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="342" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Why a mini split rarely draws its rated watts</text>
+  <path d="M80 264 H700" stroke="#9fb3c4" stroke-width="1" fill="none"/>
+  <path d="M80 64 V264" stroke="#9fb3c4" stroke-width="1" fill="none"/>
+  <rect x="250" y="124" width="450" height="84" rx="0" fill="#e6f4e9" stroke="none"/>
+  <text class="cap" x="270" y="232">Shaded band: 30 to 70% of capacity once the room is at temperature</text>
+  <polyline class="trace" points="80,264 110,84 220,84 280,169 360,159 440,174 520,164 600,172 700,166" fill="none" stroke="#2b7bb9" stroke-width="3"/>
+  <path d="M80 84 L700 84" stroke="#c2410c" stroke-width="1" fill="none" stroke-dasharray="5 4"/>
+  <text class="cap" x="510" y="78">Rated (maximum) watts</text>
+  <text class="cap" x="100" y="286">Starts at full speed</text>
+  <text class="cap" x="670" y="286">Time</text>
+  <text class="cap" x="32" y="322">Inverter mini splits throttle down to hold the temperature, so average draw is well below the rating.</text>
+</svg>
