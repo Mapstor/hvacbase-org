@@ -146,20 +146,17 @@ const popularCalculators = [
   {
     title: 'AC BTU Calculator',
     href: '/air-conditioner-btu-calculator',
-    description: 'Find the right BTU size for any room',
-    users: '2.3M+'
+    description: 'Find the right BTU size for any room'
   },
   {
     title: 'AC Tonnage Calculator',
     href: '/ac-tonnage-calculator', 
-    description: 'Convert BTUs to tons for central AC',
-    users: '890K+'
+    description: 'Convert BTUs to tons for central AC'
   },
   {
     title: 'SEER2 Savings Calculator',
     href: '/seer2-comparison-calculator',
-    description: 'Calculate energy savings potential',
-    users: '456K+'
+    description: 'Calculate energy savings potential'
   }
 ];
 
@@ -209,9 +206,8 @@ export default function CalculatorsHub() {
                 href={calc.href}
                 className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border border-gray-100 group"
               >
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start mb-4">
                   <Calculator className="w-8 h-8 text-green-600" />
-                  <span className="text-sm text-green-600 font-medium">{calc.users} users</span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
                   {calc.title}
