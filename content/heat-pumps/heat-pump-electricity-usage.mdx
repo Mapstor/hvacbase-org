@@ -1,19 +1,19 @@
 ---
 slug: "heat-pump-electricity-usage"
-title: "How Much Electricity Does a Heat Pump Use? (kWh per Month and Year, 2026)"
-description: "How many kWh a heat pump uses for heating and cooling by climate zone, per month and per year, what drives it, the cost at your rate, and how to read the efficiency ratings."
+title: "Heat Pump Electricity Use and Running Cost (Calculator)"
+description: "How much electricity a heat pump uses by climate zone, in kWh per month and year, what it costs to run at your rate, and the cost per million BTU against gas, propane and oil."
 cluster: "heat-pumps"
 role: "spoke"
 priority: "P1"
 contentType: "calculator"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-02"
+dateModified: "2026-10-07"
 relatedArticles:
-  - "heat-pump-running-cost-calculator"
   - "heat-pump-size-calculator"
   - "coefficient-of-performance"
   - "furnace-vs-heat-pump"
+  - "gas-vs-electric-heating-cost"
   - "kwh-cost-calculator"
 externalLinks:
   - label: "U.S. EIA: Electric Power Monthly (residential prices)"
@@ -24,11 +24,13 @@ externalLinks:
 
 import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
-# How Much Electricity Does a Heat Pump Use?
+# How Much Electricity Does a Heat Pump Use, and What Does It Cost to Run?
 
-A heat pump's electricity use depends on how much heating and cooling your house needs and how efficiently the heat pump delivers it. Climate drives the first; the HSPF2 and SEER2 ratings drive the second.
+A heat pump's electricity use depends on how much heating and cooling your house needs and how efficiently the heat pump delivers it. Climate drives the first; the HSPF2 and SEER2 ratings drive the second. What you pay is that electricity use times your rate.
 
 **For a 2,000 sq ft home with average insulation, the calculator estimates about 12,375 kWh a year in a mixed climate, an average of about 1,031 kWh a month: 7,112 for heating and 5,263 for cooling. That ranges from about 9,989 kWh a year in a very hot climate to 23,075 in a very cold one.**
+
+**At 18 cents per kWh that mixed-climate home costs about $2,228 a year to run, an average of $186 a month.**
 
 <CalcWrapper type="heat-pump-running-cost" />
 
@@ -53,9 +55,25 @@ Monthly use isn't even: it peaks in the coldest and hottest months and falls in 
 
 HSPF2 is rated for a moderate climate, which is why the calculator assumes lower seasonal efficiency in cold zones; a cold-climate model holds up better there. See [heat pumps in cold weather](/heat-pump-in-cold-weather).
 
-## What it costs
+## What it costs to run
 
-At 18 cents per kWh, the mixed-climate home's 12,375 kWh cost about $2,228 a year. At the U.S. average of 18.19 cents for January to July 2026 (EIA), it's about $2,251; your state's rate is in our [kWh cost calculator](/kwh-cost-calculator), and the [heat pump running cost calculator](/heat-pump-running-cost-calculator) breaks it down.
+At 18 cents per kWh, the mixed-climate home's 12,375 kWh cost about $2,228 a year, an average of $186 a month. The monthly figure is an average; bills peak in the coldest and hottest months and fall in spring and fall.
+
+Rates vary widely by state. The same mixed-climate home costs about $1,530 a year at North Dakota's 12.36 cents per kWh, about $2,251 at the U.S. average of 18.19 cents for January to July 2026, and about $5,727 at Hawaii's 46.28 cents, the lowest and highest state averages (EIA). Every state's rate is in our [kWh cost calculator](/kwh-cost-calculator).
+
+### Against gas, propane and oil
+
+Cost per million BTU of heat delivered:
+
+| Heat source | Assumption | Cost per million BTU |
+|---|---|---|
+| Heat pump, mixed zone | HSPF2 8.2, 18 cents per kWh | $21.95 |
+| Heat pump, very cold zone | HSPF2 5.0 | $36.00 |
+| Gas furnace, 95% | $1.35 per therm (assumed) | $14.21 |
+| Propane furnace, 95% | Example: $3.00 per gallon | $34.53 |
+| Oil furnace, 85% | Example: $4.00 per gallon | $33.98 |
+
+At these prices a heat pump costs less to heat with than propane or oil, but more than natural gas. HSPF2 8.2 is a seasonal COP of about 2.4; at the U.S. average rate, it takes a COP of about 3.75 to match a 95% gas furnace. See [gas vs. electric heating cost](/gas-vs-electric-heating-cost) and [furnace vs. heat pump](/furnace-vs-heat-pump).
 
 ## What changes the usage
 
@@ -63,6 +81,7 @@ At 18 cents per kWh, the mixed-climate home's 12,375 kWh cost about $2,228 a yea
 - **Ratings.** A higher HSPF2 and SEER2 use less electricity for the same heat and cooling. ENERGY STAR requires at least 7.8 HSPF2 and 15.2 SEER2 for split heat pumps.
 - **Backup heat.** Electric resistance strips deliver one unit of heat per unit of electricity, against about 2.4 for this heat pump over a season (8.2 HSPF2 ÷ 3.412), so a system that leans on them in cold weather uses much more.
 - **Thermostat habits.** Modest, steady setbacks work better than deep ones, which can trigger the backup strips.
+- **Clean filters and coils.** The DOE says clean filters can lower an air conditioner's energy use by 5 to 15%, and the same airflow penalty applies to a heat pump.
 
 ## Frequently asked questions
 
@@ -82,9 +101,23 @@ For cooling, about the same as an air conditioner of the same SEER2. It uses mor
 
 Colder air lowers its efficiency, and the backup strips may be running. Check the thermostat settings and whether the backup heat comes on often.
 
+### How much does a heat pump cost to run per month?
+
+About $186 a month on average for a 2,000 sq ft home with average insulation in a mixed climate at 18 cents per kWh, more in winter and summer and less in between.
+
+### Is a heat pump cheaper to run than gas?
+
+At $1.35 per therm and 18 cents per kWh, usually not for heating. It is cheaper than propane or oil at typical prices.
+
+### Does a heat pump cost more for heating or cooling?
+
+In cold and mixed climates, heating; in hot climates, cooling.
+
 <SourcesBox sources={[
-  { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
-  { title: "ENERGY STAR: Heat Pump Key Product Criteria (7.8 HSPF2, 15.2 SEER2)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" }
+  { title: "U.S. EIA: Electric Power Monthly, residential prices by state (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (7.8 HSPF2, 15.2 SEER2)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
+  { title: "U.S. EIA: British thermal units (propane 91,452 BTU per gallon)", url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php" },
+  { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), clean filters 5 to 15%", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />

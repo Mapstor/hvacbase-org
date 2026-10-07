@@ -279,6 +279,8 @@ const nextConfig = {
       // FOLD-2: duplicate pages folded into their hubs (permanent, no chains)
       { source: '/is-tankless-water-heater-worth-it', destination: '/tankless-water-heater-guide', permanent: true },
       { source: '/furnace-efficiency-explained', destination: '/afue-rating-explained', permanent: true },
+      // CONSOLIDATE-2: 7 folds (permanent, no chains)
+      { source: '/heat-pump-running-cost-calculator', destination: '/heat-pump-electricity-usage', permanent: true },
       // ============ end archived product pages ============
     ];
   },

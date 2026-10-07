@@ -147,7 +147,7 @@ export default async function HeatPumpsHub() {
               <h3 className="font-medium text-gray-900 group-hover:text-green-600">Heat Pump Sizing</h3>
               <p className="text-sm text-gray-600">BTU calculation</p>
             </Link>
-            <Link href="/heat-pump-running-cost-calculator" className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group">
+            <Link href="/heat-pump-electricity-usage" className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group">
               <DollarSign className="w-6 h-6 text-green-600 mb-2" />
               <h3 className="font-medium text-gray-900 group-hover:text-green-600">Running Cost</h3>
               <p className="text-sm text-gray-600">Monthly costs</p>
