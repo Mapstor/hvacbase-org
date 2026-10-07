@@ -69,11 +69,10 @@ export default function EditorialPolicyPage() {
           </p>
 
           <p>
-            The site may display third-party programmatic advertisements. When such
-            advertisements appear, they are served by ad networks and placed by those
-            networks, not by us. Advertising does not influence what we cover or what
-            the pages say. Data processing associated with advertising is described in
-            the{' '}
+            The site may display third-party programmatic advertisements; when they
+            appear, they are served and placed by ad networks, not by us. Advertising
+            does not influence what we cover or what the pages say. Data processing
+            associated with advertising is described in the{' '}
             <a href="/privacy" className="text-brand-600 hover:underline">
               privacy policy
             </a>
