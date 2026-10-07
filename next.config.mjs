@@ -284,6 +284,7 @@ const nextConfig = {
       { source: '/hvac-rebates-by-state', destination: '/hvac-tax-credits-2026', permanent: true },
       { source: '/how-much-does-mini-split-cost-to-run', destination: '/mini-split-electricity-usage', permanent: true },
       { source: '/what-is-a-mini-split', destination: '/how-does-a-mini-split-work', permanent: true },
+      { source: '/do-portable-acs-pull-air-from-outside', destination: '/single-hose-vs-dual-hose-portable-ac', permanent: true },
       // ============ end archived product pages ============
     ];
   },
