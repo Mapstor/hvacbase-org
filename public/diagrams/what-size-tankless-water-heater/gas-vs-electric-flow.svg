@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 354" width="800" height="354" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Hot water flow from the largest residential gas and a 27 kW electric tankless heater</title>
+  <desc id="d">Gallons per minute a single unit can heat: a gas unit just under 200,000 BTU per hour input at 88 percent delivers 8.8 gpm at a 40 degree rise, 7.0 at 50, 5.9 at 60, 5.0 at 70 and 4.4 at 80; a 27 kW electric unit delivers 4.6, 3.7, 3.1, 2.6 and 2.3 gpm, and draws about 112 amps at 240 volts.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .8s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="354" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="36">Hot water flow a single unit can deliver</text>
+  <rect x="32" y="56" width="14" height="14" rx="3" fill="#e07a2f" stroke="none"/>
+  <text class="cap" x="52" y="68">Gas, just under 200,000 BTU/hr input, 88% efficient</text>
+  <rect x="470" y="56" width="14" height="14" rx="3" fill="#2b7bb9" stroke="none"/>
+  <text class="cap" x="490" y="68">Electric, 27 kW</text>
+  <g class="bars">
+  <rect class="solid" x="120" y="96" width="458" height="14" rx="3" fill="#e07a2f" stroke="none" style="animation-delay:0.00s"/>
+  <rect class="solid" x="120" y="114" width="239" height="14" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.03s"/>
+  <rect class="solid" x="120" y="140" width="364" height="14" rx="3" fill="#e07a2f" stroke="none" style="animation-delay:0.06s"/>
+  <rect class="solid" x="120" y="158" width="192" height="14" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.09s"/>
+  <rect class="solid" x="120" y="184" width="307" height="14" rx="3" fill="#e07a2f" stroke="none" style="animation-delay:0.12s"/>
+  <rect class="solid" x="120" y="202" width="161" height="14" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.15s"/>
+  <rect class="solid" x="120" y="228" width="260" height="14" rx="3" fill="#e07a2f" stroke="none" style="animation-delay:0.18s"/>
+  <rect class="solid" x="120" y="246" width="135" height="14" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.21s"/>
+  <rect class="solid" x="120" y="272" width="229" height="14" rx="3" fill="#e07a2f" stroke="none" style="animation-delay:0.24s"/>
+  <rect class="solid" x="120" y="290" width="120" height="14" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.27s"/>
+  </g>
+  <text class="num" x="32" y="117">40°F rise</text>
+  <text class="cap" x="586" y="108">8.8 gpm</text>
+  <text class="cap" x="367" y="126">4.6 gpm</text>
+  <text class="num" x="32" y="161">50°F rise</text>
+  <text class="cap" x="492" y="152">7.0 gpm</text>
+  <text class="cap" x="320" y="170">3.7 gpm</text>
+  <text class="num" x="32" y="205">60°F rise</text>
+  <text class="cap" x="435" y="196">5.9 gpm</text>
+  <text class="cap" x="289" y="214">3.1 gpm</text>
+  <text class="num" x="32" y="249">70°F rise</text>
+  <text class="cap" x="388" y="240">5.0 gpm</text>
+  <text class="cap" x="263" y="258">2.6 gpm</text>
+  <text class="num" x="32" y="293">80°F rise</text>
+  <text class="cap" x="357" y="284">4.4 gpm</text>
+  <text class="cap" x="248" y="302">2.3 gpm</text>
+  <text class="cap" x="32" y="334">A 27 kW electric unit draws about 112 amps at 240 volts.</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 262" width="800" height="262" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">The formula for sizing a tankless water heater</title>
+  <desc id="d">Heat needed in BTU per hour equals flow in gallons per minute times temperature rise times 500, from 8.33 pounds per gallon times 60 minutes. Divide by 3,412 for kilowatts; a gas unit at 88 percent efficiency needs its input divided by 0.88. Example: 3 gpm at a 70 degree rise needs 105,000 BTU per hour, 30.8 kW, or about 119,000 BTU of gas input.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="262" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">How much heat a tankless heater has to make</text>
+  <rect x="32" y="62" width="169" height="120" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="88">Flow</text>
+  <text class="cap" x="48" y="110">gallons per minute</text>
+  <text class="cap" x="48" y="128">A showerhead is at</text>
+  <text class="cap" x="48" y="146">most 2.5 gpm</text>
+  <rect x="221" y="62" width="169" height="120" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="237" y="88">× temperature rise</text>
+  <text class="cap" x="237" y="110">hot setting minus</text>
+  <text class="cap" x="237" y="128">incoming water: 40°F</text>
+  <text class="cap" x="237" y="146">in gives an 80°F rise</text>
+  <rect x="410" y="62" width="169" height="120" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="426" y="88">× 500</text>
+  <text class="cap" x="426" y="110">8.33 lb per gallon</text>
+  <text class="cap" x="426" y="128">× 60 minutes</text>
+  <rect x="599" y="62" width="169" height="120" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="num" x="615" y="88">= BTU per hour</text>
+  <text class="cap" x="615" y="110">÷ 3,412 for kW;</text>
+  <text class="cap" x="615" y="128">gas input: ÷ 0.88</text>
+  <path d="M203 122 H213" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M212 116 L219 122 L212 128 Z" fill="#6b7f91"/>
+  <path d="M392 122 H402" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M401 116 L408 122 L401 128 Z" fill="#6b7f91"/>
+  <path d="M581 122 H591" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M590 116 L597 122 L590 128 Z" fill="#6b7f91"/>
+  <text class="num" x="32" y="218">Example: 3 gpm at a 70°F rise</text>
+  <text class="lbl" x="32" y="242">3 × 70 × 500 = 105,000 BTU per hour = 30.8 kW; a gas unit at 88% needs about 119,000 BTU input</text>
+</svg>
