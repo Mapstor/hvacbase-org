@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 334" width="800" height="334" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Heat loss per square foot compared with the 30 to 60 BTU rule of thumb</title>
+  <desc id="d">At a 10 degree design low with ducts in an insulated attic, the calculator's model loses about 12 BTU per hour per square foot for current-code and 2000s homes, about 18 for 1980s and 1990s homes and about 40 for a drafty pre-1970 house. The common 30 to 60 BTU per square foot rule only fits the drafty house.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .8s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="334" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Heat loss per square foot vs. the old rule of thumb</text>
+  <rect x="442" y="62" width="252" height="196" rx="4" fill="#fde9d9" stroke="#f2c3a0"/>
+  <text class="cap" x="450" y="82">"30 to 60 BTU per sq ft" rule</text>
+  <g class="bars">
+  <rect class="solid" x="190" y="100" width="98" height="22" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.00s"/>
+  <rect class="solid" x="190" y="140" width="105" height="22" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.08s"/>
+  <rect class="solid" x="190" y="180" width="150" height="22" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.16s"/>
+  <rect class="solid" x="190" y="220" width="335" height="22" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.24s"/>
+  </g>
+  <text class="lbl" x="32" y="116">Current code</text>
+  <text class="num" x="296" y="116">about 12</text>
+  <text class="lbl" x="32" y="156">2000s home</text>
+  <text class="num" x="303" y="156">about 12</text>
+  <text class="lbl" x="32" y="196">1980s-90s home</text>
+  <text class="num" x="348" y="196">about 18</text>
+  <text class="lbl" x="32" y="236">Pre-1970, drafty</text>
+  <text class="num" x="533" y="236">about 40</text>
+  <text class="cap" x="32" y="290">BTU per hour per square foot, at a 10°F design low with ducts in an insulated attic.</text>
+  <text class="cap" x="32" y="312">Applied to an average house, the rule picks a furnace two to three times too big.</text>
+</svg>

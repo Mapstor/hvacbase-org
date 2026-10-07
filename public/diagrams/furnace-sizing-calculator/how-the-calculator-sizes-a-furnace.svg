@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 344" width="800" height="344" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How the furnace size calculator works</title>
+  <desc id="d">Four steps: a heat loss rate set by insulation level, from 0.177 for current-code homes to 0.604 for pre-1970 homes; times square footage and adjustments; times 70 degrees minus the design low; then divide by AFUE and round up to a furnace size. Example: a 1,500 square foot 1990s ranch at a 0 degree design low loses 31,185 BTU per hour, 32,826 BTU input at 95 percent AFUE, so a 40,000 BTU furnace.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="344" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">How the calculator sizes a furnace</text>
+  <rect x="32" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="48" y="88">1</text>
+  <text class="num" x="48" y="114">Heat loss rate</text>
+  <text class="cap" x="48" y="136">BTU/hr per °F·sq ft</text>
+  <text class="cap" x="48" y="154">Current code 0.177</text>
+  <text class="cap" x="48" y="172">2000s 0.189</text>
+  <text class="cap" x="48" y="190">1980s-90s 0.270</text>
+  <text class="cap" x="48" y="208">Pre-1970 0.604</text>
+  <rect x="221" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="237" y="88">2</text>
+  <text class="num" x="237" y="114">× sq ft</text>
+  <text class="cap" x="237" y="136">× adjustments:</text>
+  <text class="cap" x="237" y="154">ceiling height,</text>
+  <text class="cap" x="237" y="172">stories, windows,</text>
+  <text class="cap" x="237" y="190">ducts, basement</text>
+  <rect x="410" y="62" width="169" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="426" y="88">3</text>
+  <text class="num" x="426" y="114">× temperature gap</text>
+  <text class="cap" x="426" y="136">70°F minus your</text>
+  <text class="cap" x="426" y="154">design low (the</text>
+  <text class="cap" x="426" y="172">coldest temperature</text>
+  <text class="cap" x="426" y="190">you size for)</text>
+  <rect x="599" y="62" width="169" height="200" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="big" x="615" y="88">4</text>
+  <text class="num" x="615" y="114">÷ AFUE, round up</text>
+  <text class="cap" x="615" y="136">Output ÷ efficiency</text>
+  <text class="cap" x="615" y="154">= input BTU; pick the</text>
+  <text class="cap" x="615" y="172">next furnace size</text>
+  <path d="M203 162 H213" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M212 156 L219 162 L212 168 Z" fill="#6b7f91"/>
+  <path d="M392 162 H402" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M401 156 L408 162 L401 168 Z" fill="#6b7f91"/>
+  <path d="M581 162 H591" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M590 156 L597 162 L590 168 Z" fill="#6b7f91"/>
+  <text class="num" x="32" y="298">Example 1: a 1,500 sq ft 1990s ranch, 0°F design low, ducts in an insulated attic</text>
+  <text class="lbl" x="32" y="322">0.270 × 1,500 × 1.10 × 70°F = 31,185 BTU/hr; ÷ 0.95 = 32,826 BTU input → a 40,000 BTU furnace</text>
+</svg>
