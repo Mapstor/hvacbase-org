@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 282" width="800" height="282" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">What the refrigerant phase-out means for existing and new HVAC systems</title>
+  <desc id="d">With an R-410A system, keep using it: R-410A stays available for repairs, though prices are expected to rise gradually as they did for R-22. A new system already uses R-32, common in ductless mini splits and many residential systems, or R-454B, common in ducted systems; both meet the EPA's 700-GWP limit.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="282" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">What the phase-out means for you</text>
+  <rect x="32" y="62" width="360" height="170" rx="10" fill="#e8f1fa" stroke="#9fbfdc"/>
+  <text class="num" x="48" y="88">You have an R-410A system</text>
+  <text class="cap" x="48" y="112">Keep using it; nothing forces a replacement</text>
+  <text class="cap" x="48" y="130">R-410A stays available for repairs</text>
+  <text class="cap" x="48" y="148">Expect refrigerant prices to rise</text>
+  <text class="cap" x="48" y="166">gradually, as they did for R-22</text>
+  <rect x="408" y="62" width="360" height="170" rx="10" fill="#e6f4e9" stroke="#9cc59c"/>
+  <text class="num" x="424" y="88">You're buying a new system</text>
+  <text class="cap" x="424" y="112">It already uses a new refrigerant:</text>
+  <text class="cap" x="424" y="130">R-32, common in ductless mini splits</text>
+  <text class="cap" x="424" y="148">and many residential systems</text>
+  <text class="cap" x="424" y="166">R-454B, common in ducted systems</text>
+  <text class="cap" x="32" y="262">Both new refrigerants meet the EPA's 700-GWP limit for new equipment.</text>
+</svg>
