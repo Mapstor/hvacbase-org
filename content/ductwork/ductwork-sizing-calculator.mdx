@@ -1,14 +1,14 @@
 ---
 slug: "ductwork-sizing-calculator"
-title: "Ductwork Sizing Calculator: CFM to Duct Size Chart (2026 Guide)"
-description: "Size round and rectangular ducts from airflow and friction rate. The calculator uses duct-flow physics; with a CFM-to-duct-size chart, rectangular equivalents and trunk vs. branch sizing."
+title: "Ductwork Sizing Calculator: BTU to CFM and CFM to Duct Size (2026)"
+description: "Convert BTU to CFM with the 400-CFM-per-ton rule and the sensible heat formula, then size round and rectangular ducts from airflow and friction rate."
 cluster: "ductwork-ventilation"
 role: "hub"
 priority: "P1"
 contentType: "calculator-guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-02"
+dateModified: "2026-10-07"
 relatedArticles:
   - "flexible-vs-rigid-ductwork"
   - "duct-leakage-testing"
@@ -76,6 +76,30 @@ The main trunk carries the system's total airflow, and each branch carries one r
 
 Flexible duct has more friction than smooth sheet metal, so size it larger. Leaky ducts also waste energy: the DOE puts duct air losses at about 30% of a cooling system's energy; see [duct leakage testing](/duct-leakage-testing).
 
+## BTU to CFM: airflow from capacity
+
+A system's capacity is rated in BTU per hour, but ducts are sized by airflow in CFM, so converting one to the other is the step between choosing the equipment and sizing the ducts.
+
+### The sensible heat formula
+
+For air at standard conditions, **BTU per hour = 1.08 × CFM × temperature difference (°F)**. The 1.08 comes from the density and specific heat of air, times 60 minutes. Rearranged, **CFM = BTU per hour ÷ (1.08 × ΔT)**.
+
+### Cooling: CFM per ton
+
+Air conditioners are designed around a target airflow across the indoor coil, typically about 400 CFM per ton, where one ton is 12,000 BTU per hour:
+
+| System | Cooling capacity | Airflow at 400 CFM per ton |
+|---|---|---|
+| 2 tons | 24,000 BTU/hr | 800 CFM |
+| 3 tons | 36,000 BTU/hr | 1,200 CFM |
+| 4 tons | 48,000 BTU/hr | 1,600 CFM |
+
+Humid climates often run lower airflow per ton, so the coil runs colder and removes more moisture; dry climates often run higher, for more sensible cooling.
+
+### Heating: temperature rise
+
+A furnace's nameplate lists an allowed temperature-rise range, and the airflow must keep the rise inside it. An 80,000 BTU per hour output needs about 1,481 CFM for a 50°F rise, or 1,058 CFM for a 70°F rise. Too little airflow overheats the heat exchanger; too much delivers lukewarm air.
+
 ## Frequently asked questions
 
 ### What size duct do I need for 400 CFM?
@@ -93,6 +117,14 @@ Use the Huebscher formula above, or the calculator's rectangular list: for examp
 ### What friction rate should I use?
 
 It depends on the pressure your fan can supply after filters, coils and grilles take their share. 0.08 inches of water per 100 feet is a common residential starting point; Manual D sets it for a specific system.
+
+### How do I convert BTU to CFM?
+
+For heating or sensible cooling, CFM = BTU per hour ÷ (1.08 × temperature difference). For cooling equipment, multiply tons by about 400 CFM.
+
+### How many CFM does a 3-ton AC need?
+
+About 1,200 CFM at 400 CFM per ton.
 
 <SourcesBox sources={[
   { title: "ACCA: Technical manuals (Manual D, residential duct systems)", url: "https://www.acca.org/standards/technical-manuals" },
