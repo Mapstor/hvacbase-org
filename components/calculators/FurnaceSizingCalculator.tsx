@@ -80,11 +80,14 @@ const insulationOptions = [
     summary: 'Spray foam, triple-pane glass, near-passive house tightness' },
 ];
 
+// Ceiling-height options. The heat-loss factor applied in the calc comes from
+// CEILING_FACTOR in _heatloss.ts (keyed by value), the single source of truth —
+// these objects carry only display fields.
 const ceilingHeights = [
-  { value: '8', name: '8 ft', sub: 'Standard', factor: 1.0 },
-  { value: '9', name: '9 ft', sub: 'Tall', factor: 1.125 },
-  { value: '10', name: '10 ft', sub: 'Extra tall', factor: 1.25 },
-  { value: '12', name: '12 ft+', sub: 'Vaulted', factor: 1.5 },
+  { value: '8', name: '8 ft', sub: 'Standard' },
+  { value: '9', name: '9 ft', sub: 'Tall' },
+  { value: '10', name: '10 ft', sub: 'Extra tall' },
+  { value: '12', name: '12 ft+', sub: 'Vaulted' },
 ];
 
 const furnaceEfficiency = [
@@ -102,10 +105,12 @@ const furnaceEfficiency = [
     note: 'Condensing; usually modulating with a variable-speed blower.' },
 ];
 
+// Stories options. The heat-loss factor applied in the calc comes from
+// STORIES_FACTOR in _heatloss.ts (keyed by value); these carry only display fields.
 const storiesOptions = [
-  { value: '1' as const, name: '1 story', factor: 1.0 },
-  { value: '2' as const, name: '2 stories', factor: 0.92 },
-  { value: '3' as const, name: '3 stories', factor: 0.88 },
+  { value: '1' as const, name: '1 story' },
+  { value: '2' as const, name: '2 stories' },
+  { value: '3' as const, name: '3 stories' },
 ];
 
 const basementOptions = [
