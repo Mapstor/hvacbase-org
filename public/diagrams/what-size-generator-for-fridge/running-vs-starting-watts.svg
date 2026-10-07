@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 376" width="800" height="376" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Running and starting watts for refrigerators and freezers</title>
+  <desc id="d">Typical running and starting watts: a standard 18 to 21 cubic foot fridge runs at 100 to 200 watts and starts at 800 to 1,200; a side-by-side or French door model 150 to 300 and 1,000 to 1,500; a compact fridge 50 to 150 and 300 to 800; a chest freezer 50 to 200 and 500 to 1,100; an upright freezer 100 to 400 and 800 to 1,500.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .8s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="376" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Running watts vs. starting watts</text>
+  <rect x="32" y="56" width="14" height="14" rx="3" fill="#2b7bb9" stroke="none"/>
+  <text class="cap" x="52" y="68">Running (steady draw)</text>
+  <rect x="220" y="56" width="14" height="14" rx="3" fill="#e07a2f" stroke="none"/>
+  <text class="cap" x="240" y="68">Starting (brief compressor surge)</text>
+  <g class="bars">
+  <rect class="solid" x="280" y="94" width="28" height="14" rx="3" fill="#2b7bb9" stroke="none"/>
+  <rect class="solid" x="476" y="112" width="112" height="14" rx="3" fill="#e07a2f" stroke="none"/>
+  <rect class="solid" x="294" y="138" width="42" height="14" rx="3" fill="#2b7bb9" stroke="none"/>
+  <rect class="solid" x="532" y="156" width="140" height="14" rx="3" fill="#e07a2f" stroke="none"/>
+  <rect class="solid" x="266" y="182" width="28" height="14" rx="3" fill="#2b7bb9" stroke="none"/>
+  <rect class="solid" x="336" y="200" width="140" height="14" rx="3" fill="#e07a2f" stroke="none"/>
+  <rect class="solid" x="266" y="226" width="42" height="14" rx="3" fill="#2b7bb9" stroke="none"/>
+  <rect class="solid" x="392" y="244" width="168" height="14" rx="3" fill="#e07a2f" stroke="none"/>
+  <rect class="solid" x="280" y="270" width="84" height="14" rx="3" fill="#2b7bb9" stroke="none"/>
+  <rect class="solid" x="476" y="288" width="196" height="14" rx="3" fill="#e07a2f" stroke="none"/>
+  </g>
+  <text class="cap" x="32" y="115">Standard fridge, 18-21 cu ft</text>
+  <text class="cap" x="316" y="106">100-200 W</text>
+  <text class="cap" x="596" y="124">800-1,200 W</text>
+  <text class="cap" x="32" y="159">Side-by-side or French door</text>
+  <text class="cap" x="344" y="150">150-300 W</text>
+  <text class="cap" x="680" y="168">1,000-1,500 W</text>
+  <text class="cap" x="32" y="203">Mini or compact fridge</text>
+  <text class="cap" x="302" y="194">50-150 W</text>
+  <text class="cap" x="484" y="212">300-800 W</text>
+  <text class="cap" x="32" y="247">Chest freezer, 5-18 cu ft</text>
+  <text class="cap" x="316" y="238">50-200 W</text>
+  <text class="cap" x="568" y="256">500-1,100 W</text>
+  <text class="cap" x="32" y="291">Upright freezer, 10-25 cu ft</text>
+  <text class="cap" x="372" y="282">100-400 W</text>
+  <text class="cap" x="680" y="300">800-1,500 W</text>
+  <text class="cap" x="252" y="330">0 W</text>
+  <text class="cap" x="380" y="330">500 W</text>
+  <text class="cap" x="520" y="330">1,000 W</text>
+  <text class="cap" x="660" y="330">1,500 W</text>
+  <text class="cap" x="32" y="356">Typical ranges; your appliance's nameplate gives its own numbers.</text>
+</svg>

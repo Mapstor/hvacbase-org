@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 324" width="800" height="324" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How long refrigerated and frozen food stays safe without power</title>
+  <desc id="d">With the door closed, a refrigerator keeps food safe for about 4 hours below 40 degrees, a half-full freezer about 24 hours and a full freezer about 48 hours below 0 degrees, per the FDA and CDC. Run the generator an hour or two to cool them down, then shut it off.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .8s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="324" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">How long food stays safe with the generator off</text>
+  <g class="bars">
+  <rect class="solid" x="190" y="74" width="28" height="28" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.0s"/>
+  <rect class="solid" x="190" y="126" width="168" height="28" rx="3" fill="#5b9bd5" stroke="none" style="animation-delay:0.1s"/>
+  <rect class="solid" x="190" y="178" width="336" height="28" rx="3" fill="#1d4e7a" stroke="none" style="animation-delay:0.2s"/>
+  </g>
+  <text class="num" x="32" y="93">Refrigerator</text>
+  <text class="lbl" x="228" y="93">about 4 hours, below 40°F</text>
+  <text class="num" x="32" y="145">Half-full freezer</text>
+  <text class="lbl" x="368" y="145">about 24 hours, below 0°F</text>
+  <text class="num" x="32" y="197">Full freezer</text>
+  <text class="lbl" x="536" y="197">about 48 hours, below 0°F</text>
+  <rect x="32" y="244" width="736" height="62" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="cap" x="48" y="270">Run the generator an hour or two to pull them down to temperature, then shut it off.</text>
+  <text class="cap" x="48" y="288">Door closed. Food-safety times from the FDA and CDC.</text>
+</svg>
