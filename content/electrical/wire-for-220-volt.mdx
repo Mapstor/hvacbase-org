@@ -8,7 +8,7 @@ role: "spoke"
 priority: "P2"
 contentType: "guide"
 datePublished: "2026-02-05"
-dateModified: "2026-10-02"
+dateModified: "2026-10-07"
 relatedArticles:
   - electrical-wiring-guide
   - wire-gauge-chart
@@ -50,6 +50,8 @@ For a standard 240V circuit with copper wire at typical conditions, these are th
 | 100 amp | 3 AWG | Sub-panel |
 
 These follow the NEC ampacity tables (Table 310.16) and the small-conductor rule (NEC 240.4(D)), which is why, for example, 10 AWG copper is **capped at 30 amps** on a branch circuit even though its raw ampacity is slightly higher.
+
+These sizes assume NM-B cable, which is held to the 60°C column. Individual THHN conductors in conduit with 75°C terminations carry more (8 AWG copper is rated 50 A at 75°C), and air conditioners follow their nameplate MCA and MOP under NEC Article 440.
 
 <Diagram src="/diagrams/wire-for-220-volt/four-factors.svg" width={800} height={322} alt="Diagram of the EV charger trap: a 40-amp continuous load times 125 percent needs a 50-amp breaker and 6 AWG copper, not 8 AWG; plus three more factors: the wire's temperature rating, copper versus aluminum and voltage drop on runs over about 50 feet." caption="The four factors, with the EV charger example from below." />
 
