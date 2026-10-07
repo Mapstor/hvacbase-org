@@ -201,7 +201,7 @@ export default async function HeatingHub() {
       {/* Popular Articles */}
       <section className="py-12 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Most Popular This Month</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Featured Heating Guides</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles
               .filter(article => ['pillar', 'hub'].includes(article.meta.role))
