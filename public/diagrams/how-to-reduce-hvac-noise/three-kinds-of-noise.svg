@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">The three kinds of HVAC noise and how each is fixed</title>
+  <desc id="d">Airborne noise, such as compressor hum, the outdoor fan and air rushing through vents, is fixed with barriers, distance and sound-absorbing materials. Structure-borne vibration through the pad, lines or air handler is fixed with isolation pads and flexible connectors. Duct-borne noise is fixed with acoustic lining, silencers and better duct design.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="380" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Three kinds of HVAC noise, three kinds of fix</text>
+  <rect x="32" y="62" width="232" height="108" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="88">Airborne</text>
+  <text class="cap" x="48" y="110">Compressor hum, outdoor fan,</text>
+  <text class="cap" x="48" y="128">air rushing through vents</text>
+  <path d="M148 172 V190" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M142 189 L148 196 L154 189 Z" fill="#6b7f91"/>
+  <rect x="32" y="198" width="232" height="90" rx="10" fill="#e6f4e9" stroke="#9cc59c"/>
+  <text class="num" x="48" y="224">Fix with</text>
+  <text class="cap" x="48" y="246">Barriers, distance,</text>
+  <text class="cap" x="48" y="264">sound-absorbing materials</text>
+  <rect x="280" y="62" width="232" height="108" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="296" y="88">Structure-borne</text>
+  <text class="cap" x="296" y="110">Vibration through the pad,</text>
+  <text class="cap" x="296" y="128">lines or air handler</text>
+  <path d="M396 172 V190" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M390 189 L396 196 L402 189 Z" fill="#6b7f91"/>
+  <rect x="280" y="198" width="232" height="90" rx="10" fill="#e6f4e9" stroke="#9cc59c"/>
+  <text class="num" x="296" y="224">Fix with</text>
+  <text class="cap" x="296" y="246">Isolation pads, flexible</text>
+  <text class="cap" x="296" y="264">connectors</text>
+  <rect x="528" y="62" width="232" height="108" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="544" y="88">Duct-borne</text>
+  <text class="cap" x="544" y="110">Blower noise and air rush</text>
+  <text class="cap" x="544" y="128">carried through the ducts</text>
+  <path d="M644 172 V190" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M638 189 L644 196 L650 189 Z" fill="#6b7f91"/>
+  <rect x="528" y="198" width="232" height="90" rx="10" fill="#e6f4e9" stroke="#9cc59c"/>
+  <text class="num" x="544" y="224">Fix with</text>
+  <text class="cap" x="544" y="246">Acoustic lining, silencers,</text>
+  <text class="cap" x="544" y="264">better duct design</text>
+  <rect x="32" y="306" width="736" height="56" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="cap" x="48" y="332">Quick test: loud outside near the condenser means airborne; vibration you can feel on a wall or</text>
+  <text class="cap" x="48" y="350">floor near the indoor unit means structure-borne.</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 342" width="800" height="342" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">HVAC noise fixes ordered from cheapest to most involved</title>
+  <desc id="d">Eight noise fixes from cheapest to most involved: vibration isolation pads, a compressor sound blanket, a sound barrier wall or fence, acoustic duct lining, flexible duct connectors, air handler isolation, fixing airflow and duct problems, and replacing noisy equipment as a last resort.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="342" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Noise fixes, cheapest first</text>
+  <rect x="32" y="62" width="360" height="50" rx="8" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="46" y="93">1</text>
+  <text class="num" x="72" y="84">Vibration isolation pads</text>
+  <text class="cap" x="72" y="102">Structure-borne</text>
+  <rect x="408" y="62" width="360" height="50" rx="8" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="422" y="93">2</text>
+  <text class="num" x="448" y="84">Compressor sound blanket</text>
+  <text class="cap" x="448" y="102">Airborne</text>
+  <rect x="32" y="124" width="360" height="50" rx="8" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="46" y="155">3</text>
+  <text class="num" x="72" y="146">Sound barrier wall or fence</text>
+  <text class="cap" x="72" y="164">Airborne</text>
+  <rect x="408" y="124" width="360" height="50" rx="8" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="422" y="155">4</text>
+  <text class="num" x="448" y="146">Acoustic duct lining</text>
+  <text class="cap" x="448" y="164">Duct-borne</text>
+  <rect x="32" y="186" width="360" height="50" rx="8" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="46" y="217">5</text>
+  <text class="num" x="72" y="208">Flexible duct connectors</text>
+  <text class="cap" x="72" y="226">Duct and vibration</text>
+  <rect x="408" y="186" width="360" height="50" rx="8" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="big" x="422" y="217">6</text>
+  <text class="num" x="448" y="208">Air handler isolation</text>
+  <text class="cap" x="448" y="226">Structure-borne</text>
+  <rect x="32" y="248" width="360" height="50" rx="8" fill="#fdf5ec" stroke="#c9d8e5"/>
+  <text class="big" x="46" y="279">7</text>
+  <text class="num" x="72" y="270">Fix airflow and duct problems</text>
+  <text class="cap" x="72" y="288">Duct-borne</text>
+  <rect x="408" y="248" width="360" height="50" rx="8" fill="#fdf5ec" stroke="#c9d8e5"/>
+  <text class="big" x="422" y="279">8</text>
+  <text class="num" x="448" y="270">Replace noisy equipment</text>
+  <text class="cap" x="448" y="288">Last resort</text>
+  <text class="cap" x="32" y="322">Cheaper, more targeted fixes come first; diagnose the kind of noise before buying anything.</text>
+</svg>
