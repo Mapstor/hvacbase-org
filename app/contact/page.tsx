@@ -75,7 +75,7 @@ export default function ContactPage() {
           <h2>What HVACBase is not</h2>
           <p>
             HVACBase is an independent education site. We don&apos;t provide HVAC
-            installation, repair, or emergency service. We don&apos;t recommend
+            installation, repair, or emergency service, and we don&apos;t recommend
             specific local contractors. Marko is a physicist, not a licensed HVAC
             contractor, nothing on the site is a substitute for a licensed
             professional for installation, sizing sign-off, repair, or safety work.
