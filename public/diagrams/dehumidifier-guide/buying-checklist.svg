@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 282" width="800" height="282" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Four things to check when buying a dehumidifier</title>
+  <desc id="d">Before buying a dehumidifier, check efficiency in IEF, liters removed per kWh, against ENERGY STAR minimums of 1.57, 1.80 and 2.80 for portables by size and 2.09 for whole-house units; drainage by bucket, gravity hose or pump; auto-defrost if the space drops below about 65 degrees; and noise under about 50 dB for living spaces.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="282" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">What to check before you buy</text>
+  <rect x="32" y="62" width="172" height="170" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="88">Efficiency (IEF)</text>
+  <text class="cap" x="48" y="110">Liters per kWh;</text>
+  <text class="cap" x="48" y="128">higher costs less</text>
+  <text class="cap" x="48" y="146">to run</text>
+  <text class="cap" x="48" y="164">ENERGY STAR minimums:</text>
+  <text class="cap" x="48" y="182">1.57 / 1.80 / 2.80</text>
+  <text class="cap" x="48" y="200">portable, by size;</text>
+  <text class="cap" x="48" y="218">2.09 whole-house</text>
+  <rect x="218" y="62" width="172" height="170" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="234" y="88">Drainage</text>
+  <text class="cap" x="234" y="110">Bucket, emptied</text>
+  <text class="cap" x="234" y="128">by hand</text>
+  <text class="cap" x="234" y="146">Gravity hose</text>
+  <text class="cap" x="234" y="164">to a floor drain</text>
+  <text class="cap" x="234" y="182">Built-in pump to lift</text>
+  <text class="cap" x="234" y="200">water to a sink</text>
+  <rect x="404" y="62" width="172" height="170" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="420" y="88">Auto-defrost</text>
+  <text class="cap" x="420" y="110">Essential if the space</text>
+  <text class="cap" x="420" y="128">drops below about</text>
+  <text class="cap" x="420" y="146">65°F, or the coil</text>
+  <text class="cap" x="420" y="164">can ice up</text>
+  <rect x="590" y="62" width="172" height="170" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="606" y="88">Noise</text>
+  <text class="cap" x="606" y="110">Under about 50 dB for</text>
+  <text class="cap" x="606" y="128">living spaces</text>
+  <text class="cap" x="32" y="262">Size first by floor area and dampness, then compare these on units rated under the same test.</text>
+</svg>
