@@ -83,7 +83,7 @@ export default function AuthorBox({ variant = 'card', reviewedOn }: AuthorBoxPro
           <h2 className="text-xl font-semibold text-gray-900 mb-2">{AUTHOR_BYLINE}</h2>
           <p className="text-gray-700 leading-relaxed mb-4">{AUTHOR_BIO}</p>
           <p className="text-sm text-gray-500 mb-4">
-            Drafted with AI assistance and checked against the sources cited on this page.{' '}
+            Figures are checked against the sources cited on this page.{' '}
             <Link href="/editorial-policy" className="text-brand-600 hover:underline">
               How pages are written
             </Link>

@@ -70,8 +70,7 @@ export default function AboutPage() {
           </p>
 
           <p>
-            Pages are drafted with the help of AI writing tools, then fact-checked
-            against primary sources, recalculated and edited by Marko; the{' '}
+            Every page is fact-checked against primary sources and recalculated; the{' '}
             <a href="/editorial-policy" className="text-brand-600 hover:underline">
               editorial policy
             </a>{' '}

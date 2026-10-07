@@ -42,8 +42,7 @@ export default function EditorialPolicyPage() {
 
           <h2>How pages are written</h2>
           <p>
-            Pages are drafted with the help of AI writing tools, then checked:
-            every figure is traced to its primary source and linked on the page,
+            Every figure is traced to its primary source and linked on the page,
             every calculation is recomputed, and anything that can&apos;t be
             verified is removed or labeled as an assumption. Marko reviews and
             edits the pages, starting with the most-read guides, and corrects
@@ -91,7 +90,7 @@ export default function EditorialPolicyPage() {
           </p>
 
           <p className="text-sm text-gray-500 mt-12">
-            <em>Last updated: October 3, 2026.</em> · Author:{' '}
+            <em>Last updated: October 7, 2026.</em> · Author:{' '}
             <a
               href={AUTHOR_LINKEDIN}
               target="_blank"
