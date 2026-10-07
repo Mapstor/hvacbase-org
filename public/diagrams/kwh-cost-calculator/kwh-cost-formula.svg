@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 266" width="800" height="266" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">The formula for what an appliance costs to run</title>
+  <desc id="d">Cost equals watts times hours divided by 1,000, times the price per kWh. A 1,500-watt heater running 8 hours uses 12 kWh, $2.16 a day at 18 cents per kWh, or 360 kWh and $64.80 over 30 days.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="266" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">What anything costs to run</text>
+  <rect x="32" y="62" width="169" height="124" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="88">Watts</text>
+  <text class="cap" x="48" y="110">From the nameplate</text>
+  <text class="cap" x="48" y="128">e.g. a 1,500 W heater</text>
+  <rect x="221" y="62" width="169" height="124" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="237" y="88">× hours</text>
+  <text class="cap" x="237" y="110">How long it runs</text>
+  <text class="cap" x="237" y="128">e.g. 8 hours a day</text>
+  <rect x="410" y="62" width="169" height="124" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="426" y="88">÷ 1,000</text>
+  <text class="cap" x="426" y="110">= kilowatt-hours</text>
+  <text class="cap" x="426" y="128">1,500 × 8 ÷ 1,000</text>
+  <text class="cap" x="426" y="146">= 12 kWh</text>
+  <rect x="599" y="62" width="169" height="124" rx="10" fill="#e8f1fa" stroke="#2b7bb9"/>
+  <text class="num" x="615" y="88">× price per kWh</text>
+  <text class="cap" x="615" y="110">= cost</text>
+  <text class="cap" x="615" y="128">12 × $0.18 = $2.16</text>
+  <text class="cap" x="615" y="146">a day</text>
+  <path d="M203 124 H213" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M212 118 L219 124 L212 130 Z" fill="#6b7f91"/>
+  <path d="M392 124 H402" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M401 118 L408 124 L401 130 Z" fill="#6b7f91"/>
+  <path d="M581 124 H591" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M590 118 L597 124 L590 130 Z" fill="#6b7f91"/>
+  <text class="num" x="32" y="222">Over 30 days: 360 kWh, $64.80 at 18 cents per kWh</text>
+  <text class="cap" x="32" y="246">Use your own rate: add every per-kWh charge on your bill, supply and delivery.</text>
+</svg>
