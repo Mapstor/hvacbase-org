@@ -30,6 +30,8 @@ Three-phase power runs most commercial buildings, larger motors and big HVAC equ
 
 <CalcWrapper type="three-phase-power" />
 
+<Diagram src="/diagrams/3-phase-power-calculator/three-phases.svg" width={800} height={336} priority alt="Three sine waves for phases A, B and C offset by 120 degrees, beside the three-phase power formulas: kVA equals volts times amps times the square root of 3 divided by 1,000, and kW also multiplies by the power factor." caption="Three phases 120 degrees apart deliver steady total power." />
+
 ## The formulas
 
 With line-to-line voltage V, line current I and power factor PF:
@@ -52,6 +54,8 @@ With line-to-line voltage V, line current I and power factor PF:
 | 100 kW | 326.6 A | 283.0 A | 141.5 A |
 
 These assume a power factor of 0.85, typical of motor loads. For purely resistive loads such as heaters (power factor 1.0), the current is 15% lower: 10 kW at 480 volts draws 12.0 amps.
+
+<Diagram src="/diagrams/3-phase-power-calculator/power-factor.svg" width={800} height={342} alt="Power triangle with real power in kW, a reactive part and apparent power in kVA, plus an example: 10 kW at 480 volts is 11.8 kVA and 14.2 amps at a power factor of 0.85, or 10 kVA and 12.0 amps at 1.0." caption="A lower power factor means more current for the same real power." />
 
 ## Power factor
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 342" width="800" height="342" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Power factor triangle with a three-phase example</title>
+  <desc id="d">A power triangle: real power in kW along the base, a reactive part upright, and apparent power in kVA as the hypotenuse; power factor is kW divided by kVA. Example: 10 kW at 480 volts is 11.8 kVA and 14.2 amps at a power factor of 0.85, or 10 kVA and 12.0 amps at 1.0.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="342" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Power factor: why the same kW can draw more amps</text>
+  <path d="M80 280 L380 280 L380 94 Z" fill="#f3f7fb" stroke="none"/>
+  <path d="M80 280 H380" stroke="#2b7bb9" stroke-width="3" fill="none"/>
+  <path d="M380 280 V94" stroke="#9fb3c4" stroke-width="3" fill="none"/>
+  <path d="M80 280 L380 94" stroke="#c2410c" stroke-width="3" fill="none"/>
+  <text class="num" x="170" y="304">Real power (kW)</text>
+  <text class="cap" x="392" y="190">Reactive</text>
+  <text class="cap" x="392" y="206">part</text>
+  <text class="num" x="120" y="140">Apparent power (kVA)</text>
+  <text class="lbl" x="230" y="240">PF = kW ÷ kVA</text>
+  <rect x="476" y="62" width="292" height="200" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="492" y="88">Example: 10 kW at 480 V</text>
+  <text class="cap" x="492" y="112">At PF 0.85: 11.8 kVA, 14.2 A</text>
+  <text class="cap" x="492" y="132">At PF 1.0 (a heater): 10 kVA, 12.0 A</text>
+  <text class="cap" x="492" y="158">Motors run at a lower power</text>
+  <text class="cap" x="492" y="176">factor, so the same real power</text>
+  <text class="cap" x="492" y="194">needs more current</text>
+  <text class="cap" x="32" y="322">Size wire and breakers for the current, which depends on kVA, not just kW.</text>
+</svg>
