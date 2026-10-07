@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 332" width="800" height="332" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">How to read the manufacture date in an HVAC serial number</title>
+  <desc id="d">Two common serial-number date formats: year plus month, where 1806 means June 2018, used by Goodman, Amana and Daikin; and week plus year, where 3203 means week 32 of 2003, used by Carrier, Bryant and Payne, with Lennox working the same way.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="332" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Reading the date in an HVAC serial number</text>
+  <rect x="32" y="72" width="28" height="36" rx="4" fill="#d9e8f6" stroke="#9fb3c4"/>
+  <text class="num" x="41" y="96">1</text>
+  <rect x="64" y="72" width="28" height="36" rx="4" fill="#d9e8f6" stroke="#9fb3c4"/>
+  <text class="num" x="73" y="96">8</text>
+  <rect x="96" y="72" width="28" height="36" rx="4" fill="#fbe3d8" stroke="#9fb3c4"/>
+  <text class="num" x="105" y="96">0</text>
+  <rect x="128" y="72" width="28" height="36" rx="4" fill="#fbe3d8" stroke="#9fb3c4"/>
+  <text class="num" x="137" y="96">6</text>
+  <rect x="160" y="72" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="169" y="96">X</text>
+  <rect x="192" y="72" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="201" y="96">X</text>
+  <rect x="224" y="72" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="233" y="96">X</text>
+  <rect x="256" y="72" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="265" y="96">X</text>
+  <rect x="288" y="72" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="297" y="96">X</text>
+  <rect x="320" y="72" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="329" y="96">X</text>
+  <path d="M36 112 V120 H88 V112" stroke="#2b7bb9" stroke-width="1.5" fill="none"/>
+  <path d="M100 112 V120 H152 V112" stroke="#c2410c" stroke-width="1.5" fill="none"/>
+  <text class="num" x="36" y="140">18 = 2018</text>
+  <text class="num" x="120" y="140">06 = June</text>
+  <rect x="400" y="62" width="368" height="96" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="416" y="88">Year + month (YYMM)</text>
+  <text class="cap" x="416" y="110">Goodman, Amana, Daikin: the first four digits</text>
+  <text class="cap" x="416" y="128">1806... = June 2018</text>
+  <rect x="32" y="192" width="28" height="36" rx="4" fill="#fbe3d8" stroke="#9fb3c4"/>
+  <text class="num" x="41" y="216">3</text>
+  <rect x="64" y="192" width="28" height="36" rx="4" fill="#fbe3d8" stroke="#9fb3c4"/>
+  <text class="num" x="73" y="216">2</text>
+  <rect x="96" y="192" width="28" height="36" rx="4" fill="#d9e8f6" stroke="#9fb3c4"/>
+  <text class="num" x="105" y="216">0</text>
+  <rect x="128" y="192" width="28" height="36" rx="4" fill="#d9e8f6" stroke="#9fb3c4"/>
+  <text class="num" x="137" y="216">3</text>
+  <rect x="160" y="192" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="169" y="216">X</text>
+  <rect x="192" y="192" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="201" y="216">X</text>
+  <rect x="224" y="192" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="233" y="216">X</text>
+  <rect x="256" y="192" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="265" y="216">X</text>
+  <rect x="288" y="192" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="297" y="216">X</text>
+  <rect x="320" y="192" width="28" height="36" rx="4" fill="#f7f9fb" stroke="#9fb3c4"/>
+  <text class="num" x="329" y="216">X</text>
+  <path d="M36 232 V240 H88 V232" stroke="#c2410c" stroke-width="1.5" fill="none"/>
+  <path d="M100 232 V240 H152 V232" stroke="#2b7bb9" stroke-width="1.5" fill="none"/>
+  <text class="num" x="36" y="260">32 = week 32</text>
+  <text class="num" x="150" y="260">03 = 2003</text>
+  <rect x="400" y="182" width="368" height="96" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="416" y="208">Week + year (WWYY)</text>
+  <text class="cap" x="416" y="230">Carrier, Bryant, Payne; Lennox works the same way</text>
+  <text class="cap" x="416" y="248">3203... = week 32 of 2003</text>
+  <text class="cap" x="32" y="312">X marks the rest of the serial, which doesn't encode the date in these formats.</text>
+</svg>
