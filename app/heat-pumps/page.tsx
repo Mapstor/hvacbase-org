@@ -157,10 +157,10 @@ export default async function HeatPumpsHub() {
               <h3 className="font-medium text-gray-900 group-hover:text-green-600">vs Furnace</h3>
               <p className="text-sm text-gray-600">Cost comparison</p>
             </Link>
-            <Link href="/heat-pump-tax-credits-2026" className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group">
+            <Link href="/hvac-rebates-by-state" className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors group">
               <TrendingUp className="w-6 h-6 text-green-600 mb-2" />
-              <h3 className="font-medium text-gray-900 group-hover:text-green-600">Tax Credits</h3>
-              <p className="text-sm text-gray-600">Up to $2,000 back</p>
+              <h3 className="font-medium text-gray-900 group-hover:text-green-600">Rebates</h3>
+              <p className="text-sm text-gray-600">HEAR rebates of up to $8,000 for income-qualified households, where your state's program is open</p>
             </Link>
           </div>
         </div>
@@ -219,7 +219,7 @@ export default async function HeatPumpsHub() {
       {/* Popular Articles */}
       <section className="py-12 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Most Popular This Month</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Featured Heat Pump Guides</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles
               .filter(article => ['pillar', 'hub'].includes(article.meta.role))
