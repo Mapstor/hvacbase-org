@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 376" width="800" height="376" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Maximum HEAR rebates for heat pumps and other electric upgrades</title>
+  <desc id="d">Maximum HEAR rebates: $8,000 for a heat pump, $4,000 for an electrical panel, $2,500 for wiring, $1,750 for a heat pump water heater, $1,600 for insulation and air sealing, and $840 each for an electric stove and a heat pump dryer, up to $14,000 per household. Households at or below 80 percent of area median income can get up to 100 percent of costs, those at 80 to 150 percent up to 50 percent.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+    .bars rect{transform-box:fill-box;transform-origin:left center;animation:grow .8s ease-out both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media (prefers-reduced-motion: reduce){.bars rect{animation:none}}
+  </style>
+  <rect x="0" y="0" width="800" height="376" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">HEAR rebates still available in 2026 (maximums)</text>
+  <g class="bars">
+  <rect class="solid" x="230" y="62" width="384" height="20" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.00s"/>
+  <rect class="solid" x="230" y="92" width="192" height="20" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.05s"/>
+  <rect class="solid" x="230" y="122" width="120" height="20" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.10s"/>
+  <rect class="solid" x="230" y="152" width="84" height="20" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.15s"/>
+  <rect class="solid" x="230" y="182" width="77" height="20" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.20s"/>
+  <rect class="solid" x="230" y="212" width="40" height="20" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.25s"/>
+  <rect class="solid" x="230" y="242" width="40" height="20" rx="3" fill="#2b7bb9" stroke="none" style="animation-delay:0.30s"/>
+  </g>
+  <text class="cap" x="32" y="77">Heat pump</text>
+  <text class="num" x="622" y="77">$8,000</text>
+  <text class="cap" x="32" y="107">Electrical panel</text>
+  <text class="num" x="430" y="107">$4,000</text>
+  <text class="cap" x="32" y="137">Electrical wiring</text>
+  <text class="num" x="358" y="137">$2,500</text>
+  <text class="cap" x="32" y="167">Heat pump water heater</text>
+  <text class="num" x="322" y="167">$1,750</text>
+  <text class="cap" x="32" y="197">Insulation, air sealing</text>
+  <text class="num" x="315" y="197">$1,600</text>
+  <text class="cap" x="32" y="227">Electric stove or cooktop</text>
+  <text class="num" x="278" y="227">$840</text>
+  <text class="cap" x="32" y="257">Heat pump dryer</text>
+  <text class="num" x="278" y="257">$840</text>
+  <rect x="32" y="282" width="736" height="76" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="cap" x="48" y="308">Up to $14,000 per household. At or below 80% of area median income: up to 100% of costs;</text>
+  <text class="cap" x="48" y="326">80 to 150%: up to 50%. States run the programs; money lasts until it's spent or</text>
+  <text class="cap" x="48" y="344">September 30, 2031.</text>
+</svg>

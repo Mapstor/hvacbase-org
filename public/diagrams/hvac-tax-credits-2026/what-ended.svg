@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 344" width="800" height="344" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">The federal 25C and 25D HVAC tax credits and when they ended</title>
+  <desc id="d">The 25C Energy Efficient Home Improvement Credit doesn't apply to property placed in service after December 31, 2025; it covered heat pumps, central air, furnaces, boilers, heat pump water heaters, panels, insulation and audits. The 25D Residential Clean Energy Credit doesn't apply to expenditures after December 31, 2025; it covered geothermal heat pumps, solar and battery storage. 2025 installs can still be claimed.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="344" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Federal HVAC tax credits: what ended</text>
+  <rect x="32" y="62" width="360" height="182" rx="10" fill="#fbe3d8" stroke="#e8b39a"/>
+  <text class="num" x="48" y="88">25C: Energy Efficient Home</text>
+  <text class="num" x="48" y="106">Improvement Credit</text>
+  <text class="cap" x="48" y="130">No credit for property placed in</text>
+  <text class="cap" x="48" y="148">service after December 31, 2025</text>
+  <text class="cap" x="48" y="172">Covered heat pumps, central air,</text>
+  <text class="cap" x="48" y="190">furnaces, boilers, heat pump water</text>
+  <text class="cap" x="48" y="208">heaters, panels, insulation, audits</text>
+  <rect x="408" y="62" width="360" height="182" rx="10" fill="#fbe3d8" stroke="#e8b39a"/>
+  <text class="num" x="424" y="88">25D: Residential Clean</text>
+  <text class="num" x="424" y="106">Energy Credit</text>
+  <text class="cap" x="424" y="130">No credit for expenditures made</text>
+  <text class="cap" x="424" y="148">after December 31, 2025</text>
+  <text class="cap" x="424" y="172">Covered geothermal heat pumps,</text>
+  <text class="cap" x="424" y="190">solar and battery storage</text>
+  <rect x="32" y="262" width="736" height="62" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="cap" x="48" y="288">Installed in 2025? You can still claim it on your 2025 tax return. Pages that say the credit</text>
+  <text class="cap" x="48" y="306">runs through 2032 are out of date; the IRS guidance applies.</text>
+</svg>
