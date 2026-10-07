@@ -477,7 +477,7 @@ export default async function HomePage() {
             <div className="text-center mb-2">
               <h3 className="text-xl font-semibold text-gray-900">How a heat pump moves heat</h3>
               <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">
-                A heat pump doesn&apos;t generate heat, it moves it. The same closed refrigerant loop pulls heat from outdoor air (even cold air still has usable heat) and releases it indoors. Run the loop backwards in summer, and it moves indoor heat out. That&apos;s why a heat pump can deliver 2–4 kWh of heat for every 1 kWh of electricity it consumes.
+                A heat pump doesn&apos;t generate heat, it moves it. The same closed refrigerant loop pulls heat from outdoor air (even cold air still has usable heat) and releases it indoors, then runs backwards in summer to move indoor heat out. That&apos;s why a heat pump can deliver 2–4 kWh of heat for every 1 kWh of electricity it consumes.
               </p>
             </div>
             <RefrigerationCycle caption="The same cycle drives central AC, mini splits, and heat pumps, reversing the flow direction switches between cooling and heating." />
@@ -742,7 +742,7 @@ export default async function HomePage() {
                   <span className="text-green-600 font-medium">8.5+ HSPF2</span>
                 </Link>
                 <Link href="/merv-rating-chart" className="flex justify-between group">
-                  <span className="text-gray-600 group-hover:text-brand-600">Best MERV rating?</span>
+                  <span className="text-gray-600 group-hover:text-brand-600">Good MERV rating?</span>
                   <span className="text-green-600 font-medium">MERV 11-13</span>
                 </Link>
               </div>
