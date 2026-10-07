@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 286" width="800" height="286" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">The three particle size ranges behind a MERV rating</title>
+  <desc id="d">ASHRAE Standard 52.2 tests filters on particles from 0.3 to 10 microns in three ranges: E1, 0.3 to 1.0 microns, such as bacteria, smoke and virus-carrying particles; E2, 1.0 to 3.0 microns, such as mold spores and fine dust; and E3, 3.0 to 10 microns, such as pollen and dust mite debris. The MERV is the lowest of the three scores.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="286" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">What MERV measures: three particle size ranges</text>
+  <rect x="32" y="62" width="232" height="150" rx="10" fill="#d8e7f4" stroke="#c9d8e5"/>
+  <text class="big" x="48" y="88">E1</text>
+  <text class="num" x="48" y="112">0.3 to 1.0 microns</text>
+  <text class="cap" x="48" y="136">Bacteria, smoke,</text>
+  <text class="cap" x="48" y="154">virus-carrying particles</text>
+  <rect x="280" y="62" width="232" height="150" rx="10" fill="#e4f0de" stroke="#c9d8e5"/>
+  <text class="big" x="296" y="88">E2</text>
+  <text class="num" x="296" y="112">1.0 to 3.0 microns</text>
+  <text class="cap" x="296" y="136">Mold spores, fine dust,</text>
+  <text class="cap" x="296" y="154">some auto emissions</text>
+  <rect x="528" y="62" width="232" height="150" rx="10" fill="#f6e7cf" stroke="#c9d8e5"/>
+  <text class="big" x="544" y="88">E3</text>
+  <text class="num" x="544" y="112">3.0 to 10 microns</text>
+  <text class="cap" x="544" y="136">Pollen, dust mite debris,</text>
+  <text class="cap" x="544" y="154">larger particles</text>
+  <path d="M266 137 H272" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M271 131 L278 137 L271 143 Z" fill="#6b7f91"/>
+  <path d="M514 137 H520" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M519 131 L526 137 L519 143 Z" fill="#6b7f91"/>
+  <text class="cap" x="32" y="246">Filters are tested on particles from 0.3 to 10 microns (ASHRAE Standard 52.2).</text>
+  <text class="cap" x="32" y="266">A filter's MERV is the lowest of its three range scores: a worst-case floor.</text>
+</svg>
