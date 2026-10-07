@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 336" width="800" height="336" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Indoor relative humidity levels and what each one means</title>
+  <desc id="d">A relative humidity scale from 0 to 100 percent: below 30 percent is too dry; 30 to 50 percent is the target range; 50 to 60 percent is getting humid; above 60 percent mold and dust mites thrive; above 70 percent, sustained, mold can start on damp surfaces within 24 to 48 hours.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="336" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Indoor relative humidity: what each level means</text>
+  <rect class="solid" x="32" y="70" width="221" height="44" rx="0" fill="#f3e3c3" stroke="#ffffff"/>
+  <rect class="solid" x="253" y="70" width="147" height="44" rx="0" fill="#cfe8d3" stroke="#ffffff"/>
+  <rect class="solid" x="400" y="70" width="74" height="44" rx="0" fill="#fbe7c6" stroke="#ffffff"/>
+  <rect class="solid" x="474" y="70" width="74" height="44" rx="0" fill="#f6cfb4" stroke="#ffffff"/>
+  <rect class="solid" x="547" y="70" width="221" height="44" rx="0" fill="#efb3a0" stroke="#ffffff"/>
+  <text class="cap" x="28" y="136">0%</text>
+  <text class="cap" x="245" y="136">30%</text>
+  <text class="cap" x="392" y="136">50%</text>
+  <text class="cap" x="466" y="136">60%</text>
+  <text class="cap" x="539" y="136">70%</text>
+  <text class="cap" x="760" y="136">100%</text>
+  <rect x="32" y="160" width="14" height="14" rx="3" fill="#f3e3c3" stroke="#c9d8e5"/>
+  <text class="lbl" x="56" y="172">Below 30%: dry skin, sore throats, static</text>
+  <rect x="32" y="186" width="14" height="14" rx="3" fill="#cfe8d3" stroke="#c9d8e5"/>
+  <text class="lbl" x="56" y="198">30 to 50%: the target range; mold and dust mites held back</text>
+  <rect x="32" y="212" width="14" height="14" rx="3" fill="#fbe7c6" stroke="#c9d8e5"/>
+  <text class="lbl" x="56" y="224">50 to 60%: dust mites pick up; start dehumidifying</text>
+  <rect x="32" y="238" width="14" height="14" rx="3" fill="#f6cfb4" stroke="#c9d8e5"/>
+  <text class="lbl" x="56" y="250">Above 60%: mold and dust mites thrive; condensation likely</text>
+  <rect x="32" y="264" width="14" height="14" rx="3" fill="#efb3a0" stroke="#c9d8e5"/>
+  <text class="lbl" x="56" y="276">Above 70%, sustained: mold can start on damp surfaces in 24 to 48 hours</text>
+  <text class="cap" x="32" y="316">Ranges from the EPA: keep indoor humidity between 30% and 50%, and below 60%.</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 312" width="800" height="312" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">What indoor humidity does to health at each end of the range</title>
+  <desc id="d">Below 30 percent, dry air irritates airways, dries out the mucous membranes that defend against respiratory infections and worsens dry skin and eczema. Between 30 and 50 percent is the target range. Above 60 percent, mold and dust mites thrive, two of the most common household asthma and allergy triggers.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="312" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Why both ends of the range matter</text>
+  <rect x="32" y="62" width="232" height="196" rx="10" fill="#fbf2e2" stroke="#ecd3a8"/>
+  <text class="num" x="48" y="88">Below 30%</text>
+  <text class="cap" x="48" y="112">Irritated airways</text>
+  <text class="cap" x="48" y="130">Dried-out mucous membranes,</text>
+  <text class="cap" x="48" y="148">the first defense against</text>
+  <text class="cap" x="48" y="166">respiratory infections</text>
+  <text class="cap" x="48" y="184">Dry skin and eczema worse</text>
+  <rect x="284" y="62" width="232" height="196" rx="10" fill="#e6f4e9" stroke="#9cc59c"/>
+  <text class="num" x="300" y="88">30 to 50%</text>
+  <text class="cap" x="300" y="112">The target range</text>
+  <text class="cap" x="300" y="130">Comfortable for most people</text>
+  <text class="cap" x="300" y="148">Mold and dust mites</text>
+  <text class="cap" x="300" y="166">held back</text>
+  <rect x="536" y="62" width="232" height="196" rx="10" fill="#fbe3d8" stroke="#e8b39a"/>
+  <text class="num" x="552" y="88">Above 60%</text>
+  <text class="cap" x="552" y="112">Mold growth</text>
+  <text class="cap" x="552" y="130">Dust mites thrive</text>
+  <text class="cap" x="552" y="148">Two of the most common</text>
+  <text class="cap" x="552" y="166">household asthma and</text>
+  <text class="cap" x="552" y="184">allergy triggers</text>
+  <text class="cap" x="32" y="292">Humidity doesn't make you sick directly; the wrong level feeds what does.</text>
+</svg>
