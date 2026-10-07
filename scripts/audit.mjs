@@ -35,6 +35,11 @@
  *                               phantom tax credits, off-rate kWh/therm/gal, stale EIA, long
  *                               paragraphs, broken internal links), read from each route's built
  *                               HTML. Built-HTML mode: skipped under --skip-build, with a note.)
+ *  11. Social proof             (scripts/social-proof.mjs: fabricated engagement/usage numbers
+ *                               (K/M/+ users/views/readers), 4.9/5-style ratings or stars,
+ *                               "trusted by", "join N", inflated inventory counts ("200+ guides",
+ *                               "500+ terms"), and testimonials. Runs on MDX prose here and on the
+ *                               built HTML via check 10; real counts must be computed, not hardcoded.)
  */
 
 import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
@@ -43,6 +48,7 @@ import { spawnSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { checkSvgLint } from './svg-lint.mjs';
 import { checkStaticRoutes } from './static-routes.mjs';
+import { scanSocialProof } from './social-proof.mjs';
 
 // ────────────────────────────────────────────────────────────────
 // CONFIG
@@ -472,6 +478,31 @@ function checkMissingImports(files) {
   return findings;
 }
 
+/** Check 11: Social proof / invented stats in MDX prose (deploy gate).
+ * Same shared detector used by static-routes.mjs (built HTML) and
+ * content-audit.mjs (full sweep). Code + JSX stripped so only visible prose scans. */
+function checkSocialProof(files) {
+  const findings = [];
+  for (const f of files) {
+    const raw = readFileSync(f, 'utf8');
+    const { content } = matter(raw);
+    const text = content
+      .replace(/```[\s\S]*?```/g, ' ')
+      .replace(/`[^`]*`/g, ' ')
+      .replace(/<[^>]+>/g, ' ');
+    for (const h of scanSocialProof(text)) {
+      findings.push({
+        check: `social-proof:${h.cls.replace('social-proof-', '')}`,
+        file: relative(REPO_ROOT, f),
+        line: 0,
+        severity: 'high',
+        detail: `social proof / invented stat: "${h.match}"`,
+      });
+    }
+  }
+  return findings;
+}
+
 // ────────────────────────────────────────────────────────────────
 // MAIN
 // ────────────────────────────────────────────────────────────────
@@ -491,6 +522,7 @@ function main() {
   findings.push(...checkWrongYear(files));
   findings.push(...checkMissingImports(files));
   findings.push(...checkHeadingInCallout(files));
+  findings.push(...checkSocialProof(files));
   findings.push(...checkSvgLint(files));
   let buildInfo = { pageInfo: '(skipped)', exitCode: null };
   if (!skipBuild) {

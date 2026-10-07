@@ -27,6 +27,7 @@
 
 import { readFileSync, existsSync, readdirSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, relative, basename } from 'node:path';
+import { scanSocialProof } from './social-proof.mjs';
 
 const REPO_ROOT = process.cwd();
 const BUILT_DIR = join(REPO_ROOT, '.next', 'server', 'app');
@@ -233,6 +234,9 @@ function checkRoute(route, html, validSlugs) {
     if (base && !validSlugs.has(base)) broken.push(href);
   }
   if (broken.length) add('static-broken-link', 'high', `internal link(s) to unknown route: ${[...new Set(broken)].join(', ')}`);
+
+  // social proof / invented stats (fabricated engagement, ratings, inflated counts)
+  for (const h of scanSocialProof(text)) add(`social-proof:${h.cls.replace('social-proof-', '')}`, 'high', `social proof / invented stat: "${h.match}"`);
 
   return { findings, text, paragraphs: paras, links };
 }

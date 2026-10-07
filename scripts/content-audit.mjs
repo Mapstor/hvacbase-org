@@ -7,6 +7,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { scanSocialProof } from './social-proof.mjs';
 
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, 'audit');
@@ -198,6 +199,7 @@ const attributionChecks = [];     // {slug, org, sentence, urls} — CITE-2 manu
 const perDegreeFlags = [];        // {slug, sentence} — CITE-2 "% per degree" claims
 const longParas = [];             // {slug, author, sentences, first} — >3-sentence prose paras
 const selfLinks = [];             // {slug, kind, detail} — relatedArticles self-slug or body self-path link
+const socialProofHits = [];       // {where, cls, match} — fabricated engagement/usage/rating/count claims
 
 // ---------- per-mdx scan ----------
 function scanMdx(file) {
@@ -465,6 +467,11 @@ function scanMdx(file) {
   // (m) EM DASHES
   c.em_dashes = (body.match(new RegExp(EM, 'g')) || []).length;
 
+  // (m2) SOCIAL PROOF — fabricated engagement/usage/rating claims + inflated counts.
+  const spHits = scanSocialProof(noCode.replace(/<[^>]+>/g, ' '));
+  c.social_proof = spHits.length;
+  for (const h of spHits) socialProofHits.push({ where: slug, cls: h.cls, match: h.match });
+
   // (q) LONG PARAGRAPHS — prose paragraphs (not headings, lists, tables, or
   // components) with more than 3 sentences (CLAUDE.md: "Max 3 sentences per
   // paragraph in any user-facing content"). Abbreviations like "U.S." and "e.g."
@@ -600,7 +607,7 @@ function scanMdx(file) {
   if (fm.description) (descMap[fm.description] = descMap[fm.description] || []).push(slug);
 
   // totals
-  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim','self_links']) bump(k, c[k]);
+  for (const k of ['rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','model_codes','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','social_proof','long_paragraphs','links_broken','links_badpath','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim','self_links']) bump(k, c[k]);
 
   rows.push({
     slug, file: rel(file), cluster, page_type: pageType[slug] || fm.contentType || '',
@@ -648,6 +655,20 @@ for (const f of [...compFiles, ...appTsx]) {
 // which layouts import Footer
 const footerImporters = [...compFiles, ...appTsx].filter((f) => /import\s+Footer|from ['"].*Footer/i.test(fs.readFileSync(f, 'utf8'))).map(rel);
 
+// Social proof across the page-feeding source: app/, components/, lib/, data/.
+// (MDX bodies are scanned per-file in scanMdx above.) Catches source-literal
+// claims like users: '2.3M+' that never render as prose.
+const sourceDataFiles = [
+  ...compFiles, ...appTsx,
+  ...walk(path.join(ROOT, 'lib'), ['.ts', '.tsx']),
+  ...walk(path.join(ROOT, 'data'), ['.ts', '.json', '.mjs']),
+];
+for (const f of sourceDataFiles) {
+  for (const h of scanSocialProof(fs.readFileSync(f, 'utf8'))) {
+    socialProofHits.push({ where: rel(f), cls: h.cls, match: h.match });
+  }
+}
+
 // homepage links
 const homeFile = path.join(ROOT, 'app', 'page.tsx');
 if (fs.existsSync(homeFile)) {
@@ -666,7 +687,7 @@ const dupTitles = Object.entries(titleMap).filter(([, v]) => v.length > 1);
 const dupDescs = Object.entries(descMap).filter(([, v]) => v.length > 1);
 
 // ---------- WRITE side files ----------
-const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim','self_links','intro12'];
+const colOrder = ['slug','file','cluster','page_type','words','sessions','author','dateModified','score','rates_total','rates_offrate','stale_eia','regulatory','phantom_credit','ampacity_flags','attributions','precision_stats','recompute_fail','brands','brands_list','model_codes','model_list','overclaims','count_promise_mismatch','old_tells','new_tells','em_dashes','social_proof','long_paragraphs','links_broken','links_badpath','sources_count','sources_std','sources_mfr','sources_bare','related_slugs_prop','missing_h1','sourcesbox_no_url','title_overclaim','self_links','intro12'];
 fs.writeFileSync(path.join(OUT, 'SITE-AUDIT.csv'),
   csvRow(colOrder) + '\n' + rows.map((r) => csvRow(colOrder.map((k) => r[k]))).join('\n') + '\n');
 
@@ -731,6 +752,9 @@ F += `\n## "% per degree" claims\n\n(Per-degree savings rules of thumb, for revi
 if (!perDegreeFlags.length) F += '- none\n';
 else for (const p of perDegreeFlags) F += `- ${p.slug}: ${p.sentence}\n`;
 F += `\n## Attribution check\n\n${attributionChecks.length} sentences pin a number on DOE / ENERGY STAR / EPA / CDC / CPSC / NFPA / EIA — see audit/attribution-check.csv (manual review, not pass/fail).\n`;
+F += `\n## Social proof / invented stats\n\n(Fabricated engagement/usage numbers, ratings/stars, "trusted by"/"join N", inflated "N+ guides/terms" counts, testimonials. Deploy gate via static-routes.mjs + audit.mjs. Count: ${socialProofHits.length}.)\n\n`;
+if (!socialProofHits.length) F += '- none\n';
+else for (const h of socialProofHits) F += `- ${h.where} [${h.cls}]: "${h.match}"\n`;
 fs.writeFileSync(path.join(OUT, 'FINDINGS.md'), F);
 
 // ---------- console summary ----------
@@ -742,6 +766,7 @@ console.log('Footer files:', footerFiles.map(rel).join(', '));
 console.log('Chrome hits:', JSON.stringify(Object.fromEntries(Object.entries(chromeHits).map(([k,v])=>[k,v.length]))));
 console.log('Top5:', top30.slice(0,5).map(r=>`${r.slug}=${r.score}`).join(', '));
 console.log('External URLs:', externalUrlList.length, '| Citation flags:', citationFlags.length, `(build ${BUILD_YEAR}-Q${BUILD_Q})`);
+console.log('Social proof / invented stats:', socialProofHits.length, socialProofHits.length ? '-> ' + socialProofHits.map((h) => `${h.where}:"${h.match}"`).join(', ') : '(none)');
 for (const c of citationFlags) console.log('  FLAG', c.reasons.join(','), '-', c.url);
 console.log('Manufacturer/retail links (live):', mfrFlagRows.length, '| attribution-check rows:', attributionChecks.length, '| "% per degree" claims:', perDegreeFlags.length);
 console.log('Long paragraphs (>3 sentences):', longParas.length, '| pages affected:', new Set(longParas.map((p) => p.slug)).size);
