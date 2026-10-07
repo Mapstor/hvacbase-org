@@ -118,7 +118,7 @@ const howToCategories = {
         href: '/mini-split-air-conditioners',
         time: '30 min',
         difficulty: 'Easy',
-        savings: 'Prevents 5-15% annual efficiency loss and mold buildup',
+        savings: 'Prevents efficiency loss and mold buildup',
         preview: 'Filter cleaning, coil cleaning, drain clearing, and annual service schedule'
       }
     ]
@@ -135,33 +135,26 @@ const howToCategories = {
         difficulty: 'Advanced',
         savings: 'Substantial labor savings for DIY-eligible installs',
         preview: 'What a mini split install actually costs, what a DIY-eligible unit changes, and when a licensed installer is required'
-      },
-      {
-        title: 'How to Install a Window AC Unit',
-        href: '/how-to-tilt-window-ac',
-        time: '20-45 min',
-        difficulty: 'Medium',
-        savings: 'Skip a $100-200 install service call',
-        preview: 'Step-by-step DIY window AC installation for double-hung, sliding, and irregular windows'
       }
     ]
   }
 }
 
-const popularGuides = [
+// Build-time count of the guides actually listed below (never hardcoded).
+const totalGuides = Object.values(howToCategories).reduce((n, cat) => n + cat.guides.length, 0)
+
+const featuredGuides = [
   {
     title: 'Complete AC Maintenance Checklist',
     description: 'Everything you need to do to keep your AC running efficiently',
     href: '/ac-troubleshooting-guide',
-    stats: { views: '125K', rating: 4.9, time: '30 min' },
-    badge: 'Most Popular'
+    time: '30 min'
   },
   {
     title: 'Fix Your AC in 10 Steps',
     description: 'Troubleshoot and repair common AC problems yourself',
     href: '/ac-not-cooling',
-    stats: { views: '156K', rating: 4.9, time: '45 min' },
-    badge: 'Top Rated'
+    time: '45 min'
   }
 ]
 
@@ -188,16 +181,8 @@ export default function HowToPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                <div className="text-2xl font-bold">200+</div>
+                <div className="text-2xl font-bold">{totalGuides}</div>
                 <div className="text-sm text-green-100">DIY Guides</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                <div className="text-2xl font-bold">$500+</div>
-                <div className="text-sm text-green-100">Average Savings</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                <div className="text-2xl font-bold">30 min</div>
-                <div className="text-sm text-green-100">Average Time</div>
               </div>
             </div>
           </div>
@@ -227,28 +212,21 @@ export default function HowToPage() {
       {/* Popular Guides */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Most Popular How-To Guides</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured How-To Guides</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {popularGuides.map((guide) => (
+            {featuredGuides.map((guide) => (
               <Card key={guide.title} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">
-                      {guide.badge}
-                    </span>
+                  <div className="flex items-center justify-end mb-3">
                     <div className="flex items-center text-sm text-gray-500">
                       <Clock className="w-4 h-4 mr-1" />
-                      {guide.stats.time}
+                      {guide.time}
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {guide.title}
                   </h3>
                   <p className="text-gray-600 mb-4">{guide.description}</p>
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                    <span>👁️ {guide.stats.views} views</span>
-                    <span>⭐ {guide.stats.rating}/5.0</span>
-                  </div>
                   <Link
                     href={guide.href}
                     className="inline-flex items-center text-green-600 hover:text-green-700 font-medium"
