@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 306" width="800" height="306" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Why dehumidifier pint ratings dropped under the 2019 DOE test</title>
+  <desc id="d">Before 2019, dehumidifiers were tested at 80 degrees; since the 2019 DOE test procedure they are tested at 65 degrees. Cooler air holds less moisture, so the same machine now carries a lower pint rating. Compare units rated under the same test.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="306" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Why new dehumidifiers show smaller pint ratings</text>
+  <rect x="32" y="62" width="360" height="150" rx="10" fill="#fdf5ec" stroke="#eedcc7"/>
+  <text class="num" x="48" y="88">Before 2019</text>
+  <text class="big" x="48" y="114">Tested at 80°F</text>
+  <text class="cap" x="48" y="140">Warm air holds more moisture,</text>
+  <text class="cap" x="48" y="158">so a unit removes more per day</text>
+  <text class="cap" x="48" y="176">and earns a bigger number</text>
+  <rect x="408" y="62" width="360" height="150" rx="10" fill="#e8f1fa" stroke="#9fbfdc"/>
+  <text class="num" x="424" y="88">Since 2019 (DOE test procedure)</text>
+  <text class="big" x="424" y="114">Tested at 65°F</text>
+  <text class="cap" x="424" y="140">Cooler air holds less moisture,</text>
+  <text class="cap" x="424" y="158">so the same machine now carries</text>
+  <text class="cap" x="424" y="176">a lower pint rating</text>
+  <path d="M394 137 H400" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M399 131 L406 137 L399 143 Z" fill="#6b7f91"/>
+  <rect x="32" y="232" width="736" height="56" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="cap" x="48" y="258">Compare units rated under the same test, and don't size down just because an old unit</text>
+  <text class="cap" x="48" y="276">had a bigger number.</text>
+</svg>
