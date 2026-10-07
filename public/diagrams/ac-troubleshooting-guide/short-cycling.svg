@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 352" width="800" height="352" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Normal air conditioner cycling compared with short-cycling</title>
+  <desc id="d">Over an hour, a normal air conditioner runs a few long cycles, while a short-cycling one runs many brief ones. Common causes: a dirty filter or blocked airflow, a thermostat in a hot spot, an oversized system that never removes humidity, and low refrigerant or a failing component, which needs a technician.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="352" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">Normal cycling vs. short-cycling</text>
+  <text class="num" x="32" y="94">Normal</text>
+  <text class="cap" x="32" y="112">a few long runs</text>
+  <rect x="200" y="80" width="560" height="26" rx="4" fill="#f3f5f7" stroke="#d4dde5"/>
+  <rect class="solid" x="228" y="80" width="140" height="26" rx="3" fill="#2b7bb9" stroke="none"/>
+  <rect class="solid" x="435" y="80" width="134" height="26" rx="3" fill="#2b7bb9" stroke="none"/>
+  <rect class="solid" x="637" y="80" width="112" height="26" rx="3" fill="#2b7bb9" stroke="none"/>
+  <text class="num" x="32" y="154">Short-cycling</text>
+  <text class="cap" x="32" y="172">many brief runs</text>
+  <rect x="200" y="140" width="560" height="26" rx="4" fill="#f3f5f7" stroke="#d4dde5"/>
+  <rect class="solid" x="211" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="258" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="304" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="351" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="397" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="444" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="490" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="537" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="583" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="630" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="676" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <rect class="solid" x="722" y="140" width="22" height="26" rx="3" fill="#c2410c" stroke="none"/>
+  <text class="cap" x="200" y="190">Over one hour</text>
+  <rect x="32" y="212" width="736" height="122" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="238">Common causes</text>
+  <text class="cap" x="48" y="260">A dirty filter or blocked airflow can trip the system off</text>
+  <text class="cap" x="48" y="278">A thermostat in a hot spot, near a vent or in sun, misreads the room</text>
+  <text class="cap" x="48" y="296">An oversized system cools too fast and never removes the humidity</text>
+  <text class="cap" x="48" y="314">Low refrigerant or a failing component: a service call</text>
+</svg>
