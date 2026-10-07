@@ -34,6 +34,8 @@ One thing up front, because it's the truth and not a disclaimer we're hiding: **
 
 **The NEC minimum copper wire sizes for common 240V circuits: 30 amps needs 10 AWG, 40 amps needs 8 AWG, and 50 amps needs 6 AWG.** But those are baselines, continuous loads, long runs, aluminum wire, and your appliance's actual nameplate rating can all change what you need. Read the section below before you buy wire.
 
+<Diagram src="/diagrams/wire-for-220-volt/breaker-and-wire-size.svg" width={800} height={318} priority alt="Copper conductors drawn to scale for 240-volt circuits: 12 AWG for 20 amps, 10 AWG for 30, 8 AWG for 40, 6 AWG for 50, 6 or 4 AWG for 60 and 3 AWG for 100 amps, from 2.05 to 5.83 millimeters across." caption="Minimum copper sizes from the table below, drawn to scale." />
+
 ## The standard reference sizes (NEC minimums)
 
 For a standard 240V circuit with copper wire at typical conditions, these are the NEC minimum wire gauges by breaker size. This is your **starting point, not your final answer** (the next section explains why).
@@ -48,6 +50,8 @@ For a standard 240V circuit with copper wire at typical conditions, these are th
 | 100 amp | 3 AWG | Sub-panel |
 
 These follow the NEC ampacity tables (Table 310.16) and the small-conductor rule (NEC 240.4(D)), which is why, for example, 10 AWG copper is **capped at 30 amps** on a branch circuit even though its raw ampacity is slightly higher.
+
+<Diagram src="/diagrams/wire-for-220-volt/four-factors.svg" width={800} height={322} alt="Diagram of the EV charger trap: a 40-amp continuous load times 125 percent needs a 50-amp breaker and 6 AWG copper, not 8 AWG; plus three more factors: the wire's temperature rating, copper versus aluminum and voltage drop on runs over about 50 feet." caption="The four factors, with the EV charger example from below." />
 
 ## The four things that change your wire size (this is the important part)
 

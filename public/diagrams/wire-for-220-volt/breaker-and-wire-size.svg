@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 318" width="800" height="318" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Minimum copper wire size for common 240-volt breaker sizes, drawn to scale</title>
+  <desc id="d">Copper conductors drawn to scale for 240-volt circuits: 12 AWG for 20 amps, 10 AWG for 30, 8 AWG for 40, 6 AWG for 50, 6 or 4 AWG for 60 and 3 AWG for 100 amps, from 2.05 to 5.83 millimeters across. These are starting points, not final answers.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="318" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">240V circuits: breaker size and minimum copper wire</text>
+  <circle cx="80" cy="128" r="20.3" fill="#e7ecf0" stroke="#9fb3c4"/>
+  <circle cx="80" cy="128" r="14.3" fill="#c98a4b" stroke="#a36a33"/>
+  <text class="num" x="56" y="200">20 A</text>
+  <text class="cap" x="56" y="220">12 AWG</text>
+  <text class="cap" x="56" y="238">2.05 mm</text>
+  <circle cx="204" cy="128" r="24.1" fill="#e7ecf0" stroke="#9fb3c4"/>
+  <circle cx="204" cy="128" r="18.1" fill="#c98a4b" stroke="#a36a33"/>
+  <text class="num" x="180" y="200">30 A</text>
+  <text class="cap" x="180" y="220">10 AWG</text>
+  <text class="cap" x="180" y="238">2.59 mm</text>
+  <circle cx="328" cy="128" r="28.8" fill="#e7ecf0" stroke="#9fb3c4"/>
+  <circle cx="328" cy="128" r="22.8" fill="#c98a4b" stroke="#a36a33"/>
+  <text class="num" x="304" y="200">40 A</text>
+  <text class="cap" x="304" y="220">8 AWG</text>
+  <text class="cap" x="304" y="238">3.26 mm</text>
+  <circle cx="452" cy="128" r="34.8" fill="#e7ecf0" stroke="#9fb3c4"/>
+  <circle cx="452" cy="128" r="28.8" fill="#c98a4b" stroke="#a36a33"/>
+  <text class="num" x="428" y="200">50 A</text>
+  <text class="cap" x="428" y="220">6 AWG</text>
+  <text class="cap" x="428" y="238">4.12 mm</text>
+  <circle cx="576" cy="128" r="34.8" fill="#e7ecf0" stroke="#9fb3c4"/>
+  <circle cx="576" cy="128" r="28.8" fill="#c98a4b" stroke="#a36a33"/>
+  <text class="num" x="552" y="200">60 A</text>
+  <text class="cap" x="552" y="220">6 AWG (or 4)</text>
+  <text class="cap" x="552" y="238">4.12 mm</text>
+  <circle cx="700" cy="128" r="46.8" fill="#e7ecf0" stroke="#9fb3c4"/>
+  <circle cx="700" cy="128" r="40.8" fill="#c98a4b" stroke="#a36a33"/>
+  <text class="num" x="676" y="200">100 A</text>
+  <text class="cap" x="676" y="220">3 AWG</text>
+  <text class="cap" x="676" y="238">5.83 mm</text>
+  <text class="cap" x="32" y="280">Copper conductor drawn to scale. These NEC minimums are a starting point: continuous loads,</text>
+  <text class="cap" x="32" y="298">the wire's temperature rating, aluminum and long runs can all call for a bigger wire.</text>
+</svg>

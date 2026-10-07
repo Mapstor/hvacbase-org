@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 322" width="800" height="322" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">The continuous-load rule and three other factors that change 240-volt wire size</title>
+  <desc id="d">A 40-amp EV charger is a continuous load, so the NEC sizes its circuit at 125 percent: a 50-amp breaker with 6 AWG copper, not 8 AWG. Three other factors can also call for bigger wire: the temperature rating, since NM-B cable is often held to the 60 degree column; aluminum, where 6 AWG copper needs roughly 4 AWG aluminum; and runs over about 50 feet, keeping voltage drop under 3 percent.</desc>
+  <style>
+    .head{font-size:19px;font-weight:700;fill:#1d2b38}
+    .num{font-size:13px;font-weight:700;fill:#1d2b38}
+    .lbl{font-size:13px;fill:#33475b}
+    .cap{font-size:12px;fill:#33475b}
+    .big{font-size:16px;font-weight:700;fill:#2b7bb9}
+    .zone{font-size:11px;font-weight:700;letter-spacing:1px;fill:#6b7f91}
+
+  </style>
+  <rect x="0" y="0" width="800" height="322" rx="14" fill="#ffffff"/>
+  <text class="head" x="32" y="40">The EV charger trap: why 125% matters</text>
+  <rect x="32" y="62" width="169" height="108" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="88">40 A charger</text>
+  <text class="cap" x="48" y="110">A continuous load:</text>
+  <text class="cap" x="48" y="128">it draws for 3+ hours</text>
+  <rect x="221" y="62" width="169" height="108" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="237" y="88">× 125%</text>
+  <text class="cap" x="237" y="110">NEC rule for</text>
+  <text class="cap" x="237" y="128">continuous loads</text>
+  <text class="cap" x="237" y="146">= 50 A</text>
+  <rect x="410" y="62" width="169" height="108" rx="10" fill="#fbe3d8" stroke="#e8b39a"/>
+  <text class="num" x="426" y="88">50 A breaker</text>
+  <text class="cap" x="426" y="110">6 AWG copper,</text>
+  <text class="cap" x="426" y="128">not 8 AWG</text>
+  <path d="M203 116 H213" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M212 110 L219 116 L212 122 Z" fill="#6b7f91"/>
+  <path d="M392 116 H402" stroke="#6b7f91" stroke-width="2" fill="none"/>
+  <path d="M401 110 L408 116 L401 122 Z" fill="#6b7f91"/>
+  <rect x="599" y="62" width="169" height="108" rx="10" fill="#fdf5ec" stroke="#eedcc7"/>
+  <text class="num" x="615" y="88">Get it wrong</text>
+  <text class="cap" x="615" y="110">and the wire runs</text>
+  <text class="cap" x="615" y="128">hot for hours</text>
+  <rect x="32" y="190" width="232" height="112" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="48" y="216">Temperature rating</text>
+  <text class="cap" x="48" y="238">NM-B cable is often held</text>
+  <text class="cap" x="48" y="256">to the 60°C column at</text>
+  <text class="cap" x="48" y="274">its terminations</text>
+  <rect x="284" y="190" width="232" height="112" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="300" y="216">Copper vs. aluminum</text>
+  <text class="cap" x="300" y="238">6 AWG copper needs</text>
+  <text class="cap" x="300" y="256">roughly 4 AWG aluminum</text>
+  <text class="cap" x="300" y="274">for the same job</text>
+  <rect x="536" y="190" width="232" height="112" rx="10" fill="#f3f7fb" stroke="#c9d8e5"/>
+  <text class="num" x="552" y="216">Long runs</text>
+  <text class="cap" x="552" y="238">Over about 50 ft, keep</text>
+  <text class="cap" x="552" y="256">voltage drop under 3%;</text>
+  <text class="cap" x="552" y="274">size up if needed</text>
+</svg>
