@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "comparison"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-04-06"
-dateModified: "2026-09-30"
+dateModified: "2026-10-08"
 relatedArticles:
   - "portable-ac-electricity-cost"
   - "single-hose-vs-dual-hose-portable-ac"
@@ -22,7 +22,7 @@ externalLinks:
     url: "https://www.energystar.gov/products/room_air_conditioners"
 ---
 
-import { SourcesBox, RelatedArticles } from '@/components'
+import { SourcesBox, RelatedArticles, ComparisonTable } from '@/components'
 
 # Portable vs Window AC: Which Is Better?
 
@@ -34,17 +34,43 @@ Portable and window air conditioners cool a single room, but they're built diffe
 
 A window unit straddles the window sill: the cold coil faces the room and the compressor and hot coil sit outside. A portable keeps everything inside the room and pushes the heat out through a hose to a window kit. Keeping the compressor indoors, and moving heat through a hose, is where a portable loses ground.
 
+## Side by side
+
+The table below lines up the two types on the points that decide most single-room purchases. Tap a column heading to sort.
+
+<ComparisonTable
+  caption="Window vs portable room air conditioner, point by point"
+  headers={["Factor", "Window unit", "Portable unit"]}
+  rows={[
+    { Factor: "Where the heat goes", "Window unit": "Compressor and hot coil sit outdoors", "Portable unit": "Compressor stays in the room; heat leaves through a hose" },
+    { Factor: "Cooling for the power drawn", "Window unit": "Higher; little heat re-enters the room", "Portable unit": "Lower; the hose and cabinet leak heat back inside" },
+    { Factor: "Efficiency metric on the label", "Window unit": "CEER", "Portable unit": "CEER measured against SACC" },
+    { Factor: "Noise in the room", "Window unit": "Quieter; the compressor is outside", "Portable unit": "Louder; the compressor runs in the room" },
+    { Factor: "Installation", "Window unit": "Lifts into a double-hung or sliding window and must be secured", "Portable unit": "Rolls in and vents through a window kit" },
+    { Factor: "Space used", "Window unit": "Sits in the window; no floor space", "Portable unit": "Takes floor space near a window" },
+    { Factor: "Moving between rooms", "Window unit": "Hard; must be dismounted", "Portable unit": "Easy; rolls on casters" },
+    { Factor: "Window types it fits", "Window unit": "Double-hung or sliding", "Portable unit": "Also casement or crank, with the right kit" },
+    { Factor: "Draining water", "Window unit": "Usually self-evaporates outdoors", "Portable unit": "Some models must be drained" },
+  ]}
+/>
+
 ## Cooling and efficiency ratings
 
 Both are rated under federal test procedures, but the tests differ. Window units are rated by CEER. Portables are rated by CEER against a seasonally adjusted cooling capacity (SACC), a figure that accounts for the heat a portable leaks back into the room through its hose and cabinet.
 
 Single-hose portables also exhaust room air, which pulls warm outside air in through every gap. A dual-hose design draws its cooling air from outside instead; see [single-hose vs. dual-hose portable ACs](/single-hose-vs-dual-hose-portable-ac). When comparing units, compare their CEER and the SACC or cooling capacity on the label, not only the headline BTU number.
 
+Our [air conditioner types](/air-conditioner-types) overview lists the typical efficiency ranges each room-unit style falls into.
+
 ## Running cost
 
 Both cost the same to run per watt: watts × hours ÷ 1,000 × your rate. A unit drawing 1,000 watts for 8 hours a day for 30 days uses 240 kWh, about $43 a month at 18 cents per kWh.
 
 A window unit usually delivers more cooling from those watts, so it reaches the set temperature sooner and runs less. Our [portable AC electricity cost](/portable-ac-electricity-cost) page has a calculator.
+
+The difference is in the hours, not the per-watt price. As an example, suppose both units draw 1,000 watts.
+
+If the window unit cools the room to setpoint and cycles off so it runs an effective 6 hours a day instead of the portable's 8, that is 1,000 × 6 × 30 ÷ 1,000 = 180 kWh, about $32 a month at 18 cents per kWh. That is roughly $11 a month less than the portable's $43, from the same 1,000-watt draw.
 
 ## Installation
 
@@ -61,6 +87,16 @@ A window unit keeps its compressor outside the room, so the loudest part is outd
 
 - **Window unit:** you have a double-hung or sliding window, want the most cooling for the power, and want a quieter room.
 - **Portable:** your windows or lease rule out a window unit, you need to move it between rooms, or you want to avoid lifting and mounting.
+
+If you are unsure, match your situation to the pick below.
+
+| Your situation | Better pick |
+| --- | --- |
+| Double-hung or sliding window, want the most cooling and a quieter room | Window unit |
+| Casement, crank, or awning window | Portable |
+| Lease or HOA forbids window units | Portable |
+| You move the unit between rooms | Portable |
+| You can lift and mount it, and want the lower running cost | Window unit |
 
 Size either one for the room with our [BTU calculator](/air-conditioner-btu-calculator).
 
@@ -82,10 +118,27 @@ A window unit, in the room, because its compressor is outside.
 
 Yes, with a window kit made for casement or sliding windows. That's one of the main reasons to choose a portable.
 
+### Do portable ACs cool as well as window units?
+
+For the same room and the same power draw, a window unit usually cools more effectively, because its hot side is outdoors and little of that heat returns to the room. A portable loses some of its output through the hose and cabinet, and a single-hose model pulls warm air into the room as it exhausts. A correctly sized portable still cools the room; it just tends to run longer to get there.
+
+### Can a portable AC cool a whole room?
+
+Yes, if it is sized for the room's square footage and the room is reasonably sealed. Because a single-hose portable draws replacement air in through gaps, its effective capacity is lower than its headline BTU, so do not undersize it. Size it with our [BTU calculator](/air-conditioner-btu-calculator), and see [single-hose vs. dual-hose portable ACs](/single-hose-vs-dual-hose-portable-ac) for the infiltration difference.
+
+### Are portable air conditioners worth it?
+
+They are worth it when a window unit cannot go in the window, when a lease or HOA bans window units, or when you need to roll the unit between rooms. If a window unit fits, it usually cools more effectively for the power and runs quieter in the room. The choice is mostly about your window and your rules, not raw performance.
+
+### How long do window and portable ACs last?
+
+The U.S. Department of Energy puts a room air conditioner's service life at about 10 to 15 years. A window unit is a room air conditioner, so expect that range with regular filter cleaning. A portable uses the same basic compressor and refrigerant circuit, so plan on a broadly similar lifespan.
+
 <SourcesBox sources={[
   { title: "eCFR: 10 CFR Part 430, Subpart B (room and portable air conditioner test procedures)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" },
   { title: "ENERGY STAR: Room Air Conditioners", url: "https://www.energystar.gov/products/room_air_conditioners" },
-  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "U.S. DOE Energy Saver 101: Home Cooling (room AC service life)", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
