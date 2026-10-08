@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "calculator"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-01-20"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "air-purifier-guide"
   - "hepa-filter-explained"
@@ -38,14 +38,35 @@ AHAM, the appliance manufacturers' association that runs the CADR test program, 
 
 | Room | Floor area | Minimum smoke CADR (8-ft ceiling) |
 |---|---|---|
-| 10 × 12 ft | 120 sq ft | 80 |
-| 12 × 15 ft | 180 sq ft | 120 |
-| 15 × 20 ft | 300 sq ft | 200 |
-| 20 × 25 ft | 500 sq ft | about 333 |
+| Small bedroom (10 × 10 ft) | 100 sq ft | about 67 |
+| Average bedroom (12 × 15 ft) | 180 sq ft | 120 |
+| Living room (15 × 20 ft) | 300 sq ft | 200 |
+| Studio or large room (20 × 20 ft) | 400 sq ft | about 267 |
+| Open plan (20 × 30 ft) | 600 sq ft | 400 |
+
+Each smoke CADR above is two-thirds of the floor area: 100 × two-thirds is about 67, 400 × two-thirds is about 267, and so on. These are minimums for a standard 8-foot ceiling. Dust and pollen CADR are usually higher than smoke CADR and vary by model, which is why the smoke number does the sizing.
+
+## A worked example, step by step
+
+Take the 15 by 20 foot living room from the bold answer above. Its floor area is 15 × 20 = 300 square feet. The two-thirds rule sets the 8-foot-ceiling minimum at 300 × two-thirds = 200 smoke CADR.
+
+A 10-foot ceiling holds more air, so scale that figure by the ceiling height divided by 8. That gives 200 × (10 ÷ 8) = 200 × 1.25 = 250 smoke CADR, the 250 in the bold answer.
+
+You can check it against air changes per hour. The room's volume is 300 × 10 = 3,000 cubic feet, and a CADR of 250 cubic feet per minute moves 250 × 60 = 15,000 cubic feet an hour. That works out to 15,000 ÷ 3,000 = 5 air changes an hour, matching the roughly 5 changes the two-thirds rule is built around.
 
 ## When to aim higher
 
-The two-thirds rule is a minimum. For allergies, a smoker in the home or wildfire smoke, you may want the air filtered more often. Enter a higher target in air changes per hour, and the calculator gives the CADR it takes: volume × air changes per hour ÷ 60, in cubic feet per minute.
+The two-thirds rule is a minimum that gives about 5 air changes an hour. For allergies, a smoker in the home or wildfire smoke, you may want the air filtered more often, which means a higher CADR for the same room. Enter a higher target in air changes per hour and the calculator gives the CADR it takes: volume × air changes per hour ÷ 60, in cubic feet per minute.
+
+Doubling the air changes roughly doubles the CADR. For the 3,000-cubic-foot room above, filtering at about 10 changes an hour as an example higher target needs 3,000 × 10 ÷ 60 = 500 CADR, against 250 for the 5-change minimum. Pick the target that fits your concern, then read off the CADR.
+
+CADR is measured at the highest, loudest fan setting. If you plan to run the purifier on a lower, quieter setting most of the time, choose a unit rated well above your room's minimum, so its reduced airflow still meets the target.
+
+## Open floor plans and more than one room
+
+A purifier only cleans the air that reaches it, and air mixes freely across a connected open space. Treat a kitchen, dining and living area that share one open volume as a single room: add their floor areas and size to the total. An open area of 200 plus 300 square feet is 500 square feet, so the two-thirds rule calls for a smoke CADR of about 333 (500 × two-thirds).
+
+Rooms closed off by walls and doors do not share air, so one large unit in the hallway will not clean them. Size each room on its own and run one purifier per room, or use a higher-rated filter in the central forced-air system to treat the whole house while its fan runs.
 
 ## Reading CADR and coverage labels
 
@@ -77,6 +98,14 @@ A higher CADR cleans the air faster and can run on a quieter setting for the sam
 ### Can one air purifier clean a whole house?
 
 Not effectively. Each purifier cleans the room it's in; for a whole home, use one per main room or a higher-MERV filter in the central system.
+
+### How do I size an air purifier for an open floor plan?
+
+Add the floor areas of all the connected open spaces and treat them as one room, because the air mixes across them. A 500 sq ft open kitchen and living area needs a smoke CADR of about 333, two-thirds of 500. Rooms closed off by doors should each get their own unit.
+
+### What size air purifier do I need for wildfire smoke?
+
+Filter the air more often than the two-thirds minimum of about 5 air changes an hour, so pick a higher smoke CADR for the room. Wildfire and cigarette smoke also carry odors and gases that a particle filter does not catch, so look for activated carbon as well as a high CADR.
 
 <SourcesBox sources={[
   { title: "AHAM Verifide: certified air cleaner ratings (CADR, two-thirds rule)", url: "https://ahamverifide.org/" },
