@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-01-18"
-dateModified: "2026-09-30"
+dateModified: "2026-10-08"
 relatedArticles:
   - "air-purifier-guide"
   - "air-purifier-sizing-guide"
@@ -36,7 +36,23 @@ HEPA stands for high-efficiency particulate air. The EPA describes it as a pleat
 
 ## Why 0.3 microns
 
-A filter doesn't work like a sieve. Large particles slam into fibers because they can't follow the airflow around them, and the smallest ones drift into fibers as they bounce around in the air. Particles around 0.3 microns are too small for the first effect and too large for the second, so they're the hardest to catch; a filter that stops 99.97% of them stops even more of the particles above and below that size.
+A filter doesn't work like a sieve. Mechanical filters catch particles by three effects at once, and each one favors a different size.
+
+Impaction catches the largest particles: they carry too much momentum to follow the air as it bends around a fiber, so they hit it head-on. Interception catches mid-size particles that follow the airflow but graze a fiber closely enough to stick. Diffusion catches the smallest particles, which get jostled by air molecules into a random path that drifts them into fibers.
+
+Impaction and interception weaken as particles shrink, while diffusion only takes hold once particles are very small. Near 0.3 microns all three are at their weakest at the same time, so that size slips through most easily. A filter that still stops 99.97% of 0.3-micron particles stops an even higher share of everything larger and smaller, which is why the standard tests exactly there.
+
+## What size are the particles a HEPA filter catches
+
+ASHRAE Standard 52.2, the standard that defines home HVAC filter ratings, sorts airborne particles into three size bands and names what tends to fall in each. The smallest band bottoms out near the 0.3-micron HEPA test point.
+
+| Particle size | Common examples |
+|---|---|
+| 3.0–10 microns | Pollen, dust mite debris, larger dust |
+| 1.0–3.0 microns | Mold spores, fine dust |
+| 0.3–1.0 microns | Bacteria, smoke, virus-carrying particles |
+
+A true HEPA filter is tested at 0.3 microns, the bottom of that smallest band, so it clears the particles in every row above its test point with room to spare. Some individual particles are smaller than 0.3 microns, but diffusion catches those at an even higher rate than the test size. For the same size bands applied to furnace filters, see the [MERV rating chart](/merv-rating-chart).
 
 ## H11, H13 and H14
 
@@ -59,9 +75,25 @@ These terms have no standard behind them. A "HEPA-type" filter can capture far l
 
 A perfect filter cleans only the air that passes through it. For an air purifier, the clean air delivery rate (CADR) combines filter efficiency and airflow, and it's the number to compare between models; see our [air purifier sizing guide](/air-purifier-sizing-guide). The EPA recommends choosing an air cleaner sized for the room you use it in.
 
-## HEPA in a home HVAC system
+## HEPA versus MERV in a home system
 
-Most home furnaces and air handlers can't push enough air through a true HEPA filter, which is dense and restricts flow. Central systems use MERV-rated filters instead, and a higher MERV catches more fine particles as long as the system can handle the added resistance; see the [MERV rating chart](/merv-rating-chart). Whole-house HEPA systems exist, but they use their own fan.
+Home furnaces rate their filters on the MERV scale, not the HEPA standard, and the two don't line up one-to-one. The EPA places true HEPA at the equivalent of MERV 17 to 20, above the 1-to-16 range sold for homes.
+
+| Filter | Capture of 0.3–1.0 micron particles | Typical use |
+|---|---|---|
+| MERV 8 | Not rated at this size | Standard furnace filter |
+| MERV 13 | At least 50% | Highest common home furnace level |
+| MERV 16 | 95% | Hospitals, clean rooms |
+| MERV 17–20 | HEPA-equivalent | Dedicated HEPA setups |
+| True HEPA | 99.97% at 0.3 microns | Portable purifiers, whole-house HEPA with its own fan |
+
+Most home air handlers can't pull enough air through a true HEPA filter, which is dense and chokes airflow. That's why central systems stop at MERV; the EPA notes that MERV 7 to 13 filters are nearly as effective as true HEPA for most airborne indoor particles. For the full scale and the airflow trade-off, see the [MERV rating chart](/merv-rating-chart).
+
+## Replacing a HEPA filter
+
+HEPA media is a dense mat of fine fibers, and that structure is what earns the rating. Washing or vacuuming a filter that isn't labeled washable tears and flattens those fibers, opening gaps that let particles through, so a cleaned HEPA filter no longer meets its rating.
+
+Replace a disposable HEPA filter on the maker's schedule rather than trying to clean it. A loaded filter also restricts airflow, so a purifier moving less air cleans less of the room even when the media still rates HEPA.
 
 ## Frequently asked questions
 
@@ -81,9 +113,22 @@ Rarely. The gain over H13 is tiny next to the effect of airflow and room size.
 
 Usually not. Most home systems can't move enough air through one; a high-MERV filter the system can handle is the practical choice.
 
+### Does a HEPA filter remove viruses and COVID?
+
+It removes the particles that carry them. HEPA captures 99.97% of 0.3-micron particles and a higher share above and below that size, and virus-carrying droplets and nuclei fall largely in the 0.3 to 1.0 micron band that HEPA targets. Individual virus particles smaller than 0.3 microns are caught efficiently by diffusion, though a filter only cleans the air that actually passes through it.
+
+### Does a HEPA filter remove smoke or VOCs?
+
+It removes the solid and liquid particles in smoke, which sit largely in the 0.3 to 1.0 micron range, but not the gases. Smoke also carries volatile organic compounds and odor molecules, and those are gases that pass straight through HEPA media. Removing gases and odors takes activated carbon, a separate filter stage.
+
+### How long does a HEPA filter last?
+
+It depends on how dirty your air is and how much the purifier runs, so follow the maker's replacement interval for your model. Do not wash or vacuum a filter unless it's labeled washable; cleaning non-washable HEPA media damages the fibers and drops it below its rating. A loaded filter also restricts airflow and cleans less, so change it sooner if airflow drops or the purifier gets louder.
+
 <SourcesBox sources={[
   { title: "EPA: What is a HEPA filter?", url: "https://www.epa.gov/indoor-air-quality-iaq/what-hepa-filter" },
-  { title: "EPA: Guide to Air Cleaners in the Home", url: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home" }
+  { title: "EPA: Guide to Air Cleaners in the Home (MERV 7–13 nearly HEPA-effective; MERV 17–20 = HEPA)", url: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home" },
+  { title: "ASHRAE Standard 52.2 (defines the MERV scale and the particle-size bands)", url: "https://www.ashrae.org/technical-resources/standards-and-guidelines" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
