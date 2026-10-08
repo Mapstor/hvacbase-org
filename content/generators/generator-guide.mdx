@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "what-size-generator-do-i-need"
   - "propane-generator-usage-per-hour"
@@ -38,9 +38,42 @@ A generator keeps the lights, fridge, furnace blower and sump pump running when 
 - **Inverter:** portable units with electronics that produce smooth power for electronics, quieter and more fuel-efficient at light loads.
 - **Standby:** permanently installed outdoors, fueled by natural gas or propane, and started automatically by a transfer switch when the power fails.
 
+The three types differ less in raw output than in how you live with them. This table lines up the practical differences.
+
+| Type | Typical fuel | Power quality | Starts on its own? | Installation | Best for |
+|---|---|---|---|---|---|
+| Portable | Gasoline, often dual-fuel with propane | Standard, can fluctuate under load | No, you start and connect it | None for cords; an electrician-installed transfer switch or interlock to feed house circuits | Short, occasional outages and essential loads |
+| Inverter | Gasoline, often dual-fuel | Clean, low harmonic distortion, safe for electronics | No | Same as a portable | Sensitive electronics, quiet running, light loads |
+| Standby | Natural gas or propane, piped or tanked | Standard, utility-like | Yes, through an automatic transfer switch | Permanent, electrician plus a fuel hookup and a permit | Frequent or long outages and hands-off whole-house backup |
+
 ## Sizing
 
 Add the running watts of everything you'll power at once, then add the starting surge of the largest motor, such as a refrigerator or well pump. Our [generator sizing guide](/what-size-generator-do-i-need) walks through it, and the calculator above adds it up.
+
+### A worked sizing example
+
+The calculator uses one method throughout: total the running watts, add only the single largest starting surge, then add a 20 percent margin. Only one motor is assumed to start at a time, and the margin keeps the generator off its limit.
+
+Picture an essentials setup of a standard fridge, a furnace blower, ten LED lights, a modem and router, and phone chargers. The calculator estimates the fridge at about 150 running watts, the half-horsepower blower at about 800, the lights at 100, the modem and router at 50, and the chargers at 25, which totals 1,125 running watts.
+
+The blower has the largest surge, jumping from 800 to about 2,350 watts to start, a delta of 1,550 watts. Peak demand is 1,125 plus 1,550, or 2,675 watts. Multiplying by 1.2 for the margin gives about 3,210 watts, so a 3,500-watt generator covers it.
+
+Now push toward whole-house. Add a three-quarter-horsepower well pump at about 1,500 running watts, a 10,000-BTU window air conditioner at about 900, and a microwave at about 1,000, and the running load climbs to 4,525 watts. The blower's 1,550-watt surge is still the largest, so peak demand is 6,075 watts; with the margin that is about 7,290 watts, into 7,500-watt territory.
+
+Loads the picker leaves out, such as central air conditioning, an electric water heater, or an electric range, add thousands of continuous watts each and push a home past what a portable can carry.
+
+### Portable or standby?
+
+A portable or inverter generator fits when outages are short and occasional, you can be home to start it, and you mainly need a fridge, some lights, a furnace blower and a few devices.
+
+Lean toward a permanently installed standby unit when any of these holds:
+
+- Outages are frequent or last for days, so hand-starting and refueling a portable becomes a burden.
+- A sump pump or well pump must run unattended, since a flooding basement or a dry tap cannot wait for someone to pull a cord.
+- Someone at home relies on powered medical equipment or refrigerated medication, where an automatic start matters.
+- You want the whole house covered without juggling cords or choosing which circuits to drop.
+
+A standby generator starts within seconds on its own through an automatic transfer switch and runs on natural gas or propane, so there is nothing to refuel. The tradeoff is a permanent install by an electrician with a fuel hookup and a permit.
 
 ## Fuel
 
@@ -61,7 +94,13 @@ Small generators turn roughly a fifth of their fuel's energy into electricity, a
 
 Never backfeed a house through a wall outlet. It can energize the utility lines, endangering line workers and neighbors.
 
-Use a transfer switch or a listed interlock installed by an electrician, under the National Electrical Code's rules for optional standby systems. See [how many amps a generator produces](/how-many-amps-does-generator-produce) for outlet and circuit ratings.
+Two devices let you feed house circuits safely, and both must be installed by an electrician under the National Electrical Code's rules for optional standby systems.
+
+A transfer switch is a separate box wired beside the main panel. It moves selected circuits between utility power and the generator, isolating them from the grid so generator power cannot flow back out. An automatic version does this on its own and is what a standby generator uses; a manual version is common with portables.
+
+An interlock kit is a metal plate added to the existing panel. It lets a dedicated generator breaker feed the panel, while mechanically blocking that breaker and the main breaker from ever being on at once. That block is what prevents backfeed, and it is often cheaper than a separate transfer switch.
+
+See [how many amps a generator produces](/how-many-amps-does-generator-produce) for outlet and circuit ratings.
 
 ## Safety
 
@@ -69,7 +108,13 @@ The CPSC warns that portable generators can produce deadly levels of carbon mono
 
 ## Maintenance
 
-Change the oil and filters on the manufacturer's schedule, run a portable generator under load every month or two, and use stabilizer or drain the fuel for storage. Standby generators run brief automatic self-tests and need periodic service.
+Change the oil and filters on the schedule in the owner's manual, since run-hours rather than calendar time drive most service intervals.
+
+Run a portable generator under load every month or two. That keeps the carburetor clear and tops up the starter battery if the unit has electric start.
+
+For storage, either add fuel stabilizer and run the engine long enough to circulate it, or drain the fuel system. Gasoline left to sit gums up the small carburetor jets.
+
+Standby generators run brief automatic self-tests on a set schedule. Still check the battery, oil level and air intake periodically, and have the unit serviced so it is ready when an outage hits.
 
 ## Frequently asked questions
 
@@ -88,6 +133,18 @@ At an assumed 20% efficiency, about 50 cents a kWh on gasoline at an example $3.
 ### Is it safe to run a generator in a garage?
 
 No. Even with the door open, carbon monoxide can build up to deadly levels. Run it outdoors, at least 20 feet from the house.
+
+### Do I need a transfer switch to use a portable generator?
+
+Not for running appliances off extension cords. You do need a transfer switch or an interlock kit, installed by an electrician, to power your home's wired circuits safely. Connecting a generator to house wiring any other way can backfeed the grid and endanger line workers.
+
+### What is the difference between a transfer switch and an interlock kit?
+
+A transfer switch is a separate box that moves chosen circuits between utility and generator power. An interlock kit is a plate on the existing panel that lets a generator breaker feed the panel while mechanically blocking it from being on at the same time as the main breaker. Both stop dangerous backfeed, and both are installed by an electrician.
+
+### When is a standby generator worth it?
+
+Consider one when outages are frequent or long, when a sump or well pump must run unattended, when someone depends on powered medical equipment, or when you want the whole house covered automatically. A standby unit starts on its own through an automatic transfer switch and runs on natural gas or propane, so there is nothing to refuel.
 
 <SourcesBox sources={[
   { title: "CPSC: Generators safety (carbon monoxide, 20 feet from the house)", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Generators" },
