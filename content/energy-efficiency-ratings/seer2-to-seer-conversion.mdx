@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "seer2-rating-explained"
   - "minimum-seer-rating-by-state"
@@ -64,6 +64,53 @@ Approximate, for ducted split systems (SEER × 0.95):
 
 And HSPF × 0.85: 8.2 HSPF is about 7.0 HSPF2, 9 is about 7.6, 10 is about 8.5, and 12 is about 10.2. The ratio differs slightly by equipment type, so for a precise comparison, use each system's SEER2 rating from the AHRI Directory.
 
+## SEER2 back to SEER
+
+To read a SEER2 number on the old scale, divide by the same factor: SEER = SEER2 ÷ 0.95, and HSPF = HSPF2 ÷ 0.85. This is the direction most people need, because the equipment on sale today is labeled in SEER2 while the system being replaced was labeled in SEER.
+
+Approximate, for ducted split systems:
+
+| SEER2 | SEER (approx) |
+|---|---|
+| 13.4 | 14.1 |
+| 13.8 | 14.5 |
+| 14.3 | 15.1 |
+| 15.2 | 16.0 |
+| 16 | 16.8 |
+| 17 | 17.9 |
+| 18 | 18.9 |
+| 20 | 21.1 |
+
+The two federal AC minimums sit near the top: 13.4 SEER2 works out to about 14.1 SEER (13.4 ÷ 0.95), and 14.3 SEER2 to about 15.1 SEER (14.3 ÷ 0.95). ENERGY STAR's 15.2 SEER2 lands at 16 SEER (15.2 ÷ 0.95), the same pairing the shopping section uses.
+
+Heating ratings convert the same way:
+
+| HSPF2 | HSPF (approx) |
+|---|---|
+| 7.5 | 8.8 |
+| 7.8 | 9.2 |
+| 8.1 | 9.5 |
+| 8.5 | 10.0 |
+| 9.5 | 11.2 |
+
+The 7.5 HSPF2 heat-pump minimum is about 8.8 HSPF (7.5 ÷ 0.85), and ENERGY STAR's 7.8 HSPF2 is about 9.2 HSPF (7.8 ÷ 0.85).
+
+## Checking a contractor quote apples-to-apples
+
+Trouble starts when one number is on the old scale and another is on the new one. Suppose a leftover unit is quoted at 16 SEER and a current unit at 15.2 SEER2, and you want to know which is more efficient.
+
+Put both on the SEER2 scale: 16 SEER × 0.95 = 15.2 SEER2, which equals the second quote. The two units are the same efficiency; only the label scale differs. Pushing it the other way gives the same answer: 15.2 SEER2 ÷ 0.95 = 16 SEER.
+
+The rule when you compare: convert every rating to one scale first, then rank them. A quote that lists a SEER number for new equipment is using the retired scale, so translate it to SEER2 before you weigh it against anything else.
+
+## Does the factor change by equipment type?
+
+The 0.95 and 0.85 factors come from the ducted split-system minimums the DOE restated when the test changed. Single-package units and ductless mini splits were retested under their own conditions, so a single multiplier is only approximate for them.
+
+Single-package air conditioners and heat pumps carry a uniform 13.4 SEER2 minimum nationwide, lower than the split-system levels by design. See [minimum SEER2 by state](/minimum-seer-rating-by-state). For the actual figure on any specific system, read the SEER2 printed on its AHRI certificate rather than converting from an old rating.
+
+EER converts less cleanly. EER2 comes from the same post-2023 test and reads lower than the old EER for the same equipment, but there is no single published multiplier to move between them the way there is for SEER. Look up a unit's EER2 directly; our [EER chart for AC units](/eer-chart-for-ac-units) explains where it applies.
+
 ## What it means when you shop
 
 Compare SEER2 with SEER2. A quote listing an old SEER number for new equipment, or comparing it with your old system's SEER, mixes two scales.
@@ -87,6 +134,14 @@ Multiply by about 0.85. The old 8.8 HSPF heat pump minimum became 7.5 HSPF2.
 ### Why is my new AC's SEER2 lower than my old AC's SEER?
 
 The ratings come from different tests. Convert one to the other's scale before comparing; the new system is likely more efficient than the numbers suggest.
+
+### How do I convert SEER2 to SEER?
+
+Divide by about 0.95 for a ducted split system. A 15.2 SEER2 unit is about 16 SEER (15.2 ÷ 0.95), and a 14.3 SEER2 unit about 15.1 SEER.
+
+### Does the conversion factor depend on equipment type?
+
+The 0.95 and 0.85 factors come from ducted split-system standards. Single-package units and ductless mini splits were tested under their own conditions, so treat the factors as approximate and read the actual SEER2 from the AHRI Directory.
 
 <SourcesBox sources={[
   { title: "eCFR: 10 CFR 430.32 (central air conditioner and heat pump standards in SEER2 and HSPF2)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
