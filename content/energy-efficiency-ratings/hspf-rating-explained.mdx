@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "seer2-to-seer-conversion"
   - "coefficient-of-performance"
@@ -46,6 +46,17 @@ The DOE restated the old 8.8 HSPF minimum as 7.5 HSPF2. See the [SEER2 and HSPF2
 - **ENERGY STAR, split heat pumps:** at least 7.8 HSPF2.
 - **ENERGY STAR cold climate:** at least 8.1 HSPF2 for ducted and 8.5 for ductless systems, plus performance requirements at 5°F.
 
+Reading those thresholds as bands makes the "what is a good rating" question concrete:
+
+| HSPF2 | Tier | What it means |
+|---|---|---|
+| 7.5 | Federal minimum | the lowest a new split heat pump can be sold at |
+| 7.8 | ENERGY STAR | qualifies for the ENERGY STAR label |
+| 8.1 / 8.5 | ENERGY STAR cold climate | 8.1 ducted, 8.5 ductless, plus a 5°F capacity and COP floor |
+| 9.0 and up | High-efficiency | the largest heating savings in cold, heating-heavy climates |
+
+The cold-climate bar is set higher for ductless (8.5) than for ducted (8.1) systems. Ducted systems lose some of the heat they produce to duct leakage, which ENERGY STAR puts at as much as 20% of heating and cooling efficiency. A ductless head delivers its heat straight into the room and skips that loss.
+
 ## What each rating costs to heat a home
 
 A 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days needs about 58 million BTU of heat a year. Heating kWh = heat needed ÷ (HSPF2 × 1,000):
@@ -60,9 +71,40 @@ A 2,000 sq ft home with average insulation in a climate with 4,500 heating degre
 
 Our [heat pump electricity and running cost calculator](/heat-pump-electricity-usage) runs this for your home, climate and rate.
 
+### A worked example
+
+Take that 2,000 sq ft home needing about 58.3 million BTU of heat over the season. At 7.5 HSPF2 the heat pump delivers 7.5 BTU for each watt-hour, so it draws 58,320,000 ÷ 7.5 = 7,776,000 watt-hours, or 7,776 kWh.
+
+At 18 cents per kWh that is 7,776 × $0.18 = $1,400 for the season. Swap in a 10 HSPF2 unit and the same heat needs 58,320,000 ÷ 10 = 5,832 kWh, or 5,832 × $0.18 = $1,050. The difference, about $350 a year, is what a higher rating buys back.
+
+## Heat pump vs. gas furnace vs. electric resistance
+
+The rating only matters against the alternatives. Heating the same 58.3 million BTU three ways shows why a heat pump's HSPF2 is worth paying for:
+
+| Heating method | Energy used | Cost per season |
+|---|---|---|
+| Heat pump, 7.5 HSPF2 | 7,776 kWh | $1,400 |
+| Heat pump, 10 HSPF2 | 5,832 kWh | $1,050 |
+| Electric resistance | 17,093 kWh | $3,077 |
+| 95% AFUE gas furnace | 614 therms | $829 (assumed) |
+
+Electric resistance heat runs at a COP of 1, so every kWh turns into 3,412 BTU of heat. The home then needs 58,320,000 ÷ 3,412 = 17,093 kWh, or 17,093 × $0.18 = $3,077. Even the minimum 7.5 HSPF2 heat pump uses less than half that electricity.
+
+A 95% AFUE gas furnace turns 95% of its fuel into heat, so it burns 58,320,000 ÷ 0.95 = 61.4 million BTU of gas. At 100,000 BTU per therm that is 614 therms, and at an assumed $1.35 per therm it costs 614 × $1.35 = $829. Whether the heat pump or the furnace wins on cost depends entirely on your local electricity and gas prices.
+
 ## Why cold climates need more than the number
 
-HSPF2 is rated for a moderate climate. In colder places a heat pump spends more hours in deep cold, where its efficiency and output fall, so its real seasonal efficiency is lower than the label. For cold climates, look at a model's capacity and COP at 5°F, which ENERGY STAR's cold-climate criteria and NEEP's cold-climate list report; see [heat pumps in cold weather](/heat-pump-in-cold-weather).
+HSPF2 is rated for a moderate climate. In colder places a heat pump spends more hours in deep cold, where its efficiency and output fall, so its real seasonal efficiency is lower than the label. For cold climates, look at a model's capacity and COP at 5°F, which ENERGY STAR's cold-climate criteria and NEEP's cold-climate list report.
+
+The gap between a standard and a cold-climate model widens as it gets colder:
+
+| Outdoor temp | Standard model capacity | Cold-climate capacity |
+|---|---|---|
+| 47°F (rated) | 100% | 100% |
+| 17°F | about 60% | about 79% |
+| 5°F | about 40% | at least 70% |
+
+The standard-unit figures are our [heat pump size calculator](/heat-pump-size-calculator)'s assumptions. The cold-climate 70% at 5°F is ENERGY STAR's minimum, and the same criteria require a COP of at least 1.75 at 5°F, meaning 1.75 units of heat for each unit of electricity even in deep cold. See [heat pumps in cold weather](/heat-pump-in-cold-weather) for defrost, balance points and backup heat.
 
 ## Frequently asked questions
 
@@ -85,7 +127,8 @@ Related: HSPF2 ÷ 3.412 is the seasonal COP. 8.2 HSPF2 is a seasonal COP of abou
 <SourcesBox sources={[
   { title: "ENERGY STAR: Heat Pump Key Product Criteria (7.8 HSPF2; cold climate 8.1 / 8.5)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
   { title: "eCFR: 10 CFR Part 430 (heat pump minimums in HSPF2)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
-  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "ENERGY STAR: Duct sealing benefits (efficiency reduced by as much as 20%)", url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing/benefits" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
