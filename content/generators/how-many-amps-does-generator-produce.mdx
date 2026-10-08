@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "calculator"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "what-size-generator-do-i-need"
   - "propane-generator-usage-per-hour"
@@ -34,12 +34,40 @@ A generator's rating is in watts, but outlets, cords and transfer switches are r
 
 | Running watts | At 120 V | At 240 V |
 |---|---|---|
+| 1,000 W | 8.3 A | 4.2 A |
+| 1,800 W | 15.0 A | 7.5 A |
 | 2,200 W | 18.3 A | 9.2 A |
+| 3,000 W | 25.0 A | 12.5 A |
 | 3,500 W | 29.2 A | 14.6 A |
+| 5,000 W | 41.7 A | 20.8 A |
 | 7,500 W | 62.5 A | 31.3 A |
+| 8,000 W | 66.7 A | 33.3 A |
+| 9,000 W | 75.0 A | 37.5 A |
+| 10,000 W | 83.3 A | 41.7 A |
 | 12,000 W | 100 A | 50 A |
+| 15,000 W | 125.0 A | 62.5 A |
+| 22,000 W | 183.3 A | 91.7 A |
 
-On a 120/240-volt generator, the 240-volt figure is what each of the two legs carries when the load is balanced between them.
+Every amp figure is the watt rating divided by the voltage, so 10,000 watts is 10,000 ÷ 120 = 83.3 amps at 120 volts and 10,000 ÷ 240 = 41.7 amps at 240 volts. The 240-volt current is always half the 120-volt current for the same wattage, because the voltage is doubled.
+
+On a 120/240-volt generator, the 240-volt figure is what each of the two legs carries when the load is balanced between them. Small units of about 2,000 watts and under are usually 120 volts only, so their 240-volt column is theoretical rather than a real outlet.
+
+## Common generator sizes in amps
+
+| Class | Typical output | Usual voltage | Amps |
+|---|---|---|---|
+| Small inverter | 2,000 W | 120 V only | 16.7 A at 120 V |
+| Mid portable | 3,500 W | 120 V | 29.2 A at 120 V |
+| Large portable | 7,500 W | 120/240 V | 62.5 A at 120 V, 31.3 A at 240 V |
+| Home standby | 22,000 W | 120/240 V | 91.7 A at 240 V |
+
+Each figure is again the watts divided by the volts: a 2,000-watt inverter gives 2,000 ÷ 120 = 16.7 amps, and a 22,000-watt standby gives 22,000 ÷ 240 = 91.7 amps per leg. A unit that has only 120-volt outlets puts its whole output on one leg, so the current is twice what the same wattage would draw at 240 volts.
+
+## Watts, VA and power factor
+
+The amp figures above assume a power factor of 1.0, which holds for a purely resistive load such as a heater or an incandescent bulb. A generator's watt rating is real power, and current follows apparent power in volt-amps (VA), where VA = watts ÷ power factor. When the power factor is 1.0 the watts and the VA are equal, so amps = watts ÷ volts.
+
+Motors and some electronics draw current that is partly out of step with the voltage, so their power factor is below 1.0 and their real power is less than volts times amps. For those loads the current is higher than the watt rating alone suggests, by the amount amps = watts ÷ (volts × power factor). If a load lists volt-amps or amps directly on its plate, use that figure rather than converting from watts.
 
 ## What each outlet can carry
 
@@ -55,6 +83,14 @@ Most power = amps × volts. The generator's breaker and running watts also limit
 ## Running vs. starting watts
 
 Motors such as refrigerator and well-pump compressors briefly draw several times their running current to start. A generator's starting (surge) rating covers those moments; its running rating is what it can supply continuously. Size for the running load plus the largest motor's start; see [what size generator you need](/what-size-generator-do-i-need).
+
+Convert both ratings the same way. A generator listed at 3,500 running watts and 4,500 starting watts (an example) supplies 3,500 ÷ 120 = 29.2 amps continuously and briefly up to 4,500 ÷ 120 = 37.5 amps during a motor start. Size the cord and outlet to the continuous 29.2 amps, and use the starting figure only to check that the generator can start your largest motor.
+
+## Matching output to a transfer switch
+
+The transfer switch, inlet box and cord must each be rated at or above the generator's output current. A 7,500-watt generator produces 7,500 ÷ 240 = 31.3 amps at 240 volts, which is more than a 30-amp L14-30R inlet can carry, so that unit needs a 50-amp path such as the 14-50R. A 3,500-watt, 120-volt generator at 29.2 amps fits a 30-amp inlet with a little margin.
+
+Match the switch to the generator, not to the house's main breaker. A 200-amp main panel, for example, can still be fed by a 30-amp or 50-amp switch, because the switch only carries what the generator can produce, not the panel's full rating.
 
 ## Connecting to a house
 
@@ -73,6 +109,18 @@ About 31.3 amps at 240 volts, or 62.5 amps total at 120 volts across both legs, 
 ### How many amps is a 2,200-watt generator?
 
 About 18.3 amps at 120 volts.
+
+### How many amps is a 10,000-watt generator?
+
+About 83.3 amps at 120 volts, or 41.7 amps at 240 volts, from 10,000 divided by the voltage. On a 120/240-volt unit the 41.7 amps is what each leg carries with the load balanced.
+
+### How many amps is a 5,000-watt generator?
+
+About 41.7 amps at 120 volts, or 20.8 amps at 240 volts (5,000 ÷ 120 and 5,000 ÷ 240).
+
+### How many amps is a 3,500-watt generator?
+
+About 29.2 amps at 120 volts, or 14.6 amps at 240 volts (3,500 ÷ 120 and 3,500 ÷ 240).
 
 ### What size cord do I need for my generator?
 
