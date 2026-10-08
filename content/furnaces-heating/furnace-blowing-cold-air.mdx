@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "troubleshooting"
 datePublished: "2026-01-19"
 author: "Marko Visic, BSc Physics"
-dateModified: "2026-10-02"
+dateModified: "2026-10-08"
 relatedArticles:
   - "furnace-guide"
   - "how-often-change-hvac-filter"
@@ -35,11 +35,33 @@ A furnace that blows cold air is usually telling you one of a few things: it has
 - **Give it a few minutes.** Many furnaces run the burner briefly before the blower starts, and run the blower after the burner stops to use the remaining heat.
 - **The filter.** Replace it if it's dirty; the DOE recommends checking furnace filters monthly or as the maker recommends.
 
+## Work through the causes in order
+
+Following one path keeps you from guessing. Start at the thermostat and move toward the burner, stopping as soon as a step explains the cold air.
+
+1. **Is the fan switch on On?** Set it to Auto. If the cool air between cycles stops, that was the cause and you are done.
+2. **Did you just call for heat?** Wait a few minutes for the normal warm-up and cool-down blower timing to pass.
+3. **Is the filter dirty, or any vents or returns blocked?** Restricted airflow trips the high-limit switch, which blows cool air; clear the airflow using the steps below.
+4. **Does the burner light, then die after a few seconds?** Suspect a dirty flame sensor first, then the igniter; see the flame-sensor steps below.
+5. **High-efficiency furnace that won't fire, with water pooling or a blinking code?** Suspect a clogged condensate drain tripping its safety switch; see [furnace leaking water](/furnace-leaking-water).
+6. **Cool air at only some registers?** The furnace is likely heating fine and the problem is in the ducts, covered further down.
+
 ## Overheating and the limit switch
 
 When airflow is restricted, by a clogged filter, closed vents or blocked returns, the heat exchanger gets too hot. A high-limit switch then shuts the burner off to protect it, while the blower keeps running to cool the furnace, so you feel cool air.
 
 Fix the airflow; repeated overheating stresses the heat exchanger. See [cracked heat exchanger](/cracked-heat-exchanger).
+
+### Clearing restricted airflow
+
+Work from the easiest fix outward, rechecking after each step:
+
+- Replace the filter if it is dirty, then run the furnace again. A monthly filter check is the DOE's guidance for keeping airflow up.
+- Open any closed supply registers, and pull rugs or furniture off the return grilles so air can get back to the furnace.
+- Leave enough registers open. Closing too many raises the pressure in the ducts and can trip the limit switch on its own.
+- Look for a collapsed or disconnected return duct in the attic, basement or crawl space.
+
+Stop and call a technician if the limit switch keeps tripping with a clean filter and open vents. That pattern can point to a weak blower motor, a faulty limit switch or ductwork too small for the furnace.
 
 ## Burner won't light or stay lit
 
@@ -48,7 +70,26 @@ Fix the airflow; repeated overheating stresses the heat exchanger. See [cracked 
 - **Gas supply:** a closed valve or a supply problem.
 - **Clogged condensate drain** on a high-efficiency furnace, which trips a safety switch; see [furnace leaking water](/furnace-leaking-water).
 
-Many furnaces flash a diagnostic code on the control board, explained on the label inside the door.
+### Cleaning the flame sensor
+
+The flame sensor is a single metal rod sitting in the burner flame, with one wire running to the control board, separate from the igniter. A lit flame conducts a tiny electrical current between the rod and the grounded burner, and the board uses that current to confirm the flame is actually burning. A dull film of oxidation or soot on the rod blocks the current, so the board cannot sense the flame and closes the gas valve within a few seconds, which is why the furnace lights and then dies.
+
+To clean it:
+
+- Turn off power at the furnace switch and close the gas shutoff valve.
+- Remove the burner-compartment panel and find the sensor rod; it is usually held by one screw and one wire connector.
+- Take out the screw, pull the rod free, and gently scuff the metal with an emery cloth or a non-metallic scouring pad to remove the film. Avoid coarse sandpaper, which leaves grit.
+- Wipe the rod clean, reinstall it, reconnect the wire, and restore gas and power.
+
+Stop and call a technician if the furnace still lights then dies after a cleaning, or if you are not comfortable working near the gas valve.
+
+## Reading the control board's blink code
+
+Behind the furnace's lower access panel, most modern furnaces have a control board with a small status light. When the board detects a fault, it flashes that light in a repeating pattern, such as two short flashes, a pause, then two again.
+
+Count the flashes and note the color, then match the pattern to the legend printed on the label inside the access door. The codes differ by maker and model, so the door label is the only reliable key; there is no single universal chart.
+
+A steady or slow, even flash usually means normal operation. A rapid flash or a specific repeating count flags a fault such as an open limit switch, a pressure-switch problem, a failed igniter or a flame-sense failure, which narrows down where to look.
 
 ## Cold air at some registers only
 
@@ -82,6 +123,14 @@ Some furnaces start the blower before the heat exchanger is fully warm, or after
 ### Should I turn off my furnace if it's blowing cold air?
 
 If the burner won't stay lit or a limit switch keeps tripping, turn it off and call a technician. If you smell gas, leave and call your gas utility.
+
+### How do I clean a furnace flame sensor?
+
+Turn off power and gas, then remove the single metal rod held by one screw and one wire in the burner area. Lightly scuff the metal with an emery cloth or scouring pad to remove the coating, wipe it, reinstall it, and restore power and gas. If the furnace still lights then shuts off, the igniter, gas valve or control board may be at fault.
+
+### Is my heat pump broken if it blows cold air in winter?
+
+Not necessarily. A heat pump reverses briefly to melt frost off its outdoor coil, and during that defrost cycle the indoor air can feel cool for a few minutes before warm air returns. If the cool air continues well past a few minutes, or the outdoor unit stays iced over, have it checked; see [heat pumps in cold weather](/heat-pump-in-cold-weather).
 
 <SourcesBox sources={[
   { title: "U.S. DOE: Energy Saver Guide (PDF), filter checks", url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf" },
