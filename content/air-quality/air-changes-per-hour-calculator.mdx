@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "calculator"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "air-purifier-sizing-guide"
   - "whole-house-ventilation-systems"
@@ -39,12 +39,44 @@ Air changes per hour is how many times a room's full volume of air is moved, rep
 
 Volume is length × width × ceiling height: a 12 × 15 ft room with an 8-foot ceiling holds 1,440 cubic feet. The 60 converts cubic feet per minute to cubic feet per hour.
 
+## From a target back to CFM
+
+The calculator also runs the formula in reverse: set a target and it returns the airflow. Rearranged, CFM needed = volume × target ACH ÷ 60.
+
+Take a 200 sq ft room with a 9-foot ceiling, so a volume of 1,800 cubic feet. To move its air 6 times an hour, you need 1,800 × 6 ÷ 60 = 180 CFM. Halving the target to 3 ACH halves the airflow to 90 CFM, because the two are directly proportional.
+
 ## Ventilation vs. filtration
 
 - **Ventilation** brings in outdoor air and exhausts indoor air. ASHRAE Standard 62.2 sets a home's continuous ventilation in cfm: 0.03 per square foot plus 7.5 per person, counted as bedrooms plus one. For a 2,000 sq ft, three-bedroom home that's 90 cfm, which in a 16,000-cubic-foot house is about 0.34 ACH. See [whole-house ventilation](/whole-house-ventilation-systems).
 - **Filtration** recirculates room air through a filter. AHAM's two-thirds rule for air purifiers, a smoke CADR of two-thirds of the floor area, works out to about 5 ACH of filtered air at an 8-foot ceiling. See the [air purifier sizing guide](/air-purifier-sizing-guide).
 
 The calculator's per-room targets are common rules of thumb for comparing rooms, not code requirements.
+
+## Turning a purifier's CADR into ACH
+
+A purifier's clean air delivery rate (CADR) is just an airflow in CFM, so it drops straight into the formula: filtered ACH = CADR × 60 ÷ room volume. The table below works that out for three CADR values at an 8-foot ceiling. See the [air purifier sizing guide](/air-purifier-sizing-guide) for matching CADR to a room.
+
+| Room (8-ft ceiling) | CADR 100 | CADR 200 | CADR 300 |
+| --- | --- | --- | --- |
+| 150 sq ft (1,200 cf) | 5.0 ACH | 10.0 ACH | 15.0 ACH |
+| 300 sq ft (2,400 cf) | 2.5 ACH | 5.0 ACH | 7.5 ACH |
+| 500 sq ft (4,000 cf) | 1.5 ACH | 3.0 ACH | 4.5 ACH |
+
+AHAM's two-thirds rule lands on about 5 ACH: a 300 sq ft room wants a smoke CADR near 200, and 200 × 60 ÷ 2,400 is 5.0. Doubling the CADR doubles the air changes, and doubling the room roughly halves them.
+
+## How fast a given ACH clears the air
+
+In a well-mixed room where the incoming air is clean and nothing new is being added, particle concentration falls exponentially. The fraction still in the air after a given time is e raised to the power of minus ACH times the hours elapsed. So one air change does not empty the room; it clears about 63% of what was there, because e to the minus 1 is 0.37.
+
+The table shows the percent removed at 2, 5 and 8 ACH. At 5 ACH, for instance, 30 minutes is half an hour, so the exponent is minus 2.5, about 8% remains, and 92% is gone.
+
+| Air changes per hour | 15 min | 30 min | 60 min |
+| --- | --- | --- | --- |
+| 2 ACH | 39% | 63% | 86% |
+| 5 ACH | 71% | 92% | 99% |
+| 8 ACH | 86% | 98% | ~100% |
+
+Real rooms clear more slowly because some air short-circuits between the inlet and outlet and misses the corners, so treat these as an upper bound. Higher ACH mainly buys speed: 8 ACH reaches in 15 minutes what 2 ACH takes a full hour to do.
 
 ## ACH50: measuring air leakage
 
@@ -67,6 +99,14 @@ AHAM's two-thirds rule works out to about 5 ACH of filtered air at an 8-foot cei
 ### What is ACH50?
 
 The air changes per hour measured with a blower door at 50 pascals of pressure, used to rate how airtight a house is.
+
+### How many air changes per hour clear smoke or a cooking smell?
+
+Faster is better, and the exponential decay sets the pace: at 5 air changes an hour a well-mixed room is about 92% clear in 30 minutes, and at 8 ACH about 98%. A purifier only pulls out the smoke particles, so for cooking odors and gases you also need activated carbon or an exhaust fan venting outdoors. AHAM's two-thirds rule gives roughly 5 ACH of filtered air, and smoke is a case to aim higher.
+
+### What ACH does a bedroom need?
+
+Fresh-air codes set bedroom ventilation in CFM, not ACH, so there is no single required number. For an air purifier, AHAM's two-thirds rule works out to about 5 filtered air changes an hour at an 8-foot ceiling, and light sleepers with allergies often run more. A larger CADR reaches that target on a quieter fan setting, which matters most at night.
 
 <SourcesBox sources={[
   { title: "ASHRAE: Standards 62.1 and 62.2 (residential ventilation rates)", url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2" },
