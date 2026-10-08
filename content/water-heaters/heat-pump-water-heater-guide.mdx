@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-06"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "water-heater-sizing-calculator"
   - "electric-water-heating-cost"
@@ -34,6 +34,12 @@ A heat pump water heater looks like an ordinary electric tank with a fan and com
 
 A small heat pump, essentially a refrigerator in reverse, absorbs heat from the air around the tank and transfers it to the water. Backup electric elements take over when demand is high or the air is too cold. Because it moves heat instead of making it, it delivers several units of heat for each unit of electricity.
 
+## Why it uses so little electricity
+
+Coefficient of performance (COP) is the heat a system delivers divided by the electricity it draws, measured in the same units. A plain electric resistance element has a COP of 1, since every unit of electricity becomes one unit of heat. Our water heater calculator assumes a heat pump water heater runs at a COP of about 3.5, meaning it delivers roughly 3.5 units of heat for each unit of electricity.
+
+At a COP of 3.5, the heat pump needs about 1 ÷ 3.5 = 0.29, or 29 percent, of the electricity a resistance tank uses to deliver the same hot water. Lower standby heat loss from the tank widens the gap further, which is why the modeled cost lands near a quarter of the resistance tank's. The 3.5 figure is an assumption; real-world COP varies with the air temperature around the tank and falls as that air gets colder.
+
 ## What it costs to run
 
 Annual energy cost for the default four-person household in our [water heater sizing calculator](/water-heater-sizing-calculator), at 18 cents per kWh and $1.35 per therm:
@@ -48,12 +54,35 @@ Annual energy cost for the default four-person household in our [water heater si
 
 At the calculator's assumed efficiencies, a heat pump water heater uses about a quarter of the electricity of a resistance tank, comfortably inside ENERGY STAR's "less than half" claim. For costs by state, see [electric water heating cost](/electric-water-heating-cost).
 
+## Heat pump vs other water heaters
+
+The table below sets the heat pump against the three most common alternatives, using the annual energy costs above for the same four-person household at 18 cents per kWh and an assumed $1.35 per therm.
+
+| Type | Energy cost per year | Efficiency | Install needs | Best for |
+|---|---|---|---|---|
+| Heat pump (hybrid) | $334 | COP about 3.5 (assumed) | 240V circuit, condensate drain, open air or ducting, extra height | All-electric home with a warm basement or garage |
+| Electric tank | $1,271 | Resistance, COP about 1 | 240V circuit | Small or low-use homes, tight spaces |
+| Gas tank | $467 | Combustion with flue and standby loss | Gas line, venting | Homes with cheap natural gas |
+| Gas tankless | $340 | UEF about 0.88 assumed, 0.95+ condensing | Gas line, larger venting, sometimes a bigger gas meter | High simultaneous demand, limited space |
+
+The heat pump wins clearly against both electric options and runs close to gas on cost. The choice against gas usually turns on fuel prices and whether you want to drop a gas appliance.
+
+## When it pays back
+
+The four-person example saves about $937 a year against a standard electric tank, which is $1,271 minus $334. At that rate, every $1,000 of extra upfront cost over a plain electric tank is recouped in about $1,000 ÷ $937 = 1.1 years. Lower use or a cheaper electricity rate stretches that out, and any HEAR rebate you qualify for shortens it.
+
 ## Operating modes
 
 - **Heat pump only:** the most efficient, with the slowest recovery.
 - **Hybrid or auto:** uses the heat pump and switches on the elements when you draw a lot of hot water.
 - **Electric only:** works like a standard electric tank, for when the space is too cold or you need fast recovery.
 - **Vacation:** holds the water at a low temperature while you're away.
+
+## Sizing and recovery
+
+A tank water heater is sized by its first-hour rating, the gallons of hot water it can deliver during your busiest hour. A heat pump moves heat slowly, so in heat-pump-only mode recovery is the slowest of any water heater type, and a household may need a larger tank to ride through peak demand. Our [water heater sizing calculator](/water-heater-sizing-calculator) offers standard residential tank sizes up to 80 gallons and adds a 20 percent planning margin to the peak hour.
+
+Hybrid mode fixes the recovery problem by switching on the resistance elements when you draw a lot of hot water at once. You trade some efficiency during those bursts for the fast recovery of a standard electric tank. A right-sized tank in hybrid mode suits most families, while heat-pump-only mode fits steady, moderate use.
 
 ## Installation requirements
 
@@ -64,7 +93,9 @@ At the calculator's assumed efficiencies, a heat pump water heater uses about a 
 
 ## Climate, cooling and noise
 
-The heat pump cools and dehumidifies the space it sits in. In a warm garage or a damp basement that's a bonus; in a heated room in winter, your heating system makes up the difference. The compressor and fan make some noise, so a utility room or garage is a better spot than next to a bedroom.
+The heat pump cools and dehumidifies the space it sits in. In a warm garage or a damp basement that's a bonus; in a heated room in winter, your heating system makes up the difference.
+
+The compressor and fan make some noise, so a utility room or garage is a better spot than next to a bedroom. For where that sits on the decibel scale against other equipment, see [HVAC noise levels explained](/hvac-noise-levels-explained).
 
 ## Rebates
 
@@ -93,6 +124,22 @@ Yes, if installed in a space that stays reasonably warm, such as a basement. In 
 ### Are heat pump water heaters noisy?
 
 They make some compressor and fan noise, similar to a small appliance running. Put one in a utility room, basement or garage rather than near a bedroom.
+
+### How much does a heat pump water heater cost to buy?
+
+It costs more upfront than a standard electric tank, and the premium depends on the model, tank size and install work. The four-person example's $937 a year saving recoups about $1,000 of that extra cost every 1.1 years, and HEAR rebates cover up to $1,750 for income-qualified households.
+
+### How much space does a heat pump water heater need?
+
+The heat pump pulls heat from the surrounding air, so it needs a certain volume of open air or ducting to that air, plus a condensate drain and extra height for the unit on top. Check the manufacturer's stated air-volume requirement before buying, since a tight closet usually will not supply enough.
+
+### How long does a heat pump water heater take to heat up?
+
+In heat-pump-only mode it recovers the slowest of any type, because it moves heat gradually rather than making it. Hybrid mode switches on the resistance elements for fast recovery when you draw a lot at once, which is why most households run it in hybrid.
+
+### Can I put a heat pump water heater in an unheated garage?
+
+You can, but in a cold garage it leans on its resistance elements more often, which erases much of the efficiency gain. It also cools and dehumidifies the space, a bonus in a hot climate but a drawback in winter.
 
 <SourcesBox sources={[
   { title: "ENERGY STAR: Heat pump water heater fact sheet (less than half the energy of a standard electric storage water heater)", url: "https://www.energystar.gov/sites/default/files/asset/document/Heat_Pump_Water_Heater_fact_sheet_12-22-edit.pdf" },
