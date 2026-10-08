@@ -244,7 +244,7 @@ function scanMdx(file) {
   const kwhExempt = (sent) => stateRe.test(sent)
     || /time[-\s]?of[-\s]?use|\bTOU\b|off[-\s]?peak|\bpeak\b/i.test(sent)
     || /example/i.test(sent)
-    || /÷|divided by|COP of|at an assumed/i.test(sent);
+    || /÷|divid(?:e|es|ed|ing)\b|COP of|at an assumed/i.test(sent);
   // (a1) kWh electricity rates — strict: any value that isn't canon is off-rate unless exempt
   // (so a bare $0.14/kWh is caught). Handles both "$0.14/kWh" and "14 cents per kWh".
   const kwhDollarRe = /\$\s?(\d[\d,]*(?:\.\d+)?)\s*(?:\/|per\s+)?\s*(?:kwh|kw h)\b/gi;
@@ -287,7 +287,11 @@ function scanMdx(file) {
 
   // (c) REGULATORY + phantom credit
   let reg = 0, phantom = 0;
-  for (const pat of [/\bSEER2\s*(13\.4|14\.3|13\.8)\b[^.]*\b(minimum|national)/gi, /\b(minimum)[^.]*\b15\.2\b/gi, /\b15\.2\b[^.]*\bminimum/gi, /\b2029\b/g]) reg += (body.match(pat) || []).length;
+  // The two 15.2<->minimum adjacency patterns catch prose that wrongly calls 15.2 a federal
+  // minimum (15.2 is the ENERGY STAR level, not a minimum). They use [^.\n|]* so the span stays
+  // inside one prose sentence and does not reach across table cells/rows (a table that correctly
+  // labels 13.4/14.3 "Federal minimum" and 15.2 "ENERGY STAR level" is not an error).
+  for (const pat of [/\bSEER2\s*(13\.4|14\.3|13\.8)\b[^.]*\b(minimum|national)/gi, /\b(minimum)[^.\n|]*\b15\.2\b/gi, /\b15\.2\b[^.\n|]*\bminimum/gi, /\b2029\b/g]) reg += (body.match(pat) || []).length;
   for (const s of sentences(body)) {
     if (/\b(25C|25D|tax credit|clean energy credit)\b/i.test(s)) {
       const expired = /expired|no longer|terminated|through 2025|ended|OBBBA|placed in service after/i.test(s);
@@ -431,6 +435,11 @@ function scanMdx(file) {
         return !/^\*\*.+\?\s*\*\*$/.test(t) && !/^#{1,6}\s+.*\?\s*$/.test(t);
       }).join('\n');
       over += (scan.match(/\bbest\b(?!\s+(?:for|practice|practices|way|ways))/gi) || []).length;
+    } else if (o === 'exact') {
+      // The overclaim is the adjective "exact" ("exact cost", "exact BTU"). Match the whole
+      // word only, so the adverb "exactly" and "exacting" (natural prose, not overclaims)
+      // don't count as a substring hit.
+      over += (noCode.match(/(?<![a-z])exact(?![a-z])/gi) || []).length;
     } else {
       over += (noCode.toLowerCase().split(o.toLowerCase()).length - 1);
     }
