@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "how-to-improve-indoor-air-quality"
   - "carbon-monoxide-detector-guide"
@@ -30,11 +30,28 @@ import { SourcesBox, RelatedArticles } from '@/components'
 
 **Start with the two the EPA and CPSC treat as essential: a radon test, with action recommended at 4 picocuries per liter or higher, and carbon monoxide alarms on every level. Then a monitor for particles and humidity, kept between 30% and 50%, shows how your ventilation, filtration and moisture control are working.**
 
+## The six tests at a glance
+
+Each test answers a different question, and only some need a laboratory. This table pairs each one with how you measure it and the number the EPA or CPSC attaches to it.
+
+| Test | What it measures | How you test | EPA or CPSC guidance |
+|------|------------------|--------------|----------------------|
+| Radon | Radioactive soil gas | Short-term or long-term kit, lab-analyzed | Fix at 4 pCi/L or higher; consider fixing 2 to 4 |
+| Carbon monoxide | CO from fuel-burning appliances | Alarm on every level, not a one-time test | Outdoor standard 9 ppm over 8 hours; standard alarms sound at 70 ppm |
+| Fine particles (PM2.5) | Smoke, cooking and outdoor particles | Home laser-particle monitor | Annual outdoor standard 9.0 micrograms per cubic meter |
+| Humidity | Water vapor in the air | Hygrometer or monitor | Keep 30% to 50%, below 60% |
+| VOCs and formaldehyde | Gases from paint, furniture, cleaners | Total-VOC monitor, or a lab sample for specific compounds | Control the source, then ventilate |
+| Mold | Mold growth and spores | Visual check; lab sampling for hidden mold | Clean it up and fix moisture; keep humidity below 60% |
+
+The radon, carbon monoxide and humidity numbers come with clear action points; the particle, VOC and mold rows are about trends and sources rather than a single pass-or-fail line.
+
 ## Radon
 
 Radon is a radioactive gas from the ground that you can't see or smell. The EPA recommends testing every home, and fixing it when the level is 4 picocuries per liter (pCi/L) or more.
 
 Short-term test kits are inexpensive; a long-term test gives a better picture of the year-round average. If a test comes back high, a certified radon mitigation contractor can install a venting system.
+
+The EPA draws two lines rather than one. At 4 pCi/L or more it recommends fixing the home; in the 2 to 4 band it suggests considering a fix, because no level is free of risk.
 
 ## Carbon monoxide
 
@@ -56,10 +73,31 @@ Consumer monitors report total VOCs as a relative reading, useful for seeing whe
 
 If you can see or smell mold, the EPA says testing usually isn't necessary: clean it up and fix the moisture that caused it. Sampling can help when you suspect hidden mold, but results are hard to interpret without a professional. Moisture is the real target.
 
+## What a consumer monitor's sensors can and can't do
+
+A typical home monitor bundles four sensors, and each has a different claim to accuracy. Knowing how each one works tells you which readings to trust and which to treat as a rough signal.
+
+- **Particle (PM2.5) sensor.** A small laser shines through a stream of air and a photodetector counts the light scattered off passing particles, then estimates mass from that count. It reacts within minutes to cooking or smoke, but it infers mass rather than weighing it, and readings can drift upward in very humid air as water coats the particles.
+- **Carbon dioxide sensor.** Better monitors use a nondispersive infrared (NDIR) sensor, which measures how much infrared light carbon dioxide absorbs in a sample chamber. CO2 itself is not the indoor hazard; it is a proxy for how much fresh air reaches the room, so a steady rise in a closed room points to weak ventilation.
+- **Humidity sensor.** A capacitive element changes its stored charge as it absorbs water vapor, giving a reliable relative-humidity percentage, which is why an inexpensive hygrometer is enough to track the 30% to 50% target.
+- **Total-VOC sensor.** A metal-oxide element reports a single combined index that rises and falls with total gases, so it flags that cleaning or painting raised levels without naming the compound; a laboratory sample is still needed to measure formaldehyde or any specific chemical.
+
+Treat the humidity reading as the firm number, the particle reading as a good relative trend, and the total-VOC reading as a motion detector for fumes rather than a measurement.
+
 ## Home monitors vs. professional testing
 
 - **Home monitors** track particles, humidity, temperature, CO2 and total VOCs continuously, and are best for spotting trends and spikes.
 - **Professional tests** measure specific pollutants to a laboratory standard, and are worth it for radon, formaldehyde or a health concern.
+
+## Reading a day of monitor data
+
+Picture a monitor logging particles and humidity through one day. Two readings stand out, and each points to a specific fix.
+
+Suppose fine particles sit near 5 micrograms per cubic meter all afternoon, then jump to 36 while two burners run at dinner. That example spike is four times the EPA's 9.0 microgram reference, since 36 divided by 9 equals 4, so the step is to run the range hood on high until the reading falls back toward the afternoon baseline.
+
+Later the humidity sensor reads 58% in the evening. That is under the 60% ceiling where mold risk climbs, but still 8 points above the 50% top of the EPA's 30% to 50% target, so running a dehumidifier or a bath and kitchen exhaust fan pulls it back into range.
+
+The pattern holds for any monitor: a short spike calls for ventilation at the source, while a reading that sits outside a target band calls for ongoing moisture or filtration control.
 
 ## What to do with the results
 
@@ -88,7 +126,8 @@ Between 30% and 50%, and below 60%, according to the EPA.
   { title: "EPA: A Brief Guide to Mold, Moisture and Your Home", url: "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home" },
   { title: "CPSC: Carbon monoxide alarms", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Carbon-Monoxide-Information-Center" },
   { title: "EPA: Mold course, chapter 2 (indoor humidity)", url: "https://www.epa.gov/mold/mold-course-chapter-2" },
-  { title: "EPA: National Ambient Air Quality Standards for particulate matter", url: "https://www.epa.gov/pm-pollution/national-ambient-air-quality-standards-naaqs-pm" }
+  { title: "EPA: National Ambient Air Quality Standards for particulate matter", url: "https://www.epa.gov/pm-pollution/national-ambient-air-quality-standards-naaqs-pm" },
+  { title: "EPA: Carbon Monoxide NAAQS (9 ppm / 8-hour standard)", url: "https://www.epa.gov/co-pollution/timeline-carbon-monoxide-co-national-ambient-air-quality-standards-naaqs" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
