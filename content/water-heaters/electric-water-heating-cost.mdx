@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "analysis"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-06"
-dateModified: "2026-09-30"
+dateModified: "2026-10-08"
 relatedArticles:
   - "water-heater-sizing-calculator"
   - "heat-pump-water-heater-guide"
@@ -59,6 +59,36 @@ A 50-gallon resistance tank against a heat pump water heater, at 18 cents per kW
 
 For three people at 18 cents per kWh: a 40-gallon tank costs about $68.98 a month, a 50-gallon $70.08, an 80-gallon $72.27, an electric tankless heater $57.32, and a heat pump water heater $18.79. Bigger tanks cost a little more mainly because they lose more heat standing by. The heat pump's advantage comes from moving heat out of the surrounding air rather than making it from electricity.
 
+## How many kWh a water heater uses
+
+The calculator's model gives the daily and yearly electricity for the same three-person household, about 60 gallons of hot water a day at average use, by heater type:
+
+| Heater | kWh per day | kWh per year |
+|---|---|---|
+| 40-gallon tank | 12.6 | 4,600 |
+| 50-gallon tank | 12.8 | 4,675 |
+| 80-gallon tank | 13.2 | 4,820 |
+| Electric tankless | 10.5 | 3,825 |
+| Heat pump water heater | 3.4 | 1,255 |
+
+Every resistance tank spends about 11.4 kWh a day heating the water itself; the rest is standby loss, the heat the tank radiates while sitting full. A bigger tank holds more hot water and has more surface, so it loses more: 1.2 kWh a day for a 40-gallon against 1.8 for an 80-gallon. That 0.6 kWh a day gap is about 219 kWh a year (0.6 times 365), roughly $39 at 18 cents per kWh.
+
+A heat pump water heater needs only about a quarter of the daily electricity because it moves heat from the surrounding air instead of making it with a resistance element. That is why its yearly total, about 1,255 kWh, sits far below every tank in the table.
+
+## Electric resistance vs gas and a heat pump
+
+Comparing fuels fairly means pricing the same delivered heat. One million BTU of hot water takes about 293 kWh of electric resistance heat, or about 10 therms of gas before the heater's losses.
+
+| Source | Cost per million BTU delivered |
+|---|---|
+| Electric resistance tank | $53.31 |
+| Heat pump water heater | $15.23 |
+| Natural gas (fuel only) | about $13.50 |
+
+Resistance heat is 293 times 18.19 cents, about $53.31, since every unit of electricity makes one unit of heat. A heat pump divides that by its 3.5 efficiency (293 ÷ 3.5 is about 84 kWh), about $15.23. Gas fuel is about 10 therms times an assumed $1.35, about $13.50, though a storage tank's losses push its real cost higher.
+
+A heat pump water heater lands close to gas, while a resistance tank costs roughly three to four times as much for the same heat. The full appliance comparison is in [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
+
 ## By state
 
 Electricity prices vary more than water use does. The same three-person household with a 50-gallon tank, at EIA's January-to-July 2026 state averages:
@@ -66,15 +96,25 @@ Electricity prices vary more than water use does. The same three-person househol
 | State | Average rate | Per month | Per year |
 |---|---|---|---|
 | North Dakota (lowest) | 12.36 cents | $48.12 | $578 |
+| Louisiana | 13.35 cents | $51.98 | $624 |
+| Washington | 14.40 cents | $56.06 | $673 |
+| Florida | 15.30 cents | $59.57 | $715 |
+| Texas | 16.06 cents | $62.53 | $751 |
 | U.S. average | 18.19 cents | $70.82 | $850 |
+| Illinois | 19.22 cents | $74.83 | $898 |
+| New York | 29.38 cents | $114.38 | $1,373 |
 | California | 33.25 cents | $129.45 | $1,554 |
 | Hawaii (highest) | 46.28 cents | $180.18 | $2,163 |
 
-Every state's average is in our [kWh cost calculator](/kwh-cost-calculator).
+Each row is the 50-gallon tank's 4,675 kWh a year at that state's rate. The calculator above carries every state's average; these span the national range. The same figures sit behind our [kWh cost calculator](/kwh-cost-calculator).
 
 ## Time-of-use rates
 
 A tank water heater stores heat, so on a time-of-use plan it can do most of its heating off-peak and coast through the expensive hours. A timer or a utility program that controls the heater does this automatically. Tankless heaters can't, because they heat only while water flows.
+
+Take the same 50-gallon tank for three people, about 389 kWh a month (12.8 kWh a day times 30.4), which costs about $70 on a flat 18 cents. Suppose a plan instead charges 30 cents peak and 12 cents off-peak, as an example; your plan's rates will differ.
+
+Heating that 389 kWh entirely off-peak costs 389 times $0.12, about $47 a month, against 389 times $0.30, about $117, if it all ran during peak. Moving the tank's heating from peak to off-peak is worth about $70 a month here, which is why a timer or utility control pays off.
 
 ## How to cut the cost
 
@@ -100,6 +140,22 @@ For an all-electric home, usually. It cuts water heating cost by roughly three q
 ### Is electric or gas water heating cheaper?
 
 At average prices, gas is cheaper than an electric resistance tank, and a heat pump water heater is about even with gas. See [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
+
+### How many kWh does a water heater use per hour?
+
+A typical 4,500-watt resistance element draws 4.5 kWh for each hour it actively heats (4,500 watts times one hour, divided by 1,000). It does not run around the clock, though. Across a full day a 50-gallon tank for three people averages about 12.8 kWh, which is only a few hours of actual element time.
+
+### How much does it cost to run a water heater per year?
+
+About $850 a year for a three-person household with a 50-gallon resistance tank at the U.S. average 18.19 cents per kWh, which is its 4,675 kWh times that rate. The same usage runs from about $578 in North Dakota to $2,163 in Hawaii. A heat pump water heater cuts the national figure to roughly $228 a year.
+
+### Does turning off the water heater save money?
+
+Turning it off for a trip saves mainly the standby loss, about 1.4 kWh a day for a 50-gallon tank, roughly 25 cents at 18 cents per kWh. For a weekend away that is real but small, and the tank spends energy reheating when you return. The better everyday lever is lowering the thermostat toward 120°F, which trims both standby and heating losses without the inconvenience.
+
+### What uses more electricity, a water heater or an air conditioner?
+
+In an all-electric home a resistance water heater is one of the largest year-round loads: about 4,675 kWh a year for three people in this model, close to half of the 10,356 kWh an average U.S. home uses in total. Air conditioning varies widely with climate and house size, so which one is larger depends on where you live. A heat pump water heater shrinks the water-heating share to about 1,255 kWh a year.
 
 <SourcesBox sources={[
   { title: "U.S. EIA: Electric Power Monthly, residential prices by state (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
