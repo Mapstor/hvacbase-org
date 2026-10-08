@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "ductwork-sizing-calculator"
   - "flexible-vs-rigid-ductwork"
@@ -40,6 +40,16 @@ The blower pushes conditioned air through supply ducts to registers in each room
 - **Flexible duct:** quick to install and usually pre-insulated, but needs to be pulled tight and supported; see [flexible vs. rigid ductwork](/flexible-vs-rigid-ductwork).
 - **Duct board:** fiberglass panels formed into rectangular ducts, insulated by design.
 
+The three compare at a glance on friction, insulation and where they fit a system:
+
+| Material | Interior surface | Insulation | Typical use |
+|---|---|---|---|
+| Sheet metal | Smooth, lowest friction | None built in; wrapped separately | Trunks and long runs |
+| Flexible duct | Ribbed, highest friction | Pre-insulated jacket | Short branch runs to registers |
+| Duct board | Fibrous and rigid, rougher than metal | Insulated by design | Rectangular trunks and plenums |
+
+The ribbed wall of flexible duct adds friction, so a flex run has to be one size larger than a smooth metal run carrying the same air. It also has to be pulled tight, because sags and tight bends choke airflow.
+
 ## Layouts
 
 - **Trunk and branch:** a main trunk with smaller branches to each room; the most common.
@@ -49,6 +59,12 @@ The blower pushes conditioned air through supply ducts to registers in each room
 ## Sizing
 
 Each duct is sized from the airflow it carries and the friction rate the blower can afford, with room airflow coming from a room-by-room load calculation. ACCA's Manual D is the industry method for the full system. Our [ductwork sizing calculator](/ductwork-sizing-calculator) sizes round and rectangular ducts from airflow and friction rate.
+
+### A worked example
+
+Picture a bedroom with an example cooling load of 6,000 BTU per hour, which is half of one ton at 12,000 BTU per hour. At a typical design airflow of about 400 CFM per ton, that room needs 0.5 times 400, or 200 CFM.
+
+Sizing 200 CFM at a common friction rate of 0.08 inches of water per 100 feet gives a 7.83-inch diameter, which rounds up to an 8-inch round duct. Air then moves at about 573 feet per minute, below the roughly 900 feet per minute where a run starts to sound noisy in a home.
 
 ## Return airflow
 
@@ -68,9 +84,17 @@ Ducts in attics, crawl spaces and garages lose heat through their walls as well 
 
 The EPA says duct cleaning has never been shown to prevent health problems, and isn't needed routinely. It's worth considering for visible mold growth, vermin, or enough dust and debris that it blows out of the registers. See [is air duct cleaning worth it](/air-duct-cleaning-worth-it).
 
-## When to replace
+## Repair, seal or replace
 
-Replace sections that are crushed, disconnected, torn or badly corroded, or a whole system that's badly undersized for the equipment. When replacing equipment, have the ducts checked; a new high-efficiency system on leaky, undersized ducts won't deliver its rated performance.
+Most duct problems are fixed by sealing, not by tearing anything out; match the fix to what you actually find.
+
+| What you find | The fix |
+|---|---|
+| Joints and seams leak, or a leakage test fails, but the duct is intact | Seal with mastic or UL 181 foil tape |
+| One section is crushed, disconnected or torn, and the rest is sound | Repair or replace that section |
+| Corrosion is widespread, or the system is badly undersized for the equipment | Replace the system |
+
+Chronic hot or cold rooms, whistling registers and a system that runs without reaching temperature usually point to sizing or leakage, not worn-out duct. When replacing equipment, have the ducts checked at the same time. A new high-efficiency system on leaky, undersized ducts will not deliver its rated performance.
 
 ## Frequently asked questions
 
@@ -89,6 +113,18 @@ Only for visible mold, vermin or heavy debris, according to the EPA; routine cle
 ### What's the best way to seal ductwork?
 
 Mastic over joints and seams, or UL 181 foil tape on clean, smooth metal. Ordinary cloth duct tape fails.
+
+### Can I add a return air duct to a room?
+
+Yes, and a room that stays warmer or colder than the rest with its door closed is often starved of return air. Where a dedicated return duct is impractical, a transfer grille or a gap under the door gives the supply air a path back to the system. See [cold air return vents](/cold-air-return-vents).
+
+### Is flexible or metal duct better?
+
+Smooth sheet metal has the lowest friction and is the usual choice for trunks and long runs. Flexible duct installs faster and comes pre-insulated, but its ribbed wall adds friction, so it has to be sized one step larger and pulled tight to avoid sags that choke airflow. See [flexible vs. rigid ductwork](/flexible-vs-rigid-ductwork).
+
+### How long does ductwork last?
+
+Sheet metal duct can last the life of the house when it stays sealed and dry, so ducts are usually replaced by condition rather than by age. Replace any run that is crushed, disconnected, torn or corroded, and have the whole system checked whenever you change the furnace, air conditioner or heat pump.
 
 <SourcesBox sources={[
   { title: "ENERGY STAR: Duct sealing (20 to 30% of air lost in a typical house)", url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing" },
