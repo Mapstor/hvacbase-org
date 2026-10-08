@@ -1,0 +1,2522 @@
+# REVIEW SHEET — top 30 pages by GA4 sessions (2026-10-08)
+
+For Marko to check each page against its live version. Pages are in GA4 sessions order.
+For each page: the live URL, title, H1, the opening answer, and every number stated in the
+body with a few words of context. Number capture covers body prose, the bold answer, and
+figure captions; for dense reference tables the key values and ranges are listed (marked
+"(table)"), not every cell. Frontmatter, diagram alt-text and code are excluded.
+
+Each page is marked **CHANGED since the first sheet (2026-10-07)** or **unchanged**, so you
+can start from the changed ones. Tick the three boxes at the end of each page.
+
+---
+
+## 1. ac-not-cooling  ·  1790 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/ac-not-cooling
+- **Title:** AC Not Cooling? Causes and Fixes, From the Filter to Refrigerant (2026)
+- **H1:** AC Not Cooling? Causes and Fixes
+- **Answer (first two body sentences):** When an air conditioner runs but blows room-temperature air, the cause is almost always one of four cheap, fixable things: A clogged air filter A dirty outdoor coil A thermostat set wrong Blocked or closed vents Work through those first, they solve the large majority of "not cooling" calls and cost nothing but a little time.
+- **Bold answer:** _(page opens directly with its content; no single bold-answer line)_
+- **Numbers in the body (44):**
+  - `four` — intro: almost always one of four cheap, fixable things
+  - `under two hours` — most homeowners can get cooling back in
+  - `four` — first diagram caption: the four quick checks
+  - `Three` — how cooling fails: three things have to work
+  - `Nine times out of ten` — it's airflow
+  - `5-Minute` — section heading: The 5-Minute Diagnostic
+  - `5°F` — set thermostat below room temperature
+  - `15 minutes` — let the system run
+  - `15–20°F` — healthy supply air colder than return (temperature split)
+  - `10–15°F` — range indicating reduced capacity
+  - `10°F` — under this split points to a real problem
+  - `10 minutes` — section 1 heading: Start With the Filter
+  - `5–15%` — DOE: clean filter can cut AC energy use
+  - `MERV 6–11` — filter balances filtration and airflow for most homes
+  - `MERV 1–4 / 30 days` — Fiberglass filter (table)
+  - `MERV 5–8 / 60–90 days` — Pleated standard filter (table)
+  - `MERV 9–12 / 90 days` — High-efficiency filter (table)
+  - `MERV 13–16 / 90–120 days` — Premium pleated filter (table)
+  - `two to four screws` — section 2: pulling outdoor unit panels
+  - `15 minutes` — section 2: let coil prove itself after rinsing
+  - `15 minutes` — section 3: wait to check thermostat accuracy
+  - `a couple of degrees` — thermostat mis-reading threshold
+  - `80%` — keep at least this share of vents fully open
+  - `20%` — callout: shutting more than about this share of vents raises static pressure
+  - `two to six screws` — section 7: pulling air handler access panel
+  - `Section 608` — EPA rule: only certified technicians may handle refrigerant
+  - `R-410A, 2006+` — refrigerant table: most residential systems, AIM Act phase-down
+  - `R-22, Pre-2010` — refrigerant table: Freon, phased out
+  - `R-32` — refrigerant table: newer high-efficiency, lower GWP
+  - `R-454B, 2025+` — refrigerant table: current low-GWP replacement for R-410A
+  - `a couple of hours` — section 9: small ice buildups clear in this time
+  - `20%` — ENERGY STAR: duct leaks can cut efficiency by as much as
+  - `2021 IECC` — duct insulation code reference
+  - `R-8` — duct insulation needed in attics (3 inches diameter and larger)
+  - `3 inches` — duct diameter threshold for R-8 in attics
+  - `R-6` — duct insulation in other unconditioned spaces
+  - `$75–$150` — repair cost table: diagnostic visit
+  - `$150–$500` — repair cost table: minor parts
+  - `$800–$2,500` — repair cost table: major repair
+  - `$4,000–$8,000+` — repair cost table: full replacement
+  - `$80–$200` — a tune-up runs roughly, in most areas
+  - `5–15%` — SourcesBox: DOE filter energy impact
+  - `20%` — SourcesBox: ENERGY STAR duct leaks cut efficiency
+  - `608` — SourcesBox: EPA Section 608 Refrigerant Handling Certification
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 2. ac-tonnage-calculator  ·  1019 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/ac-tonnage-calculator
+- **Title:** AC Tonnage Calculator Per Square Foot (+Sizing Chart) 2026
+- **H1:** AC Tonnage Calculator Per Square Foot (+Sizing Chart)
+- **Answer (first two body sentences):** Two contractors walk through the same house and write down different numbers: one says 4 tons, the other 3.5. Neither shows the math.
+- **Bold answer:** At average insulation and 8-foot ceilings, the calculator puts a 2,000 sq ft home at 3.5 tons in a mixed climate (Washington DC, Kansas City), 3 tons in cold climates, and 4 to 5 tons in hot ones.
+- **Numbers in the body (150):**
+  - `4 tons` — one contractor's quote in opening
+  - `3.5` — other contractor's quote in opening (tons)
+  - `2,000 sq ft` — home size in bold answer
+  - `3.5 tons` — bold answer, mixed climate
+  - `3 tons` — bold answer, cold climates
+  - `4 to 5 tons` — bold answer, hot climates
+  - `12,000 BTU per hour` — one ton of cooling
+  - `2,000 sq ft` — first diagram caption, Zone 4 example
+  - `Zone 4` — first diagram caption example zone
+  - `20 BTU per hour per square foot` — baseline rule of thumb
+  - `1.40` — Z1 very hot climate multiplier (table)
+  - `1.20` — Z2 hot climate multiplier (table)
+  - `1.10` — Z3 warm climate multiplier (table)
+  - `1.00` — Z4 mixed climate multiplier (table)
+  - `0.90` — Z5 cool climate multiplier (table)
+  - `0.85` — Z6 cold climate multiplier (table)
+  - `0.80` — Z7 very cold climate multiplier (table)
+  - `1.3` — poor insulation multiplier (table)
+  - `1.0` — average insulation multiplier (table)
+  - `0.9` — good insulation multiplier (table)
+  - `0.8` — excellent insulation multiplier (table)
+  - `8 ft 1.0` — ceiling height multiplier (table)
+  - `9 ft 1.1` — ceiling height multiplier (table)
+  - `10 ft 1.2` — ceiling height multiplier (table)
+  - `12 ft+ 1.4` — ceiling height multiplier (table)
+  - `Shaded 0.9` — sun exposure multiplier (table)
+  - `Average 1.0` — sun exposure multiplier (table)
+  - `Full sun 1.1` — sun exposure multiplier (table)
+  - `Heavy sun 1.2` — sun exposure multiplier (table)
+  - `+1% per window above 15` — windows factor (table)
+  - `−1% per window below` — windows factor (table)
+  - `+2% per person above 2` — occupants factor (table)
+  - `12,000` — divisor to get tons
+  - `1.5, 2, 2.5, 3, 3.5, 4, 4.5 or 5 tons` — standard sizes rounded up to
+  - `5 tons` — above which one residential unit won't cover the load
+  - `800 to 900 square feet per ton` — ACCA/SPEER Manual J,D,S guidance
+  - `412` — sq ft per ton at defaults, Zone 1 (prose)
+  - `721` — sq ft per ton at defaults, Zone 7 (prose)
+  - `3,200 sq ft` — worst-case compounding example house
+  - `10-foot ceilings` — worst-case example
+  - `25 windows` — worst-case example
+  - `Zone 2` — worst-case example zone
+  - `13.7 tons` — worst-case example computed load
+  - `51 BTU per square foot` — worst-case example per sq ft
+  - `14 tons` — what the worst-case result does not mean to buy
+  - `15 windows` — chart defaults
+  - `4 occupants` — chart defaults
+  - `1,000 sq ft` — chart row: Z1 2.5, Z2 2.5, Z3 2, Z4 2, Z5 2, Z6 1.5, Z7 1.5 (table)
+  - `1,200 sq ft` — chart row: Z1 3, Z2 2.5, Z3 2.5, Z4 2.5, Z5 2, Z6 2, Z7 2 (table)
+  - `1,500 sq ft` — chart row: Z1 4, Z2 3.5, Z3 3, Z4 3, Z5 2.5, Z6 2.5, Z7 2.5 (table)
+  - `1,800 sq ft` — chart row: Z1 4.5, Z2 4, Z3 3.5, Z4 3.5, Z5 3, Z6 3, Z7 2.5 (table)
+  - `2,000 sq ft` — chart row: Z1 5, Z2 4.5, Z3 4, Z4 3.5, Z5 3.5, Z6 3, Z7 3 (table)
+  - `2,200 sq ft` — chart row: Z1 2 systems, Z2 5, Z3 4.5, Z4 4, Z5 3.5, Z6 3.5, Z7 3.5 (table)
+  - `2,500 sq ft` — chart row: Z3 5, Z4 4.5, Z5 4, Z6 4, Z7 3.5 (table)
+  - `2,800 sq ft` — chart row: Z4 5, Z5 4.5, Z6 4.5, Z7 4 (table)
+  - `3,000 sq ft` — chart row: Z5 5, Z6 4.5, Z7 4.5 (table)
+  - `3,500 sq ft` — chart row: Z7 5, rest 2 systems (table)
+  - `60,000 BTU/hr` — 5 tons, largest standard residential size
+  - `2,060 sq ft` — where estimate passes 5 tons in Zone 1
+  - `2,885 sq ft` — where estimate passes 5 tons in Zone 4
+  - `3,606 sq ft` — where estimate passes 5 tons in Zone 7
+  - `2 tons` — 1,000 sq ft in most climates
+  - `1.5 tons` — 1,000 sq ft cold zones Z6, Z7
+  - `2.5 tons` — 1,000 sq ft two hottest zones Z1, Z2
+  - `3 tons` — 1,500 sq ft mixed or warm climate
+  - `2.5 tons` — 1,500 sq ft cool and cold zones
+  - `3.5 to 4 tons` — 1,500 sq ft hot zones
+  - `3.5 tons` — 1,500 sq ft Zone 4 with poor insulation
+  - `2.5 tons` — 1,500 sq ft Zone 4 with good/excellent insulation
+  - `3.5 tons` — 2,000 sq ft mixed climate
+  - `3 to 3.5 tons` — 2,000 sq ft cool and cold zones
+  - `4 to 5 tons` — 2,000 sq ft hot zones
+  - `4.5 tons` — 2,500 sq ft mixed climate
+  - `3.5 to 4 tons` — 2,500 sq ft cool and cold zones
+  - `5 tons` — 2,500 sq ft warm zone
+  - `4.5 to 5 tons` — 3,000 sq ft cool and cold zones
+  - `1,800 sq ft` — worked example 1, Atlanta Zone 3
+  - `9-foot ceilings` — worked example 1
+  - `18 windows` — worked example 1
+  - `4 occupants` — worked example 1
+  - `1,800 × 20 = 36,000 BTU/hr` — worked example 1 baseline
+  - `1.10` — Zone 3 factor, example 1
+  - `1.1` — 9-ft ceilings factor, example 1
+  - `1.1` — full sun factor, example 1
+  - `1.03` — 18 windows factor, example 1
+  - `1.04` — 4 people factor, example 1
+  - `51,328 BTU/hr = 4.28 tons` — worked example 1 result, 4.5-ton unit
+  - `3.5 tons` — chart value for same size/zone, example 1 comparison
+  - `1,200 sq ft` — worked example 2, condo Zone 4
+  - `8-foot ceilings` — worked example 2
+  - `10 windows` — worked example 2
+  - `2 occupants` — worked example 2
+  - `1,200 × 20 = 24,000 BTU/hr` — worked example 2 baseline
+  - `1.00` — Zone 4 factor, example 2
+  - `0.8` — excellent insulation factor, example 2
+  - `0.9` — shaded factor, example 2
+  - `0.95` — 10 windows factor, example 2
+  - `16,416 BTU/hr = 1.37 tons` — worked example 2 result, 1.5-ton unit
+  - `one ton per 500 square feet` — contractor rule of thumb, example 2
+  - `2.5 tons` — quote from 500 sq ft rule, example 2
+  - `67% more` — capacity vs calculator, example 2
+  - `2,500 sq ft` — worked example 3, 1970s Chicago Zone 5
+  - `8-foot ceilings` — worked example 3
+  - `20 windows` — worked example 3
+  - `5 occupants` — worked example 3
+  - `2,500 × 20 = 50,000 BTU/hr` — worked example 3 baseline
+  - `0.90` — Zone 5 factor, example 3
+  - `1.3` — poor insulation factor, example 3
+  - `1.05` — 20 windows factor, example 3
+  - `1.06` — 5 people factor, example 3
+  - `65,111 BTU/hr = 5.43 tons` — worked example 3 result, past single-unit limit
+  - `0.9 instead of 1.3` — good vs poor insulation, example 3
+  - `45,077 BTU/hr, or 3.76 tons` — example 3 with good insulation, single 4-ton unit
+  - `5 tons (60,000 BTU/hr)` — standard residential central AC top
+  - `1.5 / 18,000` — tons to BTU table
+  - `2 / 24,000` — tons to BTU table
+  - `2.5 / 30,000` — tons to BTU table
+  - `3 / 36,000` — tons to BTU table
+  - `3.5 / 42,000` — tons to BTU table
+  - `4 / 48,000` — tons to BTU table
+  - `4.5 / 54,000` — tons to BTU table
+  - `5 / 60,000` — tons to BTU table
+  - `one short ton (2,000 lb)` — ice ton origin
+  - `2,000 × 144 = 288,000 BTU` — melting a ton of ice
+  - `24 hours` — spread over, giving 12,000 BTU/hr
+  - `12,000 BTU per hour` — ice calculation result
+  - `412` — sq ft per ton Z1 very hot (table)
+  - `481` — sq ft per ton Z2 hot (table)
+  - `524` — sq ft per ton Z3 warm (table)
+  - `577` — sq ft per ton Z4 mixed (table)
+  - `641` — sq ft per ton Z5 cool (table)
+  - `679` — sq ft per ton Z6 cold (table)
+  - `721` — sq ft per ton Z7 very cold (table)
+  - `1,500 full-load cooling hours` — annual cooling cost assumption
+  - `$0.18 per kWh` — electricity rate assumption
+  - `2 tons: $484 / $453 / $405 / $324` — cooling cost at SEER2 13.4/14.3/16/20 (table)
+  - `3 tons: $725 / $680 / $608 / $486` — cooling cost at SEER2 13.4/14.3/16/20 (table)
+  - `4 tons: $967 / $906 / $810 / $648` — cooling cost at SEER2 13.4/14.3/16/20 (table)
+  - `5 tons: $1,209 / $1,133 / $1,013 / $810` — cooling cost at SEER2 13.4/14.3/16/20 (table)
+  - `SEER2 13.4 / 14.3 / 16 / 20` — cost table column headers
+  - `tons × 12,000 × 1,500 ÷ (SEER2 × 1,000) × $0.18` — cost formula prose
+  - `13.4 SEER2` — federal minimum split AC North
+  - `14.3` — federal minimum South/Southwest below 45,000 BTU/hr
+  - `45,000 BTU/hr` — threshold for South/Southwest minimum
+  - `13.8` — federal minimum at 45,000 BTU/hr and above
+  - `half a ton too big` — FAQ question
+  - `12,000` — FAQ divide data-plate BTU by, to find tonnage
+  - `18, 24, 30, 36, 42, 48 or 60` — model number BTU codes = 1.5 through 5 tons
+  - `3-ton unit delivers 36,000 BTU per hour` — FAQ on SEER2 vs capacity
+  - `half a ton` — FAQ threshold to question contractor difference
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 3. air-conditioner-btu-calculator  ·  901 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/air-conditioner-btu-calculator
+- **Title:** Air Conditioner BTU Calculator: What Size AC Do You Need? (2026)
+- **H1:** Air Conditioner BTU Calculator: What Size AC Do You Need?
+- **Answer (first two body sentences):** Every house has one room that never cools down: the bedroom over the garage, the office with the west window, the kitchen at dinnertime. Whether you're buying a window unit, a portable or a mini split head for it, the BTU rating decides whether it keeps up.
+- **Bold answer:** ENERGY STAR's sizing chart puts a 5,000 BTU unit in a 100 to 150 sq ft room, 12,000 BTU in 450 to 550 sq ft, and 18,000 BTU in 700 to 1,000 sq ft, before adjustments for sun, people and cooking.
+- **Numbers in the body (160):**
+  - `5,000 BTU` — bold answer: unit for 100 to 150 sq ft room
+  - `100 to 150 sq ft` — bold answer: room for 5,000 BTU unit
+  - `12,000 BTU` — bold answer: in 450 to 550 sq ft
+  - `450 to 550 sq ft` — bold answer: room for 12,000 BTU
+  - `18,000 BTU` — bold answer: in 700 to 1,000 sq ft
+  - `700 to 1,000 sq ft` — bold answer: room for 18,000 BTU
+  - `15 × 12 ft` — bold answer: default living room size
+  - `about 5,400 BTU per hour` — bold answer: default living room need
+  - `6,000 BTU` — bold answer: default unit
+  - `100 to 150 sq ft` — sizing chart table: 5,000 BTU/hr (table)
+  - `5,000 BTU/hr` — sizing chart table (table)
+  - `150 to 250 sq ft` — sizing chart table: 6,000 BTU/hr (table)
+  - `6,000 BTU/hr` — sizing chart table (table)
+  - `250 to 300 sq ft` — sizing chart table: 7,000 BTU/hr (table)
+  - `7,000 BTU/hr` — sizing chart table (table)
+  - `300 to 350 sq ft` — sizing chart table: 8,000 BTU/hr (table)
+  - `8,000 BTU/hr` — sizing chart table (table)
+  - `350 to 400 sq ft` — sizing chart table: 9,000 BTU/hr (table)
+  - `9,000 BTU/hr` — sizing chart table (table)
+  - `400 to 450 sq ft` — sizing chart table: 10,000 BTU/hr (table)
+  - `10,000 BTU/hr` — sizing chart table (table)
+  - `450 to 550 sq ft` — sizing chart table: 12,000 BTU/hr (table)
+  - `12,000 BTU/hr` — sizing chart table (table)
+  - `550 to 700 sq ft` — sizing chart table: 14,000 BTU/hr (table)
+  - `14,000 BTU/hr` — sizing chart table (table)
+  - `700 to 1,000 sq ft` — sizing chart table: 18,000 BTU/hr (table)
+  - `18,000 BTU/hr` — sizing chart table (table)
+  - `10%` — adjustment: heavily shaded room reduce capacity
+  - `10%` — adjustment: very sunny room increase capacity
+  - `600 BTU` — adjustment: each additional person beyond two
+  - `4,000 BTU` — adjustment: kitchen
+  - `1,000 sq ft` — above this is whole floor/central air
+  - `32` — climate BTU/sq ft: very hot (table)
+  - `30` — climate BTU/sq ft: hot-humid (table)
+  - `28` — climate BTU/sq ft: hot-dry (table)
+  - `22` — climate BTU/sq ft: mixed-humid (table)
+  - `20` — climate BTU/sq ft: mixed-dry (table)
+  - `18` — climate BTU/sq ft: cool (table)
+  - `16` — climate BTU/sq ft: cold (table)
+  - `14` — climate BTU/sq ft: very cold (table)
+  - `1.0` — room type factor: bedroom (table)
+  - `1.0` — room type factor: kitchen (table)
+  - `0.9` — room type factor: bathroom (table)
+  - `0.8` — room type factor: basement (table)
+  - `1.1` — room type factor: living room (table)
+  - `1.2` — room type factor: home office (table)
+  - `1.3` — room type factor: garage (table)
+  - `1.5` — room type factor: sunroom (table)
+  - `1.3` — windows factor: single pane (table)
+  - `1.0` — windows factor: double pane (table)
+  - `0.9` — windows factor: Low-E (table)
+  - `0.8` — windows factor: triple pane (table)
+  - `+3%` — window area: per 10% of floor area that's glass (table)
+  - `10%` — window area: floor area that's glass unit (table)
+  - `1.3` — insulation factor: poor (table)
+  - `1.0` — insulation factor: average (table)
+  - `0.9` — insulation factor: good (table)
+  - `0.85` — insulation factor: excellent (table)
+  - `0.9` — sun factor: heavy shade (table)
+  - `1.0` — sun factor: moderate (table)
+  - `1.1` — sun factor: direct sun (table)
+  - `1.15` — sun factor: all-day south/southwest sun (table)
+  - `8 ft` — ceiling height divisor (table)
+  - `9 ft = 1.125` — ceiling height factor example (table)
+  - `10 ft = 1.25` — ceiling height factor example (table)
+  - `4,000 BTU` — flat amount: kitchen cooking heat
+  - `600 BTU` — flat amount: each person beyond two
+  - `400 BTU` — flat amount: each appliance listed
+  - `5,000, 6,000, 8,000, 10,000, 12,000, 14,000, 18,000, 24,000, 30,000 or 36,000 BTU` — common sizes it rounds up to
+  - `36,000` — above this one room unit won't cover it
+  - `168 sq ft` — kitchen example caption: room area
+  - `30` — kitchen example caption: multiplier
+  - `5,040 BTU per hour` — kitchen example caption: base load
+  - `135` — kitchen example caption: window area addition
+  - `4,000` — kitchen example caption: cooking
+  - `600` — kitchen example caption: third person
+  - `800` — kitchen example caption: two appliances
+  - `10,575` — kitchen example caption: total
+  - `12,000 BTU` — kitchen example caption: rounded unit
+  - `15 × 12 ft` — example 1: living room size
+  - `30 sq ft` — example 1: double-pane windows
+  - `8-ft ceiling` — example 1: ceiling
+  - `two people` — example 1
+  - `two appliances` — example 1
+  - `180 sq ft` — example 1: area
+  - `22` — example 1: climate multiplier
+  - `3,960 BTU/hr` — example 1: base
+  - `1.1` — example 1: living room factor
+  - `1.05` — example 1: window area factor
+  - `4,574` — example 1: subtotal
+  - `800` — example 1: two appliances
+  - `5,374 BTU/hr` — example 1: total
+  - `6,000 BTU` — example 1: unit
+  - `12 × 10 ft` — example 2: home office size
+  - `20 sq ft` — example 2: west-facing glass
+  - `one person` — example 2
+  - `three appliances` — example 2
+  - `120 sq ft` — example 2: area
+  - `28` — example 2: climate multiplier
+  - `3,360 BTU/hr` — example 2: base
+  - `1.2` — example 2: office factor
+  - `1.05` — example 2: window area factor
+  - `1.1` — example 2: direct sun factor
+  - `4,657` — example 2: subtotal
+  - `1,200` — example 2: three appliances
+  - `5,857 BTU/hr` — example 2: total
+  - `6,000 BTU` — example 2: unit
+  - `14 × 12 ft` — example 3: kitchen size
+  - `15 sq ft` — example 3: windows
+  - `three people` — example 3
+  - `two appliances` — example 3
+  - `168 sq ft` — example 3: area
+  - `30` — example 3: climate multiplier
+  - `5,040 BTU/hr` — example 3: base
+  - `1.027` — example 3: window area factor
+  - `5,175` — example 3: subtotal
+  - `4,000` — example 3: cooking
+  - `600` — example 3: third person
+  - `800` — example 3: appliances
+  - `10,575 BTU/hr` — example 3: total
+  - `12,000 BTU` — example 3: unit
+  - `40%` — kitchen bigger than office
+  - `4,000 BTU` — cooking allowance
+  - `12,000 BTU` — 500 sq ft section: ENERGY STAR answer
+  - `450 to 550 sq ft` — 500 sq ft section: chart range
+  - `25 × 20 ft` — 500 sq ft section: bedroom size
+  - `40 sq ft` — 500 sq ft section: windows
+  - `11,264 BTU/hr` — 500 sq ft section: bedroom result
+  - `12,000 BTU` — 500 sq ft section: bedroom unit
+  - `13,190 BTU/hr` — 500 sq ft section: living room result
+  - `14,000 BTU` — 500 sq ft section: living room unit
+  - `400 BTU` — 500 sq ft section: per appliance
+  - `100 to 150 sq ft` — 5,000 BTU section: ENERGY STAR answer
+  - `12.5 × 12 ft` — 5,000 BTU section: bedroom size
+  - `150 sq ft` — 5,000 BTU section: bedroom area
+  - `15 sq ft` — 5,000 BTU section: windows
+  - `two devices` — 5,000 BTU section
+  - `4,199 BTU/hr` — 5,000 BTU section: result
+  - `5,000 BTU` — 5,000 BTU section: unit fits
+  - `15 × 12 ft` — 5,000 BTU section: larger bedroom
+  - `4,879` — 5,000 BTU section: larger bedroom result
+  - `6,000` — 5,000 BTU section: steps up to
+  - `33 to 50 BTU per sq ft` — BTU per sq ft: small rooms
+  - `100 to 150 sq ft` — BTU per sq ft: small rooms range
+  - `About 22 to 27 BTU per sq ft` — BTU per sq ft: mid-size rooms
+  - `350 to 550 sq ft` — BTU per sq ft: mid-size range
+  - `18 to 26 BTU per sq ft` — BTU per sq ft: large rooms
+  - `700 to 1,000 sq ft` — BTU per sq ft: large range
+  - `14 BTU per sq ft` — calculator climate rate: very cold
+  - `32` — calculator climate rate: very hot
+  - `20 BTU per sq ft` — tonnage calculator starting point
+  - `20 to 27 BTU per square foot` — FAQ: mid-size room
+  - `12,000 BTU` — FAQ: ENERGY STAR 450 to 550 sq ft room
+  - `450 to 550 sq ft` — FAQ: ENERGY STAR room
+  - `12,000 BTU` — FAQ: 500 square feet
+  - `14,000` — FAQ: living room with electronics or sunny
+  - `100 to 150 square feet` — FAQ: 5,000 BTU unit
+  - `5,000 BTU` — FAQ: unit for 100-150 sq ft
+  - `36,000 BTU` — FAQ: single rooms up to
+  - `one ton is 12,000 BTU per hour` — which type section: central systems
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 4. mini-split-sizing-calculator  ·  624 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/mini-split-sizing-calculator
+- **Title:** Mini Split Sizing Calculator: What BTU Mini Split Do I Need? (2026)
+- **H1:** Mini Split Sizing Calculator: What BTU Mini Split Do I Need?
+- **Answer (first two body sentences):** Mini splits are sized room by room, not for the whole house, which is why three installers can quote three different setups for the same home. Get a head too big and it cools the room fast, shuts off and leaves the air damp.
+- **Bold answer:** Size each head to its room: the calculator uses about 20 BTU per square foot for bedrooms and offices, 25 for living rooms and kitchens (plus 4,000 BTU for cooking), 18 for basements and 30 for sunrooms, then adjusts for climate, insulation and sun.
+- **Numbers in the body (119):**
+  - `20 BTU per square foot` — base rate for bedrooms and offices (bold answer)
+  - `25` — BTU per sq ft for living rooms and kitchens (bold answer)
+  - `4,000 BTU` — added for cooking (bold answer)
+  - `18` — BTU per sq ft for basements (bold answer)
+  - `30` — BTU per sq ft for sunrooms (bold answer)
+  - `400 sq ft` — living room example after the bold answer
+  - `10,000 BTU per hour` — moderate-climate 400 sq ft living room load
+  - `12,000 BTU` — head the 400 sq ft living room rounds up to
+  - `Bedroom 20` — room type base rate table
+  - `Office 20` — room type base rate table
+  - `Basement 18` — room type base rate table
+  - `Living room 25` — room type base rate table
+  - `Kitchen 25` — room type base rate table
+  - `Sunroom 30` — room type base rate table
+  - `Hot 1.2` — climate multiplier, South/Southwest
+  - `Moderate 1.0` — climate multiplier, Mid-Atlantic/mixed
+  - `Cold 0.9` — climate multiplier, northern states
+  - `Poor 1.2` — insulation multiplier
+  - `Average 1.0` — insulation multiplier
+  - `Good 0.9` — insulation multiplier
+  - `Shaded 0.9` — sun multiplier
+  - `Moderate 1.0` — sun multiplier
+  - `Full sun 1.15` — sun multiplier
+  - `4,000 BTU` — kitchens add this after multipliers, for cooking heat
+  - `6,000 BTU` — no room goes below (smallest common indoor head)
+  - `3,000 BTU step` — each room rounds up to the next step: 6,000, 9,000, 12,000
+  - `5,000 BTU` — ENERGY STAR room AC chart low end
+  - `100 to 150 sq ft` — ENERGY STAR room for the 5,000 BTU unit
+  - `18,000 BTU` — ENERGY STAR room AC chart high end
+  - `700 to 1,000 sq ft` — ENERGY STAR room for the 18,000 BTU unit
+  - `15%` — calculator's full-sun adjustment
+  - `10%` — ENERGY STAR's full-sun adjustment
+  - `600 BTU` — ENERGY STAR extra per occupant beyond two, not included
+  - `two` — occupants beyond which ENERGY STAR adds BTU
+  - `150 sq ft` — size chart smallest row: Bedroom/office 6,000, Living 6,000, Kitchen 9,000, Basement 6,000, Sunroom 6,000 (table)
+  - `1,000 sq ft` — size chart largest row: 21,000 / 27,000 / 30,000 / 18,000 / 30,000 (table)
+  - `6,000 to 30,000 BTU` — overall range of head sizes across the size chart (table)
+  - `6,000, 9,000, 12,000, 15,000, 18,000 and 24,000 BTU` — common fixed head sizes sold
+  - `21,000 or 27,000` — uncommon head sizes
+  - `6,000 BTU` — coverage table: bedroom/office 300, living 240, hot+sun 173 sq ft
+  - `300 sq ft` — 6,000 BTU bedroom/office coverage
+  - `240 sq ft` — 6,000 BTU living room coverage
+  - `173 sq ft` — 6,000 BTU living room hot+full sun coverage
+  - `9,000 BTU` — coverage table: 450 / 360 / 260 sq ft
+  - `450 sq ft` — 9,000 BTU bedroom/office
+  - `360 sq ft` — 9,000 BTU living room
+  - `260 sq ft` — 9,000 BTU living room hot+sun
+  - `12,000 BTU` — coverage table: 600 / 480 / 347 sq ft
+  - `600 sq ft` — 12,000 BTU bedroom/office
+  - `480 sq ft` — 12,000 BTU living room
+  - `347 sq ft` — 12,000 BTU living room hot+sun
+  - `15,000 BTU` — coverage table: 750 / 600 / 434 sq ft
+  - `750 sq ft` — 15,000 BTU bedroom/office
+  - `600 sq ft` — 15,000 BTU living room
+  - `434 sq ft` — 15,000 BTU living room hot+sun
+  - `18,000 BTU` — coverage table: 900 / 720 / 521 sq ft
+  - `900 sq ft` — 18,000 BTU bedroom/office
+  - `720 sq ft` — 18,000 BTU living room
+  - `521 sq ft` — 18,000 BTU living room hot+sun
+  - `24,000 BTU` — coverage table: 1,200 / 960 / 695 sq ft
+  - `1,200 sq ft` — 24,000 BTU bedroom/office
+  - `960 sq ft` — 24,000 BTU living room
+  - `695 sq ft` — 24,000 BTU living room hot+sun
+  - `200 sq ft` — example 1 bedroom
+  - `200 × 20 × 0.9` — example 1 calculation (shade)
+  - `3,600 BTU/hr` — example 1 raw load
+  - `6,000 BTU head` — example 1 result after the minimum
+  - `400 sq ft` — example 2 living room
+  - `400 × 25 × 1.2 × 1.15` — example 2 calculation (hot, full sun)
+  - `13,800 BTU/hr` — example 2 raw load
+  - `15,000 BTU head` — example 2 result
+  - `12,000` — example 2 same room, moderate climate and sun
+  - `250 sq ft` — example 3 kitchen
+  - `250 × 25 = 6,250` — example 3 base calculation
+  - `4,000` — example 3 cooking addition
+  - `10,250 BTU/hr` — example 3 total load
+  - `12,000 BTU head` — example 3 result
+  - `almost half` — figure caption: climate and sun change a head's reach by
+  - `25 BTU per sq ft` — garage closest match, living room rate
+  - `260 sq ft` — one-car garage example
+  - `8,970 BTU/hr` — one-car garage load
+  - `9,000 BTU head` — one-car garage result
+  - `480 sq ft` — two-car garage example
+  - `19,872 BTU/hr` — two-car garage hot climate load
+  - `21,000` — two-car garage result, between common sizes
+  - `18,000 and 24,000` — common sizes flanking 21,000
+  - `16,560 BTU/hr` — two-car garage insulated (Average) load
+  - `18,000 BTU head` — two-car garage insulated result
+  - `3,000 BTU step` — oversizing section: calculator already rounds up
+  - `5°F` — NEEP heating capacity reporting temperature
+  - `17°F` — NEEP heating capacity reporting temperature
+  - `47°F` — NEEP heating capacity reporting temperature
+  - `140 sq ft` — multi-zone bedroom row
+  - `2,800 BTU/hr` — multi-zone 140 sq ft bedroom load
+  - `6,000` — multi-zone 140 sq ft bedroom head
+  - `160 sq ft` — multi-zone bedroom row
+  - `3,200 BTU/hr` — multi-zone 160 sq ft bedroom load
+  - `6,000` — multi-zone 160 sq ft bedroom head
+  - `220 sq ft` — multi-zone bedroom row
+  - `4,400 BTU/hr` — multi-zone 220 sq ft bedroom load
+  - `6,000` — multi-zone 220 sq ft bedroom head
+  - `420 sq ft` — multi-zone living room row
+  - `10,500 BTU/hr` — multi-zone 420 sq ft living room load
+  - `12,000` — multi-zone living room head
+  - `180 sq ft` — multi-zone kitchen row
+  - `8,500 BTU/hr` — multi-zone 180 sq ft kitchen load
+  - `9,000` — multi-zone kitchen head
+  - `29,400 BTU/hr` — multi-zone total room load
+  - `39,000` — multi-zone total of heads
+  - `3,000 to 4,000 BTU` — what each small bedroom needs
+  - `6,000` — smallest common head the bedrooms get
+  - `500 sq ft` — FAQ: room size question
+  - `12,000 BTU` — FAQ: 500 sq ft bedroom/office
+  - `15,000 BTU` — FAQ: 500 sq ft living room
+  - `18,000 BTU` — FAQ: 500 sq ft kitchen
+  - `12,000 BTU` — FAQ: how many sq ft a 12,000 BTU cools
+  - `600 sq ft` — FAQ: 12,000 BTU bedroom/office coverage
+  - `480 sq ft` — FAQ: 12,000 BTU living room coverage
+  - `350 sq ft` — FAQ: 12,000 BTU living room hot+full sun
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 5. refrigerant-types-explained  ·  617 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/refrigerant-types-explained
+- **Title:** HVAC Refrigerant Types Explained: R-22, R-410A, R-32, R-454B and More (2026 Guide)
+- **H1:** HVAC Refrigerant Types Explained: R-22, R-410A, R-32, R-454B and More
+- **Answer (first two body sentences):** The refrigerant inside your HVAC system is not something you think about until a spec sheet, a bill, or your HVAC tech makes you think about it. Then the worries start: whether a huge bill is coming, whether your system is suddenly worthless, whether someone is overcharging you, and what that "mildly flammable" thing on the new label means.
+- **Bold answer:** The current HVAC refrigerants in 2026 are R-32 and R-454B.
+- **Numbers in the body (81):**
+  - `2026` — current HVAC refrigerants in 2026 (bold answer)
+  - `January 1, 2025` — EPA cutoff on manufacturing equipment above 700 GWP (bold answer)
+  - `700 GWP` — GWP limit the cutoff applied above (bold answer)
+  - `$50 to $100+ per pound` — R-22 scarce and expensive (bold answer)
+  - `about 30 seconds` — time to find what's in your system
+  - `1995–2010` — R-22 / HCFC-22 roughly installed (table)
+  - `2006–2024` — R-410A / Puron roughly installed (table)
+  - `2024–present` — R-32 roughly installed (table)
+  - `2024–present` — R-454B / Opteon XL41 roughly installed (table)
+  - `1,810` — R-22 GWP (DataChart desc and comparison table)
+  - `2,088` — R-410A GWP (chart and table)
+  - `675` — R-32 GWP (chart and table)
+  - `466` — R-454B GWP (chart and table)
+  - `3` — R-290 GWP (chart and table)
+  - `1` — GWP reference, CO2 = 1 (DataChart y-axis label)
+  - `40 CFR 84.64` — EPA GWP Reference Table citation (DataChart caption)
+  - `0.055` — R-22 ozone depletion potential ODP (table)
+  - `0` — R-410A/R-32/R-454B/R-290 ODP (table)
+  - `A1` — R-22 and R-410A safety class (table)
+  - `A2L` — R-32 and R-454B safety class (table)
+  - `A3` — R-290 safety class (table)
+  - `$50–100+` — R-22 service cost per lb (table)
+  - `$8–15` — R-410A service cost per lb (table)
+  - `$8–15` — R-32 service cost per lb (table)
+  - `$10–18` — R-454B service cost per lb (table)
+  - `$3–6` — R-290 service cost per lb (table)
+  - `2026` — cost row is a 2026 market estimate
+  - `GWP of 2,088` — R-410A traps ~2,088 times as much heat as CO2
+  - `nearly three times` — R-410A over the EPA 700-GWP limit
+  - `700-GWP limit` — EPA new limit for home HVAC
+  - `2020` — AIM Act of 2020
+  - `January 1, 2025` — nobody can manufacture/import new R-410A systems
+  - `July 27, 2026` — EPA rule effective date allowing pre-2025 R-410A install
+  - `2025` — pre-2025 R-410A equipment can be installed until stock runs out
+  - `$8 to $15 per pound` — R-410A service cost in 2026
+  - `2026` — R-410A service cost year
+  - `12 to 15 years` — when to start planning R-410A replacement
+  - `mid-90s to about 2010` — R-22 was the standard
+  - `ozone depletion potential of 0.055` — R-22 ODP (prose)
+  - `January 1, 2020` — R-22 new production ended
+  - `$50 to $100+ per pound` — R-22 reclaimed supply wholesale price
+  - `3-ton` — R-22 full recharge example system size
+  - `several hundred dollars` — refrigerant cost for a 3-ton R-22 recharge
+  - `2026` — if running R-22 in 2026
+  - `at least 16 years old` — R-22 system age
+  - `SEER 8 to 13` — old R-22 system efficiency
+  - `15 to 22+` — today's efficiency SEER
+  - `A2L` — A2L one step from non-flammable (ASHRAE 34 figure caption)
+  - `A3` — well short of propane's A3 (figure caption)
+  - `14.4%` — R-32 becomes flammable at 14.4% concentration in air (ASHRAE 34)
+  - `about 5%` — natural gas becomes flammable concentration
+  - `under 10 cm per second` — R-32 burn rate
+  - `UL/CSA 60335-2-40` — standard sizing A2L refrigerant charge limits
+  - `GWP 675` — R-32 in ComparisonChart desc/metrics and prose
+  - `GWP 466` — R-454B in ComparisonChart desc/metrics and prose
+  - `75` — R-32 relative charge needed (ComparisonChart)
+  - `100` — R-454B relative charge needed, similar to R-410A (ComparisonChart)
+  - `~25-30% less` — R-32 charge note (ComparisonChart)
+  - `68% cut` — R-32 GWP cut from R-410A
+  - `25 to 30% less` — R-32 needs less refrigerant per system
+  - `about 69% R-32, 31% R-1234yf` — R-454B blend composition
+  - `78% cut` — R-454B GWP cut from R-410A
+  - `3-ton` — Manual J sizing 'looks about a 3-ton' guess
+  - `five years` — what makes you happy in five years
+  - `GWP 3` — R-290 propane (prose)
+  - `up to ~16,000 BTU/h` — R-290 limited to small window ACs
+  - `GWP 1,430` — R-134a
+  - `GWP 4` — R-1234yf
+  - `GWP 1,774` — R-407C older R-22 replacement blend
+  - `GWP 3,922` — R-404A commercial refrigeration
+  - `GWP 1` — R-744 CO2
+  - `January 1, 2025` — FAQ: no new R-410A home AC/heat pump built since
+  - `700-GWP limit` — FAQ: R-410A over EPA limit
+  - `2025` — FAQ: pre-2025 equipment installed until supplies run out
+  - `14.4%-of-air concentration` — FAQ: R-32 ignites only at this concentration
+  - `40 CFR 84.64` — About these figures: GWP values codified in federal regulation
+  - `100-year` — IPCC basis EPA uses for GWP
+  - `14.4% limit` — ASHRAE 34 flammability figure (About these figures)
+  - `sub-10-cm/s burn` — ASHRAE 34 burn rate (About these figures)
+  - `700-GWP threshold` — EPA AIM Act (About these figures)
+  - `2026` — refrigerant prices are 2026 market estimates (About these figures)
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 6. what-size-generator-do-i-need  ·  592 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/what-size-generator-do-i-need
+- **Title:** What Size Generator Do I Need? Appliance Wattage Calculator (2026)
+- **H1:** What Size Generator Do I Need? Appliance Wattage Calculator
+- **Answer (first two body sentences):** The power is out, or you're buying a generator before the next storm. The common mistake is sizing for the wrong number.
+- **Bold answer:** Add up the running watts of everything you want on at the same time, add the single largest starting surge, then add 20% headroom.
+- **Numbers in the body (59):**
+  - `475 running watts` — fridge/freezer/10 LED bulbs/modem/chargers running total (bold answer)
+  - `1,525-watt` — peak for that essentials set (bold answer)
+  - `2,000-watt` — generator that covers them (bold answer)
+  - `about 5,000 watts` — needed after adding sump pump and furnace blower (bold answer)
+  - `20%` — headroom added (bold answer and method)
+  - `1,000, 2,000, 2,200, 3,000, 3,500, 5,000, 5,500, 7,500 or 10,000 watts` — generator size list rounded up to (method step 4)
+  - `150 / 1,200` — Refrigerator standard running/starting watts (table)
+  - `18–21 cu ft` — standard refrigerator size (table)
+  - `225 / 1,500` — Refrigerator side-by-side running/starting watts (table)
+  - `22–26 cu ft` — side-by-side refrigerator size (table)
+  - `150 / 900` — Chest freezer running/starting watts (table)
+  - `10–18 cu ft` — chest/upright freezer size (table)
+  - `200 / 1,000` — Upright freezer running/starting watts (table)
+  - `800 / 1,800` — Sump pump 1/3 HP running/starting watts (table)
+  - `1/3 HP` — sump pump (table)
+  - `1,050 / 2,150` — Sump pump 1/2 HP running/starting watts (table)
+  - `1/2 HP` — sump pump / well pump / furnace blower (table)
+  - `1,000 / 2,100` — Well pump 1/2 HP running/starting watts (table)
+  - `1,500 / 3,000` — Well pump 3/4 HP running/starting watts (table)
+  - `3/4 HP` — well pump (table)
+  - `800 / 2,350` — Furnace blower 1/2 HP running/starting watts (table)
+  - `500 / 1,200` — Window AC 5,000 BTU running/starting watts (table)
+  - `5,000 BTU` — window AC (table)
+  - `700 / 1,800` — Window AC 8,000 BTU running/starting watts (table)
+  - `8,000 BTU` — window AC (table)
+  - `900 / 2,200` — Window AC 10,000 BTU running/starting watts (table)
+  - `10,000 BTU` — window AC (table)
+  - `1,000 / 1,000` — Microwave 1,000 W running/starting watts (table)
+  - `1,500 / 1,500` — Space heater running/starting watts (table)
+  - `100 / 100` — 10 LED bulbs running/starting watts (table)
+  - `50 / 50` — Modem and router running/starting watts (table)
+  - `150 + 150 + 100 + 50 + 25 = 475 W` — Example 1 running total
+  - `1,200 − 150 = 1,050 W` — Example 1 refrigerator largest surge
+  - `475 + 1,050 = 1,525 W` — Example 1 peak
+  - `1,830 W → a 2,000 W generator` — Example 1 with 20% headroom
+  - `475 + 1,050 + 800 = 2,325 W` — Example 2 running total
+  - `2,350 − 800 = 1,550 W` — Example 2 furnace blower largest surge
+  - `3,875 W` — Example 2 peak
+  - `4,650 W → a 5,000 W generator` — Example 2 with headroom
+  - `2,325 + 900 + 1,000 = 4,225 W` — Example 3 running total
+  - `1,550 W` — Example 3 largest surge (furnace blower)
+  - `5,775 W` — Example 3 peak
+  - `6,930 W → a 7,500 W generator` — Example 3 with headroom
+  - `5-ton` — example central AC condenser size
+  - `RLA 26 A` — example condenser rated load amps
+  - `LRA 134 A` — example condenser locked rotor amps
+  - `240 V` — example condenser nameplate voltage
+  - `6,240 watts running` — central AC running watts from nameplate
+  - `about 32,000 watts` — central AC starting surge for a fraction of a second
+  - `25% and 50% load` — spec sheet runtime per tank loads
+  - `about 85 people die each year` — CPSC estimate of CO deaths from portable generators
+  - `92` — 2020 generator-linked CO deaths
+  - `2020` — year generators linked to more CO deaths than any other product
+  - `at least 20 feet` — distance to run generator from the house
+  - `about 2,000 watts` — FAQ: essentials-only generator size
+  - `about 5,000` — FAQ: with sump pump and furnace blower
+  - `about 7,500` — FAQ: with window AC and microwave
+  - `2,000-watt` — FAQ heading: will a 2,000-watt generator run a refrigerator
+  - `1,525 watts` — FAQ: Example 1 peak for 2,000-watt generator running a fridge
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 7. furnace-sizing-calculator  ·  558 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/furnace-sizing-calculator
+- **Title:** Furnace Size Calculator: What Size Furnace Do I Need? (2026)
+- **H1:** Furnace Size Calculator: What Size Furnace Do I Need?
+- **Answer (first two body sentences):** Ask three contractors what size furnace a 2,000 sq ft house needs and you may hear 60,000, 80,000 and 100,000 BTU, often from a chart that multiplies square footage by a number between 30 and 60. Those charts assume a house that leaks heat like a drafty, barely insulated home from before 1970.
+- **Bold answer:** A 2,000 sq ft home with typical 1980s and 1990s insulation, in a climate with a 10°F design low (much of New York or Illinois), loses about 36,000 BTU per hour on the coldest night, so a 40,000 BTU furnace at 95% efficiency covers it.
+- **Numbers in the body (130):**
+  - `2,000 sq ft` — house size in opening contractor example
+  - `60,000, 80,000 and 100,000 BTU` — furnace sizes contractors might quote
+  - `30 and 60` — BTU-per-sq-ft rule-of-thumb multiplier range
+  - `before 1970` — era of drafty house the charts assume
+  - `2,000 sq ft` — bold answer home size
+  - `1980s and 1990s` — insulation era in bold answer
+  - `10°F` — design low in bold answer (NY/IL)
+  - `about 36,000 BTU per hour` — heat loss on coldest night, bold answer
+  - `40,000 BTU` — furnace size in bold answer
+  - `95%` — efficiency in bold answer
+  - `30 to 60 BTU per sq ft` — rule of thumb range, bold answer
+  - `60,000 to 120,000 BTU` — what rule of thumb would put same house at
+  - `80,000 BTU` — input-vs-output example furnace
+  - `80% AFUE` — efficiency delivering 64,000 BTU
+  - `64,000 BTU per hour` — output of 80,000 BTU furnace at 80% AFUE
+  - `95% AFUE` — efficiency delivering 76,000
+  - `76,000` — output BTU at 95% AFUE from same input
+  - `70°F` — indoor temperature in heat loss formula
+  - `2,000 sq ft` — reference house for heat loss rates
+  - `one-story` — reference house
+  - `8-foot ceilings` — reference house ceilings
+  - `15%` — reference house windows as percent of floor area
+  - `0.177` — Excellent heat loss rate (table)
+  - `0.189` — Good heat loss rate (table)
+  - `0.270` — Average heat loss rate (table)
+  - `0.604` — Poor heat loss rate (table)
+  - `2000s` — Good insulation era, 2000s construction (table)
+  - `R-13 walls, R-30 attic` — Average/1980s-1990s insulation description (table)
+  - `2021 IECC climate zone 4` — Excellent row code basis
+  - `windows 0.30` — 2021 IECC max U-factor windows
+  - `ceilings 0.024` — 2021 IECC max U-factor ceilings
+  - `walls 0.045` — 2021 IECC max U-factor walls
+  - `floors 0.047` — 2021 IECC max U-factor floors
+  - `3, 5, 8 and 15` — assumed air changes per hour at 50 pascals for four levels
+  - `50 pascals` — pressure for air leakage test
+  - `one fifteenth` — actual cold-night leakage fraction of tested
+  - `half` — indoor-outdoor difference a floor over unheated basement sees
+  - `8 ft 1.00` — ceiling height adjustment
+  - `9 ft 1.06` — ceiling height adjustment
+  - `10 ft 1.13` — ceiling height adjustment
+  - `12 ft or more 1.25` — ceiling height adjustment
+  - `0.96` — two-story adjustment
+  - `0.94` — three stories adjustment
+  - `plus 1.5%` — per percentage point of window area above 15%
+  - `15%` — window area baseline of floor
+  - `1.00` — ducts inside heated space adjustment
+  - `1.10` — ducts insulated attic adjustment
+  - `1.18` — ducts crawlspace adjustment
+  - `1.28` — ducts uninsulated attic adjustment
+  - `heated 1.10` — basement adjustment heated
+  - `slab 1.05` — basement adjustment slab
+  - `unheated 1.00` — basement adjustment unheated
+  - `40,000, 60,000, 80,000, 100,000, 120,000 or 140,000 BTU` — common furnace input sizes calculator picks from
+  - `1.4 times` — threshold where even 40,000 BTU oversizes the load
+  - `2,000 sq ft` — furnace size chart home
+  - `95% AFUE` — chart assumption
+  - `8-foot ceilings` — chart assumption
+  - `40°F, 30°F, 20°F, 10°F, 0°F, −10°F, −30°F` — design low column headings (table)
+  - `40,000* to 60,000` — Excellent/Good rows across design lows (table)
+  - `40,000 to 80,000` — Average row across design lows (table)
+  - `60,000 to 140,000` — Poor row across design lows (table)
+  - `1.4 times` — asterisk note: smallest furnace more than 1.4x load
+  - `Average insulation, 10°F design low, 95% AFUE` — by-home-size table assumptions
+  - `1,000 sq ft — 17,820 BTU/hr — 40,000*` — by home size row (table)
+  - `1,500 sq ft — 26,730 BTU/hr — 40,000*` — by home size row (table)
+  - `2,000 sq ft — 35,640 BTU/hr — 40,000` — by home size row (table)
+  - `2,500 sq ft — 44,550 BTU/hr — 60,000` — by home size row (table)
+  - `3,000 sq ft — 53,460 BTU/hr — 60,000` — by home size row (table)
+  - `3,500 sq ft — 62,370 BTU/hr — 80,000` — by home size row (table)
+  - `pre-1970` — caption: only a drafty pre-1970 house comes near the old rule
+  - `30 to 60 BTU` — caption rule of thumb
+  - `About 12 BTU/hr per sq ft` — current-code and 2000s homes at 10°F design low
+  - `About 18 BTU/hr per sq ft` — 1980s and 1990s homes
+  - `About 40 BTU/hr per sq ft` — drafty pre-1970 house
+  - `10°F design low` — basis for per-sq-ft heat loss figures
+  - `30 to 60 BTU per sq ft` — common rule only fits drafty case
+  - `two to three times larger` — how much rule oversizes an average house
+  - `1,500 sq ft` — worked example 1, 1990s ranch
+  - `0°F` — example 1 winter lows
+  - `0.270 × 1,500 × 1.10 × 70°F = 31,185 BTU/hr` — example 1 heat loss calculation
+  - `95% AFUE` — example 1 efficiency
+  - `32,826 BTU input` — example 1 input
+  - `40,000 BTU furnace` — example 1 result
+  - `about 732 therms a year` — example 1 estimated gas use
+  - `$988` — example 1 gas cost
+  - `$1.35 per therm` — example 1 gas price assumption
+  - `2,400 sq ft` — worked example 2, new two-story home
+  - `9-foot ceilings` — example 2 ceilings
+  - `18%` — example 2 windows of floor
+  - `10°F design low` — example 2 design low
+  - `0.177 × 2,400 × 1.06 × 0.96 × 1.045 × 60°F = 27,104 BTU/hr` — example 2 calculation
+  - `95% AFUE` — example 2 efficiency
+  - `28,531 BTU input` — example 2 input
+  - `40,000 BTU furnace` — example 2 result
+  - `1.4 times the load` — example 2 oversize note
+  - `1,800 sq ft` — worked example 3, 1950s bungalow
+  - `−10°F` — example 3 lows
+  - `0.604 × 1,800 × 1.28 × 80°F = 111,329 BTU/hr` — example 3 calculation
+  - `95% AFUE` — example 3 efficiency
+  - `117,188 BTU input` — example 3 input
+  - `120,000 BTU furnace` — example 3 result
+  - `42,768 BTU/hr` — example 3 load after weatherizing to average
+  - `60,000 BTU furnace` — example 3 result after weatherizing
+  - `about 2,813 to 1,080 therms a year` — example 3 gas use drop after weatherizing
+  - `by half` — weatherizing can shrink furnace needed
+  - `2,000 sq ft` — efficiency table home
+  - `10°F design low` — efficiency table design low
+  - `80% — 60,000 — 891 therms — $1,203` — efficiency table row (table)
+  - `90% — 40,000 — 792 therms — $1,069` — efficiency table row (table)
+  - `95% — 40,000 — 750 therms — $1,013` — efficiency table row (table)
+  - `98% — 40,000 — 727 therms — $982` — efficiency table row (table)
+  - `$1.35/therm` — efficiency table cost basis
+  - `5,000 heating degree days` — annual gas example assumption
+  - `24` — hours in annual gas formula
+  - `100,000` — divisor in annual gas formula
+  - `December 18, 2028` — DOE rule date for 95% AFUE furnaces
+  - `95% AFUE` — DOE furnace rule minimum
+  - `2,000 square foot` — FAQ: what size furnace for 2000 sq ft
+  - `about 40,000 BTU input at 95% AFUE` — FAQ answer for 10°F or warmer
+  - `10°F` — FAQ design low threshold
+  - `60,000` — FAQ furnace where lows reach 0°F
+  - `0°F` — FAQ design low
+  - `100,000 or more` — FAQ drafty older house
+  - `1,500 square foot` — FAQ house size
+  - `40,000 BTU furnace` — FAQ covers average-insulation 1,500 sq ft at 0°F
+  - `0°F design low` — FAQ 1,500 sq ft case
+  - `10°F design low` — FAQ BTU per sq ft
+  - `about 12 BTU/hr per sq ft` — FAQ current-code home
+  - `about 18` — FAQ 1980s or 1990s home
+  - `about 40` — FAQ drafty pre-1970 house
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 8. ideal-indoor-humidity-level  ·  482 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/ideal-indoor-humidity-level
+- **Title:** Ideal Indoor Humidity Level: What Should It Be by Season? (2026 Chart)
+- **H1:** Ideal Indoor Humidity Level: What Should It Be by Season?
+- **Answer (first two body sentences):** If your house feels clammy and stuffy, or so dry your throat is scratchy every morning and you're getting shocked every time you touch a doorknob, your indoor humidity is off. And the worry underneath that is usually bigger than comfort: is this dampness growing mold somewhere I can't see? Is the dry air making my family sick? What number am I actually supposed to be aiming for?
+- **Bold answer:** Keep your indoor relative humidity between 30% and 50%, and always below 60%.
+- **Numbers in the body (66):**
+  - `30% and 50%` — bold answer: keep indoor RH between these
+  - `60%` — bold answer: always below this
+  - `30–40%` — bold answer: winter aim for lower end
+  - `30` — DataChart: Too dry value
+  - `30` — DataChart: Ideal (low) value
+  - `50` — DataChart: Ideal (high) value
+  - `60` — DataChart: Rising risk value
+  - `70` — DataChart: Mold zone value
+  - `30-50%` — DataChart caption: EPA recommended RH
+  - `60%` — DataChart caption: always below
+  - `~70%` — DataChart caption: above this on damp surfaces mold grows
+  - `24-48 hours` — DataChart caption: mold can grow in this time
+  - `30 to 50%` — humidity-scale figure caption: EPA target
+  - `60%` — humidity-scale figure caption: below
+  - `below 60 percent` — EPA guidance quoted: should be kept below
+  - `30 and 50 percent` — EPA guidance quoted: ideally between
+  - `above 60%` — too humid threshold creating mold conditions
+  - `below 30%` — too dry threshold
+  - `30–50% band` — the sweet spot
+  - `45%` — solid year-round single-target pick
+  - `60%` — mold doesn't appear instant you cross this
+  - `59%` — mold doesn't vanish at this
+  - `Below 30%` — table row: too dry
+  - `30–50%` — table row: target range
+  - `50–60%` — table row: getting humid
+  - `Above 60%` — table row: mold and dust mites thrive
+  - `Above 70% (sustained)` — table row: mold germinates
+  - `24–48 hours` — table row: mold germination time above 70%
+  - `70%` — per EPA, above this on damp surface mold can grow
+  - `one to two days` — mold can start growing within
+  - `24 to 48 hours` — standard advice to dry everything out within
+  - `30% and 50%` — keeping between removes category of health risks
+  - `40–60%` — research band optimal for minimizing airborne virus spread
+  - `30–50%` — mold-focused range vs virus band
+  - `below 60%` — the hard line everyone agrees on
+  - `40–50%` — range that keeps everyone reasonably happy
+  - `60%` — a room can sit at this and feel fine
+  - `$10–20` — cost of a digital hygrometer
+  - `above 50%` — lower humidity if reading consistently above this
+  - `above 60%` — especially above this, remove moisture
+  - `45–50%` — set dehumidifier to about this
+  - `15–20 minutes` — run bathroom exhaust fans after showers
+  - `below 30%` — how to raise humidity if below this
+  - `30–40% in winter` — aim for this, not higher
+  - `30% and 50%` — FAQ: ideal indoor humidity level
+  - `60%` — FAQ: always below
+  - `30–40%` — FAQ: winter aim for lower end
+  - `45%` — FAQ: good single year-round target
+  - `60%` — FAQ: is 60% too high, at upper limit
+  - `below 60%` — FAQ: EPA says keep indoor humidity below this
+  - `40%` — FAQ: is 40% too low, comfortably within range
+  - `30–50%` — FAQ: 40% within ideal range
+  - `below 30%` — FAQ: add moisture if drop below this
+  - `above 60%` — FAQ: sustained humidity creates mold conditions
+  - `70%` — FAQ: above about this on damp surface mold germinates
+  - `24–48 hours` — FAQ: mold germinate time
+  - `below 60%` — FAQ: keep RH below this for mold prevention
+  - `1–2 days` — FAQ: drying up water event within
+  - `50%` — FAQ: dust mites can't survive extended periods below about this
+  - `30–50%` — FAQ: keeping home in this range inhospitable to dust mites
+  - `30–50%` — About figures: core EPA target
+  - `60%` — About figures: below 60% hard limit
+  - `24–48 hours` — About figures: mold-germination timing above ~70%
+  - `~70%` — About figures: above ~70% on damp surfaces
+  - `48-hours` — About figures: dry-within-48-hours standard
+  - `40–60%` — About figures: virus-viability nuance
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 9. ductwork-sizing-calculator  ·  436 sessions
+
+- **Status:** CHANGED since the first sheet (2026-10-07) — title reworded and a new "BTU to CFM: airflow from capacity" section plus two FAQs added numbers (61 -> 84); H1, opening answer and bold answer unchanged
+- **URL:** https://www.hvacbase.org/ductwork-sizing-calculator
+- **Title:** Ductwork Sizing Calculator: BTU to CFM and CFM to Duct Size (2026)
+- **H1:** Ductwork Sizing Calculator
+- **Answer (first two body sentences):** A duct has to carry the air your system moves without too much friction, which wastes fan energy, or too much speed, which makes noise. Size it from two numbers: how much air it carries, in cubic feet per minute (CFM), and how much pressure you can afford to lose per 100 feet of duct.
+- **Bold answer:** At a common design friction rate of 0.08 inches of water per 100 feet, 400 CFM (roughly one ton of cooling) needs a round duct about 10.1 inches across, and 1,000 CFM needs about 14.3 inches. Round up to the next standard size, then check the air speed.
+- **Numbers in the body (84):**
+  - `100 feet` — opening sentence: pressure lost per length of duct
+  - `0.08 inches of water per 100 feet` — common design friction rate (bold answer)
+  - `400 CFM` — roughly one ton of cooling (bold answer)
+  - `one ton of cooling` — what 400 CFM roughly equals (bold answer)
+  - `about 10.1 inches` — round duct diameter for 400 CFM (bold answer)
+  - `1,000 CFM` — airflow (bold answer)
+  - `about 14.3 inches` — round duct diameter for 1,000 CFM (bold answer)
+  - `400 CFM` — chart row used in first diagram caption
+  - `about 400 CFM per ton` — typical design airflow, step 1
+  - `0.08` — common friction rate starting point, step 2
+  - `100 feet` — friction rate measured per length, step 2
+  - `0.08 inches of water per 100 feet` — friction rate for the round duct chart
+  - `100 CFM` — chart row airflow
+  - `6.05 in` — calculated diameter for 100 CFM
+  - `7 in` — next standard size for 100 CFM
+  - `374 fpm` — air speed for 100 CFM
+  - `200 CFM` — chart row airflow
+  - `7.83 in` — calculated diameter for 200 CFM
+  - `8 in` — next standard size for 200 CFM
+  - `573 fpm` — air speed for 200 CFM
+  - `400 CFM` — chart row airflow
+  - `10.14 in` — calculated diameter for 400 CFM
+  - `12 in` — next standard size for 400 CFM
+  - `509 fpm` — air speed for 400 CFM
+  - `800 CFM` — chart row airflow
+  - `13.14 in` — calculated diameter for 800 CFM
+  - `14 in` — next standard size for 800 CFM
+  - `748 fpm` — air speed for 800 CFM
+  - `1,000 CFM` — chart row airflow
+  - `14.29 in` — calculated diameter for 1,000 CFM
+  - `16 in` — next standard size for 1,000 CFM
+  - `716 fpm` — air speed for 1,000 CFM
+  - `1,200 CFM` — chart row airflow
+  - `15.30 in` — calculated diameter for 1,200 CFM
+  - `16 in` — next standard size for 1,200 CFM
+  - `859 fpm` — air speed for 1,200 CFM
+  - `1,600 CFM` — chart row airflow
+  - `17.05 in` — calculated diameter for 1,600 CFM
+  - `18 in` — next standard size for 1,600 CFM
+  - `905 fpm` — air speed for 1,600 CFM
+  - `900 feet per minute` — speed threshold the calculator flags as noisy
+  - `6.05 inches` — example size just over a standard size
+  - `1.30` — Huebscher formula leading constant
+  - `0.625` — Huebscher formula exponent on (a × b)
+  - `0.25` — Huebscher formula exponent on (a + b)
+  - `8 × 10 in` — rectangular duct row
+  - `9.76 in` — equivalent round diameter for 8×10
+  - `8 × 14 in` — rectangular duct row
+  - `11.46 in` — equivalent round diameter for 8×14
+  - `10 × 12 in` — rectangular duct row
+  - `11.96 in` — equivalent round diameter for 10×12
+  - `6, 8, 10 and 12 inches` — rectangular duct heights the calculator lists
+  - `about 30%` — DOE duct air losses share of a cooling system's energy
+  - `1.08` — sensible heat formula constant (BTU per hour = 1.08 × CFM × ΔT)
+  - `60 minutes` — what the 1.08 includes (air density × specific heat × 60)
+  - `about 400 CFM per ton` — cooling section: target airflow across the indoor coil
+  - `12,000 BTU per hour` — one ton
+  - `2 tons` — CFM-per-ton table: system
+  - `24,000 BTU/hr` — 2-ton cooling capacity
+  - `800 CFM` — 2-ton airflow at 400 CFM per ton
+  - `3 tons` — CFM-per-ton table: system
+  - `36,000 BTU/hr` — 3-ton cooling capacity
+  - `1,200 CFM` — 3-ton airflow at 400 CFM per ton
+  - `4 tons` — CFM-per-ton table: system
+  - `48,000 BTU/hr` — 4-ton cooling capacity
+  - `1,600 CFM` — 4-ton airflow at 400 CFM per ton
+  - `80,000 BTU per hour` — heating section: furnace output example
+  - `about 1,481 CFM` — airflow for a 50°F temperature rise
+  - `50°F` — temperature rise
+  - `1,058 CFM` — airflow for a 70°F temperature rise
+  - `70°F` — temperature rise
+  - `About 10.1 inches` — FAQ: duct size for 400 CFM
+  - `0.08 inches of water per 100 feet` — FAQ friction rate for 400 CFM
+  - `12-inch` — FAQ standard duct size for 400 CFM
+  - `10-inch` — FAQ duct that runs slightly above friction rate
+  - `About 400 CFM per ton` — FAQ typical design airflow
+  - `10 × 12 inch` — FAQ example rectangular duct
+  - `12-inch round (11.96 inches)` — FAQ equivalent round for 10×12
+  - `0.08 inches of water per 100 feet` — FAQ common residential friction rate starting point
+  - `1.08` — FAQ (BTU to CFM): sensible heat formula constant
+  - `about 400 CFM` — FAQ (BTU to CFM): multiply tons by, for cooling equipment
+  - `3-ton` — FAQ question: CFM for a 3-ton AC
+  - `About 1,200 CFM` — FAQ: airflow a 3-ton AC needs
+  - `400 CFM per ton` — FAQ: airflow per ton basis
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 10. carbon-monoxide-detector-guide  ·  387 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/carbon-monoxide-detector-guide
+- **Title:** Carbon Monoxide Detector Placement: Where and How Many You Need (2026 Guide)
+- **H1:** Carbon Monoxide Detector Placement: Where and How Many You Need
+- **Answer (first two body sentences):** Carbon monoxide is the home hazard people fear most for good reason: you can't see, smell or taste it, and by the time you feel it you may be too impaired to act. If you're choosing a detector and wondering how many you need, where they go and whether an inexpensive one is enough, this page answers those questions.
+- **Bold answer:** You need a CO alarm on every level of your home and outside each sleeping area, at minimum. Carbon monoxide mixes evenly with room air, so a detector works at any mounting height. A standard UL-listed alarm is required to stay silent below 30 ppm and can take up to 4 hours to sound at 70 ppm, which is why homes with vulnerable occupants often add a low-level monitor.
+- **Numbers in the body (55):**
+  - `30 ppm` — bold answer: standard UL-listed alarm stays silent below
+  - `4 hours` — bold answer: time to sound at 70 ppm
+  - `70 ppm` — bold answer: alarm can take up to 4 hours to sound at
+  - `28` — figure caption: CO molecular weight
+  - `29` — figure caption: air's molecular weight
+  - `more than 400 deaths a year` — CDC unintentional non-fire CO poisoning deaths in U.S.
+  - `more than 100,000 people` — CDC CO poisoning ER visits
+  - `$25-to-$50` — cost of a CO alarm device
+  - `at least three` — diagram caption: this house needs CO alarms
+  - `at least three` — body: two-story house with basement and bedrooms upstairs needs
+  - `UL 2034` — safety standard setting alarm thresholds
+  - `30` — DataChart: silent below (ppm)
+  - `30 days` — DataChart note: no alarm for 30 days
+  - `70` — DataChart: alarm in 60-240 min (ppm)
+  - `60-240 min` — DataChart: alarm response window at 70 ppm
+  - `150` — DataChart: alarm in 10-50 min (ppm)
+  - `10-50 min` — DataChart: alarm response window at 150 ppm
+  - `400` — DataChart: alarm in 4-15 min (ppm)
+  - `4-15 min` — DataChart: alarm response window at 400 ppm
+  - `Below 30 ppm` — table: alarm must not sound (for 30 days)
+  - `60–240 minutes` — table: alarm window at 70 ppm, symptoms with prolonged exposure
+  - `10–50 minutes` — table: alarm window at 150 ppm
+  - `1–2 hours` — table: headache/fatigue/nausea onset at 150 ppm
+  - `4–15 minutes` — table: alarm window at 400 ppm, serious symptoms within minutes
+  - `9 ppm` — EPA outdoor NAAQS standard
+  - `8 hours` — EPA NAAQS averaging period
+  - `70 ppm` — body: standard alarm won't make a sound until
+  - `30 to 70 ppm` — diagram caption: band where a low-level monitor earns its place
+  - `$25 detector` — section heading/body: basic CO alarm
+  - `30 ppm` — body: standard UL 2034 alarm legally silent below
+  - `4 hours` — body: alarm can wait before sounding at 70 ppm
+  - `70 ppm` — body: alarm can wait up to 4 hours before sounding at
+  - `20 to 30 ppm` — steady output from a slowly-failing furnace/water heater
+  - `30 to 70 ppm` — body: hours of exposure not safe for vulnerable groups
+  - `20` — failing appliance shows up as 20 on low-level monitor screen
+  - `30` — failing appliance shows up as 30 on low-level monitor screen
+  - `around 47` — U.S. states requiring CO alarms in residential dwellings (NCSL)
+  - `all 50 states` — NCSL compilation tracks
+  - `10-year` — sealed-battery model so you can't forget
+  - `5 to 7 years` — most units' rated life before replacement
+  - `about three` — FAQ: typical two-story home with basement needs
+  - `30 ppm` — FAQ: alarms required not to sound below
+  - `4 hours` — FAQ: can take up to this to alarm at 70 ppm
+  - `70 ppm` — FAQ: dangerous level, symptoms over hours
+  - `9 ppm` — FAQ: EPA outdoor standard
+  - `8 hours` — FAQ: EPA standard averaging
+  - `150 ppm` — FAQ: headache and nausea within 1–2 hours
+  - `1–2 hours` — FAQ: onset at 150 ppm
+  - `400 ppm` — FAQ: serious symptoms within minutes
+  - `5 to 7 years` — FAQ: most detectors rated for
+  - `30/70/150/400 ppm` — About these figures: UL 2034 alarm response thresholds
+  - `9 ppm` — About these figures: EPA NAAQS outdoor figure
+  - `NFPA 72` — code/placement guidance follows
+  - `NFPA 720` — withdrawn standard absorbed by NFPA 72
+  - `2018` — year NFPA 720 was withdrawn
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 11. heat-pump-size-calculator  ·  357 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/heat-pump-size-calculator
+- **Title:** Heat Pump Size Calculator: What Size Heat Pump Do I Need? (2026)
+- **H1:** Heat Pump Size Calculator: What Size Heat Pump Do I Need?
+- **Answer (first two body sentences):** A heat pump has two jobs, and they pull the size in different directions. In summer it's an air conditioner and should be sized to the cooling load.
+- **Bold answer:** A 2,000 sq ft two-story home with 1980s and 1990s insulation in a mixed climate like Virginia or North Carolina (15°F design low) loses about 28,500 BTU per hour on the coldest night and needs about 3.5 tons of cooling.
+- **Numbers in the body (87):**
+  - `2,000 sq ft` — home size in bold answer
+  - `1980s and 1990s` — insulation era in bold answer
+  - `15°F` — design low for mixed climate (bold answer)
+  - `28,500 BTU per hour` — heat loss on coldest night (bold answer)
+  - `3.5 tons` — cooling size (bold answer)
+  - `3.5-ton` — standard heat pump heats house alone (prose after bold answer)
+  - `18°F` — temperature standard heat pump heats alone down to (prose)
+  - `1.5 kW` — backup heat covering the rest (prose after bold answer)
+  - `60%` — standard heat pump capacity at 17°F (cold-weather section)
+  - `17°F` — temperature for standard-model capacity share
+  - `40%` — standard heat pump capacity at 5°F (cold-weather section)
+  - `5°F` — temperature for standard-model capacity share
+  - `79%` — cold-climate model capacity at 17°F (cold-weather section)
+  - `70%` — cold-climate model capacity at 5°F, ENERGY STAR minimum (cold-weather section)
+  - `47°F` — rated capacity measured at (caption and section text)
+  - `70°F` — indoor baseline in heating load formula
+  - `0.177` — heat loss rate, 2020 or later (table)
+  - `0.189` — heat loss rate, 2000 to 2019 (table)
+  - `0.270` — heat loss rate, 1980 to 1999 (table)
+  - `0.45` — heat loss rate, 1960 to 1979 (table)
+  - `0.604` — heat loss rate, before 1960 (table)
+  - `2020 or later` — home built year row (table)
+  - `2000 to 2019` — home built year row (table)
+  - `1980 to 1999` — home built year row (table)
+  - `1960 to 1979` — home built year row (table)
+  - `before 1960` — home built year row (table)
+  - `2021 IECC` — insulation and window limits source
+  - `climate zone 4` — IECC zone for newest level
+  - `0.96` — two-stories heat loss adjustment factor
+  - `0.94` — three-stories heat loss adjustment factor
+  - `1.25 times` — cold-climate cap relative to cooling load
+  - `30°F` — design low hot-humid FL/GA/AL (table)
+  - `30°F` — design low hot-dry AZ/NV/NM (table)
+  - `25°F` — design low marine WA/OR (table)
+  - `15°F` — design low mixed-humid VA/NC/KY (table)
+  - `15°F` — design low mixed-dry OK/KS/NE (table)
+  - `0°F` — design low cold NY/MI/OH (table)
+  - `−10°F` — design low very cold MN/ND/WI (table)
+  - `10%` — margin added to backup heat for cold snaps
+  - `10°F` — balance point real shift range
+  - `2,000 sq ft` — three examples home size
+  - `1980 and 1999` — three examples build years
+  - `0.270 × 2,000 × 0.96 × 55°F` — example 1 heating load formula
+  - `28,512 BTU/hr` — example 1 heating load
+  - `3.5 tons` — example 1 size set by cooling
+  - `18.5°F` — example 1 balance point
+  - `1.5 kW` — example 1 backup at design
+  - `$1,823` — example 1 estimated annual heating and cooling cost
+  - `$0.18/kWh` — electricity rate for example 1 cost
+  - `0°F` — example 2 design low
+  - `0.270 × 2,000 × 0.96 × 70°F` — example 2 heating load formula
+  - `36,288 BTU/hr` — example 2 heating load
+  - `3.5 tons` — example 2 size
+  - `9.5°F` — example 2 balance point
+  - `2.7 kW` — example 2 backup at design
+  - `$2,249` — example 2 estimated annual cost
+  - `−10°F` — example 3 design low
+  - `0.270 × 2,000 × 0.96 × 80°F` — example 3 heating load formula
+  - `41,472 BTU/hr` — example 3 heating load
+  - `3.5 tons` — example 3 size, capped at 1.25x cooling
+  - `9°F` — example 3 balance point
+  - `5.4 kW` — example 3 backup at design
+  - `$3,134` — example 3 estimated annual cost
+  - `14.3 SEER2` — code minimum tier rating (table)
+  - `7.5 HSPF2` — code minimum tier rating (table)
+  - `2023` — federal requirement for split heat pumps since (table)
+  - `15.2 SEER2` — ENERGY STAR tier rating (table)
+  - `7.8 HSPF2` — ENERGY STAR tier rating (table)
+  - `11.0 EER2` — ENERGY STAR tier rating (table)
+  - `18 SEER2` — premium inverter tier rating (table)
+  - `9.5 HSPF2` — premium inverter tier rating (table)
+  - `16 SEER2` — cold climate tier rating (table)
+  - `10.0 HSPF2` — cold climate tier rating (table)
+  - `COP of at least 1.75` — ENERGY STAR cold-climate requirement at 5°F
+  - `5°F` — ENERGY STAR cold-climate COP/capacity test temperature
+  - `70%` — rated heating capacity at 5°F for cold-climate designation
+  - `8.1 HSPF2` — cold-climate minimum for ducted split systems
+  - `8.5` — cold-climate HSPF2 minimum for ductless
+  - `5°F, 17°F and 47°F` — NEEP list capacity/efficiency test temperatures
+  - `2,000 square foot` — FAQ house size
+  - `3.5 tons` — FAQ size for mixed/warm climate
+  - `36,000 to 41,000 BTU/hr` — FAQ 1980s/1990s house heat loss at cold design lows
+  - `0°F to −10°F` — FAQ cold-climate design low range
+  - `3.5 tons` — FAQ cold-climate model size
+  - `1.5 kW` — FAQ backup heat in mixed climate
+  - `2.7 to 5.4 kW` — FAQ backup heat in cold climates
+  - `5°F` — FAQ ENERGY STAR tests cold-climate heat pumps down to
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 12. merv-rating-chart  ·  345 sessions
+
+- **Status:** CHANGED since the first sheet (2026-10-07) — MERV 17-20/HEPA equivalence removed (FIX-27 A1): the "One thing" section now says the scale runs 1 to 16 with true HEPA a separate standard above it, and the SourcesBox EPA line changed from "MERV 17-20" to "MERV 7-13 nearly as effective as true HEPA"
+- **URL:** https://www.hvacbase.org/merv-rating-chart
+- **Title:** MERV Rating Chart: What MERV Filter Do You Need?
+- **H1:** MERV Rating Chart: What MERV Filter Do You Need?
+- **Answer (first two body sentences):** Standing in front of a wall of air filters with MERV numbers from 1 to 16, the question is simple but nobody answers it straight: which one do I actually need? Is a higher number always better? And is the high-MERV filter going to choke my furnace and cost me more? The short answer comes first, then the full chart.
+- **Bold answer:** For most homes, MERV 8 to 13 is the right range.
+- **Numbers in the body (51):**
+  - `1 to 16` — MERV numbers on filters for homes (intro)
+  - `ASHRAE Standard 52.2` — standard that defines the MERV scale
+  - `MERV 8 to 13` — right range for most homes (bold answer)
+  - `MERV 8` — handles basic dust and protects equipment
+  - `MERV 11` — adds finer particles like pet dander and smoke
+  - `MERV 13` — sweet spot, first to capture bacteria/virus-carrying particles
+  - `13` — go higher than this only if system designed for it
+  - `0.3-1.0 microns` — DataChart title: E1 smallest-particle range
+  - `MERV 8 = 0%` — DataChart min E1 capture, not E1-rated
+  - `MERV 11 = 20%` — DataChart min E1 capture
+  - `MERV 12 = 35%` — DataChart desc min E1 capture
+  - `MERV 13 = 50%` — DataChart min E1 capture
+  - `MERV 14 = 75%` — DataChart min E1 capture
+  - `MERV 15 = 85%` — DataChart desc min E1 capture
+  - `MERV 16 = 95%` — DataChart min E1 capture
+  - `0.3 to 10 microns` — particle size range filters tested against
+  - `E1 (0.3–1.0 microns)` — smallest range: bacteria, smoke, virus-carrying particles
+  - `E2 (1.0–3.0 microns)` — fine range: mold spores, fine dust, auto emissions
+  - `E3 (3.0–10 microns)` — coarse range: pollen, dust mite debris
+  - `under 20%` — MERV 1–4 E3 capture (table)
+  - `20–35%` — MERV 5–6 E3 capture (table)
+  - `≥20% (M8)` — MERV 7–8 E2 capture (table)
+  - `50–70%` — MERV 7–8 E3 capture (table)
+  - `35–50%` — MERV 9–10 E2 capture (table)
+  - `75–80%` — MERV 9–10 E3 capture (table)
+  - `MERV 11: E1 ≥20%, E2 ≥65%, E3 ≥85%` — chart thresholds (table)
+  - `MERV 12: E1 ≥35%, E2 ≥80%, E3 ≥90%` — chart thresholds (table)
+  - `MERV 13: E1 ≥50%, E2 ≥85%, E3 ≥90%` — chart thresholds (table)
+  - `MERV 14–16: E1 75–95%, E2 ≥90%, E3 ≥95%` — chart thresholds (table)
+  - `≥20%` — MERV 11 first level to catch some E1 particles (prose)
+  - `at least half` — MERV 13 first level capturing half of smallest E1 range
+  - `MERV 7 to 13` — EPA: nearly as effective as true HEPA for most indoor particles (which-MERV section)
+  - `MERV 14–16` — hospital and clean-room territory, not for typical home
+  - `1-inch` — thin MERV 13 filter restricts airflow noticeably
+  - `4-inch or 5-inch` — deep media MERV 13 filter with far more surface area
+  - `MERV 8 to 11` — safe range for a standard 1-inch filter slot
+  - `MERV 13` — run comfortably in a 4-inch or 5-inch media cabinet
+  - `1 to 16` — One thing section: MERV scale for home filters runs 1 to 16 under ASHRAE 52.2; true HEPA sits above the top of it (replaces the old "MERV 17+" claim)
+  - `99.97% at 0.3 microns` — true HEPA filter rating
+  - `UL 900` — fire-safety rating, not an efficiency claim
+  - `MERV 8 to 13` — FAQ: best range for a home
+  - `MERV 14 and up` — FAQ: skip in a typical home, too restrictive
+  - `MERV 13` — FAQ: level that removes viruses, starts capturing ≥50% of 0.3–1.0 micron particles
+  - `at least 50%` — FAQ: MERV 13 share of smallest particles captured
+  - `0.3–1.0 micron` — FAQ: smallest particles including virus-carrying droplet nuclei
+  - `4–5 inch` — FAQ: deep MERV 13 filter restricts airflow far less than 1-inch
+  - `every 1–3 months` — FAQ: common filter change range for standard filters
+  - `ASHRAE Standard 52.2` — About these figures: ANSI standard defining MERV
+  - `MERV 13` — About these figures: EPA recommendation for better indoor air
+  - `MERV 7–13` — About these figures: EPA, nearly as effective as true HEPA
+  - `MERV 7–13` — SourcesBox: EPA, nearly as effective as true HEPA (was "MERV 17–20 equals HEPA")
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 13. hvac-serial-number-decoder  ·  343 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/hvac-serial-number-decoder
+- **Title:** How to Decode Your HVAC Serial Number: Find Your System's Age by Brand
+- **H1:** How to Decode Your HVAC Serial Number: Find Your System's Age by Brand
+- **Answer (first two body sentences):** You're standing at your outdoor unit trying to figure out one thing: how old is this system, and am I about to be hit with a big replacement bill? The manufacture date is hiding in your serial number, and once you can read it, you'll know where your system sits in its lifespan and whether you should be budgeting for a new one.
+- **Bold answer:** how old is this system, and am I about to be hit with a big replacement bill?
+- **Numbers in the body (35):**
+  - `3203... = week 32 of 2003` — quick-version table, Carrier/Bryant/Payne example (WWYY)
+  - `1806... = June 2018` — quick-version table, Goodman/Amana/Daikin example (YYMM)
+  - `0819... = week 8 of 2019` — quick-version table, Lennox example
+  - `2002+` — quick-version table, Trane/American Standard read printed date
+  - `1997` — Amana Goodman-owned since 1997
+  - `2012` — Daikin bought Goodman in 2012
+  - `01–12` — Goodman YYMM, next two digits = month
+  - `1806` — Goodman example serial = June 2018
+  - `June 2018` — Goodman example 1806
+  - `2011` — Goodman example serial starting 2011 = November 2020
+  - `November 2020` — Goodman example 2011
+  - `01–52` — Carrier WWYY, first two digits = production week
+  - `3203` — Carrier example serial = week 32 of 2003
+  - `week 32 of 2003` — Carrier example, early August 2003
+  - `0120` — Carrier example serial = week 1 of 2020
+  - `week 1 of 2020` — Carrier example 0120
+  - `0819` — Lennox example serial = week 8 of 2019
+  - `week 8 of 2019` — Lennox example, late February 2019
+  - `A = January` — Rheem/Ruud month-letter code start
+  - `M = December` — Rheem/Ruud month-letter code end
+  - `2002` — Trane/American Standard printed date since around 2002
+  - `pre-2002` — older Trane units requiring letter-code decoding
+  - `0–8 years` — replacement age band: smooth stretch, in warranty
+  - `10 years` — typical parts warranty for registered systems
+  - `8–12 years` — replacement age band: watch it zone
+  - `12–15 years` — replacement age band: approaching end of life for central AC and heat pumps
+  - `15+ years` — replacement age band: past average lifespan
+  - `SEER 8–13` — old system efficiency range, costs more to run
+  - `SEER2 15–22+` — modern system efficiency range
+  - `$1,500` — repair cost example on a 6-year-old system is easy
+  - `6-year-old` — system where $1,500 repair is easy
+  - `16-year-old` — unit where same repair rarely makes sense
+  - `12–15 years` — FAQ: central AC and heat pumps typically last
+  - `15–20+` — FAQ: furnaces often last
+  - `~15 years` — FAQ: once system passes, replacement usually makes more sense
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 14. what-size-tankless-water-heater  ·  305 sessions
+
+- **Status:** CHANGED since the first sheet (2026-10-07) — bold answer reworded ("88%-efficient gas unit" -> "gas unit at an assumed 88% efficiency") and a new ENERGY STAR sentence adds the number 0.95 UEF
+- **URL:** https://www.hvacbase.org/what-size-tankless-water-heater
+- **Title:** What Size Tankless Water Heater Do I Need? (2026 Sizing Guide)
+- **H1:** What Size Tankless Water Heater Do I Need?
+- **Answer (first two body sentences):** A tankless water heater never runs out, but it can run lukewarm. If two showers and the kitchen tap ask for more hot water than the burner or heating elements can warm at once, the water coming out gets cooler.
+- **Bold answer:** Add up the flow of the fixtures you run at once, then multiply by the temperature rise. Two showers at 2.0 gallons per minute, with 55°F water heated to 120°F, need about 130,000 BTU per hour of heat: roughly 148,000 BTU per hour of input from a gas unit at an assumed 88% efficiency, or 38 kW from an electric one.
+- **Numbers in the body (83):**
+  - `2.0 gallons per minute` — bold answer: two showers flow rate each
+  - `55°F` — bold answer: incoming water temperature
+  - `120°F` — bold answer: water heated to
+  - `130,000 BTU per hour` — bold answer: heat needed for two showers
+  - `148,000 BTU per hour` — bold answer: input from gas unit at assumed 88% efficiency
+  - `88%` — bold answer: gas unit efficiency
+  - `38 kW` — bold answer: electric unit equivalent
+  - `2.5 gpm` — flow table: showerhead federal maximum
+  - `2.0 gpm or less` — flow table: showerhead WaterSense labeled
+  - `2.2 gpm` — flow table: bathroom faucet federal maximum
+  - `1.5 gpm or less` — flow table: bathroom faucet WaterSense labeled
+  - `2.2 gpm` — flow table: kitchen faucet federal maximum
+  - `3.5 to 4.7 gpm` — shower and bathroom sink combined flow
+  - `4 to 5 gpm` — two showers combined flow
+  - `120°F` — typical hot water target temperature
+  - `40°F incoming` — northern winters incoming water
+  - `80°F rise` — temperature rise for 40°F incoming
+  - `55°F incoming` — incoming water
+  - `65°F rise` — temperature rise for 55°F incoming
+  - `70°F incoming` — warm climates incoming water
+  - `50°F rise` — temperature rise for 70°F incoming
+  - `500` — formula multiplier: gpm × rise × 500
+  - `8.33 pounds per gallon` — water's weight in formula derivation
+  - `60 minutes` — formula derivation times 60 minutes
+  - `1°F` — one BTU warms one pound of water by 1°F
+  - `3,412` — divide BTU/hr by to get kilowatts
+  - `0.88` — gas input divide by efficiency at 88%
+  - `0.95 UEF` — ENERGY STAR condensing gas tankless models rated at or above
+  - `2 gpm / 40°F rise` — power table (table): 40,000 BTU/hr, 11.7 kW
+  - `2 gpm / 80°F rise` — power table (table): 80,000 BTU, 23.4 kW
+  - `3 gpm / 70°F rise` — power table (table): 105,000 BTU, 30.8 kW
+  - `6 gpm / 80°F rise` — power table (table): max 240,000 BTU, 70.3 kW
+  - `2 gpm range` — power table (table): 40,000 to 80,000 BTU/hr, 11.7 to 23.4 kW
+  - `6 gpm range` — power table (table): 120,000 to 240,000 BTU/hr, 35.2 to 70.3 kW
+  - `200,000 BTU per hour` — residential gas tankless input cutoff
+  - `176,000 BTU per hour` — gas unit just under limit delivers at 88%
+  - `88%` — gas efficiency
+  - `8.8 gpm` — deliver table: gas under 200,000 input at 40°F rise
+  - `7.0 gpm` — deliver table: gas at 50°F rise
+  - `5.9 gpm` — deliver table: gas at 60°F rise
+  - `5.0 gpm` — deliver table: gas at 70°F rise
+  - `4.4 gpm` — deliver table: gas at 80°F rise
+  - `27 kW` — deliver table: electric unit rating
+  - `4.6 gpm` — deliver table: electric 27 kW at 40°F rise
+  - `3.7 gpm` — deliver table: electric at 50°F rise
+  - `3.1 gpm` — deliver table: electric at 60°F rise
+  - `2.6 gpm` — deliver table: electric at 70°F rise
+  - `2.3 gpm` — deliver table: electric at 80°F rise
+  - `27 kW` — electric unit draws about 112 amps
+  - `112 amps` — 27 kW electric unit current draw
+  - `240 volts` — electric unit voltage
+  - `2.0 gpm` — example 1: one shower flow
+  - `1.5 gpm` — example 1: bathroom sink flow
+  - `70°F water` — example 1: incoming water
+  - `50°F rise` — example 1: temperature rise
+  - `3.5 × 50 × 500` — example 1 calculation
+  - `87,500 BTU per hour` — example 1 result
+  - `25.6 kW` — example 1 electric equivalent
+  - `55°F water` — example 2: family home incoming water
+  - `4.0 gpm` — example 2: two showers flow
+  - `65°F rise` — example 2: temperature rise
+  - `130,000 BTU per hour` — example 2: heat needed
+  - `147,700 BTU per hour` — example 2: gas input at 88%
+  - `88%` — example 2: gas efficiency
+  - `38.1 kW` — example 2: electric equivalent
+  - `6.2 gpm` — example 3: two showers and kitchen tap flow
+  - `40°F water` — example 3: cold climate incoming water
+  - `80°F rise` — example 3: temperature rise
+  - `248,000 BTU per hour` — example 3 result
+  - `2025` — 25C tax credit doesn't apply after 2025
+  - `$1,750` — HEAR program heat pump water heater rebate cap
+  - `4 to 5 gpm` — FAQ: family of four, two showers at once
+  - `65°F rise` — FAQ: family of four temperature rise
+  - `130,000 to 162,500 BTU per hour` — FAQ: family of four heat needed
+  - `4 gpm` — FAQ: two showers with WaterSense showerheads
+  - `2.0 gpm each` — FAQ: WaterSense showerheads
+  - `5 gpm` — FAQ: two showers with standard showerheads
+  - `2.5 gpm` — FAQ: standard showerheads
+  - `40°F winter water` — FAQ: electric whole house
+  - `over 40 kW` — FAQ: two showers need with 40°F water
+  - `120°F` — FAQ: difference from coldest incoming water
+  - `50°F` — FAQ: typical rise in warm climates
+  - `80°F` — FAQ: typical rise in northern climates
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 15. ac-troubleshooting-guide  ·  304 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/ac-troubleshooting-guide
+- **Title:** AC Troubleshooting Guide: Fix 12 Common Problems (2026)
+- **H1:** AC Troubleshooting Guide: Fix 12 Common Problems
+- **Answer (first two body sentences):** Your AC is doing something wrong. Maybe it's making a noise it didn't used to, or there's water where there shouldn't be, or your electric bill jumped, or it just won't turn on.
+- **Bold answer:** Start here: match your symptom to the section below.
+- **Numbers in the body (6):**
+  - `20%` — ENERGY STAR: leaky ductwork can reduce a system's efficiency by as much as 20%
+  - `10% a year` — DOE: a programmable thermostat can save up to 10% a year on heating and cooling
+  - `SEER 8–13` — older AC efficiency range (high bills section)
+  - `SEER2 15–22+` — modern AC efficiency range (high bills section)
+  - `15+ years` — unit age at which replacement math may favor it over repairs
+  - `Section 608` — EPA regulation governing refrigerant handling (certification required)
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 16. 3-phase-power-calculator  ·  299 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/3-phase-power-calculator
+- **Title:** 3-Phase Power Calculator: kW to Amps, Amps to kW (2026)
+- **H1:** 3-Phase Power Calculator: kW to Amps, Amps to kW
+- **Answer (first two body sentences):** Three-phase power runs most commercial buildings, larger motors and big HVAC equipment. Its formulas carry an extra factor, the square root of 3, because the three phases peak at different moments and share the load.
+- **Bold answer:** For three-phase power, amps = kW × 1,000 ÷ (volts × 1.732 × power factor). At 480 volts and a power factor of 0.85, 10 kW draws about 14.2 amps, and 50 amps delivers about 35.3 kW.
+- **Numbers in the body (71):**
+  - `3` — square root of 3 extra factor (intro prose)
+  - `1,000` — divisor in amps/kW formula (bold answer)
+  - `1.732` — √3 value in amps formula (bold answer)
+  - `480 volts` — bold answer example voltage
+  - `0.85` — power factor in bold answer example
+  - `10 kW` — draws about 14.2 amps (bold answer)
+  - `14.2 amps` — 10 kW at 480 V, PF 0.85 (bold answer)
+  - `50 amps` — delivers about 35.3 kW (bold answer)
+  - `35.3 kW` — 50 amps at 480 V, PF 0.85 (bold answer)
+  - `120 degrees` — phases apart, first diagram caption
+  - `√3` — factor in kVA/kW formulas (formulas section)
+  - `1,000` — divisor in kVA/kW formulas (formulas section)
+  - `1.732` — approximate value of √3 (formulas section)
+  - `208 V` — quick reference table column (table)
+  - `240 V` — quick reference table column (table)
+  - `480 V` — quick reference table column (table)
+  - `5 kW` — table row load (table)
+  - `16.3 A` — 5 kW at 208 V (table)
+  - `14.2 A` — 5 kW at 240 V (table)
+  - `7.1 A` — 5 kW at 480 V (table)
+  - `10 kW` — table row load (table)
+  - `32.7 A` — 10 kW at 208 V (table)
+  - `28.3 A` — 10 kW at 240 V (table)
+  - `14.2 A` — 10 kW at 480 V (table)
+  - `25 kW` — table row load (table)
+  - `81.6 A` — 25 kW at 208 V (table)
+  - `70.8 A` — 25 kW at 240 V (table)
+  - `35.4 A` — 25 kW at 480 V (table)
+  - `50 kW` — table row load (table)
+  - `163.3 A` — 50 kW at 208 V (table)
+  - `141.5 A` — 50 kW at 240 V (table)
+  - `70.8 A` — 50 kW at 480 V (table)
+  - `100 kW` — table row load (table)
+  - `326.6 A` — 100 kW at 208 V (table)
+  - `283.0 A` — 100 kW at 240 V (table)
+  - `141.5 A` — 100 kW at 480 V (table)
+  - `0.85` — power factor assumed in table, typical of motor loads
+  - `1.0` — power factor for purely resistive loads such as heaters
+  - `15%` — current lower for resistive loads
+  - `10 kW` — at 480 V draws 12.0 amps at PF 1.0 (table note)
+  - `480 volts` — resistive-load example voltage (table note)
+  - `12.0 amps` — 10 kW at 480 V, PF 1.0 (table note)
+  - `1.0` — heaters run near 1.0 power factor (power factor section)
+  - `√3` — line voltage = √3 × phase voltage, wye (wye/delta section)
+  - `208Y/120` — wye system designation
+  - `120 volts` — line to neutral in 208Y/120 system
+  - `√3` — line current = √3 × phase current, delta (wye/delta section)
+  - `120/240 volts` — single-phase home service
+  - `10 kW` — single vs three-phase example load
+  - `240 volts` — single-phase vs three-phase example
+  - `1.0` — power factor in single-vs-three-phase example
+  - `41.7 amps` — 10 kW single-phase draw
+  - `24.1 amps` — 10 kW three-phase draw
+  - `745.7 watts` — one horsepower (NIST)
+  - `10 hp` — motor at 90% efficiency draws 8,286 watts
+  - `90%` — motor efficiency in example
+  - `8,286 watts` — 10 hp motor electrical input
+  - `Table 430.250` — NEC three-phase motor full-load current table
+  - `14.2 amps` — FAQ: 10 kW at 480 V, PF 0.85
+  - `28.3` — FAQ: 10 kW at 240 V
+  - `32.7` — FAQ: 10 kW at 208 V
+  - `0.85` — FAQ power factor
+  - `1.0` — FAQ: current 15% lower at PF 1.0
+  - `15%` — FAQ: current lower at PF 1.0
+  - `1.732` — FAQ amps-to-kW formula factor
+  - `50 amps` — FAQ: at 480 V, PF 0.85 is about 35.3 kW
+  - `480 volts` — FAQ amps-to-kW example
+  - `0.85` — FAQ amps-to-kW example power factor
+  - `35.3 kW` — FAQ: 50 amps at 480 V, PF 0.85
+  - `120 degrees` — FAQ: phases apart, square root of 3 reason
+  - `√3` — FAQ: line voltage is √3 times phase voltage
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 17. wire-for-220-volt  ·  285 sessions
+
+- **Status:** CHANGED since the first sheet (2026-10-07) — a new reference-sizes sentence on cable temperature columns adds 5 numbers (60°C NM-B column, 75°C THHN terminations, 8 AWG copper rated 50 A, NEC Article 440); title, H1, answer and bold answer unchanged
+- **URL:** https://www.hvacbase.org/wire-for-220-volt
+- **Title:** Wire Size for 220V/240V Circuits (30, 40 & 50 Amp): NEC Reference & the 4 Factors That Change It
+- **H1:** Wire Size for 220V/240V Circuits (30, 40 & 50 Amp): NEC Reference & the 4 Factors That Change It
+- **Answer (first two body sentences):** You're adding a dryer, an EV charger, a range or a hot tub, and you need to know one thing: what size wire does this 240-volt circuit need? Undersized wire on a high-draw circuit overheats, which is a genuine fire risk, so it's worth getting right.
+- **Bold answer:** The NEC minimum copper wire sizes for common 240V circuits: 30 amps needs 10 AWG, 40 amps needs 8 AWG, and 50 amps needs 6 AWG.
+- **Numbers in the body (67):**
+  - `240-volt` — intro: the 240-volt circuit the page is about
+  - `240-volt` — intro: a new 240-volt circuit almost always needs permit/inspection
+  - `240V` — bold answer: common 240V circuits
+  - `30 amps` — bold answer: needs 10 AWG
+  - `10 AWG` — bold answer: copper for 30 amps
+  - `40 amps` — bold answer: needs 8 AWG
+  - `8 AWG` — bold answer: copper for 40 amps
+  - `50 amps` — bold answer: needs 6 AWG
+  - `6 AWG` — bold answer: copper for 50 amps
+  - `20 amp` — table: breaker, small 240V appliances
+  - `12 AWG` — table: wire for 20 amp
+  - `30 amp` — table: breaker, dryer/small AC
+  - `10 AWG` — table: wire for 30 amp
+  - `40 amp` — table: breaker, range/water heater
+  - `8 AWG` — table: wire for 40 amp
+  - `50 amp` — table: breaker, range/EV/hot tub/sub-panel
+  - `6 AWG` — table: wire for 50 amp
+  - `60 amp` — table: breaker, larger sub-panel/some EV
+  - `6 AWG (or 4 AWG)` — table: wire options for 60 amp
+  - `100 amp` — table: breaker, sub-panel
+  - `3 AWG` — table: wire for 100 amp
+  - `Table 310.16` — NEC ampacity tables the sizes follow
+  - `240.4(D)` — NEC small-conductor rule
+  - `30 amps` — 10 AWG copper capped at 30 amps on a branch circuit
+  - `60°C` — reference sizes assume NM-B cable, held to the 60°C column
+  - `75°C` — THHN conductors in conduit with 75°C terminations carry more
+  - `8 AWG copper` — rated 50 A at 75°C example
+  - `50 A` — 8 AWG copper rated 50 A at 75°C
+  - `Article 440` — NEC article AC units follow for nameplate MCA/MOP
+  - `25%` — continuous loads need 25% more wire
+  - `3+ hours` — continuous load = anything drawing for 3+ hours
+  - `125%` — NEC sizes continuous loads at 125% of the load
+  - `40-amp` — a 40-amp EV charger draws 40 amps continuously
+  - `40–50 amps` — 8 AWG rated for 40-50 amps
+  - `50-amp breaker` — 40-amp continuous load needs 50-amp breaker and 6 AWG
+  - `6 AWG copper` — copper needed for 40-amp continuous EV load, not 8 AWG
+  - `8 AWG` — the size 40 amps alone wrongly suggests
+  - `60/75/90°C` — wire temperature-rating columns
+  - `6 AWG` — 6 AWG rated 50 amps in one column, lower in another
+  - `50 amps` — 6 AWG rated for 50 amps in one column
+  - `6 AWG copper` — circuit needing 6 AWG copper needs ~4 AWG aluminum
+  - `4 AWG aluminum` — roughly equivalent to 6 AWG copper
+  - `50 feet` — runs longer than about 50 feet, voltage drop significant
+  - `3%` — NEC recommends voltage drop under 3% on a branch circuit
+  - `150 feet` — EV charger 150 feet from panel might need 4 AWG
+  - `4 AWG` — needed instead of 6 AWG for a 150-foot run
+  - `6 AWG` — amperage alone suggests for the long EV run
+  - `30-amp` — FAQ: standard electric dryer circuit
+  - `10 AWG copper` — FAQ: wire for 240V dryer on 30-amp breaker
+  - `30-amp breaker` — FAQ: dryer breaker
+  - `10/3 cable` — FAQ: typical dryer cable with ground
+  - `NEMA 14-30` — FAQ: dryer outlet type
+  - `6 AWG copper` — FAQ: NEC minimum for a 50-amp circuit
+  - `50-amp` — FAQ: 50-amp 240V circuit
+  - `125% rule` — FAQ: continuous load like an EV charger
+  - `4 AWG` — FAQ: aluminum would need to be larger, about 4 AWG
+  - `40-amp EV charger` — FAQ: classic trap, continuous load
+  - `125%` — FAQ: NEC 125% rule for the EV charger
+  - `50-amp breaker` — FAQ: 40-amp EV charger needs 50-amp breaker
+  - `6 AWG copper` — FAQ: for 40-amp EV charger, not 8 AWG
+  - `8 AWG` — FAQ: what 40 amps alone would suggest
+  - `6 AWG copper` — FAQ aluminum: circuit needing 6 AWG copper needs ~4 AWG aluminum
+  - `4 AWG aluminum` — FAQ: roughly equivalent to 6 AWG copper
+  - `Table 310.16` — About these figures: conductor ampacity tables
+  - `240.4(D)` — About these figures: small-conductor rule
+  - `125%` — About these figures: continuous-load requirement
+  - `210.19` — About these figures: voltage-drop recommendations
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 18. kwh-cost-calculator  ·  285 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/kwh-cost-calculator
+- **Title:** kWh Cost Calculator: Convert kWh to Dollars Instantly (2026 Rates)
+- **H1:** kWh Cost Calculator: Convert kWh to Dollars
+- **Answer (first two body sentences):** Your electric bill charges you for kilowatt-hours, but appliances are labeled in watts, and the rate on your bill may be split across several lines. This page connects the three: the calculator turns any appliance's wattage and hours into dollars, and the state table shows what a kilowatt-hour actually costs where you live.
+- **Bold answer:** A kilowatt-hour costs the average U.S. household about 18 cents: 18.19 cents from January through July 2026, according to the U.S. Energy Information Administration. State averages range from 12.36 cents in North Dakota to 46.28 cents in Hawaii.
+- **Numbers in the body (78):**
+  - `18 cents` — bold answer: approx cost of a kWh for average U.S. household
+  - `18.19 cents` — bold answer: U.S. average rate Jan-Jul 2026
+  - `January through July 2026` — bold answer: period of the 18.19 cent average
+  - `12.36 cents` — bold answer: lowest state rate, North Dakota
+  - `46.28 cents` — bold answer: highest state rate, Hawaii
+  - `1,000` — intro prose after bold answer: divide watts by 1,000
+  - `$2.16` — formula figure caption: 1,500-watt heater 8 hours, cost a day
+  - `$64.80` — formula figure caption: heater cost over 30 days
+  - `1,500-watt` — formula figure caption: heater wattage
+  - `8 hours` — formula figure caption: heater runtime
+  - `12 kWh` — formula figure caption: heater daily usage
+  - `30 days` — formula figure caption: month length
+  - `18 cents` — formula figure caption: price per kWh in heater example
+  - `1,000 watts` — formula section: a kilowatt-hour is 1,000 watts running one hour
+  - `1,500 × 8 ÷ 1,000 = 12 kWh` — formula section: space heater usage calculation
+  - `$2.16` — formula section: heater cost a day at 18 cents
+  - `$64.80` — formula section: heater cost over 30 days
+  - `863 kWh` — state table intro: monthly usage average home uses
+  - `EIA 2024 data` — state table intro: source year for 863 kWh figure
+  - `16.54¢ / 16.40¢ / $143` — state table Alabama (table)
+  - `46.28¢ / 48.00¢ / $399` — state table Hawaii, highest (table)
+  - `12.36¢ / 13.41¢ / $107` — state table North Dakota, lowest Jan-Jul (table)
+  - `18.19¢ / 18.31¢ / $157` — state table U.S. average row
+  - `range 12.36¢ to 46.28¢ Jan-Jul; $107 to $399 bill` — state table overall range (table)
+  - `July 2026 data released September 24, 2026` — source note under state table
+  - `about $107` — same-usage figure caption: North Dakota bill
+  - `12.36 cents` — same-usage figure caption: North Dakota rate per kWh
+  - `$157` — same-usage figure caption: U.S. average bill at 18.19 cents
+  - `18.19 cents` — same-usage figure caption: U.S. average rate
+  - `$399` — same-usage figure caption: Hawaii bill at 46.28 cents
+  - `46.28 cents` — same-usage figure caption: Hawaii rate per kWh
+  - `863 kWh` — same-usage figure caption: average home monthly usage
+  - `10,356 kWh` — average bill section: yearly usage average home
+  - `863 kWh` — average bill section: monthly usage
+  - `EIA 2024 data` — average bill section: source for 863 kWh
+  - `18.19 cents` — average bill section: national average rate Jan-Jul 2026
+  - `$157 a month` — average bill section: average monthly bill
+  - `about $107` — average bill section: North Dakota bill
+  - `$399` — average bill section: Hawaii bill
+  - `18 cents per kWh` — appliances section intro: assumed rate
+  - `30 days` — appliances section intro: month length
+  - `1,500 W / 8 hours / 360 / $64.80` — appliance table: space heater (table)
+  - `900 W / 8 hours / 216 / $38.88` — appliance table: window AC 10,000 BTU (table)
+  - `150 W / 8 hours / 36 / $6.48` — appliance table: desktop computer and monitor (table)
+  - `100 W / 5 hours / 15 / $2.70` — appliance table: LED TV (table)
+  - `5,000 W / 1 hour / 150 / $27.00` — appliance table: electric clothes dryer (table)
+  - `40 cents` — time-of-use: example peak rate
+  - `15 cents` — time-of-use: example off-peak rate
+  - `300 kWh a month` — time-of-use: EV charging monthly usage
+  - `$120` — time-of-use: EV cost on peak
+  - `$45` — time-of-use: EV cost off-peak
+  - `one million BTU` — heating section: unit of delivered heat compared across sources
+  - `18.19 cents per kWh` — heating cost section: electricity rate assumption
+  - `$1.35 per therm` — heating cost section: assumed natural gas price
+  - `$53.31` — heating table: electric resistance cost per million BTU
+  - `COP of 3` — heating table: heat pump COP
+  - `$17.77` — heating table: heat pump cost per million BTU
+  - `95% AFUE` — heating table: gas furnace efficiency
+  - `$14.21` — heating table: gas furnace cost per million BTU
+  - `293 kWh` — heating section: one million BTU of electricity
+  - `three units` — heating section: heat pump moves ~3 units heat per unit electricity
+  - `COP of 3` — heating section: heat pump COP, costs a third as much
+  - `0.823 lb per kWh` — carbon section: U.S. grid average CO2 (EPA eGRID2022)
+  - `about 18 cents` — FAQ: average cost of 1 kWh in U.S.
+  - `18.19 cents` — FAQ: U.S. rate Jan-Jul 2026
+  - `12.36 cents` — FAQ: North Dakota lowest
+  - `46.28 cents` — FAQ: Hawaii highest
+  - `12.36 cents per kWh` — FAQ cheapest state: North Dakota
+  - `12.90` — FAQ cheapest: Nebraska
+  - `12.96` — FAQ cheapest: Idaho
+  - `46.28 cents` — FAQ: Hawaii most expensive
+  - `27 cents an hour` — FAQ 1,500-watt heater cost per hour at 18 cents
+  - `1.5 kWh × $0.18` — FAQ heater hourly calc
+  - `Eight hours a day` — FAQ heater runtime
+  - `360 kWh` — FAQ heater monthly usage
+  - `about $65` — FAQ heater monthly cost
+  - `about 863 kWh` — FAQ: house monthly usage
+  - `EIA 2024 data` — FAQ: source for 863 kWh
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 19. what-size-generator-for-fridge  ·  271 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/what-size-generator-for-fridge
+- **Title:** What Size Generator to Run a Fridge and Freezer? (Wattage Guide)
+- **H1:** What Size Generator to Run a Fridge and Freezer?
+- **Answer (first two body sentences):** The power's out (or you're prepping for when it is), and the one thing you really don't want to lose is a fridge and freezer full of food. So the question is simple: what size generator do you actually need to keep them running, without buying way more generator than necessary or, worse, one that trips its breaker every time the compressor kicks on at 2 AM?
+- **Bold answer:** To run a standard refrigerator and freezer together, you generally need a generator rated for at least about 2,000 starting watts.
+- **Numbers in the body (67):**
+  - `2 AM` — compressor kicks on at 2 AM
+  - `2,000 starting watts` — bold answer: generator rating needed for fridge + freezer
+  - `800 to 1,500 watts` — surge each fridge/freezer draws to start
+  - `100 to 400 watts` — running draw each
+  - `18–21 cu ft` — table: standard top/bottom-freezer fridge size
+  - `~100–200W` — table: standard fridge running watts
+  - `~800–1,200W` — table: standard fridge starting watts
+  - `22–28 cu ft` — table: side-by-side/French door size
+  - `~150–300W` — table: side-by-side running watts
+  - `~1,000–1,500W` — table: side-by-side starting watts
+  - `~50–150W` — table: mini/compact fridge running watts
+  - `~300–800W` — table: mini/compact fridge starting watts
+  - `5–18 cu ft` — table: chest freezer size
+  - `~50–200W` — table: chest freezer running watts
+  - `~500–1,100W` — table: chest freezer starting watts
+  - `10–25 cu ft` — table: upright freezer size
+  - `~100–400W` — table: upright freezer running watts
+  - `~800–1,500W` — table: upright freezer starting watts
+  - `3×` — rule of thumb: starting watts roughly 3× running watts
+  - `20%` — sizing margin to add for reliable operation
+  - `~150W` — worked example: fridge running
+  - `~100W` — worked example: freezer running
+  - `~50W` — worked example: lights running
+  - `~15W` — worked example: charger running
+  - `~315W running` — worked example total running
+  - `~1,200W` — worked example: fridge compressor largest surge
+  - `~1,050W` — worked example: surge over running draw
+  - `~315 + 1,050 = ~1,365W` — worked example peak need
+  - `~1,640W` — worked example with 20% margin
+  - `~2,000W` — inverter generator that handles the example
+  - `~1,500–2,000W` — guide table: standard fridge only
+  - `~2,000–2,200W` — guide table: fridge + a freezer
+  - `~2,200–3,000W` — guide table: fridge + freezer + lights/charger
+  - `~3,500–5,000W` — guide table: fridge + freezer + sump or well pump
+  - `~3,000–5,000W` — guide table: fridge + freezer + furnace blower
+  - `~3,500–5,500W` — guide table: fridge + freezer + window AC
+  - `about 4 hours` — food-safe table: refrigerator with door closed
+  - `below 40°F` — food-safe table: refrigerator safe temperature
+  - `about 48 hours` — food-safe table: full freezer stays safe
+  - `about 24 hours` — food-safe table: half-full freezer stays safe
+  - `below 0°F` — food-safe table: freezer safe temperature
+  - `about 4 hours` — cycling prose: closed fridge stays safe
+  - `about 48` — cycling prose: full freezer stays frozen for up to about 48 hours
+  - `40°F` — FDA note: discard perishables above this for 4 hours or more
+  - `4 hours or more` — FDA note: perishables held above 40°F
+  - `pre-2010` — older refrigerator draws two to three times more power
+  - `two to three times` — pre-2010 fridge power vs modern ENERGY STAR
+  - `15+ years old` — fridge age pulling more watts
+  - `10 to 15%` — fridge+freezer load as share of a 2,000W-class unit's capacity
+  - `2,000W-class` — unit capacity reference for light load
+  - `5 gallons` — linked guide: how long a generator runs on 5 gallons
+  - `2,000-watt` — FAQ: will a 2,000-watt generator run fridge and freezer
+  - `~150W` — FAQ: fridge running
+  - `~100W` — FAQ: freezer running
+  - `about 250W` — FAQ: fridge + freezer combined running
+  - `~2,000W-class` — FAQ: inverter generators handle both
+  - `4 hours` — FAQ: refrigerator keeps food safe with door closed
+  - `48 hours` — FAQ: full freezer
+  - `24` — FAQ: freezer if half full
+  - `40°F` — FAQ: discard perishables held above for 4+ hours
+  - `4+ hours` — FAQ: perishables held above 40°F
+  - `800 to 1,500W` — FAQ: compressor surge for fridge or freezer
+  - `20%` — FAQ: margin to add after largest surge
+  - `about 4 hours` — about section: refrigerator safe
+  - `about 48 hours` — about section: full freezer
+  - `about 24 hours` — about section: half-full freezer
+  - `40°F and 0°F` — about section: safe temperatures
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 20. dry-mode-in-ac  ·  254 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/dry-mode-in-ac
+- **Title:** AC Dry Mode Explained: What It Does & When to Use It
+- **H1:** AC Dry Mode Explained: What It Does & When to Use It
+- **Answer (first two body sentences):** You spotted a "Dry" setting or a little water-drop icon on your AC remote, and you're wondering: what does this actually do, should I be using it, and will it cool the room or just make it less muggy? Maybe your room feels sticky even with the AC on, and you're hoping this is the fix.
+- **Bold answer:** Dry mode makes your AC prioritize removing humidity over lowering temperature.
+- **Numbers in the body (7):**
+  - `74°F` — very humid room feels stickier and warmer
+  - `78°F` — room with balanced humidity feels more comfortable
+  - `95°F` — genuinely hot day, use cool mode instead
+  - `30–50%` — indoor humidity range the EPA recommends (body prose)
+  - `30–50%` — indoor humidity target, EPA recommendation (About these figures)
+  - `30–50%` — SourcesBox: EPA Mold Course Chapter 2 indoor humidity
+  - `below 60%` — SourcesBox: EPA Mold Course Chapter 2 humidity
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 21. hvac-refrigerant-phase-out  ·  254 sessions
+
+- **Status:** CHANGED since the first sheet (2026-10-07) — timeline row rewritten: dropped the `~2026` install-through reference and added `May 2026`, New York's `January 1, 2026` deadline, and state rule `Part 494`
+- **URL:** https://www.hvacbase.org/hvac-refrigerant-phase-out
+- **Title:** HVAC Refrigerant Phase-Out: R-410A Ban Timeline & What Homeowners Need to Know (2026)
+- **H1:** HVAC Refrigerant Phase-Out: R-410A Ban Timeline & What Homeowners Need to Know
+- **Answer (first two body sentences):** You've heard that HVAC refrigerant is being "phased out," and now you're wondering the practical question: **does this affect the system I already own, do I have to do something about it, and is it going to cost me?** Maybe your tech mentioned it, or you saw it while shopping for a new unit.
+- **Bold answer:** R-410A, the refrigerant in most homes today, is being phased out of new equipment, not out of use.
+- **Numbers in the body (20):**
+  - `January 1, 2025` — manufacturers can no longer build new R-410A home systems
+  - `2020` — AIM Act becomes law
+  - `85%` — HFC production phasedown directed by AIM Act
+  - `2036` — year for the 85% HFC phasedown
+  - `700-GWP` — EPA limit R-410A exceeds / cap on new home HVAC equipment
+  - `July 27, 2026` — effective date of EPA rule removing the installation deadline for pre-2025 stock
+  - `May 2026` — month the EPA reconsideration rule was finalized
+  - `January 1, 2026` — New York's state installation deadline it keeps
+  - `Part 494` — New York state rule setting that deadline
+  - `~2006–2024` — most homes with R-410A equipment from this era
+  - `January 1, 2020` — R-22 production ended
+  - `~2010` — R-22 systems are equipment older than about this year
+  - `16 years old` — an R-22 system is at least this old
+  - `2,088` — R-410A GWP, times as much heat as CO2 over 100 years
+  - `100 years` — time span for GWP comparison
+  - `675` — R-32 GWP
+  - `466` — R-454B GWP
+  - `2026` — any new system bought this year uses a current refrigerant
+  - `12–15 years` — typical end of life for AC and heat pumps
+  - `40 CFR §84.64` — regulation codifying the GWP values
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 22. how-often-change-hvac-filter  ·  214 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/how-often-change-hvac-filter
+- **Title:** How Often Should You Change Your HVAC Filter? (2026 Guide)
+- **H1:** How Often Should You Change Your HVAC Filter?
+- **Answer (first two body sentences):** You know you're supposed to change your HVAC filter, but the nagging question is: am I doing it often enough to protect my system, or am I overthinking it and wasting money on filters? Maybe you can't remember the last time you swapped it, or you're staring at one that looks a little gray and wondering if it's a problem.
+- **Bold answer:** Change a standard 1-inch HVAC filter every 1 to 3 months, and a thick 4-to-5-inch media filter every 6 to 12 months.
+- **Numbers in the body (30):**
+  - `1 to 3 months` — change interval for a standard filter (intro short version)
+  - `1-inch` — standard HVAC filter thickness (bold answer)
+  - `4-to-5-inch` — thick media filter (bold answer)
+  - `6 to 12 months` — change interval for thick media filter (bold answer)
+  - `3 months` — ENERGY STAR: change every 3 months at the latest (bold answer)
+  - `1 to 3 months` — figure caption: interval for 1-inch filters
+  - `3 to 6 months` — figure caption: interval for 2-inch pleated filters
+  - `6 to 12 months` — figure caption: interval for 4 to 5-inch deep media
+  - `1-inch` — fiberglass or pleated standard filter (table)
+  - `1–3 months` — 1-inch standard filter interval (table)
+  - `2-inch` — pleated filter (table)
+  - `3–6 months` — 2-inch pleated filter interval (table)
+  - `4-to-5-inch` — deep-pleated media filter (table)
+  - `6–12 months` — 4-to-5-inch media filter interval (table)
+  - `every 3 months` — change standard filter at least this often even if not dirty
+  - `six months a year` — ENERGY STAR: systems running more than six months a year need more frequent changes
+  - `5 to 15%` — figure caption: clean filter can lower AC energy use, per DOE
+  - `5 to 15%` — DOE: clean filter can lower an air conditioner's energy use
+  - `16x25x1` — example filter size to write on phone
+  - `4-to-5-inch` — media filter cabinet upgrade
+  - `6–12 months` — how often you change media filter instead of monthly-ish
+  - `1-inch` — filters you switch from with media cabinet
+  - `1–3 months` — FAQ: change a standard 1-inch filter interval
+  - `3 months` — FAQ: ENERGY STAR change at least every 3 months
+  - `4–5 inch` — FAQ: thick media filters
+  - `6–12 months` — FAQ: thick media filters last
+  - `5–15%` — FAQ: DOE clean filter can lower AC energy use
+  - `1-inch` — FAQ pets: closer to monthly for a 1-inch filter
+  - `5–15%` — About these figures: DOE clean filter lowers AC energy use
+  - `3 months` — About these figures: change standard filter at least every 3 months
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 23. mini-split-vs-central-air  ·  204 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/mini-split-vs-central-air
+- **Title:** Mini Split vs Central Air: Which Is Better? (8 Key Differences)
+- **H1:** Mini Split vs Central Air: Which Is Better? (8 Key Differences)
+- **Answer (first two body sentences):** You're deciding between a mini split and central air, and you want to know which is better for your situation. It does depend, but on a small number of specific things you can check, and this guide walks through them.
+- **Bold answer:** The short answer: if your home already has ductwork in good condition, central air is usually the simpler and often cheaper choice. If you don't have ducts, need to condition specific rooms, or want room-by-room temperature control, a mini split delivers better efficiency and value.
+- **Numbers in the body (13):**
+  - `eight` — eight things that matter the guide compares (efficiency, cost, etc.)
+  - `20%` — ENERGY STAR: leaky ducts can reduce heating/cooling efficiency by as much as
+  - `about 30%` — DOE puts duct air losses at this share of a cooling system's energy consumption
+  - `SEER2 16` — example central AC rating delivering less in practice after duct losses
+  - `about 30%` — duct loss noted in head-to-head table, energy efficiency row (table)
+  - `25C/25D` — federal tax credits that expired
+  - `December 31, 2025` — federal 25C/25D tax credits expired for installs placed in service after (OBBBA)
+  - `2026` — state/utility rebates and IRA HEAR/HOMES programs remain active in
+  - `about 30%` — DOE duct losses, repeated in efficiency detail section
+  - `about 30%` — DOE duct losses, repeated in FAQ answer on efficiency
+  - `about 30%` — DOE duct losses, repeated in About these figures section
+  - `25C/25D` — credits expired, repeated in About these figures
+  - `December 31, 2025` — 25C/25D credits expired after, repeated in About these figures
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 24. how-to-reduce-hvac-noise  ·  199 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/how-to-reduce-hvac-noise
+- **Title:** How to Reduce HVAC Noise: 8 Soundproofing Solutions (2026)
+- **H1:** How to Reduce HVAC Noise: 8 Soundproofing Solutions
+- **Answer (first two body sentences):** Your HVAC system is too loud, the outdoor unit keeps you up at night, or the air rushing through the vents sounds like a wind tunnel, and you want to know what you can actually do about it without replacing the whole system. Good news: most HVAC noise can be meaningfully reduced, and several of the fixes are cheap and DIY.
+- **Bold answer:** You can usually reduce HVAC noise noticeably by combining a few targeted fixes: vibration isolation under the outdoor unit, a compressor sound blanket, a sound barrier, and acoustic treatment of the ductwork, most of which are inexpensive and DIY.
+- **Numbers in the body (6):**
+  - `three types` — HVAC noise comes in three types
+  - `eight` — figure caption: the eight fixes below, in order
+  - `a couple` — typical system needs a couple of connectors (supply and return)
+  - `two` — pads and filter address two of the most common noise sources
+  - `10-decibel` — roughly 10-decibel reduction perceived as about half as loud (About these figures)
+  - `about half as loud` — perception of a 10-decibel reduction
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 25. what-size-dehumidifier-do-i-need  ·  186 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/what-size-dehumidifier-do-i-need
+- **Title:** What Size Dehumidifier Do I Need? (ENERGY STAR Sizing Chart + Calculator)
+- **H1:** What Size Dehumidifier Do I Need?
+- **Answer (first two body sentences):** A dehumidifier's size is its capacity: how many pints of water it can pull from the air in 24 hours. The right capacity depends on two things, how big the space is and how damp it is without a dehumidifier running.
+- **Bold answer:** ENERGY STAR's sizing chart puts a damp space under 2,000 sq ft at 20 to 30 pints a day, a very damp one at 25 to 40, and a wet one at 30 to 50. Those are minimums, and ENERGY STAR advises that it's better to oversize than undersize.
+- **Numbers in the body (31):**
+  - `24 hours` — pints of water pulled from air per
+  - `2,000 sq ft` — bold answer: damp space under
+  - `20 to 30 pints` — bold answer: damp space capacity per day
+  - `25 to 40` — bold answer: very damp space pints
+  - `30 to 50` — bold answer: wet space pints
+  - `2,000 sq ft` — sizing chart column headers: under/over
+  - `50 to 75%` — table: slightly to moderately damp relative humidity
+  - `20 to 30` — table: slightly damp, under 2,000 sq ft pints
+  - `30 or more` — table: slightly damp, over 2,000 sq ft pints
+  - `75 to 90%` — table: very damp relative humidity
+  - `25 to 40` — table: very damp, under 2,000 sq ft pints
+  - `40 or more` — table: very damp, over 2,000 sq ft pints
+  - `90 to 100%` — table: wet relative humidity
+  - `30 to 50` — table: wet, under 2,000 sq ft pints
+  - `50 or more` — table: wet, over 2,000 sq ft pints
+  - `65°F` — tested at cooler conditions under 2019 DOE procedure
+  - `80°F` — old test condition before 2019
+  - `2019` — DOE test procedure took effect
+  - `65°F` — cold basements: frost forms below about
+  - `55%` — whole-home: humidity stays above throughout house
+  - `30 to 50%` — set humidity range ENERGY STAR and EPA recommend
+  - `30 to 40%` — cold climates heating season avoids window condensation
+  - `20%` — ENERGY STAR certified use about less energy
+  - `2,000 sq ft` — FAQ basement: under
+  - `25 to 40 pints` — FAQ basement: very damp
+  - `30 to 50` — FAQ basement: wet with seepage
+  - `35-pint` — FAQ: new dehumidifier rated lower
+  - `50-pint` — FAQ: old dehumidifier
+  - `2019` — FAQ: DOE test changed to cooler conditions
+  - `30% and 50%` — FAQ: humidity to set dehumidifier between
+  - `30 to 40%` — FAQ: cold climates heating season prevents condensation
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 26. seer2-comparison-calculator  ·  173 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/seer2-comparison-calculator
+- **Title:** SEER2 Comparison Calculator: Compare Any Two Ratings (2026)
+- **H1:** SEER2 Comparison Calculator: Compare Any Two Ratings
+- **Answer (first two body sentences):** Two quotes for the same house often differ mainly in efficiency: one at 14.3 SEER2, one at 17, with a gap of a thousand dollars or more. The higher rating always uses less electricity.
+- **Bold answer:** Each SEER2 point is worth less than the one before. On a 3-ton air conditioner running 1,500 full-load hours a year at 18 cents per kWh, going from 14.3 to 16 SEER2 saves about $72 a year, and going from 16 to 20 saves another $122.
+- **Numbers in the body (104):**
+  - `14.3 SEER2` — one quote's efficiency rating (intro)
+  - `17` — the other quote's SEER2 rating (intro)
+  - `3-ton` — air conditioner in bold answer / examples
+  - `1,500` — full-load hours a year in bold answer
+  - `18 cents per kWh` — electricity rate in bold answer / examples
+  - `14.3 to 16 SEER2` — upgrade step in bold answer
+  - `about $72 a year` — savings going 14.3 to 16 SEER2 (bold answer)
+  - `16 to 20` — SEER2 step in bold answer
+  - `$122` — additional savings going 16 to 20 SEER2 (bold answer)
+  - `3-ton` — system in first diagram caption
+  - `1,500 hours` — full-load hours in first diagram caption
+  - `15.2 SEER2` — rating in first diagram caption
+  - `3,553 kWh` — annual use at 15.2 SEER2 (caption)
+  - `$639 a year` — cost at 15.2 SEER2, 18 cents (caption)
+  - `18 cents` — rate in first diagram caption
+  - `12,000` — BTU per ton in annual kWh formula
+  - `SEER2 × 1,000` — denominator in annual kWh formula
+  - `36,000 BTU per hour` — a 3-ton system's capacity
+  - `1,000` — divisor to get kilowatt-hours in formula explanation
+  - `600 hours` — cooling-hours preset for a very cool climate
+  - `2,800` — cooling-hours preset for a very hot climate
+  - `0.823 lb per kWh` — U.S. grid average CO2, EPA eGRID2022
+  - `3-ton` — system heading the annual-cost table
+  - `1,500 full-load hours` — assumption heading the annual-cost table
+  - `18 cents per kWh` — rate heading the annual-cost table
+  - `13.4` — annual-cost table SEER2 row
+  - `4,030` — kWh/year at 13.4 SEER2 (table)
+  - `$725` — cost/year at 13.4 SEER2 (table)
+  - `14.3` — annual-cost table SEER2 row
+  - `3,776` — kWh/year at 14.3 SEER2 (table)
+  - `$680` — cost/year at 14.3 SEER2 (table)
+  - `15.2` — annual-cost table SEER2 row
+  - `3,553` — kWh/year at 15.2 SEER2 (table)
+  - `$639` — cost/year at 15.2 SEER2 (table)
+  - `16` — annual-cost table SEER2 row
+  - `3,375` — kWh/year at 16 SEER2 (table)
+  - `$608` — cost/year at 16 SEER2 (table)
+  - `17` — annual-cost table SEER2 row
+  - `3,176` — kWh/year at 17 SEER2 (table)
+  - `$572` — cost/year at 17 SEER2 (table)
+  - `18` — annual-cost table SEER2 row
+  - `3,000` — kWh/year at 18 SEER2 (table)
+  - `$540` — cost/year at 18 SEER2 (table)
+  - `20` — annual-cost table SEER2 row
+  - `2,700` — kWh/year at 20 SEER2 (table)
+  - `$486` — cost/year at 20 SEER2 (table)
+  - `22` — annual-cost table SEER2 row
+  - `2,455` — kWh/year at 22 SEER2 (table)
+  - `$442` — cost/year at 22 SEER2 (table)
+  - `13.4 to 14.3` — SEER2 step in diminishing-returns text
+  - `$45 a year` — savings from 13.4 to 14.3 SEER2
+  - `20 to 22` — SEER2 step, more than twice the rating change
+  - `$44` — savings from 20 to 22 SEER2
+  - `$1,000 more` — 16 SEER2 unit price premium over 14.3
+  - `$72 a year` — savings at 1,500 full-load hours (payback section)
+  - `about 13.8 years` — payback on the extra $1,000 at 1,500 hours
+  - `2,500 hours` — hot-climate full-load hours
+  - `$120 a year` — savings at 2,500 hours
+  - `about 8.3 years` — payback at 2,500 hours
+  - `15 to 20 years` — DOE central air conditioner lifespan
+  - `14.3 to 16 SEER2` — upgrade in climate-matters section
+  - `3-ton` — system in climate-matters section
+  - `18 cents per kWh` — rate in climate-matters section
+  - `600 (very cool)` — climate table full-load hours row
+  - `$29` — savings per year at 600 hours (table)
+  - `1,200 (moderate)` — climate table full-load hours row
+  - `$58` — savings per year at 1,200 hours (table)
+  - `1,500 (warm)` — climate table full-load hours row
+  - `$72` — savings per year at 1,500 hours (table)
+  - `2,100 (hot)` — climate table full-load hours row
+  - `$101` — savings per year at 2,100 hours (table)
+  - `2,800 (very hot)` — climate table full-load hours row
+  - `$135` — savings per year at 2,800 hours (table)
+  - `before 2023` — systems rated in SEER rather than SEER2
+  - `roughly 5% lower` — SEER2 score vs SEER for same equipment
+  - `10 SEER` — old unit example
+  - `9.5 SEER2` — old 10 SEER unit equivalent
+  - `10 against 16` — ratings entered in calculator
+  - `2,025 kWh` — saved per year, 10 vs 16
+  - `$364.50` — saved per year, 10 vs 16
+  - `9.5 against 16` — ratings entered in calculator
+  - `2,309 kWh` — saved per year, 9.5 vs 16
+  - `about $416` — saved per year, 9.5 vs 16
+  - `13.4 SEER2` — North split-system AC minimum
+  - `14.3 SEER2` — South/Southwest minimum below 45,000 BTU/h
+  - `45,000 BTU per hour` — capacity threshold for minimums
+  - `13.8` — South/Southwest minimum at 45,000 and above
+  - `16 SEER2` — FAQ: worth it over 14.3
+  - `14.3` — FAQ comparison rating
+  - `3-ton` — FAQ example system
+  - `18 cents per kWh` — FAQ example rate
+  - `about $72 a year` — FAQ savings at 1,500 full-load hours
+  - `$120` — FAQ savings at 2,500 hours
+  - `$1,000 premium` — FAQ payback example
+  - `roughly 8 to 14 years` — FAQ payback range
+  - `$725 at 13.4 SEER2` — FAQ yearly cost figure
+  - `$608 at 16` — FAQ yearly cost figure
+  - `$486 at 20` — FAQ yearly cost figure
+  - `roughly 5% lower` — FAQ SEER2 vs SEER reading
+  - `13.4 SEER2` — FAQ minimum in North 2026
+  - `14.3` — FAQ South/Southwest minimum below 45,000 BTU/h
+  - `45,000 BTU per hour` — FAQ capacity threshold
+  - `13.8 at 45,000 and above` — FAQ minimum
+  - `15 to 20 years` — FAQ central AC lifespan
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 27. hvac-tax-credits-2026  ·  169 sessions
+
+- **Status:** CHANGED since the first sheet (2026-10-07) — first sheet omitted 6 figures now captured (HOMES payout table $2,000/$4,000/$8,000 and its 80%-AMI column; DOE funding split $8.8B/$4.5B/$4.3B), all present on the page then and now; the only actual edit since was FIX-26 A3 (commit 8ff0272) adding a DOE attribution phrase, no number value changed
+- **URL:** https://www.hvacbase.org/hvac-tax-credits-2026
+- **Title:** HVAC Tax Credits 2026: What Ended and Which Rebates Are Left
+- **H1:** HVAC Tax Credits 2026: What Ended and Which Rebates Are Left
+- **Answer (first two body sentences):** The federal tax credits that paid up to $2,000 toward a heat pump and up to $600 toward a central air conditioner or furnace are gone for equipment installed in 2026. The One Big Beautiful Bill Act, signed July 4, 2025, ended them after December 31, 2025.
+- **Bold answer:** If your HVAC system is installed in 2026, there is no federal tax credit for it. Income-qualified households may get up to $8,000 toward a heat pump through the HEAR rebate program where their state has launched it, and state and utility rebates still apply.
+- **Numbers in the body (53):**
+  - `$2,000` — former federal credit toward a heat pump (intro)
+  - `$600` — former federal credit toward central AC or furnace (intro)
+  - `2026` — year equipment installed with no federal credit (intro)
+  - `July 4, 2025` — date OBBB Act signed
+  - `December 31, 2025` — credits ended after this date (intro)
+  - `2026` — bold answer: HVAC installed this year has no federal credit
+  - `$8,000` — HEAR rebate toward a heat pump (bold answer)
+  - `2025` — bold answer: install year still claimable under 25C
+  - `December 31, 2025` — bold answer: 25C ended for systems placed in service after this date
+  - `2025` — caption: installs still claimable
+  - `2025` — caption: claimed on a 2025 return
+  - `December 31, 2025` — Section 25C doesn't apply to property placed in service after
+  - `December 31, 2025` — Section 25D doesn't apply to expenditures made after
+  - `2032` — some pages still describe the credit running through this year
+  - `December 31, 2025` — equipment placed in service by this date to claim 25C
+  - `Form 5695` — form to claim 25C on 2025 return
+  - `30%` — 2025 credit as percent of cost
+  - `Up to $2,000 a year` — for heat pumps, heat pump water heaters and biomass stoves/boilers
+  - `Up to $1,200 a year` — for other improvements
+  - `$600` — sub-limit for central AC, gas furnace/boiler, or panel upgrade
+  - `$150` — sub-limit for home energy audit
+  - `$3,200` — total a single year could reach (two limits added)
+  - `September 30, 2031` — rebate money available until spent or this date
+  - `80%` — at or below this percent of AMI for up to 100% coverage
+  - `100%` — of costs covered for households at or below 80% AMI
+  - `150%` — upper bound of 80-150% AMI income band
+  - `50%` — coverage for 80-150% AMI households
+  - `$14,000` — total HEAR cap per household
+  - `$8,000` — HEAR max rebate heat pump for heating and cooling (table)
+  - `$4,000` — HEAR max rebate electrical panel upgrade (table)
+  - `$2,500` — HEAR max rebate electrical wiring (table)
+  - `$1,750` — HEAR max rebate heat pump water heater (table)
+  - `$1,600` — HEAR max rebate insulation, air sealing and ventilation (table)
+  - `$840` — HEAR max rebate electric stove or cooktop (table)
+  - `$840` — HEAR max rebate heat pump clothes dryer (table)
+  - `20%` — HOMES: projects need to save at least this (prose)
+  - `35%` — HOMES: larger rebates at this or more (prose)
+  - `20% to 34% / $2,000 / $4,000` — HOMES table row: savings band, base rebate, rebate at/below 80% AMI (table)
+  - `35% or more / $4,000 / $8,000` — HOMES table row: savings band, base rebate, rebate at/below 80% AMI (table)
+  - `80%` — HOMES table column: at or below 80% of area median income
+  - `$8.8 billion` — IRA total funding for the two rebate programs (DOE)
+  - `$4.5 billion` — IRA funding for HEAR
+  - `$4.3 billion` — IRA funding for HOMES
+  - `2026` — FAQ: federal tax credit for new HVAC system this year
+  - `December 31, 2025` — FAQ: 25C doesn't apply to equipment placed in service after
+  - `2025` — FAQ: heat pump installed year still claimable
+  - `Form 5695` — FAQ: file with 2025 return
+  - `30%` — FAQ: credit as percent of cost
+  - `$2,000` — FAQ: up to this for a heat pump
+  - `$8,000` — FAQ: HEAR heat pump rebate
+  - `150%` — FAQ: households at or below this percent of AMI
+  - `100%` — FAQ: lower-income households coverage
+  - `50%` — FAQ: moderate-income households coverage
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 28. wire-gauge-chart  ·  162 sessions
+
+- **Status:** unchanged since the first sheet (2026-10-07)
+- **URL:** https://www.hvacbase.org/wire-gauge-chart
+- **Title:** Wire Gauge Chart: AWG Wire Sizes and Ampacity (2026)
+- **H1:** Wire Gauge Chart: AWG Wire Sizes and Ampacity
+- **Answer (first two body sentences):** You need to know what size wire a circuit calls for, whether you're planning a project, checking an existing installation, or just trying to understand what the electrician quoted. And the stakes are real: undersized wire on a circuit that draws more than it's rated for overheats, and that's a fire risk.
+- **Bold answer:** The core residential ampacities: 14 AWG copper is good for 15 amps, 12 AWG for 20 amps, and 10 AWG for 30 amps, on standard branch circuits.
+- **Numbers in the body (84):**
+  - `14 AWG` — bold answer: good for 15 amps
+  - `15 amps` — bold answer: 14 AWG copper ampacity
+  - `12 AWG` — bold answer: good for 20 amps
+  - `20 amps` — bold answer: 12 AWG ampacity
+  - `10 AWG` — bold answer: good for 30 amps
+  - `30 amps` — bold answer: 10 AWG ampacity
+  - `240.4(D)` — bold answer: NEC article for small-conductor caps
+  - `Table 310.16` — bold answer: NEC table larger wire follows
+  - `30°C (86°F)` — copper table basis: ambient temperature
+  - `14 AWG: 15 / 20 / 25` — copper ampacity (table) 60/75/90°C, representative first row
+  - `4/0: 195 / 230 / 260` — copper ampacity (table) top row / range high, 60/75/90°C
+  - `110.14(C)` — NEC termination rule article
+  - `75°C` — most residential breakers/devices rating
+  - `90°C` — wire limited to 75°C ampacity at terminations
+  - `334.80` — NEC NM-B (Romex) rule article
+  - `60°C column` — NM-B must be sized using this column
+  - `12 AWG NM-B is 20 amps, not 25` — NM-B 60°C column example
+  - `240.4(D)` — small-conductor cap article: 14 AWG 15A, 12 AWG 20A, 10 AWG 30A
+  - `14 AWG 15A, 12 AWG 20A, 10 AWG 30A` — small-conductor breaker caps for branch circuits
+  - `61%` — aluminum carries roughly 61% the current of copper
+  - `6 AWG and larger` — aluminum code-permitted for service-entrance/feeder
+  - `12 AWG: 15 / 20 / 25` — aluminum ampacity (table) 60/75/90°C, first row
+  - `4/0: 150 / 180 / 205` — aluminum ampacity (table) top row / range high
+  - `two AWG sizes` — aluminum rule of thumb to match copper ampacity
+  - `14 AWG: 0.0641 in / 1.628 mm / 2.08 mm² / 4.11 kcmil` — dimensions (table) first row
+  - `4/0: 0.4600 in / 11.68 mm / 107.2 mm² / 211.6 kcmil` — dimensions (table) top row / range high
+  - `14 AWG: 3.14 copper / 5.17 aluminum` — resistance (table) ohms per 1,000 ft, first row
+  - `4/0: 0.0608 copper / 0.100 aluminum` — resistance (table) ohms per 1,000 ft, lowest row
+  - `VD = (2 × L × I × R) / 1000` — voltage-drop formula
+  - `under 3%` — NEC recommended voltage drop on a branch circuit
+  - `under 5%` — voltage drop total including the feeder
+  - `over about 50 feet` — run length that can require going up a wire size
+  - `100%` — conduit-fill adjustment 1-3 conductors (no derating)
+  - `80%` — conduit-fill adjustment 4-6 conductors
+  - `70%` — conduit-fill adjustment 7-9 conductors
+  - `50%` — conduit-fill adjustment 10-20 conductors
+  - `310.15(C)(1)` — NEC conduit-fill article
+  - `310.15(B)(1)` — NEC ambient-temperature table
+  - `30°C (86°F)` — ambient temperature derating threshold
+  - `20A at 30°C` — ambient example: 12 AWG copper NM-B using 60°C column
+  - `50°C (122°F)` — hot attic example temperature
+  - `120V, 15A` — application table (table): lighting circuit
+  - `14 AWG / 15A` — application table (table): lighting wire and breaker
+  - `120V, 20A` — application table (table): outlets kitchen/bath/general
+  - `12 AWG / 20A` — application table (table): outlets wire and breaker
+  - `240V, 2-3 ton` — application table (table): central AC 2-3 ton
+  - `10 AWG / 30A` — application table (table): central AC 2-3 ton wire and breaker
+  - `240V, 4-5 ton` — application table (table): central AC 4-5 ton
+  - `8-6 AWG / 40-50A` — application table (table): central AC 4-5 ton wire and breaker
+  - `10 AWG / 30A` — application table (table): electric water heater and electric dryer (240V, 4-wire)
+  - `6 AWG / 50A` — application table (table): electric range 240V (4-wire)
+  - `125%` — continuous loads sized at 125% of the load
+  - `3+ hours` — continuous load definition (drawing for 3+ hours)
+  - `48-amp` — EV charger example load
+  - `60-amp breaker` — EV charger example breaker for 48A load
+  - `220/240V` — linked wire sizing guide for 240-volt circuits
+  - `four factors` — 220/240V guide factors
+  - `1.123` — each AWG step changes diameter by factor of about 1.123
+  - `39th root of 92` — basis of the 1.123 factor
+  - `6 AWG steps` — doubles the wire's diameter
+  - `3 AWG steps` — doubles the cross-sectional area
+  - `40 AWG` — fine electronics wire, top of scale
+  - `1 AWG` — scale runs down to 1 AWG then 1/0..4/0
+  - `1/0, 2/0, 3/0, 4/0` — ought sizes one-ought through four-ought
+  - `250 or 350 kcmil` — kcmil measurement above 4/0
+  - `14 AWG up to 15A` — FAQ copper amperage
+  - `12 AWG up to 20A` — FAQ copper amperage
+  - `10 AWG up to 30A` — FAQ copper amperage, 240.4(D)
+  - `8 AWG 40-55A` — FAQ copper amperage
+  - `6 AWG 55-75A` — FAQ copper amperage
+  - `60°C, 75°C, or 90°C column` — FAQ why same wire shows different amperages
+  - `110.14(C)` — FAQ lowest-rated component rule
+  - `334.80` — FAQ NM-B 60°C column
+  - `VD = (2 × L × I × R) / 1000` — FAQ long run formula
+  - `exceeds 3%` — FAQ go up a wire size if drop exceeds 3%
+  - `6 AWG and larger` — FAQ aluminum service-entrance/feeder
+  - `two AWG` — FAQ aluminum sized up about two AWG vs copper
+  - `15A and 20A` — FAQ aluminum not recommended for small branch circuits
+  - `Table 310.16` — About figures: ampacity source (NFPA 70)
+  - `240.4(D)` — About figures: small-conductor caps
+  - `110.14(C)` — About figures: termination rule
+  - `334.80` — About figures: NM-B 60°C requirement
+  - `310.15(C)(1) and 310.15(B)(1)` — About figures: conduit-fill and ambient derating
+  - `210.19` — About figures: voltage-drop recommendations
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 29. mini-split-electricity-usage  ·  159 sessions
+
+- **Status:** CHANGED since the first sheet (2026-10-07) — title gained "to Run"; H1 reworded to "...(and Cost to Run)?"; 11-state rate table removed; a "What a mini split costs to run" section (formulas, full-load hours, cost-by-size table, rate and central-air comparisons) plus an after-calculator wattage line and two FAQs added. Opening two sentences and bold answer unchanged.
+- **URL:** https://www.hvacbase.org/mini-split-electricity-usage
+- **Title:** How Much Electricity Does a Mini Split Use? (Watts, kWh & Cost to Run)
+- **H1:** How Much Electricity Does a Mini Split Use (and Cost to Run)?
+- **Answer (first two body sentences):** You want to know what a mini split costs to run before you commit, or your electric bill went up and you're wondering if it's the culprit. Mini splits are among the most efficient ways to heat and cool, but the number depends on your unit's size, your climate, how you use it and your local electricity rate.
+- **Bold answer:** A typical 12,000 BTU mini split draws roughly 400 to 1,200 watts depending on how hard the compressor is working, which comes to about 3 to 10 kWh per day at 8 hours of use, or roughly 500 to 900 kWh over a cooling season.
+- **Numbers in the body (110):**
+  - `12,000 BTU` — bold answer: typical mini split size
+  - `400 to 1,200 watts` — bold answer: draw of a 12,000 BTU unit
+  - `3 to 10 kWh per day` — bold answer: energy at 8 hours of use
+  - `8 hours` — bold answer: hours of use per day
+  - `500 to 900 kWh` — bold answer: over a cooling season
+  - `12,000 BTU` — prose after calculator: example unit at 20 SEER2
+  - `20 SEER2` — prose after calculator: example rating
+  - `about 600 watts` — prose after calculator: 12,000 BTU at 20 SEER2 average draw while cooling
+  - `6,000 BTU` — chart: mini split size
+  - `300 W` — chart: 6,000 BTU typical average watts midpoint
+  - `200-400 W` — chart note: 6,000 BTU range
+  - `9,000 BTU` — chart: mini split size
+  - `400 W` — chart: 9,000 BTU midpoint
+  - `300-500 W` — chart note: 9,000 BTU range
+  - `550 W` — chart: 12,000 BTU midpoint
+  - `400-700 W` — chart note: 12,000 BTU range
+  - `18,000 BTU` — chart: mini split size
+  - `850 W` — chart: 18,000 BTU midpoint
+  - `600-1,100 W` — chart note: 18,000 BTU range
+  - `24,000 BTU` — chart: mini split size
+  - `1,200 W` — chart: 24,000 BTU midpoint
+  - `900-1,500 W` — chart note: 24,000 BTU range
+  - `36,000 BTU` — chart: mini split size
+  - `1,800 W` — chart: 36,000 BTU midpoint
+  - `1,400-2,200 W` — chart note: 36,000 BTU range
+  - `30-70%` — chart desc: inverter units operate at this % of capacity
+  - `30 to 70%` — prose: inverter units operate at this % once room reaches setpoint
+  - `6,000 BTU` — rated-watts table size
+  - `~450–650W` — 6,000 BTU rated (max) watts (table)
+  - `~200–400W` — 6,000 BTU typical average watts, cooling (table)
+  - `9,000 BTU` — rated-watts table size
+  - `~600–800W` — 9,000 BTU rated (max) watts (table)
+  - `~300–500W` — 9,000 BTU typical average watts (table)
+  - `12,000 BTU` — rated-watts table size
+  - `~800–1,200W` — 12,000 BTU rated (max) watts (table)
+  - `~400–700W` — 12,000 BTU typical average watts (table)
+  - `18,000 BTU` — rated-watts table size
+  - `~1,200–1,800W` — 18,000 BTU rated (max) watts (table)
+  - `~600–1,100W` — 18,000 BTU typical average watts (table)
+  - `24,000 BTU` — rated-watts table size
+  - `~1,600–2,400W` — 24,000 BTU rated (max) watts (table)
+  - `~900–1,500W` — 24,000 BTU typical average watts (table)
+  - `36,000 BTU` — rated-watts table size
+  - `~2,400–3,600W` — 36,000 BTU rated (max) watts (table)
+  - `~1,400–2,200W` — 36,000 BTU typical average watts (table)
+  - `400 to 1,200 watts` — prose: typical draw (recap under rated-watts table)
+  - `8 hours` — prose: about 8 hours of use a day
+  - `3 to 10 kWh` — prose: 12,000 BTU unit daily draw
+  - `1,000` — prose: watts times hours divided by 1,000 (kWh conversion)
+  - `500 to 900 kWh` — prose: over a cooling season
+  - `six` — diagram caption: the six tips below, at a glance
+  - `5 to 15%` — prose (clean filters tip): DOE clogged filter increases energy use
+  - `SEER2 × 1,000` — cost section: cooling kWh per year formula divisor
+  - `HSPF2 × 1,000` — cost section: heating kWh per year formula divisor
+  - `600` — prose: full-load hours for a mild summer
+  - `2,000 or more` — prose: full-load hours for a hot summer
+  - `1,500 hours` — prose: example full-load-hours assumption
+  - `20 SEER2` — cost-by-size table assumption
+  - `1,500 full-load cooling hours` — cost-by-size table assumption
+  - `18 cents per kWh` — cost-by-size table assumption (rate)
+  - `9,000 BTU — 675 kWh/yr — $122/yr — $24/mo` — cost by size (table)
+  - `12,000 BTU — 900 kWh — $162 — $32` — cost by size (table)
+  - `18,000 BTU — 1,350 kWh — $243 — $49` — cost by size (table)
+  - `24,000 BTU — 1,800 kWh — $324 — $65` — cost by size (table)
+  - `36,000 BTU — 2,700 kWh — $486 — $97` — cost by size (table)
+  - `5 months` — cost-by-size table column: per month over 5 months
+  - `12,000 BTU` — prose: efficiency comparison unit
+  - `16 SEER2` — prose: lower-efficiency case
+  - `1,125 kWh` — prose: 12,000 BTU at 16 SEER2 annual use
+  - `$203` — prose: cost at 16 SEER2
+  - `25 SEER2` — prose: higher-efficiency case
+  - `720 kWh` — prose: 12,000 BTU at 25 SEER2 annual use
+  - `$130` — prose: cost at 25 SEER2
+  - `900 kWh` — prose: same annual use for rate comparison
+  - `about $111 a year` — prose: cost at North Dakota rate
+  - `12.36 cents per kWh` — prose: North Dakota rate (lowest state average)
+  - `about $417` — prose: cost at Hawaii rate
+  - `46.28` — prose: Hawaii rate cents/kWh (highest state average)
+  - `January to July 2026` — prose: EIA rate period
+  - `close to four times` — prose: priciest vs cheapest state cost ratio
+  - `12,000 BTU` — prose: cooling output for central-air comparison
+  - `1,500 hours` — prose: full-load hours for central-air comparison
+  - `14.3 SEER2` — prose: central AC federal minimum
+  - `about 1,259 kWh` — prose: central AC annual use
+  - `about $227 a year` — prose: central AC cost
+  - `20 SEER2` — prose: mini split rating in comparison
+  - `about 29% less` — prose: mini split vs central AC electricity
+  - `12,000 BTU` — FAQ: unit size for monthly use
+  - `150 to 300 kWh a month` — FAQ: 12,000 BTU in active cooling season
+  - `about 30%` — FAQ: DOE duct losses as share of cooling energy
+  - `5 to 15%` — FAQ: dirty filter adds, per DOE
+  - `230 or 240 volts` — FAQ: most mini splits run on
+  - `1,200 watts` — FAQ amps example: unit drawing
+  - `about 5 amps` — FAQ: 1,200-watt unit pulls
+  - `2,400 watts` — FAQ amps example: unit drawing
+  - `about 10 amps` — FAQ: 2,400-watt unit pulls
+  - `115 volts` — FAQ: some small units run on
+  - `220-volt` — FAQ link: wire size for 220-volt circuits
+  - `12,000 BTU` — FAQ: unit size for monthly cost
+  - `20 SEER2` — FAQ: rating for monthly cost
+  - `about $32 a month` — FAQ: cost over five-month cooling season
+  - `five-month` — FAQ: cooling season length
+  - `18 cents per kWh` — FAQ: rate for monthly cost
+  - `About 600 watts` — FAQ: 12,000 BTU average draw at 20 SEER2
+  - `20 SEER2` — FAQ: rating (watts question)
+  - `12,000 ÷ 20` — FAQ: capacity divided by SEER2 (gives ~600 W)
+  - `5 to 15%` — about these figures: dirty filter increase, per DOE
+  - `about 30%` — about these figures: ducts lose of conditioning energy
+  - `10 CFR Part 430` — about these figures: federal SEER2/HSPF2 test procedures
+  - `January to July 2026` — about these figures: EIA rate period
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
+
+---
+
+## 30. dehumidifier-guide  ·  159 sessions
+
+- **Status:** CHANGED since the first sheet (2026-10-07) — sizing chart replaced: AHAM per-room-size pint table removed, ENERGY STAR Under/Over 2,000 sq ft chart with dampness humidity ranges added; 85 → 81 numbers
+- **URL:** https://www.hvacbase.org/dehumidifier-guide
+- **Title:** Dehumidifiers: Sizing, Types and Running Costs (2026)
+- **H1:** Dehumidifiers: Sizing, Types and Running Costs
+- **Answer (first two body sentences):** If your basement smells musty, your windows sweat, or you see condensation and worry mold is next, you need a dehumidifier, and the questions are which type, what size, and what it costs to run. It covers why excess humidity matters, how dehumidifiers work, which type fits your situation, how to size one and what it costs to buy and run.
+- **Bold answer:** A dehumidifier removes excess moisture from indoor air, and the right one depends on your room size, how damp the space is, and whether you need portable or whole-house coverage.
+- **Numbers in the body (81):**
+  - `30 and 50%` — EPA recommended indoor humidity range (bold answer)
+  - `60%` — above this, mold/dust mites become real problems (bold answer)
+  - `30 and 50%` — EPA recommended relative humidity (Why excess humidity matters)
+  - `60%` — always keep humidity below this
+  - `24 to 48 hours` — mold can begin growing on damp surfaces within this time
+  - `50%` — dust mites thrive above this humidity
+  - `Below 25%` — humidity table: too dry
+  - `30–40%` — humidity table: ideal (winter)
+  - `40–50%` — humidity table: ideal (summer)
+  - `50–60%` — humidity table: slightly high
+  - `60–70%` — humidity table: high, mold likely within 48 hrs
+  - `70–80%` — humidity table: very high, active mold
+  - `Above 80%` — humidity table: dangerous
+  - `48 hrs` — humidity table, mold growth likely within (60–70% row)
+  - `60%` — humidity almost certainly above this if condensation/mold/musty
+  - `65°F` — compressor dehumidifiers work most efficiently above about this
+  - `50°F` — desiccant excel in cold spaces (crawl spaces) below this
+  - `~50°F` — short version: cold space below this, use desiccant
+  - `~25 oz/day` — Mini/Peltier capacity, a few ounces to
+  - `~200 sq ft` — Mini best for spaces under this with mild dampness
+  - `20 to 70 pints/day` — Portable capacity range
+  - `70 to 150+ pints/day` — Whole-house ducted capacity range
+  - `150+ pints/day` — Commercial/industrial capacity
+  - `2,000 sq ft` — ENERGY STAR sizing chart column split (Under / Over)
+  - `50 to 75%` — sizing chart: slightly to moderately damp humidity
+  - `20 to 30` — sizing chart: under 2,000 sq ft, moderately damp (table)
+  - `30 or more` — sizing chart: over 2,000 sq ft, moderately damp (table)
+  - `75 to 90%` — sizing chart: very damp humidity
+  - `25 to 40` — sizing chart: under 2,000 sq ft, very damp (table)
+  - `40 or more` — sizing chart: over 2,000 sq ft, very damp (table)
+  - `90 to 100%` — sizing chart: wet humidity
+  - `30 to 50` — sizing chart: under 2,000 sq ft, wet (table)
+  - `50 or more` — sizing chart: over 2,000 sq ft, wet (table)
+  - `2019` — DOE/AHAM test standard changed to a cooler condition
+  - `2019` — ratings from before this year ran higher
+  - `70-pint` — older rating roughly equals a current 50-pint
+  - `50-pint` — current equivalent of an older 70-pint
+  - `2019` — since this year DOE measures efficiency in IEF
+  - `up to 25 pt/day` — IEF table: portable capacity
+  - `1.57` — IEF table: portable up to 25 pt/day min IEF
+  - `25–50 pt/day` — IEF table: portable capacity
+  - `1.80` — IEF table: portable 25–50 pt/day min IEF
+  - `50+ pt/day` — IEF table: portable capacity
+  - `2.80` — IEF table: portable 50+ pt/day min IEF
+  - `2.09` — IEF table: whole-house all, min IEF
+  - `65°F` — auto-defrost essential if space drops below about this
+  - `50 dB` — for living spaces look for a unit rated under about this
+  - `$0.18/kWh` — assumed electricity rate, rough 2026 U.S. average
+  - `2026` — rough U.S. average rate year
+  - `~40` — cost table: Mini/Peltier watts
+  - `24` — cost table: Mini/Peltier hrs/day
+  - `~$5` — cost table: Mini/Peltier est. monthly
+  - `~350` — cost table: 35-pint portable watts
+  - `12` — cost table: 35-pint portable hrs/day
+  - `~$21` — cost table: 35-pint portable est. monthly
+  - `~550` — cost table: 50-pint portable watts
+  - `10` — cost table: 50-pint portable hrs/day
+  - `~$28` — cost table: 50-pint portable est. monthly
+  - `~480` — cost table: 50-pint ENERGY STAR watts
+  - `8` — cost table: 50-pint ENERGY STAR hrs/day
+  - `~$20` — cost table: 50-pint ENERGY STAR est. monthly
+  - `~700` — cost table: 70-pint portable watts
+  - `10` — cost table: 70-pint portable hrs/day
+  - `~$36` — cost table: 70-pint portable est. monthly
+  - `~800` — cost table: whole-house watts
+  - `6` — cost table: whole-house hrs/day
+  - `~$24` — cost table: whole-house est. monthly
+  - `Every 6 months` — maintenance: deep-clean bucket interval
+  - `500 sq ft` — FAQ: moderately-damp room needs about 20 pints/day
+  - `20 pints/day` — FAQ: 500 sq ft moderately-damp room
+  - `2,000 sq ft` — FAQ: wet basement needs about 50
+  - `50` — FAQ: 2,000 sq ft wet basement pints/day
+  - `50-pint` — FAQ: typical portable running cost
+  - `$20 to $30 a month` — FAQ: 50-pint portable running cost
+  - `$0.18/kWh` — FAQ: rate for running cost
+  - `30 to 50%` — FAQ: aim for this relative humidity (EPA range)
+  - `45 to 50%` — FAQ: many people target in summer
+  - `30%` — FAQ: below this is unnecessarily dry
+  - `60%` — FAQ: AC often can't keep humidity below this
+  - `30 to 50%` — About these figures: recommended humidity range
+  - `2019` — About these figures: DOE revised test procedure
+
+  - [ ] Answer is right
+  - [ ] Numbers read right
+  - [ ] Sounds like me
