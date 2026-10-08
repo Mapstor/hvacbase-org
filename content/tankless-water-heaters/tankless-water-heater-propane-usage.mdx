@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "reference"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-02"
+dateModified: "2026-10-08"
 relatedArticles:
   - "tankless-water-heater-guide"
   - "what-size-tankless-water-heater"
@@ -32,6 +32,20 @@ A propane tankless water heater only burns fuel while hot water flows, so its pr
 
 A gallon of propane holds about 91,452 BTU (EIA). At full fire, gallons per hour = burner input in BTU per hour ÷ 91,452: a 199,000 BTU per hour unit burns about 2.18 gallons an hour. It reaches full fire only with several hot taps open on a cold day; most of the time it burns far less.
 
+Common residential models fall into a narrow band of burner ratings, so their full-fire propane draw is close:
+
+| Burner rating (BTU per hour) | Propane at full fire |
+|---|---|
+| 150,000 | about 1.64 gallons per hour |
+| 180,000 | about 1.97 gallons per hour |
+| 199,000 | about 2.18 gallons per hour |
+
+Each row is the rating divided by 91,452. The 199,000 BTU figure is just under the 200,000 BTU per hour federal input limit for residential gas models.
+
+What the unit actually burns at any moment follows its flow and the temperature rise, not the nameplate. Our [sizing calculator](/water-heater-sizing-calculator) sizes output as gallons per minute times temperature rise times 500, where 500 is about 60 minutes times the 8.34 pounds a gallon of water weighs. Heating 4 gallons per minute through the standard 65°F rise needs 4 x 65 x 500 = 130,000 BTU per hour of output.
+
+At the assumed 88% efficiency the burner then draws 130,000 ÷ 0.88 = about 147,700 BTU per hour. That works out to 147,700 ÷ 91,452 = about 1.6 gallons of propane an hour while all that water is flowing, and nothing between draws.
+
 ## Propane use per year
 
 Our [water heater sizing calculator](/water-heater-sizing-calculator)'s four-person household uses about 112 gallons of hot water a day, which takes about 22.2 million BTU of heat a year. For reference, ENERGY STAR-certified condensing gas tankless models are rated 0.95 UEF or higher, and non-condensing models rate lower. At an assumed efficiency of 0.88 for a tankless heater:
@@ -43,6 +57,26 @@ Our [water heater sizing calculator](/water-heater-sizing-calculator)'s four-per
 
 The tankless heater saves the standby heat a tank loses. Check your model's Uniform Energy Factor; a higher one means less propane for the same hot water.
 
+That 22.2 million BTU figure is traceable, not a guess. Each gallon of water weighs about 8.34 pounds, and one BTU raises one pound of water one degree Fahrenheit.
+
+Lifting 112 gallons a day through the 65°F rise takes 112 x 8.34 x 65 = about 60,700 BTU a day, or 60,700 x 365 = about 22.2 million BTU a year. At 88% efficiency the heater must burn 22.2 ÷ 0.88 = about 25.2 million BTU of propane, and 25,200,000 ÷ 91,452 = about 275 gallons.
+
+### How household size changes the total
+
+Propane use scales almost directly with how much hot water you draw, because the temperature rise stays the same. Draw half as much hot water and you burn roughly half the propane; draw twice as much and you burn roughly twice as much.
+
+A household that uses less than the four-person 112 gallons a day burns proportionally less than 275 gallons a year, and a larger household burns proportionally more. Enter your own showers, baths and laundry in the [sizing calculator](/water-heater-sizing-calculator) to get a daily gallon figure, then scale the 275-gallon result by the ratio of your daily use to 112.
+
+## Colder incoming water in winter raises propane use
+
+Propane use tracks the temperature rise, not the calendar by itself. The calculator assumes water arrives at 55°F and leaves at 120°F, a 65°F rise, which stands for a yearly average.
+
+In summer the incoming water is warmer, so the rise is smaller; in winter it is colder, so the rise is larger. As an example, incoming water 10°F warmer than average gives a 55°F rise, and 10°F colder gives a 75°F rise.
+
+Because the energy is proportional to the rise, a household on that 75°F winter rise burns 75 ÷ 55 = about 36% more propane than on the 55°F summer rise, for the very same gallons of hot water.
+
+A tankless heater also delivers less flow when water is coldest. The same burner output spread over a bigger rise heats fewer gallons per minute, so a unit's top flow rate drops in winter.
+
 ## Propane vs. natural gas
 
 Propane at an example $3.00 a gallon costs about $3.28 per therm of energy, against an assumed $1.35 per therm for natural gas. So the same tankless heater on natural gas would cost about $340 a year for this household, as the [sizing calculator](/water-heater-sizing-calculator) shows. Propane prices vary by region and season; your supplier's price is the number to use.
@@ -51,7 +85,15 @@ Propane at an example $3.00 a gallon costs about $3.28 per therm of energy, agai
 
 - **Tank size:** a large tankless heater draws propane quickly at full fire, and small cylinders can't vaporize enough gas in cold weather. The heater's installation manual and your propane supplier specify the minimum tank size.
 - **Regulator and line:** both must be sized for the heater's full input.
-- **Refills:** at about 275 gallons a year for water heating alone, a 500-gallon tank filled to 80% holds about 400 gallons, around 17 months of water heating.
+- **Refills:** propane tanks are filled to about 80% so the liquid has room to vaporize. For the four-person household's 275 gallons a year, water heating alone empties a tank this often:
+
+| Tank size | Usable at 80% | Water heating only |
+|---|---|---|
+| 120 gallon | about 96 gallons | about 4 months |
+| 250 gallon | about 200 gallons | about 9 months |
+| 500 gallon | about 400 gallons | about 17 months |
+
+Each interval is the usable gallons divided by 275 a year: 400 ÷ 275 is about 1.45 years, or 17 months. A furnace, range or clothes dryer on the same tank draws far more propane, so a shared tank needs filling much more often.
 
 ## Frequently asked questions
 
@@ -70,6 +112,18 @@ Natural gas, usually. At an example $3.00 a gallon, propane costs about $3.28 pe
 ### What size propane tank do I need for a tankless water heater?
 
 Use the minimum in the heater's installation manual, and confirm with your propane supplier; large units and cold climates need bigger tanks.
+
+### How long will a 500 gallon propane tank last with a tankless water heater?
+
+About 17 months for water heating alone in the four-person example. A 500-gallon tank holds about 400 gallons at the usual 80% fill, and 400 ÷ 275 gallons a year is roughly 1.45 years. A furnace or range on the same tank shortens that sharply.
+
+### Does a tankless water heater use more propane in winter?
+
+Yes, because colder incoming water means a larger temperature rise, and propane use climbs in the same proportion. A 75°F winter rise against a 55°F summer rise is about 36% more propane for the same hot water.
+
+### How much propane does a 199,000 BTU tankless water heater use per hour?
+
+About 2.18 gallons an hour at full fire, which is 199,000 ÷ 91,452 BTU per gallon. It only reaches that with several hot taps open on a cold day; most hours it burns a fraction of it.
 
 <SourcesBox sources={[
   { title: "U.S. EIA: British thermal units (propane 91,452 BTU per gallon)", url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php" },
