@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "cost-guide"
 datePublished: "2026-02-06"
 author: "Marko Visic, BSc Physics"
-dateModified: "2026-10-02"
+dateModified: "2026-10-08"
 relatedArticles:
   - "space-heater-guide"
   - "kwh-cost-calculator"
@@ -36,14 +36,32 @@ An electric space heater's cost is simple physics: it turns electricity into hea
 
 **Cost = watts × hours ÷ 1,000 × your rate.** A 1,500-watt heater running 8 hours uses 12 kWh, $2.16 at 18 cents per kWh. Most heaters cycle on and off once the room is warm, so real use is often lower than full power for every hour.
 
-| Setting | Per hour | 8 hours a day | 30 days at 8 hours |
-|---|---|---|---|
-| 1,500 W (high) | $0.27 | $2.16 | $64.80 |
-| 750 W (low) | $0.135 | $1.08 | $32.40 |
+| Setting | Per hour | 8-hour day | 30-day month | 5-month season |
+|---|---|---|---|---|
+| 500 W | $0.09 | $0.72 | $21.60 | $108.00 |
+| 750 W | $0.135 | $1.08 | $32.40 | $162.00 |
+| 1,000 W | $0.18 | $1.44 | $43.20 | $216.00 |
+| 1,500 W | $0.27 | $2.16 | $64.80 | $324.00 |
+
+Every figure uses 18 cents per kWh. The month assumes 8 hours a day for 30 days (240 hours). The season assumes the same 8 hours a day over about 150 days, 1,200 hours.
 
 ## Your rate changes everything
 
 The same 1,500-watt heater costs about 18.5 cents an hour at North Dakota's 12.36 cents per kWh, 27.3 cents at the U.S. average of 18.19, and 69.4 cents at Hawaii's 46.28, the lowest and highest state averages for January to July 2026 (EIA). Every state's rate is in our [kWh cost calculator](/kwh-cost-calculator).
+
+Run at 8 hours a day the heater draws 360 kWh a month (1.5 kW × 240 hours), so that monthly bill swings widely by state:
+
+| State | Rate (cents/kWh) | 1,500 W per month (360 kWh) |
+|---|---|---|
+| North Dakota (lowest) | 12.36 | $44.50 |
+| U.S. average | 18.19 | $65.48 |
+| Hawaii (highest) | 46.28 | $166.61 |
+
+## Cost over a heating season
+
+Multiply the monthly figure by the length of your heating season to get the winter total. A 1,500-watt heater at 8 hours a day draws 360 kWh a month, so a 5-month season of about 150 days and 1,200 hours uses 1,800 kWh.
+
+At 18 cents per kWh that season runs $324, or $162 on the 750-watt setting. Your state rate moves the total a lot: the same 1,800 kWh costs about $222 in North Dakota at 12.36 cents, about $327 at the 18.19-cent U.S. average, and about $833 in Hawaii at 46.28 cents.
 
 ## Every resistance heater is equally efficient
 
@@ -51,7 +69,17 @@ Oil-filled, ceramic, fan-forced and infrared heaters all turn essentially every 
 
 ## Space heater or heat pump?
 
-The DOE notes that heat pumps can cut electricity used for heating by about half compared with electric furnaces and baseboard heaters. For a room you heat every day, a ductless heat pump costs far less to run than a space heater; for occasional use, a space heater is cheaper to buy. See the [heat pump running cost calculator](/heat-pump-electricity-usage).
+The DOE notes that heat pumps can cut electricity used for heating by about half compared with electric furnaces and baseboard heaters. A heat pump moves heat instead of making it, so it delivers more heat than the electricity it draws. ENERGY STAR rates air-source heat pumps at up to 3 times more heat energy than the electricity consumed, a coefficient of performance (COP) near 3, while a resistance heater is always COP 1.
+
+To match the heat a 1,500-watt heater puts out over a month (360 kWh at 8 hours a day), a heat pump needs only a fraction of the electricity:
+
+| Same heat as a 1,500 W heater | Electricity per month | Per month at 18 cents | 5-month season |
+|---|---|---|---|
+| Space heater (COP 1) | 360 kWh | $64.80 | $324 |
+| Heat pump at COP 2 | 180 kWh | $32.40 | $162 |
+| Heat pump at COP 3 | 120 kWh | $21.60 | $108 |
+
+At COP 2 the heat pump uses half the electricity, matching the DOE's "about half" figure for real-world seasonal performance; at COP 3 it uses a third. For a room you heat every day a ductless heat pump costs far less to run; for occasional use a space heater is cheaper to buy. See the [heat pump running cost calculator](/heat-pump-electricity-usage).
 
 ## Lowering the cost
 
@@ -81,9 +109,18 @@ Heating one room with a space heater can cost less than heating the whole house,
 
 Not per hour at the same wattage; all resistance heaters turn electricity into heat at about the same rate. Oil-filled models hold heat longer and cycle more gently.
 
+### How much does it cost to run a space heater 24/7?
+
+A 1,500-watt heater left on continuously uses 36 kWh a day, about $6.48 at 18 cents per kWh. Over a 30-day month that is roughly $194. Running 24/7 costs three times as much as the same heater at 8 hours a day.
+
+### How much does a 1,500-watt heater cost per day?
+
+About $2.16 for 8 hours at 18 cents per kWh, since it uses 12 kWh. Run continuously for 24 hours it uses 36 kWh, about $6.48.
+
 <SourcesBox sources={[
   { title: "U.S. EIA: Electric Power Monthly, residential prices by state (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
-  { title: "U.S. DOE: Energy Saver Guide (PDF), heat pumps vs. electric resistance heating", url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf" }
+  { title: "U.S. DOE: Energy Saver Guide (PDF), heat pumps vs. electric resistance heating", url: "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf" },
+  { title: "ENERGY STAR: Air-Source Heat Pumps (up to 3x more heat energy than the electricity consumed)", url: "https://www.energystar.gov/products/air_source_heat_pumps" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
