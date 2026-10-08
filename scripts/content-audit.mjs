@@ -82,6 +82,9 @@ const ORGS = ['EPA','DOE','ENERGY STAR','EIA','ASHRAE','ACCA','AHRI','NFPA','NEC
 const OVERCLAIMS = ['exact','most comprehensive','best','top-rated','#1','guaranteed','Manual J based','Manual J methodology','AHRI Certified','every number'];
 const OLD_TELLS = ['Time Required','Difficulty:','Step 1:','Key Takeaways','Pro Tip','Good to Know','Real-World Example'];
 const NEW_TELLS = ['How we sourced this page','recommend no specific','honestly','honest','Here\'s the honest','linked at the bottom','not fixed quotes','not a guarantee'];
+// FIX-26: banned "Here's the/what/how/why" and "Here is the/what/how/why" opener reveal.
+// Word-boundary aware (leading [a-zA-Z] excluded) so it never trips on "Where is the" or "There's a".
+const HERES_OPENERS = /(?<![a-zA-Z])here(?:'|’|')?s (?:the|what|how|why)\b|(?<![a-zA-Z])here is (?:the|what|how|why)\b/gi;
 const STD_DOMAINS = /(\.gov|\.edu|ashrae\.org|nfpa\.org|acca\.org|ahrinet\.org|ahridirectory\.org|ahamverifide\.org|ul\.com|esfi\.org|nrel\.gov|energystar\.gov|iso\.org|ansi\.org|nadca\.com|dsireusa\.org|ecfr\.gov)/i;
 const MFR_DOMAINS = /(tesla\.com|enphase\.com|franklinwh\.com|amazon\.|homedepot\.|lowes\.|carrier\.com|trane\.com|lennox\.com|daikin|mitsubishi|fujitsu|midea|mrcool|generac\.com)/i;
 
@@ -460,6 +463,7 @@ function scanMdx(file) {
   // (l) NEW TEMPLATE TELLS + intro
   let newt = 0;
   for (const p of NEW_TELLS) newt += (body.toLowerCase().split(p.toLowerCase()).length - 1);
+  newt += (body.match(HERES_OPENERS) || []).length; // FIX-26 banned opener reveal
   c.new_tells = newt;
   const introText = noCode.replace(/^#.*$/gm, '').replace(/^\s*import .*/gm, '').trim();
   c.intro12 = introText.split(/\s+/).slice(0, 12).join(' ');
