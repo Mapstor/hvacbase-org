@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "comparison"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "how-to-improve-indoor-air-quality"
   - "indoor-air-quality-testing"
@@ -36,7 +36,22 @@ The EPA lists ventilation as one of three ways to improve indoor air, alongside 
 
 ## How much ventilation a home needs
 
-ASHRAE 62.2 total ventilation = 0.03 × floor area + 7.5 × (bedrooms + 1), in cubic feet per minute. A 2,000 sq ft home with three bedrooms needs about 90 cfm; a 1,500 sq ft, two-bedroom home about 67.5 cfm. The standard allows credit for a home's measured air leakage, so a leakier home may need less mechanical ventilation.
+ASHRAE 62.2 total ventilation = 0.03 × floor area + 7.5 × (bedrooms + 1), in cubic feet per minute. A 2,000 sq ft home with three bedrooms needs about 90 cfm; a 1,500 sq ft, two-bedroom home about 67.5 cfm. A 90 cfm rate in that 2,000 sq ft house with eight-foot ceilings (16,000 cubic feet) works out to about 0.34 air changes per hour, since 90 × 60 ÷ 16,000 = 0.34; see [air changes per hour](/air-changes-per-hour-calculator).
+
+The table below applies the same formula across common home sizes and bedroom counts. The area term is 0.03 cfm times the square footage; the occupant term is 7.5 cfm times bedrooms plus one. Add the two columns to get the continuous rate the standard asks for.
+
+| Floor area | Bedrooms | 0.03 × area | 7.5 × (bedrooms + 1) | Required cfm |
+|---|---|---|---|---|
+| 1,000 sq ft | 2 | 30 | 22.5 | 52.5 |
+| 1,500 sq ft | 2 | 45 | 22.5 | 67.5 |
+| 1,500 sq ft | 3 | 45 | 30 | 75 |
+| 2,000 sq ft | 3 | 60 | 30 | 90 |
+| 2,000 sq ft | 4 | 60 | 37.5 | 97.5 |
+| 2,500 sq ft | 4 | 75 | 37.5 | 112.5 |
+| 3,000 sq ft | 4 | 90 | 37.5 | 127.5 |
+| 3,000 sq ft | 5 | 90 | 45 | 135 |
+
+ASHRAE 62.2 does not expect the fan to supply all of that air by itself. A home's natural air leakage counts toward the total, so the standard subtracts an infiltration credit based on a blower-door measurement of how tight the house is. A leakier house earns a larger credit and needs a smaller mechanical rate, while a very tight house earns almost none and needs the fan to provide nearly the full figure.
 
 ## Three kinds of systems
 
@@ -51,9 +66,29 @@ Both pass the outgoing and incoming air streams through a core that transfers he
 - **HRV (heat recovery ventilator):** transfers heat only. It suits cold, drier climates, where removing indoor winter moisture is welcome.
 - **ERV (energy recovery ventilator):** transfers heat and some moisture. It suits humid summers, where it limits the humidity brought in, and very dry winters, where it keeps some moisture indoors.
 
+The table contrasts how each core treats heat and moisture through the seasons.
+
+| | HRV | ERV |
+|---|---|---|
+| Core transfers | Heat only (sensible) | Heat plus some moisture (sensible and latent) |
+| Incoming winter air | Prewarmed, stays dry | Prewarmed, keeps some indoor moisture |
+| Winter indoor humidity | Lowered, since humid air leaves and none returns | Partly retained |
+| Summer incoming air | Precooled, full outdoor humidity enters | Precooled, some incoming humidity transferred back out |
+| Climate fit | Cold climates with dry winters, or homes with excess winter moisture | Humid summers, mixed climates, or very dry winters |
+
+## Choosing a system for your climate
+
+Match the system to the moisture problem you actually have, not just the temperature. Choose an HRV where winters are cold and indoor air tends to run too humid, because it removes stale moist air without handing moisture back to the incoming stream. Choose an ERV where summers are humid or winters are very dry, because moderating the moisture it brings in, or the moisture it keeps in, is the whole point.
+
+Neither core removes moisture the house itself generates, so pairing with the right humidity target still matters; see [ideal indoor humidity level](/ideal-indoor-humidity-level).
+
 ## Installation and upkeep
 
 Balanced systems need ducts to bring air in and out, ideally supplying bedrooms and living areas and exhausting from kitchens and bathrooms. They need commissioning to balance the airflows, and their filters and core need regular cleaning.
+
+A balanced system is only balanced if its supply and exhaust airflows actually match. At commissioning, an installer measures both airflows and adjusts the fans so the house is neither pressurized nor depressurized. A large imbalance pushes conditioned air out through leaks or pulls unconditioned air in, which can drive moisture into walls in the wrong season.
+
+To confirm it was done right, check the commissioning report for measured supply and exhaust cfm that are close to each other and to the design rate from the sizing table above. Filters and the recovery core still need periodic cleaning, since a dirty core or a clogged filter cuts airflow below that balanced setpoint.
 
 ## Frequently asked questions
 
@@ -72,6 +107,14 @@ New, tightly built homes usually do, and many energy codes require it. Older, le
 ### Is a bathroom fan enough?
 
 A quiet fan running continuously can provide exhaust-only ventilation for a small home. It doesn't recover heat or control where fresh air enters.
+
+### Can an HRV or ERV cool or dehumidify my house?
+
+No. A recovery ventilator moves fresh air and recovers heat, or heat plus moisture, from the air it exhausts, but it does not run a refrigeration cycle or add net cooling. An ERV limits how much outdoor humidity the incoming air carries, yet you still need air conditioning or a dehumidifier to remove the moisture a house generates.
+
+### How do I know if my ventilation system is balanced?
+
+A balanced system moves equal amounts of air in and out. Confirm it from the commissioning report, which should list measured supply and exhaust airflows that are close to each other and to the ASHRAE 62.2 design rate. A system that noticeably pressurizes or depressurizes the home was not balanced correctly.
 
 <SourcesBox sources={[
   { title: "ASHRAE: Standards 62.1 and 62.2 (residential ventilation)", url: "https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2" },
