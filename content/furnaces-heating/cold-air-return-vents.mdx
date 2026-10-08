@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "guide"
 datePublished: "2026-02-01"
 author: "Marko Visic, BSc Physics"
-dateModified: "2026-10-02"
+dateModified: "2026-10-08"
 relatedArticles:
   - "hvac-ductwork-guide"
   - "ductwork-sizing-calculator"
@@ -35,6 +35,12 @@ The blower pulls air from the return ducts and pushes it through the supply duct
 
 A bedroom with a supply register and a closed door has nowhere to send its air, so it pressurizes and the supply slows. Fixes include a return grille in the room, a transfer grille through the wall or door, or a jumper duct to the hallway. A gap under the door helps a little, but usually isn't enough for a larger supply.
 
+Choose the fix by what the room connects to:
+
+- A **return grille** ducted back to the system works anywhere you can run a short return duct into a joist or stud cavity.
+- A **through-wall transfer grille** passes air into the adjoining space when a wall backs onto a hallway or common area; it is simple but lets some sound and light through.
+- A **jumper duct** carries air up through the ceiling and back down to the hallway through two grilles, which blocks the line of sight so sound and light do not travel between rooms.
+
 ## High or low?
 
 - **Low returns** pick up the cooler, denser air near the floor, which suits heating-dominated homes.
@@ -50,6 +56,42 @@ Many homes filter at a return grille instead of at the furnace. Point the filter
 ## Sizing returns
 
 Size return ducts and grilles for the airflow they carry, typically about 400 CFM per ton of cooling. A 3-ton system's 1,200 CFM needs about a 16-inch round return duct, or its rectangular equivalent, at a typical friction rate; see the [ductwork sizing calculator](/ductwork-sizing-calculator). Grilles need enough free area to keep air speed, and noise, down; the manufacturer's tables give each grille's rated airflow.
+
+Multiply the system's tonnage by about 400 CFM to get the return airflow it has to carry:
+
+| System size | Return airflow at about 400 CFM per ton |
+|---|---|
+| 1.5 tons | about 600 CFM |
+| 2 tons | about 800 CFM |
+| 2.5 tons | about 1,000 CFM |
+| 3 tons | about 1,200 CFM |
+| 3.5 tons | about 1,400 CFM |
+| 4 tons | about 1,600 CFM |
+| 5 tons | about 2,000 CFM |
+
+The math is just tonnage times 400: a 1.5-ton system carries 1.5 × 400 = 600 CFM, and a 5-ton system 5 × 400 = 2,000 CFM. These are cooling airflows; a furnace is sized to its own temperature-rise airflow, which is usually in the same range.
+
+Turning airflow into a single round return duct, at a common design friction rate of 0.08 inches of water per 100 feet, gives the sizes the [ductwork sizing calculator](/ductwork-sizing-calculator) reports:
+
+| Return airflow | Single round return duct |
+|---|---|
+| 800 CFM (2 tons) | about 14 inches |
+| 1,000 CFM (2.5 tons) | about 16 inches |
+| 1,200 CFM (3 tons) | about 16 inches |
+| 1,600 CFM (4 tons) | about 18 inches |
+
+The 600, 1,400 and 2,000 CFM airflows fall between these rows, so enter your figure in the calculator for the next standard size. Many homes split the return across two grilles or ducts instead of one large one, so each path carries half the airflow; a 1,200 CFM system split evenly means two returns of about 600 CFM each.
+
+## Signs your returns are undersized
+
+Starved returns show up as pressure and airflow problems you can notice without instruments.
+
+- A door that slams, sucks shut or is hard to open when the blower starts. The room is pressurizing because its supply air cannot get back out.
+- A whistling or roaring return grille. Too much air is forced through too little free area, which raises speed and noise.
+- Rooms with closed doors that never quite cool or heat, while the hallway stays comfortable.
+- A blower that runs noticeably loud, or an AC that short-cycles as the coil ices from low airflow.
+
+If several of these appear together, the return side is the first place to look before adding equipment.
 
 ## Common mistakes
 
@@ -75,6 +117,14 @@ No. Blocking returns reduces the system's airflow, which hurts comfort and can d
 ### How big should my return air duct be?
 
 Sized for the system's airflow: about 1,200 CFM for a 3-ton system needs about a 16-inch round duct at a typical friction rate.
+
+### Can I add a return air vent myself?
+
+Adding a return means cutting an opening into a wall or ceiling cavity, connecting it to the return side of the system with duct, and sizing both for the airflow. It is doable for a confident DIYer where framing and access allow, but an undersized or badly placed return can starve the system, so matching it to the airflow in the table above matters. A cut into a structural member or a shared wall is where a professional is worth it.
+
+### Why does my door slam when the HVAC runs?
+
+A closed room with a supply register but no return pressurizes as air is pushed in with nowhere to go, and that pressure swings the door toward the frame. The fix is a return path out of the room: a return grille, a through-wall transfer grille, or a jumper duct. A gap under the door helps a little but rarely clears a full supply register.
 
 <SourcesBox sources={[
   { title: "ACCA: Technical manuals (Manual D, residential duct design)", url: "https://www.acca.org/standards/technical-manuals" }
