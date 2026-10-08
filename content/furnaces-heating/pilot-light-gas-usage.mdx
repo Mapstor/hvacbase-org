@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "furnace-guide"
   - "afue-rating-explained"
@@ -40,6 +40,24 @@ Gas use = pilot input in BTU per hour × 24 hours ÷ 100,000 BTU per therm. For 
 
 The $1.35 per therm is an assumed price; your gas bill shows your rate. A pilot rated at half that input costs half as much.
 
+## Scale the cost to your pilot's rating
+
+The figures above are for each 1,000 BTU per hour of pilot input. Multiply by your rating plate's number in thousands, or read it off the table below. Each row uses the same formula, input × 24 ÷ 100,000 therms a day, at the assumed $1.35 per therm.
+
+| Pilot input (BTU/hr) | Per day | Per year | Cost per year |
+|---|---|---|---|
+| 500 | 0.12 therms | 43.8 therms | $59 |
+| 750 | 0.18 therms | 65.7 therms | $89 |
+| 1,000 | 0.24 therms | 87.6 therms | $118 |
+| 1,500 | 0.36 therms | 131.4 therms | $177 |
+| 2,000 | 0.48 therms | 175.2 therms | $237 |
+
+A yearly figure comes from the daily therms times 365. For 500 BTU per hour that is 0.12 × 365 = 43.8 therms, and 43.8 × $1.35 is about $59.
+
+## Reading it off the rating plate
+
+Suppose your plate or manual lists a pilot input of 1,200 BTU per hour. Daily gas is 1,200 × 24 ÷ 100,000 = 0.288 therms, so a month of 30 days is about 8.6 therms and a year is 0.288 × 365 = about 105 therms. At the assumed $1.35 per therm that is roughly $12 a month and $142 a year.
+
 ## Where pilot lights are still found
 
 Most furnaces made in recent decades use electronic ignition, which lights the burner only when heat is needed. Standing pilots are still common on many gas water heaters, gas fireplaces and older furnaces and boilers.
@@ -48,9 +66,15 @@ Most furnaces made in recent decades use electronic ignition, which lights the b
 
 A pilot's heat isn't entirely lost: in a water heater it helps keep the water warm, and in a furnace or boiler inside the house it adds a little heat in winter. A fireplace pilot burning through the summer, though, is pure cost.
 
+## The carbon a pilot adds
+
+Burning a therm of natural gas emits about 11.7 lb of carbon dioxide (EPA). A 1,000 BTU per hour pilot's 87.6 therms a year therefore release about 1,025 lb of CO2, since 87.6 × 11.7 is roughly 1,025.
+
+A fireplace pilot left on year round carries that full amount. An appliance with electronic ignition carries almost none, because it burns gas only when heat is called for.
+
 ## Should you turn it off?
 
-- **Gas fireplace:** turning the pilot off for the warm months saves its full cost. Relight it following the manufacturer's instructions before the heating season.
+- **Gas fireplace:** turning the pilot off for the warm months saves its full cost. For a pilot near 1,000 BTU per hour that is about $118 a year, so shutting it for the six warmest months saves roughly half, near $59. Relight it following the manufacturer's instructions before the heating season.
 - **Water heater:** usually leave it on, since the heater needs it whenever you use hot water; turning it off for a long absence is an option.
 - **Furnace or boiler:** follow the manufacturer's instructions; turning it off for summer is possible on some models.
 
@@ -78,8 +102,17 @@ Usually yes; it saves the full cost of the pilot for those months. Relight it fo
 
 Most use electronic ignition instead, which lights the burner only when heat is needed.
 
+### How much does a pilot light add to my gas bill over a year?
+
+About 88 therms, or $118, a year for each 1,000 BTU per hour of pilot input at an assumed $1.35 per therm. Electronic ignition burns gas only when heat is called for, so switching to it avoids almost all of that standing cost.
+
+### How much CO2 does a pilot light produce?
+
+A 1,000 BTU per hour pilot burns about 88 therms a year, which emits roughly 1,025 lb of carbon dioxide at about 11.7 lb per therm (EPA). A larger or smaller pilot scales in proportion.
+
 <SourcesBox sources={[
-  { title: "CPSC: Carbon monoxide information center", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Carbon-Monoxide-Information-Center" }
+  { title: "CPSC: Carbon monoxide information center", url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Carbon-Monoxide-Information-Center" },
+  { title: "EPA: Greenhouse Gas Equivalencies, calculations and references (natural gas CO2 per therm)", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
