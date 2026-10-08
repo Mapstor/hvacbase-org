@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "ideal-indoor-humidity-level"
   - "dehumidifier-guide"
@@ -52,9 +52,21 @@ The heat index is defined for hot weather, about 80°F and above, and for shade;
 
 Relative humidity depends on temperature: the same moisture reads as a higher percentage when the air cools. Dew point measures the moisture itself, the temperature at which the air would become saturated. When outdoor dew points climb into the upper 60s and 70s °F, the air feels muggy, whatever the relative humidity.
 
+Relative humidity and absolute humidity measure different things. Absolute humidity is the actual mass of water vapor the air holds, while relative humidity expresses that amount as a percentage of the most the air could hold at its current temperature. Warm air can hold far more vapor than cold air, so a fixed amount of water reads as a low percentage when the air is warm and a high percentage once it cools.
+
+This is why a cool basement at the same moisture level as the floor above can read a higher relative humidity: the cooler air sits closer to saturation. When air cools all the way to its dew point, relative humidity reaches 100% and moisture begins to condense, the same process that pulls water onto a cold AC coil or the outside of a glass of ice water.
+
+The same physics explains both seasons. In summer, warm air holds a lot of vapor, so even a moderate relative humidity carries enough moisture to slow sweat evaporation. In winter, cold outdoor air holds very little vapor, so once it is heated indoors its relative humidity falls and the dry air speeds evaporation from skin, which reads as a chill.
+
 ## Humidity indoors in summer
 
 An air conditioner removes moisture as it cools, because water condenses on its cold indoor coil. If it's oversized and short-cycles, or if the weather is mild but humid, it may cool without drying the air enough, leaving the house cool but clammy. A dehumidifier or a properly sized system fixes that; see [running a dehumidifier and AC together](/dehumidifier-and-ac-same-time).
+
+## Raising the thermostat in a drier room
+
+Because humidity changes how warm a room feels, drying the air holds the same comfort at a higher setpoint. At 80°F, the heat index table above puts 60% relative humidity at a felt 82°F and 40% at a felt 80°F.
+
+Dropping the humidity from 60% to around 45%, between the 40% and 50% columns, therefore trims the apparent temperature by roughly 1 to 2°F, back toward the 80°F the thermometer actually reads. A drier room can feel the same at a thermostat setting about 1 to 2°F higher, and a higher setpoint means the air conditioner runs less.
 
 ## Humidity indoors in winter
 
@@ -81,6 +93,14 @@ Between 30% and 50%, according to the EPA; in cold climates during winter, 30% t
 ### Does lowering humidity make a room feel cooler?
 
 Yes, at the same temperature. Drier air lets sweat evaporate more easily, which is why dehumidifying can let you set the thermostat a little higher in summer.
+
+### At what humidity does it feel muggy?
+
+Mugginess depends on how much moisture the air actually holds, not the relative humidity reading alone. Indoors, relative humidity above 60% feels clammy and invites mold, which is why the EPA keeps the comfortable range below that.
+
+### Can high humidity raise the actual room temperature?
+
+Not the temperature a thermometer reads; humidity changes how warm the air feels, not its dry-bulb reading. The moisture does carry stored heat that is released when it condenses, which is why an air conditioner has to pull out both heat and water. A dehumidifier returns that heat to the room plus its own motor heat, so a 590-watt unit adds roughly 2,000 BTU per hour (590 × 3.412 ≈ 2,013).
 
 <SourcesBox sources={[
   { title: "National Weather Service: Heat index (equation and chart)", url: "https://www.weather.gov/safety/heat-index" },
