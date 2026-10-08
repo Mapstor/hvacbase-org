@@ -1,14 +1,14 @@
 ---
 slug: "portable-ac-electricity-cost"
 title: "How Much Electricity Does a Portable AC Use? (Cost Calc)"
-description: "What a portable air conditioner costs to run, from its wattage and hours, with a built-in cost calculator, time-of-use math and how its ratings compare."
+description: "What a portable AC costs to run by wattage, BTU size and hours, with a calculator, a full-summer total, and how it compares to window and mini-split."
 cluster: "portable-air-conditioners"
 role: "spoke"
 priority: "P2"
 contentType: "calculator"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-01"
-dateModified: "2026-09-30"
+dateModified: "2026-10-08"
 relatedArticles:
   - "single-hose-vs-dual-hose-portable-ac"
   - "how-to-vent-portable-ac-without-window"
@@ -51,11 +51,64 @@ At 8 hours a day, 30 days a month and 18 cents per kWh:
 
 The same 240 kWh a month costs about $30 at North Dakota's 12.36 cents per kWh and about $111 at Hawaii's 46.28, the lowest and highest state averages for January to July 2026 (EIA). Check your state in the [kWh cost calculator](/kwh-cost-calculator).
 
+## Cost by BTU size
+
+Your unit's box lists a BTU number; its wattage depends on how efficiently it turns electricity into cooling. That efficiency is the CEER (BTU of cooling per hour per watt), so watts equal the cooling capacity divided by the CEER. As an example, at a CEER of 10 an 8,000 BTU unit draws 800 watts and a 12,000 BTU unit 1,200 watts.
+
+At that example CEER, 8 hours a day, 30 days a month and 18 cents per kWh:
+
+| SACC (BTU/h) | Watts at CEER 10 | kWh per month | Cost per month | Cost over a 4-month summer |
+|---|---|---|---|---|
+| 8,000 | 800 | 192 | $34.56 | $138.24 |
+| 10,000 | 1,000 | 240 | $43.20 | $172.80 |
+| 12,000 | 1,200 | 288 | $51.84 | $207.36 |
+| 14,000 | 1,400 | 336 | $60.48 | $241.92 |
+
+The month column matches the wattage table above, because at a CEER of 10 each BTU size maps to the same watts. A 4-month summer is about 120 days, so the season column is the monthly cost times four. A higher CEER lowers every figure: a 12,000 BTU unit at CEER 12 draws 1,000 watts, not 1,200, and costs about $43 a month instead of $52.
+
+## Cost by hours a day
+
+The same unit costs in proportion to the hours it runs. For a 1,000-watt unit at 18 cents per kWh:
+
+| Hours a day | kWh per day | Cost per day | Cost per month (30 days) |
+|---|---|---|---|
+| 4 | 4 | $0.72 | $21.60 |
+| 8 | 8 | $1.44 | $43.20 |
+| 12 | 12 | $2.16 | $64.80 |
+| 16 | 16 | $2.88 | $86.40 |
+| 24 | 24 | $4.32 | $129.60 |
+
+Cutting runtime is the most direct lever on the bill: halving the hours halves the cost. A timer or the unit's thermostat, set to cool only when the room is in use, does most of that work.
+
 ## Reading the ratings
 
 Portable air conditioners are rated under a federal test that reports a seasonally adjusted cooling capacity (SACC) and a combined energy efficiency ratio (CEER). A higher CEER means more cooling per watt. The SACC is usually well below the BTU number printed on older boxes, because the test accounts for the heat a portable leaks back into the room.
 
 Hose design matters too. A single-hose unit pulls room air out through its exhaust, which draws warm outside air in through gaps; a dual-hose unit avoids most of that. See [single-hose vs. dual-hose portable ACs](/single-hose-vs-dual-hose-portable-ac).
+
+## Why a portable costs more than a window unit or mini split
+
+Every AC costs the same per watt; the difference is how many watts each needs to deliver the same cooling to your room. A window unit and a mini split put their hot side outdoors, so almost none of that heat comes back inside. A single-hose portable keeps its compressor in the room and exhausts room air, which pulls warm outside air back in through gaps.
+
+The federal portable-AC test measures that infiltration penalty, and it costs a single-hose unit roughly 10 to 30% of its rated cooling. Taking the middle of that range, a single-hose portable delivers about 80% of its cooling to the room, so it has to run about 1.25 times as long (1 divided by 0.80) to remove the same heat.
+
+To compare the three fairly, suppose each turns electricity into cooling at the same rate, 11 BTU per hour per watt, which is the ENERGY STAR EER2 floor for a split heat pump. Each delivers 12,000 BTU/h of cooling to the room, at 18 cents per kWh:
+
+| Unit | Watts to deliver 12,000 BTU/h | Cost per hour | Cost per month (8 h/day) |
+|---|---|---|---|
+| Mini split (hot side outdoors, modulates) | 12,000 ÷ 11 = 1,091 | $0.196 | $47.13 |
+| Window unit (hot side outdoors) | 12,000 ÷ 11 = 1,091 | $0.196 | $47.13 |
+| Single-hose portable (loses ~20% to infiltration) | 1,091 ÷ 0.80 = 1,364 | $0.245 | $58.91 |
+
+At equal efficiency the portable costs about $12 a month more for the same cooling, purely from infiltration, before counting the heat its hose and cabinet add back to the room. A mini split's inverter compressor also modulates instead of cycling fully on and off, so over a whole season it usually draws less than a single-speed window or portable unit, widening the gap further. Ratings come from different test procedures (portables and window units use CEER, mini splits SEER2 and EER2), so treat the table as an illustration of the structural difference, not a lab result.
+
+See the [EER chart for AC units](/eer-chart-for-ac-units) for watts per ton at every efficiency rating.
+
+### Same size, different CEER
+
+Two units of the same SACC can draw very different power. Suppose two 12,000 BTU portables, one rated at a CEER of 9 and a more efficient one at 11 (both figures used only as an example). Their watts are 12,000 ÷ 9 = 1,333 and 12,000 ÷ 11 = 1,091.
+
+At 8 hours a day over a 4-month summer (about 960 hours) at 18 cents per kWh, the CEER-9 unit uses 1,280 kWh and costs about $230, while the CEER-11 unit uses about 1,047 kWh and costs about $189. That is roughly a $42 difference for the season from the rating alone, worth checking before you buy.
 
 ## Time-of-use rates
 
@@ -86,8 +139,22 @@ Often, for the same cooling. Portables lose some cooling through their hose and 
 
 It's one of the bigger loads in a home while it runs, and it often runs for hours. Running it only in the rooms and hours you need keeps the cost down.
 
+### How much does a 12,000 BTU portable AC cost to run?
+
+At an example CEER of 10 it draws about 1,200 watts, so 8 hours a day is 9.6 kWh, about $1.73 a day and $51.84 a month at 18 cents per kWh. A unit with a higher CEER draws fewer watts and costs less for the same cooling.
+
+### How much does it cost to run a portable AC 24/7?
+
+A 1,000-watt unit running around the clock uses 24 kWh a day, about $4.32, and roughly 720 kWh a month, about $129.60 at 18 cents per kWh. Few rooms need nonstop cooling, so a thermostat or timer that runs it only when the room is occupied cuts that sharply.
+
+### Does a portable AC raise your electric bill a lot?
+
+The average U.S. home uses about 863 kWh a month (EIA). A 1,000-watt portable at 8 hours a day adds 240 kWh, about 28% on top of that (240 ÷ 863), so yes, it is a noticeable jump. Running it only in the room and hours you need keeps the increase down.
+
 <SourcesBox sources={[
   { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "U.S. EIA: Electric Sales, Revenue, and Average Price (average monthly household use)", url: "https://www.eia.gov/electricity/sales_revenue_price/" },
+  { title: "ENERGY STAR: Air-Source Heat Pump Key Product Criteria (EER2 11.0 for split systems)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
   { title: "eCFR: 10 CFR Part 430, Subpart B (portable air conditioner test procedure)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" }
 ]} />
 
