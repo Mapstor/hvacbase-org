@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "electrical-panel-upgrade-cost"
   - "power-consumption-calculator"
@@ -34,13 +34,17 @@ Average power = monthly kWh ÷ hours in a month: 863 kWh ÷ 730 hours is about 1
 
 ## What service size means
 
-| Service | Capacity at 240 V |
-|---|---|
-| 100 amps | 24,000 W |
-| 150 amps | 36,000 W |
-| 200 amps | 48,000 W |
+| Service | Capacity at 240 V | Typical use |
+|---|---|---|
+| 60 amps | 14,400 W | Older or small homes; often too small for modern electric loads |
+| 100 amps | 24,000 W | Smaller homes, or gas heat, cooking and water heating |
+| 150 amps | 36,000 W | Mid-size homes with some electric loads |
+| 200 amps | 48,000 W | Most newer homes; the usual target for electrification |
+| 320 / 400 amps | 76,800 / 96,000 W | Large all-electric homes |
 
-An electrician sizes service with a load calculation under National Electrical Code Article 220, which accounts for the fact that not everything runs at full power at once. Most newer homes have 200-amp service; older ones often have 100.
+Each capacity is the amp rating times 240 volts: 60 × 240 is 14,400 watts, 320 × 240 is 76,800, and 400 × 240 is 96,000. A panel marked 400 amps is commonly rated 320 amps for continuous load, because continuous loads are limited to 80% of a breaker's rating (1 ÷ 1.25 = 0.80, so 400 × 0.80 = 320). That is why both numbers appear on the same large-home service.
+
+An electrician sizes service with a load calculation under National Electrical Code Article 220, which accounts for the fact that not everything runs at full power at once. Most newer homes have 200-amp service; older ones often have 100, and 60-amp panels still turn up in homes built before larger service became standard.
 
 ## Amps for common appliances
 
@@ -56,9 +60,19 @@ Amps = watts ÷ volts:
 
 Check each appliance's nameplate for its own rating; motors briefly draw more when starting.
 
+## How a load calculation sizes service
+
+An electrician doesn't total every nameplate at full power, because a home never runs everything at once. National Electrical Code Article 220 sets the method: a general lighting and receptacle load based on floor area, the required small-appliance and laundry circuits, the fixed appliances, and the larger of the heating or cooling load, since those two don't run together. Demand factors then discount the total to reflect realistic simultaneous use.
+
+The peak still matters more than the average. Take three of the larger 240-volt loads from the table above running together: the 4,500-watt water heater, the 5,000-watt dryer and the 2,500-watt central AC sum to 12,000 watts, which at 240 volts is 50 amps (12,000 ÷ 240). That is half of a 100-amp service before any lighting, cooking or electronics, which is why service is sized for the peak and not the 5-amp average.
+
 ## EV chargers and heat pumps
 
 An EV charger is a continuous load, so the code sizes its circuit at 125% of its current: a 48-amp charger needs a 60-amp circuit. Adding one, or switching from gas to an electric heat pump, water heater or range, is when homes most often outgrow 100-amp service. A load calculation shows whether yours has room.
+
+That 60-amp circuit is where 100-amp service gets tight. If the water heater, dryer and AC already draw 50 amps together, adding a 48-amp continuous EV load leaves no safe margin: 50 plus 60 is 110 amps against a 100-amp service. The electrification additions that most often trigger an upgrade are a Level 2 EV charger, an electric heat pump, a heat pump water heater and an induction range, each a large 240-volt load that a load calculation either clears on your existing service or doesn't.
+
+Load management can change the answer. A device or smart panel that pauses EV charging while the AC or dryer runs keeps two big loads from stacking, which can sometimes keep a home on 100-amp service that a straight load calculation would push to 200.
 
 ## When to upgrade the panel
 
@@ -81,6 +95,18 @@ Up to 48,000 watts at 240 volts, though the load calculation keeps actual demand
 ### How do I find my home's amperage?
 
 It's printed on the main breaker at the top of your panel, and usually on the panel label.
+
+### How many amps does a 2,000 sq ft house need?
+
+Square footage alone doesn't set the service size; what matters is how many large loads are electric. A 2,000 sq ft home with gas heat, cooking and water heating often fits 100-amp service, while the same home all-electric, or with an EV charger and heat pump, typically needs 200. A load calculation under NEC Article 220 gives the real figure.
+
+### Can I add an EV charger to 100-amp service?
+
+Sometimes, but often not without a load calculation. A 48-amp charger is a continuous load that needs a 60-amp circuit, and if your water heater, dryer and AC already draw about 50 amps together, that 60 amps pushes the total past a 100-amp service. Load management that pauses charging while other big loads run can sometimes keep you on 100 amps.
+
+### What is 60-amp service and is it safe?
+
+Sixty-amp service delivers up to 14,400 watts at 240 volts (60 × 240), a capacity common in homes built before larger panels became standard. It isn't inherently dangerous if the panel is in good condition and not overloaded, but it rarely passes a modern load calculation once you add central AC, an electric water heater, an EV charger or a heat pump. Most homes adding those loads move to 150 or 200 amps.
 
 <SourcesBox sources={[
   { title: "U.S. EIA: Electric Sales, Revenue, and Average Price, Table 5.a (2024 residential consumption, about 10,356 kWh a year)", url: "https://www.eia.gov/electricity/sales_revenue_price/" },
