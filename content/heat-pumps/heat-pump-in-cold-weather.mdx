@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-09-30"
+dateModified: "2026-10-08"
 relatedArticles:
   - "heat-pump-guide"
   - "heat-pump-size-calculator"
@@ -56,6 +56,14 @@ In cold, damp weather, frost builds on the outdoor coil. The heat pump periodica
 
 Keep the outdoor unit raised above the snow line and make sure defrost water can drain away without refreezing.
 
+## Finding your design temperature
+
+Your design temperature is the outdoor low your area stays above about 99% of the year, not the record low. Equipment is sized to this figure rather than the extreme, because the few hours a year below it are covered by backup or a brief indoor dip. Your local design temperature sets which capacity figure matters most.
+
+The colder your design temperature, the more weight the 5°F capacity carries. Where winters bottom out near 5°F, a cold-climate model holding 70% there can often carry the house with little backup. Where the design low sits at −10°F or below, expect more backup hours even with a cold-climate unit, which is what the balance-point examples below show.
+
+Capacity at 5°F is the single most useful spec to compare, because it is measured at a temperature most cold regions reach. A unit that holds a high fraction of its rating at 5°F holds more at milder lows too. Match the model's rated low-temperature limit to your design temperature before you size it.
+
 ## Balance point and backup heat
 
 The balance point is the outdoor temperature where the heat pump's output meets the house's heat loss. Below it, backup heat makes up the difference: electric strips in the air handler, or a gas furnace in a dual-fuel system.
@@ -66,6 +74,26 @@ For a 2,000 sq ft two-story home built between 1980 and 1999, with a cold-climat
 - **Very cold climate, −10°F design low:** balance point about 9°F, about 5.4 kW of backup.
 
 In both cases the heat pump carries the house alone down to single digits, so backup heat runs only on the coldest days.
+
+## What it costs to run in the cold
+
+Efficiency is a COP: heat delivered divided by electricity used. A 7.8 HSPF2 rating converts to a seasonal COP of 2.29 (7.8 ÷ 3.412), and the 1.75 COP floor at 5°F is the cold-climate minimum. Delivering one million BTU of heat takes 293 kWh of electricity (1,000,000 ÷ 3,412), divided by the COP.
+
+At $0.18/kWh the cost to deliver one million BTU works out like this:
+
+| Heat source | Efficiency | Cost per million BTU |
+|---|---|---|
+| Electric resistance (strip backup) | COP 1.0 | about $52.75 |
+| Heat pump at the 5°F floor | COP 1.75 | about $30.14 |
+| Heat pump, seasonal | COP 2.29 | about $23.03 |
+| Heat pump, mild weather | COP 3.0 | about $17.58 |
+| Gas furnace (assumed $1.35/therm) | 95% AFUE | about $14.21 |
+
+Each electric figure is 293 kWh × $0.18 ÷ COP. The gas figure is ten therms per million BTU at an assumed $1.35 each, divided by 0.95 efficiency, so about $14.21; that gas price is an example, not a national rate.
+
+This is why the backup choice matters. Electric strips run at a COP of 1.0, the most expensive row above, while a dual-fuel system burns gas on the coldest hours at well under a third of the strip cost per million BTU in this example.
+
+The earlier backup figures turn into an hourly cost at $0.18/kWh. The 2.7 kW of strip backup at a 0°F design low costs about $0.49 an hour (2.7 × $0.18), and the 5.4 kW at a −10°F design low costs about $0.97 an hour (5.4 × $0.18). Those rates apply only during the coldest hours, when the heat pump alone cannot carry the load.
 
 ## Sizing for cold climates
 
@@ -84,6 +112,14 @@ With a cold-climate model sized to the heating load, usually yes. Whether it cos
 ### Do heat pumps need backup heat?
 
 In cold climates, usually a small amount for the coldest hours. A well-sized cold-climate heat pump keeps it to a few kilowatts in the examples above.
+
+### Do I need a cold-climate model in zone 4, 5 or 6?
+
+It depends on your design temperature more than the zone label. A cold-climate model holds about 70% of its capacity at 5°F against roughly 40% for a standard unit, so the colder your winters, the more it pays off. Through the colder zones, where design lows reach the single digits or below, a cold-climate unit sized to the heating load keeps backup heat small.
+
+### Will my bills spike on the coldest days?
+
+Running cost rises on the coldest days, because efficiency falls and backup heat may run. Strip backup runs at a COP of 1.0, so in the examples above 2.7 kW of it costs about $0.49 an hour and 5.4 kW about $0.97 an hour at $0.18/kWh. The spike is limited to the few hours below your balance point, and a dual-fuel system blunts it by burning gas instead.
 
 ### Why does my heat pump blow cooler air in winter?
 
