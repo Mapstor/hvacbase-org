@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "comparison"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-02"
+dateModified: "2026-10-08"
 relatedArticles:
   - "furnace-guide"
   - "afue-rating-explained"
@@ -34,6 +34,30 @@ A furnace heats air and blows it through ducts; a boiler heats water and circula
 
 - **Furnace (forced air):** burns fuel to heat air, which a blower pushes through supply ducts; return ducts bring it back.
 - **Boiler (hydronic):** heats water, which a pump circulates through radiators, baseboard convectors or tubing in the floor, then back to the boiler. Steam boilers, common in older buildings, send steam instead.
+
+## Side-by-side comparison
+
+Most of the choice comes down to how each one moves heat and whether it shares hardware with cooling. This table lines up the factors that differ; efficiency and running cost get their own sections below.
+
+| Factor | Furnace (forced air) | Boiler (hydronic) |
+|---|---|---|
+| Heat carrier | Warm air | Hot water or steam |
+| Distribution | Supply and return ducts | Pipes to radiators, baseboard or floor tubing |
+| Efficiency rating | AFUE | AFUE |
+| Federal minimum | 80% AFUE (95% for non-weatherized gas made on or after Dec 18, 2028) | 84% AFUE (gas-fired hot water) |
+| Shares ducts with central AC | Yes | No |
+| Can filter and humidify the air | Yes, through the ducts | No |
+| Typical noise | Audible air movement and blower | Quiet; only a small circulator pump |
+| Routine maintenance | Change the air filter; keep ducts sealed | Bleed trapped air; check water pressure |
+| Replacement signal | ENERGY STAR suggests considering replacement after 15 years | Same 15-year signal |
+
+## Steam vs. hot-water boilers
+
+Boilers come in two kinds, and older homes often have the steam type. A hot-water boiler keeps the water well below boiling and uses a small electric pump, called a circulator, to push it through radiators or baseboard and back.
+
+A steam boiler instead boils the water. At sea level water turns to steam at 212°F, so the steam rises through the pipes on its own pressure, gives up its heat at the radiator, condenses back to water, and drains to the boiler by gravity.
+
+Because steam runs hotter and cannot easily throttle up and down, steam systems respond slowly and generally run less efficiently than hot-water ones. Condensing efficiency needs low return-water temperatures, so condensing boilers are hot-water models, not steam.
 
 ## Efficiency and federal minimums
 
@@ -61,11 +85,23 @@ Boilers heat by radiation and gentle convection, so rooms feel even, with no dra
 
 A furnace's ducts also serve central air, so one duct system does both. A boiler has no ducts, so cooling needs a separate system, often ductless mini splits. Adding ducts to a boiler-heated house is usually a major job.
 
+## Retrofit reality
+
+Switching how heat is distributed is the expensive part, not the appliance itself. Going from a boiler to a furnace means adding a full duct network through finished walls and ceilings; going the other way means running water pipes and placing radiators or floor tubing.
+
+Changing fuel, such as oil to gas, adds its own work: a new gas line, meter and venting. Because these jobs vary so much by house, get itemized local quotes rather than a rule-of-thumb number.
+
 ## Which fits your home
 
 - **Boiler:** you already have one, want radiant comfort, or are building with radiant floors; plan separate cooling.
 - **Furnace:** you have ducts or want central air, want filtration, or want faster heat-up.
 - **Neither:** a heat pump heats and cools without combustion; see [furnace vs. heat pump](/furnace-vs-heat-pump).
+
+## Picking by your situation
+
+- **Old home with radiators or baseboard already:** keep hydronic and replace like for like with a boiler, which avoids tearing out walls for ducts; a condensing model pays off most if your radiators can run at lower water temperatures.
+- **New build or gut renovation:** either works, so let cooling decide; central air from one duct system favors a furnace, while radiant-floor comfort points to a boiler with separate cooling.
+- **Planning to add air conditioning later:** a furnace already gives you the ducts central AC needs, whereas a boiler home will most likely add ductless mini splits instead.
 
 ## Frequently asked questions
 
@@ -85,9 +121,14 @@ Yes, but it means installing ductwork, which is usually the largest part of the 
 
 No. A boiler only heats; cooling needs a separate system such as mini splits or central air with ducts.
 
+### Can I add central air conditioning to a boiler-heated house?
+
+Yes. Because a boiler has no ducts, the usual options are ductless mini splits, which need no ductwork, or a separate central AC system with its own air handler and new ducts. Mini splits are common here because they avoid cutting duct runs into a finished house.
+
 <SourcesBox sources={[
   { title: "eCFR: 10 CFR 430.32 (energy conservation standards for furnaces and boilers)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
-  { title: "U.S. DOE: Final energy efficiency standards for residential furnaces (95% AFUE from Dec 18, 2028)", url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion" }
+  { title: "U.S. DOE: Final energy efficiency standards for residential furnaces (95% AFUE from Dec 18, 2028)", url: "https://www.energy.gov/articles/doe-finalizes-energy-efficiency-standards-residential-furnaces-save-americans-15-billion" },
+  { title: "ENERGY STAR: When is it time to replace? (consider replacing a furnace or boiler more than 15 years old)", url: "https://www.energystar.gov/saveathome/heating-cooling/replace" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
