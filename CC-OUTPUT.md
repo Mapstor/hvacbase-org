@@ -1,297 +1,208 @@
-# CC-OUTPUT — SHIP-29 (final rewrite batch)
+# CC-OUTPUT — FIX-28
 
-Date: 2026-10-02. Branch: main. **Not pushed** (CC never pushes; Marko pushes). Parts A-C commit (7 commits); PART D is this report (no edits).
+Date: 2026-10-08. Branch: main. CC committed one commit per page/part; **CC did not push** (Marko pushes).
 
-## VERIFY (final state)
-- `npx tsc --noEmit` -> **exit 0** (clean).
-- `node scripts/audit.mjs --skip-build` -> **0 findings**, corpus **136 MDX**, **CLEAN** (exit 0).
-- Throwaway number-check (PART B, 33 checks) + PART A inline re-derivation: all pass.
-
-## Push / branch state
-- `origin/main` is at `fc295c4` (SHIP-28 end). HEAD is **7 ahead** — exactly SHIP-29. Awaiting Marko.
-
-## Commits (SHIP-29)
-```
-0c6a730 chore(audit): stricter URL-less source check; title overclaim report
-50e4eba content: rewrite furnace-blowing-cold-air
-196fa15 content: rewrite furnace-installation-cost
-fa21a49 content: rewrite gas-furnace-wattage
-d61c294 content: rewrite hvac-energy-saving-tips
-b915b49 content: rewrite insulation-r-value-guide
-3254ae7 fix(calculators): furnace electrical - $0.18 default and state rates; no prices; typical-wattage labels
-```
+All work verified locally: `tsc --noEmit` clean, svg-lint 59/59, `content-audit.mjs` 0 on every gate metric, `audit.mjs --skip-build` clean, `next build` exit 0 (279/279 static pages, 3 GB heap), full `audit.mjs` incl. 18 static routes clean. Details in the VERIFY section at the end.
 
 ---
 
-## PART A - FurnaceElectricalCalculator (commit `3254ae7`)
+## PART A — ENERGY STAR source correction
 
-**Reported - the OLD constants/strings (changed):** `furnaceSizes` (40k-120k BTU, blowerWatts 400-900, inducer 60-125, igniter 200, control 10); `blowerTypes` (PSC x1, ECM x0.5); `heatingHoursOptions` (600-2000); **`electricRateOptions` fixed segmented [$0.10/$0.14/$0.20/$0.30]** and **`DEFAULTS.electricRate` $0.14**; subtitle "...electric draw, costs, and circuit needs"; ECM price strings (fit "ECM upgrade pays back"; callout "Upgrade typically costs $800-$1,200, payback in X years").
+The stale URL `.../products/heat_pump_water_heaters/key-product-criteria` (used in FIX-27) now redirects to the canonical `https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria`, which lists **heat pumps only**. The central-AC EER2 figures (12.0 split / 11.5 single-package) and the "11.7 EER2" figure came from an outdated cached version and are **not** on the live page. Every hit corrected or removed; BEFORE/AFTER below.
 
-**Changed:** electricity rate is now a **free `NumberInput` defaulting to $0.18** plus the EIA **state picker** (from `data/eia/residential-rates.json`, labeled "EIA average, Jan-Jul 2026") - the fixed $0.10/$0.14/$0.20/$0.30 options and the $0.14 default are gone. **Removed every price claim** (the $800-$1,200 ECM upgrade cost and the payback line; the "ECM upgrade pays back" fit text -> "Notable annual electric cost"). Added the label **"Wattages are typical; check your furnace's rating plate (amps x 120 V)"** under the power-draw table. The ECM annual **savings** figure (derived from wattage x hours x rate) is kept; it is not an invented price. tsc clean; grep confirms no `0.14`, no `$800/$1,200`, no `electricRateOptions`.
+Corpus sweep for `12.0 EER2`, `11.5 EER2`, `11.7 EER2`, `heat_pump_water_heaters/key-product-criteria`, and any statement of ENERGY STAR central-AC criteria found hits on exactly two live pages: `seer2-rating-explained` and `eer-chart-for-ac-units`. (Other "ENERGY STAR + central air" mentions — duct-loss %, whole-home dehumidifier suggestion, lifespan replacement signals — are unrelated and were left unchanged. Post-edit greps confirm 0 occurrences of the stale URL, "11.7 EER2", "12.0 EER2", or "11.5 EER2" anywhere in live content.)
 
-**Outputs at defaults** (80,000 BTU, PSC, 1,200 hrs, $0.18/kWh, 500 fan-hrs): heating 695 W, startup 895 W, fan-only 600 W; running 834 kWh + startup 6 kWh + fan-only 300 kWh = **1,140 kWh = $205.20/yr**; daily (heat season) $0.83, monthly $25.02; max 7.5 A -> 15 A / 14 AWG; ECM savings $91.80/yr.
+### 1. seer2-rating-explained (commit `ccb170c`)
 
-## PART B - five page rewrites (one commit each)
-Partial-frontmatter merge (kept live slug/cluster/role/priority/contentType/datePublished; took title/description/author/dateModified/relatedArticles/externalLinks + body from each APPLY-BODY). Embeds: gas-furnace-wattage `<CalcWrapper calculator="furnace-electrical" />`; the other four none. All five render `<RelatedArticles>`.
-- **Numbers (33/33):** insulation heat flow 2,105/1,053/816/667 BTU/hr, annual 5.7 -> 2.2 MMBtu saving $49 (gas) / $76 (heat pump), 61%; energy-tips figures all match the registry (10%, 10-20%, 5-15%, 4F, 20%, 10-30%, 10/15-yr, 15%, about half, 32%); furnace-cost $984/$829/$155/9.7-yr match afue-rating-explained, Dec 18 2028 non-weatherized 95% matches the registry; gas-furnace-wattage 0.5 kW x 8 x 30 = 120 kWh = $21.60, no $0.14 on the page or in the fixed calculator.
-- **Content audit (all five):** 0 brands, 0 model codes, 0 em dashes, 0 recompute_fail, 0 phantom_credit, 0 long paragraphs, 0 off-rate, 0 stale_eia, missing_h1 0, related_slugs_prop 0, sourcesbox_no_url 0, title_overclaim 0. SourcesBox entries all carry URLs; relatedArticles live, no duplicates or self-links; H1 present.
-- **Note (insulation-r-value-guide):** its live frontmatter was the non-standard schema (no role/priority/contentType; extra readTimeMinutes/tags/topic/seoTitle/seoDescription/shareImage/category). The merge added standard **role: spoke, priority: P2, contentType: guide** and dropped the non-standard keys (the other 135 pages render title/description from the standard fields, so this is a safe standardization). Flagging in case you'd prefer different role/priority values.
+**externalLinks — BEFORE:**
+```
+  - label: "ENERGY STAR: Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+  - label: "ENERGY STAR: Heat Pump Equipment and Central ACs Key Product Criteria"
+    url: "https://www.energystar.gov/products/heat_pump_water_heaters/key-product-criteria"
+```
+**AFTER:**
+```
+  - label: "ENERGY STAR: Air-Source Heat Pump Key Product Criteria"
+    url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria"
+```
 
-## PART C - audit tightening (commit `0c6a730`, `scripts/content-audit.mjs`)
-1. `sourcesbox_no_url` now also flags **array-form** `sources={[...]}` entries missing a (non-empty, http) `url`, and **children-form** boxes where **any** list item lacks a URL (previously only a whole box with no URL at all).
-2. New report-only **`title_overclaim`** check: titles or H1s containing Complete / Ultimate / Definitive / Proven / Best / #1 / "That Actually Work" / "Everything You Need".
-3. Corpus re-run: the stricter source check now flags **2** pages (hvac-serial-number-decoder, dry-mode-in-ac); title_overclaim flags **14** (both listed in PART D). The five SHIP-29 rewrites are clean on both.
+**Good-rating paragraph — BEFORE:**
+> A good rating sits above the federal minimum for your region and at or near the ENERGY STAR level of 15.2 SEER2, which applies to both central air conditioners and heat pumps. For central air conditioners, ENERGY STAR pairs that 15.2 SEER2 with a minimum EER2 at the hot test point of 12.0 for split systems and 11.5 for single-package units. The tiers below anchor to those sourced lines, and the cost column uses the same 3-ton system at 1,500 full-load hours and 18 cents per kWh as above.
+
+**AFTER:**
+> A good rating sits at or near 15.2 SEER2, the ENERGY STAR level for heat pumps. That is comfortably above the federal minimum for your region. The tiers below anchor to the federal and ENERGY STAR levels, and the cost column uses the same 3-ton system at 1,500 full-load hours and 18 cents per kWh as above.
+
+**SourcesBox — BEFORE:**
+```
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria", url: ".../air_source_heat_pumps/key-product-criteria" },
+  { title: "ENERGY STAR: Heat Pump Equipment and Central ACs Key Product Criteria (EER2 minimums: 12.0 split, 11.5 single-package)", url: ".../heat_pump_water_heaters/key-product-criteria" },
+```
+**AFTER:**
+```
+  { title: "ENERGY STAR: Air-Source Heat Pump Key Product Criteria (15.2 SEER2, 7.8 HSPF2, 11.0 EER2)", url: ".../air_source_heat_pumps/key-product-criteria" },
+```
+
+(The line "ENERGY STAR split heat pumps: at least 15.2 SEER2, 7.8 HSPF2 and 11.0 EER2" already matched the live criteria and was left unchanged.)
+
+### 2. eer-chart-for-ac-units (commit `5523a0e`)
+
+**EER2-minimums table + prose — BEFORE:**
+```
+| Equipment | ENERGY STAR EER2 minimum |
+|---|---|
+| Split central air conditioner | 12.0 |
+| Single-package central air conditioner | 11.5 |
+| Split heat pump | 11.0 |
+
+Central air conditioners carry a higher EER2 bar than heat pumps because a cooling-only unit is tuned around that one hot-day condition. On the regulatory side, split air conditioners must meet 13.4 SEER2 ...
+```
+**AFTER:**
+```
+| Equipment | ENERGY STAR EER2 minimum |
+|---|---|
+| Split heat pump | 11.0 |
+| Single-package heat pump | 10.0 |
+
+ENERGY STAR publishes these EER2 floors for the heat pumps it certifies, with the single-package figure set a little below the split one. On the regulatory side, split air conditioners must meet 13.4 SEER2 ...
+```
+(11.0 split / 10.0 single-package are the live heat-pump EER2 floors. The federal "regulatory side" sentences — split-AC SEER2 minimums and the Southwest EER2 — are DOE/10 CFR 430, not ENERGY STAR, and were kept.)
+
+**SourcesBox — BEFORE:**
+```
+  { title: "ENERGY STAR: Heat Pump Key Product Criteria (EER2 11.0 for split systems)", url: ".../air_source_heat_pumps/key-product-criteria" },
+  { title: "ENERGY STAR: Heat Pump Equipment and Central ACs Key Product Criteria (EER2 minimums: 12.0 split, 11.5 single-package)", url: ".../heat_pump_water_heaters/key-product-criteria" },
+```
+**AFTER:**
+```
+  { title: "ENERGY STAR: Air-Source Heat Pump Key Product Criteria (EER2 11.0 split, 10.0 single-package)", url: ".../air_source_heat_pumps/key-product-criteria" },
+```
+
+**FAQ "What is a good EER rating?" — BEFORE:**
+> About 11 or higher for a central system or heat pump, the level ENERGY STAR requires for split heat pumps. Where summers are long and hot, 12 or above pays off.
+
+**AFTER:**
+> About 11 or higher is a good target; that is the level ENERGY STAR requires for split heat pumps. Where summers are long and hot, 12 or above pays off.
+
+(Removes the implication that ENERGY STAR sets an 11 EER2 bar for central cooling-only systems.)
+
+### Registry
+Replaced the FIX-27 central-AC entry in `docs/HANDOFF.md` with the corrected live heat-pump criteria (split >=15.2 SEER2 / >=7.8 HSPF2 / >=11.0 EER2; single package >=15.2 SEER2 / >=7.2 HSPF2 / >=10.0 EER2; cold-climate >=8.5 HSPF2 non-ducted split, >=8.1 ducted split and single package, COP at 5F >=1.75, heating capacity at 5F >=70% of 47F capacity) and a note that the central-AC EER2 figures were a cached-page error and the old URL now redirects to the canonical page.
 
 ---
 
-## PART D - corpus status report (no edits)
-### 1) Live pages + byline
-- Live pages: **136**. Carry the "author" byline: **136**.
-- Every live page carries the byline.
+## PART B — content-audit back to zero
 
-### 2) Corpus totals per metric
-| Metric | Total | Pages |
+Before: `overclaims 5, long_paragraphs 1, rates_offrate 1, regulatory 4`. After: **0 on every one**. Three findings were genuine detector false positives, fixed by narrowing the detector to its documented intent (never weakened); the rest were text fixes. Every finding with its resolution:
+
+### overclaims (5 -> 0)
+| # | page | finding | resolution |
+|---|---|---|---|
+| 1 | hepa-filter-explained | "the standard tests **exact**ly there" | false positive: `exact` substring matched the adverb "exactly". Detector fix (`content-audit.mjs`): `exact` now matches the whole word only. |
+| 2 | coefficient-of-performance | "raises COP **exact**ly when ..." | same false positive; same detector fix |
+| 3 | air-source-vs-ground-source-heat-pump | "loses ground **exact**ly when ..." | same false positive; same detector fix |
+| 4 | air-conditioner-types | "with the **best** models rated far above the federal minimum" | text fix: "the best models" -> "high-end models" |
+| 5 | dehumidifier-guide | diagram alt text "such units work **best** above about 65°F" | text fix: "work best" -> "work most effectively" |
+
+### regulatory (4 -> 0)
+| # | page | finding | resolution |
+|---|---|---|---|
+| 1 | seer2-rating-explained | good-rating prose: "federal **minimum** ... ENERGY STAR level of **15.2**" | resolved by PART A rewrite: 15.2 and "minimum" are now in separate sentences (a period breaks the adjacency pattern) |
+| 2 | seer2-rating-explained | the SEER2 cost table ("Federal **minimum**" rows + a "**15.2** ENERGY STAR level" row) | false positive: the `minimum`<->`15.2` adjacency regex ran across table cells/rows. Detector fix: those two patterns now use `[^.\n|]*`, so they stay inside one prose sentence and don't span table cells. The table correctly labels 13.4/14.3 as federal minimums and 15.2 as the ENERGY STAR level. |
+| 3 | seer2-rating-explained | central-AC sentence "**15.2** SEER2 with a **minimum** EER2 ... 12.0 ... 11.5" | resolved by PART A: that sentence was deleted (it was the unverified central-AC EER2 claim) |
+| 4 | dehumidifier-and-ac-same-time | "a 3-ton air conditioner at **SEER2 14.3** (the federal **minimum** for the South)" | text fix: normalized "SEER2 14.3" -> "14.3 SEER2" (the site's number-first convention; the SEER2-before-number order is what the tripwire matches). The 14.3 South federal minimum is accurate and verified against the registry; the explanatory parenthetical is kept. |
+
+### rates_offrate (1 -> 0)
+| page | finding | resolution |
 |---|---|---|
-| brands | 0 | 0 |
-| model_codes | 2 | 1 |
-| overclaims | 122 | 48 |
-| phantom_credit | 1 | 1 |
-| rates_offrate | 1 | 1 |
-| stale_eia | 0 | 0 |
-| recompute_fail | 0 | 0 |
-| em_dashes | 0 | 0 |
-| long_paragraphs | 6 | 1 |
-| links_broken | 0 | 0 |
-| links_badpath | 0 | 0 |
-| regulatory | 1 | 1 |
-| ampacity_flags | 1 | 1 |
-| count_promise_mismatch | 2 | 2 |
-| old_tells | 1 | 1 |
-| new_tells | 151 | 38 |
-| missing_h1 | 0 | 0 |
-| related_slugs_prop | 0 | 0 |
-| sourcesbox_no_url | 2 | 2 |
-| title_overclaim | 14 | 14 |
+| heating-cost-calculator | "...ties the $14.21 gas cost when power falls to about **11.6 cents per kWh**, found by dividing $14.21 by the 122 kWh..." | false positive: this is a *derived* break-even electricity price with its division shown in-sentence, exactly what the off-rate "shown-derivation" exemption is for. The exemption recognized "divided by" but not "dividing ... by". Detector fix: the exemption now matches the divide-verb family (divide/divides/divided/dividing). |
 
-**Every page with any non-zero metric:**
-- **furnace-sizing-calculator**: overclaims=1
-- **heat-pump-size-calculator**: overclaims=3, regulatory=1
-- **how-many-mini-splits-do-i-need**: overclaims=2
-- **ac-not-cooling**: overclaims=3, long_paragraphs=6, count_promise_mismatch=1, new_tells=2, title_overclaim=1
-- **ac-troubleshooting-guide**: overclaims=1, new_tells=4, title_overclaim=1
-- **air-conditioner-types**: overclaims=4, new_tells=5
-- **air-purifier-guide**: overclaims=7, new_tells=7, title_overclaim=1
-- **home-battery-backup-guide**: overclaims=1, new_tells=4, title_overclaim=1
-- **dehumidifier-guide**: overclaims=1, new_tells=6, title_overclaim=1
-- **ideal-indoor-humidity-level**: overclaims=4, new_tells=4
-- **ductwork-sizing-calculator**: overclaims=2
-- **flexible-vs-rigid-ductwork**: overclaims=1
-- **electrical-panel-upgrade-cost**: new_tells=4
-- **electrical-wiring-guide**: overclaims=1, ampacity_flags=1, new_tells=2
-- **water-heater-wire-size**: new_tells=2
-- **wire-for-220-volt**: overclaims=2, new_tells=7
-- **wire-gauge-chart**: overclaims=2, new_tells=1, title_overclaim=1
-- **how-many-kwh-per-day-is-normal**: overclaims=2, new_tells=3
-- **merv-rating-chart**: overclaims=6, new_tells=4
-- **minimum-seer-rating-by-state**: overclaims=1, new_tells=1
-- **seer2-comparison-calculator**: overclaims=2
-- **boiler-vs-furnace**: overclaims=1
-- **furnace-guide**: overclaims=2, new_tells=4, title_overclaim=1
-- **thermostat-temperature-winter**: overclaims=1
-- **what-size-generator-for-fridge**: overclaims=5, new_tells=4
-- **heat-pump-cost-to-install**: overclaims=1, new_tells=5, title_overclaim=1
-- **heat-pump-electricity-usage**: overclaims=1
-- **heat-pump-guide**: overclaims=7, new_tells=9, title_overclaim=1
-- **hvac-serial-number-decoder**: model_codes=2, overclaims=3, new_tells=5, sourcesbox_no_url=1
-- **how-often-change-hvac-filter**: overclaims=2, new_tells=1
-- **how-to-clean-ac-coils**: overclaims=3, new_tells=2
-- **hvac-maintenance-checklist**: overclaims=1, new_tells=3
-- **how-to-reduce-hvac-noise**: overclaims=4, new_tells=3, title_overclaim=1
-- **hvac-noise-levels-explained**: overclaims=2, new_tells=3, title_overclaim=1
-- **carbon-monoxide-detector-guide**: overclaims=5, new_tells=3
-- **how-to-improve-indoor-air-quality**: overclaims=6, old_tells=1, new_tells=5, title_overclaim=1
-- **indoor-air-quality-testing**: overclaims=1
-- **dry-mode-in-ac**: overclaims=3, new_tells=5, sourcesbox_no_url=1
-- **how-does-a-mini-split-work**: overclaims=1, new_tells=2
-- **mini-split-air-conditioners**: overclaims=1, new_tells=5, title_overclaim=1
-- **mini-split-electricity-usage**: overclaims=2, new_tells=3
-- **mini-split-installation-cost**: overclaims=2, new_tells=5
-- **mini-split-vs-central-air**: overclaims=1, new_tells=5
-- **what-is-a-mini-split**: overclaims=1, new_tells=2
-- **how-to-vent-portable-ac-without-window**: overclaims=11, count_promise_mismatch=1, new_tells=7
-- **single-hose-vs-dual-hose-portable-ac**: overclaims=2, new_tells=3
-- **hvac-refrigerant-phase-out**: new_tells=3
-- **refrigerant-types-explained**: overclaims=4, new_tells=8
-- **radiant-floor-heating-pros-cons**: overclaims=1
-- **hot-water-recirculating-pump**: overclaims=1
-- **tankless-water-heater-guide**: overclaims=1, title_overclaim=1
-- **tankless-water-heater-propane-usage**: rates_offrate=1
-- **hvac-tax-credits-2026**: phantom_credit=1
+### long_paragraphs (1 -> 0)
+| page | finding | resolution |
+|---|---|---|
+| mini-split-electricity-usage | closing sources/assumptions paragraph = 4 sentences | text fix: split into two paragraphs of two sentences each (no wording or number change) |
 
-### 3) title_overclaim (page, title, H1)
-- **ac-not-cooling** | title: "AC Not Cooling: 12 Fixes That Actually Work (2026 Guide)" | H1: "AC Not Cooling: 12 Fixes That Actually Work"
-- **ac-troubleshooting-guide** | title: "Complete AC Troubleshooting Guide: Fix 12 Common Problems" | H1: "Complete AC Troubleshooting Guide: Fix 12 Common Problems"
-- **air-purifier-guide** | title: "Air Purifiers: Complete Essential Guide (How They Work in 2026)" | H1: "Air Purifiers: Complete Essential Guide (How They Work in 2026)"
-- **home-battery-backup-guide** | title: "Home Battery Backup: Complete Guide (Cost, Sizing & How They Work) | 2026" | H1: "Home Battery Backup: Complete Guide"
-- **dehumidifier-guide** | title: "Dehumidifiers: Complete Guide to Sizing, Types, and Costs (2026)" | H1: "Dehumidifiers: Complete Guide to Sizing, Types, and Costs (2026)"
-- **wire-gauge-chart** | title: "Wire Gauge Chart: AWG Wire Sizes & Ampacity (Complete 2026 Reference)" | H1: "Wire Gauge Chart: AWG Wire Sizes & Ampacity (Complete 2026 Reference)"
-- **furnace-guide** | title: "Furnaces: Complete Homeowner's Guide (Gas, Electric, Oil) | 2026" | H1: "Furnaces: Complete Homeowner's Guide"
-- **heat-pump-cost-to-install** | title: "Heat Pump Installation Cost: Complete Pricing Guide (2026)" | H1: "Heat Pump Installation Cost: Complete Pricing Guide (2026)"
-- **heat-pump-guide** | title: "Heat Pumps: Complete Homeowner's Guide (2026)" | H1: "Heat Pumps: Complete Homeowner's Guide (2026)"
-- **how-to-reduce-hvac-noise** | title: "How to Reduce HVAC Noise: 8 Soundproofing Solutions That Actually Work" | H1: "How to Reduce HVAC Noise: 8 Soundproofing Solutions That Actually Work"
-- **hvac-noise-levels-explained** | title: "HVAC Noise Levels Explained: What's Quiet? (Complete dB Guide for 2026)" | H1: "HVAC Noise Levels Explained: What's Quiet? (Complete dB Guide for 2026)"
-- **how-to-improve-indoor-air-quality** | title: "How to Improve Indoor Air Quality: 10 Proven Methods Ranked by Effectiveness (2026)" | H1: "How to Improve Indoor Air Quality: 10 Proven Methods Ranked by Effectiveness"
-- **mini-split-air-conditioners** | title: "Mini Split Air Conditioners: Complete Guide (2026)" | H1: "Mini Split Air Conditioners: Complete Guide (2026)"
-- **tankless-water-heater-guide** | title: "Tankless Water Heaters: Complete Guide (Gas vs Electric) | 2026" | H1: "Tankless Water Heaters: Gas vs Electric"
+### Detector changes (scripts/content-audit.mjs, commit `f7d62ea`)
+Three precision fixes, each narrowing a detector to its documented intent. None can *increase* any count (word-boundary, cell-exclusion, and a broader exemption are all strict subsets), so no new flags can appear elsewhere; re-running the audit confirmed every other gate metric stayed 0.
+1. **overclaim `exact`:** whole-word match (`(?<![a-z])exact(?![a-z])`) instead of substring, so the adverb "exactly"/"exacting" is not a hit. The intended overclaim is the adjective ("exact cost/BTU").
+2. **regulatory `15.2`<->`minimum`:** the two adjacency patterns use `[^.\n|]*` so the span stays inside one prose sentence (a prose claim that "15.2 is the federal minimum") and does not reach across table cells/rows.
+3. **kWh off-rate exemption:** `divid(?:e|es|ed|ing)\b` so a derived rate whose math is shown with "dividing ... by" passes, as "divided by" already did.
 
-### 4) Template tells (HANDOFF list)
-- **ac-not-cooling** [Here's the]: ...is a common cause of weak cooling, but here's the thing homeowners need to know up front: **an AC doesn't "use up" refrigerant.**...
-- **ac-not-cooling** [worth knowing]: ...re the big-ticket repairs live, so it's worth knowing the signs before the service call. Tell-tales include a compressor that won...
-- **ac-troubleshooting-guide** [honest/honestly]: ...To save you the guesswork, here's the honest line between DIY and professional: **You can usually handle yourself:** - Filter...
-- **ac-troubleshooting-guide** [Here's the]: ..." situation To save you the guesswork, here's the honest line between DIY and professional: **You can usually handle yourself:**...
-- **ac-troubleshooting-guide** [linked at the bottom]: ...ourced to the DOE, ENERGY STAR, or EPA, linked at the bottom. **Start here: match your symptom to the section below.** Most AC pr...
-- **ac-troubleshooting-guide** [italic rhetorical question]: ...n on. And you're standing there thinking *is this a two-minute fix I can do myself, or is this a "call someone and brace for a bil...
-- **air-conditioner-types** [linked at the bottom]: ...rced to the DOE, ENERGY STAR, and AHRI, linked at the bottom, and we recommend no specific brands. **The main air conditioner typ...
-- **air-conditioner-types** [we recommend no specific brands]: ...AR, and AHRI, linked at the bottom, and we recommend no specific brands. **The main air conditioner types are window units, porta...
-- **air-purifier-guide** [honest/honestly]: ...a purifier genuinely helps. Here's the honest guide. We'll cover how air purifiers actually work, which filter technology matches...
-- **air-purifier-guide** [Here's the]: ...to know if a purifier genuinely helps. Here's the honest guide. We'll cover how air purifiers actually work, which filter technol...
-- **air-purifier-guide** [linked at the bottom]: ...is sourced to the EPA, AHAM, and CARB, linked at the bottom, and we name zero specific "best" products, because the right unit de...
-- **home-battery-backup-guide** [honest/honestly]: ...y outages, whole-home high loads | The honest summary: **a battery is best for shorter outages, solar integration, silent operati...
-- **home-battery-backup-guide** [we recommend no specific brands]: ...by system and region, not fixed quotes. We recommend no specific brands or models; capacity, output, chemistry, and warranty matte...
-- **dehumidifier-guide** [honest/honestly]: ...a specific brand. This is the complete, honest guide. We'll cover why excess humidity actually matters, how dehumidifiers work, w...
-- **dehumidifier-guide** [Here's the]: ...om's square footage AND how damp it is. Here's the AHAM sizing chart (pints/day at standard conditions): | Room size (sq ft) | Mo...
-- **dehumidifier-guide** [linked at the bottom]: ...the EPA, AHAM, the DOE, or ENERGY STAR, linked at the bottom, and we recommend no specific brands. **A dehumidifier removes exces...
-- **dehumidifier-guide** [we recommend no specific brands]: ...ENERGY STAR, linked at the bottom, and we recommend no specific brands. **A dehumidifier removes excess moisture from indoor air...
-- **ideal-indoor-humidity-level** [honest/honestly]: ...# "Is my humidity making us sick?" (The honest answer) This is the real worry, so let's be straight about it. Humidity itself doe...
-- **ideal-indoor-humidity-level** [Here's the]: ...I actually supposed to be aiming for?* Here's the good news: there's a clear, authoritative answer, and hitting it is more achiev...
-- **ideal-indoor-humidity-level** [linked at the bottom]: ...r here is sourced to the EPA or ASHRAE, linked at the bottom. **Keep your indoor relative humidity between 30% and 50%, and alway...
-- **ideal-indoor-humidity-level** [worth knowing]: ...or caring about the number. One nuance worth knowing: some research points to a **40–60%** band as optimal for minimizing the spr...
-- **ideal-indoor-humidity-level** [italic rhetorical question]: ...ath that is usually bigger than comfort: *is this dampness growing mold somewhere I can't see? Is the dry air making my family sic...
-- **electrical-panel-upgrade-cost** [honest/honestly]: ...ger panel, it's worth checking, and the honest answer often is that you don't. **Have an electrician perform an NEC Article 220 lo...
-- **electrical-panel-upgrade-cost** [Here's the]: ...r a service-drop replacement cost more. Here's the full breakdown. ## Panel upgrade cost summary The type of upgrade you need is...
-- **electrical-panel-upgrade-cost** [we recommend no specific brands]: ...t, and inspection in all jurisdictions. We recommend no specific brands or equipment; the scope of work and a proper load calculat...
-- **electrical-wiring-guide** [honest/honestly]: ...ithin reach of a careful DIYer, but the honest reality is that **most electrical work should be done by a licensed electrician**,...
-- **electrical-wiring-guide** [Here's the]: ...g: protect the wire, not the appliance Here's the single most misunderstood concept in residential wiring: **the breaker is sized...
-- **water-heater-wire-size** [linked at the bottom]: ...re follow the National Electrical Code, linked at the bottom. One note up front: a new or replaced water-heater circuit usually re...
-- **wire-for-220-volt** [honest/honestly]: ...orth getting exactly right. Here's the honest version, and it starts with something most quick charts leave out: the wire size is...
-- **wire-for-220-volt** [Here's the]: ...o this is worth getting exactly right. Here's the honest version, and it starts with something most quick charts leave out: the w...
-- **wire-for-220-volt** [linked at the bottom]: ...on the National Electrical Code (NEC), linked at the bottom. One thing up front, because it's the truth and not a disclaimer we'...
-- **how-many-kwh-per-day-is-normal** [honest/honestly]: ...too much? It's a fair question, and the honest answer is that "normal" covers a huge range, because how much electricity a househo...
-- **how-many-kwh-per-day-is-normal** [linked at the bottom]: ...Information Administration (EIA) data, linked at the bottom, and where usage varies (it varies a lot), we show the range rather t...
-- **merv-rating-chart** [honest/honestly]: ...furnace and cost me more?* Here's the honest answer up front, and then the full chart. This page gives you the complete MERV rat...
-- **merv-rating-chart** [Here's the]: ...to choke my furnace and cost me more?* Here's the honest answer up front, and then the full chart. This page gives you the comple...
-- **merv-rating-chart** [linked at the bottom]: ...rd behind every legitimate MERV rating, linked at the bottom. **For most homes, MERV 8 to 13 is the right range.** MERV 8 handles...
-- **merv-rating-chart** [italic rhetorical question]: ...s simple but nobody answers it straight: *which one do I actually need? Is a higher number always better? And is the high-MERV fil...
-- **minimum-seer-rating-by-state** [worth knowing]: ...out of rebates and tax credits. So it's worth knowing the number before you shop. This guide gives you the current SEER2 minimums...
-- **furnace-guide** [Here's the]: ...of confused information about this, so here's the accurate version. The **U.S. DOE finalized a rule requiring residential gas fur...
-- **furnace-guide** [linked at the bottom]: ...ourced to the DOE, EIA, ACCA, and AHRI, linked at the bottom, so always get itemized quotes for your home. We don't recommend spec...
-- **furnace-guide** [worth knowing]: ...-installation-cost). ## Key components worth knowing - **Heat exchanger:** transfers combustion heat to your air while keeping e...
-- **furnace-guide** [we recommend no specific brands]: ...National Fuel Gas Code) and local code. We recommend no specific brands; install quality and correct sizing matter more than brand...
-- **what-size-generator-for-fridge** [Here's the]: ...time the compressor kicks on at 2 AM? Here's the straight answer and the method behind it. We'll cover exactly how much power a...
-- **what-size-generator-for-fridge** [linked at the bottom]: ...ety timelines are from the FDA and CDC, linked at the bottom. We recommend no specific generator brands. **To run a standard refr...
-- **heat-pump-cost-to-install** [honest/honestly]: ...d where you live. This guide gives you honest cost ranges by system type and size, breaks down where the money actually goes (equ...
-- **heat-pump-cost-to-install** [Here's the]: ...is where the rules shifted recently, so here's the accurate current picture: **The federal Section 25C tax credit expired for ins...
-- **heat-pump-cost-to-install** [we recommend no specific brands]: ...ion data is available through **AHRI**. We recommend no specific brands or models; install quality and proper sizing matter more t...
-- **heat-pump-guide** [honest/honestly]: ...t work in winter" skeptics. This is the honest guide. We'll cover how heat pumps work, the types and what they cost, the efficien...
-- **heat-pump-guide** [Here's the]: ...SEER2 15 to 22+ and HSPF2 8 to 11. But here's the part most guides skip, and it's the key to whether a heat pump actually saves *...
-- **heat-pump-guide** [linked at the bottom]: ...the DOE, ENERGY STAR, the IRS, or AHRI, linked at the bottom, and we recommend no specific brands. **A heat pump moves heat rathe...
-- **heat-pump-guide** [we recommend no specific brands]: ...IRS, or AHRI, linked at the bottom, and we recommend no specific brands. **A heat pump moves heat rather than generating it, whic...
-- **hvac-serial-number-decoder** [honest/honestly]: ...be budgeting for a new one. Here's the honest version of how to do that, brand by brand. One thing up front, because it matters:...
-- **hvac-serial-number-decoder** [Here's the]: ...you should be budgeting for a new one. Here's the honest version of how to do that, brand by brand. One thing up front, because i...
-- **hvac-serial-number-decoder** [worth knowing]: ...2019 (late February 2019). One caveat worth knowing: some Lennox product lines begin with a plant-code letter before the digits,...
-- **how-often-change-hvac-filter** [Here's the]: ...gray and wondering if it's a problem. Here's the straight answer, backed by the actual guidance from ENERGY STAR and the Departm...
-- **how-to-clean-ac-coils** [Here's the]: ...deally in spring before cooling season. Here's the full process. ## Why clean coils matter Your AC works by moving heat, and the...
-- **hvac-maintenance-checklist** [honest/honestly]: ...aintenance they don't need. Here's the honest, practical checklist, split into what you can do yourself and what genuinely needs...
-- **hvac-maintenance-checklist** [Here's the]: ...erpay for maintenance they don't need. Here's the honest, practical checklist, split into what you can do yourself and what genui...
-- **how-to-reduce-hvac-noise** [honest/honestly]: ...e is the most common mistake). We'll be honest about what each solution does and doesn't do. One note up front: exact decibel redu...
-- **hvac-noise-levels-explained** [linked at the bottom]: ...nd measurement and WHO/ASHRAE guidance, linked at the bottom. **Most residential HVAC systems produce between about 50 and 80 dec...
-- **hvac-noise-levels-explained** [we recommend no specific brands]: ...urer's quoted figure actually measures. We recommend no specific brands or models; the compressor type (variable-speed is quietest...
-- **carbon-monoxide-detector-guide** [honest/honestly]: ...bottom, tracks all 50 states), but the honest bottom line is that CO alarms are **so cheap and so effective that the legal questi...
-- **carbon-monoxide-detector-guide** [Here's the]: ...ugh?" (The blind spot nobody mentions) Here's the thing almost nobody tells you when you buy a basic CO alarm, and it's the singl...
-- **carbon-monoxide-detector-guide** [linked at the bottom]: ...th a quick check (the NCSL compilation, linked at the bottom, tracks all 50 states), but the honest bottom line is that CO alarms...
-- **carbon-monoxide-detector-guide** [worth knowing]: ...the garage. A few placement specifics worth knowing: - **Near bedrooms** is the priority: the alarm has to be loud enough to wak...
-- **carbon-monoxide-detector-guide** [italic rhetorical question]: ...r aisle (or staring at Amazon) wondering *which one do I actually need, where does it go, and is the cheap one good enough to keep...
-- **how-to-improve-indoor-air-quality** [honest/honestly]: ...er upgrade to whole-house systems, with honest guidance on what each actually does. We name no specific products, since the right...
-- **how-to-improve-indoor-air-quality** [Here's the]: ...10 methods, ranked by impact and value Here's the overview, ordered roughly from highest-value to most specialized: | # | Method...
-- **dry-mode-in-ac** [honest/honestly]: ...'re hoping this is the fix. Here's the honest rundown. Dry mode is a genuinely useful setting that a lot of people never touch, o...
-- **dry-mode-in-ac** [Here's the]: ...on, and you're hoping this is the fix. Here's the honest rundown. Dry mode is a genuinely useful setting that a lot of people nev...
-- **how-does-a-mini-split-work** [Here's the]: ...m is genuinely clever once you see it. Here's the plain-English explanation of how a mini split works, from the physics of moving...
-- **how-does-a-mini-split-work** [linked at the bottom]: ...ERGY STAR and the Department of Energy, linked at the bottom. **A mini split works by moving heat instead of creating it, using r...
-- **mini-split-air-conditioners** [honest/honestly]: ...aid to recommend. This is the complete, honest guide. We'll cover what mini splits cost, the efficiency ratings that actually mat...
-- **mini-split-air-conditioners** [Here's the]: ...is where the rules changed recently, so here's the current, accurate picture: **The federal Section 25C tax credit expired for in...
-- **mini-split-air-conditioners** [linked at the bottom]: ...o AHRI, ACCA, EIA, the IRS, or the DOE, linked at the bottom, and we recommend zero specific brands or models, because the right u...
-- **mini-split-air-conditioners** [we recommend no specific brands]: ...flect **DOE** and ENERGY STAR guidance. We recommend no specific brands or models, cost, capacity, and efficiency vary by system a...
-- **mini-split-electricity-usage** [honest/honestly]: ...ng if it's the culprit. Either way, the honest answer is that mini splits are among the most efficient ways to heat and cool, but...
-- **mini-split-electricity-usage** [we recommend no specific brands]: ...or and our dedicated cost-to-run guide. We recommend no specific brands. <SourcesBox sources={[ { title: "U.S. DOE: Energy Save...
-- **mini-split-installation-cost** [honest/honestly]: ...he manufacturer's full warranty. **The honest bottom line:** DIY can save real money on a single-zone install, but budget for an...
-- **mini-split-installation-cost** [Here's the]: ...electrician for the dedicated circuit. Here's the full breakdown. ## Cost by system configuration The number of zones is the ma...
-- **mini-split-installation-cost** [we recommend no specific brands]: ...ives tracked in the **DSIRE** database. We recommend no specific brands or models; install quality and correct sizing matter more...
-- **mini-split-vs-central-air** [honest/honestly]: ...ric "it depends" that helps no one. The honest truth is that it *does* depend, but on a small number of specific things you can ch...
-- **mini-split-vs-central-air** [linked at the bottom]: ...is sourced to the DOE and ENERGY STAR, linked at the bottom, and we name no specific brands. **The short answer: if your home al...
-- **mini-split-vs-central-air** [we recommend no specific brands]: ...stimate real numbers at your own rates. We recommend no specific brands, the right choice depends on your ductwork, room count, cl...
-- **what-is-a-mini-split** [Here's the]: ...idea sounds appealing but unfamiliar. Here's the plain-English rundown. A mini split is a type of heating-and-cooling system tha...
-- **what-is-a-mini-split** [linked at the bottom]: ...ERGY STAR and the Department of Energy, linked at the bottom. **A mini split (or "ductless mini split") is a heat pump system tha...
-- **how-to-vent-portable-ac-without-window** [honest/honestly]: ...you need, roughly what each costs, and, honestly, which ones work best and which have catches. The one rule you can't get around:...
-- **how-to-vent-portable-ac-without-window** [Here's the]: ...venting a portable AC in cooling mode. Here's the physics. A portable AC works by moving heat out of your room, and it exhausts t...
-- **single-hose-vs-dual-hose-portable-ac** [Here's the]: ...ciency (the negative-pressure problem) Here's the physics that matters. A single-hose unit exhausts room air outside, and **every...
-- **single-hose-vs-dual-hose-portable-ac** [linked at the bottom]: ...d the DOE's portable-AC test procedure, linked at the bottom. We don't recommend specific models, since the single-vs-dual-hose di...
-- **hvac-refrigerant-phase-out** [honest/honestly]: ...rent system?" For almost everyone, the honest answer is **no, not right now.** Here's how to think about it based on what you hav...
-- **hvac-refrigerant-phase-out** [Here's the]: ...saw it while shopping for a new unit. Here's the straight answer, focused on the timeline and what it actually means for you. We...
-- **hvac-refrigerant-phase-out** [linked at the bottom]: ...and figure here is sourced to the EPA, linked at the bottom. **R-410A, the refrigerant in most homes today, is being phased out...
-- **refrigerant-types-explained** [honest/honestly]: ...number that made you wince, here's the honest truth. You're probably *not* being taken for a ride. The stuff really is that expen...
-- **refrigerant-types-explained** [Here's the]: ...probably don't apply to you at all. So here's the plan. We'll figure out **exactly what refrigerant is in your system**, whether...
-- **refrigerant-types-explained** [linked at the bottom]: ...84.64) and ASHRAE Standard 34. Both are linked at the bottom. | | R-22 | R-410A | R-32 | R-454B | R-290 | |---|---|---|---|---|--...
-- **refrigerant-types-explained** [italic rhetorical question]: ...system, and your brain went straight to *so this thing can ignite in my house?* It's a completely fair question. Here's the hones...
-
-### 5) Calculators: registered types -> embedding pages
-- **ac-tonnage** (ACTonnageCalculator) -> ac-tonnage-calculator, central-air-conditioner-guide
-- **btu** (BTUCalculator) -> window-air-conditioners, portable-air-conditioners
-- **seer2** (SEER2Calculator) -> seer2-comparison-calculator, seer2-rating-explained
-- **mini-split** (MiniSplitCalculator) -> mini-split-sizing-calculator
-- **kwh-cost** (KWhCostCalculator) -> kwh-cost-calculator, how-much-does-mini-split-cost-to-run, portable-ac-electricity-cost, electric-heater-running-cost
-- **power-consumption** (PowerConsumptionCalculator) -> power-consumption-calculator
-- **dehumidifier-sizing** (DehumidifierSizingCalculator) -> what-size-dehumidifier-do-i-need
-- **air-purifier-sizing** (AirPurifierSizingCalculator) -> air-purifier-sizing-guide
-- **ach** (ACHCalculator) -> air-changes-per-hour-calculator
-- **gas-vs-electric** (GasVsElectricCalculator) -> gas-vs-electric-heating-cost
-- **three-phase-power** (ThreePhasePowerCalculator) -> 3-phase-power-calculator
-- **solar-panel** (SolarPanelCalculator) -> solar-panel-calculator
-- **battery-watt-hours** (BatteryWattHoursCalculator) -> battery-watt-hours
-- **battery-12v-watts** (Battery12VWattsCalculator) -> how-many-watts-in-12v-battery
-- **specific-heat** (SpecificHeatCalculator) -> specific-heat-capacity-calculator
-- **dehumidifier-cost** (DehumidifierCostCalculator) -> dehumidifier-running-cost
-- **furnace-sizing** (FurnaceSizingCalculator) -> furnace-sizing-calculator
-- **heat-pump-size** (HeatPumpSizeCalculator) -> heat-pump-size-calculator
-- **water-heater-sizing** (WaterHeaterSizingCalculator) -> water-heater-sizing-calculator
-- **generator-sizing** (GeneratorSizingCalculator) -> what-size-generator-do-i-need, generator-guide, what-size-generator-for-fridge
-- **ac-generator** (ACGeneratorCalculator) -> (no live page embeds it)
-- **generator-amps** (GeneratorAmpsCalculator) -> how-many-amps-does-generator-produce
-- **hvac-lifespan** (HVACLifespanCalculator) -> hvac-system-lifespan
-- **water-heater-lifespan** (WaterHeaterLifespanCalculator) -> how-long-does-water-heater-last
-- **afue** (AFUECalculator) -> afue-rating-explained
-- **furnace-electrical** (FurnaceElectricalCalculator) -> gas-furnace-wattage
-- **water-heating-cost** (WaterHeatingCostCalculator) -> electric-water-heating-cost
-- **large-room-portable-ac** (LargeRoomPortableACCalculator) -> (no live page embeds it)
-- **small-room-portable-ac** (SmallRoomPortableACCalculator) -> (no live page embeds it)
-- **heat-pump-vs-furnace** (HeatPumpVsFurnaceCalculator) -> heating-cost-calculator, furnace-vs-heat-pump
-- **heat-pump-running-cost** (HeatPumpRunningCostCalculator) -> heat-pump-electricity-usage, heat-pump-running-cost-calculator
-- **duct-sizing** (DuctSizingCalculator) -> btucfm-ductwork-relationship, ductwork-sizing-calculator
-
-Registered types: 32. (Authority-labeled-constant review in prose below.)
-
-**Authority-labeled constant not in the HANDOFF registry (report only, no edit):** `AFUECalculator` (lines ~75, ~242) credits **EIA** with a natural-gas price of **$1.35/therm** and a regional spread ($1.60 / $1.35 / $1.15 / $1.05 by region). The registry is explicit that **$1.35/therm is an assumption, not EIA-sourced** ("Natural gas $1.35/therm: an assumption, not EIA-sourced; label it 'assumed'"). So the number itself is in-policy as a default, but attributing it to EIA is a phantom credit, and the regional spread has no listed source at all. This surfaces in the audit as `phantom_credit` only on hvac-tax-credits-2026, not here, because the AFUE attribution lives in the calculator component (TSX), which the content audit does not scan. Recommend, when afue-rating-explained is next touched: relabel the calculator's gas price to "assumed" and drop the EIA credit (and either source or caveat the regional spread). Left unchanged this batch per the verified-or-omitted / don't-align-to-unverified-constant rules.
-
-Every other registered calculator constant that carries an authority label traces to the registry (EIA 18.19¢/$0.18, EPA eGRID 0.823, ENERGY STAR / DOE lifespans and efficiency floors, federal SEER2/HSPF2 minimums).
+No page-specific allowlist entries were added; all three are general precision fixes.
 
 ---
 
-## Reading of the corpus report (what matters for Raptive)
-- **Clean on the hard gates:** 0 brands, 0 em dashes, 0 recompute_fail, 0 broken/bad-path links, 0 missing H1, 0 stale EIA, every page bylined. These are the things that read as "templated / inaccurate / spammy" to a reviewer; the corpus is clean on them.
-- **`new_tells` 151 on 38 pages** and **`overclaims` 122 on 48 pages** are concentrated in the **not-yet-rewritten** pages (heat-pump-guide, air-purifier-guide, the mini-split cluster, the portable-AC venting pages, refrigerant-types, the wiring pages). The rewritten SHIP-21..29 pages are clean. This is the de-template pass (HANDOFF Queue item 4) quantified: the tells are "Here's the", "honest/honestly", "linked at the bottom", "worth knowing", "we recommend no specific brands", a few italic rhetorical questions. None are factual errors; all are voice.
-- **`title_overclaim` 14** is the same population: "Complete Guide", "That Actually Work", "Proven", "#1"-style titles on the older pages. Report-only; worth a title pass before reapply since these are the most visible SERP strings.
-- **Two real content items to schedule** (both on not-yet-rewritten pages): `model_codes=2` on **hvac-serial-number-decoder** (by design, the page decodes serials, but confirm they're generic not brandable) and `sourcesbox_no_url` on **hvac-serial-number-decoder** and **dry-mode-in-ac** (a SourcesBox entry missing a deep link). `rates_offrate=1` on **tankless-water-heater-propane-usage** and `phantom_credit=1` on **hvac-tax-credits-2026** were pre-existing and are on the rewrite queue.
-- **3 registered calculators embed nowhere live:** ac-generator, large-room-portable-ac, small-room-portable-ac. Dead registrations; candidates for removal or a page to host them.
+## PART C — duct-leakage-testing: 2021 IECC limits (commit `20b7e59`)
 
-## What I did NOT do
-- No push (awaiting Marko).
-- No edits to any not-yet-rewritten page, the AFUE calculator, or the dead calculator registrations. All of the above is report-only per SHIP-29 PART D.
+Added to the "When a test is required" section (after the sentence introducing the per-100-sq-ft limit):
+
+```
+The 2021 IECC sets the numbers in Section R403.3.6, with the ducts held at 25 pascals. Total
+leakage must come in at or below these figures, in CFM25 per 100 square feet of conditioned
+floor area:
+
+| When the duct system is tested | Maximum total leakage |
+| --- | --- |
+| Rough-in, air handler installed, and the final post-construction test | 4.0 CFM25 per 100 sq ft |
+| Rough-in, before the air handler is installed | 3.0 CFM25 per 100 sq ft |
+| All ducts and the air handler inside the thermal envelope | 8.0 CFM25 per 100 sq ft |
+
+Work it out for your own house by multiplying the per-100 figure by your floor area. A 2,000
+square foot home at the 4.0 limit may leak at most 80 CFM25, since 0.04 × 2,000 = 80. A house
+with every duct and the air handler inside the conditioned envelope gets the loosest 8.0
+allowance, because any air that leaks there stays indoors.
+```
+
+Source added to the SourcesBox: *U.S. DOE Building Science Education Solution Center: Duct Leakage Testing (2021 IECC R403.3.6 limits)*, `https://bsesc.energy.gov/sites/default/files/2024-08/Duct%20Leakage%20Testing%20Level%202%20-%20Lecture%20Notes%20%26%20Problem%20Sets.docx`. Every new number is explained in prose; no paragraph exceeds 3 sentences; added to the HANDOFF registry.
+
+**Declined (no placeholders added, as instructed):** tank warranty tiers, heat pump water heater dB, per-appliance pilot ratings, the NEC Article 220 sample calculation, appliance amp draws, pellet feed rates, room AC dB ranges.
+
+---
+
+## PART D — REVIEW-SHEET.md refresh
+
+Rebuilt `REVIEW-SHEET.md` for the current top-30 pages by GA4 sessions (`RAPTIVE_CLASSIFICATION.csv`, `sessions_4wk`), same format as the first sheet (per page: URL, title, H1, opening answer, bold answer, and every number with context; dense tables summarized "(table)"; frontmatter/alt-text/code excluded), reading each page's **post-FIX-28** content. Thirty pages, all live. 2,523 lines, 30 sections, 30 checkbox triples.
+
+Each page is marked **CHANGED since the first sheet (2026-10-07)** or **unchanged**. "Changed" means the review-captured content (title, H1, opening answer, bold answer, or any stated number) differs from the first sheet; diagram-alt-text edits and pure paragraph re-splits are not review-captured content, so they count as unchanged. Result: **8 changed, 22 unchanged.**
+
+**CHANGED (start here):**
+| # | page | what changed |
+|---|---|---|
+| 9 | ductwork-sizing-calculator | DEEPEN added a "BTU to CFM" section + 2 FAQs (1.08 sensible-heat constant, CFM-per-ton table, temperature-rise example); 61 -> 84 numbers; title reworded |
+| 12 | merv-rating-chart | FIX-27 A1: removed the MERV 17-20 / HEPA-equivalence claim; now states the scale is 1-16 (ASHRAE 52.2) with HEPA a separate standard; SourcesBox EPA line changed to "MERV 7-13 nearly as effective as HEPA" |
+| 14 | what-size-tankless-water-heater | bold answer reworded ("88%-efficient" -> "at an assumed 88% efficiency"); +1 number (0.95 UEF, ENERGY STAR condensing gas-tankless) |
+| 17 | wire-for-220-volt | new cable-temperature reference sentence (+5 numbers: 60°C NM-B, 75°C THHN, 8 AWG at 50 A, NEC Article 440) |
+| 21 | hvac-refrigerant-phase-out | timeline rewritten for the EPA reconsideration rule: removed the old "~2026" install cutoff; added May 2026 finalization, New York's Jan 1 2026 deadline, Part 494 |
+| 27 | hvac-tax-credits-2026 | no number value changed; the captured list now includes 6 figures the first sheet omitted (HOMES payout tiers + DOE $8.8B/$4.5B/$4.3B split); only real edit was FIX-26 A3 adding a DOE attribution phrase |
+| 29 | mini-split-electricity-usage | large: the 11-state rate table was removed and a full "what it costs to run" section added (SEER2 cost-by-size table, efficiency/rate/central-air comparisons, 2 FAQs); title + H1 gained "to run". (FIX-28 also split one sources paragraph here — not a captured-content change.) |
+| 30 | dehumidifier-guide | sizing chart swapped from the AHAM per-room-size table to the ENERGY STAR under/over-2,000-sq-ft chart with dampness ranges; 85 -> 81 numbers. (FIX-28 also reworded one diagram's alt text — excluded from the sheet.) |
+
+**unchanged (22):** ac-not-cooling, ac-tonnage-calculator, air-conditioner-btu-calculator, mini-split-sizing-calculator, refrigerant-types-explained, what-size-generator-do-i-need, furnace-sizing-calculator, ideal-indoor-humidity-level, carbon-monoxide-detector-guide, heat-pump-size-calculator, hvac-serial-number-decoder, ac-troubleshooting-guide, 3-phase-power-calculator, kwh-cost-calculator, what-size-generator-for-fridge, dry-mode-in-ac, how-often-change-hvac-filter, mini-split-vs-central-air, how-to-reduce-hvac-noise, what-size-dehumidifier-do-i-need, seer2-comparison-calculator, wire-gauge-chart.
+
+Built with a 30-agent fan-out workflow (one agent per page, reading current source + its own section from the 2026-10-07 snapshot), then assembled deterministically keyed by slug. (The top-30 set and order is unchanged from the first sheet; folds removed no top-30 page.)
+
+---
+
+## VERIFY
+
+| Check | Result |
+|---|---|
+| `npx tsc --noEmit` | clean (exit 0) |
+| svg-lint | 59/59 OK, 0 failures |
+| `node scripts/content-audit.mjs` | 0 on every gate metric (rates_offrate, stale_eia, regulatory, phantom_credit, ampacity_flags, recompute_fail, brands, model_codes, overclaims, count_promise_mismatch, old_tells, new_tells, em_dashes, social_proof, long_paragraphs, links_broken, links_badpath, related_slugs_prop, missing_h1, sourcesbox_no_url, title_overclaim, self_links). `attributions` (218) and `precision_stats` (914) are report-only manual-review inventory counters, never zero on a 128-page corpus. |
+| `node scripts/audit.mjs --skip-build` | CLEAN — 0 findings |
+| `next build` (NODE_OPTIONS=--max-old-space-size=3072) | exit 0, 279/279 static pages generated |
+| full `node scripts/audit.mjs` (incl. 18 static routes) | CLEAN — 0 findings, 18 routes checked from built HTML |
+
+### Commits (newest first; not pushed)
+```
+20b7e59 content(duct-leakage-testing): FIX-28 PART C - 2021 IECC R403.3.6 limits
+bd8935d content(mini-split-electricity-usage): FIX-28 PART B - split 4-sentence paragraph
+0e8331f content(dehumidifier-and-ac-same-time): FIX-28 PART B - 'SEER2 14.3' -> '14.3 SEER2'
+a4608d8 content(dehumidifier-guide): FIX-28 PART B - 'work best' -> 'work most effectively'
+0a6d6ca content(air-conditioner-types): FIX-28 PART B - 'best models' -> 'high-end models'
+f7d62ea audit(content-audit): FIX-28 PART B - 3 detector precision fixes
+5523a0e content(eer-chart-for-ac-units): FIX-28 PART A - correct ENERGY STAR source
+ccb170c content(seer2-rating-explained): FIX-28 PART A - correct ENERGY STAR source
+```
+(HANDOFF registry + REVIEW-SHEET + this file committed separately as the PART D / docs commit.)
