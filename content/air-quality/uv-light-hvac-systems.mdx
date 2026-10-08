@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "how-to-improve-indoor-air-quality"
   - "hepa-filter-explained"
@@ -39,11 +39,32 @@ UV lights in an HVAC system use ultraviolet-C light to damage the DNA of microor
 
 Killing a microorganism takes a certain UV dose: light intensity times exposure time. On a stationary coil, exposure accumulates and the dose is easy to reach. In moving air, the EPA's guide to air cleaners notes that typical residential UV systems may not provide enough exposure to kill most bacteria and mold spores, though they can help keep surfaces such as coils from growing them.
 
+## Why exposure time decides the outcome
+
+Dose is the key idea: it equals the lamp's light intensity multiplied by how long the target sits in that light. A coil and its drain pan stay in front of the lamp continuously, so the dose builds up over hours of runtime. Air in a duct passes the same lamp in a fraction of a second, so it collects almost none.
+
+Suppose a parcel of air spends half a second passing the lamp. One hour of continuous exposure on the coil is 3,600 seconds, so the coil collects 3,600 ÷ 0.5 = 7,200 times the exposure time per hour of runtime that the air parcel gets in a single pass. That gap, not the lamp's wattage alone, is why the two jobs produce such different results.
+
+| System type | Where the lamp sits | Exposure the target gets | What it realistically does |
+|---|---|---|---|
+| Coil and drain-pan irradiation | Facing the indoor coil and condensate pan | Continuous, hours at a time | Suppresses the mold and bacterial film that forms on the always-damp coil and pan |
+| Air-stream disinfection | In the supply or return duct | A fraction of a second per pass | Little reliable kill of airborne microbes at normal residential air speeds |
+
+Because a coil lamp has hours to work, its wattage can be modest and still build an effective dose over time. An in-duct lamp has to deliver far higher intensity to land any useful dose in that split second, which is why a single low-watt bulb dropped into a duct does very little.
+
 ## Ozone and safety
 
 - **Ozone:** some UV lamps emit shorter wavelengths that create ozone, a lung irritant. The EPA warns against devices that produce ozone indoors. Choose lamps labeled ozone-free.
 - **Eyes and skin:** UV-C can injure eyes and skin. Lamps should be inside the equipment, with interlocks or switches that turn them off when panels are opened.
 - **Materials:** UV-C can degrade some plastics and insulation near the lamp over time; follow the installation instructions.
+
+## UV-C versus PCO and bipolar ionization
+
+Shoppers often meet three different add-ons sold for the same slot, and they do different things. A plain UV-C lamp is bare germicidal light that damages microbial DNA. Photocatalytic oxidation (PCO) pairs a UV lamp with a catalyst coating, using the light to drive surface reactions meant to break down some gaseous pollutants rather than filter particles.
+
+Needlepoint bipolar ionization works differently again: it releases positive and negative ions into the airstream so fine particles clump together and settle onto surfaces or get caught by the filter. It adds nothing to the filter's own particle rating, and it does not remove what it drops onto room surfaces.
+
+Each of these can emit ozone depending on its design, and ozone is a lung irritant the EPA advises against generating indoors. The EPA has also said the evidence for some ionization technologies is not yet conclusive. California's Air Resources Board (CARB) publishes a list of air-cleaning devices certified to stay under its ozone limit, so checking a model against that list is the simplest way to confirm it is ozone-safe before buying.
 
 ## Maintenance
 
@@ -53,6 +74,8 @@ UV-C lamps lose output with use even while they still glow, so they need replaci
 
 - A cooling coil that keeps growing mold or slime, or a recurring musty smell from the system.
 - Very humid climates where the coil stays wet for long periods.
+
+A dry-climate home gives a coil lamp little to act on: if the coil dries out between cycles and indoor humidity stays in the EPA's recommended 30 to 50% range, biological growth struggles to start, since mold generally needs sustained humidity above 60% to take hold. The payoff shows up on a coil that stays wet, in a humid climate or on a system that runs long cooling cycles, where the film returns no matter how often the coil is cleaned. In that case a coil lamp works alongside coil cleaning, not instead of it.
 
 For cleaner air overall, a good filter matters more: see the [MERV rating chart](/merv-rating-chart) and [how to improve indoor air quality](/how-to-improve-indoor-air-quality). For a dirty coil, cleaning it is the first step; see [how to clean AC coils](/how-to-clean-ac-coils).
 
@@ -74,9 +97,23 @@ On the manufacturer's schedule, often about once a year, because UV-C output fad
 
 No. They do different jobs; filters capture particles, and a UV light mainly keeps the coil clean.
 
+### Where should a UV light be installed in an HVAC system?
+
+For controlling growth, at the indoor coil and drain pan, where the lamp can shine on those damp surfaces continuously. An air-disinfection lamp goes in the duct, but at residential air speeds it delivers little dose per pass, so coil placement is where most of the real benefit comes from.
+
+### Do needlepoint bipolar ionizers work?
+
+They charge airborne particles so they clump and settle, but they do not add to a filter's particle rating and can leave what they deposit on room surfaces. The EPA has said the evidence for some ionization technologies is not yet conclusive, and some units emit ozone, so check any model against California's CARB certified list first.
+
+### Will a UV light get rid of a musty AC smell?
+
+If the smell comes from mold or bacterial film on the coil and drain pan, a coil lamp can help suppress that growth once the coil is cleaned. If the odor is from somewhere else in the house, the lamp will not reach it.
+
 <SourcesBox sources={[
   { title: "EPA: Guide to Air Cleaners in the Home (ultraviolet germicidal irradiation)", url: "https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home" },
-  { title: "EPA: Ozone generators that are sold as air cleaners", url: "https://www.epa.gov/indoor-air-quality-iaq/ozone-generators-are-sold-air-cleaners" }
+  { title: "EPA: Ozone generators that are sold as air cleaners", url: "https://www.epa.gov/indoor-air-quality-iaq/ozone-generators-are-sold-air-cleaners" },
+  { title: "CARB: Certified Air Cleaning Devices (ozone-safe list)", url: "https://ww2.arb.ca.gov/list-carb-certified-air-cleaning-devices" },
+  { title: "EPA: Mold Course Chapter 2 (indoor humidity 30-50%, below 60%)", url: "https://www.epa.gov/mold/mold-course-chapter-2" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
