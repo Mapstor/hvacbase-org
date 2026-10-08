@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-02"
+dateModified: "2026-10-08"
 relatedArticles:
   - "tankless-water-heater-guide"
   - "what-size-tankless-water-heater"
@@ -35,6 +35,15 @@ There are two common setups:
 - **Dedicated return line:** a third pipe runs from the farthest fixture back to the water heater, and the pump circulates hot water through the loop. It's the cleanest design, and the easiest in new construction.
 - **Crossover valve:** a valve under the farthest sink connects the hot and cold lines, and the pump pushes cooled water from the hot line back through the cold line. No new pipe is needed, but the cold tap at that sink can run lukewarm for a moment.
 
+The two layouts deliver hot water to the tap about equally fast once the loop is primed. The real differences are the plumbing work and what happens at the cold tap, summarized below.
+
+| Setup | New pipe needed | Cold tap side effect | Typical fit |
+| --- | --- | --- | --- |
+| Dedicated return line | Yes, a third pipe back to the heater | None, the cold line stays cold | New construction or open walls |
+| Crossover valve | No, it reuses the cold line | Brief lukewarm cold water at that sink | Retrofit where adding a pipe is hard |
+
+Water saved and energy used are set by the control you choose, not by the layout. Either setup wastes the same water when you run a tap, and either one loses more heat on continuous running than on a timer or on-demand button.
+
 ## Controls make the difference
 
 - **Continuous:** keeps the loop hot around the clock, the most convenient and the most heat lost.
@@ -46,6 +55,10 @@ There are two common setups:
 
 The water you waste is roughly what's in the pipe between heater and tap. As an example, waiting 30 seconds at a 2.0 gallon-per-minute WaterSense showerhead sends 1 gallon down the drain. Four waits like that a day add up to about 1,460 gallons a year.
 
+The farther the fixture, the longer the slug of cooled water ahead of it, so the wait and the waste grow with pipe distance. Take a near fixture where hot water arrives in an example 15 seconds against a far second-floor bath that takes an example 45 seconds, both at 2.0 gallons per minute. The near draw wastes 15 ÷ 60 × 2.0 = 0.5 gallon, while the far draw wastes 45 ÷ 60 × 2.0 = 1.5 gallons, three times as much.
+
+Three long waits a day at that far bath come to 3 × 1.5 = 4.5 gallons a day. Over a year that is 4.5 × 365 = about 1,640 gallons from one far fixture alone. A recirculating pump cuts the wait at every fixture on the loop, so the saving scales with how far your taps sit from the heater.
+
 ## What it costs to run
 
 A small circulating pump drawing 25 watts, running around the clock, uses 0.6 kWh a day or 219 kWh a year: about $39 a year at 18 cents per kWh. On a timer for four hours a day, the same pump costs under $7 a year.
@@ -54,9 +67,11 @@ The larger cost is heat. A continuously circulating loop keeps the whole line ho
 
 ## Recirculation with a tankless water heater
 
-A tankless heater only fires when water flows above a minimum rate, so a recirculating loop has to move enough water to trigger it. Some tankless models have a built-in pump and recirculation modes; others need a compatible external pump and control.
+A tankless heater senses flow and only ignites once that flow passes its minimum activation rate. Below that threshold it stays off, which avoids short, inefficient bursts of the burner. A recirculating loop therefore has to move water fast enough to cross that threshold, so the pump and the loop's pipe sizing have to match the heater.
 
-On-demand control suits tankless heaters better, because constant recirculation would keep firing the burner. Follow the heater manufacturer's recirculation instructions, which can affect the warranty.
+That minimum-flow behavior is why continuous recirculation fights an on-demand burner. Holding flow above the threshold around the clock would make the burner cycle on repeatedly to reheat the loop, the opposite of the heat-only-when-a-tap-opens design. On-demand control starts the pump briefly to prime the line, lets the burner fire once to fill the loop with hot water, then stops so the heater returns to idle.
+
+Some tankless models ship with a built-in pump and recirculation modes; others need a compatible external pump and control. Follow the heater manufacturer's recirculation instructions, which can affect the warranty.
 
 ## Frequently asked questions
 
@@ -75,6 +90,14 @@ Yes, if the heater supports it. Use a model with built-in recirculation or a com
 ### Is a dedicated return line better than a crossover valve?
 
 It performs better and keeps the cold line cold, but it needs a new pipe. A crossover valve is the practical retrofit when adding a pipe isn't possible.
+
+### How much does a recirculating pump cost to install?
+
+The install cost depends mostly on the plumbing. A dedicated return line is the larger job, because a plumber runs a third pipe from the farthest fixture back to the heater, while a crossover valve retrofit skips the new pipe and goes under one sink. Both also include the pump itself and, for a tankless setup, a compatible control.
+
+### Will a crossover valve make my cold water warm?
+
+Briefly, yes. The pump pushes cooled water from the hot line into the cold line, so the cold tap at that fixture can run lukewarm for a few seconds until fresh cold water arrives. A thermostatic crossover valve limits this by closing once the loop water warms, and running the cold tap for a moment clears it.
 
 <SourcesBox sources={[
   { title: "EPA WaterSense: Showerheads (2.0 gpm WaterSense flow)", url: "https://www.epa.gov/watersense/showerheads" }
