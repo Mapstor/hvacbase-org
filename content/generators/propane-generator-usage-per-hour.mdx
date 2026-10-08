@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "reference"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "what-size-generator-do-i-need"
   - "what-size-generator-for-fridge"
@@ -43,6 +43,17 @@ Gallons per hour = load in kW × 3,412 BTU per kWh ÷ (91,452 BTU per gallon × 
 
 Your load is what's running: a fridge, a furnace blower, lights and a sump pump might total 2 to 5 kW. Our [generator sizing calculator](/what-size-generator-do-i-need) adds up appliances for you.
 
+## Half load vs full load
+
+Spec sheets list propane draw at 50% and 100% load because consumption climbs with output. The table below is an example computed from the formula on this page at 20% efficiency, not a reading from any real spec sheet; a manufacturer's own figures are the ones to trust.
+
+| Generator rating | Half load | Full load |
+|---|---|---|
+| 14 kW | about 1.3 gal/hr (7 kW) | about 2.6 gal/hr |
+| 22 kW | about 2.1 gal/hr (11 kW) | about 4.1 gal/hr |
+
+Half load uses close to half the propane, which is why a lightly loaded generator stretches a tank. Full load roughly doubles the hourly burn, so a long outage near full output drains even a large tank quickly.
+
 ## How long a propane tank lasts
 
 Propane weighs about 4.2 pounds per gallon, and large tanks are filled to about 80% to leave room for expansion. At a 5 kW load:
@@ -50,11 +61,25 @@ Propane weighs about 4.2 pounds per gallon, and large tanks are filled to about 
 | Tank | Propane | Runtime at 5 kW |
 |---|---|---|
 | 20-lb cylinder | about 4.7 gallons | about 5 hours |
+| 30-lb cylinder | about 7.1 gallons | about 8 hours |
+| 40-lb cylinder | about 9.5 gallons | about 10 hours |
 | 100-lb cylinder | about 23.6 gallons | about 25 hours |
+| 250-gallon tank, filled to 80% | 200 gallons | about 9 days |
+| 330-gallon tank, filled to 80% | 264 gallons | about 12 days |
 | 500-gallon tank, filled to 80% | 400 gallons | about 18 days |
 | 1,000-gallon tank, filled to 80% | 800 gallons | about 36 days |
 
+Cylinder labels are the weight of propane they hold, so dividing by 4.2 pounds per gallon gives the volume: a 30-lb cylinder holds about 7.1 gallons, a 40-lb about 9.5. Large residential tanks are sized by total volume, and the 80% fill rule leaves the 250 and 330-gallon tanks with 200 and 264 usable gallons.
+
 Runtime = gallons ÷ gallons per hour. Halve the load and the runtime roughly doubles.
+
+## Whole-house standby: per-day and multi-day use
+
+Whole-house standby units are often sold around 14 kW and 22 kW, but those are maximum ratings, not what the house actually pulls. At full load the 14 kW class burns about 2.6 gallons an hour, close to 62 gallons a day (2.6 × 24). The 22 kW class at full load burns about 4.1 gallons an hour, close to 98 gallons a day (4.1 × 24).
+
+Most homes draw well below the rating once the big startup surges pass. A home averaging 10 kW through an outage burns 1.87 gallons an hour, about 45 gallons a day from the load table above. Over a three-day outage that is about 135 gallons (1.87 × 72).
+
+A 250-gallon tank filled to 80% holds 200 gallons, so it covers that three-day draw with room to spare. A 40-lb cylinder holds only about 9.5 gallons, roughly five hours at the same 10 kW load, so small cylinders suit camping or short outages rather than whole-house backup.
 
 ## What it costs to run
 
@@ -89,6 +114,14 @@ About 5 hours at a 5 kW load, and longer at lighter loads.
 ### Is propane more expensive than gasoline for a generator?
 
 Per hour it often is, because a generator burns about 1.3 gallons of propane for each gallon of gasoline. Propane's advantages are long storage life and cleaner running.
+
+### How long will a 100-gallon or 250-gallon propane tank run a generator?
+
+A 100-gallon tank filled to 80% holds about 80 gallons, roughly 3.5 days at a steady 5 kW load. A 250-gallon tank holds about 200 gallons at 80%, roughly 9 days at the same load. Heavier loads shorten both in proportion.
+
+### How much propane does a whole-house generator use per day?
+
+At full load a 14 kW unit burns about 62 gallons a day and a 22 kW unit about 98, but most homes draw far less once startup surges pass. A home averaging 10 kW uses closer to 45 gallons a day. Size the tank for a realistic multi-day load rather than the nameplate rating.
 
 <SourcesBox sources={[
   { title: "U.S. EIA: British thermal units (energy content of propane, gasoline, diesel, natural gas)", url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php" },
