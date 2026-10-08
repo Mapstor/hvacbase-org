@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "calculator"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-04-06"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "gas-vs-electric-heating-cost"
   - "furnace-vs-heat-pump"
@@ -63,6 +63,48 @@ Gas is $1.35 per therm assumed; electricity is the site's default of 18 cents, c
 
 Energy content comes from the EIA: 91,452 BTU per gallon of propane, 138,500 per gallon of heating oil, and 3,412 per kWh. Pellets hold about 16.5 million BTU per ton.
 
+## When each fuel wins
+
+A heat pump at HSPF2 8.2 has a coefficient of performance of 2.40, found by dividing 8.2 by 3.412, the conversion from BTU per watt-hour to watts per watt. One million BTU of heat is 293 kWh, since each kWh is 3,412 BTU. At COP 2.40 the heat pump draws 293 divided by 2.40, about 122 kWh, to deliver that million BTU, which is $21.95 at 18 cents.
+
+With those two numbers you can find the price at which any fuel ties the heat pump.
+
+Gas ties the heat pump when a therm costs about $2.09. A 95% furnace delivers 95,000 BTU per therm, so it needs 10.53 therms per million BTU, and $21.95 divided by 10.53 is $2.09. Above roughly $2.09 a therm, the heat pump heats for less than gas.
+
+Hold gas at the assumed $1.35 and vary electricity instead. The heat pump ties the $14.21 gas cost when power falls to about 11.6 cents per kWh, found by dividing $14.21 by the 122 kWh the heat pump uses. Below that rate the heat pump beats even a high-efficiency gas furnace.
+
+Against oil and propane the heat pump holds its lead until electricity is far above today's average. It stays cheaper than oil at the example $4.00 a gallon until power passes about 28 cents per kWh ($33.98 divided by 122), and cheaper than propane at the example $3.00 a gallon at nearly the same threshold.
+
+## Cost to heat a 1,500 vs 2,500 sq ft house
+
+Heat loss in the model scales with floor area, so a similar home of a different size needs roughly proportional heat. The 2,000 sq ft example needs about 58 million BTU, so three-quarters of that is about 44 million for 1,500 sq ft and a quarter more is about 73 million for 2,500 sq ft.
+
+Scaling the yearly costs the same way gives this range, at the same climate and insulation:
+
+| Home size | Gas furnace, 95% | Heat pump | Electric resistance |
+|---|---|---|---|
+| 1,500 sq ft | $622 | $960 | $2,308 |
+| 2,000 sq ft | $829 | $1,280 | $3,077 |
+| 2,500 sq ft | $1,036 | $1,600 | $3,846 |
+
+Air sealing and insulation move these numbers more than size alone, because a tight 2,500 sq ft home can need less heat than a leaky 1,500 sq ft one.
+
+## Electric resistance: baseboard or an electric furnace
+
+Every form of electric resistance heat turns one kWh into the same 3,412 BTU, so baseboards, wall heaters and an electric furnace all cost about $52.75 per million BTU at 18 cents. The difference between them is how heat moves through the house, not efficiency.
+
+An electric furnace sends warm air through ducts, which can lose as much as 20% of their heat to leaks and unconditioned space, according to ENERGY STAR. Baseboards sit in the room with no ducts to leak, and they heat room by room, so unused rooms can stay cold.
+
+That makes zoned baseboard heat cheaper to run in practice than a central electric furnace of the same rating, even though the cost per BTU is identical.
+
+## When natural gas is not an option
+
+Natural gas is the cheapest common heating fuel here, but it needs a pipeline to the house. Homes without a gas main choose among a heat pump, propane, oil, electric resistance or wood, which is why the fuels below gas on the list still matter.
+
+Among those options the ranking turns on local delivered prices, which move with season and region. Propane at an example $3.00 a gallon costs $34.53 per million BTU; at $2.00 it would fall to about $23.02, since cost scales directly with price ($34.53 times two-thirds).
+
+Oil at an example $5.00 a gallon instead of $4.00 would rise to about $42.48 per million BTU ($33.98 times five-fourths). Check your own propane and oil quotes against the heat pump's $21.95 before deciding.
+
 ## What changes the answer
 
 - **Your prices.** Cheap electricity favors heat pumps; cheap gas favors gas. See [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
@@ -87,10 +129,23 @@ About $829 a year with a 95% gas furnace and up to about $3,077 with electric re
 
 Electric resistance heat turns one kWh into 3,412 BTU, so at 18 cents per kWh a million BTU costs about $53. A heat pump delivers more heat per kWh, which is why it costs far less.
 
+### Is propane or oil cheaper to heat with?
+
+At the example prices they are close: oil costs about $33.98 per million BTU at $4.00 a gallon, propane about $34.53 at $3.00 a gallon. Which one wins depends on your local price per gallon, since both scale directly with it.
+
+### Is a pellet stove cheaper to run than gas?
+
+No, not where you have natural gas: pellets cost about $23.31 per million BTU at $300 a ton, against $14.21 for a 95% gas furnace. Pellets do beat oil, propane and electric resistance at these prices, so they fit homes without a gas line.
+
+### How much does it cost to heat a 1,500 vs 2,500 sq ft house?
+
+Scaling the 2,000 sq ft example by floor area, a 1,500 sq ft home runs about $622 a year on a 95% gas furnace and a 2,500 sq ft home about $1,036. With a heat pump the same homes cost roughly $960 and $1,600; with electric resistance about $2,308 and $3,846.
+
 <SourcesBox sources={[
   { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
   { title: "U.S. EIA: British thermal units (propane, heating oil, electricity)", url: "https://www.eia.gov/energyexplained/units-and-calculators/british-thermal-units.php" },
-  { title: "New Hampshire Department of Energy: Wood pellet heating value", url: "https://energy.nh.gov/energy-information/nh-fuel-prices/wood-pellet-prices" }
+  { title: "New Hampshire Department of Energy: Wood pellet heating value", url: "https://energy.nh.gov/energy-information/nh-fuel-prices/wood-pellet-prices" },
+  { title: "ENERGY STAR: Duct Sealing Benefits (leaky ducts reduce efficiency by as much as 20%)", url: "https://www.energystar.gov/saveathome/heating-cooling/duct-sealing/benefits" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
