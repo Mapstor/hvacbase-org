@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "calculator"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "home-battery-backup-guide"
   - "kwh-cost-calculator"
@@ -40,13 +40,62 @@ The size of a solar system comes down to how much electricity you use and how mu
 
 The sun hours by state are approximate. For your address, roof angle and direction, NREL's free PVWatts calculator estimates production from local weather data.
 
+## Panels by how much you use
+
+Most people know their monthly kWh, not an abstract kilowatt figure. The counts below use the U.S. average of 5 peak sun hours and the calculator's default 85% system efficiency, so effective sun is 5 × 0.85 = 4.25 hours a day.
+
+| Monthly usage | Daily usage | Panels (400 W) | Installed size | Roof area (20% panels) |
+|---|---|---|---|---|
+| 500 kWh | 16.7 kWh | 10 | 4.0 kW | 215 sq ft |
+| 800 kWh | 26.7 kWh | 16 | 6.4 kW | 344 sq ft |
+| 1,000 kWh | 33.3 kWh | 20 | 8.0 kW | 431 sq ft |
+| 1,500 kWh | 50.0 kWh | 30 | 12.0 kW | 646 sq ft |
+| 2,000 kWh | 66.7 kWh | 40 | 16.0 kW | 861 sq ft |
+
+Take 1,000 kWh a month, which is 33.3 kWh a day. Divided by 4.25 effective sun hours that is a 7.8 kW raw need; at 400 watts a panel it rounds up to 20 panels, an 8.0 kW installed system.
+
 ## How location changes the size
 
 The same $150 bill needs about a 4.7 kW system (12 panels) at Arizona's roughly 7 peak sun hours, about 6.8 kW (17 panels) at the U.S. average of 5, and about 7.8 kW (20 panels) at New York's roughly 4.2. Less sun means more panels for the same production.
 
+The table below holds the example home fixed at 833 kWh a month and changes only the sun hours. Each raw requirement rounds up to whole 400-watt panels, so the installed size sits a little above the raw need.
+
+| State (example) | Peak sun hours | Panels (400 W) | Installed size |
+|---|---|---|---|
+| Arizona | 7.0 | 12 | 4.8 kW |
+| Nevada | 6.8 | 13 | 5.2 kW |
+| Colorado | 6.2 | 14 | 5.6 kW |
+| California | 6.0 | 14 | 5.6 kW |
+| Texas | 5.8 | 15 | 6.0 kW |
+| Florida | 5.5 | 15 | 6.0 kW |
+| North Carolina | 5.2 | 16 | 6.4 kW |
+| U.S. average | 5.0 | 17 | 6.8 kW |
+| New York | 4.2 | 20 | 8.0 kW |
+| Washington | 3.8 | 22 | 8.8 kW |
+
 ## Roof area
 
 A 400-watt panel takes about 21.5 sq ft at a typical 20% efficiency (monocrystalline), 23.9 at 18% and 35.9 at 12% (thin-film). The default system's 17 panels need about 366 sq ft, before setbacks and spacing your installer and local code require.
+
+## How panel wattage changes the count
+
+The panel count is the system watts divided by each module's wattage, so bigger modules mean fewer panels for the same system size. The example home needs about 6,500 watts before rounding, which splits three ways.
+
+| Module wattage | Panels needed | Installed size |
+|---|---|---|
+| 350 W | 19 | 6.65 kW |
+| 400 W | 17 | 6.8 kW |
+| 450 W | 15 | 6.75 kW |
+
+Total roof area barely moves, because it is the same system size and a higher-wattage panel of the same 20% efficiency is simply larger. At 20% efficiency a 350-watt module covers about 18.8 sq ft and a 450-watt module about 24.2 sq ft, so all three options land between about 358 and 366 sq ft.
+
+## Roof direction and tilt
+
+In the northern hemisphere the sun tracks across the southern sky, so a south-facing roof plane collects the most energy over the year. East-facing and west-facing planes produce less because they catch strong sun only for part of the day, and a north-facing plane is the weakest.
+
+Tilt matters too: a steeper pitch favors the low winter sun, a shallower pitch favors the high summer sun, and most fixed rooftop arrays settle somewhere in between. Shading from trees, chimneys or neighboring roofs cuts output during the shaded hours, which is what the calculator's shading factor approximates.
+
+Because the loss from a given direction, tilt and shade pattern depends on your address, run each roof plane through NREL's PVWatts, which models them from local weather data.
 
 ## Cost and payback
 
@@ -57,6 +106,12 @@ The federal Residential Clean Energy Credit (25D) ended for expenditures made af
 ## CO2 offset
 
 At the U.S. grid average of 0.823 lb of carbon dioxide per kWh (EPA eGRID2022), the default system's 10,549 kWh a year offsets about 8,681 lb a year. Where the grid is cleaner, the offset is smaller.
+
+## Grid-tied vs off-grid sizing
+
+A grid-tied system sizes to your annual net usage and leans on the grid as a buffer. It banks surplus in sunny months through net metering, then draws from the grid at night and in winter, and the figures above assume this setup.
+
+An off-grid system has no grid to fall back on, so it must be oversized and paired with enough battery storage to carry the home through nights and stretches of low-sun weather. That raises both the panel count and the cost well beyond a grid-tied system of the same annual production.
 
 ## Batteries
 
@@ -80,10 +135,27 @@ Not for homeowners: the Residential Clean Energy Credit ended for expenditures a
 
 It depends on your price per watt, sun and electricity rate. At an example $3.00 a watt, the default system pays back in about 10.9 years at 18 cents per kWh.
 
+### How many solar panels does it take to power a whole house?
+
+For an average U.S. household using about 863 kWh a month (EIA), roughly 17 panels of 400 watts at the U.S.-average 5 peak sun hours. Sunnier regions need fewer and cloudier regions more, so your own bill and location set the real number.
+
+### How many solar panels for 1,000 kWh a month?
+
+About 20 panels of 400 watts, an 8.0 kW system, at the U.S.-average 5 sun hours. That is 33.3 kWh a day divided by 4.25 effective sun hours, a 7.8 kW raw need that rounds up to 20 panels.
+
+### How many solar panels for a 2,000 sq ft house?
+
+Floor area does not set the number; your electricity usage does. An average U.S. household uses about 863 kWh a month (EIA), roughly 17 panels of 400 watts at 5 sun hours, but two homes of the same size can differ widely by appliances, climate and habits.
+
+### Do solar panels still produce in winter or on cloudy days?
+
+Yes, panels produce whenever daylight reaches them, just less of it. Output drops on overcast days and through shorter winter daylight, which is why sizing uses a yearly average of peak sun hours rather than a single sunny day.
+
 <SourcesBox sources={[
   { title: "NREL: PVWatts calculator (location-specific production estimates)", url: "https://pvwatts.nrel.gov/" },
   { title: "IRS: Residential Clean Energy Credit (25D)", url: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit" },
   { title: "EPA: Greenhouse Gas Equivalencies, calculations and references (eGRID2022)", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" },
+  { title: "EIA: Electric Sales, Revenue, and Average Price (average residential consumption)", url: "https://www.eia.gov/electricity/sales_revenue_price/" },
   { title: "DSIRE: State and utility incentives and net metering", url: "https://www.dsireusa.org/" }
 ]} />
 
