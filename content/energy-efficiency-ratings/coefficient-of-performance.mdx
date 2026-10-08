@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "heat-pump-in-cold-weather"
   - "gas-vs-electric-heating-cost"
@@ -48,6 +48,14 @@ COP falls as the outdoor air gets colder, because the heat pump has to lift heat
 
 Real heat pumps reach well below these limits, but follow the same trend: the colder it is, the lower the COP. That's why ENERGY STAR tests cold-climate models at 5°F; see [heat pumps in cold weather](/heat-pump-in-cold-weather).
 
+## Instantaneous COP vs seasonal COP (SCOP)
+
+A single COP figure describes one operating condition: a fixed outdoor temperature, indoor setpoint, and compressor speed. That is the instantaneous COP, the kind quoted at 47°F or 5°F on a spec sheet.
+
+Seasonal COP, sometimes written SCOP, averages performance across a whole heating season, including mild and cold hours, defrost cycles, and any electric backup. It is always lower than the mild-weather instantaneous COP, because the cold hours and defrost pull the average down.
+
+HSPF2 is a seasonal measure, so the 7.8 HSPF2 that converts to a seasonal COP of 2.29 is effectively an SCOP for a moderate climate. A spec sheet's 47°F COP of 3 to 4 and its seasonal COP of about 2.3 describe the same machine at different scopes.
+
 ## COP and other ratings
 
 | Rating | What it measures | Converting to COP |
@@ -57,6 +65,22 @@ Real heat pumps reach well below these limits, but follow the same trend: the co
 | EER2 | Cooling efficiency at one hot condition | ÷ 3.412: 11.0 EER2 is 3.22 |
 
 Single-point COP figures in marketing, often 3 to 4, are measured in mild conditions. HSPF2 averages a whole heating season for a moderate climate, which is why it converts to a lower COP.
+
+## Reading COP off a spec sheet
+
+A product spec sheet or AHRI Directory listing rarely prints COP directly; it prints SEER2, EER2, and HSPF2, which you convert by dividing by 3.412.
+
+Take a listing showing 15.2 SEER2, 11.0 EER2, and 7.8 HSPF2. For cooling, 15.2 ÷ 3.412 is a seasonal cooling COP of 4.45, and 11.0 ÷ 3.412 is a COP of 3.22 at the hot rating point. For heating, 7.8 ÷ 3.412 is a seasonal heating COP of 2.29.
+
+For cold-climate performance, read the low-temperature line instead of the seasonal one. ENERGY STAR's cold-climate criteria require a COP of at least 1.75 measured at 5°F, so a qualifying listing shows a 5°F COP at or above that figure.
+
+## Ground-source heat pumps and COP
+
+A ground-source (geothermal) heat pump draws heat from the ground instead of outdoor air. The ground stays far milder than winter air, so the temperature gap the heat pump must bridge is smaller, which raises COP exactly when an air-source unit struggles most.
+
+The physical ceiling shows the size of the advantage. Using the same Carnot limit, delivering 95°F air from 50°F ground gives 308 ÷ (308 − 283), about 12.3, against 6.16 from 5°F outdoor air. Real units reach well below these limits but keep the same ranking.
+
+The site's comparison uses an assumed seasonal COP of 3.5 for the ground-source unit as an illustration, against about 2.4 for an 8.2 HSPF2 air-source model; see [air-source vs. ground-source heat pumps](/air-source-vs-ground-source-heat-pump). Check the rated efficiency of any system you are quoted, since ENERGY STAR certifies geothermal models separately from air-source ones.
 
 ## What COP means for your bill
 
@@ -89,6 +113,14 @@ Not in normal heating operation: the compressor's own energy ends up as heat ind
 ### Why is my heat pump's COP lower in winter?
 
 It has to move heat across a larger temperature difference, which takes more electricity for each unit of heat.
+
+### What is the difference between COP and SCOP?
+
+COP describes one operating condition, such as 47°F or 5°F, while seasonal COP (SCOP) averages a whole heating season, including mild hours, deep cold, and defrost. SCOP is always the lower number. HSPF2 ÷ 3.412 is effectively an SCOP for a moderate climate.
+
+### What is the COP of a geothermal heat pump?
+
+A ground-source unit runs at a higher COP than an air-source one because the ground stays milder than winter air, shrinking the temperature gap it has to bridge. The site's worked comparison uses an assumed seasonal COP of 3.5 as an illustration, so check the rated efficiency of any system you are quoted. The Carnot ceiling drawing from 50°F ground and delivering 95°F air is about 12.3, far above what real units reach.
 
 <SourcesBox sources={[
   { title: "ENERGY STAR: Heat Pump Key Product Criteria (cold-climate COP at 5°F)", url: "https://www.energystar.gov/products/air_source_heat_pumps/key-product-criteria" },
