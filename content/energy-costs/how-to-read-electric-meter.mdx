@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-01-25"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "kwh-cost-calculator"
   - "how-many-kwh-per-day-is-normal"
@@ -38,6 +38,12 @@ Your electric meter counts kilowatt-hours (kWh), the unit your bill charges for.
 
 The display often cycles through several screens. Look for the one labeled kWh, or the one that matches the number on your bill, and ignore screens showing test patterns, voltage or demand. Write down every digit.
 
+### Reading a smart meter in the app or in-home display
+
+Most smart meters report to a utility app or online account, where usage appears by the hour or day without a trip to the meter. An optional in-home display pairs with the meter and shows the current draw in watts or kilowatts alongside the running kWh total. Both read from the same meter, so the app total and the physical display should agree once the latest data has synced.
+
+A screen labeled kW or "demand" shows power, not energy: the rate of use at an instant, or the month's highest short-period average. It is measured in kilowatts, while your energy charge is in kilowatt-hours, so do not subtract demand readings to find usage. Some commercial and a few residential plans bill this peak demand separately.
+
 ## Reading a dial meter
 
 1. Read the dials from left to right.
@@ -45,6 +51,14 @@ The display often cycles through several screens. Look for the one labeled kWh, 
 3. If a pointer seems to sit right on a number, check the dial to its right: if that dial hasn't passed zero yet, take the next lower number.
 
 Neighboring dials turn in opposite directions, so read each one by its own numbers, not by its position.
+
+A five-dial meter shows five pointers that together read as a five-digit number, left to right. If the dials point to 4, 5, 2, 1 and 0, the reading is 45,210 kWh. A month later the same dials read 46,073, so usage is 46,073 minus 45,210, or 863 kWh.
+
+## The meter multiplier and the Kh number
+
+A residential meter usually has a multiplier of one, so the kWh you read is the kWh you used. Some meters, mostly on larger services, print a multiplier such as 10 or 40; multiply the difference between two readings by that number to get actual kWh. The multiplier is printed on the faceplate near the serial number.
+
+Older meters with a spinning disk print a meter constant labeled Kh, the watt-hours recorded per full turn of the disk. You can read instantaneous power from it by timing the disk: power in watts equals revolutions times Kh times 3,600, divided by the seconds they took. As an example, if the plate shows Kh 7.2 and the disk completes one turn in 20 seconds, then 1 times 7.2 times 3,600 divided by 20 is 1,296 watts, about 1.3 kW drawn at that moment.
 
 ## Tracking your daily usage
 
@@ -54,9 +68,21 @@ Read the meter at the same time on two days; the difference is one day's kWh. Tu
 
 Find the previous and current readings on the bill and check them against the meter. The difference is your usage; multiply it by your rate, then add the fixed charges your utility lists. An average U.S. home uses about 863 kWh a month (EIA 2024 data); our [kWh cost calculator](/kwh-cost-calculator) does the math by state.
 
+## Why your meter keeps running when everything is off
+
+A meter that keeps advancing overnight is usually normal, not broken. The average U.S. home uses about 10,356 kWh a year, which is 10,356 divided by 365, or about 28.4 kWh a day; dividing by 24 hours leaves about 1.18 kWh every hour even while you sleep. A refrigerator, water heater standby, networking gear and devices left in standby all draw power around the clock.
+
+To check for a genuine fault, switch off every breaker and watch the meter: a smart or digital display should stop climbing, and a disk meter's disk should stop turning. If it still advances with everything off, call the utility. If it races only at certain times, switch the breakers back one by one to find the circuit responsible.
+
 ## Net meters with solar
 
 A net meter records energy in both directions: delivered from the grid and received from your panels. Its display shows separate readings, often with codes your utility explains on the bill or its website. Your bill is based on the difference between the two.
+
+As an example, say the delivered register rises by 500 kWh over a month and the received register, the energy your panels sent back, rises by 300 kWh. Your net grid use is 500 minus 300, or 200 kWh, billed at your rate: 200 times 18.19 cents is $36.38 before fixed charges. If your panels send back more than you draw, the net is negative and most utilities carry the surplus forward as a credit, though the credit rate varies by utility and state.
+
+## Reading a gas meter
+
+If you track gas as well, its meter counts volume, not kilowatt-hours. Dial or digital, it reads in cubic feet, and the bill is usually shown in CCF (hundred cubic feet) or converted to therms using a heat-content factor the utility prints on the statement. Subtract two readings the same way, then let the bill's conversion turn cubic feet into therms.
 
 ## Frequently asked questions
 
@@ -75,6 +101,18 @@ The bill may use an estimated reading, or a reading taken on a different day. Co
 ### How much electricity does a house use per month?
 
 About 863 kWh on average in the U.S., according to EIA 2024 data, though it varies widely with climate, home size and heating fuel.
+
+### How do I read a five-dial electric meter?
+
+Read the five pointers left to right as a five-digit number, taking the lower digit whenever a pointer sits between two. Pointers at 4, 5, 2, 1 and 0 read as 45,210 kWh. Neighboring dials turn in opposite directions, so judge each by its own printed numbers.
+
+### What is the Kh number on my meter?
+
+Kh is the meter constant on an older spinning-disk meter: the watt-hours recorded per full turn of the disk. Time one revolution and compute power as revolutions times Kh times 3,600, divided by the seconds taken; at Kh 7.2 a 20-second turn is about 1,296 watts. Digital and smart meters show kWh directly and have no Kh to use.
+
+### How do I read my meter with solar panels?
+
+A net meter keeps two running totals: energy delivered from the grid and energy your panels send back. Your billed usage is the delivered figure minus the received figure, so 500 kWh delivered against 300 kWh received is 200 kWh of net grid use. The codes beside each total are explained on your bill or the utility's website.
 
 <SourcesBox sources={[
   { title: "U.S. EIA: Electric Sales, Revenue, and Average Price, Table 5.a (2024 average monthly bill, residential)", url: "https://www.eia.gov/electricity/sales_revenue_price/" },
