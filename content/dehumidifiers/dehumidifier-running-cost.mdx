@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "calculator"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-09-30"
+dateModified: "2026-10-08"
 relatedArticles:
   - "dehumidifier-guide"
   - "ideal-indoor-humidity-level"
@@ -50,6 +50,21 @@ The wattages are typical draws for each size; check your model's label for its o
 | 95-pint | 800 W | $51.84 |
 | 110-pint | 900 W | $58.32 |
 
+## What each pint of water costs
+
+Efficiency is where two units of the same size can cost very different amounts. The DOE rates dehumidifiers by Integrated Energy Factor (IEF), the liters of water removed per kWh, so a higher IEF means a lower bill for the same pints pulled.
+
+A US pint is about 0.47 liters, so the energy to remove one pint is 0.47 divided by the IEF. At the ENERGY STAR minimum IEF for a large 50+ pint portable, 2.80, that is 0.47 ÷ 2.80 = about 0.17 kWh, or about 3 cents at 18 cents per kWh.
+
+| Unit at its ENERGY STAR minimum IEF | IEF (L/kWh) | kWh per pint | Cost per pint at 18 c/kWh |
+|---|---|---|---|
+| Small portable, up to 25 pint/day | 1.57 | 0.30 | about 5.4 cents |
+| Mid portable, 25–50 pint/day | 1.80 | 0.26 | about 4.7 cents |
+| Large portable, 50+ pint/day | 2.80 | 0.17 | about 3.0 cents |
+| Whole-house ducted | 2.09 | 0.22 | about 4.0 cents |
+
+These are the minimums a unit must beat to earn the label, and the most efficient models do better. The example unit in the calculator above removes about 25 pints on 7.08 kWh, roughly 0.28 kWh a pint, which lands near the small-portable minimum.
+
 ## Cost over a year
 
 The annual cost follows how many months you run it. At the defaults:
@@ -61,6 +76,24 @@ The annual cost follows how many months you run it. At the defaults:
 | Year-round | 12 | 2,549 | $459 |
 
 Your electricity rate changes this more than anything else. The same default month costs about $26 at North Dakota's 12.36 cents per kWh and $98 at Hawaii's 46.28; see every state's average in our [kWh cost calculator](/kwh-cost-calculator).
+
+## Three example cost scenarios
+
+Where and how long a unit runs matters more than its size on the box. The three profiles below use the calculator's defaults and 18 cents per kWh, as examples.
+
+- **Damp basement, run year-round.** A 50-pint unit at 590 watts for about 12 hours a day uses roughly 2,549 kWh, about $459 a year.
+- **Seasonal garage, four humid months.** The same unit over a four-month season uses about 850 kWh, about $153.
+- **Crawlspace, small unit left on.** A 30-pint unit at 300 watts running 24 hours a day is 300 × 24 ÷ 1,000 = 7.2 kWh a day, about 2,628 kWh and $473 across a year.
+
+The crawlspace case costs more than the year-round basement despite the smaller unit, because it never cycles off. Run hours, not nameplate pints, drive the bill.
+
+## Carbon from running a dehumidifier
+
+Running a dehumidifier draws grid electricity, so it carries a carbon cost alongside the dollar one. The EPA's eGRID figure for the U.S. average grid is 0.823 pounds of CO2 per kWh.
+
+At the calculator's defaults, a four-month humid season of 850 kWh works out to 850 × 0.823 = about 700 pounds of CO2. Spring through fall, 1,487 kWh, is about 1,220 pounds; year-round, 2,549 kWh, is about 2,100 pounds.
+
+A more efficient unit cuts this in the same proportion as the kWh, which is the strongest reason to size and set it well.
 
 ## How to cut the cost
 
@@ -88,10 +121,23 @@ No. A 3-ton central air conditioner at 14.3 SEER2 averages about 2.5 kW while it
 
 Let its humidistat decide. Set it to about 50% and it will run only as much as the room needs.
 
+### Is it cheaper to run a dehumidifier or the AC for humidity?
+
+For pulling moisture specifically, a dehumidifier is cheaper, because it targets water directly while an air conditioner removes humidity only as a side effect of cooling. A 3-ton air conditioner averages about 2.5 kW while it runs, roughly four times a 50-pint dehumidifier. If you want drier air without colder air, the dehumidifier does the job for less.
+
+### Do ENERGY STAR dehumidifiers really save money?
+
+Yes, if you run the unit a lot. A certified dehumidifier uses about 20% less energy than a comparable non-certified model, so a 50-pint unit that would cost about $459 a year run year-round saves roughly $92. The savings grow with run hours, so the label matters most for basements and humid climates.
+
+### How much does a whole-house dehumidifier cost to run vs a portable?
+
+Per pint removed, a whole-house ducted unit at its ENERGY STAR minimum IEF of 2.09 costs about 4 cents, a little more than a large 50+ pint portable at 2.80, about 3 cents. A whole-house unit removes far more moisture and treats the entire home, so its total bill depends on how much water your house actually needs pulled. For a single damp room a portable usually costs less to run; for a consistently humid whole house the ducted unit is the practical choice.
+
 <SourcesBox sources={[
   { title: "EPA: Mold course, chapter 2 (indoor humidity 30 to 50%, below 60%)", url: "https://www.epa.gov/mold/mold-course-chapter-2" },
   { title: "U.S. EIA: Electric Power Monthly, residential prices (January to July 2026)", url: "https://www.eia.gov/electricity/monthly/" },
-  { title: "EPA: Greenhouse Gas Equivalencies Calculator, calculations and references (eGRID2022)", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" }
+  { title: "EPA: Greenhouse Gas Equivalencies Calculator, calculations and references (eGRID2022)", url: "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references" },
+  { title: "ENERGY STAR: Dehumidifiers (IEF efficiency minimums)", url: "https://www.energystar.gov/products/dehumidifiers" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
