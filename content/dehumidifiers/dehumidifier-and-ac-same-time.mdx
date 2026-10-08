@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "explainer"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-07"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "dehumidifier-guide"
   - "dry-mode-in-ac"
@@ -38,6 +38,23 @@ An air conditioner's indoor coil is colder than the dew point of the room air, s
 
 All the electricity a dehumidifier uses ends up as heat in the room, plus the heat released as water vapor condenses. A 590-watt unit adds about 2,000 BTU per hour from its electricity alone (590 × 3.412), which your air conditioner then has to remove. That's why running both costs more than either alone.
 
+## What running both actually costs
+
+Running both means paying for three things: the dehumidifier's own electricity, the air conditioner's electricity, and the extra cooling the AC does to clear the dehumidifier's heat. The table below uses a 50-pint dehumidifier at 590 watts, a 3-ton air conditioner at SEER2 14.3 (the federal minimum for the South), and $0.18 per kWh.
+
+| Running for one hour | Load | kWh | Cost at $0.18 |
+|---|---|---|---|
+| 50-pint dehumidifier | 590 W | 0.59 | about 11 cents |
+| 3-ton AC | 36,000 BTU/hr | 2.52 | about 45 cents |
+| AC clearing the dehumidifier's heat | 2,000 BTU/hr | 0.14 | about 2.5 cents |
+| Both together | | 3.25 | about 59 cents |
+
+The AC figure uses the cooling formula tons × 12,000 × hours ÷ (SEER2 × 1,000), so 3 × 12,000 ÷ 14,300 = 2.52 kWh per hour. The dehumidifier's heat of 2,000 BTU per hour divided by the same 14.3 rating is 2,000 ÷ 14,300 = 0.14 kWh that the AC spends removing it.
+
+For a full day, picture the dehumidifier running 12 hours and the AC cycling for 6 of them. The dehumidifier uses 0.59 × 12 = 7.08 kWh ($1.27), the AC uses 2.52 × 6 = 15.12 kWh ($2.72), and clearing the dehumidifier's heat adds 0.14 × 6 = 0.84 kWh ($0.15). That day comes to about 23 kWh, or $4.15 at $0.18 per kWh.
+
+Running the dehumidifier never lowers what the air conditioner itself draws; it only adds load. The one way the pair can cost less overall is comfort-driven: drier air feels cooler, so some people raise the thermostat, which shortens AC cycles. How much that saves depends on your own comfort, not on the dehumidifier.
+
 ## When running both helps
 
 - **Mild, humid days**, when it's not hot enough for the AC to run long enough to dry the air.
@@ -45,12 +62,42 @@ All the electricity a dehumidifier uses ends up as heat in the room, plus the he
 - **Basements**, which stay cool and damp and often get little conditioned air.
 - **After water damage**, when a space needs drying fast.
 
+## Which situation calls for what
+
+The right move depends on how hard the air conditioner is already working.
+
+| Situation | What to do |
+|---|---|
+| Hot and humid, AC runs long cycles | AC alone usually holds 30 to 50% |
+| Mild and humid, AC barely runs | Dehumidifier, or the AC's dry mode |
+| Oversized AC that short-cycles | Dehumidifier alongside, or right-size the AC |
+| Cool, damp basement | Dehumidifier alone; the AC is not needed |
+| After a flood or leak | Dehumidifier to dry fast, plus AC if it is also hot |
+
+## Shoulder season vs peak summer
+
+An air conditioner removes moisture only while its compressor is running. In peak summer the compressor runs for hours, so it wrings out plenty of water and often holds humidity in range by itself.
+
+In spring and fall the outdoor air can be damp while the indoor temperature is already comfortable. The thermostat is satisfied in minutes, the compressor rarely starts, and little moisture leaves the air. A dehumidifier covers that gap because it dries the air without needing the house to be hot.
+
 ## Better options for whole-house humidity
 
 - **Dry mode** on many ACs and mini splits runs the fan slowly to remove more moisture per hour; see [dry mode](/dry-mode-in-ac).
 - **A whole-home dehumidifier** tied into the ductwork, which ENERGY STAR suggests for homes with central air where humidity stays above 55% throughout.
 - **A properly sized AC**, which runs longer cycles and dehumidifies better than an oversized one.
 - **An AC vent in the humid space**, which ENERGY STAR suggests so the central system can help dry it.
+
+## Dry mode, portable, or whole-home dehumidifier
+
+Three tools fix humidity in different ways, and the right choice depends on how much of the house is affected.
+
+| Fix | Use when | Trade-off |
+|---|---|---|
+| AC dry mode | One room is humid and a little cooling is fine | Can overcool; works only while the AC is on |
+| Portable dehumidifier | A basement or single room stays damp without being hot | Adds about 2,000 BTU/hr of heat; needs emptying or a drain |
+| Whole-home ducted dehumidifier | Humidity stays above 55% throughout a house with central air | Higher install cost; ENERGY STAR suggests it for this case |
+
+Dry mode uses equipment you already own, so it adds nothing to install; see [dry mode](/dry-mode-in-ac). A portable unit targets the one damp spot but warms it. A ducted unit treats every room through the existing ductwork, which is why ENERGY STAR points to it when the whole house stays humid.
 
 ## Frequently asked questions
 
@@ -69,6 +116,14 @@ Put it where the humidity problem is, often a basement or a closed room the AC d
 ### What humidity should I aim for?
 
 Between 30% and 50%, and below 60%, according to the EPA and ENERGY STAR.
+
+### Will running both lower my AC bill?
+
+No. A dehumidifier adds its own electricity and dumps about 2,000 BTU per hour of heat that the air conditioner then has to remove, roughly 0.14 kWh (about 2.5 cents at $0.18 per kWh) for every hour both run. The only way the pair costs less overall is if drier air lets you set the thermostat higher.
+
+### Does the dehumidifier make the AC work harder?
+
+Yes, a little. Its roughly 2,000 BTU per hour of heat becomes extra cooling load, and at SEER2 14.3 the air conditioner uses about 0.14 kWh more each hour to clear it (2,000 ÷ 14,300). At $0.18 per kWh that is about 2.5 cents an hour.
 
 <SourcesBox sources={[
   { title: "ENERGY STAR: Dehumidifiers (warming effect, whole-home and AC vent guidance)", url: "https://www.energystar.gov/products/dehumidifiers" },
