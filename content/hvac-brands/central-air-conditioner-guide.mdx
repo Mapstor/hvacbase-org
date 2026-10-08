@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-06"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "ac-tonnage-calculator"
   - "central-ac-cost-to-install"
@@ -40,7 +40,9 @@ The outdoor unit holds the compressor and a coil that releases heat outside. Ref
 
 Central systems are sized in tons; one ton is 12,000 BTU per hour. The industry method is ACCA's Manual J, a room-by-room load calculation.
 
-An oversized system cools quickly but shuts off before removing much humidity; an undersized one runs nonstop on hot days. Our [AC tonnage calculator](/ac-tonnage-calculator) gives a starting estimate.
+A quick rule of thumb assigns about 20 BTU per hour per square foot of floor area. For a 2,000 sq ft home that is 2,000 × 20 = 40,000 BTU per hour; dividing by 12,000 BTU per ton gives 3.33 tons, which rounds up to the next standard size of 3.5 tons. Standard sizes step in half-tons: 1.5, 2, 2.5, 3, 3.5, 4, 4.5 and 5 tons.
+
+The square-foot rule runs generous, so a tight, well-insulated home often needs less than it suggests. An oversized system cools quickly but shuts off before removing much humidity; an undersized one runs nonstop on hot days. Our [AC tonnage calculator](/ac-tonnage-calculator) applies that 20 BTU baseline, then adjusts it for climate, insulation, ceiling height, sun and windows.
 
 ## Efficiency and running cost
 
@@ -54,6 +56,14 @@ SEER2 rates seasonal cooling efficiency. The federal minimum for split systems i
 | 20 | $486 |
 
 Each step up saves less than the last; our [SEER2 comparison calculator](/seer2-comparison-calculator) works out whether a higher rating pays back for you.
+
+## Single-stage, two-stage and variable-speed compressors
+
+The compressor does the cooling work, and how it runs sets the comfort and efficiency you feel. A single-stage compressor has one speed, full on or off, so it cools fast on a hot day but cycles off quickly in milder weather, which cuts its runtime. A two-stage compressor adds a lower speed it uses most of the time, running longer at part load.
+
+Humidity leaves the air only while it keeps moving across the cold coil, so short cycles leave a house cool but clammy. The longer, gentler runs of a two-stage or variable-speed unit pull more moisture out. A variable-speed (inverter) compressor ramps continuously between a low minimum and full output to track the load closely.
+
+That steady part-load running is why variable-speed systems hold a more even temperature, dehumidify better, and can post the highest SEER2 ratings, since a compressor loafing at low speed draws far less power than one slamming on and off. The trade-offs are a higher purchase price and more electronics to service. Mini splits use this same inverter approach, which is part of why they run efficiently; see [how a mini split works](/how-does-a-mini-split-work).
 
 ## Installation cost
 
@@ -73,7 +83,17 @@ The DOE says clean filters can lower an air conditioner's energy use by 5 to 15%
 
 ## Central air vs. heat pump vs. mini split
 
-A heat pump is a central air conditioner that also heats. A ductless mini split avoids duct losses and cools room by room. See [mini split vs. central air](/mini-split-vs-central-air) and [furnace vs. heat pump](/furnace-vs-heat-pump).
+A heat pump is a central air conditioner that also heats, running the same refrigerant cycle in reverse. A ductless mini split is a heat pump with no ducts that conditions one room, or a few, through wall or ceiling heads.
+
+| | Central AC | Heat pump (ducted) | Mini split (ductless) |
+|---|---|---|---|
+| Cooling | Yes | Yes | Yes |
+| Heating | No, pairs with a furnace | Yes | Yes |
+| Duct losses | ~30% of cooling energy (DOE) | ~30% of cooling energy (DOE) | None, no ducts |
+| Zoning | Whole house, one thermostat | Whole house, one thermostat | Each head runs independently |
+| What raises the install | Adding or replacing ductwork | Ductwork, same as central AC | Each added indoor head |
+
+See [mini split vs. central air](/mini-split-vs-central-air) and [furnace vs. heat pump](/furnace-vs-heat-pump) for the full comparisons.
 
 ## Frequently asked questions
 
@@ -92,6 +112,18 @@ Use a Manual J load calculation; our tonnage calculator gives a starting estimat
 ### Why isn't my central air cooling?
 
 Common causes include a dirty filter, a blocked outdoor unit, low refrigerant and leaky ducts; see [AC not cooling](/ac-not-cooling).
+
+### Can I add central air to a house without ductwork?
+
+Yes, but the ductwork becomes most of the project, since supply and return runs, a return plenum and registers all have to be built into walls, floors or soffits. Where running ducts is impractical, a ductless mini split delivers central-style cooling without them; see [mini split vs. central air](/mini-split-vs-central-air).
+
+### How long does a central AC install take?
+
+It depends mostly on whether the ducts are reused or replaced. A like-for-like swap onto sound existing ducts is the quickest case, while adding or rebuilding ductwork, a new electrical circuit or a new refrigerant line set extends the work. Get the scope in writing so the timeline is clear before work starts.
+
+### Is a bigger AC better?
+
+No. An oversized unit cools the air fast, then shuts off before it has run long enough to pull humidity out, leaving the house cool but damp and cycling the compressor harder. Sizing to the actual load with a Manual J gives longer, steadier runs that dehumidify properly; our [tonnage calculator](/ac-tonnage-calculator) is a starting estimate.
 
 <SourcesBox sources={[
   { title: "U.S. DOE: Energy Saver 101, Home Cooling (PDF), lifespan, filters, duct losses", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
