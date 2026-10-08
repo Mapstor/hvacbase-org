@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-01-15"
-dateModified: "2026-10-01"
+dateModified: "2026-10-08"
 relatedArticles:
   - "portable-ac-electricity-cost"
   - "single-hose-vs-dual-hose-portable-ac"
@@ -44,13 +44,46 @@ A single-hose unit uses room air to cool its condenser and blows it outside, whi
 
 Portables are rated under a federal test that reports SACC, which accounts for the heat a portable adds back to the room. Compare that number with what the room needs; our BTU calculator above estimates the room's load from ENERGY STAR's sizing chart.
 
-## Efficiency: CEER
+ENERGY STAR's room-AC chart maps floor area to a starting cooling capacity. These are the figures the calculator uses, so you can also read a room off the table directly:
 
-The same federal test reports a combined energy efficiency ratio (CEER), cooling delivered per watt including standby. A higher CEER costs less to run for the same cooling.
+| Room size (sq ft) | Cooling capacity (BTU) |
+|---|---|
+| 100–150 | 5,000 |
+| 150–250 | 6,000 |
+| 250–300 | 7,000 |
+| 300–350 | 8,000 |
+| 350–400 | 9,000 |
+| 400–450 | 10,000 |
+| 450–550 | 12,000 |
+| 550–700 | 14,000 |
+| 700–1,000 | 18,000 |
+
+Then adjust the starting figure for the room. ENERGY STAR takes 10% off for a heavily shaded room and adds 10% for a very sunny one, adds 600 BTU for each person beyond two who is regularly in the room, and adds 4,000 BTU for a kitchen. Match that adjusted load to a unit's SACC, not to the larger number on an older box.
+
+## Reading the label: BTU, SACC and CEER
+
+A portable's box can show three different numbers, and only one of them describes real cooling in your room. The table below says what each means.
+
+| On the label | What it measures | How to use it |
+|---|---|---|
+| "BTU" (older rating) | Peak cooling under an older test, before the heat a portable leaks back indoors is subtracted | Overstates real cooling; treat as marketing |
+| SACC (BTU) | Seasonally adjusted cooling capacity under the current DOE test, after subtracting the heat the unit adds back to the room | The number to size by |
+| CEER (BTU/Wh) | Cooling delivered per watt-hour, including standby power draw | Higher runs cheaper; compare units of the same SACC |
+
+SACC and CEER both come from the same DOE test procedure in 10 CFR Part 430. SACC tells you whether a unit is big enough; CEER tells you what it costs to run.
 
 ## Running cost
 
-Cost = watts × hours ÷ 1,000 × your rate. A 1,000-watt unit running 8 hours a day uses 240 kWh a month, about $43 at 18 cents per kWh. See [portable AC electricity cost](/portable-ac-electricity-cost) for more examples and a calculator.
+Cost = watts × hours ÷ 1,000 × your rate. Running 8 hours a day over a 30-day month is 240 hours, so a 1,000-watt unit uses 1,000 × 240 ÷ 1,000 = 240 kWh, about $43 at 18 cents per kWh. The table scales that formula to a few common power draws at the same hours and rate.
+
+| Power draw | Monthly use (8 h/day) | Monthly cost at 18¢/kWh |
+|---|---|---|
+| 700 W | 168 kWh | about $30 |
+| 1,000 W | 240 kWh | about $43 |
+| 1,200 W | 288 kWh | about $52 |
+| 1,400 W | 336 kWh | about $60 |
+
+Multiply the monthly figure by your cooling months to get a season. As an example, that 1,000-watt unit run all summer for three months is about $130 (3 × $43). See [portable AC electricity cost](/portable-ac-electricity-cost) for more examples and a calculator.
 
 ## Venting and draining
 
@@ -58,11 +91,36 @@ The exhaust hose goes to a window kit sized for your window; keep it short and s
 
 ## Noise
 
-With the compressor in the room, portables are louder than window units at the same cooling. Check the unit's rated sound level if it's for a bedroom.
+With the compressor in the room, portables are louder than window units at the same cooling, because a window unit keeps its noisy compressor outside. Check the unit's rated sound level if it's for a bedroom. For restful sleep the WHO suggests keeping bedroom noise around 30 dB(A), which most portables running on high will exceed; see [HVAC noise levels explained](/hvac-noise-levels-explained) for how those ratings are measured.
 
-## Portable or window unit?
+## Single hose, dual hose or window
 
-If a window unit fits your window, it usually cools better for the same power and runs quieter, because its hot side is outdoors. A portable makes sense for casement windows, rental rules or moving between rooms; see [portable vs. window AC](/portable-vs-window-ac).
+This table lines up the three choices on the things that decide which one you want. The directions follow from where each unit puts its hot side.
+
+| | Single-hose portable | Dual-hose portable | Window unit |
+|---|---|---|---|
+| Efficiency | Lowest; pulls outdoor air into the house | Better; sealed condenser air | Highest; hot side is outdoors |
+| Running cost | Highest for the same cooling | Middle | Lowest |
+| Noise | Loudest; compressor in the room | Loud; compressor in the room | Quieter; compressor outside |
+| Install | Easiest; rolls room to room | Easy; two hoses to the window kit | Fixed in a sash window |
+
+If a window unit fits your window, it usually cools better for the same power and runs quieter. A portable makes sense for casement windows, rental rules or moving between rooms; see [portable vs. window AC](/portable-vs-window-ac).
+
+## Maintenance
+
+A portable keeps its full capacity only if air moves freely through it. Three parts need attention.
+
+- Filter: rinse the mesh filter every few weeks, since a clogged filter chokes airflow. DOE finds clean filters lower an AC's energy use by 5 to 15%.
+- Coils and grilles: keep the intake grilles clear of dust and furniture, because a dirty coil cannot shed heat.
+- Drain: in humid weather empty the tank or clear the condensate drain so the unit does not shut off on a full tank; see [how to drain a portable AC](/how-to-drain-portable-ac).
+
+## A quick buying check
+
+Run through these before you buy, in order.
+
+- Size to the room's adjusted load from the table above, matched to the unit's SACC rather than an older BTU figure.
+- Prefer a dual-hose unit for a room you cool for long stretches, and compare CEER among units of the same SACC.
+- Confirm the window kit fits your window type, and check the rated sound level if the unit is for a bedroom.
 
 ## Frequently asked questions
 
@@ -82,10 +140,20 @@ About $43 a month for a 1,000-watt unit running 8 hours a day at 18 cents per kW
 
 Yes. The heat they remove has to leave the room through the exhaust hose; an unvented unit heats the room overall.
 
+### What does SACC mean on a portable air conditioner?
+
+SACC is seasonally adjusted cooling capacity, the cooling a portable actually delivers to the room after the heat it leaks back indoors is subtracted. It comes from the current DOE test and is lower than the older "BTU" number on some boxes. Size your unit by its SACC.
+
+### Are portable air conditioners loud?
+
+Portables run louder than a window unit of the same cooling because the compressor sits in the room. For a bedroom, check the rated sound level against the roughly 30 dB(A) the WHO suggests for sleep, which most portables on high will exceed.
+
 <SourcesBox sources={[
   { title: "eCFR: 10 CFR Part 430, Subpart B (portable air conditioner test procedure: SACC and CEER)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B" },
   { title: "ENERGY STAR: Room Air Conditioners (sizing chart)", url: "https://www.energystar.gov/products/room_air_conditioners" },
-  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" }
+  { title: "U.S. EIA: Electric Power Monthly (residential prices)", url: "https://www.eia.gov/electricity/monthly/" },
+  { title: "U.S. DOE Energy Saver: Home Cooling 101 (clean filters lower AC energy use 5-15%)", url: "https://www.energy.gov/sites/prod/files/2014/06/f16/HomeCooling101.pdf" },
+  { title: "World Health Organization (Europe): Noise fact sheet (bedroom night-noise guidance)", url: "https://www.who.int/europe/news-room/fact-sheets/item/noise" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
