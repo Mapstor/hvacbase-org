@@ -8,7 +8,7 @@ priority: "P2"
 contentType: "guide"
 datePublished: "2026-02-02"
 author: "Marko Visic, BSc Physics"
-dateModified: "2026-10-02"
+dateModified: "2026-10-08"
 relatedArticles:
   - "furnace-guide"
   - "what-size-generator-do-i-need"
@@ -41,9 +41,25 @@ A gas furnace burns gas for heat, but it still needs electricity to run: mostly 
 
 The rating plate inside the furnace door lists the electrical rating, often as amps at 120 volts; watts ≈ amps × 120. The blower motor has its own label with its amps. The calculator above estimates typical draws by motor type; your furnace's labels give its actual figures.
 
+To turn the plate's amps into watts, multiply by the voltage, because watts equal volts times amps on a standard circuit. A gas furnace runs on 120 volts, so the 500-watt blower example above works out to about 4.2 amps (500 ÷ 120 = 4.2). Reading the math the other way, a plate listing 5 amps at 120 volts is about 600 watts (5 × 120 = 600).
+
 ## What it costs to run
 
 Cost = watts × hours ÷ 1,000 × your rate. A 500-watt blower running 8 hours a day for 30 days uses 120 kWh, about $21.60 at 18 cents per kWh. Many furnaces run the blower at lower speeds for much of the time, which uses less.
+
+### Monthly cost at different electricity rates
+
+The monthly cost tracks three things: the blower's watts, how many hours a day it runs, and your electricity rate. The table below holds the blower at the 500-watt example and varies the daily hours and the rate. It uses the U.S. residential average of 18.19 cents per kWh, the lowest state average (North Dakota, 12.36 cents) and the highest (Hawaii, 46.28 cents).
+
+| Blower hours/day | kWh per month | At 12.36¢ (lowest) | At 18.19¢ (U.S. avg) | At 46.28¢ (highest) |
+|---|---|---|---|---|
+| 4 | 60 | $7.42 | $10.91 | $27.77 |
+| 8 | 120 | $14.83 | $21.83 | $55.54 |
+| 12 | 180 | $22.25 | $32.74 | $83.30 |
+
+Each cell is watts times hours divided by 1,000, times 30 days, times the rate. For 8 hours a day at the U.S. average, 500 watts for 8 hours is 4 kWh a day and 120 kWh across a 30-day month, and 120 times $0.1819 is about $21.83. That is the same 120 kWh and roughly $22 as the quick answer at the top.
+
+A variable-speed blower spends much of its time below full speed, so its real monthly cost usually sits below these full-speed figures.
 
 ## Blower motor types
 
@@ -51,7 +67,13 @@ Older furnaces typically use single-speed or multi-speed PSC (permanent split ca
 
 ## Generators and batteries
 
-A gas furnace can run from a generator or a battery during an outage, as long as it's connected safely through a transfer switch or interlock. Size the generator or battery for the furnace's running watts plus the blower's start-up surge; see the [generator sizing guide](/what-size-generator-do-i-need) and the [home battery backup guide](/home-battery-backup-guide).
+A gas furnace can run from a generator or a battery during an outage, as long as it's connected safely through a transfer switch or interlock. The running load is small, mostly the blower at a few hundred watts plus the inducer and controls. The harder number to plan for is the start-up surge.
+
+Anything with a motor pulls a brief inrush of current the instant it starts, several times its running draw, before settling. Size a generator for the running watts plus that largest surge, then add headroom; the [generator sizing guide](/what-size-generator-do-i-need) works a furnace blower through this step by step.
+
+A battery or portable power station is sized by its stored energy in watt-hours. Divide the usable watt-hours by the blower's running watts for a rough runtime: an example 1,000-watt-hour station running the 500-watt blower lasts about 2 hours of continuous blower time (1,000 ÷ 500 = 2), and a 2,000-watt-hour station about 4 hours.
+
+Real backup runs longer than that in practice, because the furnace cycles on and off rather than blowing continuously, and shorter because the inverter, inducer and igniter all draw their own power. The [home battery backup guide](/home-battery-backup-guide) covers continuous versus peak output, which matters as much as capacity for starting the blower.
 
 ## Frequently asked questions
 
@@ -70,6 +92,14 @@ About $21.60 a month for a 500-watt blower running 8 hours a day at 18 cents per
 ### Does a gas furnace work without electricity?
 
 No. Without power, the blower, inducer, igniter and controls can't run, so the furnace won't heat.
+
+### Can a small inverter generator run a gas furnace?
+
+Usually yes, because a furnace's running load is only a few hundred watts, but the generator still has to cover the blower's brief starting surge as well as its running watts. Check the furnace rating plate against the generator's running and surge (starting) watt ratings. The [generator sizing guide](/what-size-generator-do-i-need) shows how to add the surge.
+
+### How long will a portable power station run a gas furnace?
+
+Divide the station's watt-hours by the blower's running watts: an example 1,000-watt-hour station runs a 500-watt blower about 2 hours of continuous blowing (1,000 ÷ 500 = 2). Because the furnace cycles on and off, real backup usually stretches longer, while inverter losses and the inducer and igniter shorten it.
 
 <SourcesBox sources={[
   { title: "eCFR: 10 CFR Part 430 (energy conservation standards, including furnace fans)", url: "https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430" },
