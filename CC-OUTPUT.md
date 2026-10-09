@@ -1,399 +1,346 @@
-# CC-OUTPUT — FIX-29 run report (2026-10-09)
+# CC-OUTPUT — COST-1 run report (2026-10-09)
 
-**Task:** Apply the standing number rule to unsourced prices (PRICES.md decision set). PART A (36 cost-incidental pages), PART B (running-cost / energy-price pages), PART C left untouched. One commit per page. CC did not push.
+Re-sourced the installation-cost pages from **NREL REMDB 2024**. One commit per page; **CC did not push** (Marko pushes). All gates green.
 
-## Result at a glance
+## Headline result
 
-- **44 pages in scope** (36 PART A incidental + 8 PART B running-cost; `afue-rating-explained`, `boiler-vs-furnace`, `insulation-r-value-guide` sit in both, handled once each).
-- **31 pages changed** (one commit each, unpushed). **13 pages were already compliant** and were left untouched (no edit, no dateModified bump).
-- **7 PART C install-cost pages untouched**, as instructed (to be re-sourced from NREL REMDB 2024 next).
-- Every removed or relabeled figure is listed with BEFORE/AFTER below.
+- **Sitewide unsourced-price count (c) = 0.** Re-classifying every dollar figure across all 128 live pages (66 carry a `$`) gives **a = 616 primary-sourced, b = 944 arithmetic/labeled-input, c = 0 unsourced.** The pre-FIX-29 PRICES.md snapshot had c = 394; COST-1 closes the remainder.
+- **10 pages changed + HANDOFF registry**, 11 commits total, all on `main`, **unpushed**.
+- Verification: `tsc` clean, svg-lint 59/59, content-audit all gate metrics 0, `audit.mjs --skip-build` clean, full `audit.mjs` (build 279/279, exit 0, 18 static routes) **0 findings**.
 
-### How each (c) figure was handled
+## Commits (unpushed, newest first)
 
-The PRICES class **(c) "unsourced"** actually covers two different things, and the standing rule treats them differently:
+```
+cda29fd content(hvac-maintenance-cost): remove unsourced tune-up prices, retitle (COST-1)
+e26cf47 content(electrical-panel-upgrade-cost): re-source panel price from NREL REMDB; drivers qualitative (COST-1)
+4da974a content(tankless-water-heater-cost): re-source install prices from NREL REMDB (COST-1)
+47d688f content(furnace-installation-cost): re-source install prices from NREL REMDB (COST-1)
+747abdb content(mini-split-installation-cost): re-source install prices from NREL REMDB (COST-1)
+7314993 content(heat-pump-cost-to-install): re-source install prices from NREL REMDB (COST-1)
+c3c7cb3 content(central-ac-cost-to-install): re-source install prices from NREL REMDB (COST-1)
+c91eecd docs(HANDOFF): add NREL REMDB source, method and all figures to the verified-facts registry (COST-1)
+ac9d3e1 content(solar-panel-calculator): match losses text to the 85% constant; drop unsourced battery price (COST-1)
+e39aa69 content(smart-thermostat-savings): add NREL REMDB installed price, recompute payback (COST-1)
+a26ba3e content(moisture-barrier-crawl-space): drop the cost promise from the title (COST-1)
+```
 
-1. **Unsourced MARKET / PRICE ESTIMATES** (equipment, install, repair, service, supply prices; unsourced rate claims). → **Removed** and restated qualitatively.
-2. **Assumption / example INPUTS that feed on-page arithmetic** (the assumed `$1.35/therm` gas rate, example fuel prices, an example monthly bill, an example price-difference driving a payback, the `$15,000` worked-example install). → **Kept and labeled** "assumed" / "example" at first appearance, arithmetic intact. This is the sanctioned treatment under the standing rule and the HANDOFF ("label it assumed").
+## Method (applied to every figure below)
 
-Primary-sourced **(a)** and computed **(b)** figures were never touched.
-
-### Pages left unchanged (already compliant — no edit, no dateModified bump)
-
-These PART A/B pages already labeled every assumption/example input at first appearance, or carried no market estimate to remove, so no change was warranted:
-
-`tankless-water-heater-propane-usage`, `heat-pump-electricity-usage`, `heat-pump-in-cold-weather`, `seer2-rating-explained`, `hspf-rating-explained`, `propane-generator-usage-per-hour`, `specific-heat-capacity-calculator`, `pellet-stove-cost-to-run`, `heating-cost-calculator`, `pilot-light-gas-usage`, `electric-water-heating-cost`, `kwh-cost-calculator`, `portable-ac-electricity-cost`.
-
-## How it was done
-
-An edit + adversarial-verify workflow ran one editor agent and one independent verifier agent per page (88 agents, 0 errors). Editors applied only the figures named in a per-page spec I built from the PRICES inventory; verifiers re-read each edited file against the standing rule, the writing rules, and hook traceability, and corrected anything wrong. Verdicts: **39 PASS, 5 PASS_WITH_FIXES, 0 FAIL.** The 5 fixes were all orphaned "cost ranges are estimates" disclaimers left behind after their figures were removed; the verifiers rewrote them.
-
-I then reviewed all 31 git diffs myself and made two additional corrections the verifiers missed/left:
-- `home-battery-backup-guide`: an orphaned "Cost figures are typical ranges that vary by system and region" in *About these figures* → "Installed cost varies widely by system and region."
-- `moisture-barrier-crawl-space`: meta description "typical 2026 cost ranges" → "what it costs" (for consistency with the two description softenings the verifiers already applied).
-
-## Verification (all green)
-
-| Gate | Result |
-|---|---|
-| `npx tsc --noEmit` | exit 0 |
-| SVG lint | 59 / 59 OK |
-| content-audit (every metric) | 0 (rates_offrate 0, recompute_fail 0, long_paragraphs 0, em_dashes 0, old_tells 0, new_tells 0, overclaims 0, social_proof 0, links_broken 0) |
-| `node scripts/audit.mjs --skip-build` | CLEAN, 0 findings |
-| `next build` (NODE_OPTIONS=--max-old-space-size=3072) | exit 0, 279/279 static pages |
-| Full `audit.mjs` incl. 18 static routes (built HTML) | CLEAN, 0 findings |
-
-`attributions` (218) and `precision_stats` (911) are report-only manual-review counts, unchanged by this pass, not pass/fail.
-
-## PRICES re-classification — market-estimate (c) now remains ONLY on the 7 PART C pages
-
-My crude automated re-scan can't reproduce the PRICES two-agent per-figure methodology (it mislabels every table-cell computed `$829` and every registry `$8,000` HEAR figure as "market estimate"), so the authoritative check is string-level: **every specific market-estimate dollar string PRICES flagged on a PART A/B page is now gone from that page.** Confirmed by grep across the corpus:
-
-- **Gone everywhere:** `$3,500 to $8,500`, `$2,000 to $5,500` (furnace-guide), `$800/year`, `$1,800 to $2,200`, `$60 to $115`, `$170 to $290`, `$400 to $690`, `$1,500–$5,000+`, `$3,500–$12,000`, `$150–$700`, `$8,000 to $16,000` (home-battery), `$0.30/kWh`/`$0.05 to $0.08/kWh` + the `75%` NEM figure, `$8 to $15`, `$15 to $30`/`$20` (filters, supplies), `$30 to $60`/`$15 to $25`, `$25-to-$50`, `sub-$100`, `$10–20`, `a thousand dollars or more`, `$150–$300` (filter cabinet), `$100–$600`, `$800–$3,500`, and the non-reproducible heat-pump figures `$76` (insulation), `$1,280` (radiant), plus the derived payback years `30 years` / `62 years` (air-source-vs-ground).
-- **Surviving only on PART C** (by design, deferred to NREL re-source): the same-looking strings `$5,800 to $10,000` and `$18,000 to $35,000` live on `heat-pump-cost-to-install`; `$150 to $350` on `mini-split-installation-cost` and `tankless-water-heater-cost`; `$1,500 to $4,500` / `$4,000 to $18,000` on `mini-split-installation-cost`; `$1,500 to $4,000` (panel) on `electrical-panel-upgrade-cost`, `tankless-water-heater-cost`, `central-ac-cost-to-install`, `heat-pump-cost-to-install`; etc. All 7 PART C pages are byte-for-byte unchanged by this pass.
-- **One figure relocated-correct:** `$38 a month` no longer appears on `moisture-barrier-crawl-space` (it was not reproducible there), and still appears on `dehumidifier-running-cost`, its home page, where the wattage is stated and it is reproducible **(b)**.
-
-**Conclusion:** unsourced market/price-estimate **(c)** figures now remain only on the 7 PART C pages (`electrical-panel-upgrade-cost`, `tankless-water-heater-cost`, `heat-pump-cost-to-install`, `hvac-maintenance-cost`, `mini-split-installation-cost`, `furnace-installation-cost`, `central-ac-cost-to-install`), exactly the set reserved for the NREL REMDB 2024 re-source. The assumption/example inputs retained on PART A/B pages are labeled and feed arithmetic (the sanctioned treatment), and all (a)/(b) figures are intact (content-audit recompute_fail = 0).
-
-## Notes and judgment calls for your review
-
-- **reviewedOn preserved** on all 6 reviewed pages in scope (`carbon-monoxide-detector-guide`, `furnace-sizing-calculator`, `hvac-serial-number-decoder`, `ideal-indoor-humidity-level`, `seer2-comparison-calculator`, `kwh-cost-calculator`). dateModified bumped to 2026-10-09 only on the 31 pages that actually changed.
-- **Meta descriptions softened (3)** to drop a now-undelivered "cost ranges / costs" promise: `duct-leakage-testing`, `how-to-improve-indoor-air-quality`, `moisture-barrier-crawl-space`. No titles or slugs were changed (keep-titles rule).
-- **Titles left as-is for your call:** `moisture-barrier-crawl-space` title still reads "Materials, Installation & 2026 Costs" and the page still has a "What it costs" section, now qualitative. Kept per the keep-titles rule; flagging in case you want to retitle.
-- **Non-reproducible computed figures** (`$76` heat-pump on insulation, `$1,280` heat-pump on radiant) were removed and restated *conditionally* ("a broadly similar amount, depending on your electricity rate and the pump's efficiency") rather than asserting a direction, since the flagged figures themselves were unreliable (no COP stated on those pages). Consistent with "don't align content to an unverified constant."
-- **Same number, different class, by page:** `$1,280` / `$879` / `$401` were KEPT on `air-source-vs-ground-source-heat-pump` (reproducible (b) there: 7,112/4,884 kWh × $0.18, COP stated) but the `$1,280` on `radiant-floor-heating-pros-cons` was REMOVED (no COP on that page → not reproducible → (c)). Correct per the per-page reproducibility test.
-- **Pre-existing, out of FIX-29 scope (not changed):** `solar-panel-calculator` bold answer says "14% system losses" while the body says "85% system efficiency" (i.e. 15%); a descriptive mismatch that does not change any computed output (17 panels / 6.8 kW round identically). Flagging for a future pass.
+NREL National Residential Efficiency Measures Database (REMDB), 2024 release (https://remdb.nrel.gov/). Installed cost = material price (quantile regression on size and efficiency) × installation multiplier + installation adder, **retrofit (replacement) scenario, total installed cost including removing the old equipment, 2023 dollars, before any rebates**; low / mid / high. Rounded to the nearest $50, written as "about". SEER2 shown alongside SEER (≈ SEER × 0.95) for central AC and air-source heat pumps; mini-split and furnace rows have no SEER2. No lifetimes taken from REMDB. Work REMDB does not price (ductwork, venting conversions, line sets, meter/cable/service-drop, permits, etc.) carries **no figure** and is described as a cost driver. REMDB added to each cost page's SourcesBox and to the HANDOFF verified-facts registry.
 
 ---
 
-## Per-page BEFORE / AFTER (dateModified bumps omitted)
+## Per-page BEFORE / AFTER — every price change
 
-#### furnace-sizing-calculator
+The 7 REMDB-sourced cost pages. Figures labeled "about …". "Costs more (qualitative)" = REMDB does not price that item, so it is now a described cost driver with no number.
 
-- **BEFORE**: - Estimated gas use: about 732 therms a year, or $988 at $1.35 per therm
-- **AFTER** : - Estimated gas use: about 732 therms a year, or $988 at an assumed $1.35 per therm
-- **BEFORE**: | AFUE | Furnace input | Gas per year | Cost at $1.35/therm |
-- **AFTER** : | AFUE | Furnace input | Gas per year | Cost at an assumed $1.35/therm |
+### central-ac-cost-to-install  (18 price changes)
 
-#### water-heater-sizing-calculator
+| Where | BEFORE | AFTER |
+|---|---|---|
+| Bold answer, AC on existing ducts | $4,000 to $8,500 installed | about $3,100 to $7,200 (3-ton, 14 SEER/13.3 SEER2); about $4,150 to $9,700 (16 SEER/15.2 SEER2); mid about $5,150 and $6,900 |
+| Bold answer, AC and furnace together | $6,500 to $14,000 | costs more (qualitative; REMDB does not price the combo) |
+| Bold answer, first-time with new ducts | $10,000 to $18,000 or more | costs more (qualitative; REMDB does not price it) |
+| Job table, AC replacement existing ducts | $4,000 to $8,500 | about $3,100 to $7,200 at 14 SEER, about $4,150 to $9,700 at 16 SEER (3 tons) |
+| Job table, AC and furnace replacement | $6,500 to $14,000 | Costs more (two separate equipment swaps) |
+| Job table, first-time central air with new ducts | $10,000 to $18,000+ | Costs more (new ductwork on top) |
+| Job table, heat pump instead of AC | $5,800 to $12,500 | See the heat pump cost guide (priced on that page) |
+| Cost-by-size table, 1.5 tons | $3,200 to $5,800 | removed (REMDB does not price 1.5 tons) |
+| Cost-by-size table, 2 tons | $3,400 to $6,400 | about $2,800 to $6,500 (14 SEER); about $3,850 to $9,000 (16 SEER) |
+| Cost-by-size table, 2.5 tons | $3,800 to $7,100 | removed (REMDB does not price 2.5 tons) |
+| Cost-by-size table, 3 tons | $4,200 to $7,900 | about $3,100 to $7,200 (14 SEER); about $4,150 to $9,700 (16 SEER) |
+| Cost-by-size table, 3.5 tons | $4,600 to $8,600 | removed (REMDB does not price 3.5 tons) |
+| Cost-by-size table, 4 tons | $5,000 to $9,300 | about $3,400 to $7,900 (14 SEER); about $4,450 to $10,350 (16 SEER) |
+| Cost-by-size table, 5 tons | $5,600 to $10,500 | about $3,650 to $8,550 (14 SEER); about $4,750 to $11,050 (16 SEER) |
+| Payback paragraph (body) | $1,000 more premium, roughly 8 to 14 years | about $1,750 more installed (about $6,900 vs $5,150), saves about $86 to $143/yr, about 12 to 20 years |
+| What adds to the cost, ductwork | roughly $2,000 to $5,000 | removed (qualitative cost driver, REMDB does not price it) |
+| What adds to the cost, panel upgrade | $1,500 to $4,000 | about $1,000 to $3,100 (NREL REMDB 200-amp, rough) |
+| FAQ, is higher-SEER2 worth it | saves $72 to $120 a year, $1,000 premium, roughly 8 to 14 years | about $1,750 more installed, saves about $86 to $143 a year, about 12 to 20 years |
 
-- **BEFORE**: Annual energy cost for the default household at $0.18 per kWh and $1.35 per therm, using the calculator's assumed efficiencies:
-- **AFTER** : Annual energy cost for the default household at $0.18 per kWh and an assumed $1.35 per therm, using the calculator's assumed efficiencies:
+Removed (REMDB does not price; now qualitative cost drivers): AC and furnace replacement combo ($6,500 to $14,000) — REMDB prices only the AC equipment swap; First-time central air with new ducts ($10,000 to $18,000+) — ductwork not priced by REMDB; Heat pump instead of AC ($5,800 to $12,500) — priced on the heat-pump-cost-to-install page instead; 1.5-ton AC size ($3,200 to $5,800) — REMDB prices 2 to 5 tons only; 2.5-ton AC size ($3,800 to $7,100) — REMDB prices whole-ton steps 2 to 5; 3.5-ton AC size ($4,600 to $8,600) — REMDB prices whole-ton steps 2 to 5; New single-story ductwork ($2,000 to $5,000) — now a qualitative cost driver
 
-#### air-conditioner-types
+### heat-pump-cost-to-install  (21 price changes)
 
-- **BEFORE**: | Type | Capacity | Typical cost | Efficiency | Install |
-- **BEFORE**: |---|---|---|---|---|
-- **BEFORE**: | Window AC | 5,000–25,000 BTU | $150–$700 | CEER 10–15+ | DIY |
-- **BEFORE**: | Portable AC | 6,000–14,000 BTU | $250–$700 | CEER 8–11 | DIY |
-- **BEFORE**: | Ductless mini split | 9,000–48,000 BTU | $1,500–$5,000+ | SEER2 15+ | Professional |
-- **BEFORE**: | Central air (split) | 18,000–60,000 BTU | $3,500–$12,000 | SEER2 14.3–26+ | Professional |
-- **BEFORE**: | Through-the-wall | 8,000–14,000 BTU | $400–$800 | CEER 10–13 | Professional |
-- **BEFORE**: | PTAC | 7,000–15,000 BTU | $600–$1,200 | EER 9–13 | Professional |
-- **BEFORE**: | Evaporative cooler | CFM-rated | $100–$3,000 | (dry climates only) | DIY or Pro |
-- **BEFORE**: | Hybrid / dual-fuel | 18,000–60,000 BTU | $5,000–$15,000 | SEER2 16–22 | Professional |
-- **AFTER** : | Type | Capacity | Efficiency | Install |
-- **AFTER** : |---|---|---|---|
-- **AFTER** : | Window AC | 5,000–25,000 BTU | CEER 10–15+ | DIY |
-- **AFTER** : | Portable AC | 6,000–14,000 BTU | CEER 8–11 | DIY |
-- **AFTER** : | Ductless mini split | 9,000–48,000 BTU | SEER2 15+ | Professional |
-- **AFTER** : | Central air (split) | 18,000–60,000 BTU | SEER2 14.3–26+ | Professional |
-- **AFTER** : | Through-the-wall | 8,000–14,000 BTU | CEER 10–13 | Professional |
-- **AFTER** : | PTAC | 7,000–15,000 BTU | EER 9–13 | Professional |
-- **AFTER** : | Evaporative cooler | CFM-rated | (dry climates only) | DIY or Pro |
-- **AFTER** : | Hybrid / dual-fuel | 18,000–60,000 BTU | SEER2 16–22 | Professional |
-- **BEFORE**: - **Cons:** the highest upfront cost ($3,500–$12,000, more with new ductwork), requires professional installation and ductwork, and **poorly sealed ducts waste energy, with the DOE putting duct air losses at about 30% of a cooling system's energy consumption**.
-- **AFTER** : - **Cons:** the highest upfront cost (more with new ductwork), requires professional installation and ductwork, and **poorly sealed ducts waste energy, with the DOE putting duct air losses at about 30% of a cooling system's energy consumption**.
-- **BEFORE**: Window units have the lowest upfront cost ($150–$700) and are DIY-installable. Portable units are similar in price but less efficient (so they cost more to run). For whole-home cooling, central air and mini splits cost far more upfront but cool more effectively and efficiently.
-- **AFTER** : Window units have the lowest upfront cost and are DIY-installable. Portable units are similar in price but less efficient (so they cost more to run). For whole-home cooling, central air and mini splits cost far more upfront but cool more effectively and efficiently.
-- **BEFORE**: Cost ranges are typical 2026 figures that vary by capacity, efficiency and region; they're estimates for budgeting. Correct sizing for your space matters more than the brand for any AC type's real-world performance.
-- **AFTER** : Correct sizing for your space matters more than the brand for any AC type's real-world performance.
+| Where | BEFORE | AFTER |
+|---|---|---|
+| meta description, ducted 3-ton | roughly $5,800 to $10,000 | about $7,450 to $19,250 installed (about $13,350 mid) |
+| meta description, single-zone mini split | from about $2,700 | start around $4,500 |
+| bold answer, ducted 3-ton | roughly $5,800 to $10,000 installed for a 3-ton system | about $7,450 to $19,250 for a 3-ton, 15-SEER (about 14.2 SEER2) system, about $13,350 mid |
+| bold answer, new electrical circuit | (not stated) | adds about $1,400 |
+| bold answer, single-zone mini split | about $2,700 to $5,800 | about $4,500 to $10,500 (12,000 BTU, 20 SEER) |
+| bold answer, geothermal | roughly $18,000 to $35,000 before incentives | much more; NREL's database does not price it |
+| cost-by-system-type table, ducted standard-efficiency | ~$5,800–$10,000 | about $7,450 / $13,350 / $19,250 (15 SEER, 14.2 SEER2) |
+| cost-by-system-type table, ducted high-efficiency | ~$7,500–$12,500 | about $8,000 / $14,250 / $20,500 (16 SEER, 15.2 SEER2) |
+| cost-by-system-type table, single-zone mini split | ~$2,700–$5,800 | about $4,500 / $7,500 / $10,500 (12,000 BTU, 20 SEER) |
+| cost-by-system-type table, multi-zone mini split | ~$6,500–$19,000 | about $7,000–$29,550 (2–4 ton, 18 SEER) |
+| cost-by-system-type table, geothermal | ~$18,000–$35,000 | Not priced by REMDB |
+| cost-by-size table, 2 ton | ~$4,700–$8,200 | about $6,500 / $11,750 / $17,000 |
+| cost-by-size table, 3 ton | ~$5,800–$10,000 | about $7,450 / $13,350 / $19,250 |
+| cost-by-size table, 4 ton | ~$7,000–$11,500 | about $8,400 / $14,950 / $21,500 |
+| cost-by-size table, 5 ton | ~$8,300–$13,000 | about $9,400 / $16,550 / $23,700 |
+| labor section, new electrical circuit | (itemized labor table, no circuit line) | adds about $1,400 (NREL) |
+| What pushes the cost up, panel upgrade | roughly $1,500 to $4,000 | about $1,000 to $3,100 (NREL REMDB, rough) |
+| What pushes the cost up, new/modified ductwork | roughly $2,000 to $5,000 for a single story | removed; described as a separate cost REMDB does not price |
+| FAQ furnace+AC vs heat pump, furnace+AC | about $4,500 to $6,500 installed | about $3,400 furnace + about $5,150 AC = about $8,550 at mid |
+| FAQ furnace+AC vs heat pump, heat pump | roughly $5,800 to $10,000 | about $13,350 at mid |
+| FAQ dual-fuel add | roughly $3,500 to $7,000 for the heat pump equipment and installation | removed; REMDB does not price it separately |
 
-#### air-purifier-guide
+Removed (REMDB does not price; now qualitative cost drivers): Ground-source/geothermal install ($18,000–$35,000) — not priced by REMDB; New/modified ductwork ($2,000–$5,000 single story) — not priced by REMDB; Labor line-item breakdown: remove old equipment ($200–$500), set outdoor unit ($300–$600), air handler/coil ($500–$1,200), refrigerant line set ($300–$800), electrical connection ($300–$800), thermostat+wiring ($100–$300), commissioning ($200–$400), permits+inspection ($100–$500) — REMDB total already bundles these, not itemized; Dual-fuel heat pump added to existing furnace ($3,500–$7,000) — not priced by REMDB; High-efficiency variable-speed as a separately priced tier ($7,500–$12,500) — now shown as the REMDB 16-SEER row; 1.5-ton ($4,000–$7,000) and 2.5-ton ($5,300–$9,000) sizes — REMDB prices only 2–5 tons; Labor-share percentage '40 to 55% of the total' — unsourced percentage, removed under the standing number rule
 
-- **BEFORE**: But a mid-priced unit with genuine True HEPA H13 provides the same fundamental particle filtration as a premium one, the differences are in capacity, noise, and build. The real trap is sub-$100 units that use "HEPA-type" filters, which perform noticeably worse.
-- **AFTER** : But a mid-priced unit with genuine True HEPA H13 provides the same fundamental particle filtration as a premium one, the differences are in capacity, noise, and build. The real trap is cheap units that use "HEPA-type" filters, which perform noticeably worse.
+### mini-split-installation-cost  (27 price changes)
 
-#### home-battery-backup-guide
+| Where | BEFORE | AFTER |
+|---|---|---|
+| Bold answer, single-zone | $1,500 to $4,500 fully installed | about $4,500 to $10,500 installed for a 12,000 BTU, 20 SEER unit, roughly $7,500 at the mid estimate |
+| Bold answer, multi-zone | roughly $4,000 to $18,000 | about $7,000 to $30,200 (2 to 4 tons) |
+| Bold answer, DIY | around $800 to $2,000 | (figure removed; DIY now qualitative, no number) |
+| Config table, single-zone budget 9K-12K BTU | $1,400–$2,500 | 9,000 BTU: 20 SEER $3,800 / $6,300 / $8,850; 25 SEER $4,500 / $7,500 / $10,550 |
+| Config table, single-zone mid-tier 12K BTU | $1,900–$3,600 | 12,000 BTU: 20 SEER $4,500 / $7,500 / $10,500; 25 SEER $5,200 / $8,700 / $12,150 |
+| Config table, single-zone premium 12K BTU | $2,600–$4,700 | (tier removed; 18,000 BTU added: 20 SEER $5,900 / $9,850 / $13,800; 25 SEER $6,650 / $11,050 / $15,450) |
+| Config table, single-zone 24K BTU | $2,400–$4,400 | (removed; REMDB does not price 24K single-zone) |
+| Config table, 3-zone multi-split | $6,000–$10,000 | multi-zone 2 tons: 18 SEER $7,000 / $11,700 / $16,400; 20 SEER $7,300 / $12,200 / $17,050 |
+| Config table, 4-zone multi-split | $8,000–$13,000 | multi-zone 3 tons: 18 SEER $9,850 / $16,400 / $22,950; 20 SEER $10,150 / $16,900 / $23,650 |
+| Config table, 5-zone multi-split | $10,000–$16,500 | multi-zone 4 tons: 18 SEER $12,650 / $21,100 / $29,550; 20 SEER $12,950 / $21,600 / $30,200 |
+| Config table, DIY single-zone (pre-charged) | $800–$1,500 | (row removed; DIY qualitative) |
+| Config table, DIY single-zone + electrician | $1,000–$2,000 | (row removed; DIY qualitative) |
+| Notes bullet, mid-tier sweet spot | (~$1,900–$3,600) | (figure removed; described qualitatively) |
+| Line-item: site assessment | $0 to $200 | (no figure; qualitative) |
+| Line-item: indoor unit mounting | $200 to $400 | (no figure; qualitative) |
+| Line-item: outdoor unit placement | $150 to $350 | (no figure; qualitative) |
+| Line-item: wall penetration | $100 to $200 | (no figure; qualitative) |
+| Line-item: line set installation | $200 to $900 | (no figure; qualitative) |
+| Line-item: flare connections | $100 to $200 | (no figure; qualitative) |
+| Line-item: vacuum and leak test | $150 to $300 | (no figure; qualitative) |
+| Line-item: refrigerant charge verification | $50 to $150 | (no figure; qualitative) |
+| Line-item: condensate drain routing | $50 to $200 | (no figure; qualitative) |
+| Line-item: commissioning and testing | $100 to $200 | (no figure; qualitative) |
+| FAQ how much does it cost, single-zone | $1,500 to $4,500 installed | about $4,500 to $10,500 installed (12,000 BTU, 20 SEER; about $7,500 mid) |
+| FAQ how much does it cost, multi-zone | $4,000 to $18,000 | about $7,000 to $30,200 (2 to 4 tons) |
+| FAQ how much does it cost, DIY | around $800 to $2,000 | (figure removed; DIY qualitative) |
+| FAQ labor cost | $800 to $2,000 per zone | (figure removed; REMDB bundles labor, described qualitatively) |
 
-- **BEFORE**: **A home battery backup system stores 10 to 20 kWh of electricity and delivers 5 to 11.5 kW of continuous power, enough to run your essential circuits (refrigerator, lights, Wi-Fi, medical devices, and select HVAC) for 8 to 24 hours during an outage.** In 2026, popular residential batteries cost roughly $8,000 to $1...
-- **AFTER** : **A home battery backup system stores 10 to 20 kWh of electricity and delivers 5 to 11.5 kW of continuous power, enough to run your essential circuits (refrigerator, lights, Wi-Fi, medical devices, and select HVAC) for 8 to 24 hours during an outage.** In 2026, a popular residential battery is a major upfront invest...
-- **BEFORE**: California's **NEM 3.0** (the Net Billing Tariff, effective April 15, 2023) cut solar export credits from around **$0.30/kWh to roughly $0.05 to $0.08/kWh, about a 75% reduction**, while grid electricity still costs $0.30 or more per kWh at peak. That gap makes storing your solar power in a battery (to use at night)...
-- **AFTER** : California's **NEM 3.0** (the Net Billing Tariff, which took effect in 2023) sharply cut what utilities pay for exported solar, while peak grid electricity prices there stay high. That gap makes storing your solar power in a battery (to use at night) far more valuable than exporting it. Hawaii, Nevada, and other sta...
-- **BEFORE**: Installed costs (battery, gateway, electrical work, permitting, labor) typically run **$8,000 to $16,000** for a popular residential battery, varying by capacity, your electrical panel's condition, and installer.
-- **AFTER** : Installed costs (battery, gateway, electrical work, permitting, labor) make a popular residential battery a substantial expense, varying by capacity, your electrical panel's condition, and installer.
-- **BEFORE**: Popular residential batteries cost roughly $8,000 to $16,000 installed, depending on capacity, your electrical setup, and installer. The 30% federal tax credit that used to reduce this expired at the end of 2025, so state and utility incentives are now the way to offset the cost, check what your area offers.
-- **AFTER** : A popular residential battery is a major upfront investment once installed, depending on capacity, your electrical setup, and installer. The 30% federal tax credit that used to reduce this expired at the end of 2025, so state and utility incentives are now the way to offset the cost, check what your area offers.
-- **BEFORE**: Battery capacity, output, and chemistry information reflects general lithium-ion home-storage technology (LFP and NMC characteristics, round-trip efficiency, and sizing based on household load), consistent with **U.S. Department of Energy** and **NREL** (National Renewable Energy Laboratory) energy-storage guidance....
-- **AFTER** : Battery capacity, output, and chemistry information reflects general lithium-ion home-storage technology (LFP and NMC characteristics, round-trip efficiency, and sizing based on household load), consistent with **U.S. Department of Energy** and **NREL** (National Renewable Energy Laboratory) energy-storage guidance....
-- **BEFORE**: The tax-credit information reflects current federal rules: the **IRS** Section 25D residential clean energy credit ended for expenditures made after December 31, 2025 under the OBBBA, with carryforward of unused pre-2026 credit allowed; state and utility incentives (tracked in the **DSIRE** database) are the active ...
-- **AFTER** : The tax-credit information reflects current federal rules: the **IRS** Section 25D residential clean energy credit ended for expenditures made after December 31, 2025 under the OBBBA, with carryforward of unused pre-2026 credit allowed; state and utility incentives (tracked in the **DSIRE** database) are the active ...
+Removed (REMDB does not price; now qualitative cost drivers): DIY pre-charged single-zone install price ($800 to $2,000 / $800 to $1,500 / $1,000 to $2,000): REMDB does not price DIY, now described qualitatively as avoiding most professional labor; Per-zone professional labor cost ($800 to $2,000 per zone): REMDB bundles labor into the total and does not itemize it; Line-item install breakdown sub-prices (site assessment $0-$200, mounting $200-$400, outdoor placement $150-$350, wall penetration $100-$200, line set $200-$900, flare $100-$200, vacuum/leak test $150-$300, charge verification $50-$150, condensate drain $50-$200, commissioning $100-$200): REMDB's total already bundles these steps, now a qualitative checklist; Budget/mid-tier/premium single-zone tier prices and the 24K BTU single-zone row: REMDB prices single-zone by BTU (9K/12K/18K) and SEER, not by marketing tier or 24K size; Per-zone-count multi-split rows (3-zone, 4-zone, 5-zone dollar ranges): REMDB prices multi-zone by total tonnage (2/3/4 ton), not by zone count; Mid-tier value sweet spot parenthetical ($1,900 to $3,600): tier-based figure not in REMDB
 
-#### solar-panel-calculator
+### furnace-installation-cost  (22 price changes)
 
-- **BEFORE**: **A home paying $150 a month at 18 cents per kWh uses about 833 kWh a month. With 5 peak sun hours a day and about 14% system losses, covering that takes about a 6.8 kW system: 17 panels of 400 watts, about 366 sq ft of roof, producing about 10,549 kWh a year.**
-- **AFTER** : **A home paying an example $150 a month at 18 cents per kWh uses about 833 kWh a month. With 5 peak sun hours a day and about 14% system losses, covering that takes about a 6.8 kW system: 17 panels of 400 watts, about 366 sq ft of roof, producing about 10,549 kWh a year.**
+| Where | BEFORE | AFTER |
+|---|---|---|
+| Bold answer, gas 80% AFUE | about $3,000 to $5,500 | about $3,250 to $4,100 (about $3,400 mid) |
+| Bold answer, gas high-efficiency | $4,500 to $7,500 at about 96% | about $3,750 to $4,800 at 95% AFUE (about $4,050 mid) |
+| Bold answer, electric furnace | $2,000 to $5,500 | removed (qualitative: not priced in this source) |
+| Bold answer, oil furnace | $5,000 to $10,000 | removed (qualitative: not priced in this source) |
+| Typical-costs table, gas 80% single-stage | $3,000 to $5,500 | 60k about $3,150-$3,850; 80k about $3,250-$4,100; 100k about $3,350-$4,300 (REMDB low-high, mid shown) |
+| Typical-costs table, gas ~96% two-stage | $4,500 to $7,500 | 95% AFUE: 60k about $3,650-$4,600; 80k about $3,750-$4,800; 100k about $3,850-$5,050 (REMDB) |
+| Typical-costs table, gas 98%+ modulating | $6,500 to $10,000 or more | removed (qualitative: costs more than single-stage) |
+| Typical-costs table, electric | $2,000 to $5,500 | removed (qualitative) |
+| Typical-costs table, oil | $5,000 to $10,000 | removed (qualitative) |
+| Typical-costs table, dual fuel | $8,000 to $16,000 | removed (qualitative) |
+| What-drives-price table, furnace equipment | $1,200 to $4,500 | removed (now in the REMDB equipment-swap figure) |
+| What-drives-price table, labor | $1,500 to $3,000 | removed (now in the REMDB equipment-swap figure) |
+| What-drives-price table, ductwork changes | $0 to $2,000 | removed (qualitative cost driver) |
+| What-drives-price table, venting change | $0 to $800 | removed (qualitative cost driver) |
+| What-drives-price table, condensate drain/pump | $0 to $400 | removed (qualitative cost driver) |
+| What-drives-price table, thermostat | $0 to $300 | removed (qualitative cost driver) |
+| What-drives-price table, permits and inspection | $100 to $500 | removed (qualitative cost driver) |
+| What-drives-price table, removal/gas/electrical | $100 to $500 | removed (removal folded into the swap; gas/electrical kept as qualitative cost driver) |
+| Payback paragraph, installed premium | $1,500 more installed | about $650 more at the mid estimate (REMDB 80k, 80%→95%) |
+| Payback paragraph, payback period | about 9.7 years | about 4 years on energy savings alone, longer with venting on top |
+| FAQ How much to replace a gas furnace, 80% | $3,000 to $5,500 for an 80% furnace | about $3,250 to $4,100 installed at 80% AFUE (80k BTU/hr) |
+| FAQ How much to replace a gas furnace, high-eff | $4,500 to $7,500 for a condensing furnace of about 96% | about $3,750 to $4,800 at 95% AFUE (80k BTU/hr) |
 
-#### ideal-indoor-humidity-level
+Removed (REMDB does not price; now qualitative cost drivers): Electric furnace installed price ($2,000 to $5,500) — REMDB does not price electric furnaces; Oil furnace installed price ($5,000 to $10,000) — not priced by REMDB; Dual-fuel (heat pump + gas furnace) price ($8,000 to $16,000) — not priced by REMDB; 98%+ modulating gas furnace price ($6,500 to $10,000 or more) — not a separate REMDB efficiency tier; Furnace equipment line-item ($1,200 to $4,500) — bundled into REMDB installed-cost figure; Labor line-item ($1,500 to $3,000) — bundled into REMDB installed-cost figure; Ductwork changes ($0 to $2,000) — now a qualitative cost driver; Venting change ($0 to $800) — now a qualitative cost driver; Condensate drain or pump ($0 to $400) — now a qualitative cost driver; Thermostat ($0 to $300) — now a qualitative cost driver; Permits and inspection ($100 to $500) — now a qualitative cost driver; Removal, gas and electrical work ($100 to $500) — now a qualitative cost driver
 
-- **BEFORE**: So get a **hygrometer.** A digital one costs about $10–20, and it's the only way to actually know your number instead of guessing.
-- **AFTER** : So get a **hygrometer.** A digital one is inexpensive, and it's the only way to actually know your number instead of guessing.
-- **BEFORE**: The 40–60% virus-viability nuance reflects published indoor-air research. Hygrometer and equipment prices are general market ranges, labeled as such, not fixed figures.
-- **AFTER** : The 40–60% virus-viability nuance reflects published indoor-air research.
+### tankless-water-heater-cost  (14 price changes)
 
-#### duct-leakage-testing
+| Where | BEFORE | AFTER |
+|---|---|---|
+| Bold answer, gas tankless installed | $1,900 to $6,000 | about $1,550 to $2,400 non-condensing (UEF 0.82) and about $2,100 to $3,050 condensing (UEF 0.95) |
+| Bold answer, whole-house electric installed | $1,150 to $3,100 | about $1,200 to $1,700 (UEF 0.98) |
+| Bold answer, point-of-use | $450 to $1,050 | (number removed) costs less, REMDB does not price it separately |
+| Typical-costs table, gas non-condensing | unit $700 to $1,400 / install $1,200 to $3,000 / total $1,900 to $4,400 | about $1,550 / $1,950 / $2,400 installed (UEF 0.82) |
+| Typical-costs table, gas condensing | unit $1,200 to $2,500 / install $1,500 to $3,500 / total $2,700 to $6,000 | about $2,100 / $2,450 / $3,050 installed (UEF 0.95) |
+| Typical-costs table, electric whole-house | unit $350 to $900 / install $800 to $2,200 / total $1,150 to $3,100 | about $1,200 / $1,350 / $1,700 installed (UEF 0.98) |
+| What-drives-the-price table, panel upgrade | $1,500 to $4,000 | about $1,000 to $3,100 (NREL REMDB 200A panel, rough) |
+| New comparison table, gas tank 50 gal | (not previously present) | about $1,650 / $2,050 / $2,850 (UEF 0.64) |
+| New comparison table, electric tank 50 gal | (not previously present) | about $1,600 / $1,850 / $2,100 (UEF 0.93) |
+| New comparison table, heat pump water heater 50 gal | (not previously present) | about $2,850 / $3,200 / $3,950 (UEF 3.75) |
+| Running cost & payback paragraph | If it costs $1,500 more to install, that takes about 12 years to pay back | about $400 more to install than a gas tank (about $2,450 versus $2,050), so the energy saving alone pays that back in about 3 years |
+| Total-cost-over-15-to-20-years paragraph | more than the example $1,500 installation premium above | more than the roughly $400 mid-estimate premium above |
+| FAQ: how much to install | typically $1,900 to $6,000 ... Whole-house electric runs $1,150 to $3,100 | about $1,550 to $2,400 non-condensing and about $2,100 to $3,050 condensing ... Whole-house electric runs about $1,200 to $1,700 |
+| FAQ: is it worth the cost | a $1,500 premium takes about 12 years to recover | the roughly $400 mid-estimate premium over a tank takes about 3 years to recover on energy alone, longer once any gas-line or venting conversion is added |
 
-- **BEFORE**: description: "How much air leaky ducts waste, how a duct leakage test works, when codes require one, where ducts leak, how to seal them, and typical 2026 costs for testing and sealing."
-- **AFTER** : description: "How much air leaky ducts waste, how a duct leakage test works, when codes require one, where ducts leak, and how to seal them."
-- **BEFORE**: The test follows a standard procedure (ANSI/RESNET/ICC 380). It takes about half an hour, and typical prices for a standalone test run about $150 to $350.
-- **AFTER** : The test follows a standard procedure (ANSI/RESNET/ICC 380). It takes about half an hour, and a standalone test is relatively inexpensive.
-- **BEFORE**: Seal boots to the drywall or floor with caulk or mastic, then insulate any ducts in unconditioned spaces once they are sealed. Aerosol sealing is done by specialized contractors, typically for about $1,500 to $3,000, and full replacement typically runs $3,000 to $10,000 or more. See [flexible vs. rigid ductwork](/fl...
-- **AFTER** : Seal boots to the drywall or floor with caulk or mastic, then insulate any ducts in unconditioned spaces once they are sealed. Aerosol sealing is done by specialized contractors for a significant fee, and full duct replacement is far more expensive, often a major project. See [flexible vs. rigid ductwork](/flexible-...
-- **BEFORE**: Typically about $150 to $350 for a standalone test, often less as part of an energy audit or HVAC service.
-- **AFTER** : A standalone test is relatively inexpensive; it is often bundled into a larger service or a code inspection.
+Removed (REMDB does not price; now qualitative cost drivers): Gas outdoor model row ($900 to $2,200 unit / $1,000 to $2,500 install / $1,900 to $4,700 total) — REMDB does not price this configuration; now described qualitatively (skips indoor venting, needs freeze protection); Electric point-of-use row ($150 to $350 unit / $300 to $700 install / $450 to $1,050 total, and the $450 to $1,050 figure in the bold answer) — REMDB does not price point-of-use units; now qualitative ('costs less'); Gas line upgrade 'up to about $800' — REMDB total bundles the basic install; now a qualitative cost driver; New gas line run 'up to about $1,200' — now qualitative; PVC venting (condensing) '$100 to $400' — now qualitative; Stainless venting (non-condensing) '$200 to $600' — now qualitative; Condensate drain '$50 to $200' — now qualitative; Electrician new circuits '$300 to $800' — now qualitative; Permits '$50 to $200' — now qualitative
 
-#### afue-rating-explained
+### electrical-panel-upgrade-cost  (7 price changes)
 
-- **BEFORE**: **AFUE is the share of a furnace's fuel that becomes heat over a year: a 95% AFUE furnace turns 95 cents of every gas dollar into heat. For a 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days, going from an old 70% furnace to a 95% one cuts the gas bill from about $1,125 to $829 a ...
-- **AFTER** : **AFUE is the share of a furnace's fuel that becomes heat over a year: a 95% AFUE furnace turns 95 cents of every gas dollar into heat. For a 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days, going from an old 70% furnace to a 95% one cuts the gas bill from about $1,125 to $829 a ...
-- **BEFORE**: | AFUE | Gas used per year | Cost at $1.35 per therm |
-- **AFTER** : | AFUE | Gas used per year | Cost at an assumed $1.35 per therm |
-- **BEFORE**: Going from 70% to 95% saves about $296 a year in this example; from 80% to 95%, about $155. Payback is the price difference between the two furnaces divided by the yearly savings. A $1,500 difference between an 80% and a 95% furnace pays back in about 9.7 years; enter your own quotes in the calculator.
-- **AFTER** : Going from 70% to 95% saves about $296 a year in this example; from 80% to 95%, about $155. Payback is the price difference between the two furnaces divided by the yearly savings. An example $1,500 difference between an 80% and a 95% furnace would pay back in about 9.7 years; enter your own quotes in the calculator.
-- **BEFORE**: An electric furnace turns all its electricity into heat, but electricity costs far more per unit of energy than gas. At 18.19 cents per kWh its heat costs about $53 per million BTU, against about $14 from a 95% gas furnace at $1.35 per therm.
-- **AFTER** : An electric furnace turns all its electricity into heat, but electricity costs far more per unit of energy than gas. At 18.19 cents per kWh its heat costs about $53 per million BTU, against about $14 from a 95% gas furnace at an assumed $1.35 per therm.
+| Where | BEFORE | AFTER |
+|---|---|---|
+| frontmatter description | $1,500 to $4,000 for the panel alone, or $3,000 to $6,000 with utility work | about $1,000 to $3,100 (NREL REMDB, rough); full service upgrade costs more |
+| bold answer | $1,500 to $4,000 ... around $2,000 to $3,000 (100A→200A) | about $1,000 to $3,100 installed (about $1,500 mid), 200-amp panel |
+| summary table: panel swap only | $1,500–$2,500 | 200-amp panel: about $1,000 / $1,500 / $3,100 (low/mid/high) |
+| summary table: 100-amp row (new) | (not previously priced) | about $500 / $750 / $1,050 (low/mid/high) |
+| types-of-upgrades Type 1 | $1,500–$2,500 | roughly $1,000 to $3,100 REMDB range (reference, no new figure) |
+| smart-panel section (320A) | $8,000 to $15,000 for 320A service | much more than a 200-amp panel replacement |
+| FAQ 'how much does it cost' | $1,500 to $4,000 ... $2,000 to $3,000 ... $8,000 to $15,000 (320A/400A) | about $1,000 to $3,100 (about $1,500 mid); larger scopes cost more (qualitative) |
 
-#### coefficient-of-performance
+Removed (REMDB does not price; now qualitative cost drivers): Summary-table combos not priced by REMDB: Panel + meter socket $2,000–$3,500; Full service upgrade $3,000–$6,000; Full upgrade + service drop $4,000–$8,000; Smart panel $5,000–$8,000; 320A/400A service $8,000–$15,000 (all now qualitative 'costs more'); 'What you're paying for' line-item prices: 200A panel $500–$1,000; breakers $100–$300; meter socket $230–$500; service-entrance cable $300–$600; weatherhead/mast $200–$450; grounding $150–$450; permit/inspection $100–$300; utility coordination $0–$500+ (kept as qualitative list of what a quote covers); Labor-by-region table removed entirely: $/hr rates ($65–$90 to $130–$200/hr) and labor totals ($390–$900 to $780–$2,400) replaced by qualitative paragraph (urban coastal metros highest, rural South/Midwest lowest); Types-of-upgrades dollar ranges dropped on Types 2–5 (combos REMDB does not price); scope descriptions kept
 
-- **BEFORE**: A 95% gas furnace at $1.35 per therm delivers heat for about $14.21 per million BTU, so at average prices a heat pump needs a seasonal COP of about 3.75 to beat it; see [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
-- **AFTER** : A 95% gas furnace at an assumed $1.35 per therm delivers heat for about $14.21 per million BTU, so at average prices a heat pump needs a seasonal COP of about 3.75 to beat it; see [gas vs. electric heating cost](/gas-vs-electric-heating-cost).
+### hvac-maintenance-cost  (15 price changes)
 
-#### seer2-comparison-calculator
+| Where | BEFORE | AFTER |
+|---|---|---|
+| Bold answer (lead) | about $75 to $150 (AC), $80 to $160 (gas furnace), $155 to $310/yr for both | no figures; qualitative (tracks local labor; heat pump/mini split cost more over a year) |
+| Tune-up-by-system table, Central air conditioner | $75 to $150 per visit / $75 to $150 per year | One visit before cooling season / Lowest; a single short visit |
+| Tune-up-by-system table, Gas furnace | $80 to $160 per visit / $80 to $160 per year | One visit before heating season / Low; close to an air conditioner |
+| Tune-up-by-system table, AC and gas furnace | $75 to $160 each / $155 to $310 | Two visits, one per season / Two single visits combined |
+| Tune-up-by-system table, Air-source heat pump | $100 to $175 / $200 to $350 (two visits) | Two visits, heating and cooling / Higher; checked twice a year |
+| Tune-up-by-system table, Ductless mini split | $80 to $150 per head / $160 to $300 per head (two visits) | Two visits, each head adds work / Higher; scales with number of heads |
+| Tune-up-by-system table, Boiler | $100 to $200 / $100 to $200 | One visit before heating season / Low to moderate |
+| Tune-up-by-system table, Oil furnace | $150 to $250 / $150 to $250 | One visit before heating season / Moderate; more involved burner service |
+| Tune-up-by-system table, Geothermal heat pump | $125 to $225 / $250 to $450 (two visits) | Two visits, heating and cooling / Highest; specialized ground-loop system |
+| Savings-vs-tune-up paragraph | can approach the $75 to $150 cost of a single air-conditioner tune-up | can approach what a single air-conditioner tune-up costs |
+| Service plans break-even paragraph | two separate tune-ups ... run about $155 to $310 a year combined | add up what two separate tune-ups would cost you locally (no figure) |
+| Yearly maintenance budget | two tune-ups run about $155 to $310 a year combined; heat pump home closer to $200 to $350 a year | two tune-ups are the bulk of the recurring cost; heat pump home runs higher (no figures) |
+| FAQ: How much does an HVAC tune-up cost? | Typically $75 to $150 (AC) and $80 to $160 (gas furnace) per visit | qualitative; tracks local labor, AC/furnace low end, heat pump/mini split more |
+| FAQ: Is a $99 HVAC tune-up legit? (question + answer) | $99 ... sits inside the typical $75 to $150 air-conditioner range | question reworded to 'rock-bottom'; answer qualitative (a very low price can still buy a real tune-up) |
+| FAQ: Why are heat pump tune-ups more expensive? | annual total of about $200 to $350 runs above a single tune-up | yearly total runs above a single tune-up (no figure) |
 
-- **BEFORE**: Two quotes for the same house often differ mainly in efficiency: one at 14.3 SEER2, one at 17, with a gap of a thousand dollars or more. The higher rating always uses less electricity. The question is whether it saves enough, fast enough, to cover the difference.
-- **AFTER** : Two quotes for the same house often differ mainly in efficiency: one at 14.3 SEER2, one at 17, often with a substantial price gap between them. The higher rating always uses less electricity. The question is whether it saves enough, fast enough, to cover the difference.
+Removed (REMDB does not price; now qualitative cost drivers): $75 to $150 central air conditioner tune-up (per visit and per year); $80 to $160 gas furnace tune-up; $75 to $160 each for AC + furnace; $155 to $310 per year for AC + furnace combined; $100 to $175 per visit / $200 to $350 per year air-source heat pump; $80 to $150 per indoor head / $160 to $300 per head ductless mini split; $100 to $200 boiler; $150 to $250 oil furnace; $125 to $225 per visit / $250 to $450 per year geothermal heat pump; $99 example tune-up price; REMDB does not cover maintenance at all, so no REMDB figure replaces any of these; all tune-up pricing is now described qualitatively (labor-driven, varies by region and season).
 
-#### boiler-vs-furnace
 
-- **BEFORE**: **On the same fuel and efficiency, a boiler and a furnace cost about the same to run: heating a 2,000 sq ft home with average insulation takes about 58 million BTU a year, roughly $829 with either at 95% efficiency and $1.35 per therm. Boilers give quiet, even radiant heat without ducts; furnaces share ducts with ce...
-- **AFTER** : **On the same fuel and efficiency, a boiler and a furnace cost about the same to run: heating a 2,000 sq ft home with average insulation takes about 58 million BTU a year, roughly $829 with either at 95% efficiency and an assumed $1.35 per therm. Boilers give quiet, even radiant heat without ducts; furnaces share du...
-- **BEFORE**: Heat delivered is what costs money, so at the same efficiency and fuel price the bills match. For the example home's 58 million BTU a year at $1.35 per therm:
-- **AFTER** : Heat delivered is what costs money, so at the same efficiency and fuel price the bills match. For the example home's 58 million BTU a year at an assumed $1.35 per therm:
-- **BEFORE**: At equal efficiency and fuel price, about the same. In the example home, a 95% model of either costs about $829 a year at $1.35 per therm.
-- **AFTER** : At equal efficiency and fuel price, about the same. In the example home, a 95% model of either costs about $829 a year at an assumed $1.35 per therm.
+### Surgical pages (handled directly, not via the drafting workflow)
 
-#### furnace-guide
+**moisture-barrier-crawl-space** — title/meta only (the page already carried no dollar figures after FIX-29).
+- Title: `Moisture Barrier for Crawl Space: Materials, Installation & 2026 Costs` → `Moisture Barrier for Crawl Space: Materials, Thickness and Installation`.
+- Description: dropped "what it costs".
 
-- **BEFORE**: The figures are typical ranges from contractor pricing, sourced to the DOE, EIA, ACCA and AHRI; get itemized quotes for your home, since install quality matters more than the brand.
-- **AFTER** : The efficiency, sizing and fuel-cost figures here are sourced to the DOE, EIA, ACCA and AHRI; get itemized quotes for your own home, since install quality matters more than the brand.
-- **BEFORE**: **A new furnace typically costs $3,500 to $8,500 installed for a gas unit, $2,000 to $5,500 for electric, and $5,000 to $10,000 for oil.** The two biggest decisions are fuel type (gas is cheapest to run in most of the country) and efficiency, measured in AFUE, where higher means less wasted fuel but a higher upfront...
-- **AFTER** : **On installed cost, electric furnaces are usually the cheapest, gas units sit in the middle, and oil furnaces are the most expensive.** The two biggest decisions are fuel type (gas is cheapest to run in most of the country) and efficiency, measured in AFUE, where higher means less wasted fuel but a higher upfront c...
-- **BEFORE**: | Installed cost | $3,500–$8,500 | $2,000–$5,500 | $5,000–$10,000 |
-- **BEFORE**: **Electric furnaces** are the simplest mechanically, with no combustion, gas lines, flue, or carbon monoxide risk, and they reach nearly 100% AFUE since every watt becomes heat. The catch: **electricity typically costs 2 to 3 times more per BTU than natural gas** in most of the U.S., so a home spending $800/year on ...
-- **AFTER** : **Electric furnaces** are the simplest mechanically, with no combustion, gas lines, flue, or carbon monoxide risk, and they reach nearly 100% AFUE since every watt becomes heat. The catch: **electricity typically costs 2 to 3 times more per BTU than natural gas** in most of the U.S., so running an electric furnace g...
-- **BEFORE**: - **Equipment:** $800 to $6,000 depending on fuel type and efficiency tier.
-- **BEFORE**: - **Labor:** $800 to $3,500.
-- **BEFORE**: - **Permits and inspection:** $100 to $500 (required by most municipalities).
-- **BEFORE**: - **Venting or fuel connection:** varies, a condensing furnace's PVC venting, or an oil tank, adds cost.
-- **BEFORE**: - **Thermostat:** $0 to $300 if you upgrade.
-- **AFTER** : - **Equipment:** the largest single driver, rising with fuel type and efficiency tier (an ultra-high AFUE modulating unit costs well above a standard single-stage one).
-- **AFTER** : - **Labor:** the installer's time, which climbs with a difficult or lengthy install.
-- **AFTER** : - **Permits and inspection:** required by most municipalities.
-- **AFTER** : - **Venting or fuel connection:** a condensing furnace's PVC venting and condensate drain, or an oil tank, add to the total.
-- **AFTER** : - **Thermostat:** an optional extra if you upgrade the controls.
-- **BEFORE**: Furnace cost ranges reflect typical 2026 contractor pricing and vary by fuel type, efficiency and home; they're estimates for budgeting. Fuel-cost comparisons use **U.S. EIA** residential energy and price data. The federal efficiency standard (non-weatherized gas furnaces manufactured on or after December 18, 2028 m...
-- **AFTER** : Installed cost varies by fuel type, efficiency and home, so treat any contractor quote as specific to your install. Fuel-cost comparisons use **U.S. EIA** residential energy and price data. The federal efficiency standard (non-weatherized gas furnaces manufactured on or after December 18, 2028 must meet 95% AFUE, wh...
+**smart-thermostat-savings** — added the REMDB installed price and recomputed payback (point 4).
+- Payback section BEFORE: "payback is the installed price divided by that yearly saving" (no price stated).
+- AFTER: "NREL's REMDB puts a smart thermostat's installed cost at about $350 at the mid estimate, in a low-to-high range of roughly $200 to $550, in 2023 dollars. At up to about $90 a year in savings, that is about $350 divided by $90, close to four years …" REMDB added to SourcesBox. The ENERGY STAR $900 and DOE 10%/$90 figures are unchanged (a)/(b).
 
-#### furnace-vs-heat-pump
+**solar-panel-calculator** — losses/efficiency fix (point 5) + calculator constants (point 6).
+- The calculator constant is `systemEfficiency = 85%` (= 15% system losses). Both the page bold answer and the component InfoTip said "14%"; the 6.8 kW / 17 panels / 10,549 kWh in the bold answer all derive from 85% (effective sun 5 × 0.85 = 4.25). BEFORE "about 14% system losses" → AFTER "about 15% system losses" (page); InfoTip "system losses of about 14%" → "system losses of about 15%, close to PVWatts' roughly 14% default".
+- Battery price: `SolarPanelCalculator.tsx` DisclaimerBox BEFORE "Battery storage adds $10–$20k" → AFTER "Battery storage adds several thousand dollars" (unsourced price removed).
 
-- **BEFORE**: **At $1.35 per therm and 18 cents per kWh, the calculator's default home (2,000 sq ft, average insulation, mixed climate) costs about $1,895 a year to heat and cool with a new 95% furnace and air conditioner, and $2,228 with a heat pump. The heat pump costs less to run only in the hottest climate zone, but it emits ...
-- **AFTER** : **At an assumed $1.35 per therm and 18 cents per kWh, the calculator's default home (2,000 sq ft, average insulation, mixed climate) costs about $1,895 a year to heat and cool with a new 95% furnace and air conditioner, and $2,228 with a heat pump. The heat pump costs less to run only in the hottest climate zone, bu...
-- **BEFORE**: Yearly heating and cooling cost for the default 2,000 sq ft home, at $1.35 per therm and 18 cents per kWh:
-- **AFTER** : Yearly heating and cooling cost for the default 2,000 sq ft home, at an assumed $1.35 per therm and 18 cents per kWh:
-- **BEFORE**: At $1.35 per therm and 18 cents per kWh, not in most climates: in the calculator's default home the furnace and air conditioner cost less everywhere except the hottest zone. Cheaper electricity, pricier gas or a high-efficiency cold-climate heat pump can reverse that.
-- **AFTER** : At an assumed $1.35 per therm and 18 cents per kWh, not in most climates: in the calculator's default home the furnace and air conditioner cost less everywhere except the hottest zone. Cheaper electricity, pricier gas or a high-efficiency cold-climate heat pump can reverse that.
+## Calculator price constants audited (point 6)
 
-#### gas-vs-electric-heating-cost
+Only **solar-panel-calculator** embeds a calculator (`<CalcWrapper type="solar-panel" />` → `SolarPanelCalculator`); the other nine target pages only *link* to calculators, so they have no embedded price constants. `SolarPanelCalculator` constants:
+- `pricePerWatt` default `''` (empty) — the user's quote; no default price. Unchanged (correct).
+- `federalCreditPct` default `0` — not a price (§25D ended for 2026). Unchanged.
+- DisclaimerBox battery figure `$10–$20k` — unsourced, not an input default; made qualitative (change above). No REMDB battery figure exists.
 
-- **BEFORE**: **At U.S. average prices, heat from gas costs about $14 to $15 per million BTU delivered, electric resistance heat about $53, and a heat pump about $18 at a COP of 3. Gas beats resistance heating by a wide margin, and a heat pump roughly ties gas: it needs to average a COP of about 3.75 to beat a 95% gas furnace at ...
-- **AFTER** : **At U.S. average prices, heat from gas costs about $14 to $15 per million BTU delivered, electric resistance heat about $53, and a heat pump about $18 at a COP of 3. Gas beats resistance heating by a wide margin, and a heat pump roughly ties gas: it needs to average a COP of about 3.75 to beat a 95% gas furnace at ...
+---
 
-#### thermostat-temperature-winter
+## Sitewide (c) re-classification — all 128 live pages
 
-- **BEFORE**: **The DOE says you can save as much as 10% a year on heating and cooling by turning your thermostat down 7 to 10°F for 8 hours a day in fall and winter. For a home spending about $829 a year on gas heat, that's up to about $83; with a heat pump, the DOE advises doing this only with a thermostat designed for heat pum...
-- **AFTER** : **The DOE says you can save as much as 10% a year on heating and cooling by turning your thermostat down 7 to 10°F for 8 hours a day in fall and winter. For an example home spending about $829 a year on gas heat, that's up to about $83; with a heat pump, the DOE advises doing this only with a thermostat designed for...
+Every dollar figure on the 66 live pages that carry a `$` was independently classified (one agent per page) against Marko's standing rule: **(a)** primary-sourced or registry figure (EIA, IRS 25C/25D, HEAR/DOE, **REMDB**, DOE/ENERGY STAR/EPA facts); **(b)** arithmetic from sourced/registry/assumed-rate inputs with steps shown, OR an explicitly-labeled example/assumption feeding a calculator; **(c)** an unsourced market/price estimate presented as a real figure. The remaining 62 live pages carry no `$` (trivially c = 0).
 
-#### generator-guide
+**Result: c = 0 on every page.**
+| Page | (a) sourced | (b) arithmetic/labeled | (c) unsourced |
+|---|--:|--:|--:|
+| kwh-cost-calculator | 126 | 77 | 0 |
+| hvac-cost-by-state | 55 | 57 | 0 |
+| electric-water-heating-cost | 19 | 61 | 0 |
+| heating-cost-calculator | 7 | 72 | 0 |
+| electric-heater-running-cost | 18 | 44 | 0 |
+| pellet-stove-cost-to-run | 4 | 56 | 0 |
+| tankless-water-heater-cost | 42 | 15 | 0 |
+| central-ac-cost-to-install | 33 | 22 | 0 |
+| mini-split-installation-cost | 50 | 0 | 0 |
+| gas-vs-electric-heating-cost | 5 | 41 | 0 |
+| heat-pump-cost-to-install | 41 | 1 | 0 |
+| seer2-comparison-calculator | 6 | 35 | 0 |
+| dehumidifier-running-cost | 9 | 30 | 0 |
+| furnace-installation-cost | 29 | 10 | 0 |
+| portable-ac-electricity-cost | 3 | 32 | 0 |
+| hvac-tax-credits-2026 | 32 | 1 | 0 |
+| heat-pump-water-heater-guide | 6 | 23 | 0 |
+| seer2-rating-explained | 0 | 28 | 0 |
+| heat-pump-electricity-usage | 8 | 17 | 0 |
+| water-heater-guide | 2 | 23 | 0 |
+| gas-furnace-wattage | 10 | 14 | 0 |
+| afue-rating-explained | 1 | 22 | 0 |
+| hspf-rating-explained | 6 | 17 | 0 |
+| furnace-vs-heat-pump | 4 | 15 | 0 |
+| mini-split-electricity-usage | 3 | 16 | 0 |
+| ac-tonnage-calculator | 2 | 16 | 0 |
+| radiant-floor-heating-pros-cons | 7 | 11 | 0 |
+| electrical-panel-upgrade-cost | 16 | 0 | 0 |
+| dehumidifier-and-ac-same-time | 5 | 10 | 0 |
+| heat-pump-tax-credits-2026 | 11 | 4 | 0 |
+| portable-air-conditioners | 4 | 9 | 0 |
+| space-heater-guide | 5 | 8 | 0 |
+| heat-pump-guide | 6 | 6 | 0 |
+| specific-heat-capacity-calculator | 5 | 7 | 0 |
+| tankless-water-heater-propane-usage | 0 | 12 | 0 |
+| eer-chart-for-ac-units | 2 | 9 | 0 |
+| pilot-light-gas-usage | 0 | 10 | 0 |
+| dehumidifier-guide | 2 | 7 | 0 |
+| generator-guide | 1 | 8 | 0 |
+| heat-pump-in-cold-weather | 1 | 8 | 0 |
+| window-air-conditioners | 1 | 8 | 0 |
+| boiler-vs-furnace | 0 | 8 | 0 |
+| central-air-conditioner-guide | 2 | 6 | 0 |
+| coefficient-of-performance | 1 | 7 | 0 |
+| evaporative-cooler-vs-ac | 2 | 6 | 0 |
+| furnace-sizing-calculator | 0 | 7 | 0 |
+| hvac-energy-saving-tips | 1 | 6 | 0 |
+| water-heater-sizing-calculator | 1 | 6 | 0 |
+| portable-vs-window-ac | 2 | 4 | 0 |
+| duct-leakage-testing | 0 | 5 | 0 |
+| hot-water-recirculating-pump | 2 | 3 | 0 |
+| smart-thermostat-savings | 4 | 1 | 0 |
+| solar-panel-calculator | 1 | 4 | 0 |
+| air-source-vs-ground-source-heat-pump | 1 | 3 | 0 |
+| heat-pump-size-calculator | 1 | 3 | 0 |
+| hvac-maintenance-cost | 1 | 3 | 0 |
+| thermostat-temperature-winter | 0 | 4 | 0 |
+| propane-generator-usage-per-hour | 0 | 3 | 0 |
+| electrical-wiring-guide | 2 | 0 | 0 |
+| how-to-read-electric-meter | 1 | 1 | 0 |
+| insulation-r-value-guide | 0 | 2 | 0 |
+| mini-split-air-conditioners | 2 | 0 | 0 |
+| water-heater-wire-size | 2 | 0 | 0 |
+| how-long-does-water-heater-last | 1 | 0 | 0 |
+| power-consumption-calculator | 1 | 0 | 0 |
+| what-size-tankless-water-heater | 1 | 0 | 0 |
+| **TOTAL (66 $-pages)** | **616** | **944** | **0** |
 
-- **BEFORE**: Small generators turn roughly a fifth of their fuel's energy into electricity, and the cost follows. At an assumed 20% efficiency, each kWh takes about 17,060 BTU of fuel. At an example $3.50 a gallon, gasoline power costs about 50 cents a kWh; at an example $3.00 a gallon, propane about 56 cents; and natural gas at...
-- **AFTER** : Small generators turn roughly a fifth of their fuel's energy into electricity, and the cost follows. At an assumed 20% efficiency, each kWh takes about 17,060 BTU of fuel. At an example $3.50 a gallon, gasoline power costs about 50 cents a kWh; at an example $3.00 a gallon, propane about 56 cents; and natural gas at...
 
-#### air-source-vs-ground-source-heat-pump
+---
 
-- **BEFORE**: Our [heat pump installation cost](/heat-pump-cost-to-install) guide puts a ducted 3-ton air-source system at roughly $5,800 to $10,000 and a geothermal system at roughly $18,000 to $35,000, both typical 2026 contractor ranges before incentives. The gap is the buried loop and the drilling or excavation it needs. On t...
-- **AFTER** : Our [heat pump installation cost](/heat-pump-cost-to-install) guide walks through what a ducted air-source system and a geothermal system each run before incentives. Geothermal costs substantially more to install, and the difference is the buried loop and the drilling or excavation it needs.
-- **BEFORE**: At $12,000 more upfront, $12,000 divided by $401 is about 30 years; at $25,000 more it is about 62 years. Those are long horizons, which is why geothermal makes the most sense when you expect to stay in the home for decades. A colder climate, higher electricity prices, or a state or utility rebate shortens the payba...
-- **AFTER** : Geothermal costs substantially more to install than an air-source system, so even at that yearly saving the upfront gap can take many years, often decades, to recover. That is why geothermal makes the most sense when you expect to stay in the home for decades. A colder climate, higher electricity prices, or a state ...
+## Verification
 
-#### heat-pump-guide
+| Check | Result |
+|---|---|
+| `npx tsc --noEmit` | clean (exit 0) |
+| svg-lint | **59 / 59 OK** |
+| content-audit gate metrics | all **0** (em_dashes, overclaims, long_paragraphs, old/new tells, links_broken, sourcesbox_no_url, social_proof, recompute_fail, rates_offrate, …) |
+| `node scripts/audit.mjs --skip-build` | **0 findings — CLEAN** |
+| `next build` (NODE_OPTIONS=--max-old-space-size=3072) | **exit 0, 279/279 static pages** |
+| full `node scripts/audit.mjs` incl. 18 static routes (built HTML) | **0 findings — CLEAN** |
 
-- **BEFORE**: **Multiply the COP by comparing your electricity rate against your gas rate.** If electricity is about $0.18/kWh and the heat pump's COP is 3.0, your effective heating cost is roughly 6 cents per kWh of delivered heat (18 cents per kWh ÷ a COP of 3), about on par with natural gas at $1.35/therm.
-- **AFTER** : **Multiply the COP by comparing your electricity rate against your gas rate.** If electricity is about $0.18/kWh and the heat pump's COP is 3.0, your effective heating cost is roughly 6 cents per kWh of delivered heat (18 cents per kWh ÷ a COP of 3), about on par with natural gas at an assumed $1.35/therm.
+(`attributions` = 230 and `precision_stats` = 911 in content-audit are report-only inventories, not gate violations; both are expected to be non-zero.)
 
-#### heat-pump-tax-credits-2026
+Every dollar figure now on the 7 cost pages was cross-checked by hand against the REMDB figure tables: all trace to a REMDB figure, a spec recompute, or a kept (a)/(b) figure.
 
-- **BEFORE**: For a $15,000 heat pump installation:
-- **AFTER** : For an example $15,000 heat pump installation:
+## Recompute notes (payback)
 
-#### hvac-serial-number-decoder
+- **central-ac:** REMDB 3-ton 14→16 SEER premium at mid = $6,900 − $5,150 = **about $1,750**; table saving 13.4→15.2 SEER2 = $86/yr (1,500 h) to $143/yr (2,500 h) → payback **about 12 to 20 years** (was "$1,000 → 8 to 14 years").
+- **furnace:** REMDB 80k-BTU 80→95% premium at mid = $4,050 − $3,400 = **about $650**; saving $155/yr → equipment-only payback **about 4 years**, longer once PVC venting + condensate are counted (was "$1,500 → 9.7 years").
+- **tankless:** REMDB condensing gas tankless mid $2,450 vs gas tank mid $2,050 = premium **about $400**; saving $127/yr → payback **about 3 years**, longer with gas-line/venting conversion; 20-yr return $127 × 20 = $2,540 (was "$1,500 → 12 years").
+- **smart thermostat:** REMDB installed mid **$350** ($200–$550); saving up to $90/yr → **close to 4 years**.
 
-- **BEFORE**: Knowing your system's age turns "should I repair or replace?" from a guess into a real decision. A $1,500 repair on a 6-year-old system is easy. The same repair on a 16-year-old unit **rarely makes sense**.
-- **AFTER** : Knowing your system's age turns "should I repair or replace?" from a guess into a real decision. A major repair on a 6-year-old system is easy. The same repair on a 16-year-old unit **rarely makes sense**.
+## Flags / judgment calls for Marko
 
-#### how-to-clean-ac-coils
+1. **"2026 Prices/Pricing" in titles now sit against 2023-dollar REMDB figures** (central-ac, mini-split, furnace, tankless, electrical-panel). Kept per the "keep titles with Bing traffic" rule; each body states the 2023-dollar basis plainly. Trim the year tags if you prefer.
+2. **Heat-pump headline jumped.** REMDB's ducted 3-ton figure (about $7,450–$19,250, mid $13,350) is well above the old market estimate ($5,800–$10,000). NREL derived heat-pump costs largely from California/Massachusetts incentive-program data (now disclosed on-page); they run high relative to some markets. This is the biggest directional change in the batch.
+3. **central-ac payback lengthened** (12–20 yr vs the old 8–14 yr) purely because the REMDB efficiency premium ($1,750) is larger than the old invented $1,000. Honest, but worth a look.
+4. **hvac-maintenance "$99 tune-up" FAQ heading** was changed to "rock-bottom" to drop the unsourced $99. That removes the "$99 tune-up" search-intent keyword; restore a labeled version if you want the query, but note $99 is a market example, not a sourced figure.
+5. **Removed an unsourced percentage** on heat-pump ("labor typically runs 40 to 55% of the total") when the labor table became qualitative — the standing rule bars unsourced percentages too. Confirm acceptable.
+6. **Labeled example/assumption inputs stay (classified b, not c).** The $150 bill and $3.00/watt on solar-panel-calculator, and the example pellet/oil/propane prices on pellet-stove-cost-to-run and heating-cost-calculator, are explicitly labeled examples feeding a calculator, so they are (b) under the FIX-29 policy, not (c). This is the judgment that underpins "sitewide c = 0"; veto any you want treated as (c).
 
-- **BEFORE**: The payoff is real: a dirty coil reduces your system's ability to cool the home and forces it to run longer, so cleaning it can noticeably cut your cooling cost and extend the system's life. Cleaning the outdoor condenser coil is a straightforward 30-to-60-minute task costing under $20 in supplies; the indoor evapor...
-- **AFTER** : The payoff is real: a dirty coil reduces your system's ability to cool the home and forces it to run longer, so cleaning it can noticeably cut your cooling cost and extend the system's life. Cleaning the outdoor condenser coil is a straightforward 30-to-60-minute task costing very little in supplies; the indoor evap...
-- **BEFORE**: Realistic savings from cleaning vary with how dirty the coils are and your climate, but for a neglected system the difference on your summer bills can add up to a few hundred dollars a year. It's one of the highest-return maintenance tasks you can do yourself.
-- **AFTER** : Realistic savings from cleaning vary with how dirty the coils are and your climate, but for a neglected system the difference on your summer bills can add up noticeably over a season. It's one of the highest-return maintenance tasks you can do yourself.
-- **BEFORE**: - **Coil cleaner** (a commercial foaming condenser-coil cleaner, roughly $8 to $15 a can)
-- **BEFORE**: - A **fin comb** (about $8 to $15) for straightening any bent fins
-- **AFTER** : - **Coil cleaner** (a commercial foaming condenser-coil cleaner)
-- **AFTER** : - A **fin comb** for straightening any bent fins
-- **BEFORE**: Total cost is roughly **$15 to $30** if you already have a hose and basic tools.
-- **AFTER** : The supplies cost very little if you already have a hose and basic tools.
-- **BEFORE**: - A **no-rinse evaporator coil cleaner** (a self-rinsing foaming cleaner, roughly $8 to $15)
-- **AFTER** : - A **no-rinse evaporator coil cleaner** (a self-rinsing foaming cleaner)
-- **BEFORE**: Dollar-savings figures are estimates that vary by system, climate and local electricity rate, and cleaner and tool prices are approximate ranges. Match the cleaner type (no-rinse foaming for evaporator coils, rinse-type for condensers) to the job.
-- **AFTER** : Savings vary by system, climate and local electricity rate, and cleaner and tool costs are modest and vary by brand and retailer. Match the cleaner type (no-rinse foaming for evaporator coils, rinse-type for condensers) to the job.
+## Out-of-scope observations (not changed; prices only this pass)
 
-#### carbon-monoxide-detector-guide
-
-- **BEFORE**: That's the whole case for taking this seriously. A CO alarm is a $25-to-$50 device that removes one of the few household risks that can **kill a healthy person in their sleep**.
-- **AFTER** : That's the whole case for taking this seriously. A CO alarm is an inexpensive device that removes one of the few household risks that can **kill a healthy person in their sleep**.
-- **BEFORE**: ## "Is my $25 detector actually good enough?" (The blind spot nobody mentions)
-- **AFTER** : ## "Is a basic detector actually good enough?" (The blind spot nobody mentions)
-- **BEFORE**: State requirements are from the **National Conference of State Legislatures (NCSL)** compilation of CO detector statutes, and code/placement guidance follows **NFPA 72** (which absorbed CO-alarm requirements after NFPA 720 was withdrawn in 2018). Detector prices and sensor lifespans are general market ranges, labele...
-- **AFTER** : State requirements are from the **National Conference of State Legislatures (NCSL)** compilation of CO detector statutes, and code/placement guidance follows **NFPA 72** (which absorbed CO-alarm requirements after NFPA 720 was withdrawn in 2018). Sensor lifespans are a general market range, labeled as such.
-
-#### how-to-improve-indoor-air-quality
-
-- **BEFORE**: description: "A practical, ranked guide to improving indoor air quality: ten methods from a MERV 13 filter upgrade to whole-house systems, with costs, difficulty, and what each one actually does."
-- **AFTER** : description: "A practical, ranked guide to improving indoor air quality: ten methods from a MERV 13 filter upgrade to whole-house systems, with the effort each takes and what each one actually does."
-- **BEFORE**: This guide ranks ten ways to improve indoor air quality, from a $20 filter upgrade to whole-house systems, with guidance on what each does. The right approach depends on your home and your particular air-quality concern.
-- **AFTER** : This guide ranks ten ways to improve indoor air quality, from a low-cost filter upgrade to whole-house systems, with guidance on what each does. The right approach depends on your home and your particular air-quality concern.
-- **BEFORE**: **The single most impactful, and cheapest, step is upgrading your HVAC filter to MERV 13, which costs about $15 to $30 per filter and substantially reduces fine-particle (PM2.5) levels in most homes.** The second most impactful step is increasing ventilation (mechanical or strategic window opening), which cuts CO2, ...
-- **AFTER** : **The single most impactful, and cheapest, step is upgrading your HVAC filter to MERV 13, which is a low-cost upgrade and substantially reduces fine-particle (PM2.5) levels in most homes.** The second most impactful step is increasing ventilation (mechanical or strategic window opening), which cuts CO2, VOCs, and mo...
-- **BEFORE**: | # | Method | Targets | Cost | Difficulty |
-- **BEFORE**: |---|---|---|---|---|
-- **BEFORE**: | 1 | Upgrade HVAC filter to MERV 13 | Fine particles (PM2.5) | $15–$30/filter | Easy |
-- **BEFORE**: | 2 | Increase mechanical ventilation (ERV/HRV) | CO2, VOCs, moisture | $1,500–$4,000 installed | Professional |
-- **BEFORE**: | 3 | Use a range hood when cooking | Cooking particles + fumes | $0 (existing) | Easy |
-- **BEFORE**: | 4 | Add a portable HEPA air purifier | Room particles | $100–$600/unit | Easy |
-- **BEFORE**: | 5 | Control humidity (40–50% RH) | Mold, dust mites | $0–$1,500 | Easy–Moderate |
-- **BEFORE**: | 6 | Test and mitigate radon | Radon gas | $800–$2,500 | Professional |
-- **BEFORE**: | 7 | Eliminate source pollutants | VOCs, various | $0–$500 | Easy |
-- **BEFORE**: | 8 | Seal and clean ductwork | Particle recirculation | $500–$2,000 | Professional |
-- **BEFORE**: | 9 | UV-C or PCO in HVAC (supplemental) | Some biologicals | $500–$1,500 | Professional |
-- **BEFORE**: | 10 | Whole-house air purification | Whole-home particles | $800–$3,500 | Professional |
-- **AFTER** : | # | Method | Targets | Difficulty |
-- **AFTER** : |---|---|---|---|
-- **AFTER** : | 1 | Upgrade HVAC filter to MERV 13 | Fine particles (PM2.5) | Easy |
-- **AFTER** : | 2 | Increase mechanical ventilation (ERV/HRV) | CO2, VOCs, moisture | Professional |
-- **AFTER** : | 3 | Use a range hood when cooking | Cooking particles + fumes | Easy |
-- **AFTER** : | 4 | Add a portable HEPA air purifier | Room particles | Easy |
-- **AFTER** : | 5 | Control humidity (40–50% RH) | Mold, dust mites | Easy–Moderate |
-- **AFTER** : | 6 | Test and mitigate radon | Radon gas | Professional |
-- **AFTER** : | 7 | Eliminate source pollutants | VOCs, various | Easy |
-- **AFTER** : | 8 | Seal and clean ductwork | Particle recirculation | Professional |
-- **AFTER** : | 9 | UV-C or PCO in HVAC (supplemental) | Some biologicals | Professional |
-- **AFTER** : | 10 | Whole-house air purification | Whole-home particles | Professional |
-- **BEFORE**: **Cost: $15 to $30 per filter | Effort: easy (a 5-minute swap) | Impact: large for the cost.**
-- **AFTER** : **Cost: low | Effort: easy (a 5-minute swap) | Impact: large for the cost.**
-- **BEFORE**: - **Check your system can handle MERV 13 airflow.** A higher-MERV filter is more restrictive, and depth matters more than the number, a 4-inch MERV 13 restricts far less than a 1-inch one. If you only have a 1-inch slot, consider having an HVAC tech add a 4-inch filter cabinet ($150 to $300), which runs MERV 13 with...
-- **AFTER** : - **Check your system can handle MERV 13 airflow.** A higher-MERV filter is more restrictive, and depth matters more than the number, a 4-inch MERV 13 restricts far less than a 1-inch one. If you only have a 1-inch slot, consider having an HVAC tech add a 4-inch filter cabinet, which runs MERV 13 with much lower pre...
-- **BEFORE**: The recommended 30 to 50% humidity range and ventilation guidance follow the **EPA** and ASHRAE. Because real-world improvement depends heavily on your home, its systems and your specific pollutants, we describe what each method does and its relative effectiveness rather than promising fixed percentages; cost figure...
-- **AFTER** : The recommended 30 to 50% humidity range and ventilation guidance follow the **EPA** and ASHRAE. Because real-world improvement depends heavily on your home, its systems and your specific pollutants, we describe what each method does and its relative effectiveness rather than promising fixed percentages.
-
-#### insulation-r-value-guide
-
-- **BEFORE**: Over a season with 4,500 heating degree days, going from R-19 to R-49 cuts that ceiling's heat loss from about 5.7 to 2.2 million BTU, about $49 a year with a 95% gas furnace at $1.35 per therm or $76 with a heat pump, before counting summer cooling. Framing and gaps lower an assembly's real R-value, so installation...
-- **AFTER** : Over a season with 4,500 heating degree days, going from R-19 to R-49 cuts that ceiling's heat loss from about 5.7 to 2.2 million BTU, about $49 a year with a 95% gas furnace at an assumed $1.35 per therm, or a broadly similar amount with a heat pump depending on your electricity rate and the pump's efficiency, befo...
-
-#### mini-split-air-conditioners
-
-- **BEFORE**: **A single-zone mini split typically costs $1,500 to $4,500 installed and runs on roughly 200 to 700 watts, delivering meaningfully better efficiency than central air by eliminating duct losses.** Most are heat pumps, so they both heat and cool, and cold-climate models keep working well below freezing. The keys to a...
-- **AFTER** : **A single-zone mini split runs on roughly 200 to 700 watts and is a mid-range purchase next to window units and central air, delivering meaningfully better efficiency by eliminating duct losses.** Most are heat pumps, so they both heat and cool, and cold-climate models keep working well below freezing. The keys to ...
-- **BEFORE**: - **Single-zone installed:** roughly $1,500 to $4,500.
-- **BEFORE**: - **Multi-zone installed:** roughly $4,000 to $18,000, depending on the number of zones and system size.
-- **AFTER** : - **Single-zone installed:** the least expensive mini split to install.
-- **AFTER** : - **Multi-zone installed:** considerably more, scaling with the number of zones and system size.
-
-#### moisture-barrier-crawl-space
-
-- **BEFORE**: description: "What a crawl space moisture barrier does, which liner thickness to use, ground cover vs. full encapsulation, typical 2026 cost ranges, and the mistakes that trap moisture."
-- **AFTER** : description: "What a crawl space moisture barrier does, which liner thickness to use, ground cover vs. full encapsulation, what it costs, and the mistakes that trap moisture."
-- **BEFORE**: **A crawl space moisture barrier is a polyethylene sheet laid over the dirt floor so ground moisture can't evaporate into the crawl space. A basic 6-mil ground cover costs about $60 to $115 in material for 1,000 sq ft; a full encapsulation, with a heavier liner up the walls, sealed vents and usually a dehumidifier, ...
-- **AFTER** : **A crawl space moisture barrier is a polyethylene sheet laid over the dirt floor so ground moisture can't evaporate into the crawl space. A basic 6-mil ground cover is the cheapest step, with inexpensive material for 1,000 sq ft; a full encapsulation, with a heavier liner up the walls, sealed vents and usually a de...
-- **BEFORE**: ## Typical costs
-- **BEFORE**: 
-- **BEFORE**: These are typical ranges from contractor and retail pricing, not quotes. For a 1,000 sq ft ground cover:
-- **BEFORE**: 
-- **BEFORE**: | Item | DIY | Professional |
-- **BEFORE**: |---|---|---|
-- **BEFORE**: | 6-mil polyethylene (with 15% waste) | $60 to $115 | Included |
-- **BEFORE**: | 12-mil reinforced polyethylene | $170 to $290 | Included |
-- **BEFORE**: | 20-mil liner | $400 to $690 | Included |
-- **BEFORE**: | Seam tape | $15 to $30 | Included |
-- **BEFORE**: | Labor | Your time | $500 to $1,200 |
-- **BEFORE**: | **Total, ground cover only** | **$85 to $825** | **$500 to $2,000** |
-- **BEFORE**: 
-- **BEFORE**: For full encapsulation, typical line items are:
-- **BEFORE**: 
-- **BEFORE**: | Item | Typical cost |
-- **BEFORE**: |---|---|
-- **BEFORE**: | Liner for floor and walls (12 to 20 mil) | $500 to $1,500 |
-- **BEFORE**: | Seam tape and mastic | $50 to $150 |
-- **BEFORE**: | Wall fasteners | $50 to $100 |
-- **BEFORE**: | Sealing vents | $100 to $300 |
-- **BEFORE**: | Drainage matting, if water gets in | $200 to $800 |
-- **BEFORE**: | Dehumidifier drain | $100 to $300 |
-- **BEFORE**: | Dehumidifier electrical outlet | $150 to $400 |
-- **BEFORE**: | Sump pump, if there's standing water | $500 to $1,500 |
-- **BEFORE**: | Wall insulation, optional | $500 to $2,000 |
-- **BEFORE**: | Professional labor | $1,500 to $5,000 |
-- **AFTER** : ## What it costs
-- **AFTER** : 
-- **AFTER** : Cost depends mostly on the liner you choose and on whether you install it yourself or hire a contractor. For a 1,000 sq ft ground cover, 6-mil polyethylene is the cheapest liner, 12-mil reinforced costs more, and 20-mil costs the most. Seam tape adds a little on top of the liner.
-- **AFTER** : 
-- **AFTER** : A DIY ground cover is inexpensive, mostly the price of the plastic and tape. Hiring a professional adds labor, which makes the same job cost more.
-- **AFTER** : 
-- **AFTER** : Full encapsulation costs more because it adds materials and work beyond a simple ground cover. It uses a heavier liner over the floor and up the walls, seam tape and mastic, wall fasteners, and sealed vents, plus a dehumidifier with its own drain and electrical outlet. Where water gets in you add an optional drainag...
-- **BEFORE**: An encapsulated crawl space still needs its humidity controlled, usually with a dehumidifier set to about 50%. A typical 50-pint unit costs about $38 a month to run 12 hours a day at 18 cents per kWh; see [dehumidifier running cost](/dehumidifier-running-cost) and the [dehumidifier guide](/dehumidifier-guide).
-- **AFTER** : An encapsulated crawl space still needs its humidity controlled, usually with a dehumidifier set to about 50%. A typical 50-pint unit adds a modest amount to the monthly power bill when run about 12 hours a day; see [dehumidifier running cost](/dehumidifier-running-cost) and the [dehumidifier guide](/dehumidifier-gu...
-
-#### how-to-vent-portable-ac-without-window
-
-- **BEFORE**: There are several ways to vent a portable AC without a normal window, and most are DIY-friendly. This guide walks through five methods, from easiest to most involved, with the tools you need, roughly what each costs, and which have catches. The one rule you can't get around: the hot air has to go somewhere outside t...
-- **AFTER** : There are several ways to vent a portable AC without a normal window, and most are DIY-friendly. This guide walks through five methods, from easiest to most involved, with the tools you need and which have catches. The one rule you can't get around: the hot air has to go somewhere outside the room, or the AC won't c...
-- **BEFORE**: You'll need a portable-AC sliding-door kit (a telescoping panel, roughly $30 to $60) or a DIY panel of plexiglass or rigid foam board (roughly $15 to $25), plus foam weatherstripping tape and a hose adapter if the kit doesn't include one. A commercial kit telescopes to your door height and has the hose hole built in...
-- **AFTER** : You'll need a portable-AC sliding-door kit (a telescoping panel) or a DIY panel of plexiglass or rigid foam board, plus foam weatherstripping tape and a hose adapter if the kit doesn't include one. A commercial kit telescopes to your door height and has the hose hole built in; a DIY panel means cutting a 5 to 6 inch...
-- **BEFORE**: - A wall vent cap with a damper (about $15 to $30)
-- **AFTER** : - A wall vent cap with a damper
-- **BEFORE**: Material costs are approximate ranges that vary by retailer and region. Always check for wiring, plumbing and gas lines before drilling through any wall, and confirm landlord permission before any permanent modification.
-- **AFTER** : Always check for wiring, plumbing and gas lines before drilling through any wall, and confirm landlord permission before any permanent modification.
-
-#### radiant-floor-heating-pros-cons
-
-- **BEFORE**: A 2,000 sq ft home with average insulation needs about 58 million BTU of heat a year in the site's heat-loss model. Delivered by a 95% gas boiler at an assumed $1.35 per therm, that is about $829 a year; a heat pump feeding the same floor runs about $1,280. Whole-home electric radiant is resistance heat, and heating...
-- **AFTER** : A 2,000 sq ft home with average insulation needs about 58 million BTU of heat a year in the site's heat-loss model. Delivered by a 95% gas boiler at an assumed $1.35 per therm, that is about $829 a year; a heat pump feeding the same floor costs a broadly similar amount, depending on your electricity rate and the pum...
-
-#### heat-pump-water-heater-guide
-
-- **BEFORE**: Annual energy cost for the default four-person household in our [water heater sizing calculator](/water-heater-sizing-calculator), at 18 cents per kWh and $1.35 per therm:
-- **AFTER** : Annual energy cost for the default four-person household in our [water heater sizing calculator](/water-heater-sizing-calculator), at 18 cents per kWh and an assumed $1.35 per therm:
-
-#### water-heater-guide
-
-- **BEFORE**: **For a typical four-person household at 18 cents per kWh and $1.35 per therm, a heat pump water heater costs about $334 a year to run, a gas tankless $340, a gas tank $467 and a standard electric tank $1,271. Tanks last 10 to 15 years and tankless units about 20, according to the DOE.**
-- **AFTER** : **For a typical four-person household at 18 cents per kWh and an assumed $1.35 per therm, a heat pump water heater costs about $334 a year to run, a gas tankless $340, a gas tank $467 and a standard electric tank $1,271. Tanks last 10 to 15 years and tankless units about 20, according to the DOE.**
+- **Unsourced time counts** left in place: electrical-panel "6 to 12 hours" / "1 to 4 weeks" and furnace line-71 bare "$1.35 per therm" (line 75 labels it "assumed"). COST-1 scoped dollar prices; these are not dollar-market figures. Candidates for a future time/count sweep.
+- Not a gate concern; flagged for completeness.
