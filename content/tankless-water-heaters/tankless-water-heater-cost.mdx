@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "cost-guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-08"
+dateModified: "2026-10-09"
 relatedArticles:
   - "what-size-tankless-water-heater"
   - "tankless-water-heater-guide"
@@ -28,32 +28,46 @@ import { SourcesBox, RelatedArticles } from '@/components'
 
 The price of a tankless water heater is mostly installation, not the unit. Swapping a tank for a tankless heater can mean a bigger gas line, new venting, a condensate drain, or for electric models, several new circuits and sometimes a new panel. Those extras decide whether the job lands near the bottom or the top of the range.
 
-**Installed, a whole-house gas tankless heater typically runs $1,900 to $6,000, a whole-house electric one $1,150 to $3,100, and a small point-of-use electric unit $450 to $1,050.** These are typical ranges from contractor pricing, not quotes; get at least three itemized bids.
+**Installed, a whole-house gas tankless heater typically runs about $1,550 to $2,400 non-condensing (UEF 0.82) and about $2,100 to $3,050 condensing (UEF 0.95), and a whole-house electric one about $1,200 to $1,700 (UEF 0.98), before any electrical service upgrade.** A small point-of-use unit for a single fixture costs less, though REMDB does not price it separately. These are NREL REMDB installed-cost estimates in 2023 dollars, not quotes; get at least three itemized bids.
 
 ## Typical costs by type
 
-| Type | Unit | Installation | Installed total |
-|---|---|---|---|
-| Gas, non-condensing | $700 to $1,400 | $1,200 to $3,000 | $1,900 to $4,400 |
-| Gas, condensing | $1,200 to $2,500 | $1,500 to $3,500 | $2,700 to $6,000 |
-| Gas, outdoor (no indoor venting) | $900 to $2,200 | $1,000 to $2,500 | $1,900 to $4,700 |
-| Electric, whole-house | $350 to $900 | $800 to $2,200 | $1,150 to $3,100 |
-| Electric, point-of-use | $150 to $350 | $300 to $700 | $450 to $1,050 |
+| Type | UEF | Installed cost (low / mid / high) |
+|---|---|---|
+| Gas, non-condensing | 0.82 | about $1,550 / $1,950 / $2,400 |
+| Gas, condensing | 0.95 | about $2,100 / $2,450 / $3,050 |
+| Electric, whole-house | 0.98 | about $1,200 / $1,350 / $1,700 |
 
-Condensing gas models cost more but extract more heat from the exhaust, and vent through PVC instead of stainless steel. Outdoor models skip indoor venting but need freeze protection in cold climates.
+Condensing gas models cost more but extract more heat from the exhaust, and vent through PVC instead of stainless steel. An outdoor model skips indoor venting but needs freeze protection in cold climates, and a small point-of-use unit for a single fixture costs less; REMDB does not price those two configurations separately, so they are not listed above. The electric figure does not include any electrical service upgrade.
+
+## How tankless compares to other water heaters
+
+Installed cost alone does not decide which water heater to choose, since energy use and lifespan matter too. These are REMDB installed-cost estimates in 2023 dollars, with a 50-gallon size where a storage tank applies.
+
+| Type | UEF | Installed cost (low / mid / high) |
+|---|---|---|
+| Gas tankless, condensing | 0.95 | about $2,100 / $2,450 / $3,050 |
+| Gas tank, 50 gal | 0.64 | about $1,650 / $2,050 / $2,850 |
+| Electric tank, 50 gal | 0.93 | about $1,600 / $1,850 / $2,100 |
+| Heat pump water heater, 50 gal | 3.75 | about $2,850 / $3,200 / $3,950 |
+| Electric tankless | 0.98 | about $1,200 / $1,350 / $1,700 |
+
+The installed-cost figures come from NREL's National Residential Efficiency Measures Database (REMDB), 2024 release, which models a retrofit replacement in 2023 dollars and gives a low, mid and high estimate. They are total installed costs, including removing the old equipment and before any rebates, so prices have generally risen since 2023. Work REMDB does not price, such as point-of-use units, a gas-line or venting conversion, a condensate drain, new electrical circuits and permits, has no figure here and is described as a cost driver instead.
 
 ## What drives the installation price
 
-| Item | Typical cost | When it applies |
-|---|---|---|
-| Gas line upgrade | up to about $800 | When the existing line can't supply the burner |
-| New gas line run | up to about $1,200 | When the heater moves to a new spot |
-| PVC venting (condensing) | $100 to $400 | Condensing gas models |
-| Stainless venting (non-condensing) | $200 to $600 | Non-condensing gas models |
-| Condensate drain | $50 to $200 | Condensing gas models |
-| Electrician, new circuits | $300 to $800 | Electric models, before panel work |
-| Panel upgrade | $1,500 to $4,000 | When the panel can't carry the load |
-| Permits | $50 to $200 | Most jurisdictions |
+The REMDB figure above covers a basic replacement install. The items below are separate cost drivers that come on top when the job calls for them.
+
+| Item | When it applies |
+|---|---|
+| Gas line upgrade | When the existing line can't supply the burner |
+| New gas line run | When the heater moves to a new spot |
+| PVC venting (condensing) | Condensing gas models |
+| Stainless venting (non-condensing) | Non-condensing gas models |
+| Condensate drain | Condensing gas models |
+| Electrician, new circuits | Electric models, before panel work |
+| Panel upgrade | When the panel can't carry the load; replacing a 200-amp panel runs about $1,000 to $3,100 (NREL REMDB, rough) |
+| Permits | Most jurisdictions |
 
 Whole-house electric units are the ones that surprise people. A 27 kW model draws about 112 amps at 240 volts, which many 100- or 125-amp panels can't spare; see our [panel upgrade cost guide](/electrical-panel-upgrade-cost) and [tankless sizing guide](/what-size-tankless-water-heater).
 
@@ -99,7 +113,7 @@ Using our [water heater sizing calculator](/water-heater-sizing-calculator)'s de
 | Tankless, electric | $1,193 |
 | Tank, electric | $1,271 |
 
-A gas tankless heater saves about $127 a year over a gas tank, mostly by not keeping a tank of water hot around the clock. If it costs $1,500 more to install, that takes about 12 years to pay back. Electric tankless saves only about $78 a year over an electric tank, while a heat pump water heater saves about $937, which is why the heat pump is usually the better electric upgrade.
+A gas tankless heater saves about $127 a year over a gas tank, mostly by not keeping a tank of water hot around the clock. At the mid estimates above a condensing gas tankless unit costs about $400 more to install than a gas tank (about $2,450 versus $2,050), so the energy saving alone pays that back in about 3 years; any gas-line or venting conversion work comes on top and stretches it out. Electric tankless saves only about $78 a year over an electric tank, while a heat pump water heater saves about $937, which is why the heat pump is usually the better electric upgrade.
 
 ## Maintenance and descaling over time
 
@@ -111,7 +125,7 @@ Manufacturers call for periodic flushing with a descaling solution and cleaning 
 
 The DOE puts a tankless unit's life at about 20 years against 10 to 15 for a storage tank. Over that span a gas tank would typically be replaced once, while the tankless unit keeps running, which narrows the lifetime gap the sticker price suggests.
 
-Carry the running-cost numbers out over the unit's life. At the gas tankless saving of about $127 a year, 20 years returns roughly $2,540 (127 × 20), more than the example $1,500 installation premium above, before counting the avoided tank replacement.
+Carry the running-cost numbers out over the unit's life. At the gas tankless saving of about $127 a year, 20 years returns roughly $2,540 (127 × 20), more than the roughly $400 mid-estimate premium above, before counting the avoided tank replacement.
 
 Descaling works the other way, adding a maintenance cost the tank does not have. The full long-run picture is unit plus installation, plus energy, plus maintenance, minus the replacement you skip; for gas the energy savings and longer life usually win, while for electric a heat pump water heater still beats both.
 
@@ -125,11 +139,11 @@ Descaling works the other way, adding a maintenance cost the tank does not have.
 
 ### How much does it cost to install a tankless water heater?
 
-For a whole-house gas unit, typically $1,900 to $6,000 including the unit, depending on venting and gas line work. Whole-house electric runs $1,150 to $3,100 before any panel upgrade.
+For a whole-house gas unit, about $1,550 to $2,400 installed non-condensing and about $2,100 to $3,050 condensing, depending on venting and gas line work. Whole-house electric runs about $1,200 to $1,700 before any panel upgrade or other electrical service work.
 
 ### Is a tankless water heater worth the cost?
 
-A gas tankless heater saves about $127 a year over a gas tank for a typical four-person household, so a $1,500 premium takes about 12 years to recover. It makes sense mainly if you value endless hot water or need the space.
+A gas tankless heater saves about $127 a year over a gas tank for a typical four-person household, so the roughly $400 mid-estimate premium over a tank takes about 3 years to recover on energy alone, longer once any gas-line or venting conversion is added. It makes sense mainly if you value endless hot water or need the space.
 
 ### Why is electric tankless installation so expensive?
 
@@ -155,7 +169,8 @@ Yes. The DOE puts tankless units at about 20 years against 10 to 15 for a storag
   { title: "IRS: Energy Efficient Home Improvement Credit (25C)", url: "https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" },
   { title: "U.S. DOE: Home Energy Rebate Programs", url: "https://www.energy.gov/scep/home-energy-rebate-programs" },
   { title: "U.S. DOE: Which water heater is right for you? (lifespans by type)", url: "https://www.energy.gov/node/1026276" },
-  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org/" }
+  { title: "DSIRE: Database of State Incentives for Renewables & Efficiency", url: "https://www.dsireusa.org/" },
+  { title: "NREL: National Residential Efficiency Measures Database (REMDB), 2024", url: "https://remdb.nrel.gov/" }
 ]} />
 
 <RelatedArticles articles={frontmatter.relatedArticles} />
