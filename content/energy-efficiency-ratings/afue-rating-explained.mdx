@@ -8,7 +8,7 @@ priority: "P1"
 contentType: "guide"
 author: "Marko Visic, BSc Physics"
 datePublished: "2026-02-05"
-dateModified: "2026-10-01"
+dateModified: "2026-10-09"
 relatedArticles:
   - "furnace-sizing-calculator"
   - "furnace-guide"
@@ -28,7 +28,7 @@ import { SourcesBox, RelatedArticles, CalcWrapper } from '@/components'
 
 AFUE is the number that tells you how much of the gas you pay for ends up as heat in your home. The rest goes up the flue. Knowing it lets you put a dollar figure on replacing an old furnace.
 
-**AFUE is the share of a furnace's fuel that becomes heat over a year: a 95% AFUE furnace turns 95 cents of every gas dollar into heat. For a 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days, going from an old 70% furnace to a 95% one cuts the gas bill from about $1,125 to $829 a year at $1.35 per therm.**
+**AFUE is the share of a furnace's fuel that becomes heat over a year: a 95% AFUE furnace turns 95 cents of every gas dollar into heat. For a 2,000 sq ft home with average insulation in a climate with 4,500 heating degree days, going from an old 70% furnace to a 95% one cuts the gas bill from about $1,125 to $829 a year at an assumed $1.35 per therm.**
 
 <CalcWrapper type="afue" />
 
@@ -45,7 +45,7 @@ AFUE stands for Annual Fuel Utilization Efficiency. It comes from a federal test
 
 The calculator uses the same heat-loss model as our [furnace size calculator](/furnace-sizing-calculator): heat loss rate × square footage × heating degree days × 24 gives the heat the house needs in a year. Gas used = that heat ÷ (AFUE × 100,000 BTU per therm). For 2,000 sq ft with average insulation and 4,500 heating degree days, the house needs about 583 therms of delivered heat:
 
-| AFUE | Gas used per year | Cost at $1.35 per therm |
+| AFUE | Gas used per year | Cost at an assumed $1.35 per therm |
 |---|---|---|
 | 60% | 972 therms | $1,312 |
 | 70% | 833 therms | $1,125 |
@@ -58,7 +58,7 @@ Insulation matters as much as the furnace. The same 95% furnace costs about $1,8
 
 ## Savings and payback
 
-Going from 70% to 95% saves about $296 a year in this example; from 80% to 95%, about $155. Payback is the price difference between the two furnaces divided by the yearly savings. A $1,500 difference between an 80% and a 95% furnace pays back in about 9.7 years; enter your own quotes in the calculator.
+Going from 70% to 95% saves about $296 a year in this example; from 80% to 95%, about $155. Payback is the price difference between the two furnaces divided by the yearly savings. An example $1,500 difference between an 80% and a 95% furnace would pay back in about 9.7 years; enter your own quotes in the calculator.
 
 The carbon saved follows the gas: burning a therm of natural gas emits about 11.7 lb of carbon dioxide (EPA), so going from 70% to 95% here avoids about 2,565 lb a year.
 
@@ -86,7 +86,7 @@ No. AFUE measures the furnace alone. Leaky ducts in unheated spaces waste heat a
 
 ### Why is an electric furnace 100% AFUE but more expensive to run?
 
-An electric furnace turns all its electricity into heat, but electricity costs far more per unit of energy than gas. At 18.19 cents per kWh its heat costs about $53 per million BTU, against about $14 from a 95% gas furnace at $1.35 per therm.
+An electric furnace turns all its electricity into heat, but electricity costs far more per unit of energy than gas. At 18.19 cents per kWh its heat costs about $53 per million BTU, against about $14 from a 95% gas furnace at an assumed $1.35 per therm.
 
 ### Does AFUE include the blower's electricity?
 
