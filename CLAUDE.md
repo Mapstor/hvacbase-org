@@ -24,6 +24,7 @@ Small, obvious fixes chain automatically (auditor → fixer → verifier). For a
 - Never assume programmatic SEO is the answer — UX + SERP domination + LLM citations are the goal
 - Max 3 sentences per paragraph in any user-facing content
 - Every number explained in prose
+- No exact number (price, time, percentage, or count) in user-facing content unless a primary source confirms it, or it is arithmetic from sourced figures or the user's own calculator inputs. Without a primary source, state it qualitatively. (Marko's standing rule, set 2026-10-09 during the top-30 review.)
 
 ## Entry point for audits
 Always start by reading:
