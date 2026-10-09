@@ -210,7 +210,7 @@ export default function SolarPanelCalculator() {
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
               System efficiency
-              <InfoTip label="system efficiency">This is 100% minus system losses (inverter, wiring, soiling, panel mismatch). The default 85% is system losses of about 14%, close to PVWatts' default.</InfoTip>
+              <InfoTip label="system efficiency">This is 100% minus system losses (inverter, wiring, soiling, panel mismatch). The default 85% is system losses of about 15%, close to PVWatts' roughly 14% default.</InfoTip>
               <span className="ml-auto text-sm font-semibold text-emerald-700">{sysEff}%</span>
             </label>
             <input type="range" min={70} max={95} step={1} value={systemEfficiency} onChange={(e) => setSystemEfficiency(e.target.value)} className="w-full accent-emerald-600" aria-label="System efficiency" />
@@ -363,7 +363,7 @@ export default function SolarPanelCalculator() {
             <li>Cost, payback and 20-year savings appear only when you enter a quoted installed price per watt; prices vary too much to assume one.</li>
             <li>Net metering rates vary by utility, California's NEM 3.0 cut export rates by ~75% vs older systems</li>
             <li>Roof age matters, replace shingles BEFORE solar install if roof is &gt; 15 yr old (otherwise pay to remove + reinstall panels)</li>
-            <li>Battery storage adds $10–$20k but enables backup power + self-consumption when net metering is weak</li>
+            <li>Battery storage adds several thousand dollars but enables backup power + self-consumption when net metering is weak</li>
           </ul>
         </DisclaimerBox>
       </section>
